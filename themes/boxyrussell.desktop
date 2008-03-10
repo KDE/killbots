@@ -1,0 +1,10 @@
+[KGameTheme]
+Name=Russell vs. the Boxy Robots
+Description=Bumbling robots hunts down my father's disembodied head
+VersionFormat=0.0
+Author=Parker Coates
+AuthorEmail=<html><a href="mailto:parker.coates@gmail.com">parker.coates@gmail.com</a></html>
+Type=SVG
+FileName=boxyrussell.svg
+Preview=boxyrussell.png
+TextColor=#000000

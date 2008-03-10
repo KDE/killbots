@@ -1,0 +1,21 @@
+[KillbotsRuleset]
+name=Full Board (testing)
+rows=12
+columns=12
+initialEnemyCount=20
+enemiesAddedEachRound=40
+initialFastEnemyCount=5
+fastEnemiesAddedEachRound=2
+initialEnergy=50
+maximumEnergy=99
+energyPerWaitKill=1
+energyPerSquashKill=1
+costOfSafeTeleport=1
+includePushableJunkheaps=true
+initialJunkheapCount=4
+pointsPerRobotKill=5
+pointsPerSuperbotKill=10
+pointsPerWaitKill=0
+pointsPerSquashKill=0
+
+

@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://web.resource.org/cc/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="127"
+   height="18.999998"
+   id="svg2417"
+   sodipodi:version="0.32"
+   inkscape:version="0.45.1"
+   version="1.0"
+   sodipodi:docname="classic.svg"
+   sodipodi:docbase="/home/parker/kde4/source/killbots/themes"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape">
+  <defs
+     id="defs2419" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     gridtolerance="10000"
+     guidetolerance="10"
+     objecttolerance="10"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="21.2"
+     inkscape:cx="103.98081"
+     inkscape:cy="11.893049"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     width="100px"
+     height="25px"
+     showgrid="true"
+     inkscape:grid-points="true"
+     inkscape:window-width="1146"
+     inkscape:window-height="781"
+     inkscape:window-x="0"
+     inkscape:window-y="0" />
+  <metadata
+     id="metadata2422">
+    <rdf:RDF>
+      <cc:Work>
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#ff00ff"
+       id="pink"
+       width="127"
+       height="19"
+       x="0"
+       y="0" />
+    <rect
+       style="fill:#000000"
+       id="tile"
+       width="11"
+       height="15"
+       x="2"
+       y="2" />
+    <g
+       id="hero">
+      <rect
+         style="fill:#ffffff"
+         id="rect4417"
+         width="11"
+         height="15"
+         x="15"
+         y="2" />
+      <path
+         d="M 23.121228,9.4498112 C 23.121221,8.8332102 22.968265,8.3408822 22.66236,7.9728272 C 22.356442,7.6000042 21.947763,7.4135872 21.436322,7.4135812 C 20.92487,7.4135872 20.513801,7.6000042 20.203114,7.9728272 C 19.897197,8.3408822 19.744241,8.8332102 19.744246,9.4498112 C 19.744241,10.071198 19.897197,10.568304 20.203114,10.941132 C 20.513801,11.309182 20.92487,11.493208 21.436322,11.493207 C 21.947763,11.493208 22.356442,11.309182 22.66236,10.941132 C 22.968265,10.568304 23.121221,10.071198 23.121228,9.4498112 M 24.125003,12.389433 L 23.092549,12.389433 L 23.092549,11.593583 C 22.915687,11.894719 22.669523,12.126543 22.354058,12.289056 C 22.04336,12.451573 21.69204,12.532829 21.300096,12.532829 C 20.530531,12.532829 19.892418,12.243648 19.385755,11.665281 C 18.883865,11.086919 18.632921,10.348429 18.632924,9.4498112 C 18.632921,8.5511982 18.883865,7.8127062 19.385755,7.2343372 C 19.892418,6.6559772 20.530531,6.3667962 21.300096,6.3667892 C 21.68248,6.3667962 22.0338,6.4504422 22.354058,6.6177312 C 22.674303,6.7850342 22.920467,7.0144682 23.092549,7.3060342 L 23.092549,6.8543382 C 23.092542,6.1086842 22.882228,5.5088102 22.461606,5.0547122 C 22.040971,4.6006332 21.484115,4.3735892 20.791038,4.3735792 C 19.615186,4.3735892 18.67833,4.8324562 17.980471,5.7501862 C 17.287388,6.6631472 16.940847,7.9011352 16.940848,9.4641482 C 16.940847,11.036729 17.335186,12.289058 18.123868,13.221132 C 18.912543,14.153207 19.961726,14.619244 21.271416,14.619245 C 21.529523,14.619244 21.787637,14.595345 22.045756,14.547547 C 22.303863,14.499748 22.569146,14.425659 22.841606,14.325284 L 23.185757,15.293207 C 22.884617,15.412702 22.585876,15.501129 22.28953,15.55849 C 21.997951,15.615847 21.713549,15.644527 21.436322,15.644529 C 19.729903,15.644527 18.374809,15.087673 17.371036,13.973963 C 16.372043,12.86025 15.872546,11.356982 15.872546,9.4641482 C 15.872546,7.6000042 16.321853,6.1158542 17.220471,5.0116932 C 18.119086,3.9075522 19.323613,3.3554762 20.834058,3.3554662 C 21.833046,3.3554762 22.631284,3.6733392 23.228776,4.3090522 C 23.826252,4.9447852 24.124994,5.7979912 24.125003,6.8686762 L 24.125003,12.389433"
+         id="flowRoot4421" />
+    </g>
+    <g
+       id="enemy">
+      <rect
+         y="2"
+         x="28"
+         height="15"
+         width="11"
+         id="rect4405"
+         style="opacity:0" />
+      <path
+         d="M 34.266719,4.6425757 L 34.266719,8.7195033 L 38.35283,8.7195033 L 38.35283,10.28049 L 34.266719,10.28049 L 34.266719,14.357419 L 32.724098,14.357419 L 32.724098,10.28049 L 28.647169,10.28049 L 28.647169,8.7195033 L 32.724098,8.7195033 L 32.724098,4.6425757 L 34.266719,4.6425757"
+         id="flowRoot2433"
+         style="fill:#ffffff" />
+    </g>
+    <g
+       id="fastenemy">
+      <rect
+         y="2"
+         x="41"
+         height="15"
+         width="11"
+         id="rect4407"
+         style="opacity:0" />
+      <path
+         style="fill:#ffffff"
+         d="M 47.042433,3.6796853 L 46.218879,6.9659833 L 48.158982,6.9659833 L 48.990457,3.6796853 L 50.257467,3.6796853 L 49.425989,6.9659833 L 51.358181,6.9659833 L 51.358181,8.1854783 L 49.132995,8.1854783 L 48.467816,10.830354 L 50.447517,10.830354 L 50.447517,12.04193 L 48.158982,12.04193 L 47.335428,15.32031 L 46.068421,15.32031 L 46.899895,12.04193 L 44.951873,12.04193 L 44.120399,15.32031 L 42.86131,15.32031 L 43.684866,12.04193 L 41.641817,12.04193 L 41.641817,10.830354 L 43.993698,10.830354 L 44.658877,8.1854783 L 42.552478,8.1854783 L 42.552478,6.9659833 L 44.951873,6.9659833 L 45.775426,3.6796853 L 47.042433,3.6796853 M 47.865988,8.1854783 L 45.925884,8.1854783 L 45.260705,10.830354 L 47.208727,10.830354 L 47.865988,8.1854783"
+         id="flowRoot2453" />
+    </g>
+    <g
+       id="junkheap">
+      <rect
+         y="2"
+         x="54"
+         height="15"
+         width="11"
+         id="rect4409"
+         style="opacity:0" />
+      <path
+         style="fill:#ffffff"
+         d="M 64.400597,7.3896434 L 60.506227,9.4999974 L 64.400597,11.62123 L 63.780537,12.687284 L 60.125497,10.479028 L 60.125497,14.580075 L 58.874527,14.580075 L 58.874527,10.479028 L 55.219477,12.687284 L 54.599417,11.62123 L 58.493787,9.4999974 L 54.599417,7.3896434 L 55.219477,6.3127104 L 58.874527,8.5209664 L 58.874527,4.4199194 L 60.125497,4.4199194 L 60.125497,8.5209664 L 63.780537,6.3127104 L 64.400597,7.3896434"
+         id="flowRoot2443" />
+    </g>
+    <rect
+       style="opacity:0"
+       id="background"
+       width="11"
+       height="15"
+       x="67"
+       y="2" />
+    <rect
+       style="fill:#000000;stroke:#ffffff;stroke-width:1"
+       id="status"
+       width="44"
+       height="14"
+       x="80.5"
+       y="2.5" />
+	<flowRoot id="optimizationWarning" style="font-size:100px;fill:#ff00ff;font-family:Sans Serif">
+		<flowRegion><rect width="1500" height="1000" x="0" y="0" /></flowRegion>
+		<flowPara>This file has been stripped down and compressed to optimize filesize and loading time. If you wish to edit this file, we strongly recommend getting the original with full meta data from http://websvn.kde.org.</flowPara>
+	</flowRoot>
+  </g>
+</svg>

@@ -1,0 +1,10 @@
+[KGameTheme]
+Name=Mountain Adventure
+Description=Indiana Gnomes battles ghosts and bats on a Far-East mountainside.
+VersionFormat=0.0
+Author=Assembled by Parker Coates. Sprites by Nicu Buculei. Background by Eugene Trounev.
+AuthorEmail=parker.coates@gmail.com
+Type=SVG
+FileName=mountainadventure.svg
+Preview=mountainadventure.png
+TextColor=#0a2e17

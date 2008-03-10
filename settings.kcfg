@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kcfg xmlns="http://www.kde.org/standards/kcfg/1.0"
+	  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	  xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
+	  http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
+
+	<kcfgfile/>
+
+	<group name="General">
+		<entry name="allowUnsafeMoves" type="Bool">
+			<whatsthis>If unchecked, the game will ignore any attempts to make unsafe moves (other than random teleports)</whatsthis>
+			<default>false</default>
+		</entry>
+		<entry name="middleClickAction" type="Enum">
+			<whatsthis>Selects the action performed on a middle-click or on a left-click while the control key is held</whatsthis>
+			<choices>
+				<choice name="Nothing" />
+				<choice name="Step" />
+				<choice name="RepeatedStep" />
+				<choice name="Teleport" />
+				<choice name="SafeTeleport" />
+				<choice name="SafeIfPossible" />
+				<choice name="WaitOutRound" />
+			</choices>
+			<default>RepeatedStep</default>
+		</entry>
+		<entry name="rightClickAction" type="Enum">
+			<whatsthis>Selects the action performed on a right-click</whatsthis>
+			<choices>
+				<choice name="Nothing" />
+				<choice name="Step" />
+				<choice name="RepeatedStep" />
+				<choice name="Teleport" />
+				<choice name="SafeTeleport" />
+				<choice name="SafeIfPossible" />
+				<choice name="WaitOutRound" />
+			</choices>
+			<default>SafeIfPossible</default>
+		</entry>.
+		<entry name="animationSpeed" type="Int">
+			<whatsthis>Selects the speed used to display in game animations</whatsthis>
+			<default>5</default>
+			<min>0</min>
+			<max>10</max>
+		</entry>
+		<entry name="Theme" type="String">
+			<whatsthis>Selects the theme used to display all in game elements</whatsthis>
+			<default></default>
+		</entry>
+		<entry name="ruleset" type="String">
+			<whatsthis>Selects the set of game rules to be used in the next game</whatsthis>
+			<default></default>
+		</entry>
+	</group>
+</kcfg>

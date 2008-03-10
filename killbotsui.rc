@@ -1,0 +1,24 @@
+<!DOCTYPE kpartgui SYSTEM "kpartgui.dtd">
+<kpartgui name="krobots" version="1">
+
+	<MenuBar>
+		<Menu name="moveMenu">
+			<text>Move</text>
+			<Action name="teleport"/>
+			<Action name="safe_teleport"/>
+			<Action name="wait"/>
+		</Menu>
+	</MenuBar>
+
+	<ToolBar name="mainToolBar">
+		<text>Main Toolbar</text>
+		<Action name="game_new"/>
+		<Separator />
+		<Action name="game_highscores"/>
+		<Separator />
+		<Action name="teleport"/>
+		<Action name="safe_teleport"/>
+		<Action name="wait"/>
+	</ToolBar>
+
+</kpartgui>

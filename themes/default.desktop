@@ -1,0 +1,10 @@
+[KGameTheme]
+Name=Default
+Description=The default theme
+VersionFormat=0.0
+Author=Parker Coates
+AuthorEmail=parker.coates@gmail.com
+Type=SVG
+FileName=default.svg
+Preview=default.png
+TextColor=#000000

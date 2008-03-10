@@ -1,0 +1,10 @@
+[KGameTheme]
+Name=Classic
+Description=A theme for those who miss the console version
+VersionFormat=0.0
+Author=Parker Coates
+AuthorEmail=parker.coates@gmail.com
+Type=SVG
+FileName=classic.svg
+Preview=classic.png
+TextColor=#ffffff

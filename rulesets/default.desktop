@@ -1,0 +1,21 @@
+[KillbotsRuleset]
+name=Killbots Default
+rows=16
+columns=16
+initialEnemyCount=10
+enemiesAddedEachRound=5
+initialFastEnemyCount=0
+fastEnemiesAddedEachRound=2
+initialEnergy=0
+maximumEnergy=12
+energyPerWaitKill=1
+energyPerSquashKill=1
+costOfSafeTeleport=1
+includePushableJunkheaps=true
+initialJunkheapCount=0
+pointsPerRobotKill=5
+pointsPerSuperbotKill=10
+pointsPerWaitKill=0
+pointsPerSquashKill=0
+
+
