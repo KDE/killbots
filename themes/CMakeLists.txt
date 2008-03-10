@@ -1,7 +1,4 @@
 SET( theme_files
-	boxyrussell.desktop
-	boxyrussell.png
-	boxyrussell.svg
 	classic.desktop
 	classic.png
 	classic.svg
