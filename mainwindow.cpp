@@ -33,7 +33,7 @@
 #include <KDE/KApplication>
 #include <KDE/KConfigDialog>
 #include <KDE/KGameThemeSelector>
-#include <KDE/KLocale>
+#include <KDE/KLocalizedString>
 #include <KDE/KScoreDialog>
 #include <KDE/KShortcutsDialog>
 #include <KDE/KStandardAction>
@@ -120,7 +120,7 @@ void Killbots::MainWindow::setupMappedAction( KActionCollection * collection, co
 	KAction * action = new KAction( i18n( displayName ), this );
 	if ( icon != "" )
 		action->setIcon( KIcon( icon ) );
-	action->setShortcut( shortcut, KAction::DefaultShortcut );
+	action->setShortcut( shortcut );
 	connect( action, SIGNAL(triggered()), m_keyboardMapper, SLOT(map()) );
 	m_keyboardMapper->setMapping( action, mapping );
 	collection->addAction( internalName, action );
