@@ -1,6 +1,8 @@
 [KGameTheme]
 Name=Classic
+Name[sv]=Klassiskt
 Description=A theme for those who miss the console version
+Description[sv]=Ett tema för de som saknar terminalversionen
 VersionFormat=0.0
 Author=Parker Coates
 AuthorEmail=parker.coates@gmail.com
