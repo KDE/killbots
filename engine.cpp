@@ -56,15 +56,13 @@ void Killbots::Engine::newGame()
 
 	emit newGame( & m_rules );
 
-	m_round = 0;
-	emit scoreChanged( m_score = 0 );
-	emit energyChanged( m_energy = m_rules.energyAtGameStart() );
-	emit canAffordSafeTeleport( m_energy >= m_rules.costOfSafeTeleport() );
+	cleanUpRound();
 
+	m_round = 0;
+	m_score = 0;
+	m_energy = m_rules.energyAtGameStart();
 	m_robotCount = m_rules.robotsAtGameStart() - m_rules.robotsAddedEachRound();
 	m_fastbotCount = m_rules.fastbotsAtGameStart() - m_rules.fastbotsAddedEachRound();
-
-	cleanUpRound();
 }
 
 
@@ -141,7 +139,10 @@ void Killbots::Engine::newRound()
 // 		m_fastbots << m_scene->createSprite( Fastbot, QPoint( 2, 1 ) );
 
 		emit roundChanged( ++m_round );
+		emit scoreChanged( m_score );
 		emit enemyCountChanged( m_robots.size() + m_fastbots.size() );
+		emit energyChanged( m_energy );
+		emit canAffordSafeTeleport( m_energy >= m_rules.costOfSafeTeleport() );
 
 		animateThenGoToNextPhase( ReadyToStart );
 	}
@@ -186,6 +187,7 @@ void Killbots::Engine::goToNextPhase()
 		else if ( m_repeatMove )
 			moveHero( m_lastDirection );
 	}
+	kDebug() << "Score:" << m_score;
 }
 
 
@@ -717,7 +719,7 @@ void Killbots::Engine::destroySprite( Sprite * sprite )
 			m_energy = qMin( m_energy + m_rules.waitKillEnergyBonus(), m_rules.maxEnergyAtGameStart() );
 		}
 		m_score += m_rules.pointsPerRobotKilled();
-		m_robots.removeAll( sprite );
+		m_robots.removeOne( sprite );
 		break;
 
 	  case Fastbot:
@@ -727,11 +729,11 @@ void Killbots::Engine::destroySprite( Sprite * sprite )
 			m_energy = qMin( m_energy + m_rules.waitKillEnergyBonus(), m_rules.maxEnergyAtGameStart() );
 		}
 		m_score += m_rules.pointsPerFastbotKilled();
-		m_fastbots.removeAll( sprite );
+		m_fastbots.removeOne( sprite );
 		break;
 
 	  case Junkheap:
-		m_junkheaps.removeAll( sprite );
+		m_junkheaps.removeOne( sprite );
 		break;
 
 	  default:
