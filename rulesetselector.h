@@ -44,6 +44,16 @@ namespace Killbots
 		QListWidget * m_listWidget;
 		QLabel * m_details;
 
+		QLabel * m_gridDetails;
+		QLabel * m_robotDetails;
+		QLabel * m_fastbotDetails;
+		QLabel * m_junkheapDetails;
+		QLabel * m_scoreDetails;
+		QLabel * m_energyDetails;
+		QLabel * m_maxEnergyDetails;
+		QLabel * m_waitDetails;
+		QLabel * m_squashDetails;
+
 		QMap< QString, Ruleset * > m_rulesetMap;
 
 		void findRulesets();

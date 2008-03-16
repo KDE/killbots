@@ -96,9 +96,9 @@ void Killbots::Sprite::paint( QPainter * p, const QStyleOptionGraphicsItem * opt
 		elementName = "tile";
 	else if ( m_type == Hero )
 		elementName = "hero";
-	else if ( m_type == Enemy )
+	else if ( m_type == Robot )
 		elementName = "enemy";
-	else if ( m_type == FastEnemy )
+	else if ( m_type == Fastbot )
 		elementName = "fastenemy";
 	else if ( m_type == Junkheap )
 		elementName = "junkheap";

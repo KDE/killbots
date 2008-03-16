@@ -49,7 +49,7 @@ namespace Killbots
 
 	  private:
 		void setupActions();
-		void setupMappedAction( KActionCollection * collection, const char * displayName, const char * internalName, const QKeySequence & shortcut, int mapping, const char * icon = "");
+		void setupMappedAction( KActionCollection * collection, const char * displayName, const QString & internalName, const QKeySequence & shortcut, int mapping, const QString & icon = QString() );
 
 		KActionCollection * m_keyboardActions;
 		QSignalMapper * m_keyboardMapper;

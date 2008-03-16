@@ -40,50 +40,52 @@ namespace Killbots
 		QString fileName() const;
 
 		QString name() const;
-
-		int columns() const;
 		int rows() const;
-		int initialEnemyCount() const;
-		int enemiesAddedEachRound() const;
-		int initialFastEnemyCount() const;
-		int fastEnemiesAddedEachRound() const;
-		int initialEnergy() const;
-		int maximumEnergy() const;
-		int energyPerWaitKill() const;
-		int energyPerSquashKill() const;
+		int columns() const;
+		int robotsAtGameStart() const;
+		int robotsAddedEachRound() const;
+		int fastbotsAtGameStart() const;
+		int fastbotsAddedEachRound() const;
+		int energyAtGameStart() const;
+		int energyAddedEachRound() const;
+		int maxEnergyAtGameStart() const;
+		int maxEnergyAddedEachRound() const;
 		int costOfSafeTeleport() const;
-		bool includePushableJunkheaps() const;
-		int initialJunkheapCount() const;
-		int pointsPerRobotKill() const;
-		int pointsPerSuperbotKill() const;
-		int pointsPerWaitKill() const;
-		int pointsPerSquashKill() const;
-
-		bool includeSuperbots() const;
-		bool includeEnergy() const;
+		bool junkheapsArePushable() const;
+		int junkheapsAtGameStart() const;
+		int junkheapsAddedEachRound() const;
+		int pointsPerRobotKilled() const;
+		int pointsPerFastbotKilled() const;
+		int waitKillPointBonus() const;
+		int waitKillEnergyBonus() const;
+		int squashKillPointBonus() const;
+		int squashKillEnergyBonus() const;
 
 	  private:
 		QString m_filePath;
 		bool m_valid;
 
 		QString m_name;
-		int m_columns;
 		int m_rows;
-		int m_initialEnemyCount;
-		int m_enemiesAddedEachRound;
-		int m_initialFastEnemyCount;
-		int m_fastEnemiesAddedEachRound;
-		int m_initialEnergy;
-		int m_maximumEnergy;
-		int m_energyPerWaitKill;
-		int m_energyPerSquashKill;
+		int m_columns;
+		int m_robotsAtGameStart;
+		int m_robotsAddedEachRound;
+		int m_fastbotsAtGameStart;
+		int m_fastbotsAddedEachRound;
+		int m_energyAtGameStart;
+		int m_energyAddedEachRound;
+		int m_maxEnergyAtGameStart;
+		int m_maxEnergyAddedEachRound;
 		int m_costOfSafeTeleport;
-		bool m_includePushableJunkheaps;
-		int m_initialJunkheapCount;
-		int m_pointsPerRobotKill;
-		int m_pointsPerSuperbotKill;
-		int m_pointsPerWaitKill;
-		int m_pointsPerSquashKill;
+		bool m_junkheapsArePushable;
+		int m_junkheapsAtGameStart;
+		int m_junkheapsAddedEachRound;
+		int m_pointsPerRobotKilled;
+		int m_pointsPerFastbotKilled;
+		int m_waitKillPointBonus;
+		int m_waitKillEnergyBonus;
+		int m_squashKillPointBonus;
+		int m_squashKillEnergyBonus;
 	};
 }
 

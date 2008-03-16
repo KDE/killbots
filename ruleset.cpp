@@ -59,28 +59,28 @@ bool Killbots::Ruleset::load( const QString & fileName )
 
 		KConfigGroup group = configFile.group( groupName );
 
-		m_name = group.readEntry( "name", QString("Unnamed") );
+		m_name = group.readEntry( "Name", QString("Unnamed") );
 
-		m_columns = group.readEntry( "columns", 25 );
-		m_rows = group.readEntry( "rows", 25 );
-
-		m_initialEnemyCount = group.readEntry( "initialEnemyCount", 8 );
-		m_enemiesAddedEachRound = group.readEntry( "enemiesAddedEachRound", 4 );
-		m_initialFastEnemyCount = group.readEntry( "initialFastEnemyCount", 0 );
-		m_fastEnemiesAddedEachRound = group.readEntry( "fastEnemiesAddedEachRound", 0 );
-
-		m_initialEnergy = group.readEntry( "initialEnergy", 0 );
-		m_maximumEnergy = group.readEntry( "maximumEnergy", 0 );
-		m_energyPerWaitKill = group.readEntry( "energyPerWaitKill", 0 );
-		m_energyPerSquashKill = group.readEntry( "energyPerSquashKill", 0 );
-
-		m_costOfSafeTeleport = group.readEntry( "costOfSafeTeleport", 1 );
-		m_includePushableJunkheaps = group.readEntry( "includePushableJunkheaps", false );
-		m_initialJunkheapCount = group.readEntry( "initialJunkheapCount", 0 );
-		m_pointsPerRobotKill = group.readEntry( "pointsPerRobotKill", 5 );
-		m_pointsPerSuperbotKill = group.readEntry( "pointsPerSuperbotKill", 0 );
-		m_pointsPerWaitKill = group.readEntry( "pointsPerWaitKill", 1 );
-		m_pointsPerSquashKill = group.readEntry( "pointsPerSquashKill", 0 );
+		m_rows = group.readEntry( "Rows", 16);
+		m_columns = group.readEntry( "Columns", 16);
+		m_robotsAtGameStart = group.readEntry( "RobotsAtGameStart", 8);
+		m_robotsAddedEachRound = group.readEntry( "RobotsAddedEachRound", 4);
+		m_fastbotsAtGameStart = group.readEntry( "FastbotsAtGameStart", -2);
+		m_fastbotsAddedEachRound = group.readEntry( "FastbotsAddedEachRound", 2);
+		m_energyAtGameStart = group.readEntry( "EnergyAtGameStart", 0);
+		m_energyAddedEachRound = group.readEntry( "EnergyAddedEachRound", 0);
+		m_maxEnergyAtGameStart = group.readEntry( "MaxEnergyAtGameStart", 12);
+		m_maxEnergyAddedEachRound = group.readEntry( "MaxEnergyAddedEachRound", 0);
+		m_costOfSafeTeleport = group.readEntry( "CostOfSafeTeleport", 1);
+		m_junkheapsArePushable = group.readEntry( "JunkheapsArePushable", true);
+		m_junkheapsAtGameStart = group.readEntry( "JunkheapsAtGameStart", 0);
+		m_junkheapsAddedEachRound = group.readEntry( "JunkheapsAddedEachRound", 0);
+		m_pointsPerRobotKilled = group.readEntry( "PointsPerRobotKilled", 5);
+		m_pointsPerFastbotKilled = group.readEntry( "PointsPerFastbotKilled", 10);
+		m_waitKillPointBonus = group.readEntry( "WaitKillPointBonus", 0);
+		m_waitKillEnergyBonus = group.readEntry( "WaitKillEnergyBonus", 1);
+		m_squashKillPointBonus = group.readEntry( "SquashKillPointBonus", 0);
+		m_squashKillEnergyBonus = group.readEntry( "SquashKillEnergyBonus", 1);
 	}
 
 	return isValid();
@@ -117,63 +117,63 @@ QString Killbots::Ruleset::name() const
 }
 
 
-int Killbots::Ruleset::columns() const
-{
-	return m_columns;
-}
-
-
 int Killbots::Ruleset::rows() const
 {
 	return m_rows;
 }
 
 
-int Killbots::Ruleset::initialEnemyCount() const
+int Killbots::Ruleset::columns() const
 {
-	return m_initialEnemyCount;
+	return m_columns;
 }
 
 
-int Killbots::Ruleset::enemiesAddedEachRound() const
+int Killbots::Ruleset::robotsAtGameStart() const
 {
-	return m_enemiesAddedEachRound;
+	return m_robotsAtGameStart;
 }
 
 
-int Killbots::Ruleset::initialFastEnemyCount() const
+int Killbots::Ruleset::robotsAddedEachRound() const
 {
-	return m_initialFastEnemyCount;
+	return m_robotsAddedEachRound;
 }
 
 
-int Killbots::Ruleset::fastEnemiesAddedEachRound() const
+int Killbots::Ruleset::fastbotsAtGameStart() const
 {
-	return m_fastEnemiesAddedEachRound;
+	return m_fastbotsAtGameStart;
 }
 
 
-int Killbots::Ruleset::initialEnergy() const
+int Killbots::Ruleset::fastbotsAddedEachRound() const
 {
-	return m_initialEnergy;
+	return m_fastbotsAddedEachRound;
 }
 
 
-int Killbots::Ruleset::maximumEnergy() const
+int Killbots::Ruleset::energyAtGameStart() const
 {
-	return m_maximumEnergy;
+	return m_energyAtGameStart;
 }
 
 
-int Killbots::Ruleset::energyPerWaitKill() const
+int Killbots::Ruleset::energyAddedEachRound() const
 {
-	return m_energyPerWaitKill;
+	return m_energyAddedEachRound;
 }
 
 
-int Killbots::Ruleset::energyPerSquashKill() const
+int Killbots::Ruleset::maxEnergyAtGameStart() const
 {
-	return m_energyPerSquashKill;
+	return m_maxEnergyAtGameStart;
+}
+
+
+int Killbots::Ruleset::maxEnergyAddedEachRound() const
+{
+	return m_maxEnergyAddedEachRound;
 }
 
 
@@ -183,49 +183,55 @@ int Killbots::Ruleset::costOfSafeTeleport() const
 }
 
 
-bool Killbots::Ruleset::includePushableJunkheaps() const
+bool Killbots::Ruleset::junkheapsArePushable() const
 {
-	return m_includePushableJunkheaps;
+	return m_junkheapsArePushable;
 }
 
 
-int Killbots::Ruleset::initialJunkheapCount() const
+int Killbots::Ruleset::junkheapsAtGameStart() const
 {
-	return m_initialJunkheapCount;
+	return m_junkheapsAtGameStart;
 }
 
 
-int Killbots::Ruleset::pointsPerRobotKill() const
+int Killbots::Ruleset::junkheapsAddedEachRound() const
 {
-	return m_pointsPerRobotKill;
+	return m_junkheapsAddedEachRound;
 }
 
 
-int Killbots::Ruleset::pointsPerSuperbotKill() const
+int Killbots::Ruleset::pointsPerRobotKilled() const
 {
-	return m_pointsPerSuperbotKill;
+	return m_pointsPerRobotKilled;
 }
 
 
-int Killbots::Ruleset::pointsPerWaitKill() const
+int Killbots::Ruleset::pointsPerFastbotKilled() const
 {
-	return m_pointsPerWaitKill;
+	return m_pointsPerFastbotKilled;
 }
 
 
-int Killbots::Ruleset::pointsPerSquashKill() const
+int Killbots::Ruleset::waitKillPointBonus() const
 {
-	return m_pointsPerSquashKill;
+	return m_waitKillPointBonus;
 }
 
 
-bool Killbots::Ruleset::includeSuperbots() const
+int Killbots::Ruleset::waitKillEnergyBonus() const
 {
-	return m_initialFastEnemyCount != 0 || m_fastEnemiesAddedEachRound != 0;
+	return m_waitKillEnergyBonus;
 }
 
 
-bool Killbots::Ruleset::includeEnergy() const
+int Killbots::Ruleset::squashKillPointBonus() const
 {
-	return m_maximumEnergy != 0;
+	return m_squashKillPointBonus;
+}
+
+
+int Killbots::Ruleset::squashKillEnergyBonus() const
+{
+	return m_squashKillEnergyBonus;
 }

@@ -31,8 +31,8 @@ namespace Killbots
 		NoSprite,
 		Hero,
 		Junkheap,
-		Enemy,
-		FastEnemy
+		Robot,
+		Fastbot
 	};
 
 

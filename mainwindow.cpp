@@ -60,9 +60,13 @@ Killbots::MainWindow::MainWindow( QWidget * parent )
 	setCentralWidget( m_view );
 
 	setupActions();
+
 	setupGUI( Save | Create | ToolBar );
 
 	connect( m_view, SIGNAL(sizeChanged(QSize)), m_scene, SLOT(doLayout()) );
+
+	connect( m_scene, SIGNAL(clicked(int)), m_engine, SLOT(intToHeroAction(int)) );
+	connect( m_scene, SIGNAL(animationDone()), m_engine, SLOT(goToNextPhase()), Qt::QueuedConnection );
 
 	connect( m_engine, SIGNAL(newGame(const Ruleset*)), m_scene, SLOT(onNewGame(const Ruleset*)) );
 	connect( m_engine, SIGNAL(roundComplete()), m_scene, SLOT(onRoundComplete()) );
@@ -112,15 +116,19 @@ void Killbots::MainWindow::setupActions()
 	connect( m_keyboardMapper, SIGNAL(mapped(int)), m_engine, SLOT(intToHeroAction(int)) );
 
 	m_safeTeleportAction = actionCollection()->action("safe_teleport");
+
+	m_keyboardActions->associateWidget(this);
 }
 
 
-void Killbots::MainWindow::setupMappedAction( KActionCollection * collection, const char * displayName, const char * internalName, const QKeySequence & shortcut, int mapping, const char * icon )
+void Killbots::MainWindow::setupMappedAction( KActionCollection * collection, const char * displayName, const QString & internalName, const QKeySequence & shortcut, int mapping, const QString & icon )
 {
-	KAction * action = new KAction( i18n( displayName ), this );
-	if ( icon != "" )
-		action->setIcon( KIcon( icon ) );
+	KAction * action = new KAction( i18n( displayName ), collection );
+	action->setObjectName( internalName );
 	action->setShortcut( shortcut );
+	if ( !icon.isEmpty() )
+		action->setIcon( KIcon( icon ) );
+
 	connect( action, SIGNAL(triggered()), m_keyboardMapper, SLOT(map()) );
 	m_keyboardMapper->setMapping( action, mapping );
 	collection->addAction( internalName, action );

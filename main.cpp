@@ -23,7 +23,7 @@
 #include <KDE/KAboutData>
 #include <KDE/KApplication>
 #include <KDE/KCmdLineArgs>
-#include <KDE/KLocale>
+#include <KDE/KLocalizedString>
 #include <KDE/KStandardDirs>
 
 

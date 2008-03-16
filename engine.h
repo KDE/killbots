@@ -69,10 +69,10 @@ namespace Killbots
 		void cleanUpRound();
 
 	  private:
-		enum Phase { CleanUpRound, NewRound, ReadyToStart, MoveEnemies, AssessDamageToEnemies, MoveFastEnemies, AssessDamageToFastEnemies, RoundComplete, FinalPhase, GameOver };
+		enum Phase { CleanUpRound, NewRound, ReadyToStart, MoveRobots, AssessDamageToRobots, MoveFastbots, AssessDamageToFastbots, RoundComplete, FinalPhase, GameOver };
 
-		void moveEnemies( bool justSuperbots = false );
-		void assessDamage( bool justSuperbots = false );
+		void moveRobots( bool justFastbots = false );
+		void assessDamage( bool justFastbots = false );
 
 		void animateThenGoToNextPhase( Phase phase );
 
@@ -88,8 +88,8 @@ namespace Killbots
 		Scene * m_scene;
 
 		Sprite * m_hero;
-		QList<Sprite *> m_enemies;
-		QList<Sprite *> m_fastEnemies;
+		QList<Sprite *> m_robots;
+		QList<Sprite *> m_fastbots;
 		QList<Sprite *> m_junkheaps;
 
 		bool m_busy;
@@ -102,8 +102,8 @@ namespace Killbots
 		int m_round;
 		int m_score;
 		int m_energy;
-		int m_enemyCount;
-		int m_fastEnemyCount;
+		int m_robotCount;
+		int m_fastbotCount;
 
 		QHash< QPoint, Sprite * > m_spriteMap;
 	};

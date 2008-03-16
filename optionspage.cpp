@@ -22,7 +22,7 @@
 
 #include <KDE/KComboBox>
 #include <KDE/KDialog>
-#include <KDE/KLocale>
+#include <KDE/KLocalizedString>
 
 #include <QtGui/QCheckBox>
 #include <QtGui/QGridLayout>
@@ -64,16 +64,19 @@ OptionsPage::OptionsPage( QWidget *parent )
 	topLayout->addWidget( kcfg_allowUnsafeMoves, 0, 0, 1, 2 );
 
 	label = new QLabel( i18n("Middle-click action: "), this );
+	label->setBuddy( kcfg_middleClickAction );
 	label->setAlignment( Qt::AlignRight );
 	topLayout->addWidget( label, 1, 0 );
-
 	topLayout->addWidget( kcfg_middleClickAction, 1, 1 );
+
 	label = new QLabel( i18n("Right-click action: "), this );
+	label->setBuddy( kcfg_rightClickAction );
 	label->setAlignment( Qt::AlignRight );
 	topLayout->addWidget( label, 2, 0 );
-
 	topLayout->addWidget( kcfg_rightClickAction, 2, 1 );
+
 	label = new QLabel( i18n("Animation speed: "), this );
+	label->setBuddy( kcfg_animationSpeed );
 	label->setAlignment( Qt::AlignRight );
 	topLayout->addWidget( label, 4, 0 );
 
