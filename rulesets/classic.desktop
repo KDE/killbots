@@ -1,5 +1,6 @@
 [KillbotsRuleset]
 Name=Classic
+Name[sv]=Klassiskt
 Rows=22
 Columns=59
 RobotsAtGameStart=10
