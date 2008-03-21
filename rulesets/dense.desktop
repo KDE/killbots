@@ -1,5 +1,6 @@
 [KillbotsRuleset]
 Name=Crowded (testing)
+Name[sv]=Trängsel (prov)
 Rows=12
 Columns=12
 RobotsAtGameStart=20

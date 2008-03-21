@@ -1,5 +1,6 @@
 [KillbotsRuleset]
 Name=Full Board (testing)
+Name[sv]=Fullt bräde (prov)
 Rows=12
 Columns=12
 RobotsAtGameStart=20
