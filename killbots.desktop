@@ -6,6 +6,7 @@ Icon=killbots
 Type=Application
 DocPath=killbots/index.html
 GenericName=Game of Mindless Robots
+GenericName[et]=Mõistuseta robotite mäng
 GenericName[sv]=Spel med själlösa robotar
 Terminal=false
 Categories=Qt;KDE;Game;StrategyGame;
