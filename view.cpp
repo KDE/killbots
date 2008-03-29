@@ -30,11 +30,12 @@ Killbots::View::View( QGraphicsScene * scene, QWidget * parent )
 	setFrameShape( QFrame::NoFrame );
 	setBackgroundRole( QPalette::Window );
 
-	// No real research went into these optimisations.
-	// I just applied all of them and haven't seen any negative results.
 	setCacheMode( QGraphicsView::CacheBackground );
 	setViewportUpdateMode( QGraphicsView::SmartViewportUpdate );
-	setOptimizationFlags( QGraphicsView::DontClipPainter | QGraphicsView::DontSavePainterState | QGraphicsView::DontAdjustForAntialiasing );
+
+	// Including QGraphicsView::DontAdjustForAntialiasing here sometimes caused
+	// painting traces in certain situations like pushing junkheaps/
+	setOptimizationFlags( QGraphicsView::DontClipPainter | QGraphicsView::DontSavePainterState );
 }
 
 
