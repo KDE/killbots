@@ -105,7 +105,7 @@ namespace Killbots
 		int m_robotCount;
 		int m_fastbotCount;
 
-		QHash< QPoint, Sprite * > m_spriteMap;
+		QMultiHash< QPoint, Sprite * > m_spriteMap;
 	};
 }
 

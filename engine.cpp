@@ -30,7 +30,7 @@
 
 uint qHash( const QPoint & point )
 {
-	return qHash( point.x() ) ^ qHash( point.y() );
+	return qHash( point.x() * 1000 + point.y() );
 }
 
 
@@ -39,7 +39,8 @@ Killbots::Engine::Engine( Scene * scene, QObject * parent )
 	m_scene( scene ),
 	m_hero( 0 ),
 	m_busy( false ),
-	m_repeatMove( false )
+	m_repeatMove( false ),
+	m_spriteMap()
 {
 }
 
@@ -94,7 +95,7 @@ void Killbots::Engine::newRound()
 		// Place the hero in the centre of the board.
 		QPoint centre = QPoint( qRound( m_rules.columns() / 2 ), qRound( m_rules.rows() / 2 ) );
 		m_hero = m_scene->createSprite( Hero, centre );
-		m_spriteMap[ centre ] = m_hero;
+		m_spriteMap.insert( centre, m_hero );
 
 		// Create and randomly place junkheaps.
 		for ( int i = 0; i < m_rules.junkheapsAtGameStart(); i++ )
@@ -105,7 +106,7 @@ void Killbots::Engine::newRound()
 			while ( m_spriteMap.contains( point ) );
 
 			m_junkheaps << m_scene->createSprite( Junkheap, point );
-			m_spriteMap[ point ] = m_junkheaps.last();
+			m_spriteMap.insert( point, m_junkheaps.last() );
 		}
 
 		// Create and randomly place robots.
@@ -117,7 +118,7 @@ void Killbots::Engine::newRound()
 			while ( m_spriteMap.contains( point ) );
 
 			m_robots << m_scene->createSprite( Robot, point );
-			m_spriteMap[ point ] = m_robots.last();
+			m_spriteMap.insert( point, m_robots.last() );
 		}
 
 		// Create and randomly place fastbots.
@@ -129,7 +130,7 @@ void Killbots::Engine::newRound()
 			while ( m_spriteMap.contains( point ) );
 
 			m_fastbots << m_scene->createSprite( Fastbot, point );
-			m_spriteMap[ point ] = m_fastbots.last();
+			m_spriteMap.insert( point, m_fastbots.last() );
 		}
 
 		// Code used to generate theme previews
@@ -187,7 +188,6 @@ void Killbots::Engine::goToNextPhase()
 		else if ( m_repeatMove )
 			moveHero( m_lastDirection );
 	}
-	kDebug() << "Score:" << m_score;
 }
 
 
@@ -235,7 +235,7 @@ void Killbots::Engine::moveHero( HeroAction direction )
 				if ( spriteTypeAt( newCell ) == Junkheap )
 				{
 					QPoint cellBehindJunkheap = newCell + vectorFromDirection( direction );
-					Sprite * occupant = m_spriteMap[ cellBehindJunkheap ];
+					Sprite * occupant = m_spriteMap.value( cellBehindJunkheap );
 					if ( occupant )
 					{
 						destroySprite( occupant );
@@ -245,7 +245,7 @@ void Killbots::Engine::moveHero( HeroAction direction )
 						emit canAffordSafeTeleport( m_energy >= m_rules.costOfSafeTeleport() );
 					}
 
-					m_scene->slideSprite( m_spriteMap[ newCell ], cellBehindJunkheap );
+					m_scene->slideSprite( m_spriteMap.value( newCell ), cellBehindJunkheap );
 				}
 
 				m_scene->slideSprite( m_hero, newCell );
@@ -748,7 +748,9 @@ bool Killbots::Engine::destroyAllCollidingSprites( Sprite * sprite )
 {
 	bool result = false;
 
-	for ( int i = 0; i < m_robots.size(); /*nothing*/ )
+	int i = 0;
+	while ( i < m_robots.size() )
+	{
 		if ( m_robots[i] != sprite && m_robots[i]->gridPos() == sprite->gridPos() )
 		{
 			destroySprite( m_robots.takeAt(i) );
@@ -756,8 +758,11 @@ bool Killbots::Engine::destroyAllCollidingSprites( Sprite * sprite )
 		}
 		else
 			i++;
+	}
 
-	for ( int i = 0; i < m_fastbots.size(); /*nothing*/ )
+	i = 0;
+	while ( i < m_fastbots.size() )
+	{
 		if ( m_fastbots[i] != sprite && m_fastbots[i]->gridPos() == sprite->gridPos() )
 		{
 			destroySprite( m_fastbots.takeAt(i) );
@@ -765,6 +770,7 @@ bool Killbots::Engine::destroyAllCollidingSprites( Sprite * sprite )
 		}
 		else
 			i++;
+	}
 
 	return result;
 }
