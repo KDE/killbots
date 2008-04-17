@@ -41,8 +41,6 @@ namespace Killbots
 		Engine( Scene * scene, QObject * parent = 0 );
 		virtual ~Engine();
 
-		bool isBusy() const;
-
 	  signals:
 		void newGame( const Ruleset * rules );
 		void roundComplete();
@@ -57,11 +55,8 @@ namespace Killbots
 
 	  public slots:
 		void newGame();
-		void intToHeroAction( int action );
-		void moveHero( HeroAction direction );
-		void teleportHero();
-		void teleportHeroSafely();
-		void waitOutRound();
+		void doAction( HeroAction action );
+		void doAction( int action );
 		void goToNextPhase();
 
 	  private slots:
@@ -69,27 +64,30 @@ namespace Killbots
 		void cleanUpRound();
 
 	  private:
-		enum Phase { CleanUpRound, NewRound, ReadyToStart, MoveRobots, AssessDamageToRobots, MoveFastbots, AssessDamageToFastbots, RoundComplete, FinalPhase, GameOver };
+		enum Phase { CleanUpRound, NewRound, ReadyToStart, MoveRobots, AssessDamageToRobots, MoveFastbots, AssessDamageToFastbots, BoardFull, RoundComplete, FinalPhase, GameOver };
 
+		void moveHero( HeroAction direction );
+		void teleportHero();
+		void teleportHeroSafely();
+		void waitOutRound();
 		void moveRobots( bool justFastbots = false );
-		void assessDamage( bool justFastbots = false );
+		void assessDamage();
 
 		void animateThenGoToNextPhase( Phase phase );
 
+		void refreshSpriteMap();
 		int spriteTypeAt( const QPoint & cell ) const;
 		bool cellIsValid( const QPoint & cell ) const;
-		bool moveIsValid( const QPoint & cell, HeroAction direction = Hold ) const;
-		bool moveIsSafe( const QPoint &  cell, HeroAction direction = Hold ) const;
-		QPoint vectorFromDirection( HeroAction direction ) const;
+		bool moveIsValid( const QPoint & cell, HeroAction direction ) const;
+		bool moveIsSafe( const QPoint &  cell, HeroAction direction ) const;
+		QPoint vectorFromDirection( int direction ) const;
 		void destroySprite( Sprite * sprite );
-		void refreshSpriteMap();
-		bool destroyAllCollidingSprites( Sprite * sprite );
+		bool destroyAllCollidingBots( Sprite * sprite );
 
 		Scene * m_scene;
 
 		Sprite * m_hero;
-		QList<Sprite *> m_robots;
-		QList<Sprite *> m_fastbots;
+		QList<Sprite *> m_bots;
 		QList<Sprite *> m_junkheaps;
 
 		bool m_busy;
