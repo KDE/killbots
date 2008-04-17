@@ -285,20 +285,7 @@ void Killbots::Engine::moveHero( HeroAction direction )
 		if ( direction != Hold )
 		{
 			if ( spriteTypeAt( newCell ) == Junkheap )
-			{
-				QPoint cellBehindJunkheap = newCell + vectorFromDirection( direction );
-				Sprite * occupant = m_spriteMap.value( cellBehindJunkheap );
-				if ( occupant )
-				{
-					destroySprite( occupant );
-					m_score += m_rules.squashKillPointBonus();
-					m_energy = qMin( m_energy + m_rules.squashKillEnergyBonus(), m_rules.maxEnergyAtGameStart() );
-					emit energyChanged( m_energy );
-					emit canAffordSafeTeleport( m_energy >= m_rules.costOfSafeTeleport() );
-				}
-
-				m_scene->slideSprite( m_spriteMap.value( newCell ), cellBehindJunkheap );
-			}
+				pushJunkheap( m_spriteMap.value( newCell ), direction );
 
 			m_scene->slideSprite( m_hero, newCell );
 		}
@@ -307,6 +294,29 @@ void Killbots::Engine::moveHero( HeroAction direction )
 	}
 	else
 		m_busy = false;
+}
+
+
+void Killbots::Engine::pushJunkheap( Sprite * junkheap, HeroAction direction )
+{
+	QPoint nextCell = junkheap->gridPos() + vectorFromDirection( direction );
+
+	Sprite * currentOccupant = m_spriteMap.value( nextCell );
+	if ( currentOccupant )
+	{
+		if ( currentOccupant->spriteType() == Junkheap )
+			pushJunkheap( currentOccupant, direction );
+		else
+		{
+			destroySprite( currentOccupant );
+			m_score += m_rules.squashKillPointBonus();
+			m_energy = qMin( m_energy + m_rules.squashKillEnergyBonus(), m_rules.maxEnergyAtGameStart() );
+			emit energyChanged( m_energy );
+			emit canAffordSafeTeleport( m_energy >= m_rules.costOfSafeTeleport() );
+		}
+	}
+
+	m_scene->slideSprite( junkheap, nextCell );
 }
 
 
@@ -446,6 +456,19 @@ bool Killbots::Engine::cellIsValid( const QPoint & cell ) const
 }
 
 
+bool Killbots::Engine::canPushJunkheap( Sprite * junkheap, HeroAction direction ) const
+{
+	QPoint nextCell = junkheap->gridPos() + vectorFromDirection( direction );
+
+	if ( ! m_rules.junkheapsArePushable() || ! cellIsValid( nextCell ) )
+		return false;
+	else if ( spriteTypeAt( nextCell ) == Junkheap )
+		return canPushJunkheap( m_spriteMap.value( nextCell ), direction );
+	else
+		return true;
+}
+
+
 bool Killbots::Engine::moveIsValid( const QPoint & cell, HeroAction direction ) const
 {
 	QPoint cellBehindCell = cell + vectorFromDirection( direction );
@@ -454,10 +477,7 @@ bool Killbots::Engine::moveIsValid( const QPoint & cell, HeroAction direction ) 
 	return ( cellIsValid( cell )
 	         && ( spriteTypeAt( cell ) == ""
 	              || ( spriteTypeAt( cell ) == "junkheap"
-	                   && m_rules.junkheapsArePushable()
-	                   && direction < Hold
-	                   && cellIsValid( cellBehindCell )
-	                   && spriteTypeAt( cellBehindCell ) != "junkheap"
+	                   && canPushJunkheap( m_spriteMap.value( cell ), direction )
 	                 )
 	            )
 	       );
@@ -470,26 +490,18 @@ bool Killbots::Engine::moveIsValid( const QPoint & cell, HeroAction direction ) 
 	{
 		if ( spriteTypeAt( cell ) != NoSprite )
 		{
-			if ( spriteTypeAt( cell ) == Junkheap && m_rules.junkheapsArePushable() && direction < Hold )
+			if ( spriteTypeAt( cell ) == Junkheap )
 			{
-				if ( cellIsValid( cellBehindCell ) )
-				{
-					if ( spriteTypeAt( cellBehindCell ) == Junkheap )
-					{
-						result = false;
-						kDebug() << "Move is invalid. Cell behind junkheap is occupied by another junkheap.";
-					}
-				}
-				else
+				if ( ! canPushJunkheap( m_spriteMap.value( cell ), direction ) )
 				{
 					result = false;
-					kDebug() << "Move is invalid. Cell behind junkheap is invalid.";
+					kDebug() << "Move is invalid. Cannot push junkheap.";
 				}
 			}
 			else
 			{
 				result = false;
-				kDebug() << "Move is invalid. Cell is occupied by something other than a junkheap.";
+				kDebug() << "Move is invalid. Cell is occupied by an unpushable object.";
 			}
 		}
 	}

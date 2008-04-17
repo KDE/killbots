@@ -67,6 +67,7 @@ namespace Killbots
 		enum Phase { CleanUpRound, NewRound, ReadyToStart, MoveRobots, AssessDamageToRobots, MoveFastbots, AssessDamageToFastbots, BoardFull, RoundComplete, FinalPhase, GameOver };
 
 		void moveHero( HeroAction direction );
+		void pushJunkheap( Sprite * junkheap, HeroAction direction );
 		void teleportHero();
 		void teleportHeroSafely();
 		void waitOutRound();
@@ -79,6 +80,7 @@ namespace Killbots
 		int spriteTypeAt( const QPoint & cell ) const;
 		bool cellIsValid( const QPoint & cell ) const;
 		bool moveIsValid( const QPoint & cell, HeroAction direction ) const;
+		bool canPushJunkheap( Sprite * junkheap, HeroAction direction ) const;
 		bool moveIsSafe( const QPoint &  cell, HeroAction direction ) const;
 		QPoint vectorFromDirection( int direction ) const;
 		void destroySprite( Sprite * sprite );
