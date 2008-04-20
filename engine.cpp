@@ -243,7 +243,7 @@ void Killbots::Engine::doAction( HeroAction action )
 		m_busy = true;
 		refreshSpriteMap();
 
-		if ( action < NumberOfRepeatDirections )
+		if ( action <= Hold )
 			moveHero( action );
 		else if ( action == Teleport )
 			teleportHero();
@@ -280,7 +280,7 @@ void Killbots::Engine::moveHero( HeroAction direction )
 	   )
 	{
 		m_lastDirection = direction;
-		m_repeatMove = ( direction >= NumberOfDirections );
+		m_repeatMove = ( direction < 0 );
 
 		if ( direction != Hold )
 		{
@@ -678,8 +678,8 @@ bool Killbots::Engine::moveIsSafe( const QPoint & cell, HeroAction direction ) c
 
 QPoint Killbots::Engine::vectorFromDirection( int direction ) const
 {
-	if ( direction >= NumberOfDirections )
-		direction = direction - NumberOfDirections;
+	if ( direction < 0 )
+		direction = -direction - 1;
 
 	switch( direction )
 	{
