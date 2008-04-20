@@ -38,7 +38,7 @@ namespace Killbots
 		explicit RulesetSelector( QWidget *parent = 0 );
 		virtual ~RulesetSelector();
 
-		QLineEdit * kcfg_ruleset;
+		QLineEdit * kcfg_Ruleset;
 
 	  private:
 		QListWidget * m_listWidget;

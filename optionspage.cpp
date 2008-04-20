@@ -32,8 +32,8 @@
 OptionsPage::OptionsPage( QWidget *parent )
   : QWidget( parent )
 {
-	kcfg_allowUnsafeMoves = new QCheckBox( i18n("Allow unsafe moves"), this );
-	kcfg_allowUnsafeMoves->setObjectName( "kcfg_allowUnsafeMoves" );
+	kcfg_AllowUnsafeMoves = new QCheckBox( i18n("Allow unsafe moves"), this );
+	kcfg_AllowUnsafeMoves->setObjectName( "kcfg_AllowUnsafeMoves" );
 
 	QStringList clickActionList;
 	clickActionList << i18n("Nothing");
@@ -44,16 +44,16 @@ OptionsPage::OptionsPage( QWidget *parent )
 	clickActionList << i18n("Teleport (Safely If Possible)");
 	clickActionList << i18n("Wait Out Round");
 
-	kcfg_middleClickAction = new KComboBox( false, this );
-	kcfg_middleClickAction->setObjectName( "kcfg_middleClickAction" );
-	kcfg_middleClickAction->addItems( clickActionList );
+	kcfg_MiddleClickAction = new KComboBox( false, this );
+	kcfg_MiddleClickAction->setObjectName( "kcfg_MiddleClickAction" );
+	kcfg_MiddleClickAction->addItems( clickActionList );
 
-	kcfg_rightClickAction = new KComboBox( false, this );
-	kcfg_rightClickAction->setObjectName( "kcfg_rightClickAction" );
-	kcfg_rightClickAction->addItems( clickActionList );
+	kcfg_RightClickAction = new KComboBox( false, this );
+	kcfg_RightClickAction->setObjectName( "kcfg_RightClickAction" );
+	kcfg_RightClickAction->addItems( clickActionList );
 
-	kcfg_animationSpeed = new QSlider( Qt::Horizontal, this );
-	kcfg_animationSpeed->setObjectName( "kcfg_animationSpeed" );
+	kcfg_AnimationSpeed = new QSlider( Qt::Horizontal, this );
+	kcfg_AnimationSpeed->setObjectName( "kcfg_AnimationSpeed" );
 
 	QLabel * label;
 
@@ -61,29 +61,29 @@ OptionsPage::OptionsPage( QWidget *parent )
 	topLayout->setMargin( 0 );
 	topLayout->setSpacing( KDialog::spacingHint() );
 
-	topLayout->addWidget( kcfg_allowUnsafeMoves, 0, 0, 1, 2 );
+	topLayout->addWidget( kcfg_AllowUnsafeMoves, 0, 0, 1, 2 );
 
 	label = new QLabel( i18n("Middle-click action: "), this );
-	label->setBuddy( kcfg_middleClickAction );
+	label->setBuddy( kcfg_MiddleClickAction );
 	label->setAlignment( Qt::AlignRight );
 	topLayout->addWidget( label, 1, 0 );
-	topLayout->addWidget( kcfg_middleClickAction, 1, 1 );
+	topLayout->addWidget( kcfg_MiddleClickAction, 1, 1 );
 
 	label = new QLabel( i18n("Right-click action: "), this );
-	label->setBuddy( kcfg_rightClickAction );
+	label->setBuddy( kcfg_RightClickAction );
 	label->setAlignment( Qt::AlignRight );
 	topLayout->addWidget( label, 2, 0 );
-	topLayout->addWidget( kcfg_rightClickAction, 2, 1 );
+	topLayout->addWidget( kcfg_RightClickAction, 2, 1 );
 
 	label = new QLabel( i18n("Animation speed: "), this );
-	label->setBuddy( kcfg_animationSpeed );
+	label->setBuddy( kcfg_AnimationSpeed );
 	label->setAlignment( Qt::AlignRight );
 	topLayout->addWidget( label, 4, 0 );
 
 	QGridLayout * speedLayout = new QGridLayout();
 	speedLayout->setMargin( 0 );
 	speedLayout->setSpacing( 0 );
-	speedLayout->addWidget( kcfg_animationSpeed, 0, 0, 1, 3 );
+	speedLayout->addWidget( kcfg_AnimationSpeed, 0, 0, 1, 3 );
 	label = new QLabel( i18n("Slow"), this );
 	label->setAlignment( Qt::AlignLeft );
 	speedLayout->addWidget( label, 1, 0 );

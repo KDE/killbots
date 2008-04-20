@@ -463,13 +463,13 @@ void Killbots::Scene::mouseMoveEvent( QGraphicsSceneMouseEvent * event )
 
 void Killbots::Scene::mouseReleaseEvent( QGraphicsSceneMouseEvent * event )
 {
-	int userAction = NothingClick;
+	Settings::ClickAction userAction = Settings::Nothing;
 
 	if ( event->button() == Qt::LeftButton )
 		if ( event->modifiers() & Qt::ControlModifier )
 			userAction = Settings::middleClickAction();
 		else
-			userAction = StepClick;
+			userAction = Settings::Step;
 	else if ( event->button() == Qt::RightButton )
 		userAction = Settings::rightClickAction();
 	else if ( event->button() == Qt::MidButton )
@@ -477,25 +477,25 @@ void Killbots::Scene::mouseReleaseEvent( QGraphicsSceneMouseEvent * event )
 
 	switch ( userAction )
 	{
-	  case StepClick:
+	  case Settings::Step:
 		emit clicked( getMouseDirection( event->scenePos() ) );
 		break;
-	  case RepeatedStepClick:
-		emit clicked( getMouseDirection( event->scenePos() ) + NumberOfDirections );
+	  case Settings::RepeatedStep:
+		emit clicked( -getMouseDirection( event->scenePos() ) - 1 );
 		break;
-	  case TeleportClick:
+	  case Settings::Teleport:
 		emit clicked( Teleport );
 		break;
-	  case SafeTeleportClick:
+	  case Settings::TeleportSafely:
 		emit clicked( TeleportSafely );
 		break;
-	  case SafeIfPossibleClick:
+	  case Settings::TeleportSafelyIfPossible:
 		emit clicked( TeleportSafelyIfPossible );
 		break;
-	  case WaitOutRoundClick:
+	  case Settings::WaitOutRound:
 		emit clicked( WaitOutRound );
 		break;
-	  case NothingClick:
+	  case Settings::Nothing:
 	  default:
 		break;
 	};

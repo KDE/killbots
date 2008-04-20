@@ -43,10 +43,10 @@ Killbots::RulesetSelector::RulesetSelector( QWidget * parent )
 	layout->setSpacing( KDialog::spacingHint() );
 	layout->setMargin( 0 );
 
-	kcfg_ruleset = new QLineEdit( this );
-	kcfg_ruleset->setObjectName( "kcfg_ruleset" );
-	kcfg_ruleset->hide();
-	layout->addWidget( kcfg_ruleset );
+	kcfg_Ruleset = new QLineEdit( this );
+	kcfg_Ruleset->setObjectName( "kcfg_Ruleset" );
+	kcfg_Ruleset->hide();
+	layout->addWidget( kcfg_Ruleset );
 
 	m_listWidget = new QListWidget( this );
 	layout->addWidget( m_listWidget );
@@ -181,7 +181,7 @@ void Killbots::RulesetSelector::selectionChanged( QString rulesetName )
 	kDebug() << "Reading ruleset details for " << rulesetName;
 	Ruleset * ruleset = m_rulesetMap[rulesetName];
 
-	kcfg_ruleset->setText( ruleset->fileName() );
+	kcfg_Ruleset->setText( ruleset->fileName() );
 
 	#warning I don't think these strings are translator friendly.
 	m_gridDetails->setText( i18n("%1 rows, %2 columns", ruleset->rows(), ruleset->columns() ) );

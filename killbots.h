@@ -47,36 +47,22 @@ namespace Killbots
 		Down,
 		DownRight,
 		Hold,
-		NumberOfDirections = Hold + 1,
-		RepeatRight,
-		RepeatUpRight,
-		RepeatUp,
-		RepeatUpLeft,
-		RepeatLeft,
-		RepeatDownLeft,
-		RepeatDown,
-		RepeatDownRight,
-		RepeatHold,
-		NumberOfRepeatDirections = RepeatHold + 1,
+
 		Teleport,
 		TeleportSafely,
 		TeleportSafelyIfPossible,
-		WaitOutRound
+		WaitOutRound,
+
+		RepeatRight = -( Right + 1 ),
+		RepeatUpRight = -( Right + 1 ),
+		RepeatUp = -( Right + 1 ),
+		RepeatUpLeft = -( Right + 1 ),
+		RepeatLeft = -( Right + 1 ),
+		RepeatDownLeft = -( Right + 1 ),
+		RepeatDown = -( Right + 1 ),
+		RepeatDownRight = -( Right + 1 ),
+		RepeatHold = -( Right + 1 )
 	};
-
-
-	enum ClickAction
-	{
-		NothingClick,
-		StepClick,
-		RepeatedStepClick,
-		TeleportClick,
-		SafeTeleportClick,
-		SafeIfPossibleClick,
-		WaitOutRoundClick,
-		NumberOfClickActions
-	};
-
 
 	inline int sign( int num )
 	{

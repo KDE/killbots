@@ -35,10 +35,10 @@ class OptionsPage : public QWidget
 	explicit OptionsPage( QWidget *parent = 0 );
 	virtual ~OptionsPage();
 
-	QCheckBox * kcfg_allowUnsafeMoves;
-	KComboBox * kcfg_middleClickAction;
-	KComboBox * kcfg_rightClickAction;
-	QSlider * kcfg_animationSpeed;
+	QCheckBox * kcfg_AllowUnsafeMoves;
+	KComboBox * kcfg_MiddleClickAction;
+	KComboBox * kcfg_RightClickAction;
+	QSlider * kcfg_AnimationSpeed;
 };
 
 #endif
