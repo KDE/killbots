@@ -98,20 +98,20 @@ void Killbots::MainWindow::setupActions()
 	KStandardAction::keyBindings( this, SLOT(configureShortcuts()), actionCollection() );
 	KStandardAction::preferences( this, SLOT(configurePreferences()), actionCollection() );
 
-	setupMappedAction( actionCollection(), "Teleport",            "teleport",      Qt::Key_R, Teleport,     "roll" );
-	setupMappedAction( actionCollection(), "Teleport Safely",     "safe_teleport", Qt::Key_T, TeleportSafely, "love" );
-	setupMappedAction( actionCollection(), "Wait Out Round",      "wait",          Qt::Key_Y, WaitOutRound, "no"   );
+	setupMappedAction( actionCollection(), "Teleport",            "teleport",      Qt::Key_R, Qt::Key_Minus, Teleport,       "roll" );
+	setupMappedAction( actionCollection(), "Teleport Safely",     "safe_teleport", Qt::Key_T, Qt::Key_Plus,  TeleportSafely, "love" );
+	setupMappedAction( actionCollection(), "Wait Out Round",      "wait",          Qt::Key_Y, Qt::Key_Enter, WaitOutRound,    "no"  );
 
 	// Keyboard Actions - these are shown in Configure Shortcuts but not in Configure Toolbars
-	setupMappedAction( m_keyboardActions,  "Move Up and Left",    "1_up_left",     Qt::Key_Q, UpLeft    );
-	setupMappedAction( m_keyboardActions,  "Move Up",             "2_up",          Qt::Key_W, Up        );
-	setupMappedAction( m_keyboardActions,  "Move Up and Right",   "3_up_right",    Qt::Key_E, UpRight   );
-	setupMappedAction( m_keyboardActions,  "Move Left",           "4_left",        Qt::Key_A, Left      );
-	setupMappedAction( m_keyboardActions,  "Stand Still",         "5_stand_still", Qt::Key_S, Hold      );
-	setupMappedAction( m_keyboardActions,  "Move Right",          "6_right",       Qt::Key_D, Right     );
-	setupMappedAction( m_keyboardActions,  "Move Down and Left",  "7_down_left",   Qt::Key_Z, DownLeft  );
-	setupMappedAction( m_keyboardActions,  "Move Down",           "8_down",        Qt::Key_X, Down      );
-	setupMappedAction( m_keyboardActions,  "Move Down and Right", "9_down_right",  Qt::Key_C, DownRight );
+	setupMappedAction( m_keyboardActions,  "Move Up and Left",    "1_up_left",     Qt::Key_Q, Qt::Key_7,     UpLeft                 );
+	setupMappedAction( m_keyboardActions,  "Move Up",             "2_up",          Qt::Key_W, Qt::Key_8,     Up                     );
+	setupMappedAction( m_keyboardActions,  "Move Up and Right",   "3_up_right",    Qt::Key_E, Qt::Key_9,     UpRight                );
+	setupMappedAction( m_keyboardActions,  "Move Left",           "4_left",        Qt::Key_A, Qt::Key_4,     Left                   );
+	setupMappedAction( m_keyboardActions,  "Stand Still",         "5_stand_still", Qt::Key_S, Qt::Key_5,     Hold                   );
+	setupMappedAction( m_keyboardActions,  "Move Right",          "6_right",       Qt::Key_D, Qt::Key_6,     Right                  );
+	setupMappedAction( m_keyboardActions,  "Move Down and Left",  "7_down_left",   Qt::Key_Z, Qt::Key_1,     DownLeft               );
+	setupMappedAction( m_keyboardActions,  "Move Down",           "8_down",        Qt::Key_X, Qt::Key_2,     Down                   );
+	setupMappedAction( m_keyboardActions,  "Move Down and Right", "9_down_right",  Qt::Key_C, Qt::Key_3,     DownRight              );
 
 	connect( m_keyboardMapper, SIGNAL(mapped(int)), m_engine, SLOT(doAction(int)) );
 
@@ -121,11 +121,11 @@ void Killbots::MainWindow::setupActions()
 }
 
 
-void Killbots::MainWindow::setupMappedAction( KActionCollection * collection, const char * displayName, const QString & internalName, const QKeySequence & shortcut, int mapping, const QString & icon )
+void Killbots::MainWindow::setupMappedAction( KActionCollection * collection, const char * displayName, const QString & internalName, const QKeySequence & primaryShortcut, const QKeySequence & alternateShortcut, int mapping, const QString & icon )
 {
 	KAction * action = new KAction( i18n( displayName ), collection );
 	action->setObjectName( internalName );
-	action->setShortcut( shortcut );
+	action->setShortcut( KShortcut( primaryShortcut, alternateShortcut ) );
 	if ( !icon.isEmpty() )
 		action->setIcon( KIcon( icon ) );
 
