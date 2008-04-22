@@ -138,7 +138,7 @@ QPixmap Killbots::Renderer::renderElement( const QString & elementId, QSize size
 {
 	QPixmap result;
 
-	QString key = elementId + QString::number( size.width() ) + "x" + QString::number( size.height() );
+	QString key = elementId + QString::number( size.width() ) + 'x' + QString::number( size.height() );
 
 	if ( ! self()->m_pixmapCache.find( key, result ) )
 	{

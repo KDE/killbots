@@ -1,9 +1,8 @@
 [Desktop Entry]
-Encoding=UTF-8
 Name=Killbots
 Exec=killbots -caption "%c"
 Icon=killbots
 Type=Application
-DocPath=killbots/index.html
+X-DocPath=killbots/index.html
 Terminal=false
 Categories=Qt;KDE;Game;StrategyGame;

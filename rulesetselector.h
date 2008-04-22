@@ -21,9 +21,10 @@
 #ifndef KILLBOTS_RULESETSELECTOR_H
 #define KILLBOTS_RULESETSELECTOR_H
 
+class KLineEdit;
+
 #include <QtCore/QMap>
 class QLabel;
-class QLineEdit;
 class QListWidget;
 #include <QtGui/QWidget>
 
@@ -38,7 +39,7 @@ namespace Killbots
 		explicit RulesetSelector( QWidget *parent = 0 );
 		virtual ~RulesetSelector();
 
-		QLineEdit * kcfg_Ruleset;
+		KLineEdit * kcfg_Ruleset;
 
 	  private:
 		QListWidget * m_listWidget;

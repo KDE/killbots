@@ -25,13 +25,13 @@
 
 #include <KDE/KDebug>
 #include <KDE/KDialog>
+#include <KDE/KLineEdit>
 #include <KDE/KLocalizedString>
 #include <KDE/KStandardDirs>
 
 #include <QtGui/QGroupBox>
 #include <QtGui/QLabel>
 #include <QtGui/QLayout>
-#include <QtGui/QLineEdit>
 #include <QtGui/QListWidget>
 #include <QtGui/QScrollArea>
 
@@ -43,7 +43,7 @@ Killbots::RulesetSelector::RulesetSelector( QWidget * parent )
 	layout->setSpacing( KDialog::spacingHint() );
 	layout->setMargin( 0 );
 
-	kcfg_Ruleset = new QLineEdit( this );
+	kcfg_Ruleset = new KLineEdit( this );
 	kcfg_Ruleset->setObjectName( "kcfg_Ruleset" );
 	kcfg_Ruleset->hide();
 	layout->addWidget( kcfg_Ruleset );

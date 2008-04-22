@@ -103,15 +103,15 @@ void Killbots::MainWindow::setupActions()
 	setupMappedAction( actionCollection(), "Wait Out Round",      "wait",          Qt::Key_Y, Qt::Key_Enter, WaitOutRound,    "no"  );
 
 	// Keyboard Actions - these are shown in Configure Shortcuts but not in Configure Toolbars
-	setupMappedAction( m_keyboardActions,  "Move Up and Left",    "1_up_left",     Qt::Key_Q, Qt::Key_7,     UpLeft                 );
-	setupMappedAction( m_keyboardActions,  "Move Up",             "2_up",          Qt::Key_W, Qt::Key_8,     Up                     );
-	setupMappedAction( m_keyboardActions,  "Move Up and Right",   "3_up_right",    Qt::Key_E, Qt::Key_9,     UpRight                );
-	setupMappedAction( m_keyboardActions,  "Move Left",           "4_left",        Qt::Key_A, Qt::Key_4,     Left                   );
-	setupMappedAction( m_keyboardActions,  "Stand Still",         "5_stand_still", Qt::Key_S, Qt::Key_5,     Hold                   );
-	setupMappedAction( m_keyboardActions,  "Move Right",          "6_right",       Qt::Key_D, Qt::Key_6,     Right                  );
-	setupMappedAction( m_keyboardActions,  "Move Down and Left",  "7_down_left",   Qt::Key_Z, Qt::Key_1,     DownLeft               );
-	setupMappedAction( m_keyboardActions,  "Move Down",           "8_down",        Qt::Key_X, Qt::Key_2,     Down                   );
-	setupMappedAction( m_keyboardActions,  "Move Down and Right", "9_down_right",  Qt::Key_C, Qt::Key_3,     DownRight              );
+	setupMappedAction( m_keyboardActions,  "Move Up and Left",    "move_up_left",     Qt::Key_Q, Qt::Key_7,     UpLeft                 );
+	setupMappedAction( m_keyboardActions,  "Move Up",             "move_up",          Qt::Key_W, Qt::Key_8,     Up                     );
+	setupMappedAction( m_keyboardActions,  "Move Up and Right",   "move_up_right",    Qt::Key_E, Qt::Key_9,     UpRight                );
+	setupMappedAction( m_keyboardActions,  "Move Left",           "move_left",        Qt::Key_A, Qt::Key_4,     Left                   );
+	setupMappedAction( m_keyboardActions,  "Stand Still",         "stand_still", Qt::Key_S, Qt::Key_5,     Hold                   );
+	setupMappedAction( m_keyboardActions,  "Move Right",          "move_right",       Qt::Key_D, Qt::Key_6,     Right                  );
+	setupMappedAction( m_keyboardActions,  "Move Down and Left",  "move_down_left",   Qt::Key_Z, Qt::Key_1,     DownLeft               );
+	setupMappedAction( m_keyboardActions,  "Move Down",           "move_down",        Qt::Key_X, Qt::Key_2,     Down                   );
+	setupMappedAction( m_keyboardActions,  "Move Down and Right", "move_down_right",  Qt::Key_C, Qt::Key_3,     DownRight              );
 
 	connect( m_keyboardMapper, SIGNAL(mapped(int)), m_engine, SLOT(doAction(int)) );
 

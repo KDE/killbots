@@ -18,8 +18,8 @@
  *  Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#ifndef KILLBOTS_BOARD_H
-#define KILLBOTS_BOARD_H
+#ifndef KILLBOTS_SCENE_H
+#define KILLBOTS_SCENE_H
 
 #include "killbots.h"
 

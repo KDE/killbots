@@ -30,7 +30,7 @@ namespace Killbots
 	{
 		Q_OBJECT
 	  public:
-		View( QGraphicsScene * scene, QWidget * parent = 0 );
+		explicit View( QGraphicsScene * scene, QWidget * parent = 0 );
 		virtual ~View();
 
 	  signals:

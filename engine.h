@@ -38,7 +38,7 @@ namespace Killbots
 		Q_OBJECT
 
 	  public:
-		Engine( Scene * scene, QObject * parent = 0 );
+		explicit Engine( Scene * scene, QObject * parent = 0 );
 		virtual ~Engine();
 
 	  signals:
