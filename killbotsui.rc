@@ -5,7 +5,8 @@
 		<Menu name="moveMenu">
 			<text>Move</text>
 			<Action name="teleport"/>
-			<Action name="safe_teleport"/>
+			<Action name="teleport_safely"/>
+			<Action name="teleport_sip"/>
 			<Action name="wait"/>
 		</Menu>
 	</MenuBar>
@@ -17,7 +18,7 @@
 		<Action name="game_highscores"/>
 		<Separator />
 		<Action name="teleport"/>
-		<Action name="safe_teleport"/>
+		<Action name="teleport_safely"/>
 		<Action name="wait"/>
 	</ToolBar>
 

@@ -98,24 +98,25 @@ void Killbots::MainWindow::setupActions()
 	KStandardAction::keyBindings( this, SLOT(configureShortcuts()), actionCollection() );
 	KStandardAction::preferences( this, SLOT(configurePreferences()), actionCollection() );
 
-	setupMappedAction( actionCollection(), "Teleport",            "teleport",      Qt::Key_R, Qt::Key_Minus, Teleport,       "roll" );
-	setupMappedAction( actionCollection(), "Teleport Safely",     "safe_teleport", Qt::Key_T, Qt::Key_Plus,  TeleportSafely, "love" );
-	setupMappedAction( actionCollection(), "Wait Out Round",      "wait",          Qt::Key_Y, Qt::Key_Enter, WaitOutRound,    "no"  );
+	setupMappedAction( actionCollection(), "Teleport",                     "teleport",        Qt::Key_R,     Qt::Key_Minus, Teleport,       "roll"   );
+	setupMappedAction( actionCollection(), "Teleport Safely",              "teleport_safely", Qt::Key_T,     Qt::Key_Plus,  TeleportSafely, "love"   );
+	setupMappedAction( actionCollection(), "Teleport, Safely If Possible", "teleport_sip",    Qt::Key_Space, Qt::Key_0,     TeleportSafelyIfPossible );
+	setupMappedAction( actionCollection(), "Wait Out Round",               "wait",            Qt::Key_Y,     Qt::Key_Enter, WaitOutRound,    "no"    );
 
 	// Keyboard Actions - these are shown in Configure Shortcuts but not in Configure Toolbars
-	setupMappedAction( m_keyboardActions,  "Move Up and Left",    "move_up_left",     Qt::Key_Q, Qt::Key_7,     UpLeft                 );
-	setupMappedAction( m_keyboardActions,  "Move Up",             "move_up",          Qt::Key_W, Qt::Key_8,     Up                     );
-	setupMappedAction( m_keyboardActions,  "Move Up and Right",   "move_up_right",    Qt::Key_E, Qt::Key_9,     UpRight                );
-	setupMappedAction( m_keyboardActions,  "Move Left",           "move_left",        Qt::Key_A, Qt::Key_4,     Left                   );
-	setupMappedAction( m_keyboardActions,  "Stand Still",         "stand_still", Qt::Key_S, Qt::Key_5,     Hold                   );
-	setupMappedAction( m_keyboardActions,  "Move Right",          "move_right",       Qt::Key_D, Qt::Key_6,     Right                  );
-	setupMappedAction( m_keyboardActions,  "Move Down and Left",  "move_down_left",   Qt::Key_Z, Qt::Key_1,     DownLeft               );
-	setupMappedAction( m_keyboardActions,  "Move Down",           "move_down",        Qt::Key_X, Qt::Key_2,     Down                   );
-	setupMappedAction( m_keyboardActions,  "Move Down and Right", "move_down_right",  Qt::Key_C, Qt::Key_3,     DownRight              );
+	setupMappedAction( m_keyboardActions,  "Move Up and Left",             "move_up_left",    Qt::Key_Q,     Qt::Key_7,     UpLeft                   );
+	setupMappedAction( m_keyboardActions,  "Move Up",                      "move_up",         Qt::Key_W,     Qt::Key_8,     Up                       );
+	setupMappedAction( m_keyboardActions,  "Move Up and Right",            "move_up_right",   Qt::Key_E,     Qt::Key_9,     UpRight                  );
+	setupMappedAction( m_keyboardActions,  "Move Left",                    "move_left",       Qt::Key_A,     Qt::Key_4,     Left                     );
+	setupMappedAction( m_keyboardActions,  "Stand Still",                  "stand_still",     Qt::Key_S,     Qt::Key_5,     Hold                     );
+	setupMappedAction( m_keyboardActions,  "Move Right",                   "move_right",      Qt::Key_D,     Qt::Key_6,     Right                    );
+	setupMappedAction( m_keyboardActions,  "Move Down and Left",           "move_down_left",  Qt::Key_Z,     Qt::Key_1,     DownLeft                 );
+	setupMappedAction( m_keyboardActions,  "Move Down",                    "move_down",       Qt::Key_X,     Qt::Key_2,     Down                     );
+	setupMappedAction( m_keyboardActions,  "Move Down and Right",          "move_down_right", Qt::Key_C,     Qt::Key_3,     DownRight                );
 
 	connect( m_keyboardMapper, SIGNAL(mapped(int)), m_engine, SLOT(doAction(int)) );
 
-	m_safeTeleportAction = actionCollection()->action("safe_teleport");
+	m_safeTeleportAction = actionCollection()->action("teleport_safely");
 
 	m_keyboardActions->associateWidget(this);
 }
