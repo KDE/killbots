@@ -45,6 +45,7 @@ void Killbots::GameStatusDisplayItem::setSize( QSize size )
 {
 	prepareGeometryChange();
 	m_boundingRect = QRectF( QPointF(), size );
+	update();
 }
 
 
@@ -91,6 +92,7 @@ void Killbots::GameStatusDisplayItem::paint( QPainter * p, const QStyleOptionGra
 void Killbots::GameStatusDisplayItem::setText( const QString & text )
 {
 	m_label = text;
+	update();
 }
 
 
@@ -103,6 +105,7 @@ QString Killbots::GameStatusDisplayItem::text() const
 void Killbots::GameStatusDisplayItem::setValue( int value )
 {
 	m_value = value;
+	update();
 }
 
 
