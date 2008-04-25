@@ -196,7 +196,7 @@ revision history. (see installation appendix comment) -->
             <guimenu>Move</guimenu>
             <guimenuitem>Teleport, Safely If Possible</guimenuitem>
           </menuchoice></term>
-          <listitem><para><action>A convenience action. <action>Teleports the hero safely if that is possible, otherwise just teleports randomly.</action></para></listitem>
+          <listitem><para>A convenience action. <action>Teleports the hero safely if that is possible, otherwise just teleports randomly.</action></para></listitem>
         </varlistentry>
         <varlistentry>
           <term><menuchoice>
