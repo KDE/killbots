@@ -1,0 +1,321 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.2-Based Variant V1.1//EN" "dtd/kdex.dtd" [
+  <!ENTITY killbots "<application>Killbots</application>">
+  <!ENTITY kappname "&killbots;">
+  <!ENTITY package "kdegames">
+	<!ENTITY kappversion "0.1.0">
+	<!ENTITY docupdate "2008-03-24">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % English "INCLUDE">
+]>
+
+<book lang="&language;">
+
+<bookinfo>
+  <title>The &killbots; Handbook</title>
+
+  <authorgroup>
+    <author>
+      <personname>
+        <firstname>Parker</firstname>
+        <surname>Coates</surname>
+      </personname>
+      <email>parker.coates@gmail.com</email>
+    </author>
+  </authorgroup>
+
+  <!-- TRANS:ROLES_OF_TRANSLATORS -->
+
+  <copyright>
+    <year>2008</year>
+    <holder>Parker Coates</holder>
+  </copyright>
+
+  <legalnotice>&FDLNotice;</legalnotice>
+
+  <date>&docupdate;</date>
+  <releaseinfo>&kappversion;</releaseinfo>
+
+  <abstract>
+    <para>&killbots; is a KDE port of the classic BSD console game <command>robots</command>.</para>
+    <para>This handbook documents &killbots; version &kappversion;</para>
+  </abstract>
+
+  <keywordset>
+    <keyword>KDE</keyword>
+    <keyword>kdegames</keyword>
+    <keyword>game</keyword>
+    <keyword>Killbots</keyword>
+    <keyword>Strategy</keyword>
+    <keyword>One player</keyword>
+    <keyword>Single player</keyword>
+    <keyword>robots</keyword>
+    <keyword>robot</keyword>
+    <keyword>fastbot</keyword>
+    <keyword>junkheap</keyword>
+    <keyword>teleport</keyword>
+    <keyword>energy</keyword>
+  </keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title>Introduction</title>
+
+<note>
+  <title>Game type:</title>
+  <para>Strategy</para>
+</note>
+
+<note>
+  <title>Number of players:</title>
+  <para>One</para>
+</note>
+
+<!-- The introduction chapter contains a brief introduction for the
+application that explains what it does and where to report
+problems. Basically a long version of the abstract.  Don't include a
+revision history. (see installation appendix comment) -->
+
+<para>&killbots; is a simple game of evading killer robots. Who created the robots and why they have been programmed to destroy, no one knows. All that is known is that the robots are numerous and their sole objective is to destroy you. Fortunately for you, their creator has focused on quantity rather than quality and as a result the robots are severely lacking in intelligence. Your superior wit and a fancy teleportation device are your only weapons against the never-ending stream of mindless automatons.</para>
+
+<para>&killbots; is highly customisable</para>
+
+<note>
+  <title>Note:</title>
+  <para>This documentation frequently refers to <quote>robots</quote>, <quote>junkheaps</quote>, etc., but &killbots; is fully themeable. That means the game sprites you see while playing might not match the futuristic ones described here. The game play and strategies, however, will remain the same, even if your hero is a carrot being chased through a garden patch by ravenous rabbits.</para>
+</note>
+
+
+</chapter>
+
+<chapter id="howto">
+  <title id="howto-title">How to Play</title>
+
+  <note>
+    <title>Objective:</title>
+    <para>Survive successive rounds of enemies while accumulating a high score.</para>
+  </note>
+
+  <sect1 id="gameplay-basics">
+    <title>Basics of Gameplay</title>
+
+    <para><screenshot><mediaobject>
+      <imageobject><imagedata fileref="grid.png" format="PNG"/></imageobject>
+      <textobject><phrase>Screenshot of the game grid</phrase></textobject>
+    </mediaobject></screenshot></para>
+
+    <para>&killbots; is played on a rectangular grid of cells. The number of rows and columns in the grid is determined by the ruleset being used. Each cell can contain one of the following sprites:
+      <variablelist>
+        <varlistentry>
+          <term><inlinemediaobject><imageobject><imagedata fileref="hero.png" format="PNG"/></imageobject></inlinemediaobject> <firstterm>Hero</firstterm></term>
+          <listitem><para>The hero is the unfortunate soul stuck in a room with a bunch of killer robots. As the player, it is your job to ensure that he remains alive for as long possible.</para></listitem>
+        </varlistentry>
+      </variablelist>
+
+
+    </para>
+  </sect1>
+
+</chapter>
+
+<chapter id="commands">
+  <title>Command Reference</title>
+
+  <sect1 id="kapp-mainwindow">
+    <title>The main &killbots; window</title>
+
+    <sect2 id="movement-controls">
+      <title id="movement-controls-title">Movement Controls</title>
+      <para>The player has the option of using either the keyboard, the mouse or both to control the hero.</para>
+      <sect3 id="keyboard-movement">
+        <title id="keyboard-movement-title">Keyboard Movement Controls</title>
+        <para>There are nine different movement actions: left, right, up, down, the four diagonals, and stand still. Each of these actions can be assigned to two different keyboard keys. By default these nine actions are assigned to the nine number keys of the numeric keypad and to a 3 by 3 block of letters at the left end of a QWERTY keyboard. Of course, users using a different keyboard layout or one lacking a numeric keypad can modify these key assignments using the <link linkend="configure-shortcuts">Configure Shortcuts dialog</link>.</para>
+        <para>Each of the special movement commands (such as teleport) can also be issued from the keyboard. See <link linkend="move-menu" endterm="move-menu-title"/>.</para>
+      </sect3>
+      <sect3 id="mouse-movement">
+        <title id="mouse-movement-title">Mouse Movement Controls</title>
+        <para>The mouse (or any other pointing device) can be used to navigate in a more natural, intuitive way. As the pointer moves over the main game area, the cursor will change to indicate the relative direction of the pointer with respect to the hero. For example, moving the pointer to the space above the hero will change the cursor to an up arrow. If the pointer is placed immediately over the hero, the cursor changes to indicate no movement.</para>
+        <para>A single left click will cause the hero to step (or at least try to step) in the indicated direction. In the Configure Killbots dialog, one can assign additional actions to the right and middle mouse buttons.</para>
+        <para></para>
+      </sect3>
+    </sect2>
+
+    <sect2 id="game-menu">
+      <title>The <guimenu>Game</guimenu> Menu</title>
+      <variablelist>
+        <varlistentry>
+          <term><menuchoice>
+            <shortcut><keycombo action="simul">&Ctrl;<keycap>N</keycap></keycombo></shortcut>
+            <guimenu>Game</guimenu>
+            <guimenuitem>New</guimenuitem>
+          </menuchoice></term>
+          <listitem><para><action>Starts a new game, discarding any game that may currently be in progress.</action></para></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term><menuchoice>
+            <shortcut><keycombo action="simul">&Ctrl;<keycap>H</keycap></keycombo></shortcut>
+            <guimenu>Game</guimenu>
+            <guimenuitem>Show High Scores</guimenuitem>
+          </menuchoice></term>
+          <listitem><para><action>Shows the high score dialog, containing past scores.</action></para></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term><menuchoice>
+            <shortcut><keycombo action="simul">&Ctrl;<keycap>Q</keycap></keycombo></shortcut>
+            <guimenu>Game</guimenu>
+            <guimenuitem>Quit</guimenuitem>
+          </menuchoice></term>
+          <listitem><para><action>Quits &killbots;.</action></para></listitem>
+        </varlistentry>
+      </variablelist>
+    </sect2>
+
+    <sect2 id="move-menu">
+      <title id="move-menu-title">The <guimenu>Move</guimenu> Menu</title>
+      <variablelist>
+        <varlistentry>
+          <term><menuchoice>
+            <shortcut><keycap>R</keycap></shortcut>
+            <guimenu>Move</guimenu>
+            <guimenuitem>Teleport</guimenuitem>
+          </menuchoice></term>
+          <listitem><para><action>Teleports the hero to a random, empty cell anywhere within the playing field.</action> See <link linkend="howto" endterm="howto-title"/>.</para></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term><menuchoice>
+            <shortcut><keycap>T</keycap></shortcut>
+            <guimenu>Move</guimenu>
+            <guimenuitem>Teleport Safely</guimenuitem>
+          </menuchoice></term>
+          <listitem><para><action>Teleports the hero to a random, empty cell that is guaranteed to be safe from attack on that turn.</action> See <link linkend="howto" endterm="howto-title"/>.</para></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term><menuchoice>
+            <shortcut><keycap>Space</keycap></shortcut>
+            <guimenu>Move</guimenu>
+            <guimenuitem>Teleport, Safely If Possible</guimenuitem>
+          </menuchoice></term>
+          <listitem><para><action>A convenience action. <action>Teleports the hero safely if that is possible, otherwise just teleports randomly.</action></para></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term><menuchoice>
+            <shortcut><keycap>Y</keycap></shortcut>
+            <guimenu>Move</guimenu>
+            <guimenuitem>Wait Out Round</guimenuitem>
+          </menuchoice></term>
+          <listitem><para><action>Causes the hero to freeze in place until the end of the round.</action> See <link linkend="howto" endterm="howto-title"/>.</para></listitem>
+        </varlistentry>
+      </variablelist>
+    </sect2>
+
+    <sect2 id="settings-menu">
+      <title>The <guimenu>Settings</guimenu> Menu</title>
+      <variablelist>
+        <varlistentry>
+          <term><menuchoice>
+            <guimenu>Settings</guimenu>
+            <guimenuitem>Show Toolbar</guimenuitem>
+          </menuchoice></term>
+          <listitem><para><action>Shows or hides the main application toolbar.</action></para></listitem>
+        </varlistentry>
+        <varlistentry id="configure-shortcuts">
+          <term><menuchoice>
+            <guimenu>Settings</guimenu>
+            <guimenuitem>Configure Shortcuts...</guimenuitem>
+          </menuchoice></term>
+          <listitem><para><action>Displays the standard &kde; Configure Shortcuts dialog.</action> This allows one to redefine any or all of &killbots;'s keyboard shortcuts, including the movement controls.</para></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term><menuchoice>
+            <guimenu>Settings</guimenu>
+            <guimenuitem>Configure Toolbars...</guimenuitem>
+          </menuchoice></term>
+          <listitem><para><action>Displays the standard &kde; Configure Toolbars dialog.</action> This allows one to choose which actions are shown on the &killbots; toolbar.</para></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term><menuchoice>
+            <guimenu>Settings</guimenu>
+            <guimenuitem>Configure &killbots;...</guimenuitem>
+          </menuchoice></term>
+          <listitem><para><action>Displays the &killbots; configuration dialog</action>, where one can adjust gameplay parameters, choose a different set of game rules, and change the game theme.</para></listitem>
+        </varlistentry>
+      </variablelist>
+    </sect2>
+
+    <sect2 id="help-menu">
+      <title>The <guimenu>Help</guimenu> Menu</title>
+      &help.menu.documentation;
+    </sect2>
+  </sect1>
+</chapter>
+
+
+<!--<chapter id="developers">
+  <title>Developer's Guide to &killbots;</title>
+
+  <para>Programming &killbots; plugins is a joy to behold. Just read through the next 66 pages of API's to learn how!</para>
+</chapter>-->
+
+<!--<chapter id="faq">
+  <title>Questions and Answers</title>
+
+  &reporting.bugs;
+  &updating.documentation;
+
+  <qandaset id="faqlist">
+    <qandaentry>
+      <question><para>My Mouse doesn't work. How do I quit &killbots;?</para></question>
+      <answer><para>You silly goose! Check out the <link linkend="commands">Commands Section</link> for the answer.</para></answer>
+    </qandaentry>
+    <qandaentry>
+      <question><para>Why can't I twiddle my documents?</para></question>
+      <answer><para>You can only twiddle your documents if you have the foobar.lib installed.</para></answer>
+    </qandaentry>
+  </qandaset>
+</chapter>-->
+
+<chapter id="credits">
+  <title>Credits and License</title>
+
+  <para>&killbots;</para>
+  <para>Program copyright 2007&ndash;2008 Parker Coates <email>parker.coates@gmail.com</email></para>
+  <para>Documentation Copyright &copy; 2008 Parker Coates <email>parker.coates@gmail.com</email></para>
+
+  <!-- TRANS:CREDIT_FOR_TRANSLATORS -->
+
+  &underFDL;
+  &underGPL;
+</chapter>
+
+<appendix id="installation">
+  <title>Installation</title>
+
+  <sect1 id="getting-killbots">
+    <title>How to obtain &killbots;</title>
+    &install.intro.documentation;
+  </sect1>
+
+  <sect1 id="compilation">
+    <title>Compilation and Installation</title>
+    &install.compile.documentation;
+  </sect1>
+
+</appendix>
+
+&documentation.index;
+
+</book>
+
+<!--
+Local Variables:
+mode: xml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+vim:tabstop=2:shiftwidth=2:expandtab
+kate: space-indent on; indent-width 2; tab-width 2; indent-mode none;
+-->
