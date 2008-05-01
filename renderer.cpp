@@ -20,35 +20,36 @@
 
 #include "renderer.h"
 
-#include "killbots.h"
 #include "settings.h"
 
 #include <KDE/KGameTheme>
+#include <KDE/KGlobal>
+#include <KDE/KPixmapCache>
+#include <KDE/KSvgRenderer>
 
 #include <QtCore/QFileInfo>
 #include <QtCore/QHash>
+#include <QtGui/QColor>
 #include <QtGui/QPainter>
-#include <QtGui/QPixmap>
 
 
-Killbots::Renderer * Killbots::Renderer::self()
+namespace Killbots
 {
-	static Renderer instance;
-	return &instance;
+	class RendererPrivate
+	{
+	  public:
+		RendererPrivate() : m_svgRenderer(), m_pixmapCache("killbots-cache"), m_hasBeenLoaded( false ) {};
+
+		KSvgRenderer m_svgRenderer;
+		KPixmapCache m_pixmapCache;
+		QColor m_textColor;
+		qreal m_aspectRatio;
+		bool m_hasBeenLoaded;
+	};
 }
 
 
-Killbots::Renderer::Renderer()
-  : m_svgRenderer(),
-	m_pixmapCache("killbots-cache"),
-	m_hasBeenLoaded( false )
-{
-}
-
-
-Killbots::Renderer::~Renderer()
-{
-}
+K_GLOBAL_STATIC( Killbots::RendererPrivate, rp );
 
 
 bool Killbots::Renderer::loadTheme( const QString & fileName )
@@ -58,14 +59,14 @@ bool Killbots::Renderer::loadTheme( const QString & fileName )
 	KGameTheme newTheme;
 	if ( newTheme.load( fileName ) )
 	{
-		QDateTime cacheTimeStamp = QDateTime::fromTime_t( self()->m_pixmapCache.timestamp() );
+		QDateTime cacheTimeStamp = QDateTime::fromTime_t( rp->m_pixmapCache.timestamp() );
 		QDateTime desktopFileTimeStamp = QFileInfo( newTheme.path() ).lastModified();
 		QDateTime svgFileTimeStamp = QFileInfo( newTheme.graphics() ).lastModified();
 
 		// We check to see if the cache contains a key matching the path to the
 		// new theme file.
 		QPixmap nullPixmap;
-		bool isNotInCache = ! self()->m_pixmapCache.find( newTheme.path(), nullPixmap );
+		bool isNotInCache = ! rp->m_pixmapCache.find( newTheme.path(), nullPixmap );
 		if ( isNotInCache )
 			kDebug() << "Theme is not already in cache.";
 
@@ -92,33 +93,33 @@ bool Killbots::Renderer::loadTheme( const QString & fileName )
 
 		// Only bother actually loading the SVG if no SVG has been loaded
 		// yet or if the cache must be discarded.
-		if ( ! self()->m_hasBeenLoaded || discardCache )
+		if ( ! rp->m_hasBeenLoaded || discardCache )
 		{
 			if ( discardCache )
 			{
 				kDebug() << "Discarding cache.";
-				self()->m_pixmapCache.discard();
-				self()->m_pixmapCache.setTimestamp( QDateTime::currentDateTime().toTime_t() );
+				rp->m_pixmapCache.discard();
+				rp->m_pixmapCache.setTimestamp( QDateTime::currentDateTime().toTime_t() );
 
 				// We store a null pixmap in the cache with the new theme's
 				// file path as the key. This allows us to keep track of the
 				// theme that is stored in the disk cache between runs.
-				self()->m_pixmapCache.insert( newTheme.path(), nullPixmap );
+				rp->m_pixmapCache.insert( newTheme.path(), nullPixmap );
 			}
 
-			result = self()->m_hasBeenLoaded = self()->m_svgRenderer.load( newTheme.graphics() );
+			result = rp->m_hasBeenLoaded = rp->m_svgRenderer.load( newTheme.graphics() );
 
 			// Get the theme's aspect ratio from the .desktop file, defaulting to 1.0.
-			// self()->m_aspectRatio = newTheme.themeProperty( "CellAspectRatio" ).toDouble();
-			QRectF tileRect = self()->m_svgRenderer.boundsOnElement( "tile" );
-			self()->m_aspectRatio = tileRect.width() / tileRect.height();
-			if ( self()->m_aspectRatio <= 0.3333 || self()->m_aspectRatio >= 3.0 )
-				self()->m_aspectRatio = 1.0;
+			// rp->m_aspectRatio = newTheme.themeProperty( "CellAspectRatio" ).toDouble();
+			QRectF tileRect = rp->m_svgRenderer.boundsOnElement( "tile" );
+			rp->m_aspectRatio = tileRect.width() / tileRect.height();
+			if ( rp->m_aspectRatio <= 0.3333 || rp->m_aspectRatio >= 3.0 )
+				rp->m_aspectRatio = 1.0;
 
 			// Get the theme's text color from the .desktop file, defaulting to black.
-			self()->m_textColor = QColor( newTheme.themeProperty( "TextColor" ) );
-			if ( !self()->m_textColor.isValid() )
-				self()->m_textColor = Qt::black;
+			rp->m_textColor = QColor( newTheme.themeProperty( "TextColor" ) );
+			if ( !rp->m_textColor.isValid() )
+				rp->m_textColor = Qt::black;
 
 
 		}
@@ -140,7 +141,7 @@ QPixmap Killbots::Renderer::renderElement( const QString & elementId, QSize size
 
 	QString key = elementId + QString::number( size.width() ) + 'x' + QString::number( size.height() );
 
-	if ( ! self()->m_pixmapCache.find( key, result ) )
+	if ( ! rp->m_pixmapCache.find( key, result ) )
 	{
 		kDebug() << "Rendering \"" << elementId << "\" at " << size << " pixels.";
 
@@ -148,10 +149,10 @@ QPixmap Killbots::Renderer::renderElement( const QString & elementId, QSize size
 		result.fill( Qt::transparent );
 
 		QPainter p( &result );
-		self()->m_svgRenderer.render( &p, elementId );
+		rp->m_svgRenderer.render( &p, elementId );
 		p.end();
 
-		self()->m_pixmapCache.insert( key, result );
+		rp->m_pixmapCache.insert( key, result );
 	}
 
 	return result;
@@ -164,7 +165,7 @@ QPixmap Killbots::Renderer::renderGrid( int columns, int rows, QSize cellSize )
 
 	QString key = "grid" + QString::number(columns) + 'x' + QString::number(rows) + 'x' + QString::number(cellSize.width()) + 'x' + QString::number(cellSize.height());
 
-	if ( !self()->m_pixmapCache.find( key, result ) )
+	if ( !rp->m_pixmapCache.find( key, result ) )
 	{
 		kDebug() << "Rendering \"grid\" at " << rows << " rows and " << columns << " columns.";
 
@@ -172,10 +173,10 @@ QPixmap Killbots::Renderer::renderGrid( int columns, int rows, QSize cellSize )
 		result.fill( Qt::transparent );
 
 		QPainter p( &result );
-		p.drawTiledPixmap( result.rect(), self()->renderElement("tile", cellSize ) );
+		p.drawTiledPixmap( result.rect(), renderElement("tile", cellSize ) );
 		p.end();
 
-		self()->m_pixmapCache.insert( key, result );
+		rp->m_pixmapCache.insert( key, result );
 	}
 	return result;
 }
@@ -187,7 +188,7 @@ QPixmap Killbots::Renderer::renderBackground( QSize size )
 
 	QString key = "background" + QString::number( size.width() ) + 'x' + QString::number( size.height() );
 
-	if ( ! self()->m_pixmapCache.find( key, result ) )
+	if ( ! rp->m_pixmapCache.find( key, result ) )
 	{
 		kDebug() << "Rendering \"background\" at " << size << " pixels.";
 
@@ -195,10 +196,10 @@ QPixmap Killbots::Renderer::renderBackground( QSize size )
 		result.fill( Qt::transparent );
 
 		QPainter p( &result );
-		self()->m_svgRenderer.render( &p, "background" );
+		rp->m_svgRenderer.render( &p, "background" );
 		p.end();
 
-		self()->m_pixmapCache.insert( key, result );
+		rp->m_pixmapCache.insert( key, result );
 	}
 
 	return result;
@@ -207,11 +208,11 @@ QPixmap Killbots::Renderer::renderBackground( QSize size )
 
 QColor Killbots::Renderer::textColor()
 {
-	return self()->m_textColor;
+	return rp->m_textColor;
 }
 
 
 qreal Killbots::Renderer::aspectRatio()
 {
-	return self()->m_aspectRatio;
+	return rp->m_aspectRatio;
 }

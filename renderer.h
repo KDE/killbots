@@ -21,39 +21,25 @@
 #ifndef KILLBOTS_RENDERER_H
 #define KILLBOTS_RENDERER_H
 
-#include <KDE/KPixmapCache>
-#include <KDE/KSvgRenderer>
-
-#include  <QtGui/QColor>
+class QColor;
+class QSize;
+class QString;
 class QPixmap;
+class QString;
+#include <Qt>
 
 namespace Killbots
 {
-	class Renderer
+	namespace Renderer
 	{
-	  public:
-		static bool loadTheme( const QString & filename );
-		static bool loadDefaultTheme();
-		static QPixmap renderElement( const QString & elementId, QSize size );
-		static QPixmap renderGrid( int rows, int columns, QSize cellSize );
-		static QPixmap renderBackground( QSize size );
-		static QColor textColor();
-		static qreal aspectRatio();
-
-	  private:
-		static Renderer * self();
-		Renderer();
-		Renderer( const Renderer & );
-		Renderer & operator=( const Renderer & );
-		~Renderer();
-
-		KSvgRenderer m_svgRenderer;
-		KPixmapCache m_pixmapCache;
-		QColor m_textColor;
-		qreal m_aspectRatio;
-		bool m_hasBeenLoaded;
+		bool loadTheme( const QString & filename );
+		bool loadDefaultTheme();
+		QPixmap renderElement( const QString & elementId, QSize size );
+		QPixmap renderGrid( int rows, int columns, QSize cellSize );
+		QPixmap renderBackground( QSize size );
+		QColor textColor();
+		qreal aspectRatio();
 	};
-
 }
 
 #endif
