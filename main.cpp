@@ -40,6 +40,8 @@ int main( int argc, char ** argv )
 
 	KApplication app;
 
+	KGlobal::locale()->insertCatalog("libkdegames");
+
 	KGlobal::dirs()->addResourceType("cursor", "data", about.appName() + "/cursors/");
 	KGlobal::dirs()->addResourceType("ruleset", "data", about.appName() + "/rulesets/");
 
