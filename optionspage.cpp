@@ -25,6 +25,7 @@
 #include <KDE/KLocalizedString>
 
 #include <QtGui/QCheckBox>
+#include <QtGui/QFormLayout>
 #include <QtGui/QGridLayout>
 #include <QtGui/QLabel>
 
@@ -55,36 +56,11 @@ OptionsPage::OptionsPage( QWidget *parent )
 	kcfg_AnimationSpeed = new QSlider( Qt::Horizontal, this );
 	kcfg_AnimationSpeed->setObjectName( "kcfg_AnimationSpeed" );
 
-	QLabel * label;
-
-	QGridLayout * topLayout = new QGridLayout( this );
-	topLayout->setMargin( 0 );
-	topLayout->setSpacing( KDialog::spacingHint() );
-
-	topLayout->addWidget( kcfg_AllowUnsafeMoves, 0, 0, 1, 2 );
-
-	label = new QLabel( i18n("Middle-click action: "), this );
-	label->setBuddy( kcfg_MiddleClickAction );
-	label->setAlignment( Qt::AlignRight );
-	topLayout->addWidget( label, 1, 0 );
-	topLayout->addWidget( kcfg_MiddleClickAction, 1, 1 );
-
-	label = new QLabel( i18n("Right-click action: "), this );
-	label->setBuddy( kcfg_RightClickAction );
-	label->setAlignment( Qt::AlignRight );
-	topLayout->addWidget( label, 2, 0 );
-	topLayout->addWidget( kcfg_RightClickAction, 2, 1 );
-
-	label = new QLabel( i18n("Animation speed: "), this );
-	label->setBuddy( kcfg_AnimationSpeed );
-	label->setAlignment( Qt::AlignRight );
-	topLayout->addWidget( label, 4, 0 );
-
 	QGridLayout * speedLayout = new QGridLayout();
 	speedLayout->setMargin( 0 );
 	speedLayout->setSpacing( 0 );
 	speedLayout->addWidget( kcfg_AnimationSpeed, 0, 0, 1, 3 );
-	label = new QLabel( i18n("Slow"), this );
+	QLabel * label = new QLabel( i18n("Slow"), this );
 	label->setAlignment( Qt::AlignLeft );
 	speedLayout->addWidget( label, 1, 0 );
 	label = new QLabel( i18n("Fast"), this );
@@ -93,10 +69,16 @@ OptionsPage::OptionsPage( QWidget *parent )
 	label = new QLabel( i18n("Instant"), this );
 	label->setAlignment( Qt::AlignRight );
 	speedLayout->addWidget( label, 1, 2 );
-	topLayout->addLayout( speedLayout, 4, 1 );
 
-	topLayout->setRowStretch( 5, 10 );
-	topLayout->setColumnStretch( 1, 10 );
+
+	QFormLayout * formLayout = new QFormLayout( this );
+	formLayout->setLabelAlignment( Qt::AlignRight );
+	formLayout->setMargin( 0 );
+	formLayout->setSpacing( KDialog::spacingHint() );
+	formLayout->addRow( i18n("Middle-click action: "), kcfg_MiddleClickAction );
+	formLayout->addRow( i18n("Right-click action: "), kcfg_RightClickAction );
+	formLayout->addRow( i18n("Animation speed: "), speedLayout );
+	formLayout->addRow( 0, kcfg_AllowUnsafeMoves );
 }
 
 OptionsPage::~OptionsPage()
