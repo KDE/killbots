@@ -2,7 +2,7 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 <svg
    xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://web.resource.org/cc/"
+   xmlns:cc="http://creativecommons.org/ns#"
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
@@ -12,13 +12,21 @@
    height="18.999998"
    id="svg2417"
    sodipodi:version="0.32"
-   inkscape:version="0.45.1"
+   inkscape:version="0.46"
    version="1.0"
    sodipodi:docname="classic.svg"
    sodipodi:docbase="/home/parker/kde4/source/killbots/themes"
    inkscape:output_extension="org.inkscape.output.svg.inkscape">
   <defs
-     id="defs2419" />
+     id="defs2419">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 9.499999 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="127 : 9.499999 : 1"
+       inkscape:persp3d-origin="63.5 : 6.3333327 : 1"
+       id="perspective30" />
+  </defs>
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
@@ -29,16 +37,16 @@
      objecttolerance="10"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="21.2"
-     inkscape:cx="103.98081"
-     inkscape:cy="11.893049"
+     inkscape:zoom="5.3"
+     inkscape:cx="50.499574"
+     inkscape:cy="-1.4858851"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      width="100px"
      height="25px"
      showgrid="true"
      inkscape:grid-points="true"
-     inkscape:window-width="1146"
+     inkscape:window-width="1144"
      inkscape:window-height="781"
      inkscape:window-x="0"
      inkscape:window-y="0" />
@@ -139,9 +147,62 @@
        height="14"
        x="80.5"
        y="2.5" />
-	<flowRoot id="optimizationWarning" style="font-size:100px;fill:#ff00ff;font-family:Sans Serif">
-		<flowRegion><rect width="1500" height="1000" x="0" y="0" /></flowRegion>
-		<flowPara>This file has been stripped down and compressed to optimize filesize and loading time. If you wish to edit this file, we strongly recommend getting the original with full meta data from http://websvn.kde.org.</flowPara>
-	</flowRoot>
-  </g>
+    <flowRoot
+       id="optimizationWarning"
+       style="font-size:100px;fill:#ff00ff;font-family:Sans Serif">
+      <flowRegion
+         id="flowRegion24">
+        <rect
+           width="1500"
+           height="1000"
+           x="0"
+           y="0"
+           id="rect26" />
+      </flowRegion>
+      <flowPara
+         id="flowPara28">This file has been stripped down and compressed to optimize filesize and loading time. If you wish to edit this file, we strongly recommend getting the original with full meta data from http://websvn.kde.org.</flowPara>
+    </flowRoot>
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot2403"
+       style="fill:black;stroke:none;stroke-opacity:1;stroke-width:1px;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:1;font-family:Bitstream Vera Sans;font-style:normal;font-weight:normal;font-size:40px;text-anchor:start;text-align:start;writing-mode:lr;line-height:125%"><flowRegion
+         id="flowRegion2405"><rect
+           id="rect2407"
+           width="63.506195"
+           height="50.698223"
+           x="61.905197"
+           y="-60.516159" /></flowRegion><flowPara
+         id="flowPara2409"></flowPara></flowRoot>    <flowRoot
+       xml:space="preserve"
+       id="flowRoot2411"
+       style="fill:black;stroke:none;stroke-opacity:1;stroke-width:1px;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:1;font-family:Bitstream Vera Sans;font-style:normal;font-weight:normal;font-size:40px;text-anchor:start;text-align:start;writing-mode:lr;line-height:125%"><flowRegion
+         id="flowRegion2413"><rect
+           id="rect2415"
+           width="30.685766"
+           height="40.024914"
+           x="71.511177"
+           y="-83.997444" /></flowRegion><flowPara
+         id="flowPara2417"></flowPara></flowRoot>    <flowRoot
+       xml:space="preserve"
+       id="flowRoot2419"
+       style="font-size:40px;font-style:normal;font-weight:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"><flowRegion
+         id="flowRegion2421"><rect
+           id="rect2423"
+           width="82.718155"
+           height="63.239361"
+           x="124.07722"
+           y="-83.997444" /></flowRegion><flowPara
+         id="flowPara2425">asdf</flowPara></flowRoot>    <flowRoot
+       xml:space="preserve"
+       id="text"
+       style="font-size:7px;font-style:normal;font-weight:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       transform="translate(112.03809,112.88238)"><flowRegion
+         id="flowRegion2429"><rect
+           id="rect2431"
+           width="270.83524"
+           height="77.114662"
+           x="-28.551104"
+           y="-107.74556"
+           style="fill:#ffffff;fill-opacity:1" /></flowRegion><flowPara
+         id="flowPara2433">Text colour</flowPara></flowRoot>  </g>
 </svg>

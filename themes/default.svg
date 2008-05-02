@@ -2,7 +2,7 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 <svg
    xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://web.resource.org/cc/"
+   xmlns:cc="http://creativecommons.org/ns#"
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
@@ -13,13 +13,20 @@
    height="1465.3409"
    id="svg2"
    sodipodi:version="0.32"
-   inkscape:version="0.45.1"
+   inkscape:version="0.46"
    sodipodi:docbase="/home/parker/kde4/source/playground/games/killbots/themes"
    sodipodi:docname="default.svg"
    inkscape:output_extension="org.inkscape.output.svg.inkscape"
    version="1.0">
   <defs
      id="defs4">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 732.67047 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="1680.7988 : 732.67047 : 1"
+       inkscape:persp3d-origin="840.39941 : 488.44698 : 1"
+       id="perspective241" />
     <linearGradient
        id="linearGradient4573">
       <stop
@@ -748,17 +755,18 @@
      objecttolerance="10"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.084830328"
-     inkscape:cx="771.64924"
-     inkscape:cy="-43.794081"
+     inkscape:zoom="0.2399364"
+     inkscape:cx="1428.2784"
+     inkscape:cy="550.52726"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
-     inkscape:window-width="1146"
+     inkscape:window-width="1144"
      inkscape:window-height="781"
      inkscape:window-x="0"
      inkscape:window-y="0"
      width="1052.3622px"
-     height="744.09449px" />
+     height="744.09449px"
+     showgrid="false" />
   <metadata
      id="metadata7">
     <rdf:RDF>
@@ -1432,5 +1440,17 @@
        height="257.4231"
        x="1860.1685"
        y="75.773849" />
-  </g>
+    <flowRoot
+       xml:space="preserve"
+       id="text"
+       style="font-size:120px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans Bold"
+       transform="translate(42.945984,53.799326)"><flowRegion
+         id="flowRegion2616"><rect
+           id="rect2618"
+           width="776.55011"
+           height="187.13826"
+           x="1902.3268"
+           y="75.802521"
+           style="font-size:120px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans Bold" /></flowRegion><flowPara
+         id="flowPara2620">Text colour</flowPara></flowRoot>  </g>
 </svg>

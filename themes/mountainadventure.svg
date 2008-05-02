@@ -2,7 +2,7 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 <svg
    xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://web.resource.org/cc/"
+   xmlns:cc="http://creativecommons.org/ns#"
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
@@ -13,7 +13,7 @@
    height="1052.3622"
    id="svg2190"
    sodipodi:version="0.32"
-   inkscape:version="0.45.1"
+   inkscape:version="0.46"
    sodipodi:docbase="/home/parker/kde4/source/killbots/themes"
    sodipodi:docname="mountainadventure.svg"
    version="1.0"
@@ -23,6 +23,13 @@
    inkscape:output_extension="org.inkscape.output.svg.inkscape">
   <defs
      id="defs2192">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="1488.189 : 526.18109 : 1"
+       inkscape:persp3d-origin="744.09448 : 350.78739 : 1"
+       id="perspective264" />
     <linearGradient
        id="linearGradient3386">
       <stop
@@ -1316,14 +1323,14 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.5"
-     inkscape:cx="781.26915"
-     inkscape:cy="502.08489"
+     inkscape:zoom="0.32"
+     inkscape:cx="813.37984"
+     inkscape:cy="540.98405"
      inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:grid-bbox="true"
      inkscape:document-units="px"
-     inkscape:window-width="1146"
+     inkscape:window-width="1144"
      inkscape:window-height="781"
      inkscape:window-x="0"
      inkscape:window-y="0"
@@ -1864,5 +1871,38 @@
        y="15.643432"
        ry="10.546875"
        rx="10.546875" />
-  </g>
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot2661"
+       style="font-size:40px;font-style:normal;font-weight:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"><flowRegion
+         id="flowRegion2663"><rect
+           id="rect2665"
+           width="83.085045"
+           height="72.832001"
+           x="386.78741"
+           y="-41.885563" /></flowRegion><flowPara
+         id="flowPara2667">asdf</flowPara></flowRoot>    <flowRoot
+       xml:space="preserve"
+       id="flowRoot2669"
+       style="fill:black;stroke:none;stroke-opacity:1;stroke-width:1px;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:1;font-family:Bitstream Vera Sans;font-style:normal;font-weight:normal;font-size:40px;text-anchor:start;text-align:start;writing-mode:lr;line-height:125%"><flowRegion
+         id="flowRegion2671"><rect
+           id="rect2673"
+           width="68.235802"
+           height="40.305088"
+           x="420.02142"
+           y="14.329427"
+           style="text-anchor:start;text-align:start;writing-mode:lr;line-height:125%" /></flowRegion><flowPara
+         id="flowPara2677">Text</flowPara></flowRoot>    <flowRoot
+       xml:space="preserve"
+       id="text"
+       style="font-size:32px;font-style:normal;font-weight:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#004500;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       transform="translate(-1156.1255,63.604854)"><flowRegion
+         id="flowRegion2689"><rect
+           id="rect2691"
+           width="862.5"
+           height="778.125"
+           x="1568.75"
+           y="-41.387821"
+           style="text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#004500;fill-opacity:1" /></flowRegion><flowPara
+         id="flowPara2697">Text colour</flowPara></flowRoot>  </g>
 </svg>

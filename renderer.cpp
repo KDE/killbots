@@ -20,13 +20,14 @@
 
 #include "renderer.h"
 
-#include "settings.h"
-
+#include <KDE/KDebug>
+#include <KDE/KGameSvgDocument>
 #include <KDE/KGameTheme>
 #include <KDE/KGlobal>
 #include <KDE/KPixmapCache>
 #include <KDE/KSvgRenderer>
 
+#include <QtCore/QDateTime>
 #include <QtCore/QFileInfo>
 #include <QtCore/QHash>
 #include <QtGui/QColor>
@@ -110,18 +111,22 @@ bool Killbots::Renderer::loadTheme( const QString & fileName )
 			result = rp->m_hasBeenLoaded = rp->m_svgRenderer.load( newTheme.graphics() );
 
 			// Get the theme's aspect ratio from the .desktop file, defaulting to 1.0.
-			// rp->m_aspectRatio = newTheme.themeProperty( "CellAspectRatio" ).toDouble();
 			QRectF tileRect = rp->m_svgRenderer.boundsOnElement( "tile" );
 			rp->m_aspectRatio = tileRect.width() / tileRect.height();
 			if ( rp->m_aspectRatio <= 0.3333 || rp->m_aspectRatio >= 3.0 )
 				rp->m_aspectRatio = 1.0;
 
-			// Get the theme's text color from the .desktop file, defaulting to black.
-			rp->m_textColor = QColor( newTheme.themeProperty( "TextColor" ) );
+			// Get the theme's text color. Use the fill color of the "text" SVG element if exists.
+			// Otherwise check the .desktop file. If neither value is valid, default to black.
+			KGameSvgDocument svg;
+			svg.load( newTheme.graphics() );
+			if ( ! svg.elementById( "text" ).isNull() )
+				rp->m_textColor = QColor( svg.styleProperty( "fill" ) );
+			else
+				rp->m_textColor = QColor( newTheme.themeProperty( "TextColor" ) );
+
 			if ( !rp->m_textColor.isValid() )
 				rp->m_textColor = Qt::black;
-
-
 		}
 	}
 
