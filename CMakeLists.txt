@@ -1,6 +1,5 @@
 PROJECT( killbots )
 
-ADD_SUBDIRECTORY( cursors )
 ADD_SUBDIRECTORY( rulesets )
 ADD_SUBDIRECTORY( themes )
 

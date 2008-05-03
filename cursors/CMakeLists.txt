@@ -1,1 +1,0 @@
-INSTALL( FILES cursors.png DESTINATION ${DATA_INSTALL_DIR}/killbots/cursors )

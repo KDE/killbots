@@ -2,8 +2,6 @@ SET( theme_files
 	classic.desktop
 	classic.png
 	classic.svg
-	colorcursors.png
-	cursors.png
 	default.desktop
 	default.png
 	default.svg

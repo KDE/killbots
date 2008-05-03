@@ -125,27 +125,21 @@ bool Killbots::Render::loadTheme( const QString & fileName )
 			if ( rp->m_aspectRatio <= 0.3333 || rp->m_aspectRatio >= 3.0 )
 				rp->m_aspectRatio = 1.0;
 
-			// Get the theme's text color. Use the fill color of the "text" SVG element if exists.
-			// Otherwise check the .desktop file. If neither value is valid, default to black.
+			// Get the theme's text color. Use the fill color of the "text" SVG element.
+			// If it exists doesn't exist or the fill isn't a valid color, default to black.
 			KGameSvgDocument svg;
 			svg.load( newTheme.graphics() );
 			if ( ! svg.elementById( "text" ).isNull() )
 				rp->m_textColor = QColor( svg.styleProperty( "fill" ) );
-			else
-				rp->m_textColor = QColor( newTheme.themeProperty( "TextColor" ) );
-
-			if ( !rp->m_textColor.isValid() )
+			if ( ! rp->m_textColor.isValid() )
 				rp->m_textColor = Qt::black;
 
-			// Extract cursors from the PNG file.
-			QString cursorFile = QFileInfo( newTheme.graphics() ).path() + '/' + newTheme.themeProperty( "X-Cursors" );
-			if ( QFileInfo( cursorFile ).exists() )
+			// Generate cursors.
+			for ( int i = Right; i <= Hold; i++ )
 			{
-				QPixmap cursors( cursorFile );
-				int size = cursors.width();
-				QRect rect( 0, 0, size, size );
-				for ( int i = Right; i <= Hold; i++ )
-					rp->m_cursors.insert( i, cursors.copy( rect.translated( 0, i * size ) ) );
+				QPixmap pixmap = renderElement( "cursor_" + QString::number( i ), QSize( 42, 42 ) );
+				if ( ! pixmap.isNull() )
+					rp->m_cursors.insert( i, QCursor( pixmap ) );
 			}
 		}
 	}

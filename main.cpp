@@ -42,7 +42,6 @@ int main( int argc, char ** argv )
 
 	KGlobal::locale()->insertCatalog("libkdegames");
 
-	KGlobal::dirs()->addResourceType("cursor", "data", about.appName() + "/cursors/");
 	KGlobal::dirs()->addResourceType("ruleset", "data", about.appName() + "/rulesets/");
 
 	Killbots::MainWindow * mainWindow = new Killbots::MainWindow;
