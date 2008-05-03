@@ -27,7 +27,6 @@ class KGamePopupItem;
 
 #include <QtCore/QHash>
 #include <QtCore/QTimeLine>
-#include <QtGui/QCursor>
 #include <QtGui/QGraphicsScene>
 
 
@@ -99,8 +98,6 @@ namespace Killbots
 		GameStatusDisplayItem * m_robotCountDisplay;
 		GameStatusDisplayItem * m_energyDisplay;
 		QSize m_displaySize;
-
-		QHash<int,QCursor> m_cursors;
 	};
 }
 

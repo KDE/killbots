@@ -31,6 +31,7 @@
 #include <QtCore/QFileInfo>
 #include <QtCore/QHash>
 #include <QtGui/QColor>
+#include <QtGui/QCursor>
 #include <QtGui/QPainter>
 
 
@@ -39,10 +40,16 @@ namespace Killbots
 	class RenderPrivate
 	{
 	  public:
-		RenderPrivate() : m_svgRenderer(), m_pixmapCache("killbots-cache"), m_hasBeenLoaded( false ) {};
+		RenderPrivate()
+		  : m_svgRenderer(),
+			m_pixmapCache("killbots-cache"),
+			m_cursors(),
+			m_hasBeenLoaded( false )
+		{};
 
 		KSvgRenderer m_svgRenderer;
 		KPixmapCache m_pixmapCache;
+		QHash<int,QCursor> m_cursors;
 		QColor m_textColor;
 		qreal m_aspectRatio;
 		bool m_hasBeenLoaded;
@@ -129,6 +136,17 @@ bool Killbots::Render::loadTheme( const QString & fileName )
 
 			if ( !rp->m_textColor.isValid() )
 				rp->m_textColor = Qt::black;
+
+			// Extract cursors from the PNG file.
+			QString cursorFile = QFileInfo( newTheme.graphics() ).path() + '/' + newTheme.themeProperty( "X-Cursors" );
+			if ( QFileInfo( cursorFile ).exists() )
+			{
+				QPixmap cursors( cursorFile );
+				int size = cursors.width();
+				QRect rect( 0, 0, size, size );
+				for ( int i = Right; i <= Hold; i++ )
+					rp->m_cursors.insert( i, cursors.copy( rect.translated( 0, i * size ) ) );
+			}
 		}
 	}
 
@@ -186,6 +204,12 @@ QPixmap Killbots::Render::renderGrid( int columns, int rows, QSize cellSize )
 		rp->m_pixmapCache.insert( key, result );
 	}
 	return result;
+}
+
+
+QCursor Killbots::Render::cursorFromAction( Killbots::HeroAction direction )
+{
+	return rp->m_cursors.value( direction, Qt::ArrowCursor );
 }
 
 

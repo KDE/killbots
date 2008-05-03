@@ -49,8 +49,7 @@ Killbots::Scene::Scene( QObject * parent )
 	m_roundDisplay( new GameStatusDisplayItem() ),
 	m_scoreDisplay( new GameStatusDisplayItem() ),
 	m_robotCountDisplay( new GameStatusDisplayItem() ),
-	m_energyDisplay( new GameStatusDisplayItem() ),
-	m_cursors()
+	m_energyDisplay( new GameStatusDisplayItem() )
 {
 	setItemIndexMethod( QGraphicsScene::NoIndex );
 
@@ -78,16 +77,6 @@ Killbots::Scene::Scene( QObject * parent )
 	m_energyDisplay->setText( i18n("Energy:") );
 	m_energyDisplay->setDigits( 2 );
 	addItem( m_energyDisplay );
-
-	// Extract cursors from the PNG file.
-	QPixmap cursors( KStandardDirs::locate( "cursor", "cursors.png" ) );
-	int size = cursors.width();
-	QRect rect( 0, 0, size, size );
-	for ( int i = Right; i <= Hold; i++ )
-	{
-		m_cursors[ i ] = cursors.copy( rect );
-		rect.translate( 0, size );
-	}
 }
 
 
@@ -514,7 +503,6 @@ Killbots::HeroAction Killbots::Scene::getMouseDirection( QPointF cursorPosition 
 	{
 		if ( m_hero->sceneBoundingRect().contains( cursorPosition ) )
 		{
-			views().first()->setCursor( m_cursors.value( Hold ) );
 			result = Hold;
 		}
 		else
@@ -526,9 +514,10 @@ Killbots::HeroAction Killbots::Scene::getMouseDirection( QPointF cursorPosition 
 			if ( direction < 0 )
 				direction += 8;
 
-			views().first()->setCursor( m_cursors.value( direction ) );
 			result = static_cast<HeroAction>( direction );
 		}
+
+		views().first()->setCursor( Render::cursorFromAction( result ) );
 	}
 	else
 	{
