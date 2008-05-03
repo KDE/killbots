@@ -20,7 +20,7 @@
 
 #include "gamestatusdisplayitem.h"
 
-#include "renderer.h"
+#include "render.h"
 
 #include <QtGui/QFontMetrics>
 #include <QtGui/QPainter>

@@ -22,7 +22,7 @@
 
 #include "gamestatusdisplayitem.h"
 #include "killbots.h"
-#include "renderer.h"
+#include "render.h"
 #include "ruleset.h"
 #include "settings.h"
 #include "sprite.h"

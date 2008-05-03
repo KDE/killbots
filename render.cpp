@@ -18,7 +18,7 @@
  *  Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#include "renderer.h"
+#include "render.h"
 
 #include <KDE/KDebug>
 #include <KDE/KGameSvgDocument>

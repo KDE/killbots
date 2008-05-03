@@ -22,7 +22,7 @@
 
 #include "engine.h"
 #include "optionspage.h"
-#include "renderer.h"
+#include "render.h"
 #include "rulesetselector.h"
 #include "scene.h"
 #include "settings.h"

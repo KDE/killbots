@@ -14,7 +14,7 @@ SET( killbots_SRCS
 	mainwindow.cpp
 	main.cpp
 	optionspage.cpp
-	renderer.cpp
+	render.cpp
 	ruleset.cpp
 	rulesetselector.cpp
 	scene.cpp

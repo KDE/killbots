@@ -21,7 +21,7 @@
 #include "sprite.h"
 
 #include "killbots.h"
-#include "renderer.h"
+#include "render.h"
 
 #include <QtGui/QPainter>
 
