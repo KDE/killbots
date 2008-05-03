@@ -21,8 +21,6 @@
 #ifndef KILLBOTS_RENDER_H
 #define KILLBOTS_RENDER_H
 
-#include "killbots.h"
-
 class QColor;
 class QCursor;
 class QSize;
@@ -39,7 +37,7 @@ namespace Killbots
 		bool loadDefaultTheme();
 		QPixmap renderElement( const QString & elementId, QSize size );
 		QPixmap renderGrid( int rows, int columns, QSize cellSize );
-		QCursor cursorFromAction( HeroAction direction );
+		QCursor cursorFromAction( int direction );
 		QColor textColor();
 		qreal aspectRatio();
 	};

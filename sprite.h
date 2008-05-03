@@ -21,12 +21,19 @@
 #ifndef KILLBOTS_SPRITE_H
 #define KILLBOTS_SPRITE_H
 
-#include "killbots.h"
-
 #include <QtGui/QGraphicsItem>
 
 namespace Killbots
 {
+	enum SpriteType
+	{
+		NoSprite,
+		Hero,
+		Junkheap,
+		Robot,
+		Fastbot
+	};
+
 	class Sprite : public QGraphicsItem
 	{
 	  public:

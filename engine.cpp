@@ -20,7 +20,6 @@
 
 #include "engine.h"
 
-#include "killbots.h"
 #include "scene.h"
 #include "settings.h"
 #include "sprite.h"
@@ -32,6 +31,12 @@ uint qHash( const QPoint & point )
 {
 	return qHash( point.x() * 1000 + point.y() );
 }
+
+
+inline int sign( int num )
+{
+	return (num > 0) ? 1 : (num == 0) ? 0 : -1;
+};
 
 
 Killbots::Engine::Engine( Scene * scene, QObject * parent )

@@ -21,7 +21,6 @@
 #ifndef KILLBOTS_ENGINE_H
 #define KILLBOTS_ENGINE_H
 
-#include "killbots.h"
 #include "ruleset.h"
 
 #include <QtCore/QObject>
@@ -32,6 +31,34 @@ namespace Killbots
 {
 	class Scene;
 	class Sprite;
+
+	enum HeroAction
+	{
+		Right,
+		UpRight,
+		Up,
+		UpLeft,
+		Left,
+		DownLeft,
+		Down,
+		DownRight,
+		Hold,
+
+		Teleport,
+		TeleportSafely,
+		TeleportSafelyIfPossible,
+		WaitOutRound,
+
+		RepeatRight = -( Right + 1 ),
+		RepeatUpRight = -( Right + 1 ),
+		RepeatUp = -( Right + 1 ),
+		RepeatUpLeft = -( Right + 1 ),
+		RepeatLeft = -( Right + 1 ),
+		RepeatDownLeft = -( Right + 1 ),
+		RepeatDown = -( Right + 1 ),
+		RepeatDownRight = -( Right + 1 ),
+		RepeatHold = -( Right + 1 )
+	};
 
 	class Engine : public QObject
 	{

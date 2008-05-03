@@ -135,7 +135,7 @@ bool Killbots::Render::loadTheme( const QString & fileName )
 				rp->m_textColor = Qt::black;
 
 			// Generate cursors.
-			for ( int i = Right; i <= Hold; i++ )
+			for ( int i = 0; i <= 8; i++ )
 			{
 				QPixmap pixmap = renderElement( "cursor_" + QString::number( i ), QSize( 42, 42 ) );
 				if ( ! pixmap.isNull() )
@@ -201,7 +201,7 @@ QPixmap Killbots::Render::renderGrid( int columns, int rows, QSize cellSize )
 }
 
 
-QCursor Killbots::Render::cursorFromAction( Killbots::HeroAction direction )
+QCursor Killbots::Render::cursorFromAction( int direction )
 {
 	return rp->m_cursors.value( direction, Qt::ArrowCursor );
 }

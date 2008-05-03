@@ -21,7 +21,8 @@
 #ifndef KILLBOTS_SCENE_H
 #define KILLBOTS_SCENE_H
 
-#include "killbots.h"
+#include "engine.h"
+#include "sprite.h"
 
 class KGamePopupItem;
 
@@ -34,7 +35,6 @@ namespace Killbots
 {
 	class GameStatusDisplayItem;
 	class Ruleset;
-	class Sprite;
 
 	class Scene : public QGraphicsScene
 	{

@@ -20,7 +20,6 @@
 
 #include "sprite.h"
 
-#include "killbots.h"
 #include "render.h"
 
 #include <QtGui/QPainter>

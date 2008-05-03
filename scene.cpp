@@ -21,7 +21,6 @@
 #include "scene.h"
 
 #include "gamestatusdisplayitem.h"
-#include "killbots.h"
 #include "render.h"
 #include "ruleset.h"
 #include "settings.h"
