@@ -36,10 +36,10 @@
 
 namespace Killbots
 {
-	class RendererPrivate
+	class RenderPrivate
 	{
 	  public:
-		RendererPrivate() : m_svgRenderer(), m_pixmapCache("killbots-cache"), m_hasBeenLoaded( false ) {};
+		RenderPrivate() : m_svgRenderer(), m_pixmapCache("killbots-cache"), m_hasBeenLoaded( false ) {};
 
 		KSvgRenderer m_svgRenderer;
 		KPixmapCache m_pixmapCache;
@@ -47,13 +47,15 @@ namespace Killbots
 		qreal m_aspectRatio;
 		bool m_hasBeenLoaded;
 	};
+
+	namespace Render
+	{
+		K_GLOBAL_STATIC( Killbots::RenderPrivate, rp );
+	}
 }
 
 
-K_GLOBAL_STATIC( Killbots::RendererPrivate, rp );
-
-
-bool Killbots::Renderer::loadTheme( const QString & fileName )
+bool Killbots::Render::loadTheme( const QString & fileName )
 {
 	bool result = false;
 
@@ -134,13 +136,13 @@ bool Killbots::Renderer::loadTheme( const QString & fileName )
 }
 
 
-bool Killbots::Renderer::loadDefaultTheme()
+bool Killbots::Render::loadDefaultTheme()
 {
 	return loadTheme( "themes/default.desktop" );
 }
 
 
-QPixmap Killbots::Renderer::renderElement( const QString & elementId, QSize size )
+QPixmap Killbots::Render::renderElement( const QString & elementId, QSize size )
 {
 	QPixmap result;
 
@@ -164,7 +166,7 @@ QPixmap Killbots::Renderer::renderElement( const QString & elementId, QSize size
 }
 
 
-QPixmap Killbots::Renderer::renderGrid( int columns, int rows, QSize cellSize )
+QPixmap Killbots::Render::renderGrid( int columns, int rows, QSize cellSize )
 {
 	QPixmap result;
 
@@ -187,37 +189,13 @@ QPixmap Killbots::Renderer::renderGrid( int columns, int rows, QSize cellSize )
 }
 
 
-QPixmap Killbots::Renderer::renderBackground( QSize size )
-{
-	QPixmap result;
-
-	QString key = "background" + QString::number( size.width() ) + 'x' + QString::number( size.height() );
-
-	if ( ! rp->m_pixmapCache.find( key, result ) )
-	{
-		kDebug() << "Rendering \"background\" at " << size << " pixels.";
-
-		result = QPixmap( size );
-		result.fill( Qt::transparent );
-
-		QPainter p( &result );
-		rp->m_svgRenderer.render( &p, "background" );
-		p.end();
-
-		rp->m_pixmapCache.insert( key, result );
-	}
-
-	return result;
-}
-
-
-QColor Killbots::Renderer::textColor()
+QColor Killbots::Render::textColor()
 {
 	return rp->m_textColor;
 }
 
 
-qreal Killbots::Renderer::aspectRatio()
+qreal Killbots::Render::aspectRatio()
 {
 	return rp->m_aspectRatio;
 }

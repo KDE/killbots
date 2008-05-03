@@ -106,7 +106,7 @@ void Killbots::Scene::doLayout()
 	const int baseDimension = qMin( size.width(), size.height() ) / 35;
 	const int spacing = qBound( 5, baseDimension, 15 );
 	const int newPixelSize = qBound( QFontInfo( QFont() ).pixelSize(), baseDimension, 25 );
-	const qreal aspectRatio = Renderer::aspectRatio();
+	const qreal aspectRatio = Render::aspectRatio();
 
 	// If the font size has changed, resize the display items.
 	if ( m_roundDisplay->font().pixelSize() != newPixelSize )
@@ -448,8 +448,8 @@ void Killbots::Scene::updateEnergy( int energy )
 
 void Killbots::Scene::drawBackground( QPainter * painter, const QRectF & )
 {
-	painter->drawPixmap( sceneRect().topLeft(), Renderer::renderBackground( QSize( qRound( sceneRect().width() ), qRound( sceneRect().height() ) ) ) );
-	painter->drawPixmap( -m_cellSize.width() / 2, -m_cellSize.height() / 2, Renderer::renderGrid( m_columns, m_rows, m_cellSize ) );
+	painter->drawPixmap( sceneRect().topLeft(), Render::renderElement( "background", QSize( qRound( sceneRect().width() ), qRound( sceneRect().height() ) ) ) );
+	painter->drawPixmap( -m_cellSize.width() / 2, -m_cellSize.height() / 2, Render::renderGrid( m_columns, m_rows, m_cellSize ) );
 }
 
 

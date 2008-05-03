@@ -103,7 +103,7 @@ void Killbots::Sprite::paint( QPainter * p, const QStyleOptionGraphicsItem * opt
 	else if ( m_type == Junkheap )
 		elementName = "junkheap";
 
-	p->drawPixmap( boundingRect().topLeft(), Renderer::renderElement( elementName , m_size ) );
+	p->drawPixmap( boundingRect().topLeft(), Render::renderElement( elementName , m_size ) );
 }
 
 int Killbots::Sprite::type() const

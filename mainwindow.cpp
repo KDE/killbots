@@ -49,8 +49,8 @@ Killbots::MainWindow::MainWindow( QWidget * parent )
 {
 	setAcceptDrops(false);
 
-	if ( !Renderer::loadTheme( Settings::theme() ) )
-		Renderer::loadDefaultTheme();
+	if ( !Render::loadTheme( Settings::theme() ) )
+		Render::loadDefaultTheme();
 
 	m_scene = new Scene( this );
 	m_engine = new Engine( m_scene, this );
@@ -173,7 +173,7 @@ void Killbots::MainWindow::configurePreferences()
 
 void Killbots::MainWindow::onSettingsChanged()
 {
-	if ( Renderer::loadTheme( Settings::theme() ) )
+	if ( Render::loadTheme( Settings::theme() ) )
 	{
 		m_view->resetCachedContent();
 		m_scene->doLayout();

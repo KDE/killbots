@@ -18,8 +18,8 @@
  *  Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#ifndef KILLBOTS_RENDERER_H
-#define KILLBOTS_RENDERER_H
+#ifndef KILLBOTS_RENDER_H
+#define KILLBOTS_RENDER_H
 
 class QColor;
 class QSize;
@@ -30,13 +30,12 @@ class QString;
 
 namespace Killbots
 {
-	namespace Renderer
+	namespace Render
 	{
 		bool loadTheme( const QString & filename );
 		bool loadDefaultTheme();
 		QPixmap renderElement( const QString & elementId, QSize size );
 		QPixmap renderGrid( int rows, int columns, QSize cellSize );
-		QPixmap renderBackground( QSize size );
 		QColor textColor();
 		qreal aspectRatio();
 	};
