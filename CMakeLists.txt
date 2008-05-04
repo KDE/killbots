@@ -21,7 +21,7 @@ SET( killbots_SRCS
 	view.cpp
 )
 
-KDE4_ADD_KCFG_FILES( killbots_SRCS settings.kcfgc )
+KDE4_ADD_KCFG_FILES( killbots_SRCS settings.kcfgc rulesetbase.kcfgc )
 
 KDE4_ADD_EXECUTABLE( killbots ${killbots_SRCS} )
 

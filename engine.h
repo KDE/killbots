@@ -125,7 +125,7 @@ namespace Killbots
 		bool m_waitOutRound;
 		HeroAction m_lastDirection;
 
-		Ruleset m_rules;
+		Ruleset * m_rules;
 		int m_round;
 		int m_score;
 		int m_energy;

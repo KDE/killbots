@@ -21,72 +21,28 @@
 #ifndef KILLBOTS_RULESET_H
 #define KILLBOTS_RULESET_H
 
-#include <QtCore/QString>
+#include <rulesetbase.h>
 
+namespace Killbots {
 
-namespace Killbots
-{
-	class Ruleset
+	class Ruleset : public RulesetBase
 	{
 	  public:
-		explicit Ruleset( const QString & filePath = QString() );
+		static Ruleset * load( const QString & fileName );
+		static Ruleset * loadDefault();
+
 		~Ruleset();
 
-		bool load( const QString & filename );
-		bool loadDefault();
-
-		bool isValid() const;
 		QString filePath() const;
 		QString fileName() const;
-
-		QString name() const;
-		int rows() const;
-		int columns() const;
-		int robotsAtGameStart() const;
-		int robotsAddedEachRound() const;
-		int fastbotsAtGameStart() const;
-		int fastbotsAddedEachRound() const;
-		int energyAtGameStart() const;
-		int energyAddedEachRound() const;
-		int maxEnergyAtGameStart() const;
-		int maxEnergyAddedEachRound() const;
-		int costOfSafeTeleport() const;
-		bool junkheapsArePushable() const;
-		int junkheapsAtGameStart() const;
-		int junkheapsAddedEachRound() const;
-		int pointsPerRobotKilled() const;
-		int pointsPerFastbotKilled() const;
-		int waitKillPointBonus() const;
-		int waitKillEnergyBonus() const;
-		int squashKillPointBonus() const;
-		int squashKillEnergyBonus() const;
+		QString untranslatedName() const;
 
 	  private:
+		Ruleset( const QString & filePath );
 		QString m_filePath;
-		bool m_valid;
-
-		QString m_name;
-		int m_rows;
-		int m_columns;
-		int m_robotsAtGameStart;
-		int m_robotsAddedEachRound;
-		int m_fastbotsAtGameStart;
-		int m_fastbotsAddedEachRound;
-		int m_energyAtGameStart;
-		int m_energyAddedEachRound;
-		int m_maxEnergyAtGameStart;
-		int m_maxEnergyAddedEachRound;
-		int m_costOfSafeTeleport;
-		bool m_junkheapsArePushable;
-		int m_junkheapsAtGameStart;
-		int m_junkheapsAddedEachRound;
-		int m_pointsPerRobotKilled;
-		int m_pointsPerFastbotKilled;
-		int m_waitKillPointBonus;
-		int m_waitKillEnergyBonus;
-		int m_squashKillPointBonus;
-		int m_squashKillEnergyBonus;
+		QString m_untranslatedName;
 	};
+
 }
 
 #endif

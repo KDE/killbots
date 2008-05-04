@@ -28,7 +28,7 @@
 #include <QtGui/QFormLayout>
 #include <QtGui/QGridLayout>
 #include <QtGui/QLabel>
-
+#include <QtGui/QSlider>
 
 OptionsPage::OptionsPage( QWidget *parent )
   : QWidget( parent )
@@ -55,6 +55,8 @@ OptionsPage::OptionsPage( QWidget *parent )
 
 	kcfg_AnimationSpeed = new QSlider( Qt::Horizontal, this );
 	kcfg_AnimationSpeed->setObjectName( "kcfg_AnimationSpeed" );
+	kcfg_AnimationSpeed->setSingleStep( 1 );
+	kcfg_AnimationSpeed->setPageStep( 1 );
 
 	QGridLayout * speedLayout = new QGridLayout();
 	speedLayout->setMargin( 0 );
@@ -69,7 +71,6 @@ OptionsPage::OptionsPage( QWidget *parent )
 	label = new QLabel( i18n("Instant"), this );
 	label->setAlignment( Qt::AlignRight );
 	speedLayout->addWidget( label, 1, 2 );
-
 
 	QFormLayout * formLayout = new QFormLayout( this );
 	formLayout->setLabelAlignment( Qt::AlignRight );

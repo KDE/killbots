@@ -33,7 +33,7 @@ namespace Killbots
 {
 	namespace Render
 	{
-		bool loadTheme( const QString & filename );
+		bool loadTheme( const QString & fileName );
 		bool loadDefaultTheme();
 		QPixmap renderElement( const QString & elementId, QSize size );
 		QPixmap renderGrid( int rows, int columns, QSize cellSize );

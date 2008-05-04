@@ -155,11 +155,11 @@ void Killbots::RulesetSelector::findRulesets()
 	KGlobal::dirs()->findAllResources ( "ruleset", "*.desktop", KStandardDirs::NoDuplicates, fileList );
 	foreach ( QString fileName, fileList )
 	{
-		Ruleset * ruleset = new Ruleset( fileName );
-		if ( ruleset->isValid() )
+		Ruleset * ruleset = Ruleset::load( fileName );
+		if ( ruleset )
 		{
 			QString name = ruleset->name();
-			if ( m_rulesetMap.contains( name ) )
+			while ( m_rulesetMap.contains( name ) )
 				name += '_';
 
 			m_rulesetMap.insert( name, ruleset );
@@ -183,7 +183,7 @@ void Killbots::RulesetSelector::selectionChanged( QString rulesetName )
 
 	kcfg_Ruleset->setText( ruleset->fileName() );
 
-	#warning I don't think these strings are translator friendly.
+	#warning I do not think these strings are translator friendly.
 	m_gridDetails->setText( i18n("%1 rows, %2 columns", ruleset->rows(), ruleset->columns() ) );
 	m_robotDetails->setText( i18n("%1 at start of game, %2 more added each round", ruleset->robotsAtGameStart(), ruleset->robotsAddedEachRound() ) );
 	m_fastbotDetails->setText( i18n("%1 at start of game, %2 more added each round", ruleset->fastbotsAtGameStart(), ruleset->fastbotsAddedEachRound() ) );
