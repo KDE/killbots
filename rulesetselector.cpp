@@ -187,7 +187,7 @@ void Killbots::RulesetSelector::selectionChanged( QString rulesetName )
 	m_gridDetails->setText( i18n("%1 rows, %2 columns", ruleset->rows(), ruleset->columns() ) );
 	m_robotDetails->setText( i18n("%1 at start of game, %2 more added each round", ruleset->robotsAtGameStart(), ruleset->robotsAddedEachRound() ) );
 	m_fastbotDetails->setText( i18n("%1 at start of game, %2 more added each round", ruleset->fastbotsAtGameStart(), ruleset->fastbotsAddedEachRound() ) );
-	m_junkheapDetails->setText( i18n("%1 pushable. %2 added at start of round", ruleset->junkheapsArePushable() ? i18n("Are") : i18n("Are not"), ruleset->junkheapsAtGameStart() ) );
+ 	m_junkheapDetails->setText( i18n("%1 pushable. %2 added at start of round", ruleset->pushableJunkheaps() != Ruleset::None ? i18n("Are") : i18n("Are not"), ruleset->junkheapsAtGameStart() ) );
 	m_scoreDetails->setText( i18n("%1 points for each robot destroyed, %2 for each fastbot", ruleset->pointsPerRobotKilled(), ruleset->pointsPerFastbotKilled() ) );
 	m_energyDetails->setText( i18n("%1 at start of game", ruleset->energyAtGameStart() ) );
 	m_maxEnergyDetails->setText( i18n("%1 at start of game", ruleset->maxEnergyAtGameStart() ) );

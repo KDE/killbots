@@ -42,8 +42,8 @@
 		<entry name="CostOfSafeTeleport" type="Int">
 			<default>1</default>
 		</entry>
-		<entry name="JunkheapsArePushable" type="Enum">
-			<choices name="JunkheapPushAmount">
+		<entry name="PushableJunkheaps" type="Enum">
+			<choices name="JunkheapsThatCanBePushed">
 				<choice name="None"/>
 				<choice name="One"/>
 				<choice name="Many"/>

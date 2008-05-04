@@ -468,12 +468,15 @@ bool Killbots::Engine::canPushJunkheap( Sprite * junkheap, HeroAction direction 
 {
 	QPoint nextCell = junkheap->gridPos() + vectorFromDirection( direction );
 
-	if ( ! m_rules->junkheapsArePushable() || ! cellIsValid( nextCell ) )
-		return false;
-	else if ( spriteTypeAt( nextCell ) == Junkheap )
-		return canPushJunkheap( m_spriteMap.value( nextCell ), direction );
+	if ( m_rules->pushableJunkheaps() != Ruleset::None && cellIsValid( nextCell ) )
+	{
+		if ( spriteTypeAt( nextCell ) == Junkheap )
+			return m_rules->pushableJunkheaps() == Ruleset::Many && canPushJunkheap( m_spriteMap.value( nextCell ), direction );
+		else
+			return true;
+	}
 	else
-		return true;
+		return false;
 }
 
 
