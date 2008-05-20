@@ -33,7 +33,7 @@
 OptionsPage::OptionsPage( QWidget *parent )
   : QWidget( parent )
 {
-	kcfg_AllowUnsafeMoves = new QCheckBox( i18n("Allow unsafe moves"), this );
+	kcfg_AllowUnsafeMoves = new QCheckBox( i18n("Allow &unsafe moves"), this );
 	kcfg_AllowUnsafeMoves->setObjectName( "kcfg_AllowUnsafeMoves" );
 
 	QStringList clickActionList;
@@ -71,14 +71,16 @@ OptionsPage::OptionsPage( QWidget *parent )
 	label = new QLabel( i18n("Instant"), this );
 	label->setAlignment( Qt::AlignRight );
 	speedLayout->addWidget( label, 1, 2 );
+	label = new QLabel( i18n("Animation &speed:"), this );
+	label->setBuddy( kcfg_AnimationSpeed );
 
 	QFormLayout * formLayout = new QFormLayout( this );
 	formLayout->setLabelAlignment( Qt::AlignRight );
 	formLayout->setMargin( 0 );
 	formLayout->setSpacing( KDialog::spacingHint() );
-	formLayout->addRow( i18n("Middle-click action: "), kcfg_MiddleClickAction );
-	formLayout->addRow( i18n("Right-click action: "), kcfg_RightClickAction );
-	formLayout->addRow( i18n("Animation speed: "), speedLayout );
+	formLayout->addRow( i18n("&Middle-click action:"), kcfg_MiddleClickAction );
+	formLayout->addRow( i18n("&Right-click action:"), kcfg_RightClickAction );
+	formLayout->addRow( label, speedLayout );
 	formLayout->addRow( 0, kcfg_AllowUnsafeMoves );
 }
 
