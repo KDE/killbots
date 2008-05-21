@@ -52,88 +52,40 @@ Killbots::RulesetSelector::RulesetSelector( QWidget * parent )
 	layout->addWidget( m_listWidget );
 
 	QGroupBox * groupBox = new QGroupBox( i18n("Details"), this );
-	layout->addWidget( groupBox );
-	layout->setStretchFactor( groupBox, 10000000 );
+	layout->addWidget( groupBox, 10 );
 
 	QGridLayout * boxLayout = new QGridLayout( groupBox );
 	QLabel * label;
 
-	label = new QLabel( i18n("Grid:"), groupBox );
-	label->setAlignment( Qt::AlignRight | Qt::AlignTop );
-	boxLayout->addWidget( label, 0, 0 );
-	m_gridDetails = new QLabel( groupBox );
-	m_gridDetails->setAlignment( Qt::AlignLeft | Qt::AlignTop );
-	m_gridDetails->setWordWrap( true );
-	boxLayout->addWidget( m_gridDetails, 0, 1 );
-
-	label = new QLabel( i18n("Robots:"), groupBox );
+	label = new QLabel( i18n("Author:"), groupBox );
 	label->setAlignment( Qt::AlignRight | Qt::AlignTop );
 	boxLayout->addWidget( label, 1, 0 );
-	m_robotDetails = new QLabel( groupBox );
-	m_robotDetails->setAlignment( Qt::AlignLeft | Qt::AlignTop );
-	m_robotDetails->setWordWrap( true );
-	boxLayout->addWidget( m_robotDetails, 1, 1 );
+	m_author = new QLabel( groupBox );
+	m_author->setAlignment( Qt::AlignLeft | Qt::AlignTop );
+	m_author->setWordWrap( true );
+	boxLayout->addWidget( m_author, 1, 1 );
 
-	label = new QLabel( i18n("Fastbots:"), groupBox );
+	label = new QLabel( i18n("Contact:"), groupBox );
 	label->setAlignment( Qt::AlignRight | Qt::AlignTop );
 	boxLayout->addWidget( label, 2, 0 );
-	m_fastbotDetails = new QLabel( groupBox );
-	m_fastbotDetails->setAlignment( Qt::AlignLeft | Qt::AlignTop );
-	m_fastbotDetails->setWordWrap( true );
-	boxLayout->addWidget( m_fastbotDetails, 2, 1 );
+	m_authorContact = new QLabel( groupBox );
+	m_authorContact->setAlignment( Qt::AlignLeft | Qt::AlignTop );
+	m_authorContact->setWordWrap( true );
+	m_authorContact->setOpenExternalLinks ( true );
+	boxLayout->addWidget( m_authorContact, 2, 1 );
 
-	label = new QLabel( i18n("Junkheaps:"), groupBox );
+	label = new QLabel( i18n("Description:"), groupBox );
 	label->setAlignment( Qt::AlignRight | Qt::AlignTop );
 	boxLayout->addWidget( label, 3, 0 );
-	m_junkheapDetails = new QLabel( groupBox );
-	m_junkheapDetails->setAlignment( Qt::AlignLeft | Qt::AlignTop );
-	m_junkheapDetails->setWordWrap( true );
-	boxLayout->addWidget( m_junkheapDetails, 3, 1 );
-
-	label = new QLabel( i18n("Score:"), groupBox );
-	label->setAlignment( Qt::AlignRight | Qt::AlignTop );
-	boxLayout->addWidget( label, 4, 0 );
-	m_scoreDetails = new QLabel( groupBox );
-	m_scoreDetails->setAlignment( Qt::AlignLeft | Qt::AlignTop );
-	m_scoreDetails->setWordWrap( true );
-	boxLayout->addWidget( m_scoreDetails, 4, 1 );
-
-	label = new QLabel( i18n("Energy:"), groupBox );
-	label->setAlignment( Qt::AlignRight | Qt::AlignTop );
-	boxLayout->addWidget( label, 5, 0 );
-	m_energyDetails = new QLabel( groupBox );
-	m_energyDetails->setAlignment( Qt::AlignLeft | Qt::AlignTop );
-	m_energyDetails->setWordWrap( true );
-	boxLayout->addWidget( m_energyDetails, 5, 1 );
-
-	label = new QLabel( i18n("Max Energy:"), groupBox );
-	label->setAlignment( Qt::AlignRight | Qt::AlignTop );
-	boxLayout->addWidget( label, 6, 0 );
-	m_maxEnergyDetails = new QLabel( groupBox );
-	m_maxEnergyDetails->setAlignment( Qt::AlignLeft | Qt::AlignTop );
-	m_maxEnergyDetails->setWordWrap( true );
-	boxLayout->addWidget( m_maxEnergyDetails, 6, 1 );
-
-	label = new QLabel( i18n("Wait out round:"), groupBox );
-	label->setAlignment( Qt::AlignRight | Qt::AlignTop );
-	boxLayout->addWidget( label, 7, 0 );
-	m_waitDetails = new QLabel( groupBox );
-	m_waitDetails->setAlignment( Qt::AlignLeft | Qt::AlignTop );
-	m_waitDetails->setWordWrap( true );
-	boxLayout->addWidget( m_waitDetails, 7, 1 );
-
-	label = new QLabel( i18n("Junkheap push:"), groupBox );
-	label->setAlignment( Qt::AlignRight | Qt::AlignTop );
-	boxLayout->addWidget( label, 8, 0 );
-	m_squashDetails = new QLabel( groupBox );
-	m_squashDetails->setAlignment( Qt::AlignLeft | Qt::AlignTop );
-	m_squashDetails->setWordWrap( true );
-	boxLayout->addWidget( m_squashDetails, 8, 1 );
+	m_description = new QLabel( groupBox );
+	m_description->setAlignment( Qt::AlignLeft | Qt::AlignTop );
+	m_description->setWordWrap( true );
+	boxLayout->addWidget( m_description, 3, 1 );
 
 	boxLayout->setHorizontalSpacing( 10 );
-	boxLayout->setColumnStretch( 0, 1 );
-	boxLayout->setColumnStretch( 1, 3 );
-	boxLayout->setRowStretch( 9, 10 );
+ 	boxLayout->setColumnStretch( 0, 1 );
+ 	boxLayout->setColumnStretch( 1, 4 );
+	boxLayout->setRowStretch( 4, 10 );
 
 	connect( m_listWidget, SIGNAL(currentTextChanged(QString)), this, SLOT(selectionChanged(QString)) );
 
@@ -150,6 +102,7 @@ Killbots::RulesetSelector::~RulesetSelector()
 void Killbots::RulesetSelector::findRulesets()
 {
 	m_listWidget->clear();
+	m_listWidget->setSortingEnabled( true );
 
 	QStringList fileList;
 	KGlobal::dirs()->findAllResources ( "ruleset", "*.desktop", KStandardDirs::NoDuplicates, fileList );
@@ -163,16 +116,18 @@ void Killbots::RulesetSelector::findRulesets()
 				name += '_';
 
 			m_rulesetMap.insert( name, ruleset );
-			m_listWidget->addItem( name );
 
+			QListWidgetItem * item = new QListWidgetItem( name, m_listWidget );
 			if ( fileName == Settings::ruleset() )
-				m_listWidget->setCurrentRow( m_listWidget->count() - 1 );
+				m_listWidget->setCurrentItem( item );
 		}
 		else
 			delete ruleset;
 	}
 
-	m_listWidget->sortItems( Qt::AscendingOrder );
+	// Restrict the height of the list widget to be slightly more than it's contents.
+	// This is a bit hacky. There's probably a better way to do this, but it's the best I've found.
+	m_listWidget->setMaximumHeight( 1.333 * m_listWidget->count() * m_listWidget->visualItemRect( m_listWidget->item( 0 ) ).height() );
 }
 
 
@@ -183,15 +138,13 @@ void Killbots::RulesetSelector::selectionChanged( QString rulesetName )
 
 	kcfg_Ruleset->setText( ruleset->fileName() );
 
-	#warning I do not think these strings are translator friendly.
-	m_gridDetails->setText( i18n("%1 rows, %2 columns", ruleset->rows(), ruleset->columns() ) );
-	m_robotDetails->setText( i18n("%1 at start of game, %2 more added each round", ruleset->robotsAtGameStart(), ruleset->robotsAddedEachRound() ) );
-	m_fastbotDetails->setText( i18n("%1 at start of game, %2 more added each round", ruleset->fastbotsAtGameStart(), ruleset->fastbotsAddedEachRound() ) );
- 	m_junkheapDetails->setText( i18n("%1 pushable. %2 added at start of round", ruleset->pushableJunkheaps() != Ruleset::None ? i18n("Are") : i18n("Are not"), ruleset->junkheapsAtGameStart() ) );
-	m_scoreDetails->setText( i18n("%1 points for each robot destroyed, %2 for each fastbot", ruleset->pointsPerRobotKilled(), ruleset->pointsPerFastbotKilled() ) );
-	m_energyDetails->setText( i18n("%1 at start of game", ruleset->energyAtGameStart() ) );
-	m_maxEnergyDetails->setText( i18n("%1 at start of game", ruleset->maxEnergyAtGameStart() ) );
-	m_waitDetails->setText( i18n("%1 points, %2 energy bonus for each enemy destroyed", ruleset->waitKillPointBonus(), ruleset->waitKillEnergyBonus() ) );
-	m_squashDetails->setText( i18n("%1 points, %2 energy bonus for each enemy destroyed", ruleset->squashKillPointBonus(), ruleset->squashKillEnergyBonus() ) );
-
+	m_author->setText( ruleset->author() );
+	if ( ruleset->authorContact().contains(' ') )
+		m_authorContact->setText( ruleset->authorContact() );
+	else if ( ruleset->authorContact().contains('@') )
+		m_authorContact->setText( QString("<qt><a href=\"mailto:%1\">%1</a></qt>").arg( ruleset->authorContact() ) );
+	else
+		m_authorContact->setText( QString("<qt><a href=\"http://%1\">%1</a></qt>").arg( ruleset->authorContact() ) );
+	m_description->setText( ruleset->description() );
 }
+

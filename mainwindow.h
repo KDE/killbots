@@ -23,6 +23,7 @@
 
 class KActionCollection;
 class KConfigDialog;
+class KScoreDialog;
 #include <KDE/KXmlGuiWindow>
 
 class QSignalMapper;
@@ -30,6 +31,7 @@ class QSignalMapper;
 namespace Killbots
 {
 	class Engine;
+	class Ruleset;
 	class Scene;
 	class View;
 
@@ -43,17 +45,19 @@ namespace Killbots
 	  protected slots:
 		void configureShortcuts();
 		void configurePreferences();
-		void onGameOver( QString rulesetName, int score, int round );
+		void onGameOver( int score, int round );
 		void showHighscores();
 		void onSettingsChanged();
 
 	  private:
 		void setupActions();
 		void setupMappedAction( KActionCollection * collection, const char * displayName, const QString & internalName, const QKeySequence & primaryShortcut, const QKeySequence & alternateShortcut, int mapping, const QString & icon = QString() );
+		void createScoreDialog();
 
 		KActionCollection * m_keyboardActions;
 		QSignalMapper * m_keyboardMapper;
 		KConfigDialog * m_configDialog;
+		KScoreDialog * m_scoreDialog;
 
 		Scene * m_scene;
 		Engine * m_engine;

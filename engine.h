@@ -67,11 +67,12 @@ namespace Killbots
 	  public:
 		explicit Engine( Scene * scene, QObject * parent = 0 );
 		virtual ~Engine();
+		const Ruleset * ruleset();
 
 	  signals:
-		void newGame( const Ruleset * rules );
+		void newGame( int rows, int columns, bool gameIncludesEnergy );
 		void roundComplete();
-		void gameOver( QString rulesetName, int score, int round );
+		void gameOver( int score, int round );
 		void boardFull();
 
 		void roundChanged( int round );

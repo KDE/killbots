@@ -55,6 +55,12 @@ Killbots::Engine::~Engine()
 }
 
 
+const Killbots::Ruleset * Killbots::Engine::ruleset()
+{
+	return m_rules;
+}
+
+
 void Killbots::Engine::newGame()
 {
 	m_rules = Ruleset::load( Settings::ruleset() );
@@ -63,7 +69,7 @@ void Killbots::Engine::newGame()
 
 	Q_ASSERT( m_rules != 0 );
 
-	emit newGame( m_rules );
+	emit newGame( m_rules->rows(), m_rules->columns(), m_rules->maxEnergyAtGameStart() > 0 || m_rules->maxEnergyAddedEachRound() > 0 );
 
 	cleanUpRound();
 
@@ -190,7 +196,7 @@ void Killbots::Engine::goToNextPhase()
 		if ( ! m_hero )
 		{
 			m_nextPhase = GameOver;
-			emit gameOver( m_rules->name(), m_score, m_round );
+			emit gameOver( m_score, m_round );
 		}
 		else if ( m_bots.isEmpty() )
 			animateThenGoToNextPhase( RoundComplete );
@@ -209,7 +215,7 @@ void Killbots::Engine::goToNextPhase()
 		if ( ! m_hero )
 		{
 			m_nextPhase = GameOver;
-			emit gameOver( m_rules->name(), m_score, m_round );
+			emit gameOver( m_score, m_round );
 		}
 		else if ( m_bots.isEmpty() )
 			animateThenGoToNextPhase( RoundComplete );

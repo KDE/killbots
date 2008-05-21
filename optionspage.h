@@ -32,7 +32,7 @@ class OptionsPage : public QWidget
 	Q_OBJECT
 
   public:
-	explicit OptionsPage( QWidget *parent = 0 );
+	explicit OptionsPage( QWidget * parent = 0 );
 	virtual ~OptionsPage();
 
 	QCheckBox * kcfg_AllowUnsafeMoves;

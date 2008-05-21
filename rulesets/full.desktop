@@ -2,8 +2,11 @@
 Name=Full Board (testing)
 Name[et]=Täislaud (test)
 Name[sv]=Fullt bräde (prov)
-Rows=12
-Columns=12
+Author=Parker Coates
+AuthorContact=www.kde.org
+Description=<qt><p>A testing game configuration, not intended to be playable. Used to test the board-full-on-new-round logic.</p><p>A 18 by 10 cell grid that is quite full of enemies initially, but 60 more are added for the second round guaranteeing the board will be full.</p></qt>
+Rows=10
+Columns=18
 RobotsAtGameStart=20
 RobotsAddedEachRound=40
 FastbotsAtGameStart=5

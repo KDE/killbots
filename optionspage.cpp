@@ -30,7 +30,7 @@
 #include <QtGui/QLabel>
 #include <QtGui/QSlider>
 
-OptionsPage::OptionsPage( QWidget *parent )
+OptionsPage::OptionsPage( QWidget * parent )
   : QWidget( parent )
 {
 	kcfg_AllowUnsafeMoves = new QCheckBox( i18n("Allow &unsafe moves"), this );

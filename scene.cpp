@@ -368,12 +368,10 @@ void Killbots::Scene::animate( qreal value )
 }
 
 
-void Killbots::Scene::onNewGame( const Ruleset * rules )
+void Killbots::Scene::onNewGame( int rows, int columns, bool gameIncludesEnergy )
 {
-	m_rows = rules->rows();
-	m_columns = rules->columns();
-
-	bool gameIncludesEnergy = rules->maxEnergyAtGameStart() > 0 || rules->maxEnergyAddedEachRound() > 0;
+	m_rows = rows;
+	m_columns = columns;
 	m_energyDisplay->setVisible( gameIncludesEnergy );
 
 	doLayout();

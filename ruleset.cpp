@@ -34,11 +34,11 @@ Killbots::Ruleset * Killbots::Ruleset::load( const QString & fileName )
 
 	if ( ! fileName.isEmpty() )
 	{
-		QString filePath = KStandardDirs::locate("ruleset", fileName);
+		QString filePath = KStandardDirs::locate( "ruleset", fileName );
 		if ( ! filePath.isEmpty() )
 		{
 			KConfig configFile( filePath, KConfig::SimpleConfig );
-			if ( configFile.hasGroup( "KillbotsRuleset" ) )
+			if ( configFile.hasGroup("KillbotsRuleset") )
 				result = new Ruleset( filePath );
 		}
 	}
@@ -49,7 +49,7 @@ Killbots::Ruleset * Killbots::Ruleset::load( const QString & fileName )
 
 Killbots::Ruleset * Killbots::Ruleset::loadDefault()
 {
-	return load( "default.desktop" );
+	return load("default.desktop");
 }
 
 
@@ -57,7 +57,7 @@ Killbots::Ruleset::Ruleset( const QString & filePath )
  : RulesetBase( filePath )
 {
 	m_filePath = filePath;
-	m_untranslatedName = KConfigGroup( config(), "KillbotsRuleset" ).readEntryUntranslated("Name");
+	m_untranslatedName = KConfigGroup( config(), "KillbotsRuleset").readEntryUntranslated("Name").toUtf8();
 }
 
 
@@ -78,7 +78,7 @@ QString Killbots::Ruleset::fileName() const
 }
 
 
-QString Killbots::Ruleset::untranslatedName() const
+QByteArray Killbots::Ruleset::untranslatedName() const
 {
 	return m_untranslatedName;
 }

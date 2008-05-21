@@ -1,15 +1,18 @@
 [KillbotsRuleset]
-Name=Crowded (testing)
+Name=ZZZ Crowded (testing)
 Name[et]=Ülerahvastatud (test)
 Name[sv]=Trängsel (prov)
+Author=Parker Coates
+AuthorContact=1285 Western Road, London, Ontario, Canada
+Description=<qt><p>A testing game configuration, not intended to be playable. Used to test the try-to-safe-teleport-but-board-is-full logic.</p><p>A 12 by 12 cell grid that quickly fill with enemies. Fortunately, there's a near infinite supply of safe teleports.</p></qt>
 Rows=12
 Columns=12
 RobotsAtGameStart=20
 RobotsAddedEachRound=10
 FastbotsAtGameStart=5
 FastbotsAddedEachRound=2
-EnergyAtGameStart=50
-EnergyAddedEachRound=0
+EnergyAtGameStart=99
+EnergyAddedEachRound=99
 MaxEnergyAtGameStart=99
 MaxEnergyAddedEachRound=0
 CostOfSafeTeleport=1

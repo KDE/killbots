@@ -35,12 +35,12 @@ namespace Killbots {
 
 		QString filePath() const;
 		QString fileName() const;
-		QString untranslatedName() const;
+		QByteArray untranslatedName() const;
 
 	  private:
 		Ruleset( const QString & filePath );
 		QString m_filePath;
-		QString m_untranslatedName;
+		QByteArray m_untranslatedName;
 	};
 
 }

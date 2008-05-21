@@ -8,6 +8,8 @@
 
 	<group name="KillbotsRuleset">
 		<entry name="Name" type="String"/>
+		<entry name="Author" type="String"/>
+		<entry name="AuthorContact" type="String"/>
 		<entry name="Description" type="String"/>
 		<entry name="Rows" type="Int">
 			<default>16</default>

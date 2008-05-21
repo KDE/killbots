@@ -37,6 +37,7 @@
 #include <KDE/KScoreDialog>
 #include <KDE/KShortcutsDialog>
 #include <KDE/KStandardAction>
+#include <KDE/KStandardDirs>
 #include <KDE/KStandardGameAction>
 
 #include <QtCore/QSignalMapper>
@@ -45,7 +46,8 @@
 Killbots::MainWindow::MainWindow( QWidget * parent )
   : KXmlGuiWindow( parent ),
 	m_keyboardActions( new KActionCollection( this, KGlobal::mainComponent() ) ),
-	m_keyboardMapper( new QSignalMapper( this ) )
+	m_keyboardMapper( new QSignalMapper( this ) ),
+	m_scoreDialog( 0 )
 {
 	setAcceptDrops(false);
 
@@ -68,10 +70,10 @@ Killbots::MainWindow::MainWindow( QWidget * parent )
 	connect( m_scene, SIGNAL(clicked(int)), m_engine, SLOT(doAction(int)) );
 	connect( m_scene, SIGNAL(animationDone()), m_engine, SLOT(goToNextPhase()), Qt::QueuedConnection );
 
-	connect( m_engine, SIGNAL(newGame(const Ruleset*)), m_scene, SLOT(onNewGame(const Ruleset*)) );
+	connect( m_engine, SIGNAL(newGame(int,int,bool)), m_scene, SLOT(onNewGame(int,int,bool)) );
 	connect( m_engine, SIGNAL(roundComplete()), m_scene, SLOT(onRoundComplete()) );
-	connect( m_engine, SIGNAL(gameOver(QString,int,int)), m_scene, SLOT(onGameOver()) );
-	connect( m_engine, SIGNAL(gameOver(QString,int,int)), this, SLOT(onGameOver(QString,int,int)) );
+	connect( m_engine, SIGNAL(gameOver(int,int)), m_scene, SLOT(onGameOver()) );
+	connect( m_engine, SIGNAL(gameOver(int,int)), this, SLOT(onGameOver(int,int)) );
 	connect( m_engine, SIGNAL(boardFull()), m_scene, SLOT(onBoardFull()) );
 
 	connect( m_engine, SIGNAL(roundChanged(int)), m_scene, SLOT(updateRound(int)) );
@@ -183,24 +185,51 @@ void Killbots::MainWindow::onSettingsChanged()
 }
 
 
-void Killbots::MainWindow::onGameOver( QString rulesetName, int score, int round )
+void Killbots::MainWindow::createScoreDialog()
 {
-	KScoreDialog scoreDialog( KScoreDialog::Name | KScoreDialog::Level, this );
-	scoreDialog.setConfigGroup( rulesetName );
+	m_scoreDialog = new KScoreDialog( KScoreDialog::Name | KScoreDialog::Level, this );
+	m_scoreDialog->setModal( false );
 
-	KScoreDialog::FieldInfo scoreEntry;
-	scoreEntry[ KScoreDialog::Score ].setNum( score );
-	scoreEntry[ KScoreDialog::Level ].setNum( round );
+	QStringList fileList;
+	KGlobal::dirs()->findAllResources ( "ruleset", "*.desktop", KStandardDirs::NoDuplicates, fileList );
+	foreach ( QString fileName, fileList )
+	{
+		Ruleset * ruleset = Ruleset::load( fileName );
+		if ( ruleset )
+			m_scoreDialog->addLocalizedConfigGroupName( qMakePair( ruleset->untranslatedName(), ruleset->name() ) );
+		delete ruleset;
+	}
+}
 
-	if ( scoreDialog.addScore( scoreEntry ) )
-		scoreDialog.exec();
+
+void Killbots::MainWindow::onGameOver( int score, int round )
+{
+	if ( score && m_engine->ruleset() )
+	{
+		if ( ! m_scoreDialog )
+			createScoreDialog();
+	
+		m_scoreDialog->setConfigGroup( qMakePair( m_engine->ruleset()->untranslatedName(), m_engine->ruleset()->name() ) );
+	
+		KScoreDialog::FieldInfo scoreEntry;
+		scoreEntry[ KScoreDialog::Score ].setNum( score );
+		scoreEntry[ KScoreDialog::Level ].setNum( round );
+	
+		if ( m_scoreDialog->addScore( scoreEntry ) )
+			m_scoreDialog->exec();
+	}
 }
 
 
 void Killbots::MainWindow::showHighscores()
 {
-	KScoreDialog scoreDialog( KScoreDialog::Name | KScoreDialog::Level, this );
-	scoreDialog.exec();
+	if ( ! m_scoreDialog )
+		createScoreDialog();
+
+	if ( m_engine->ruleset() )
+		m_scoreDialog->setConfigGroup( qMakePair( m_engine->ruleset()->untranslatedName(), m_engine->ruleset()->name() ) );
+
+	m_scoreDialog->exec();
 }
 
 #include "mainwindow.moc"

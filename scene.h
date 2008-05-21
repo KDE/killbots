@@ -56,7 +56,7 @@ namespace Killbots
 		void startAnimation();
 		void animate( qreal value );
 
-		void onNewGame( const Ruleset * rules );
+		void onNewGame( int rows, int columns, bool gameIncludesEnergy );
 		void onRoundComplete();
 		void onBoardFull();
 		void onGameOver();

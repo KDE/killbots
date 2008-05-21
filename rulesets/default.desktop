@@ -1,5 +1,8 @@
 [KillbotsRuleset]
 Name=Killbots
+Author=Parker Coates
+AuthorContact=parker.coates@gmail.com
+Description=<qt><p>The default Killbots ruleset.</p><p>A 16 by 16 cell grid. The game starts with 8 robots, 4 more are added each round. 2 fastbots are added each round after Round 2. Teleporting safely costs 1 energy, with a maximum energy cap or 12. Multiple junkheaps are pushabel at a time. 5 points for each robot destroyed and 10 for each fastbot. 1 bonus energy for each enemy destroyed with a junkheap or while waiting out the round.</p></qt>
 Rows=16
 Columns=16
 RobotsAtGameStart=8
