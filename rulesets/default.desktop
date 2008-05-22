@@ -3,6 +3,7 @@ Name=Killbots
 Author=Parker Coates
 AuthorContact=parker.coates@gmail.com
 Description=<qt><p>The default Killbots ruleset.</p><p>A 16 by 16 cell grid. The game starts with 8 robots, 4 more are added each round. 2 fastbots are added each round after Round 2. Teleporting safely costs 1 energy, with a maximum energy cap or 12. Multiple junkheaps are pushabel at a time. 5 points for each robot destroyed and 10 for each fastbot. 1 bonus energy for each enemy destroyed with a junkheap or while waiting out the round.</p></qt>
+Description[sv]=<qt><p>Regeluppsättningen som är standard i Killbots.</p><p>Ett 16 gånger 16 rutnät. Spelet börjar med 8 robotar, ytterligare 4 läggs till varje omgång. Två snabbotar läggs till varje omgång efter den andra. Säker teleportering kostar en energienhet, med ett maximal energitak på 12. Flera skrothögar går att knuffa samtidigt. 5 poäng för varje förstörd robot och 10 för varje snabbot. 1 bonusenhet energi för varje fiende som förstörs med en skrothög eller vid väntan på omgångens slut.</p></qt>
 Rows=16
 Columns=16
 RobotsAtGameStart=8

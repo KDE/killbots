@@ -5,6 +5,7 @@ Name[sv]=Fullt bräde (prov)
 Author=Parker Coates
 AuthorContact=www.kde.org
 Description=<qt><p>A testing game configuration, not intended to be playable. Used to test the board-full-on-new-round logic.</p><p>A 18 by 10 cell grid that is quite full of enemies initially, but 60 more are added for the second round guaranteeing the board will be full.</p></qt>
+Description[sv]=<qt><p>En provinställning av spelet, som inte är avsedd att vara spelbar. Används för att prova logiken när brädet är fullt vid en ny omgång.</p><p>Ett 18 gånger 10 rutnät som är riktigt fullt med fiender från början, och ytterligare 60 läggs till vid andra omgången, vilket garanterar att brädet blir fullt.</p></qt>
 Rows=10
 Columns=18
 RobotsAtGameStart=20
