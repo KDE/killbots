@@ -17,16 +17,16 @@
 		<entry name="Columns" type="Int">
 			<default>16</default>
 		</entry>
-		<entry name="RobotsAtGameStart" type="Int">
+		<entry name="RobotsAtGameStart" type="Double">
 			<default>8</default>
 		</entry>
-		<entry name="RobotsAddedEachRound" type="Int">
+		<entry name="RobotsAddedEachRound" type="Double">
 			<default>4</default>
 		</entry>
-		<entry name="FastbotsAtGameStart" type="Int">
+		<entry name="FastbotsAtGameStart" type="Double">
 			<default>-4</default>
 		</entry>
-		<entry name="FastbotsAddedEachRound" type="Int">
+		<entry name="FastbotsAddedEachRound" type="Double">
 			<default>2</default>
 		</entry>
 		<entry name="EnergyAtGameStart" type="Int">
@@ -35,10 +35,10 @@
 		<entry name="EnergyAddedEachRound" type="Int">
 			<default>0</default>
 		</entry>
-		<entry name="MaxEnergyAtGameStart" type="Int">
+		<entry name="MaxEnergyAtGameStart" type="Double">
 			<default>12</default>
 		</entry>
-		<entry name="MaxEnergyAddedEachRound" type="Int">
+		<entry name="MaxEnergyAddedEachRound" type="Double">
 			<default>0</default>
 		</entry>
 		<entry name="CostOfSafeTeleport" type="Int">
@@ -52,10 +52,10 @@
 			</choices>
 			<default>Many</default>
 		</entry>
-		<entry name="JunkheapsAtGameStart" type="Int">
+		<entry name="JunkheapsAtGameStart" type="Double">
 			<default>0</default>
 		</entry>
-		<entry name="JunkheapsAddedEachRound" type="Int">
+		<entry name="JunkheapsAddedEachRound" type="Double">
 			<default>0</default>
 		</entry>
 		<entry name="PointsPerRobotKilled" type="Int">

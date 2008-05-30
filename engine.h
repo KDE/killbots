@@ -130,8 +130,10 @@ namespace Killbots
 		int m_round;
 		int m_score;
 		int m_energy;
-		int m_robotCount;
-		int m_fastbotCount;
+		qreal m_maxEnergy;
+		qreal m_robotCount;
+		qreal m_fastbotCount;
+		qreal m_junkheapCount;
 
 		QMultiHash< QPoint, Sprite * > m_spriteMap;
 	};

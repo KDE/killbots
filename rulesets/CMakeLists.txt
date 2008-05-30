@@ -2,6 +2,7 @@ SET( ruleset_files
 	classic.desktop
 	default.desktop
 	dense.desktop
+	easy.desktop
 	full.desktop
 )
 

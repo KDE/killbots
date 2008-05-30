@@ -376,6 +376,7 @@ void Killbots::Scene::onNewGame( int rows, int columns, bool gameIncludesEnergy 
 
 	doLayout();
 
+	// Prevent the "New Game" popup from appearing when the application is first launched.
 	static bool firstGame = true;
 	if ( firstGame )
 		firstGame = false;

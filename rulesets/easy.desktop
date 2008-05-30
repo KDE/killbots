@@ -1,0 +1,26 @@
+[KillbotsRuleset]
+Name=Easy
+Author=Parker Coates
+AuthorContact=parker.coates@gmail.com
+Description=<qt><p>An easier ruleset.</p></qt>
+Rows=24
+Columns=24
+RobotsAtGameStart=6
+RobotsAddedEachRound=3
+FastbotsAtGameStart=-4
+FastbotsAddedEachRound=1
+EnergyAtGameStart=5
+EnergyAddedEachRound=1
+MaxEnergyAtGameStart=10
+MaxEnergyAddedEachRound=0.5
+CostOfSafeTeleport=1
+PushableJunkheaps=Many
+JunkheapsAtGameStart=15
+JunkheapsAddedEachRound=-3
+PointsPerRobotKilled=5
+PointsPerFastbotKilled=10
+WaitKillPointBonus=0
+WaitKillEnergyBonus=1
+SquashKillPointBonus=0
+SquashKillEnergyBonus=1
+
