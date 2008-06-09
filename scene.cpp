@@ -383,7 +383,8 @@ void Killbots::Scene::onNewGame( int rows, int columns, bool gameIncludesEnergy 
 	else
 	{
 		m_popupMessage->setMessageTimeout( 3000 );
-		m_popupMessage->showMessage( i18n("New game."), KGamePopupItem::TopRight, KGamePopupItem::ReplacePrevious );
+		KGamePopupItem::Position corner = views().first()->layoutDirection() == Qt::LeftToRight ? KGamePopupItem::TopRight : KGamePopupItem::TopLeft;
+		m_popupMessage->showMessage( i18n("New game."), corner, KGamePopupItem::ReplacePrevious );
 	}
 }
 
@@ -391,21 +392,24 @@ void Killbots::Scene::onNewGame( int rows, int columns, bool gameIncludesEnergy 
 void Killbots::Scene::onRoundComplete()
 {
 	m_popupMessage->setMessageTimeout( 3000 );
-	m_popupMessage->showMessage( i18n("Round complete."), KGamePopupItem::TopRight, KGamePopupItem::ReplacePrevious );
+	KGamePopupItem::Position corner = views().first()->layoutDirection() == Qt::LeftToRight ? KGamePopupItem::TopRight : KGamePopupItem::TopLeft;
+	m_popupMessage->showMessage( i18n("Round complete."), corner, KGamePopupItem::ReplacePrevious );
 }
 
 
 void Killbots::Scene::onBoardFull()
 {
 	m_popupMessage->setMessageTimeout( 4000 );
-	m_popupMessage->showMessage( i18n("Board is full.\nResetting enemy counts."), KGamePopupItem::TopRight, KGamePopupItem::ReplacePrevious );
+	KGamePopupItem::Position corner = views().first()->layoutDirection() == Qt::LeftToRight ? KGamePopupItem::TopRight : KGamePopupItem::TopLeft;
+	m_popupMessage->showMessage( i18n("Board is full.\nResetting enemy counts."), corner, KGamePopupItem::ReplacePrevious );
 }
 
 
 void Killbots::Scene::onGameOver()
 {
 	m_popupMessage->setMessageTimeout( 20000 );
-	m_popupMessage->showMessage( i18n("Game over."), KGamePopupItem::TopRight, KGamePopupItem::ReplacePrevious );
+	KGamePopupItem::Position corner = views().first()->layoutDirection() == Qt::LeftToRight ? KGamePopupItem::TopRight : KGamePopupItem::TopLeft;
+	m_popupMessage->showMessage( i18n("Game over."), corner, KGamePopupItem::ReplacePrevious );
 }
 
 
