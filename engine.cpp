@@ -61,6 +61,12 @@ const Killbots::Ruleset * Killbots::Engine::ruleset()
 }
 
 
+bool Killbots::Engine::gameHasStarted()
+{
+	return m_score;
+}
+
+
 void Killbots::Engine::newGame()
 {
 	m_rules = Ruleset::load( Settings::ruleset() );
@@ -281,7 +287,7 @@ void Killbots::Engine::doAction( HeroAction action )
 }
 
 
-// This slot is provided only for QSignalMapper compatibility.
+// This slot is provided only for QSignalMapper compatability.
 void Killbots::Engine::doAction( int action )
 {
 	doAction( static_cast<HeroAction>( action ) );

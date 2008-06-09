@@ -42,28 +42,31 @@ namespace Killbots
 		explicit MainWindow( QWidget * parent = 0 );
 		virtual ~MainWindow();
 
-	  protected slots:
+	  private slots:
+		void showHighscores();
 		void configureShortcuts();
 		void configurePreferences();
 		void onGameOver( int score, int round );
-		void showHighscores();
 		void onSettingsChanged();
+		void onConfigDialogClosed();
 
 	  private:
 		void setupActions();
 		void setupMappedAction( KActionCollection * collection, const char * displayName, const QString & internalName, const QKeySequence & primaryShortcut, const QKeySequence & alternateShortcut, int mapping, const QString & icon = QString() );
 		void createScoreDialog();
 
-		KActionCollection * m_keyboardActions;
-		QSignalMapper * m_keyboardMapper;
-		KConfigDialog * m_configDialog;
-		KScoreDialog * m_scoreDialog;
-
 		Scene * m_scene;
 		Engine * m_engine;
 		View * m_view;
 
+		KConfigDialog * m_configDialog;
+		KScoreDialog * m_scoreDialog;
+
 		QAction * m_safeTeleportAction;
+		KActionCollection * m_keyboardActions;
+		QSignalMapper * m_keyboardMapper;
+
+		bool m_rulesetChanged;
 	};
 
 }

@@ -34,6 +34,7 @@
 #include <KDE/KConfigDialog>
 #include <KDE/KGameThemeSelector>
 #include <KDE/KLocalizedString>
+#include <KDE/KMessageBox>
 #include <KDE/KScoreDialog>
 #include <KDE/KShortcutsDialog>
 #include <KDE/KStandardAction>
@@ -47,7 +48,8 @@ Killbots::MainWindow::MainWindow( QWidget * parent )
   : KXmlGuiWindow( parent ),
 	m_keyboardActions( new KActionCollection( this, KGlobal::mainComponent() ) ),
 	m_keyboardMapper( new QSignalMapper( this ) ),
-	m_scoreDialog( 0 )
+	m_scoreDialog( 0 ),
+	m_rulesetChanged( false )
 {
 	setAcceptDrops(false);
 
@@ -167,6 +169,7 @@ void Killbots::MainWindow::configurePreferences()
 
 		// Update the sprite style if it has changed
 		connect( m_configDialog, SIGNAL(settingsChanged(QString)), this, SLOT(onSettingsChanged()) );
+		connect( m_configDialog, SIGNAL(finished()), this, SLOT(onConfigDialogClosed()) );
 
 		m_configDialog->show();
 	}
@@ -182,6 +185,38 @@ void Killbots::MainWindow::onSettingsChanged()
 	}
 
 	m_scene->setAnimationSpeed( Settings::animationSpeed() );
+
+	if ( m_engine->ruleset()->fileName() != Settings::ruleset() )
+	{
+		kDebug() << "Detected a changed in ruleset. From" << m_engine->ruleset()->fileName() << "to" << Settings::ruleset();
+
+		// We don't act on the changed ruleset here because the config dialog
+		// is still visible. We want the game in progress to be visible when
+		// we display the message box and we don't want a new game to start
+		// while hidden behind the config dialog. So we wait until the config
+		// dialog is closed. See onConfigDialogClosed below.
+		m_rulesetChanged = true;
+	}
+}
+
+
+void Killbots::MainWindow::onConfigDialogClosed()
+{
+	if ( m_rulesetChanged )
+	{
+		if ( ! m_engine->gameHasStarted() ||
+		     KMessageBox::questionYesNo( this,
+		                                 i18n("<qt><p>You have selected a new rule set, but already have a game in progress.</p><p>Would you like to continue with the current game or start a new game with the selected rule set?</p></qt>"),
+		                                 i18n("Rule Set Changed"),
+		                                 KGuiItem( i18n("Continue with Current Game") ),
+		                                 KGuiItem( i18n("Start a New Game") )
+		                               ) == KMessageBox::No )
+		{
+			m_engine->newGame();
+		}
+
+		m_rulesetChanged = false;
+	}
 }
 
 
