@@ -46,9 +46,9 @@
 
 Killbots::MainWindow::MainWindow( QWidget * parent )
   : KXmlGuiWindow( parent ),
+	m_scoreDialog( 0 ),
 	m_keyboardActions( new KActionCollection( this, KGlobal::mainComponent() ) ),
 	m_keyboardMapper( new QSignalMapper( this ) ),
-	m_scoreDialog( 0 ),
 	m_rulesetChanged( false )
 {
 	setAcceptDrops(false);
@@ -157,21 +157,21 @@ void Killbots::MainWindow::configurePreferences()
 	if ( ! KConfigDialog::showDialog( "configurePreferencesDialog" ) )
 	{
 		// Creating a dialog because KConfigDialog didn't find an instance of it
-		m_configDialog = new KConfigDialog( this, "configurePreferencesDialog", Settings::self() );
+		KConfigDialog * configDialog = new KConfigDialog( this, "configurePreferencesDialog", Settings::self() );
 
 		// Creating setting pages and adding them to the dialog
-		m_configDialog->addPage( new OptionsPage( this ), i18n("General"), "configure" );
-		m_configDialog->addPage( new RulesetSelector( this ), i18n("Rules"), "games-config-custom" );
-		m_configDialog->addPage( new KGameThemeSelector( this, Settings::self(), KGameThemeSelector::NewStuffDisableDownload ), i18n("Theme"), "games-config-theme" );
+		configDialog->addPage( new OptionsPage( this ), i18n("General"), "configure" );
+		configDialog->addPage( new RulesetSelector( this ), i18n("Rules"), "games-config-custom" );
+		configDialog->addPage( new KGameThemeSelector( this, Settings::self(), KGameThemeSelector::NewStuffDisableDownload ), i18n("Theme"), "games-config-theme" );
 
-		m_configDialog->setMaximumSize( 800, 600 );
-		m_configDialog->setInitialSize( QSize( 600, 450 ) );
+		configDialog->setMaximumSize( 800, 600 );
+		configDialog->setInitialSize( QSize( 600, 450 ) );
 
 		// Update the sprite style if it has changed
-		connect( m_configDialog, SIGNAL(settingsChanged(QString)), this, SLOT(onSettingsChanged()) );
-		connect( m_configDialog, SIGNAL(finished()), this, SLOT(onConfigDialogClosed()) );
+		connect( configDialog, SIGNAL(settingsChanged(QString)), this, SLOT(onSettingsChanged()) );
+		connect( configDialog, SIGNAL(finished()), this, SLOT(onConfigDialogClosed()) );
 
-		m_configDialog->show();
+		configDialog->show();
 	}
 }
 

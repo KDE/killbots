@@ -58,8 +58,6 @@ namespace Killbots
 		Scene * m_scene;
 		Engine * m_engine;
 		View * m_view;
-
-		KConfigDialog * m_configDialog;
 		KScoreDialog * m_scoreDialog;
 
 		QAction * m_safeTeleportAction;
