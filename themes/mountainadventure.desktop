@@ -2,6 +2,7 @@
 Name=Mountain Adventure
 Name[sv]=Bergsäventyr
 Description=<qt><p>Indiana Gnomes battles ghosts and bats on a misty mountainside.</p><p>Sprites by Nicu Buculei. Background by Eugene Trounev.</p></qt>
+Description[et]=<qt><p>Indiana Gnomes võitleb tontide ja nahkhiirtega uduhägustes mägedes.</p><p>Spraidid: Nicu Buculei. Taust: Eugene Trounev.</p></qt>
 VersionFormat=0.0
 Author=Parker Coates
 AuthorEmail=parker.coates@gmail.com
