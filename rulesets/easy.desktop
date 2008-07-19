@@ -1,10 +1,12 @@
 [KillbotsRuleset]
 Name=Easy
 Name[et]=Lihtne
+Name[sv]=Enkel
 Author=Parker Coates
 AuthorContact=parker.coates@gmail.com
 Description=<qt><p>An easier ruleset.</p></qt>
 Description[et]=<qt><p>Lihtsam reeglistik.</p></qt>
+Description[sv]=<qt><p>En enklare regeluppsättning.</p></qt>
 Rows=24
 Columns=24
 RobotsAtGameStart=6
