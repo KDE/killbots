@@ -106,7 +106,7 @@ void Killbots::RulesetSelector::findRulesets()
 
 	QStringList fileList;
 	KGlobal::dirs()->findAllResources ( "ruleset", "*.desktop", KStandardDirs::NoDuplicates, fileList );
-	foreach ( QString fileName, fileList )
+	foreach ( const QString &fileName, fileList )
 	{
 		Ruleset * ruleset = Ruleset::load( fileName );
 		if ( ruleset )

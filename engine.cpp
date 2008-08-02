@@ -690,7 +690,7 @@ bool Killbots::Engine::moveIsSafe( const QPoint & cell, HeroAction direction ) c
 				// Then we just count the number of fastbots and robots in the list of cells.
 				int fastbotsFound = 0;
 				int robotsFound = 0;
-				foreach( QPoint cell, cellsBehindNeighbour )
+				foreach( const QPoint &cell, cellsBehindNeighbour )
 					if ( spriteTypeAt( cell ) == Fastbot )
 						++fastbotsFound;
 					else if ( spriteTypeAt( cell ) == Robot )
