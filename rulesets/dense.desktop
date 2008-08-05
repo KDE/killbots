@@ -18,6 +18,7 @@ MaxEnergyAtGameStart=99
 MaxEnergyAddedEachRound=0
 CostOfSafeTeleport=1
 PushableJunkheaps=One
+SquaskKillsEnabled=false
 JunkheapsAtGameStart=10
 JunkheapsAddedEachRound=-2
 PointsPerRobotKilled=5

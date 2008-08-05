@@ -52,6 +52,9 @@
 			</choices>
 			<default>Many</default>
 		</entry>
+		<entry name="SquaskKillsEnabled" type="Bool">
+			<default>true</default>
+		</entry>
 		<entry name="JunkheapsAtGameStart" type="Double">
 			<default>0</default>
 		</entry>

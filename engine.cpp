@@ -287,7 +287,7 @@ void Killbots::Engine::doAction( HeroAction action )
 }
 
 
-// This slot is provided only for QSignalMapper compatability.
+// This slot is provided only for QSignalMapper compatibility.
 void Killbots::Engine::doAction( int action )
 {
 	doAction( static_cast<HeroAction>( action ) );
@@ -484,16 +484,18 @@ bool Killbots::Engine::cellIsValid( const QPoint & cell ) const
 }
 
 
-bool Killbots::Engine::canPushJunkheap( Sprite * junkheap, HeroAction direction ) const
+bool Killbots::Engine::canPushJunkheap( const Sprite * junkheap, HeroAction direction ) const
 {
 	QPoint nextCell = junkheap->gridPos() + vectorFromDirection( direction );
 
 	if ( m_rules->pushableJunkheaps() != Ruleset::None && cellIsValid( nextCell ) )
 	{
-		if ( spriteTypeAt( nextCell ) == Junkheap )
+		if ( spriteTypeAt( nextCell ) == NoSprite )
+			return true;
+		else if ( spriteTypeAt( nextCell ) == Junkheap )
 			return m_rules->pushableJunkheaps() == Ruleset::Many && canPushJunkheap( m_spriteMap.value( nextCell ), direction );
 		else
-			return true;
+			return m_rules->squaskKillsEnabled();
 	}
 	else
 		return false;
@@ -690,7 +692,7 @@ bool Killbots::Engine::moveIsSafe( const QPoint & cell, HeroAction direction ) c
 				// Then we just count the number of fastbots and robots in the list of cells.
 				int fastbotsFound = 0;
 				int robotsFound = 0;
-				foreach( const QPoint &cell, cellsBehindNeighbour )
+				foreach( const QPoint & cell, cellsBehindNeighbour )
 					if ( spriteTypeAt( cell ) == Fastbot )
 						++fastbotsFound;
 					else if ( spriteTypeAt( cell ) == Robot )
@@ -772,7 +774,7 @@ void Killbots::Engine::destroySprite( Sprite * sprite )
 }
 
 
-bool Killbots::Engine::destroyAllCollidingBots( Sprite * sprite )
+bool Killbots::Engine::destroyAllCollidingBots( const Sprite * sprite )
 {
 	bool result = false;
 

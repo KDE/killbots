@@ -192,7 +192,7 @@ void Killbots::MainWindow::onSettingsChanged()
 
 		// We don't act on the changed ruleset here because the config dialog
 		// is still visible. We want the game in progress to be visible when
-		// we display the message box and we don't want a new game to start
+		// we display the message box. We also don't want a new game to start
 		// while hidden behind the config dialog. So we wait until the config
 		// dialog is closed. See onConfigDialogClosed below.
 		m_rulesetChanged = true;
@@ -227,7 +227,7 @@ void Killbots::MainWindow::createScoreDialog()
 
 	QStringList fileList;
 	KGlobal::dirs()->findAllResources ( "ruleset", "*.desktop", KStandardDirs::NoDuplicates, fileList );
-	foreach ( const QString &fileName, fileList )
+	foreach ( const QString & fileName, fileList )
 	{
 		Ruleset * ruleset = Ruleset::load( fileName );
 		if ( ruleset )
