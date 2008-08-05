@@ -49,9 +49,11 @@ Killbots::RulesetSelector::RulesetSelector( QWidget * parent )
 	layout->addWidget( kcfg_Ruleset );
 
 	m_listWidget = new QListWidget( this );
+	m_listWidget->setWhatsThis( i18n("A list of the Killbots rulesets installed on this computer.") );
 	layout->addWidget( m_listWidget );
 
 	QGroupBox * groupBox = new QGroupBox( i18n("Details"), this );
+	groupBox->setWhatsThis( i18n("Information on the currently selected ruleset.") );
 	layout->addWidget( groupBox, 10 );
 
 	QGridLayout * boxLayout = new QGridLayout( groupBox );

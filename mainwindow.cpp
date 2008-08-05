@@ -61,6 +61,7 @@ Killbots::MainWindow::MainWindow( QWidget * parent )
 
 	m_view = new View( m_scene, this );
 	m_view->setMinimumSize( 400, 280 );
+	m_view->setWhatsThis( i18n("This is the main game area used to interact with Killbots. It shows the current state of the game grid and allows one to control the hero using the mouse. It also displays certain statistics about the game in progress.") );
 	setCentralWidget( m_view );
 
 	setupActions();

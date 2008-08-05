@@ -34,7 +34,7 @@ Killbots::View::View( QGraphicsScene * scene, QWidget * parent )
 	setViewportUpdateMode( QGraphicsView::SmartViewportUpdate );
 
 	// Including QGraphicsView::DontAdjustForAntialiasing here sometimes caused
-	// painting traces in certain situations like pushing junkheaps/
+	// painting traces in certain situations like pushing junkheaps.
 	setOptimizationFlags( QGraphicsView::DontClipPainter | QGraphicsView::DontSavePainterState );
 }
 

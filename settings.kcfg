@@ -7,41 +7,48 @@
 	<kcfgfile/>
 
 	<group name="General">
-		<entry name="AllowUnsafeMoves" type="Bool">
-			<whatsthis>If unchecked, the game will ignore any attempts to make unsafe moves (other than random teleports)</whatsthis>
-			<default>false</default>
-		</entry>
 		<entry name="MiddleClickAction" type="Enum">
-			<whatsthis>Selects the action performed on a middle-click or on a left-click while the control key is held</whatsthis>
+			<whatsthis>Selects the action performed when middle-clicking on the main game area. If a middle mouse button is not available, this action can be performed by left- and right-clicking simultaneously or by left-clicking while holding the control key.</whatsthis>
 			<choices name="ClickAction">
-				<choice name="Nothing" />
-				<choice name="Step" />
-				<choice name="RepeatedStep" />
-				<choice name="Teleport" />
-				<choice name="TeleportSafely" />
-				<choice name="TeleportSafelyIfPossible" />
-				<choice name="WaitOutRound" />
+				<choice name="Nothing"/>
+				<choice name="Step"/>
+				<choice name="RepeatedStep"/>
+				<choice name="Teleport"/>
+				<choice name="TeleportSafely"/>
+				<choice name="TeleportSafelyIfPossible"/>
+				<choice name="WaitOutRound"/>
 			</choices>
 			<default>RepeatedStep</default>
 		</entry>
 		<entry name="RightClickAction" type="Enum">
-			<whatsthis>Selects the action performed on a right-click</whatsthis>
-			<choices name="ClickAction" />
+			<whatsthis>Selects the action performed when right-clicking on the main game area.</whatsthis>
+			<choices name="ClickAction"/>
 			<default>TeleportSafelyIfPossible</default>
 		</entry>.
 		<entry name="AnimationSpeed" type="Int">
-			<whatsthis>Selects the speed used to display in game animations</whatsthis>
+			<whatsthis>Adjusts the speed with which the in game animations are displayed.</whatsthis>
 			<default>5</default>
 			<min>0</min>
 			<max>10</max>
 		</entry>
-		<entry name="Theme" type="String">
-			<whatsthis>Selects the theme used to display all in game elements</whatsthis>
-			<default></default>
+		<entry name="AllowUnsafeMoves" type="Bool">
+			<whatsthis>If unchecked, the game will ignore any move (with the exception of random teleports) that would result in the immediate death of the hero.</whatsthis>
+			<default>false</default>
 		</entry>
+	</group>
+
+	<group name="Rules">
 		<entry name="Ruleset" type="String">
-			<whatsthis>Selects the set of game rules to be used in the next game</whatsthis>
+			<whatsthis>Selects the set of game rules to be used in the next game.</whatsthis>
 			<default></default>
 		</entry>
 	</group>
+
+	<group name="Theme">
+		<entry name="Theme" type="String">
+			<whatsthis>Selects the theme used to display all in game elements.</whatsthis>
+			<default></default>
+		</entry>
+	</group>
+
 </kcfg>
