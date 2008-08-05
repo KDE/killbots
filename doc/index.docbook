@@ -60,60 +60,79 @@
 </bookinfo>
 
 <chapter id="introduction">
-<title>Introduction</title>
-
-<note>
-  <title>Game type:</title>
-  <para>Strategy</para>
-</note>
-
-<note>
-  <title>Number of players:</title>
-  <para>One</para>
-</note>
-
-<!-- The introduction chapter contains a brief introduction for the
-application that explains what it does and where to report
-problems. Basically a long version of the abstract.  Don't include a
-revision history. (see installation appendix comment) -->
-
-<para>&killbots; is a simple game of evading killer robots. Who created the robots and why they have been programmed to destroy, no one knows. All that is known is that the robots are numerous and their sole objective is to destroy you. Fortunately for you, their creator has focused on quantity rather than quality and as a result the robots are severely lacking in intelligence. Your superior wit and a fancy teleportation device are your only weapons against the never-ending stream of mindless automatons.</para>
-
-<para>&killbots; is highly customisable</para>
-
-<note>
-  <title>Note:</title>
-  <para>This documentation frequently refers to <quote>robots</quote>, <quote>junkheaps</quote>, etc., but &killbots; is fully themeable. That means the game sprites you see while playing might not match the futuristic ones described here. The game play and strategies, however, will remain the same, even if your hero is a carrot being chased through a garden patch by ravenous rabbits.</para>
-</note>
-
+  <title>Introduction</title>
+  
+  <note>
+    <title>Game type:</title>
+    <para>Strategy</para>
+  </note>
+  
+  <note>
+    <title>Number of players:</title>
+    <para>One</para>
+  </note>
+  
+  <!-- The introduction chapter contains a brief introduction for the
+  application that explains what it does and where to report
+  problems. Basically a long version of the abstract.  Don't include a
+  revision history. (see installation appendix comment) -->
+  
+  <para>&killbots; is a simple game of evading killer robots. Who created the robots and why they have been programmed to destroy, no one knows. All that is known is that the robots are numerous and their sole objective is to destroy you. Fortunately for you, their creator has focused on quantity rather than quality and as a result the robots are severely lacking in intelligence. Your superior wit and a fancy teleportation device are your only weapons against the never-ending stream of mindless automatons.</para>
+  
+  <note>
+    <title>Note:</title>
+    <para>This documentation frequently refers to <quote>robots</quote>, <quote>junkheaps</quote>, etc., but &killbots; is fully themeable. That means the game sprites you see while playing might not match the futuristic ones described here. The game play and strategies, however, will remain the same, even if your hero is a carrot being chased through a garden patch by ravenous rabbits.</para>
+  </note>
 
 </chapter>
 
 <chapter id="howto">
   <title id="howto-title">How to Play</title>
 
-  <note>
-    <title>Objective:</title>
-    <para>Survive successive rounds of enemies while accumulating a high score.</para>
-  </note>
-
   <sect1 id="gameplay-basics">
     <title>Basics of Gameplay</title>
+
+    <note>
+      <title>Objective:</title>
+      <para>Survive successive rounds of enemies while accumulating a high score.</para>
+    </note>
 
     <para><screenshot><mediaobject>
       <imageobject><imagedata fileref="grid.png" format="PNG"/></imageobject>
       <textobject><phrase>Screenshot of the game grid</phrase></textobject>
     </mediaobject></screenshot></para>
 
-    <para>&killbots; is played on a rectangular grid of cells. The number of rows and columns in the grid is determined by the ruleset being used. Each cell can contain one of the following sprites:
+    <para>&killbots; is a turn-based game, played on a rectangular <firstterm>grid</firstterm>. The number of <firstterm>cells</firstterm> in each row and column in the grid is determined by the ruleset being used. Each cell can contain one of the following:
       <variablelist>
         <varlistentry>
-          <term><inlinemediaobject><imageobject><imagedata fileref="hero.png" format="PNG"/></imageobject></inlinemediaobject> <firstterm>Hero</firstterm></term>
-          <listitem><para>The hero is the unfortunate soul stuck in a room with a bunch of killer robots. As the player, it is your job to ensure that he remains alive for as long possible.</para></listitem>
+          <term><firstterm>Hero</firstterm> <inlinemediaobject><imageobject><imagedata fileref="hero.png" format="PNG"/></imageobject></inlinemediaobject></term>
+          <listitem>
+            <para>The hero is the unfortunate soul stuck in a room with a bunch of killer robots. As the player, it is your job to ensure that he remains alive for as long possible.</para>
+            <para>At the beginning of each <firstterm>turn</firstterm>, the hero can perform one of three types of actions: he can stay where he is, he can move to an unoccupied adjacent cell, or he can perform a special action. See <link linkend="movement-controls" endterm="movement-controls-title"/> or Special Actions.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term><firstterm>Robot</firstterm> <inlinemediaobject><imageobject><imagedata fileref="enemy.png" format="PNG"/></imageobject></inlinemediaobject></term>
+          <listitem>
+            <para>Robots are mechanical man desiring only to crush you with their metallic girth. They have never heard of the "Three Laws of Robotics" and would probably crush anyone who tried to explain them.</para>
+            <para>Each robot will take a single step toward the hero on every turn. If the robot is above the hero, it will step down. If the robot is to the left of the hero, it will step right. If the robot is below and right of the hero, it will step diagonally, up and left. Should the robot manage to occupy the same cell as the hero, the hero will be crushed and the game will end.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term><firstterm>Fastbot</firstterm> <inlinemediaobject><imageobject><imagedata fileref="fastenemy.png" format="PNG"/></imageobject></inlinemediaobject></term>
+          <listitem>
+            <para>Fastbots are a much speedier version of the basic robot. For each move the hero makes, they take two steps. Fortunately, their increased mobility was not paired with increased intelligence; they often only succeed in destroying themselves twice as quickly as their slower brethren.</para>
+            <para>Not all rulesets include fastbots.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term><firstterm>Junkheap</firstterm> <inlinemediaobject><imageobject><imagedata fileref="junkheap.png" format="PNG"/></imageobject></inlinemediaobject></term>
+          <listitem>
+            <para>When two or more enemies collide, they are destroyed and the resulting debris produces a junkheap. Enemies blindly ignore any junkheaps in their path and are destroyed upon crashing into them. You will find junkheaps to be extremely valuable, as they can serve as barricades between you and your attackers.</para>
+            <para>Some rulesets permit the hero to <firstterm>push</firstterm> junkheaps around the grid and onto enemies.</para>
+          </listitem>
         </varlistentry>
       </variablelist>
-
-
     </para>
   </sect1>
 
@@ -136,7 +155,7 @@ revision history. (see installation appendix comment) -->
       <sect3 id="mouse-movement">
         <title id="mouse-movement-title">Mouse Movement Controls</title>
         <para>The mouse (or any other pointing device) can be used to navigate in a more natural, intuitive way. As the pointer moves over the main game area, the cursor will change to indicate the relative direction of the pointer with respect to the hero. For example, moving the pointer to the space above the hero will change the cursor to an up arrow. If the pointer is placed immediately over the hero, the cursor changes to indicate no movement.</para>
-        <para>A single left click will cause the hero to step (or at least try to step) in the indicated direction. In the Configure Killbots dialog, one can assign additional actions to the right and middle mouse buttons.</para>
+        <para>A single left click will cause the hero to step in the indicated direction (provided such a step is permitted). For convenience, one can assign additional actions to the right and middle mouse buttons in the <link linkend="configure-killbots">Configure Killbots dialog</link>. These actions include those found in the <link linkend="move-menu" endterm="move-menu-title"/>, as well as additional option: Repeated Step. Performing a repeated step causes the hero to move in the idicated direction for several consecequtive turns until an obstruction is reached or continued movement would be unsafe. One can also halt a repeated step in progress by clicking again.</para>
         <para></para>
       </sect3>
     </sect2>
@@ -233,7 +252,7 @@ revision history. (see installation appendix comment) -->
           </menuchoice></term>
           <listitem><para><action>Displays the standard &kde; Configure Toolbars dialog.</action> This allows one to choose which actions are shown on the &killbots; toolbar.</para></listitem>
         </varlistentry>
-        <varlistentry>
+        <varlistentry id="configure-killbots">
           <term><menuchoice>
             <guimenu>Settings</guimenu>
             <guimenuitem>Configure &killbots;...</guimenuitem>
@@ -251,11 +270,32 @@ revision history. (see installation appendix comment) -->
 </chapter>
 
 
-<!--<chapter id="developers">
+<chapter id="developers">
   <title>Developer's Guide to &killbots;</title>
+  <para>Interested individuals can customize &killbots; in two major ways: themes and rulesets.</para>
 
-  <para>Programming &killbots; plugins is a joy to behold. Just read through the next 66 pages of API's to learn how!</para>
-</chapter>-->
+  <sect1 id="creating-themes">
+    <title>Creating Customized Themes</title>
+    <para>Like most other KDE games, a &killbots; theme consists of three files.</para>
+    <sect2>
+      <title>The Desktop File</title>
+      <para>The desktop file follows standard INI syntax and is used to store information about the theme and to point to the other files. The following is an example theme.</para>
+      <para>[KGameTheme]
+Name=Default
+Description=The default theme
+Author=Parker Coates
+AuthorEmail=parker.coates@gmail.com
+Type=SVG
+FileName=default.svg
+Preview=default.png</para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="creating-rulesets">
+    <title>Creating &killbots; Rulesets</title>
+  <para>Paragraph</para>
+  </sect1>
+</chapter>
 
 <!--<chapter id="faq">
   <title>Questions and Answers</title>
