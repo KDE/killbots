@@ -57,7 +57,7 @@ namespace Killbots
 
 	namespace Render
 	{
-		K_GLOBAL_STATIC( Killbots::RenderPrivate, rp );
+		K_GLOBAL_STATIC( Killbots::RenderPrivate, rp )
 	}
 }
 

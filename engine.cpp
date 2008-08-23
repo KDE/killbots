@@ -36,7 +36,7 @@ uint qHash( const QPoint & point )
 inline int sign( int num )
 {
 	return (num > 0) ? 1 : (num == 0) ? 0 : -1;
-};
+}
 
 
 Killbots::Engine::Engine( Scene * scene, QObject * parent )
