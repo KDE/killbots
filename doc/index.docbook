@@ -72,16 +72,16 @@
     <para>One</para>
   </note>
   
-  <!-- The introduction chapter contains a brief introduction for the
-  application that explains what it does and where to report
-  problems. Basically a long version of the abstract.  Don't include a
-  revision history. (see installation appendix comment) -->
-  
   <para>&killbots; is a simple game of evading killer robots. Who created the robots and why they have been programmed to destroy, no one knows. All that is known is that the robots are numerous and their sole objective is to destroy you. Fortunately for you, their creator has focused on quantity rather than quality and as a result the robots are severely lacking in intelligence. Your superior wit and a fancy teleportation device are your only weapons against the never-ending stream of mindless automatons.</para>
   
   <note>
     <title>Note:</title>
     <para>This documentation frequently refers to <quote>robots</quote>, <quote>junkheaps</quote>, etc., but &killbots; is fully themeable. That means the game sprites you see while playing might not match the futuristic ones described here. The game play and strategies, however, will remain the same, even if your hero is a carrot being chased through a garden patch by ravenous rabbits.</para>
+  </note>
+
+  <note>
+    <title>Note:</title>
+    <para>&killbots; supports multiple rulesets which control the game parameters and determine which game features are included. This documentation attempts to be generic and not specific to any one ruleset. Check the description of your current ruleset for more detailed information on game mechanics with respect to grid size, rounds, scoring, energy, etc.</para>
   </note>
 
 </chapter>
@@ -108,14 +108,14 @@
           <term><firstterm>Hero</firstterm> <inlinemediaobject><imageobject><imagedata fileref="hero.png" format="PNG"/></imageobject></inlinemediaobject></term>
           <listitem>
             <para>The hero is the unfortunate soul stuck in a room with a bunch of killer robots. As the player, it is your job to ensure that he remains alive for as long possible.</para>
-            <para>At the beginning of each <firstterm>turn</firstterm>, the hero can perform one of three types of actions: he can stay where he is, he can move to an unoccupied adjacent cell, or he can perform a special action. See <link linkend="movement-controls" endterm="movement-controls-title"/> or Special Actions.</para>
+            <para>At the beginning of each <firstterm>turn</firstterm>, the hero can perform one of three types of actions: he can stay where he is, he can move to an unoccupied adjacent cell, or he can perform a special action. See <link linkend="movement-controls" endterm="movement-controls-title"/> or <link linkend="special-actions" endterm="special-actions-title"/>.</para>
           </listitem>
         </varlistentry>
         <varlistentry>
           <term><firstterm>Robot</firstterm> <inlinemediaobject><imageobject><imagedata fileref="enemy.png" format="PNG"/></imageobject></inlinemediaobject></term>
           <listitem>
-            <para>Robots are mechanical man desiring only to crush you with their metallic girth. They have never heard of the "Three Laws of Robotics" and would probably crush anyone who tried to explain them.</para>
-            <para>Each robot will take a single step toward the hero on every turn. If the robot is above the hero, it will step down. If the robot is to the left of the hero, it will step right. If the robot is below and right of the hero, it will step diagonally, up and left. Should the robot manage to occupy the same cell as the hero, the hero will be crushed and the game will end.</para>
+            <para>Robots are mechanical thugs desiring only to crush the hero with their metallic girth. They have never heard of the "Three Laws of Robotics" and would probably crush anyone who tried to explain them.</para>
+            <para>Each robot will take a single step toward the hero on every turn. If the robot is above the hero, it will step down. If the robot is to the left of the hero, it will step right. If the robot is below and right of the hero, it will step diagonally, up and left. Should a robot manage to reach the hero's cell, the hero will be killed and the game will end.</para>
           </listitem>
         </varlistentry>
         <varlistentry>
@@ -136,137 +136,191 @@
     </para>
   </sect1>
 
+  <sect1 id="special-actions">
+    <title id="special-actions-title">Special Actions</title>
+    <para>In addition to simple movement from cell to cell, the hero has three special actions at his disposal.
+      <variablelist>
+        <varlistentry id="teleport">
+          <term><firstterm>Teleport</firstterm></term>
+          <listitem>
+            <para>The hero has somehow managed to get his hands on a personal teleporter. Unfortunately, it's not very reliable. Activating the teleporter causes the hero to be transported to a randomly selected cell anywhere on the grid. There is no limit to the number of teleports the hero can perform.</para>
+            <para>The destination cell is guaranteed to unoccupied, but there is a very real chance that it will be adjacent to an angry robot. Due to the risk inherent in teleporting, it should generally be reserved as a last ditch manuever, when there are no longer any safe moves available.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry id="teleport-safely">
+          <term><firstterm>Teleport Safely</firstterm></term>
+          <listitem>
+            <para>The teleporter actually has a second operating mode that will transport the hero to a randomly selected, but safe cell. Safe teleporting requires energy, though, and energy is generally in short supply.</para>
+            <para>Not all rulesets allow teleporting safely and the details of how energy is acquired vary from ruleset to ruleset.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry id="wait-out-round">
+          <term><firstterm>Wait Out Round</firstterm></term>
+          <listitem>
+            <para>There may come a time when the grid is laid out such that all the robots can be destroyed without the hero having to move at all. In such a situation, you have the option to wait out the round.</para>
+            <para><screenshot><mediaobject>
+              <imageobject><imagedata fileref="waitoutround.png" format="PNG"/></imageobject>
+              <textobject><phrase>Example of when waiting out the round is wise</phrase></textobject>
+            </mediaobject></screenshot></para>
+            <para>Waiting out the round causes the hero to freeze in place while the enemies continue their regular movement. This continues until one of two things happen: the enemies destroy themselves and the round finishes, or an enemy manages to reach the hero and the game ends. Once a wait out round command has been issued, it can not be cancled, so one must be certain that the hero is, in fact, safe.</para>
+            <para>So why would one take an action that eliminates the opportunity to change one's mind? Well, it adds a bit of flourish and drama to the end of a round, but more importantly, there is a bonus awarded for each enemy destroyed while waiting out the round. The size and type (points or energy) of the bonus is determined by the ruleset.</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+    </para>
+  </sect1>
+
+  <sect1 id="rounds-scoring-energy">
+    <title>Rounds, Scoring and Energy</title>
+
+    <sect2>
+      <title>Rounds</title>
+      <para>Gameplay in &killbots; is divided into <firstterm>rounds</firstterm>. Each round begins with the hero in the middle of the grid and with enemies placed randomly around him. The round ends when all enemies have been destroyed. As each round is completed, the number of enemies increases. The number and type of the enemies added is ruleset dependent.</para>
+      <para>The grid will continue to fill with enemies until one of two things occurs: enemies occupy more than 50 percent of the cells or a safe teleport is attempted, but there are no safe cells in the grid. At this point the current round is abandoned, the enemy counts are reset to those used in round 1 and a new round is started.</para>
+    </sect2>
+
+    <sect2>
+      <title>Scoring</title>
+      <para>There really is no such thing as winning in &killbots;; the hero attempts to survive as long as possible, but the depressing reality is that, in the end, his luck will run out. Therefore, the goal in &killbots; is to accumulate the highest score possible before the inevitable occurs. The ten highest scores (along with the round reached) are recorded in the highscore dialog.</para>
+      <para>Points are awarded for destroying enemies. Fastbots are usually worth more than regular robots. Bonus points may also be awarded for enemies destroyed while <link linkend="wait-out-round">waiting out the round</link>.</para>
+    </sect2>
+
+    <sect2>
+      <title>Energy</title>
+      <para>There really is no such thing as winning in &killbots;; the hero attempts to survive as long as possible, but the depressing reality is that, in the end, his luck will run out. Therefore, the goal in &killbots; is to accumulate the highest score possible before the inevitable occurs. The ten highest scores (along with the round reached) are recorded in the highscore dialog.</para>
+      <para>Points are awarded for destroying enemies. Fastbots are usually worth more than regular robots. Bonus points may also be awarded for enemies destroyed while <link linkend="wait-out-round">waiting out the round</link>.</para>
+    </sect2>
+
+  </sect1>
+
 </chapter>
 
-<chapter id="commands">
-  <title>Command Reference</title>
+<chapter id="interface-overview">
+  <title>Interface Overview</title>
 
-  <sect1 id="kapp-mainwindow">
-    <title>The main &killbots; window</title>
-
-    <sect2 id="movement-controls">
-      <title id="movement-controls-title">Movement Controls</title>
-      <para>The player has the option of using either the keyboard, the mouse or both to control the hero.</para>
-      <sect3 id="keyboard-movement">
-        <title id="keyboard-movement-title">Keyboard Movement Controls</title>
-        <para>There are nine different movement actions: left, right, up, down, the four diagonals, and stand still. Each of these actions can be assigned to two different keyboard keys. By default these nine actions are assigned to the nine number keys of the numeric keypad and to a 3 by 3 block of letters at the left end of a QWERTY keyboard. Of course, users using a different keyboard layout or one lacking a numeric keypad can modify these key assignments using the <link linkend="configure-shortcuts">Configure Shortcuts dialog</link>.</para>
-        <para>Each of the special movement commands (such as teleport) can also be issued from the keyboard. See <link linkend="move-menu" endterm="move-menu-title"/>.</para>
-      </sect3>
-      <sect3 id="mouse-movement">
-        <title id="mouse-movement-title">Mouse Movement Controls</title>
-        <para>The mouse (or any other pointing device) can be used to navigate in a more natural, intuitive way. As the pointer moves over the main game area, the cursor will change to indicate the relative direction of the pointer with respect to the hero. For example, moving the pointer to the space above the hero will change the cursor to an up arrow. If the pointer is placed immediately over the hero, the cursor changes to indicate no movement.</para>
-        <para>A single left click will cause the hero to step in the indicated direction (provided such a step is permitted). For convenience, one can assign additional actions to the right and middle mouse buttons in the <link linkend="configure-killbots">Configure Killbots dialog</link>. These actions include those found in the <link linkend="move-menu" endterm="move-menu-title"/>, as well as additional option: Repeated Step. Performing a repeated step causes the hero to move in the idicated direction for several consecequtive turns until an obstruction is reached or continued movement would be unsafe. One can also halt a repeated step in progress by clicking again.</para>
-        <para></para>
-      </sect3>
+  <sect1 id="movement-controls">
+    <title id="movement-controls-title">Movement Controls</title>
+    <para>The player has the option of using either the keyboard, the mouse or both to control the hero.</para>
+    <sect2 id="keyboard-movement">
+      <title id="keyboard-movement-title">Keyboard Movement Controls</title>
+      <para>There are nine different movement actions: left, right, up, down, the four diagonals, and stand still. Each of these actions can be assigned to two different keyboard keys. By default these nine actions are assigned to the nine number keys of the numeric keypad and to a 3 by 3 block of letters at the left end of a QWERTY keyboard. Of course, users using a different keyboard layout or one lacking a numeric keypad can modify these key assignments using the <link linkend="configure-shortcuts">Configure Shortcuts dialog</link>.</para>
+      <para>Each of the special movement commands (such as teleport) can also be issued from the keyboard. See <link linkend="move-menu" endterm="move-menu-title"/>.</para>
     </sect2>
-
-    <sect2 id="game-menu">
-      <title>The <guimenu>Game</guimenu> Menu</title>
-      <variablelist>
-        <varlistentry>
-          <term><menuchoice>
-            <shortcut><keycombo action="simul">&Ctrl;<keycap>N</keycap></keycombo></shortcut>
-            <guimenu>Game</guimenu>
-            <guimenuitem>New</guimenuitem>
-          </menuchoice></term>
-          <listitem><para><action>Starts a new game, discarding any game that may currently be in progress.</action></para></listitem>
-        </varlistentry>
-        <varlistentry>
-          <term><menuchoice>
-            <shortcut><keycombo action="simul">&Ctrl;<keycap>H</keycap></keycombo></shortcut>
-            <guimenu>Game</guimenu>
-            <guimenuitem>Show High Scores</guimenuitem>
-          </menuchoice></term>
-          <listitem><para><action>Shows the high score dialog, containing past scores.</action></para></listitem>
-        </varlistentry>
-        <varlistentry>
-          <term><menuchoice>
-            <shortcut><keycombo action="simul">&Ctrl;<keycap>Q</keycap></keycombo></shortcut>
-            <guimenu>Game</guimenu>
-            <guimenuitem>Quit</guimenuitem>
-          </menuchoice></term>
-          <listitem><para><action>Quits &killbots;.</action></para></listitem>
-        </varlistentry>
-      </variablelist>
-    </sect2>
-
-    <sect2 id="move-menu">
-      <title id="move-menu-title">The <guimenu>Move</guimenu> Menu</title>
-      <variablelist>
-        <varlistentry>
-          <term><menuchoice>
-            <shortcut><keycap>R</keycap></shortcut>
-            <guimenu>Move</guimenu>
-            <guimenuitem>Teleport</guimenuitem>
-          </menuchoice></term>
-          <listitem><para><action>Teleports the hero to a random, empty cell anywhere within the playing field.</action> See <link linkend="howto" endterm="howto-title"/>.</para></listitem>
-        </varlistentry>
-        <varlistentry>
-          <term><menuchoice>
-            <shortcut><keycap>T</keycap></shortcut>
-            <guimenu>Move</guimenu>
-            <guimenuitem>Teleport Safely</guimenuitem>
-          </menuchoice></term>
-          <listitem><para><action>Teleports the hero to a random, empty cell that is guaranteed to be safe from attack on that turn.</action> See <link linkend="howto" endterm="howto-title"/>.</para></listitem>
-        </varlistentry>
-        <varlistentry>
-          <term><menuchoice>
-            <shortcut><keycap>Space</keycap></shortcut>
-            <guimenu>Move</guimenu>
-            <guimenuitem>Teleport, Safely If Possible</guimenuitem>
-          </menuchoice></term>
-          <listitem><para>A convenience action. <action>Teleports the hero safely if that is possible, otherwise just teleports randomly.</action></para></listitem>
-        </varlistentry>
-        <varlistentry>
-          <term><menuchoice>
-            <shortcut><keycap>Y</keycap></shortcut>
-            <guimenu>Move</guimenu>
-            <guimenuitem>Wait Out Round</guimenuitem>
-          </menuchoice></term>
-          <listitem><para><action>Causes the hero to freeze in place until the end of the round.</action> See <link linkend="howto" endterm="howto-title"/>.</para></listitem>
-        </varlistentry>
-      </variablelist>
-    </sect2>
-
-    <sect2 id="settings-menu">
-      <title>The <guimenu>Settings</guimenu> Menu</title>
-      <variablelist>
-        <varlistentry>
-          <term><menuchoice>
-            <guimenu>Settings</guimenu>
-            <guimenuitem>Show Toolbar</guimenuitem>
-          </menuchoice></term>
-          <listitem><para><action>Shows or hides the main application toolbar.</action></para></listitem>
-        </varlistentry>
-        <varlistentry id="configure-shortcuts">
-          <term><menuchoice>
-            <guimenu>Settings</guimenu>
-            <guimenuitem>Configure Shortcuts...</guimenuitem>
-          </menuchoice></term>
-          <listitem><para><action>Displays the standard &kde; Configure Shortcuts dialog.</action> This allows one to redefine any or all of &killbots;'s keyboard shortcuts, including the movement controls.</para></listitem>
-        </varlistentry>
-        <varlistentry>
-          <term><menuchoice>
-            <guimenu>Settings</guimenu>
-            <guimenuitem>Configure Toolbars...</guimenuitem>
-          </menuchoice></term>
-          <listitem><para><action>Displays the standard &kde; Configure Toolbars dialog.</action> This allows one to choose which actions are shown on the &killbots; toolbar.</para></listitem>
-        </varlistentry>
-        <varlistentry id="configure-killbots">
-          <term><menuchoice>
-            <guimenu>Settings</guimenu>
-            <guimenuitem>Configure &killbots;...</guimenuitem>
-          </menuchoice></term>
-          <listitem><para><action>Displays the &killbots; configuration dialog</action>, where one can adjust gameplay parameters, choose a different set of game rules, and change the game theme.</para></listitem>
-        </varlistentry>
-      </variablelist>
-    </sect2>
-
-    <sect2 id="help-menu">
-      <title>The <guimenu>Help</guimenu> Menu</title>
-      &help.menu.documentation;
+    <sect2 id="mouse-movement">
+      <title id="mouse-movement-title">Mouse Movement Controls</title>
+      <para>The mouse (or any other pointing device) can be used to navigate in a more natural, intuitive way. As the pointer moves over the main game area, the cursor will change to indicate the direction of the pointer relative to the hero. For example, moving the pointer to the space above the hero will change the cursor to an up arrow. If the pointer is placed immediately over the hero, the cursor changes to indicate no movement.</para>
+      <para>A single left-click will cause the hero to step in the indicated direction (provided such a step is permitted). For convenience, one can assign additional actions to the right and middle mouse buttons in the <link linkend="configure-killbots">Configure Killbots dialog</link>. These actions include those found in the <link linkend="move-menu" endterm="move-menu-title"/>, as well as additional option: Repeated Step. Performing a repeated step causes the hero to move in the idicated direction for several consecutive turns until an obstruction is reached or continued movement would be unsafe. One can also halt a repeated step by clicking again while the move is in progress.</para>
+      <para></para>
     </sect2>
   </sect1>
+
+  <sect1 id="game-menu">
+    <title>The <guimenu>Game</guimenu> Menu</title>
+    <variablelist>
+      <varlistentry>
+        <term><menuchoice>
+          <shortcut><keycombo action="simul">&Ctrl;<keycap>N</keycap></keycombo></shortcut>
+          <guimenu>Game</guimenu>
+          <guimenuitem>New</guimenuitem>
+        </menuchoice></term>
+        <listitem><para><action>Starts a new game, discarding any game that may currently be in progress.</action></para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><menuchoice>
+          <shortcut><keycombo action="simul">&Ctrl;<keycap>H</keycap></keycombo></shortcut>
+          <guimenu>Game</guimenu>
+          <guimenuitem>Show High Scores</guimenuitem>
+        </menuchoice></term>
+        <listitem><para><action>Shows the high score dialog, containing past scores.</action></para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><menuchoice>
+          <shortcut><keycombo action="simul">&Ctrl;<keycap>Q</keycap></keycombo></shortcut>
+          <guimenu>Game</guimenu>
+          <guimenuitem>Quit</guimenuitem>
+        </menuchoice></term>
+        <listitem><para><action>Quits &killbots;.</action></para></listitem>
+      </varlistentry>
+    </variablelist>
+  </sect1>
+
+  <sect1 id="move-menu">
+    <title id="move-menu-title">The <guimenu>Move</guimenu> Menu</title>
+    <variablelist>
+      <varlistentry>
+        <term><menuchoice>
+          <shortcut><keycap>R</keycap></shortcut>
+          <guimenu>Move</guimenu>
+          <guimenuitem>Teleport</guimenuitem>
+        </menuchoice></term>
+        <listitem><para><action>Teleports the hero to a random, empty cell anywhere within the playing field.</action> See <link linkend="teleport" endterm="special-actions-title"/>.</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><menuchoice>
+          <shortcut><keycap>T</keycap></shortcut>
+          <guimenu>Move</guimenu>
+          <guimenuitem>Teleport Safely</guimenuitem>
+        </menuchoice></term>
+        <listitem><para><action>Teleports the hero to a random, empty cell that is guaranteed to be safe from attack on that turn.</action> See <link linkend="teleport-safely" endterm="special-actions-title"/>.</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><menuchoice>
+          <shortcut><keycap>Space</keycap></shortcut>
+          <guimenu>Move</guimenu>
+          <guimenuitem>Teleport, Safely If Possible</guimenuitem>
+        </menuchoice></term>
+        <listitem><para>A convenience action. <action>Teleports the hero safely if there is enough energy available, otherwise just teleports randomly.</action></para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><menuchoice>
+          <shortcut><keycap>Y</keycap></shortcut>
+          <guimenu>Move</guimenu>
+          <guimenuitem>Wait Out Round</guimenuitem>
+        </menuchoice></term>
+        <listitem><para><action>Causes the hero to freeze in place until the end of the round.</action> See <link linkend="wait-out-round" endterm="special-actions-title"/>.</para></listitem>
+      </varlistentry>
+    </variablelist>
+  </sect1>
+
+  <sect1 id="settings-menu">
+    <title>The <guimenu>Settings</guimenu> Menu</title>
+    <variablelist>
+      <varlistentry>
+        <term><menuchoice>
+          <guimenu>Settings</guimenu>
+          <guimenuitem>Show Toolbar</guimenuitem>
+        </menuchoice></term>
+        <listitem><para><action>Shows or hides the main application toolbar.</action></para></listitem>
+      </varlistentry>
+      <varlistentry id="configure-shortcuts">
+        <term><menuchoice>
+          <guimenu>Settings</guimenu>
+          <guimenuitem>Configure Shortcuts...</guimenuitem>
+        </menuchoice></term>
+        <listitem><para><action>Displays the standard &kde; Configure Shortcuts dialog.</action> This allows one to redefine any or all of &killbots;'s keyboard shortcuts, including the movement controls.</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><menuchoice>
+          <guimenu>Settings</guimenu>
+          <guimenuitem>Configure Toolbars...</guimenuitem>
+        </menuchoice></term>
+        <listitem><para><action>Displays the standard &kde; Configure Toolbars dialog.</action> This allows one to choose which actions are shown on the &killbots; toolbar.</para></listitem>
+      </varlistentry>
+      <varlistentry id="configure-killbots">
+        <term><menuchoice>
+          <guimenu>Settings</guimenu>
+          <guimenuitem>Configure &killbots;...</guimenuitem>
+        </menuchoice></term>
+        <listitem><para><action>Displays the &killbots; configuration dialog</action>, where one can adjust gameplay parameters, choose a different set of game rules, or change the game theme.</para></listitem>
+      </varlistentry>
+    </variablelist>
+  </sect1>
+
+  <sect1 id="help-menu">
+    <title>The <guimenu>Help</guimenu> Menu</title>
+    &help.menu.documentation;
+  </sect1>
+
 </chapter>
 
 
@@ -296,24 +350,6 @@ Preview=default.png</para>
   <para>Paragraph</para>
   </sect1>
 </chapter>
-
-<!--<chapter id="faq">
-  <title>Questions and Answers</title>
-
-  &reporting.bugs;
-  &updating.documentation;
-
-  <qandaset id="faqlist">
-    <qandaentry>
-      <question><para>My Mouse doesn't work. How do I quit &killbots;?</para></question>
-      <answer><para>You silly goose! Check out the <link linkend="commands">Commands Section</link> for the answer.</para></answer>
-    </qandaentry>
-    <qandaentry>
-      <question><para>Why can't I twiddle my documents?</para></question>
-      <answer><para>You can only twiddle your documents if you have the foobar.lib installed.</para></answer>
-    </qandaentry>
-  </qandaset>
-</chapter>-->
 
 <chapter id="credits">
   <title>Credits and License</title>
