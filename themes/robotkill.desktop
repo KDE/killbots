@@ -1,0 +1,10 @@
+[KGameTheme]
+Name=Robot Kill
+Name[xx]=xxDefaultxx
+Description=Robot Kill
+VersionFormat=0.0
+Author=Eugene Trounev
+AuthorEmail=eugene.trounev@gmail.com
+Type=SVG
+FileName=robotkill.svg
+#Preview=default.png
