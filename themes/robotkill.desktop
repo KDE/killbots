@@ -1,6 +1,8 @@
 [KGameTheme]
 Name=Robot Kill
+Name[sv]=Robotdöd
 Description=Robot Kill
+Description[sv]=Robotdöd
 VersionFormat=0.0
 Author=Eugene Trounev
 AuthorEmail=eugene.trounev@gmail.com
