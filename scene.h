@@ -96,7 +96,7 @@ namespace Killbots
 
 		GameStatusDisplayItem * m_roundDisplay;
 		GameStatusDisplayItem * m_scoreDisplay;
-		GameStatusDisplayItem * m_robotCountDisplay;
+		GameStatusDisplayItem * m_enemyCountDisplay;
 		GameStatusDisplayItem * m_energyDisplay;
 		QSize m_displaySize;
 	};

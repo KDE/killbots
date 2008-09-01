@@ -47,7 +47,7 @@ Killbots::Scene::Scene( QObject * parent )
     m_popupMessage( new KGamePopupItem ),
     m_roundDisplay( new GameStatusDisplayItem() ),
     m_scoreDisplay( new GameStatusDisplayItem() ),
-    m_robotCountDisplay( new GameStatusDisplayItem() ),
+    m_enemyCountDisplay( new GameStatusDisplayItem() ),
     m_energyDisplay( new GameStatusDisplayItem() )
 {
 	setItemIndexMethod( QGraphicsScene::NoIndex );
@@ -69,9 +69,9 @@ Killbots::Scene::Scene( QObject * parent )
 	m_scoreDisplay->setDigits( 5 );
 	addItem( m_scoreDisplay );
 
-	m_robotCountDisplay->setText( i18n("Enemies:") );
-	m_robotCountDisplay->setDigits( 3 );
-	addItem( m_robotCountDisplay );
+	m_enemyCountDisplay->setText( i18n("Enemies:") );
+	m_enemyCountDisplay->setDigits( 3 );
+	addItem( m_enemyCountDisplay );
 
 	m_energyDisplay->setText( i18n("Energy:") );
 	m_energyDisplay->setDigits( 2 );
@@ -106,12 +106,12 @@ void Killbots::Scene::doLayout()
 		// adjust their size to fit their contents.
 		m_roundDisplay->setFont( font );
 		m_scoreDisplay->setFont( font );
-		m_robotCountDisplay->setFont( font );
+		m_enemyCountDisplay->setFont( font );
 		m_energyDisplay->setFont( font );
 
 		// Determine the size of the widest display. (This will depend on the locale.)
 		qreal widest = qMax( m_roundDisplay->boundingRect().width(), m_scoreDisplay->boundingRect().width() );
-		widest = qMax( widest, m_robotCountDisplay->boundingRect().width() );
+		widest = qMax( widest, m_enemyCountDisplay->boundingRect().width() );
 		if ( m_energyDisplay->isVisible() )
 			widest = qMax( widest, m_energyDisplay->boundingRect().width() );
 		m_displaySize = QSize( qRound( widest ), qRound( m_roundDisplay->boundingRect().height() ) );
@@ -119,7 +119,7 @@ void Killbots::Scene::doLayout()
 		// Apply largest size to all displays.
 		m_roundDisplay->setSize( m_displaySize );
 		m_scoreDisplay->setSize( m_displaySize );
-		m_robotCountDisplay->setSize( m_displaySize );
+		m_enemyCountDisplay->setSize( m_displaySize );
 		m_energyDisplay->setSize( m_displaySize );
 	}
 
@@ -185,8 +185,8 @@ void Killbots::Scene::doLayout()
 
 		m_roundDisplay->setPos( sceneRectXPos + ( size.width() - widthOfDisplaysOnTop ) / 2.0, displayYPos );
 		m_scoreDisplay->setPos( m_roundDisplay->sceneBoundingRect().right() + spacing, displayYPos );
-		m_robotCountDisplay->setPos( m_scoreDisplay->sceneBoundingRect().right() + spacing, displayYPos );
-		m_energyDisplay->setPos( m_robotCountDisplay->sceneBoundingRect().right() + spacing, displayYPos );
+		m_enemyCountDisplay->setPos( m_scoreDisplay->sceneBoundingRect().right() + spacing, displayYPos );
+		m_energyDisplay->setPos( m_enemyCountDisplay->sceneBoundingRect().right() + spacing, displayYPos );
 	}
 	else
 	{
@@ -218,8 +218,8 @@ void Killbots::Scene::doLayout()
 
 		m_roundDisplay->setPos( displayXPos, -m_cellSize.height() / 2 );
 		m_scoreDisplay->setPos( displayXPos, m_roundDisplay->sceneBoundingRect().bottom() + spacing );
-		m_robotCountDisplay->setPos( displayXPos, m_scoreDisplay->sceneBoundingRect().bottom() + spacing );
-		m_energyDisplay->setPos( displayXPos, m_robotCountDisplay->sceneBoundingRect().bottom() + spacing );
+		m_enemyCountDisplay->setPos( displayXPos, m_scoreDisplay->sceneBoundingRect().bottom() + spacing );
+		m_energyDisplay->setPos( displayXPos, m_enemyCountDisplay->sceneBoundingRect().bottom() + spacing );
 
 		setSceneRect( QRectF( sceneRectXPos, sceneRectYPos, size.width(), size.height() ) );
 	}
@@ -433,7 +433,7 @@ void Killbots::Scene::updateScore( int score )
 
 void Killbots::Scene::updateEnemyCount( int enemyCount )
 {
-	m_robotCountDisplay->setValue( enemyCount );
+	m_enemyCountDisplay->setValue( enemyCount );
 }
 
 

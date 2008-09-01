@@ -84,8 +84,8 @@ void Killbots::Engine::newGame()
 	m_score = 0;
 	m_energy = m_rules->energyAtGameStart() - m_rules->energyAddedEachRound();
 	m_maxEnergy = m_rules->maxEnergyAtGameStart() - m_rules->maxEnergyAddedEachRound();
-	m_robotCount = m_rules->robotsAtGameStart() - m_rules->robotsAddedEachRound();
-	m_fastbotCount = m_rules->fastbotsAtGameStart() - m_rules->fastbotsAddedEachRound();
+	m_robotCount = m_rules->enemiesAtGameStart() - m_rules->enemiesAddedEachRound();
+	m_fastbotCount = m_rules->fastEnemiesAtGameStart() - m_rules->fastEnemiesAddedEachRound();
 	m_junkheapCount = m_rules->junkheapsAtGameStart() - m_rules->junkheapsAddedEachRound();
 
 	animateThenGoToNextPhase( NewRound );
@@ -104,8 +104,8 @@ void Killbots::Engine::newRound()
 	m_spriteMap.clear();
 
 	m_maxEnergy += m_rules->maxEnergyAddedEachRound();
-	m_robotCount += m_rules->robotsAddedEachRound();
-	m_fastbotCount += m_rules->fastbotsAddedEachRound();
+	m_robotCount += m_rules->enemiesAddedEachRound();
+	m_fastbotCount += m_rules->fastEnemiesAddedEachRound();
 	m_junkheapCount += m_rules->junkheapsAddedEachRound();
 	if ( m_energy < m_maxEnergy )
 		m_energy = qMin( m_energy + m_rules->energyAddedEachRound(), int( m_maxEnergy ) );
@@ -236,8 +236,8 @@ void Killbots::Engine::goToNextPhase()
 	else if ( m_nextPhase == BoardFull )
 	{
 		m_maxEnergy = m_rules->maxEnergyAtGameStart() - m_rules->maxEnergyAddedEachRound();
-		m_robotCount = m_rules->robotsAtGameStart() - m_rules->robotsAddedEachRound();
-		m_fastbotCount = m_rules->fastbotsAtGameStart() - m_rules->fastbotsAddedEachRound();
+		m_robotCount = m_rules->enemiesAtGameStart() - m_rules->enemiesAddedEachRound();
+		m_fastbotCount = m_rules->fastEnemiesAtGameStart() - m_rules->fastEnemiesAddedEachRound();
 		m_junkheapCount = m_rules->junkheapsAtGameStart() - m_rules->junkheapsAddedEachRound();
 
 		--m_round;
@@ -768,7 +768,7 @@ void Killbots::Engine::destroySprite( Sprite * sprite )
 			if ( m_energy < m_maxEnergy )
 				m_energy = qMin( m_energy + m_rules->waitKillEnergyBonus(), int( m_maxEnergy ) );
 		}
-		m_score += m_rules->pointsPerRobotKilled();
+		m_score += m_rules->pointsPerEnemyKilled();
 		m_bots.removeOne( sprite );
 	}
 	else if ( type == Fastbot )
@@ -779,7 +779,7 @@ void Killbots::Engine::destroySprite( Sprite * sprite )
 			if ( m_energy < m_maxEnergy )
 				m_energy = qMin( m_energy + m_rules->waitKillEnergyBonus(), int( m_maxEnergy ) );
 		}
-		m_score += m_rules->pointsPerFastbotKilled();
+		m_score += m_rules->pointsPerFastEnemyKilled();
 		m_bots.removeOne( sprite );
 	}
 	else if ( type == Junkheap )
