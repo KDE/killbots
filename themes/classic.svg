@@ -44,9 +44,9 @@
      objecttolerance="10"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2.65"
-     inkscape:cx="-29.69084"
-     inkscape:cy="-190.31526"
+     inkscape:zoom="0.165625"
+     inkscape:cx="-834.80405"
+     inkscape:cy="-1320.6359"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      width="100px"
@@ -55,8 +55,8 @@
      inkscape:grid-points="true"
      inkscape:window-width="1144"
      inkscape:window-height="781"
-     inkscape:window-x="1152"
-     inkscape:window-y="0">
+     inkscape:window-x="0"
+     inkscape:window-y="1">
     <inkscape:grid
        type="xygrid"
        id="grid5021"
@@ -77,17 +77,9 @@
     </rdf:RDF>
   </metadata>
   <g
-     inkscape:label="Layer 1"
      inkscape:groupmode="layer"
-     id="layer1">
-    <rect
-       style="fill:#ff00ff"
-       id="rect5532"
-       width="32"
-       height="285"
-       x="-105"
-       y="-6.0000019"
-       transform="matrix(1,0,0,1.0105263,0,6.3157915e-2)" />
+     id="layer2"
+     inkscape:label="Layer 2">
     <rect
        style="fill:#ff00ff"
        id="pink"
@@ -96,8 +88,62 @@
        x="0"
        y="0" />
     <rect
+       style="fill:#ff00ff"
+       id="pink2"
+       width="32"
+       height="285"
+       x="-105"
+       y="-6.0000019"
+       transform="matrix(1,0,0,1.0105263,0,6.3157915e-2)" />
+    <flowRoot
+       id="optimizationWarning"
+       style="font-size:100px;fill:#ff00ff;font-family:Sans Serif">
+      <flowRegion
+         id="flowRegion24">
+        <rect
+           width="1500"
+           height="1000"
+           x="0"
+           y="0"
+           id="rect26" />
+      </flowRegion>
+      <flowPara
+         id="flowPara28">This file has been stripped down and compressed to optimize filesize and loading time. If you wish to edit this file, we strongly recommend getting the original with full meta data from http://websvn.kde.org.</flowPara>
+    </flowRoot>
+  </g>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="opacity:0"
+       id="background"
+       width="11"
+       height="15"
+       x="67"
+       y="2" />
+    <rect
+       style="fill:#000000;stroke:#ffffff;stroke-width:1"
+       id="status"
+       width="44"
+       height="14"
+       x="80.5"
+       y="2.5" />
+    <flowRoot
+       xml:space="preserve"
+       id="text"
+       style="font-size:7px;font-style:normal;font-weight:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       transform="translate(112.03809,112.88238)"><flowRegion
+         id="flowRegion2429"><rect
+           id="rect2431"
+           width="270.83524"
+           height="77.114662"
+           x="-28.551104"
+           y="-107.74556"
+           style="fill:#ffffff;fill-opacity:1" /></flowRegion><flowPara
+         id="flowPara2433">Text colour</flowPara></flowRoot>    <rect
        style="fill:#000000"
-       id="tile"
+       id="cell"
        width="11"
        height="15"
        x="2"
@@ -157,79 +203,8 @@
          d="M 64.400597,7.3896434 L 60.506227,9.4999974 L 64.400597,11.62123 L 63.780537,12.687284 L 60.125497,10.479028 L 60.125497,14.580075 L 58.874527,14.580075 L 58.874527,10.479028 L 55.219477,12.687284 L 54.599417,11.62123 L 58.493787,9.4999974 L 54.599417,7.3896434 L 55.219477,6.3127104 L 58.874527,8.5209664 L 58.874527,4.4199194 L 60.125497,4.4199194 L 60.125497,8.5209664 L 63.780537,6.3127104 L 64.400597,7.3896434"
          id="flowRoot2443" />
     </g>
-    <rect
-       style="opacity:0"
-       id="background"
-       width="11"
-       height="15"
-       x="67"
-       y="2" />
-    <rect
-       style="fill:#000000;stroke:#ffffff;stroke-width:1"
-       id="status"
-       width="44"
-       height="14"
-       x="80.5"
-       y="2.5" />
-    <flowRoot
-       id="optimizationWarning"
-       style="font-size:100px;fill:#ff00ff;font-family:Sans Serif">
-      <flowRegion
-         id="flowRegion24">
-        <rect
-           width="1500"
-           height="1000"
-           x="0"
-           y="0"
-           id="rect26" />
-      </flowRegion>
-      <flowPara
-         id="flowPara28">This file has been stripped down and compressed to optimize filesize and loading time. If you wish to edit this file, we strongly recommend getting the original with full meta data from http://websvn.kde.org.</flowPara>
-    </flowRoot>
-    <flowRoot
-       xml:space="preserve"
-       id="flowRoot2403"
-       style="fill:black;stroke:none;stroke-opacity:1;stroke-width:1px;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:1;font-family:Bitstream Vera Sans;font-style:normal;font-weight:normal;font-size:40px;text-anchor:start;text-align:start;writing-mode:lr;line-height:125%"><flowRegion
-         id="flowRegion2405"><rect
-           id="rect2407"
-           width="63.506195"
-           height="50.698223"
-           x="61.905197"
-           y="-60.516159" /></flowRegion><flowPara
-         id="flowPara2409" /></flowRoot>    <flowRoot
-       xml:space="preserve"
-       id="flowRoot2411"
-       style="fill:black;stroke:none;stroke-opacity:1;stroke-width:1px;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:1;font-family:Bitstream Vera Sans;font-style:normal;font-weight:normal;font-size:40px;text-anchor:start;text-align:start;writing-mode:lr;line-height:125%"><flowRegion
-         id="flowRegion2413"><rect
-           id="rect2415"
-           width="30.685766"
-           height="40.024914"
-           x="71.511177"
-           y="-83.997444" /></flowRegion><flowPara
-         id="flowPara2417" /></flowRoot>    <flowRoot
-       xml:space="preserve"
-       id="flowRoot2419"
-       style="font-size:40px;font-style:normal;font-weight:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"><flowRegion
-         id="flowRegion2421"><rect
-           id="rect2423"
-           width="82.718155"
-           height="63.239361"
-           x="124.07722"
-           y="-83.997444" /></flowRegion><flowPara
-         id="flowPara2425">asdf</flowPara></flowRoot>    <flowRoot
-       xml:space="preserve"
-       id="text"
-       style="font-size:7px;font-style:normal;font-weight:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
-       transform="translate(112.03809,112.88238)"><flowRegion
-         id="flowRegion2429"><rect
-           id="rect2431"
-           width="270.83524"
-           height="77.114662"
-           x="-28.551104"
-           y="-107.74556"
-           style="fill:#ffffff;fill-opacity:1" /></flowRegion><flowPara
-         id="flowPara2433">Text colour</flowPara></flowRoot>    <g
-       id="cursor_0">
+    <g
+       id="cursor0">
       <path
          transform="translate(-2004.1137,-458.42949)"
          sodipodi:nodetypes="cccccccc"
@@ -245,7 +220,7 @@
          style="fill:none;fill-opacity:1;stroke:none;stroke-opacity:1" />
     </g>
     <g
-       id="cursor_4"
+       id="cursor4"
        transform="translate(0,128)">
       <path
          transform="matrix(-1,0,0,1,1826.1137,-458.42949)"
@@ -262,7 +237,7 @@
          style="fill:none;fill-opacity:1;stroke:none;stroke-opacity:1" />
     </g>
     <g
-       id="cursor_2"
+       id="cursor2"
        transform="translate(0,64)">
       <path
          transform="matrix(0,-1,1,0,-557.42949,1925.1137)"
@@ -279,7 +254,7 @@
          style="fill:none;fill-opacity:1;stroke:none;stroke-opacity:1" />
     </g>
     <g
-       id="cursor_6"
+       id="cursor6"
        transform="translate(0,192)">
       <path
          transform="matrix(0,1,1,0,-557.42949,-1905.1137)"
@@ -296,7 +271,7 @@
          style="fill:none;fill-opacity:1;stroke:none;stroke-opacity:1" />
     </g>
     <g
-       id="cursor_1"
+       id="cursor1"
        transform="translate(0,32)">
       <path
          transform="matrix(0.7071068,-0.7071068,0.7071068,0.7071068,-1774.4196,1032.9602)"
@@ -315,7 +290,7 @@
          style="fill:none;fill-opacity:1;stroke:none;stroke-opacity:1" />
     </g>
     <g
-       id="cursor_3"
+       id="cursor3"
        transform="translate(0,96)">
       <path
          transform="matrix(-0.7071068,-0.7071068,0.7071068,-0.7071068,934.15945,1695.4196)"
@@ -334,7 +309,7 @@
          style="fill:none;fill-opacity:1;stroke:none;stroke-opacity:1" />
     </g>
     <g
-       id="cursor_5"
+       id="cursor5"
        transform="translate(0,160)">
       <path
          transform="matrix(-0.7071068,0.7071068,-0.7071068,-0.7071068,1596.4196,-1013.1595)"
@@ -353,7 +328,7 @@
          style="fill:none;fill-opacity:1;stroke:none;stroke-opacity:1" />
     </g>
     <g
-       id="cursor_7"
+       id="cursor7"
        transform="translate(0,224)">
       <path
          transform="matrix(0.7071068,0.7071068,-0.7071068,0.7071068,-1112.1595,-1675.4196)"
@@ -372,7 +347,7 @@
          style="fill:none;fill-opacity:1;stroke:none;stroke-opacity:1" />
     </g>
     <g
-       id="cursor_8"
+       id="cursor8"
        transform="translate(0,256)">
       <rect
          y="-6"

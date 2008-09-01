@@ -120,7 +120,7 @@ bool Killbots::Render::loadTheme( const QString & fileName )
 			result = rp->m_hasBeenLoaded = rp->m_svgRenderer.load( newTheme.graphics() );
 
 			// Get the theme's aspect ratio from the .desktop file, defaulting to 1.0.
-			QRectF tileRect = rp->m_svgRenderer.boundsOnElement( "tile" );
+			QRectF tileRect = rp->m_svgRenderer.boundsOnElement( "cell" );
 			rp->m_aspectRatio = tileRect.width() / tileRect.height();
 			if ( rp->m_aspectRatio <= 0.3333 || rp->m_aspectRatio >= 3.0 )
 				rp->m_aspectRatio = 1.0;
@@ -137,7 +137,7 @@ bool Killbots::Render::loadTheme( const QString & fileName )
 			// Generate cursors.
 			for ( int i = 0; i <= 8; i++ )
 			{
-				QPixmap pixmap = renderElement( "cursor_" + QString::number( i ), QSize( 42, 42 ) );
+				QPixmap pixmap = renderElement( "cursor" + QString::number( i ), QSize( 42, 42 ) );
 				if ( !pixmap.isNull() )
 					rp->m_cursors.insert( i, QCursor( pixmap ) );
 			}
@@ -192,7 +192,7 @@ QPixmap Killbots::Render::renderGrid( int columns, int rows, QSize cellSize )
 		result.fill( Qt::transparent );
 
 		QPainter p( &result );
-		p.drawTiledPixmap( result.rect(), renderElement("tile", cellSize ) );
+		p.drawTiledPixmap( result.rect(), renderElement("cell", cellSize ) );
 		p.end();
 
 		rp->m_pixmapCache.insert( key, result );

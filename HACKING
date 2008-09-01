@@ -264,3 +264,20 @@ namespace Killbots
 #include <QtGui/QListWidget>
 #include <QtGui/QScrollArea>
 -------------------------------------------------------------------------------
+
+
+*******************************************************************************
+ Miscellaneous
+*******************************************************************************
+
+It is generally preferred that functions have a single return statement, but multiple
+returns statements are exceptable if a single return would make the code more complicated.
+
+Use the "Q_UNUSED" macro on unused function parameters.
+
+Use "static_cast<>" instead of the C or C++ style type casts when casting pointers.
+
+When converting one type to another use C++ or constructor style casts. For example, use
+"int()" to convert floating types to integers.
+
+Make sure code passes all the English Breakfast Network checks.
