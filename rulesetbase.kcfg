@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <kcfg xmlns="http://www.kde.org/standards/kcfg/1.0"
-	  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	  xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
-	  http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
-
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
+      http://www.kde.org/standards/kcfg/1.0/kcfg.xsd"
+>
 	<kcfgfile arg="true"/>
 
 	<group name="KillbotsRuleset">
@@ -12,9 +12,11 @@
 		<entry name="AuthorContact" type="String"/>
 		<entry name="Description" type="String"/>
 		<entry name="Rows" type="Int">
+			<min>6</min>
 			<default>16</default>
 		</entry>
 		<entry name="Columns" type="Int">
+			<min>6</min>
 			<default>16</default>
 		</entry>
 		<entry name="RobotsAtGameStart" type="Double">
@@ -30,18 +32,21 @@
 			<default>2</default>
 		</entry>
 		<entry name="EnergyAtGameStart" type="Int">
+			<min>0</min>
 			<default>0</default>
 		</entry>
 		<entry name="EnergyAddedEachRound" type="Int">
 			<default>0</default>
 		</entry>
 		<entry name="MaxEnergyAtGameStart" type="Double">
+			<min>0</min>
 			<default>12</default>
 		</entry>
 		<entry name="MaxEnergyAddedEachRound" type="Double">
 			<default>0</default>
 		</entry>
 		<entry name="CostOfSafeTeleport" type="Int">
+			<min>1</min>
 			<default>1</default>
 		</entry>
 		<entry name="PushableJunkheaps" type="Enum">
@@ -62,21 +67,27 @@
 			<default>0</default>
 		</entry>
 		<entry name="PointsPerRobotKilled" type="Int">
+			<min>0</min>
 			<default>5</default>
 		</entry>
 		<entry name="PointsPerFastbotKilled" type="Int">
+			<min>0</min>
 			<default>10</default>
 		</entry>
 		<entry name="WaitKillPointBonus" type="Int">
+			<min>0</min>
 			<default>0</default>
 		</entry>
 		<entry name="WaitKillEnergyBonus" type="Int">
+			<min>0</min>
 			<default>1</default>
 		</entry>
 		<entry name="SquashKillPointBonus" type="Int">
+			<min>0</min>
 			<default>0</default>
 		</entry>
 		<entry name="SquashKillEnergyBonus" type="Int">
+			<min>0</min>
 			<default>1</default>
 		</entry>
 	</group>

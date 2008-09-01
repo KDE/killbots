@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <kcfg xmlns="http://www.kde.org/standards/kcfg/1.0"
-	  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	  xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
-	  http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
-
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
+      http://www.kde.org/standards/kcfg/1.0/kcfg.xsd"
+>
 	<kcfgfile/>
 
 	<group name="General">
@@ -26,10 +26,10 @@
 			<default>TeleportSafelyIfPossible</default>
 		</entry>.
 		<entry name="AnimationSpeed" type="Int">
-			<whatsthis>Adjusts the speed with which the in game animations are displayed.</whatsthis>
-			<default>5</default>
+			<whatsthis>Adjusts the speed at which the in game animations are displayed.</whatsthis>
 			<min>0</min>
 			<max>10</max>
+			<default>5</default>
 		</entry>
 		<entry name="AllowUnsafeMoves" type="Bool">
 			<whatsthis>If unchecked, the game will ignore any move (with the exception of random teleports) that would result in the immediate death of the hero.</whatsthis>
