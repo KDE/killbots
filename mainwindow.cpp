@@ -46,10 +46,10 @@
 
 Killbots::MainWindow::MainWindow( QWidget * parent )
   : KXmlGuiWindow( parent ),
-	m_scoreDialog( 0 ),
-	m_keyboardActions( new KActionCollection( this, KGlobal::mainComponent() ) ),
-	m_keyboardMapper( new QSignalMapper( this ) ),
-	m_rulesetChanged( false )
+    m_scoreDialog( 0 ),
+    m_keyboardActions( new KActionCollection( this, KGlobal::mainComponent() ) ),
+    m_keyboardMapper( new QSignalMapper( this ) ),
+    m_rulesetChanged( false )
 {
 	setAcceptDrops(false);
 
@@ -155,7 +155,7 @@ void Killbots::MainWindow::configurePreferences()
 	// An instance of the dialog could be already created and could be cached,
 	// in which case we want to display the cached dialog instead of creating
 	// another one
-	if ( ! KConfigDialog::showDialog( "configurePreferencesDialog" ) )
+	if ( !KConfigDialog::showDialog( "configurePreferencesDialog" ) )
 	{
 		// Creating a dialog because KConfigDialog didn't find an instance of it
 		KConfigDialog * configDialog = new KConfigDialog( this, "configurePreferencesDialog", Settings::self() );
@@ -205,13 +205,12 @@ void Killbots::MainWindow::onConfigDialogClosed()
 {
 	if ( m_rulesetChanged )
 	{
-		if ( ! m_engine->gameHasStarted() ||
+		if ( !m_engine->gameHasStarted() ||
 		     KMessageBox::questionYesNo( this,
-		                                 i18n("<qt><p>You have selected a new rule set, but already have a game in progress.</p><p>Would you like to continue with the current game or start a new game with the selected rule set?</p></qt>"),
+		                                 i18n("A new ruleset has been selected, but there is already a game in progress."),
 		                                 i18n("Rule Set Changed"),
-		                                 KGuiItem( i18n("Continue with Current Game") ),
-		                                 KGuiItem( i18n("Start a New Game") )
-		                               ) == KMessageBox::No )
+		                                 KGuiItem( i18n("Continue Current Game") ),
+		                                 KGuiItem( i18n("Start a New Game") ) ) == KMessageBox::No )
 		{
 			m_engine->newGame();
 		}
@@ -223,7 +222,8 @@ void Killbots::MainWindow::onConfigDialogClosed()
 
 void Killbots::MainWindow::createScoreDialog()
 {
-	m_scoreDialog = new KScoreDialog( KScoreDialog::Name | KScoreDialog::Level, this );
+	m_scoreDialog = new KScoreDialog( KScoreDialog::Name, this );
+	m_scoreDialog->addField( KScoreDialog::Level, "Round", "round" );
 	m_scoreDialog->setModal( false );
 
 	QStringList fileList;
@@ -242,7 +242,7 @@ void Killbots::MainWindow::onGameOver( int score, int round )
 {
 	if ( score && m_engine->ruleset() )
 	{
-		if ( ! m_scoreDialog )
+		if ( !m_scoreDialog )
 			createScoreDialog();
 	
 		m_scoreDialog->setConfigGroup( qMakePair( m_engine->ruleset()->untranslatedName(), m_engine->ruleset()->name() ) );
@@ -259,7 +259,7 @@ void Killbots::MainWindow::onGameOver( int score, int round )
 
 void Killbots::MainWindow::showHighscores()
 {
-	if ( ! m_scoreDialog )
+	if ( !m_scoreDialog )
 		createScoreDialog();
 
 	if ( m_engine->ruleset() )

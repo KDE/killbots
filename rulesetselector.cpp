@@ -37,7 +37,7 @@
 
 Killbots::RulesetSelector::RulesetSelector( QWidget * parent )
   : QWidget( parent ),
-	m_rulesetMap()
+    m_rulesetMap()
 {
 	QVBoxLayout * layout = new QVBoxLayout( this );
 	layout->setSpacing( KDialog::spacingHint() );
@@ -127,9 +127,10 @@ void Killbots::RulesetSelector::findRulesets()
 			delete ruleset;
 	}
 
-	// Restrict the height of the list widget to be slightly more than it's contents.
-	// This is a bit hacky. There's probably a better way to do this, but it's the best I've found.
-	m_listWidget->setMaximumHeight( 1.333 * m_listWidget->count() * m_listWidget->visualItemRect( m_listWidget->item( 0 ) ).height() );
+	// HACK Restrict the height of the list widget to be slightly more than it's contents.
+	// There's got to be a better way to do this, but it's the best I've found.
+	int itemHeight = m_listWidget->visualItemRect( m_listWidget->item( 0 ) ).height();
+	m_listWidget->setMaximumHeight( 1.333 * m_listWidget->count() * itemHeight );
 }
 
 
@@ -145,8 +146,10 @@ void Killbots::RulesetSelector::selectionChanged( QString rulesetName )
 		m_authorContact->setText( ruleset->authorContact() );
 	else if ( ruleset->authorContact().contains('@') )
 		m_authorContact->setText( QString("<qt><a href=\"mailto:%1\">%1</a></qt>").arg( ruleset->authorContact() ) );
-	else
+	else if ( ruleset->authorContact().contains('.') )
 		m_authorContact->setText( QString("<qt><a href=\"http://%1\">%1</a></qt>").arg( ruleset->authorContact() ) );
+	else
+		m_authorContact->setText( ruleset->authorContact() );
 	m_description->setText( ruleset->description() );
 }
 

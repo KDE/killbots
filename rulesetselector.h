@@ -35,23 +35,26 @@ namespace Killbots
 	class RulesetSelector : public QWidget
 	{
 		Q_OBJECT
-	  public:
-		explicit RulesetSelector( QWidget *parent = 0 );
+
+	public: // functions
+		explicit RulesetSelector( QWidget * parent = 0 );
 		virtual ~RulesetSelector();
 
+	public: // data members
 		KLineEdit * kcfg_Ruleset;
 
-	  private:
+	private: // functions
+		void findRulesets();
+
+	private slots:
+		void selectionChanged( QString rulesetName );
+
+	private: // data members
 		QListWidget * m_listWidget;
 		QLabel * m_author;
 		QLabel * m_authorContact;
 		QLabel * m_description;
 		QMap< QString, Ruleset * > m_rulesetMap;
-
-		void findRulesets();
-
-	  private slots:
-		void selectionChanged( QString rulesetName );
 	};
 }
 

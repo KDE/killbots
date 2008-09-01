@@ -27,18 +27,22 @@ class QCheckBox;
 class QSlider;
 #include <QtGui/QWidget>
 
-class OptionsPage : public QWidget
+namespace Killbots
 {
-	Q_OBJECT
-
-  public:
-	explicit OptionsPage( QWidget * parent = 0 );
-	virtual ~OptionsPage();
-
-	QCheckBox * kcfg_AllowUnsafeMoves;
-	KComboBox * kcfg_MiddleClickAction;
-	KComboBox * kcfg_RightClickAction;
-	QSlider * kcfg_AnimationSpeed;
-};
+	class OptionsPage : public QWidget
+	{
+		Q_OBJECT
+	
+	public: // functions
+		explicit OptionsPage( QWidget * parent = 0 );
+		virtual ~OptionsPage();
+	
+	public: // data members
+		QCheckBox * kcfg_AllowUnsafeMoves;
+		KComboBox * kcfg_MiddleClickAction;
+		KComboBox * kcfg_RightClickAction;
+		QSlider * kcfg_AnimationSpeed;
+	};
+}
 
 #endif

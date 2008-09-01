@@ -39,12 +39,12 @@ namespace Killbots
 {
 	class RenderPrivate
 	{
-	  public:
+	public:
 		RenderPrivate()
 		  : m_svgRenderer(),
-			m_pixmapCache("killbots-cache"),
-			m_cursors(),
-			m_hasBeenLoaded( false )
+		    m_pixmapCache("killbots-cache"),
+		    m_cursors(),
+		    m_hasBeenLoaded( false )
 		{};
 
 		KSvgRenderer m_svgRenderer;
@@ -76,7 +76,7 @@ bool Killbots::Render::loadTheme( const QString & fileName )
 		// We check to see if the cache contains a key matching the path to the
 		// new theme file.
 		QPixmap nullPixmap;
-		bool isNotInCache = ! rp->m_pixmapCache.find( newTheme.path(), nullPixmap );
+		bool isNotInCache = !rp->m_pixmapCache.find( newTheme.path(), nullPixmap );
 		if ( isNotInCache )
 			kDebug() << "Theme is not already in cache.";
 
@@ -103,7 +103,7 @@ bool Killbots::Render::loadTheme( const QString & fileName )
 
 		// Only bother actually loading the SVG if no SVG has been loaded
 		// yet or if the cache must be discarded.
-		if ( ! rp->m_hasBeenLoaded || discardCache )
+		if ( !rp->m_hasBeenLoaded || discardCache )
 		{
 			if ( discardCache )
 			{
@@ -129,16 +129,16 @@ bool Killbots::Render::loadTheme( const QString & fileName )
 			// If it exists doesn't exist or the fill isn't a valid color, default to black.
 			KGameSvgDocument svg;
 			svg.load( newTheme.graphics() );
-			if ( ! svg.elementById( "text" ).isNull() )
+			if ( !svg.elementById( "text" ).isNull() )
 				rp->m_textColor = QColor( svg.styleProperty( "fill" ) );
-			if ( ! rp->m_textColor.isValid() )
+			if ( !rp->m_textColor.isValid() )
 				rp->m_textColor = Qt::black;
 
 			// Generate cursors.
 			for ( int i = 0; i <= 8; i++ )
 			{
 				QPixmap pixmap = renderElement( "cursor_" + QString::number( i ), QSize( 42, 42 ) );
-				if ( ! pixmap.isNull() )
+				if ( !pixmap.isNull() )
 					rp->m_cursors.insert( i, QCursor( pixmap ) );
 			}
 		}
@@ -160,7 +160,7 @@ QPixmap Killbots::Render::renderElement( const QString & elementId, QSize size )
 
 	QString key = elementId + QString::number( size.width() ) + 'x' + QString::number( size.height() );
 
-	if ( ! rp->m_pixmapCache.find( key, result ) )
+	if ( !rp->m_pixmapCache.find( key, result ) )
 	{
 		kDebug() << "Rendering \"" << elementId << "\" at " << size << " pixels.";
 

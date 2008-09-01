@@ -27,18 +27,18 @@ namespace Killbots {
 
 	class Ruleset : public RulesetBase
 	{
-	  public:
+	public: // static functions
 		static Ruleset * load( const QString & fileName );
 		static Ruleset * loadDefault();
 
-		~Ruleset();
-
+	public: // functions
+		virtual ~Ruleset();
 		QString filePath() const;
 		QString fileName() const;
 		QByteArray untranslatedName() const;
 
-	  private:
-		Ruleset( const QString & filePath );
+	private: // functions
+		Ruleset( const QString & filePath ); // hidden
 		QString m_filePath;
 		QByteArray m_untranslatedName;
 	};

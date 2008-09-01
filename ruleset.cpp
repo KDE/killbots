@@ -30,18 +30,23 @@ Killbots::Ruleset * Killbots::Ruleset::load( const QString & fileName )
 {
 	Ruleset * result = 0;
 
-	kDebug() << "Attempting to load ruleset at" << fileName;
-
-	if ( ! fileName.isEmpty() )
+	if ( !fileName.isEmpty() )
 	{
 		QString filePath = KStandardDirs::locate( "ruleset", fileName );
-		if ( ! filePath.isEmpty() )
+		if ( !filePath.isEmpty() )
 		{
+			// Our only check for validity is that we can open the file as a config
+			// file and that it contains a group named "KillbotsRuleset".
 			KConfig configFile( filePath, KConfig::SimpleConfig );
 			if ( configFile.hasGroup("KillbotsRuleset") )
 				result = new Ruleset( filePath );
 		}
 	}
+
+	if ( result )
+		kDebug() << "Successfully loaded " << fileName;
+	else
+		kDebug() << "Failed to load " << fileName;
 
 	return result;
 }
@@ -54,7 +59,7 @@ Killbots::Ruleset * Killbots::Ruleset::loadDefault()
 
 
 Killbots::Ruleset::Ruleset( const QString & filePath )
- : RulesetBase( filePath )
+  : RulesetBase( filePath )
 {
 	m_filePath = filePath;
 	m_untranslatedName = KConfigGroup( config(), "KillbotsRuleset").readEntryUntranslated("Name").toUtf8();

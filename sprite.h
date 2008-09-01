@@ -36,7 +36,12 @@ namespace Killbots
 
 	class Sprite : public QGraphicsItem
 	{
-	  public:
+	public: // types
+		enum {
+			Type = UserType + 314
+		};
+
+	public: // functions
 		explicit Sprite();
 		virtual ~Sprite();
 
@@ -54,9 +59,8 @@ namespace Killbots
 
 		virtual void paint( QPainter * p, const QStyleOptionGraphicsItem * option, QWidget * widget = 0 );
 		virtual int type() const;
-		enum { Type = UserType + 314 };
 
-	  private:
+	private: // data members
 		SpriteType m_type;
 		QPoint m_gridPos;
 		QPoint m_storedGridPos;

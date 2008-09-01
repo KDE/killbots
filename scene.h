@@ -40,7 +40,7 @@ namespace Killbots
 	{
 		Q_OBJECT
 
-	  public:
+	public: // functions
 		explicit Scene( QObject * parent = 0 );
 		virtual ~Scene();
 
@@ -49,7 +49,7 @@ namespace Killbots
 		void teleportSprite( Sprite * sprite, QPoint position );
 		void destroySprite( Sprite * sprite );
 
-	  public slots:
+	public slots:
 		void doLayout();
 
 		void setAnimationSpeed( int speed );
@@ -66,19 +66,20 @@ namespace Killbots
 		void updateEnemyCount( int enemyCount );
 		void updateEnergy( int energy );
 
-	  signals:
+	signals:
 		void animationDone();
 		void clicked( int action );
 
-	  protected:
+	protected: // functions
 		virtual void drawBackground( QPainter * painter, const QRectF & rect );
 		virtual void mouseMoveEvent( QGraphicsSceneMouseEvent * mouseEvent );
 		virtual void mouseReleaseEvent( QGraphicsSceneMouseEvent * mouseEvent );
 
-	  private:
+	private: // functions
 		void updateSpritePos( Sprite * sprite ) const;
 		HeroAction getMouseDirection( QPointF cursorPosition );
 
+	private: // data members
 		QSize m_cellSize;
 		int m_rows;
 		int m_columns;

@@ -50,51 +50,63 @@ namespace Killbots
 		WaitOutRound,
 
 		RepeatRight = -( Right + 1 ),
-		RepeatUpRight = -( Right + 1 ),
-		RepeatUp = -( Right + 1 ),
-		RepeatUpLeft = -( Right + 1 ),
-		RepeatLeft = -( Right + 1 ),
-		RepeatDownLeft = -( Right + 1 ),
-		RepeatDown = -( Right + 1 ),
-		RepeatDownRight = -( Right + 1 ),
-		RepeatHold = -( Right + 1 )
+		RepeatUpRight = -( UpRight + 1 ),
+		RepeatUp = -( Up + 1 ),
+		RepeatUpLeft = -( UpLeft + 1 ),
+		RepeatLeft = -( Left + 1 ),
+		RepeatDownLeft = -( DownLeft + 1 ),
+		RepeatDown = -( Down + 1 ),
+		RepeatDownRight = -( DownRight + 1 ),
+		RepeatHold = -( Hold + 1 )
 	};
 
 	class Engine : public QObject
 	{
 		Q_OBJECT
 
-	  public:
+	public: // functions
 		explicit Engine( Scene * scene, QObject * parent = 0 );
 		virtual ~Engine();
 		const Ruleset * ruleset();
 		bool gameHasStarted();
 
-	  signals:
+	public slots:
+		void newGame();
+		void doAction( HeroAction action );
+		void doAction( int action );
+		void goToNextPhase();
+
+	signals:
 		void newGame( int rows, int columns, bool gameIncludesEnergy );
 		void roundComplete();
 		void gameOver( int score, int round );
 		void boardFull();
-
 		void roundChanged( int round );
 		void scoreChanged( int score );
 		void enemyCountChanged( int enemyCount );
 		void energyChanged( int energy );
 		void canAffordSafeTeleport( bool canAfford );
 
-	  public slots:
-		void newGame();
-		void doAction( HeroAction action );
-		void doAction( int action );
-		void goToNextPhase();
+	private: // types
+		enum Phase
+		{
+			CleanUpRound,
+			NewRound,
+			ReadyToStart,
+			MoveRobots,
+			AssessDamageToRobots,
+			MoveFastbots,
+			AssessDamageToFastbots,
+			BoardFull,
+			RoundComplete,
+			FinalPhase,
+			GameOver
+		};
 
-	  private slots:
+	private: // functions
+		void animateThenGoToNextPhase( Phase phase );
+
 		void newRound();
-		void cleanUpRound();
-
-	  private:
-		enum Phase { CleanUpRound, NewRound, ReadyToStart, MoveRobots, AssessDamageToRobots, MoveFastbots, AssessDamageToFastbots, BoardFull, RoundComplete, FinalPhase, GameOver };
-
 		void moveHero( HeroAction direction );
 		void pushJunkheap( Sprite * junkheap, HeroAction direction );
 		void teleportHero();
@@ -102,19 +114,19 @@ namespace Killbots
 		void waitOutRound();
 		void moveRobots( bool justFastbots = false );
 		void assessDamage();
-
-		void animateThenGoToNextPhase( Phase phase );
+		void cleanUpRound();
 
 		void refreshSpriteMap();
 		int spriteTypeAt( const QPoint & cell ) const;
 		bool cellIsValid( const QPoint & cell ) const;
 		bool moveIsValid( const QPoint & cell, HeroAction direction ) const;
-		bool canPushJunkheap( const Sprite * junkheap, HeroAction direction ) const;
 		bool moveIsSafe( const QPoint &  cell, HeroAction direction ) const;
+		bool canPushJunkheap( const Sprite * junkheap, HeroAction direction ) const;
 		QPoint vectorFromDirection( int direction ) const;
 		void destroySprite( Sprite * sprite );
 		bool destroyAllCollidingBots( const Sprite * sprite );
 
+	private: // data members
 		Scene * m_scene;
 
 		Sprite * m_hero;

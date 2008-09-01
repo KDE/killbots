@@ -30,7 +30,7 @@
 #include <QtGui/QLabel>
 #include <QtGui/QSlider>
 
-OptionsPage::OptionsPage( QWidget * parent )
+Killbots::OptionsPage::OptionsPage( QWidget * parent )
   : QWidget( parent )
 {
 	kcfg_AllowUnsafeMoves = new QCheckBox( i18n("Allow &unsafe moves"), this );
@@ -84,7 +84,7 @@ OptionsPage::OptionsPage( QWidget * parent )
 	formLayout->addRow( 0, kcfg_AllowUnsafeMoves );
 }
 
-OptionsPage::~OptionsPage()
+Killbots::OptionsPage::~OptionsPage()
 {
 }
 

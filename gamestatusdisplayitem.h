@@ -30,7 +30,8 @@ namespace Killbots
 	class GameStatusDisplayItem : public QObject, public QGraphicsItem
 	{
 		Q_OBJECT
-	  public:
+
+	public: // functions
 		explicit GameStatusDisplayItem( const QString & labelText = QString(), QGraphicsItem * parent = 0 );
 		virtual ~GameStatusDisplayItem();
 
@@ -43,14 +44,14 @@ namespace Killbots
 		virtual QRectF boundingRect() const;
 		virtual void paint( QPainter * p, const QStyleOptionGraphicsItem * option, QWidget * widget = 0 );
 
-	  public slots:
+	public slots:
 		void setText( const QString & text );
 		void setValue( int value );
 		void setDigits( int digits );
 		void setSize( QSize size );
 		void adjustSize();
 
-	  private:
+	private: // data members
 		QString m_label;
 		int m_value;
 

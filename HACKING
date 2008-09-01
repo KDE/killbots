@@ -1,0 +1,266 @@
+==========================
+ Killbots C++ Style Guide
+==========================
+
+*******************************************************************************
+ Indentation
+*******************************************************************************
+
+Structural indentation is done with tabs. Formatting is done with spaces. All code having the
+same nested depth has the same number of tabs. This separates meaning from presentation.
+
+Tabwidth is a matter of personal preference. If the above is followed source is tabwidth independent.
+
+Ensure your editor doesn't do automatic conversion from spaces to tabs, as this will break things.
+
+Labels (public, private, goto, case, etc.) do not get indented.
+
+Examples:
+-------------------------------------------------------------------------------
+bool Killbots::Engine::cellIsValid( const QPoint & cell ) const
+{
+____return ( 0 <= cell.x()
+____.........&& cell.x() < m_rules->columns()
+____.........&& 0 <= cell.y()
+____.........&& cell.y() < m_rules->rows()
+____.......);
+}
+-------------------------------------------------------------------------------
+namespace Killbots
+{
+____class RenderPrivate
+____{
+____public:
+________RenderPrivate()
+________..:.m_svgRenderer(),
+________....m_pixmapCache("killbots-cache"),
+________....m_cursors(),
+________....m_hasBeenLoaded( false )
+________{};
+-------------------------------------------------------------------------------
+____if ( m_rulesetChanged )
+____{
+________if ( ! m_engine->gameHasStarted() ||
+________.....KMessageBox::questionYesNo( this,
+________.................................i18n("A new ruleset has been selected, but there is already a game in progress."),
+________.................................i18n("Rule Set Changed"),
+________.................................KGuiItem( i18n("Continue Current Game") ),
+________.................................KGuiItem( i18n("Start a New Game") ) ) == KMessageBox::No )
+________{
+-------------------------------------------------------------------------------
+
+
+*******************************************************************************
+ Braces
+*******************************************************************************
+
+Opening braces are always on a new line.
+
+For loop or conditional statements, braces can be omitted if the block is a single-line
+statement and the conditional fits on a single line.
+
+Blocks never appear on the same line as the loop/conditional, even if braces aren't used.
+
+Empty blocks are represented on a single line as '{}'
+
+Examples:
+-------------------------------------------------------------------------------
+void Killbots::Engine::refreshSpriteMap()
+{
+    m_spriteMap.clear();
+    foreach( Sprite * bot, m_bots )
+        m_spriteMap.insert( bot->gridPos(), bot );
+    foreach( Sprite * junkheap, m_junkheaps )
+        m_spriteMap.insert( junkheap->gridPos(), junkheap );
+}
+-------------------------------------------------------------------------------
+if ( m_rules->pushableJunkheaps() != Ruleset::None && cellIsValid( nextCell ) )
+{
+    if ( spriteTypeAt( nextCell ) == NoSprite )
+        return true;
+    else if ( spriteTypeAt( nextCell ) == Junkheap )
+        return m_rules->pushableJunkheaps() == Ruleset::Many && canPushJunkheap( m_spriteMap.value( nextCell ), direction );
+    else
+        return m_rules->squaskKillsEnabled();
+}
+else
+    return false;
+-------------------------------------------------------------------------------
+while ( m_rulesetMap.contains( name ) )
+    name += '_';
+-------------------------------------------------------------------------------
+
+*******************************************************************************
+ Whitespace
+*******************************************************************************
+
+Lines should generally be kept to less than 100 characters, but don't make code uglier just to avoid width.
+
+Two empty lines should be used to separate function definitions.
+
+Within a block, empty lines may be used to break up unrelated lines, but never more than one.
+
+No space appears between the function name and the opening bracket.
+
+A single space appears between the loop/conditional statement name and the opening bracket.
+
+Padding spaces appear inside of all parentheses, unless the parentheses are empty.
+
+Binary operators are separated from their operands with a single space. Unary operators are not.
+
+Pointer and reference symbols have a space on either side.
+
+No padding spaces appear inside angle brackets when using template functions/classes.
+
+No space appears between a label and the following colon.
+
+No whitespace should appear inside Qt's SIGNAL and SLOT macros.
+
+
+*******************************************************************************
+ Indentifiers
+*******************************************************************************
+
+All identifiers should use camel case.
+
+Classnames and namespaces begin with uppercase letters. All other identifiers begin with
+lowercase letters.
+
+Class data members are prefixed with 'm_', unless they are public KConfigXT widgets,
+in which case, they are prefixed with 'kfcg_'.
+
+Indentifiers should favour descriptiveness over brevity. Single letter variables are acceptable only
+for iterators or coordinates.
+
+All indentifiers should use American English spelling. (Comments can be in your choice of English.)
+
+Examples:
+-------------------------------------------------------------------------------
+namespace Killbots
+{
+    class Ruleset;
+
+    class RulesetSelector : public QWidget
+    {
+        Q_OBJECT
+
+    public: // functions
+        explicit RulesetSelector( QWidget * parent = 0 );
+        virtual ~RulesetSelector();
+
+    public: // data members
+        KLineEdit * kcfg_Ruleset;
+
+    private: // functions
+        void findRulesets();
+
+    private slots:
+        void selectionChanged( QString rulesetName );
+
+    private: // data members
+        QListWidget * m_listWidget;
+        QLabel * m_author;
+        QLabel * m_authorContact;
+        QLabel * m_description;
+        QMap< QString, Ruleset * > m_rulesetMap;
+    };
+}
+-------------------------------------------------------------------------------
+
+
+*******************************************************************************
+ Comments
+*******************************************************************************
+
+Feel free to comment as much as possible.
+
+Comments should describe the purpose of logic or give background details not obvious from
+the code. Comments should not describe what the code is doing, unless the code is extremely
+dense (in which case the code should probably be rewritten/refactored anyway).
+
+Comments appear on the line before the code it is commenting on.
+
+Use '/**/' for comments longer than 3 lines.
+
+
+*******************************************************************************
+ Class Definitions
+*******************************************************************************
+
+Classes should be given simple names and placed inside the Killbots namespace instead
+of adding a prefix. (i.e. Killbots::MainWindow instead of KillbotsMainWindow)
+
+No inline function definitions in the header, even if there a single statement. Same goes
+for constructors.
+
+Define destructors even if they're empty.
+
+Class definitions should be layed out in the following order.
+  public: // types
+  public: // functions
+  public slots:
+  public: // data members
+  signals:
+  protected: // types
+  protected: // functions
+  protected slots:
+  protected: // data members
+  private: // types
+  private: // functions
+  private slots:
+  private: // data members
+
+
+*******************************************************************************
+ Includes
+*******************************************************************************
+
+Include guards are of the form NAMESPACE_CLASSNAME_H.
+
+Group includes in the following order with blank lines in between:
+  File's own header
+  Killbots headers
+  KDE headers
+  Qt headers
+
+Inside of groups, sort includes alphabetically.
+
+Use the "new" style includes with directory names where appropriate
+
+Forward declare whenever possible in headers.
+
+moc includes appear at the bottom of the source file.
+
+Examples:
+-------------------------------------------------------------------------------
+#ifndef KILLBOTS_RULESETSELECTOR_H
+#define KILLBOTS_RULESETSELECTOR_H
+
+class KLineEdit;
+
+#include <QtCore/QMap>
+class QLabel;
+class QListWidget;
+#include <QtGui/QWidget>
+
+namespace Killbots
+{
+    class Ruleset;
+-------------------------------------------------------------------------------
+#include "rulesetselector.h"
+
+#include "ruleset.h"
+#include "settings.h"
+
+#include <KDE/KDebug>
+#include <KDE/KDialog>
+#include <KDE/KLineEdit>
+#include <KDE/KLocalizedString>
+#include <KDE/KStandardDirs>
+
+#include <QtGui/QGroupBox>
+#include <QtGui/QLabel>
+#include <QtGui/QLayout>
+#include <QtGui/QListWidget>
+#include <QtGui/QScrollArea>
+-------------------------------------------------------------------------------

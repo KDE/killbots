@@ -42,13 +42,13 @@
 
 Killbots::Scene::Scene( QObject * parent )
   : QGraphicsScene( parent ),
-	m_hero( 0 ),
-	m_timeLine( 1000, this ),
-	m_popupMessage( new KGamePopupItem ),
-	m_roundDisplay( new GameStatusDisplayItem() ),
-	m_scoreDisplay( new GameStatusDisplayItem() ),
-	m_robotCountDisplay( new GameStatusDisplayItem() ),
-	m_energyDisplay( new GameStatusDisplayItem() )
+    m_hero( 0 ),
+    m_timeLine( 1000, this ),
+    m_popupMessage( new KGamePopupItem ),
+    m_roundDisplay( new GameStatusDisplayItem() ),
+    m_scoreDisplay( new GameStatusDisplayItem() ),
+    m_robotCountDisplay( new GameStatusDisplayItem() ),
+    m_energyDisplay( new GameStatusDisplayItem() )
 {
 	setItemIndexMethod( QGraphicsScene::NoIndex );
 
@@ -160,7 +160,7 @@ void Killbots::Scene::doLayout()
 
 		foreach ( QGraphicsItem * item, items() )
 		{
-			Sprite * sprite = qgraphicsitem_cast< Sprite * >( item );
+			Sprite * sprite = qgraphicsitem_cast<Sprite *>( item );
 			if ( sprite )
 			{
 				sprite->setSize( m_cellSize );
@@ -276,14 +276,20 @@ void Killbots::Scene::setAnimationSpeed( int speed )
 {
 	// Equation converts speed in the range 0 to 10 to a duration in the range
 	// 1 to 0.05 seconds. There's probably a better way to do this.
-	m_timeLine.setDuration( int( 1000 * pow(1.35, -speed) ) );
+	m_timeLine.setDuration( int( pow( 1.35, -speed ) * 1000 ) );
 }
 
 
 void Killbots::Scene::startAnimation()
 {
-	if ( m_spritesToCreate.isEmpty() && m_spritesToSlide.isEmpty() && m_spritesToTeleport.isEmpty() && m_spritesToDestroy.isEmpty() )
+	if ( m_spritesToCreate.isEmpty()
+	     && m_spritesToSlide.isEmpty()
+	     && m_spritesToTeleport.isEmpty()
+	     && m_spritesToDestroy.isEmpty()
+	   )
+	{
 		emit animationDone();
+	}
 	else if ( m_timeLine.duration() < 60 )
 	{
 		animate( 1.0 );
@@ -457,39 +463,29 @@ void Killbots::Scene::mouseReleaseEvent( QGraphicsSceneMouseEvent * event )
 	Settings::ClickAction userAction = Settings::Nothing;
 
 	if ( event->button() == Qt::LeftButton )
+	{
 		if ( event->modifiers() & Qt::ControlModifier )
 			userAction = Settings::middleClickAction();
 		else
 			userAction = Settings::Step;
+	}
 	else if ( event->button() == Qt::RightButton )
 		userAction = Settings::rightClickAction();
 	else if ( event->button() == Qt::MidButton )
 		userAction = Settings::middleClickAction();
 
-	switch ( userAction )
-	{
-	  case Settings::Step:
+	if ( userAction == Settings::Step )
 		emit clicked( getMouseDirection( event->scenePos() ) );
-		break;
-	  case Settings::RepeatedStep:
+	else if ( userAction == Settings::RepeatedStep )
 		emit clicked( -getMouseDirection( event->scenePos() ) - 1 );
-		break;
-	  case Settings::Teleport:
+	else if ( userAction == Settings::Teleport )
 		emit clicked( Teleport );
-		break;
-	  case Settings::TeleportSafely:
+	else if ( userAction == Settings::TeleportSafely )
 		emit clicked( TeleportSafely );
-		break;
-	  case Settings::TeleportSafelyIfPossible:
+	else if ( userAction == Settings::TeleportSafelyIfPossible )
 		emit clicked( TeleportSafelyIfPossible );
-		break;
-	  case Settings::WaitOutRound:
+	else if ( userAction == Settings::WaitOutRound )
 		emit clicked( WaitOutRound );
-		break;
-	  case Settings::Nothing:
-	  default:
-		break;
-	};
 
 	event->accept();
 
@@ -504,9 +500,7 @@ Killbots::HeroAction Killbots::Scene::getMouseDirection( QPointF cursorPosition 
 	if ( m_hero )
 	{
 		if ( m_hero->sceneBoundingRect().contains( cursorPosition ) )
-		{
 			result = Hold;
-		}
 		else
 		{
 			static const double piOver4 = 0.78539816339744830961566L;

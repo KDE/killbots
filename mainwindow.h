@@ -38,11 +38,17 @@ namespace Killbots
 	class MainWindow : public KXmlGuiWindow
 	{
 		Q_OBJECT
-	  public:
+
+	public: // functions
 		explicit MainWindow( QWidget * parent = 0 );
 		virtual ~MainWindow();
 
-	  private slots:
+	private: // functions
+		void setupActions();
+		void setupMappedAction( KActionCollection * collection, const char * displayName, const QString & internalName, const QKeySequence & primaryShortcut, const QKeySequence & alternateShortcut, int mapping, const QString & icon = QString() );
+		void createScoreDialog();
+
+	private slots:
 		void showHighscores();
 		void configureShortcuts();
 		void configurePreferences();
@@ -50,11 +56,7 @@ namespace Killbots
 		void onSettingsChanged();
 		void onConfigDialogClosed();
 
-	  private:
-		void setupActions();
-		void setupMappedAction( KActionCollection * collection, const char * displayName, const QString & internalName, const QKeySequence & primaryShortcut, const QKeySequence & alternateShortcut, int mapping, const QString & icon = QString() );
-		void createScoreDialog();
-
+	private : // data members
 		Scene * m_scene;
 		Engine * m_engine;
 		View * m_view;
@@ -69,5 +71,5 @@ namespace Killbots
 
 }
 
-#endif // _MAINWINDOW_H_
+#endif
 

@@ -29,14 +29,15 @@ namespace Killbots
 	class View : public QGraphicsView
 	{
 		Q_OBJECT
-	  public:
+
+	public: // functions
 		explicit View( QGraphicsScene * scene, QWidget * parent = 0 );
 		virtual ~View();
 
-	  signals:
+	signals:
 		void sizeChanged( QSize newSize );
 
-	  protected:
+	protected: // functions
 		virtual void resizeEvent( QResizeEvent * event );
 	};
 }

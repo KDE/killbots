@@ -41,11 +41,11 @@ inline int sign( int num )
 
 Killbots::Engine::Engine( Scene * scene, QObject * parent )
   : QObject( parent ),
-	m_scene( scene ),
-	m_hero( 0 ),
-	m_busy( false ),
-	m_repeatMove( false ),
-	m_spriteMap()
+    m_scene( scene ),
+    m_hero( 0 ),
+    m_busy( false ),
+    m_repeatMove( false ),
+    m_spriteMap()
 {
 }
 
@@ -70,7 +70,7 @@ bool Killbots::Engine::gameHasStarted()
 void Killbots::Engine::newGame()
 {
 	m_rules = Ruleset::load( Settings::ruleset() );
-	if ( ! m_rules )
+	if ( !m_rules )
 		m_rules = Ruleset::loadDefault();
 
 	Q_ASSERT( m_rules != 0 );
@@ -204,7 +204,7 @@ void Killbots::Engine::goToNextPhase()
 	{
 		assessDamage();
 
-		if ( ! m_hero )
+		if ( !m_hero )
 		{
 			m_nextPhase = GameOver;
 			emit gameOver( m_score, m_round );
@@ -223,7 +223,7 @@ void Killbots::Engine::goToNextPhase()
 	{
 		assessDamage();
 
-		if ( ! m_hero )
+		if ( !m_hero )
 		{
 			m_nextPhase = GameOver;
 			emit gameOver( m_score, m_round );
@@ -265,7 +265,7 @@ void Killbots::Engine::doAction( HeroAction action )
 {
 	m_repeatMove = false;
 
-	if ( ! m_busy )
+	if ( !m_busy )
 	{
 		m_busy = true;
 		refreshSpriteMap();
@@ -277,10 +277,12 @@ void Killbots::Engine::doAction( HeroAction action )
 		else if ( action == TeleportSafely && m_energy >= m_rules->costOfSafeTeleport() )
 			teleportHeroSafely();
 		else if ( action == TeleportSafelyIfPossible )
+		{
 			if ( m_energy >= m_rules->costOfSafeTeleport() )
 				teleportHeroSafely();
 			else
 				teleportHero();
+		}
 		else if ( action == WaitOutRound )
 			waitOutRound();
 	}
@@ -299,11 +301,11 @@ void Killbots::Engine::moveHero( HeroAction direction )
 	QPoint newCell = m_hero->gridPos() + vectorFromDirection( direction );
 
 	if ( moveIsValid( newCell, direction )
-		 && ( moveIsSafe( newCell, direction )
-			  || ( Settings::allowUnsafeMoves()
-				   && ! m_repeatMove
-				 )
-			)
+	     && ( moveIsSafe( newCell, direction )
+	          || ( Settings::allowUnsafeMoves()
+	             && !m_repeatMove
+	             )
+	        )
 	   )
 	{
 		m_lastDirection = direction;
@@ -411,7 +413,7 @@ void Killbots::Engine::moveRobots( bool justFastbots )
 {
 	foreach( Sprite * bot, m_bots )
 	{
-		if ( bot->spriteType() == Fastbot || ! justFastbots )
+		if ( bot->spriteType() == Fastbot || !justFastbots )
 		{
 			QPoint vector( sign( m_hero->gridPos().x() - bot->gridPos().x() ), sign( m_hero->gridPos().y() - bot->gridPos().y() ) );
 			m_scene->slideSprite( bot, bot->gridPos() + vector );
@@ -467,6 +469,16 @@ void Killbots::Engine::cleanUpRound()
 }
 
 
+void Killbots::Engine::refreshSpriteMap()
+{
+	m_spriteMap.clear();
+	foreach( Sprite * bot, m_bots )
+		m_spriteMap.insert( bot->gridPos(), bot );
+	foreach( Sprite * junkheap, m_junkheaps )
+		m_spriteMap.insert( junkheap->gridPos(), junkheap );
+}
+
+
 int Killbots::Engine::spriteTypeAt( const QPoint & cell ) const
 {
 	Sprite * occupant = m_spriteMap.value( cell );
@@ -479,26 +491,11 @@ int Killbots::Engine::spriteTypeAt( const QPoint & cell ) const
 
 bool Killbots::Engine::cellIsValid( const QPoint & cell ) const
 {
-	return 0 <= cell.x() && cell.x() < m_rules->columns()
-	    && 0 <= cell.y() && cell.y() < m_rules->rows();
-}
-
-
-bool Killbots::Engine::canPushJunkheap( const Sprite * junkheap, HeroAction direction ) const
-{
-	QPoint nextCell = junkheap->gridPos() + vectorFromDirection( direction );
-
-	if ( m_rules->pushableJunkheaps() != Ruleset::None && cellIsValid( nextCell ) )
-	{
-		if ( spriteTypeAt( nextCell ) == NoSprite )
-			return true;
-		else if ( spriteTypeAt( nextCell ) == Junkheap )
-			return m_rules->pushableJunkheaps() == Ruleset::Many && canPushJunkheap( m_spriteMap.value( nextCell ), direction );
-		else
-			return m_rules->squaskKillsEnabled();
-	}
-	else
-		return false;
+	return ( 0 <= cell.x()
+	         && cell.x() < m_rules->columns()
+	         && 0 <= cell.y()
+	         && cell.y() < m_rules->rows()
+	       );
 }
 
 
@@ -525,7 +522,7 @@ bool Killbots::Engine::moveIsValid( const QPoint & cell, HeroAction direction ) 
 		{
 			if ( spriteTypeAt( cell ) == Junkheap )
 			{
-				if ( ! canPushJunkheap( m_spriteMap.value( cell ), direction ) )
+				if ( !canPushJunkheap( m_spriteMap.value( cell ), direction ) )
 				{
 					result = false;
 					kDebug() << "Move is invalid. Cannot push junkheap.";
@@ -645,7 +642,6 @@ bool Killbots::Engine::moveIsSafe( const QPoint & cell, HeroAction direction ) c
 	+---+---+---+---+---+
 	| * |   | F |   | * |
 	+---+---+---+---+---+
-
 	*/
 
 	// The move is assumed safe until proven unsafe.
@@ -655,48 +651,50 @@ bool Killbots::Engine::moveIsSafe( const QPoint & cell, HeroAction direction ) c
 	QPoint cellBehindJunkheap = ( spriteTypeAt( cell ) != Junkheap ) ? QPoint( -1, -1 ) : cell + vectorFromDirection( direction );
 
 	// We check the each of the target cells neighbours.
-	for ( int i = 0; i < 8 && result; i++ )
+	for ( int i = Right; i <= DownRight && result; i++ )
 	{
-		QPoint neighbour = cell + vectorFromDirection( i );
+		QPoint neighbor = cell + vectorFromDirection( i );
 
 		// If the neighbour is invalid or the cell behind the junkheap, continue to the next neighbour.
-		if ( ! cellIsValid( neighbour ) || spriteTypeAt( neighbour ) == Junkheap || neighbour == cellBehindJunkheap )
+		if ( !cellIsValid( neighbor ) || spriteTypeAt( neighbor ) == Junkheap || neighbor == cellBehindJunkheap )
 			continue;
 
 		// If the neighbour contains an enemy, the move is unsafe.
-		if ( spriteTypeAt( neighbour ) == Robot || spriteTypeAt( neighbour ) == Fastbot )
+		if ( spriteTypeAt( neighbor ) == Robot || spriteTypeAt( neighbor ) == Fastbot )
 			result = false;
 		else
 		{
 			// neighboursNeighbour is the cell behind the neighbour, with respect to the target cell.
-			QPoint neighboursNeighbour = neighbour + vectorFromDirection( i );
+			QPoint neighborsNeighbor = neighbor + vectorFromDirection( i );
 
 			// If we're examining a diagonal neighbour (an odd direction)...
 			if ( i % 2 == 1 )
 			{
 				// ...and neighboursNeighbour is a fastbot then the move is unsafe.
-				if ( spriteTypeAt( neighboursNeighbour ) == Fastbot )
+				if ( spriteTypeAt( neighborsNeighbor ) == Fastbot )
 					result = false;
 			}
 			// If we're examining an vertical or horizontal neighbour, things are more complicated...
 			else
 			{
 				// Assemble a list of the cells behind the neighbour.
-				QList<QPoint> cellsBehindNeighbour;
-				cellsBehindNeighbour << neighboursNeighbour;
+				QList<QPoint> cellsBehindNeighbor;
+				cellsBehindNeighbor << neighborsNeighbor;
 				// Add neighboursNeighbour's anticlockwise neighbour. ( i + 2 ) % 8 is the direction a quarter turn anticlockwise from i.
-				cellsBehindNeighbour << neighboursNeighbour + vectorFromDirection( ( i + 2 ) % 8 );
+				cellsBehindNeighbor << neighborsNeighbor + vectorFromDirection( ( i + 2 ) % 8 );
 				// Add neighboursNeighbour's clockwise neighbour. ( i + 6 ) % 8 is the direction a quarter turn clockwise from i.
-				cellsBehindNeighbour << neighboursNeighbour + vectorFromDirection( ( i + 6 ) % 8 );
+				cellsBehindNeighbor << neighborsNeighbor + vectorFromDirection( ( i + 6 ) % 8 );
 
 				// Then we just count the number of fastbots and robots in the list of cells.
 				int fastbotsFound = 0;
 				int robotsFound = 0;
-				foreach( const QPoint & cell, cellsBehindNeighbour )
+				foreach( const QPoint & cell, cellsBehindNeighbor )
+				{
 					if ( spriteTypeAt( cell ) == Fastbot )
 						++fastbotsFound;
 					else if ( spriteTypeAt( cell ) == Robot )
 						++robotsFound;
+				}
 
 				// If there is exactly one fastbots and zero robots, the move is unsafe.
 				if ( fastbotsFound == 1 && robotsFound == 0 )
@@ -709,6 +707,24 @@ bool Killbots::Engine::moveIsSafe( const QPoint & cell, HeroAction direction ) c
 }
 
 
+bool Killbots::Engine::canPushJunkheap( const Sprite * junkheap, HeroAction direction ) const
+{
+	QPoint nextCell = junkheap->gridPos() + vectorFromDirection( direction );
+
+	if ( m_rules->pushableJunkheaps() != Ruleset::None && cellIsValid( nextCell ) )
+	{
+		if ( spriteTypeAt( nextCell ) == NoSprite )
+			return true;
+		else if ( spriteTypeAt( nextCell ) == Junkheap )
+			return m_rules->pushableJunkheaps() == Ruleset::Many && canPushJunkheap( m_spriteMap.value( nextCell ), direction );
+		else
+			return m_rules->squaskKillsEnabled();
+	}
+	else
+		return false;
+}
+
+
 QPoint Killbots::Engine::vectorFromDirection( int direction ) const
 {
 	if ( direction < 0 )
@@ -716,26 +732,25 @@ QPoint Killbots::Engine::vectorFromDirection( int direction ) const
 
 	switch( direction )
 	{
-	  case Right:     return QPoint(  1,  0 );
-	  case UpRight:   return QPoint(  1, -1 );
-	  case Up:        return QPoint(  0, -1 );
-	  case UpLeft:    return QPoint( -1, -1 );
-	  case Left:      return QPoint( -1,  0 );
-	  case DownLeft:  return QPoint( -1,  1 );
-	  case Down:      return QPoint(  0,  1 );
-	  case DownRight: return QPoint(  1,  1 );
-	  default:        return QPoint(  0,  0 );
+	case Right:
+		return QPoint(  1,  0 );
+	case UpRight:
+		return QPoint(  1, -1 );
+	case Up:
+		return QPoint(  0, -1 );
+	case UpLeft:
+		return QPoint( -1, -1 );
+	case Left:
+		return QPoint( -1,  0 );
+	case DownLeft:
+		return QPoint( -1,  1 );
+	case Down:
+		return QPoint(  0,  1 );
+	case DownRight:
+		return QPoint(  1,  1 );
+	default:
+		return QPoint(  0,  0 );
 	};
-}
-
-
-void Killbots::Engine::refreshSpriteMap()
-{
-	m_spriteMap.clear();
-	foreach( Sprite * bot, m_bots )
-		m_spriteMap.insert( bot->gridPos(), bot );
-	foreach( Sprite * junkheap, m_junkheaps )
-		m_spriteMap.insert( junkheap->gridPos(), junkheap );
 }
 
 
@@ -779,11 +794,13 @@ bool Killbots::Engine::destroyAllCollidingBots( const Sprite * sprite )
 	bool result = false;
 
 	foreach ( Sprite * robot, m_spriteMap.values( sprite->gridPos() ) )
+	{
 		if ( robot != sprite && ( robot->spriteType() == Robot || robot->spriteType() == Fastbot ) )
 		{
 			destroySprite( robot );
 			result = true;
 		}
+	}
 
 	return result;
 }

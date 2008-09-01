@@ -28,9 +28,9 @@
 
 Killbots::GameStatusDisplayItem::GameStatusDisplayItem( const QString & labelText, QGraphicsItem * parent )
   : QGraphicsItem( parent ),
-	m_label( labelText ),
-	m_value( 0 ),
-	m_digits( 3 )
+    m_label( labelText ),
+    m_value( 0 ),
+    m_digits( 3 )
 {
 	setFont( QFont() );
 }
