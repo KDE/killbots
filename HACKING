@@ -104,7 +104,8 @@ No space appears between the function name and the opening bracket.
 
 A single space appears between the loop/conditional statement name and the opening bracket.
 
-Padding spaces appear inside of all parentheses, unless the parentheses are empty.
+Padding spaces appear inside of all parentheses, unless the parentheses are empty or contain only a
+string literal.
 
 Binary operators are separated from their operands with a single space. Unary operators are not.
 

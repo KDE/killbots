@@ -104,9 +104,9 @@ void Killbots::MainWindow::setupActions()
 	KStandardAction::preferences( this, SLOT(configurePreferences()), actionCollection() );
 
 	setupMappedAction( actionCollection(), "Teleport",                     "teleport",        Qt::Key_R,     Qt::Key_Minus, Teleport,       "roll"   );
-	setupMappedAction( actionCollection(), "Teleport Safely",              "teleport_safely", Qt::Key_T,     Qt::Key_Plus,  TeleportSafely, "love"   );
+	setupMappedAction( actionCollection(), "Teleport Safely",              "teleport_safely", Qt::Key_T,     Qt::Key_Plus,  TeleportSafely, "games-solve"   );
 	setupMappedAction( actionCollection(), "Teleport, Safely If Possible", "teleport_sip",    Qt::Key_Space, Qt::Key_0,     TeleportSafelyIfPossible );
-	setupMappedAction( actionCollection(), "Wait Out Round",               "wait",            Qt::Key_Y,     Qt::Key_Enter, WaitOutRound,    "no"    );
+	setupMappedAction( actionCollection(), "Wait Out Round",               "wait",            Qt::Key_Y,     Qt::Key_Enter, WaitOutRound,    "process-stop"    );
 
 	// Keyboard Actions - these are shown in Configure Shortcuts but not in Configure Toolbars
 	setupMappedAction( m_keyboardActions,  "Move Up and Left",             "move_up_left",    Qt::Key_Q,     Qt::Key_7,     UpLeft                   );
