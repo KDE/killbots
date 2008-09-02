@@ -1,7 +1,9 @@
 [KGameTheme]
 Name=Robot Kill
+Name[et]=Robotite tapmine
 Name[sv]=Robotdöd
 Description=Robot Kill
+Description[et]=Robotite tapmine
 Description[sv]=Robotdöd
 VersionFormat=0.0
 Author=Eugene Trounev
