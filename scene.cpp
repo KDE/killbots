@@ -503,7 +503,7 @@ Killbots::HeroAction Killbots::Scene::getMouseDirection( QPointF cursorPosition 
 			result = Hold;
 		else
 		{
-			static const double piOver4 = 0.78539816339744830961566L;
+			static const qreal piOver4 = 0.78539816339744830961566L;
 
 			QPointF delta = cursorPosition - m_hero->sceneBoundingRect().center();
 			int direction = qRound( atan2( -delta.y(), delta.x() ) / piOver4 );

@@ -61,9 +61,9 @@ const Killbots::Ruleset * Killbots::Engine::ruleset()
 }
 
 
-bool Killbots::Engine::gameHasStarted()
+bool Killbots::Engine::gameInProgress()
 {
-	return m_score;
+	return m_hero && m_score > 0;
 }
 
 

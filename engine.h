@@ -68,7 +68,7 @@ namespace Killbots
 		explicit Engine( Scene * scene, QObject * parent = 0 );
 		virtual ~Engine();
 		const Ruleset * ruleset();
-		bool gameHasStarted();
+		bool gameInProgress();
 
 	public slots:
 		void newGame();

@@ -205,7 +205,7 @@ void Killbots::MainWindow::onConfigDialogClosed()
 {
 	if ( m_rulesetChanged )
 	{
-		if ( !m_engine->gameHasStarted() ||
+		if ( !m_engine->gameInProgress() ||
 		     KMessageBox::questionYesNo( this,
 		                                 i18n("A new ruleset has been selected, but there is already a game in progress."),
 		                                 i18n("Ruleset Changed"),
