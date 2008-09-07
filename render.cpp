@@ -120,7 +120,7 @@ bool Killbots::Render::loadTheme( const QString & fileName )
 			result = rp->m_hasBeenLoaded = rp->m_svgRenderer.load( newTheme.graphics() );
 
 			// Get the theme's aspect ratio from the .desktop file, defaulting to 1.0.
-			QRectF tileRect = rp->m_svgRenderer.boundsOnElement( "cell" );
+			QRectF tileRect = rp->m_svgRenderer.boundsOnElement("cell");
 			rp->m_aspectRatio = tileRect.width() / tileRect.height();
 			if ( rp->m_aspectRatio <= 0.3333 || rp->m_aspectRatio >= 3.0 )
 				rp->m_aspectRatio = 1.0;
@@ -129,8 +129,8 @@ bool Killbots::Render::loadTheme( const QString & fileName )
 			// If it exists doesn't exist or the fill isn't a valid color, default to black.
 			KGameSvgDocument svg;
 			svg.load( newTheme.graphics() );
-			if ( !svg.elementById( "text" ).isNull() )
-				rp->m_textColor = QColor( svg.styleProperty( "fill" ) );
+			if ( !svg.elementById("text").isNull() )
+				rp->m_textColor = QColor( svg.styleProperty("fill") );
 			if ( !rp->m_textColor.isValid() )
 				rp->m_textColor = Qt::black;
 
@@ -150,7 +150,7 @@ bool Killbots::Render::loadTheme( const QString & fileName )
 
 bool Killbots::Render::loadDefaultTheme()
 {
-	return loadTheme( "themes/default.desktop" );
+	return loadTheme("themes/default.desktop");
 }
 
 
@@ -192,7 +192,7 @@ QPixmap Killbots::Render::renderGrid( int columns, int rows, QSize cellSize )
 		result.fill( Qt::transparent );
 
 		QPainter p( &result );
-		p.drawTiledPixmap( result.rect(), renderElement("cell", cellSize ) );
+		p.drawTiledPixmap( result.rect(), renderElement( "cell", cellSize ) );
 		p.end();
 
 		rp->m_pixmapCache.insert( key, result );

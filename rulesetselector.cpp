@@ -39,55 +39,57 @@ Killbots::RulesetSelector::RulesetSelector( QWidget * parent )
   : QWidget( parent ),
     m_rulesetMap()
 {
-	QVBoxLayout * layout = new QVBoxLayout( this );
-	layout->setSpacing( KDialog::spacingHint() );
-	layout->setMargin( 0 );
-
-	kcfg_Ruleset = new KLineEdit( this );
+	// Create a hidden KLineEdit to use the automatic KConfigXT connection
+	kcfg_Ruleset = new KLineEdit();
 	kcfg_Ruleset->setObjectName( "kcfg_Ruleset" );
 	kcfg_Ruleset->hide();
-	layout->addWidget( kcfg_Ruleset );
 
-	m_listWidget = new QListWidget( this );
+	m_listWidget = new QListWidget();
 	m_listWidget->setWhatsThis( i18n("A list of the Killbots rulesets installed on this computer.") );
-	layout->addWidget( m_listWidget );
 
-	QGroupBox * groupBox = new QGroupBox( i18n("Details"), this );
+	QGroupBox * groupBox = new QGroupBox( i18n("Ruleset Details") );
 	groupBox->setWhatsThis( i18n("Information on the currently selected ruleset.") );
-	layout->addWidget( groupBox, 10 );
 
-	QGridLayout * boxLayout = new QGridLayout( groupBox );
-	QLabel * label;
+	QLabel * authorLabel = new QLabel( i18n("Author:") );
+	authorLabel->setAlignment( Qt::AlignRight | Qt::AlignTop );
 
-	label = new QLabel( i18n("Author:"), groupBox );
-	label->setAlignment( Qt::AlignRight | Qt::AlignTop );
-	boxLayout->addWidget( label, 1, 0 );
-	m_author = new QLabel( groupBox );
+	m_author = new QLabel();
 	m_author->setAlignment( Qt::AlignLeft | Qt::AlignTop );
 	m_author->setWordWrap( true );
-	boxLayout->addWidget( m_author, 1, 1 );
 
-	label = new QLabel( i18n("Contact:"), groupBox );
-	label->setAlignment( Qt::AlignRight | Qt::AlignTop );
-	boxLayout->addWidget( label, 2, 0 );
-	m_authorContact = new QLabel( groupBox );
+	QLabel * contactLabel = new QLabel( i18n("Contact:") );
+	contactLabel->setAlignment( Qt::AlignRight | Qt::AlignTop );
+
+	m_authorContact = new QLabel();
 	m_authorContact->setAlignment( Qt::AlignLeft | Qt::AlignTop );
 	m_authorContact->setWordWrap( true );
 	m_authorContact->setOpenExternalLinks ( true );
-	boxLayout->addWidget( m_authorContact, 2, 1 );
 
-	label = new QLabel( i18n("Description:"), groupBox );
-	label->setAlignment( Qt::AlignRight | Qt::AlignTop );
-	boxLayout->addWidget( label, 3, 0 );
-	m_description = new QLabel( groupBox );
+	QLabel * descriptionLabel = new QLabel( i18n("Description:") );
+	descriptionLabel->setAlignment( Qt::AlignRight | Qt::AlignTop );
+
+	m_description = new QLabel();
 	m_description->setAlignment( Qt::AlignLeft | Qt::AlignTop );
 	m_description->setWordWrap( true );
+
+	QGridLayout * boxLayout = new QGridLayout( groupBox );
+	boxLayout->setMargin( KDialog::spacingHint() );
+	boxLayout->setSpacing( KDialog::spacingHint() );
+	boxLayout->setColumnStretch( 1, 10 );
+	boxLayout->setRowStretch( 4, 10 );
+	boxLayout->addWidget( authorLabel, 1, 0 );
+	boxLayout->addWidget( m_author, 1, 1 );
+	boxLayout->addWidget( contactLabel, 2, 0 );
+	boxLayout->addWidget( m_authorContact, 2, 1 );
+	boxLayout->addWidget( descriptionLabel, 3, 0 );
 	boxLayout->addWidget( m_description, 3, 1 );
 
-	boxLayout->setHorizontalSpacing( 10 );
- 	boxLayout->setColumnStretch( 0, 1 );
- 	boxLayout->setColumnStretch( 1, 4 );
-	boxLayout->setRowStretch( 4, 10 );
+	QVBoxLayout * layout = new QVBoxLayout( this );
+	layout->setSpacing( KDialog::spacingHint() );
+	layout->setMargin( 0 );
+	layout->addWidget( kcfg_Ruleset );
+	layout->addWidget( m_listWidget );
+	layout->addWidget( groupBox, 10 );
 
 	connect( m_listWidget, SIGNAL(currentTextChanged(QString)), this, SLOT(selectionChanged(QString)) );
 
@@ -127,10 +129,10 @@ void Killbots::RulesetSelector::findRulesets()
 			delete ruleset;
 	}
 
-	// HACK Restrict the height of the list widget to be slightly more than it's contents.
-	// There's got to be a better way to do this, but it's the best I've found.
-	int itemHeight = m_listWidget->visualItemRect( m_listWidget->item( 0 ) ).height();
-	m_listWidget->setMaximumHeight( 1.333 * m_listWidget->count() * itemHeight );
+	// Set the maximum height of the list widget to be no more than the size of its contents
+	const int itemHeight = m_listWidget->visualItemRect( m_listWidget->item( 0 ) ).height();
+	const int verticalMargin = m_listWidget->height() - m_listWidget->viewport()->height();
+	m_listWidget->setMaximumHeight( itemHeight * m_listWidget->count() + verticalMargin );
 }
 
 

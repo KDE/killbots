@@ -33,9 +33,6 @@
 Killbots::OptionsPage::OptionsPage( QWidget * parent )
   : QWidget( parent )
 {
-	kcfg_AllowUnsafeMoves = new QCheckBox( i18n("Allow &unsafe moves"), this );
-	kcfg_AllowUnsafeMoves->setObjectName( "kcfg_AllowUnsafeMoves" );
-
 	QStringList clickActionList;
 	clickActionList << i18n("Nothing");
 	clickActionList << i18n("Step");
@@ -45,34 +42,38 @@ Killbots::OptionsPage::OptionsPage( QWidget * parent )
 	clickActionList << i18n("Teleport (Safely If Possible)");
 	clickActionList << i18n("Wait Out Round");
 
-	kcfg_MiddleClickAction = new KComboBox( false, this );
+	kcfg_MiddleClickAction = new KComboBox();
 	kcfg_MiddleClickAction->setObjectName( "kcfg_MiddleClickAction" );
 	kcfg_MiddleClickAction->addItems( clickActionList );
 
-	kcfg_RightClickAction = new KComboBox( false, this );
+	kcfg_RightClickAction = new KComboBox();
 	kcfg_RightClickAction->setObjectName( "kcfg_RightClickAction" );
 	kcfg_RightClickAction->addItems( clickActionList );
 
-	kcfg_AnimationSpeed = new QSlider( Qt::Horizontal, this );
+	kcfg_AnimationSpeed = new QSlider( Qt::Horizontal );
 	kcfg_AnimationSpeed->setObjectName( "kcfg_AnimationSpeed" );
 	kcfg_AnimationSpeed->setSingleStep( 1 );
 	kcfg_AnimationSpeed->setPageStep( 1 );
+	QLabel * slowLabel = new QLabel( i18n("Slow") );
+	slowLabel->setAlignment( Qt::AlignLeft );
+	QLabel * fastLabel = new QLabel( i18n("Fast") );
+	fastLabel->setAlignment( Qt::AlignCenter );
+	QLabel * instantLabel = new QLabel( i18n("Instant") );
+	instantLabel->setAlignment( Qt::AlignRight );
+
+	QLabel * speedLabel = new QLabel( i18n("Animation &speed:") );
+	speedLabel->setBuddy( kcfg_AnimationSpeed );
 
 	QGridLayout * speedLayout = new QGridLayout();
 	speedLayout->setMargin( 0 );
 	speedLayout->setSpacing( 0 );
 	speedLayout->addWidget( kcfg_AnimationSpeed, 0, 0, 1, 3 );
-	QLabel * label = new QLabel( i18n("Slow"), this );
-	label->setAlignment( Qt::AlignLeft );
-	speedLayout->addWidget( label, 1, 0 );
-	label = new QLabel( i18n("Fast"), this );
-	label->setAlignment( Qt::AlignCenter );
-	speedLayout->addWidget( label, 1, 1 );
-	label = new QLabel( i18n("Instant"), this );
-	label->setAlignment( Qt::AlignRight );
-	speedLayout->addWidget( label, 1, 2 );
-	label = new QLabel( i18n("Animation &speed:"), this );
-	label->setBuddy( kcfg_AnimationSpeed );
+	speedLayout->addWidget( slowLabel, 1, 0 );
+	speedLayout->addWidget( fastLabel, 1, 1 );
+	speedLayout->addWidget( instantLabel, 1, 2 );
+
+	kcfg_AllowUnsafeMoves = new QCheckBox( i18n("Allow &unsafe moves") );
+	kcfg_AllowUnsafeMoves->setObjectName( "kcfg_AllowUnsafeMoves" );
 
 	QFormLayout * formLayout = new QFormLayout( this );
 	formLayout->setLabelAlignment( Qt::AlignRight );
@@ -80,7 +81,9 @@ Killbots::OptionsPage::OptionsPage( QWidget * parent )
 	formLayout->setSpacing( KDialog::spacingHint() );
 	formLayout->addRow( i18n("&Middle-click action:"), kcfg_MiddleClickAction );
 	formLayout->addRow( i18n("&Right-click action:"), kcfg_RightClickAction );
-	formLayout->addRow( label, speedLayout );
+	formLayout->addItem( new QSpacerItem( 0, 16, QSizePolicy::Minimum, QSizePolicy::Fixed ) );
+	formLayout->addRow( speedLabel, speedLayout );
+	formLayout->addItem( new QSpacerItem( 0, 16, QSizePolicy::Minimum, QSizePolicy::Fixed ) );
 	formLayout->addRow( 0, kcfg_AllowUnsafeMoves );
 }
 
