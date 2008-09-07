@@ -149,9 +149,9 @@ void Killbots::Scene::doLayout()
 
 	// If placing the displays on top would result in larger cells, we take
 	// that option, but only if the displays would actually fit.
-	bool displaysOnTop = ( cellWidthTop > cellWidthSide && size.width() > widthOfDisplaysOnTop );
-	qreal newCellWidth = displaysOnTop ? cellWidthTop : cellWidthSide;
-	QSize newCellSize = QSize( qRound( newCellWidth ), qRound( newCellWidth / aspectRatio ) );
+	const bool displaysOnTop = ( cellWidthTop > cellWidthSide && size.width() > widthOfDisplaysOnTop );
+	const qreal newCellWidth = displaysOnTop ? cellWidthTop : cellWidthSide;
+	const QSize newCellSize = QSize( qRound( newCellWidth ), qRound( newCellWidth / aspectRatio ) );
 
 	// If the cellSize has actually changed, update all the sprites.
 	if ( newCellSize != m_cellSize )
@@ -174,14 +174,14 @@ void Killbots::Scene::doLayout()
 	if ( displaysOnTop )
 	{
 		// Set the sceneRect to centre the grid if possible, but ensure the display items are visible
-		qreal sceneRectXPos = -( size.width() - m_cellSize.width() * ( m_columns - 1 ) ) / 2.0;
-		qreal centeredYPos = - ( size.height() - m_cellSize.height() * ( m_rows - 1 ) ) / 2.0;
-		qreal indentedYPos = - ( m_cellSize.height() / 2.0 + 2 * spacing + m_displaySize.height() );
-		qreal sceneRectYPos = qMin( centeredYPos, indentedYPos );
+		const qreal sceneRectXPos = -( size.width() - m_cellSize.width() * ( m_columns - 1 ) ) / 2.0;
+		const qreal centeredYPos = - ( size.height() - m_cellSize.height() * ( m_rows - 1 ) ) / 2.0;
+		const qreal indentedYPos = - ( m_cellSize.height() / 2.0 + 2 * spacing + m_displaySize.height() );
+		const qreal sceneRectYPos = qMin( centeredYPos, indentedYPos );
 		setSceneRect( QRectF( sceneRectXPos, sceneRectYPos, size.width(), size.height() ) );
 
 		// Position the display items centered at the top of the scene
-		qreal displayYPos = ( sceneRectYPos - ( m_displaySize.height() + m_cellSize.height() / 2.0 ) ) / 2;
+		const qreal displayYPos = ( sceneRectYPos - ( m_displaySize.height() + m_cellSize.height() / 2.0 ) ) / 2;
 
 		m_roundDisplay->setPos( sceneRectXPos + ( size.width() - widthOfDisplaysOnTop ) / 2.0, displayYPos );
 		m_scoreDisplay->setPos( m_roundDisplay->sceneBoundingRect().right() + spacing, displayYPos );
@@ -191,8 +191,8 @@ void Killbots::Scene::doLayout()
 	else
 	{
 		qreal sceneRectXPos;
-		qreal centeredXPos = - ( size.width() - m_cellSize.width() * ( m_columns - 1 ) ) / 2.0;
-		qreal sceneRectYPos = -( size.height() - m_cellSize.height() * ( m_rows - 1 ) ) / 2.0;
+		const qreal centeredXPos = - ( size.width() - m_cellSize.width() * ( m_columns - 1 ) ) / 2.0;
+		const qreal sceneRectYPos = -( size.height() - m_cellSize.height() * ( m_rows - 1 ) ) / 2.0;
 		qreal displayXPos;
 
 		// If the application layout is LTR, place the displays on left,
@@ -200,7 +200,7 @@ void Killbots::Scene::doLayout()
 		if ( views().first()->layoutDirection() == Qt::LeftToRight )
 		{
 			// Set the sceneRect to centre the grid if possible, but ensure the display items are visible
-			qreal indentedXPos = - ( m_cellSize.width() / 2.0 + 2 * spacing + m_displaySize.width() );
+			const qreal indentedXPos = - ( m_cellSize.width() / 2.0 + 2 * spacing + m_displaySize.width() );
 			sceneRectXPos = qMin( centeredXPos, indentedXPos );
 
 			// Position the display items to the left of the grid
@@ -209,7 +209,7 @@ void Killbots::Scene::doLayout()
 		else
 		{
 			// Set the sceneRect to centre the grid if possible, but ensure the display items are visible
-			qreal indentedXPos = ( m_cellSize.width() * m_columns + 1 * spacing + m_displaySize.width() ) - size.width();
+			const qreal indentedXPos = ( m_cellSize.width() * m_columns + 1 * spacing + m_displaySize.width() ) - size.width();
 			sceneRectXPos = qMax( centeredXPos, indentedXPos );
 
 			// Position the display items to the right of the grid
