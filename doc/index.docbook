@@ -22,9 +22,9 @@
       </personname>
       <email>parker.coates@gmail.com</email>
     </author>
-  </authorgroup>
 
-  <!-- TRANS:ROLES_OF_TRANSLATORS -->
+    <!-- TRANS:ROLES_OF_TRANSLATORS -->
+  </authorgroup>
 
   <copyright>
     <year>2008</year>
@@ -37,7 +37,7 @@
   <releaseinfo>&kappversion;</releaseinfo>
 
   <abstract>
-    <para>&killbots; is a KDE port of the classic BSD console game <command>robots</command>.</para>
+    <para>&killbots; is a &kde; port of the classic BSD console game <command>robots</command>.</para>
     <para>This handbook documents &killbots; version &kappversion;</para>
   </abstract>
 
@@ -152,7 +152,7 @@
 
     <sect2>
       <title>Scoring</title>
-      <para>There really is no such thing as winning in &killbots;; the hero attempts to survive as long as possible, but the depressing reality is that, in the end, his luck will run out. Therefore, the goal in &killbots; is to accumulate the highest <firstterm>score</firstterm> possible before the inevitable occurs. The ten highest scores (along with the round reached) are recorded in the highscore dialog.</para>
+      <para>There really is no such thing as winning in &killbots;; the hero attempts to survive as long as possible, but the depressing reality is that, in the end, his luck will run out. Therefore, the goal in &killbots; is to accumulate the highest <firstterm>score</firstterm> possible before the inevitable occurs. The ten highest scores (along with the round reached) are recorded in the high score dialog.</para>
       <para>Points are awarded for destroying enemies. Fastbots are usually worth more than regular robots. Bonus points may also be awarded for enemies destroyed while <link linkend="pushing-junkheaps">pushing a junkheap</link> or <link linkend="wait-out-round">waiting out the round</link>.</para>
     </sect2>
 
@@ -188,7 +188,7 @@
           <imageobject><imagedata fileref="waitoutround.png" format="PNG"/></imageobject>
         </mediaobject></screenshot></para>
       </example>
-      <para>Waiting out the round causes the hero to freeze in place while the enemies continue their regular movement. This continues until one of two things happen: the enemies destroy themselves and the round finishes, or an enemy manages to reach the hero and the game ends. Once a wait out round command has been issued, it can not be cancled, so one must be certain that the hero is, in fact, safe.</para>
+      <para>Waiting out the round causes the hero to freeze in place while the enemies continue their regular movement. This continues until one of two things happen: the enemies destroy themselves and the round finishes, or an enemy manages to reach the hero and the game ends. Once a wait out round command has been issued, it cannot be cancled, so one must be certain that the hero is, in fact, safe.</para>
       <para>So why would one take an action that eliminates the opportunity to change one's mind? Well, it adds a bit of flourish and drama to the end of a round, but more importantly, there is a bonus awarded for each enemy destroyed while waiting out the round. The size and type (points or energy) of the bonus is determined by the ruleset.</para>
     </sect2>
   </sect1>
@@ -209,7 +209,7 @@
     <sect2 id="mouse-movement">
       <title id="mouse-movement-title">Mouse Movement Controls</title>
       <para>The mouse (or any other pointing device) can be used to navigate in a more natural, intuitive way. As the pointer moves over the main game area, the cursor will change to indicate the direction of the pointer relative to the hero. For example, moving the pointer to the space above the hero will change the cursor to an up arrow. If the pointer is placed immediately over the hero, the cursor changes to indicate no movement.</para>
-      <para>A single left-click will cause the hero to step in the indicated direction (provided such a step is permitted). For convenience, one can assign additional actions to the right and middle mouse buttons in the <link linkend="configure-killbots">Configure Killbots dialog</link>. These actions include those found in the <link linkend="move-menu" endterm="move-menu-title"/>, as well as additional option: Repeated Step. Performing a repeated step causes the hero to move in the idicated direction for several consecutive turns until an obstruction is reached or continued movement would be unsafe. One can also halt a repeated step by clicking again while the move is in progress.</para>
+      <para>A single left-click will cause the hero to step in the indicated direction (provided such a step is permitted). For convenience, one can assign additional actions to the right and middle mouse buttons in the <link linkend="configure-killbots">Configure &killbots; dialog</link>. These actions include those found in the <link linkend="move-menu" endterm="move-menu-title"/>, as well as additional option: Repeated Step. Performing a repeated step causes the hero to move in the idicated direction for several consecutive turns until an obstruction is reached or continued movement would be unsafe. One can also halt a repeated step by clicking again while the move is in progress.</para>
       <para></para>
     </sect2>
   </sect1>
@@ -447,11 +447,11 @@ Preview=default.png
         <title>The Default &killbots; Ruleset</title>
         <programlisting width="80">
 [KillbotsRuleset]
-Name=Killbots
+Name=&killbots;
 Author=Parker Coates
 AuthorContact=parker.coates@gmail.com
-Description=&lt;qt&gt;&lt;p&gt;The default Killbots ruleset.&lt;/p&gt;&lt;p&gt;A 16 by 16 cell grid. The game starts with 8 robots, 4 more are added each round. 2 fastbots are added each round after Round 2. Teleporting safely costs 1 energy, with a maximum energy cap or 12. Multiple junkheaps are pushabel at a time. 5 points for each robot destroyed and 10 for each fastbot. 1 bonus energy for each enemy destroyed with a junkheap or while waiting out the round.&lt;/p&gt;&lt;/qt&gt;
-Description[sv]=&lt;qt&gt;&lt;p&gt;Regeluppsättningen som är standard i Killbots.&lt;/p&gt;&lt;p&gt;Ett 16 gånger 16 rutnät. Spelet börjar med 8 robotar, ytterligare 4 läggs till varje omgång. Två snabbotar läggs till varje omgång efter den andra. Säker teleportering kostar en energienhet, med ett maximal energitak på 12. Flera skrothögar går att knuffa samtidigt. 5 poäng för varje förstörd robot och 10 för varje snabbot. 1 bonusenhet energi för varje fiende som förstörs med en skrothög eller vid väntan på omgångens slut.&lt;/p&gt;&lt;/qt&gt;
+Description=&lt;qt&gt;&lt;p&gt;The default &killbots; ruleset.&lt;/p&gt;&lt;p&gt;A 16 by 16 cell grid. The game starts with 8 robots, 4 more are added each round. 2 fastbots are added each round after Round 2. Teleporting safely costs 1 energy, with a maximum energy cap or 12. Multiple junkheaps are pushabel at a time. 5 points for each robot destroyed and 10 for each fastbot. 1 bonus energy for each enemy destroyed with a junkheap or while waiting out the round.&lt;/p&gt;&lt;/qt&gt;
+Description[sv]=&lt;qt&gt;&lt;p&gt;Regeluppsättningen som är standard i &killbots;.&lt;/p&gt;&lt;p&gt;Ett 16 gånger 16 rutnät. Spelet börjar med 8 robotar, ytterligare 4 läggs till varje omgång. Två snabbotar läggs till varje omgång efter den andra. Säker teleportering kostar en energienhet, med ett maximal energitak på 12. Flera skrothögar går att knuffa samtidigt. 5 poäng för varje förstörd robot och 10 för varje snabbot. 1 bonusenhet energi för varje fiende som förstörs med en skrothög eller vid väntan på omgångens slut.&lt;/p&gt;&lt;/qt&gt;
 Rows=16
 Columns=16
 EnemiesAtGameStart=8
@@ -480,7 +480,7 @@ SquashKillEnergyBonus=1
       <variablelist>
         <varlistentry>
           <term><varname>Name</varname></term>
-          <listitem><para>the name of the ruleset as it will appear in the ruleset selector and the highscores dialog.</para></listitem>
+          <listitem><para>the name of the ruleset as it will appear in the ruleset selector and the high score dialog.</para></listitem>
         </varlistentry>
         <varlistentry>
           <term><varname>Author</varname></term>
