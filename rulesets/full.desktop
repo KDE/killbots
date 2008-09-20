@@ -1,12 +1,25 @@
 [KillbotsRuleset]
 Name=Full Board (testing)
+Name[el]=Πλήρης πίνακας (δοκιμή)
 Name[et]=Täislaud (test)
+Name[fr]=Plateau complet (en test)
+Name[gl]=Taboleiro completo (en probas)
+Name[km]=ក្ដារ​ពេញ
+Name[pt]=Tabuleiro Completo (teste)
 Name[sv]=Fullt bräde (prov)
+Name[uk]=Повна дошка (тестування)
+Name[x-test]=xxFull Board (testing)xx
 Author=Parker Coates
 AuthorContact=www.kde.org
 Description=<qt><p>A testing game configuration, not intended to be playable. Used to test the board-full-on-new-round logic.</p><p>A 18 by 10 cell grid that is quite full of enemies initially, but 60 more are added for the second round guaranteeing the board will be full.</p></qt>
+Description[el]=<qt><p>Ρυθμίσεις δοκιμαστικού παιχνιδιού, που δεν προορίζεται για παιχνίδι. Χρησιμοποιείται για τον έλεγχο της λογικής πλήρους-πίνακα-κατά-το-νέο-γύρο.</p><p> Ένας κάνναβος 18 με 10 κελιά ο οποίος είναι αρκετά πλήρης με εχθρούς αρχικά, με προσθήκη όμως 60 ακόμη στο δεύτερο γύρο που εγγυάται έναν πίνακα πλήρη.</p></qt>
 Description[et]=<qt><p>Mängu testseadistus, ei ole mõeldud tegelikuks mängimisek. Kasutusel uues-voorus-jälle-täislaud loogika testimiseks.</p><p>18x10 ruudustik on vaenlasi algul päris täis, aga teises voorus lisatakse neid veel 60, et laud oleks ikka kindlasti täis.</p></qt>
+Description[fr]=<qt><p>Un jeu pour tester la configuration. Il n'est pas destiné à être jouable. Utilisé pour tester le fonctionnement lorsque la grille est remplie lors d'un nouveau tour.</p> <p> Une grille de 18 cases pas 10 qui est presque remplie d'ennemis dès le départ, mais 60 de plus sont ajoutés au second tour, garantissant que la grille sera pleine.</p></qt>
+Description[gl]=<qt><p>Unha configuración de partida para probas, non pretende ser xogábel. Emprégase para probar a lóxica taboleiro-cheo-na-seguinte-volta.</p><p>Unha grella de 18 por 10 que inicialmente está bastante chea de inimigos, pero engádense 60 máis na segunda, garantindo que o taboleiro estará cheio.</p></qt>
+Description[pt]=<qt><p>Uma configuração do jogo para testes, sem a intenção de estar pronta para jogar. É usada para testar a lógica do tabuleiro-cheio-numa-ronda-nova.</p><p>Uma grelha de 18 por 10 células que está bastante cheia de inimigos no início, mas onde se adicionam ainda mais 60 para a segunda ronda, garantindo que o tabuleiro fica cheio.</p></qt>
 Description[sv]=<qt><p>En provinställning av spelet, som inte är avsedd att vara spelbar. Används för att prova logiken när brädet är fullt vid en ny omgång.</p><p>Ett 18 gånger 10 rutnät som är riktigt fullt med fiender från början, och ytterligare 60 läggs till vid andra omgången, vilket garanterar att brädet blir fullt.</p></qt>
+Description[uk]=<qt><p>Тестова конфігурація гри, не призначена власне для гри. Використовується для перевірки логіки під час заповнення поля гри.</p><p>Поле розміром 18 на 10 клітинок, яке на початку сповнене ворогів, а у другому раунді додається ще 60 ворогів, які заповнюють все поле.</p></qt>
+Description[x-test]=xx<qt><p>A testing game configuration, not intended to be playable. Used to test the board-full-on-new-round logic.</p><p>A 18 by 10 cell grid that is quite full of enemies initially, but 60 more are added for the second round guaranteeing the board will be full.</p></qt>xx
 Rows=10
 Columns=18
 EnemiesAtGameStart=20
