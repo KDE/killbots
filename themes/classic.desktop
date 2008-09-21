@@ -1,10 +1,26 @@
 [KGameTheme]
 Name=Classic
+Name[el]=Κλασικό
 Name[et]=Klassikaline
+Name[fr]=Classique
+Name[ga]=Clasaiceach
+Name[gl]=Clásico
+Name[km]=បុរាណ
+Name[pt]=Clássico
 Name[sv]=Klassiskt
+Name[tr]=Klasik
+Name[uk]=Класична
+Name[x-test]=xxClassicxx
 Description=A theme for those who miss the console version
+Description[el]=Ένα θέμα γι' αυτούς που νοσταλγούν την έκδοση κονσόλας
 Description[et]=Teema neile, kes igatsevad konsooliversiooni
+Description[fr]=Un thème pour les nostalgiques de la version console
+Description[gl]=Un tema para quen teña morriña pola versión da consola
+Description[km]=ស្បែក​សម្រាប់​អ្នក​ដែល​បាត់​កំណែ​កុងសូល
+Description[pt]=Um tema para os saudosistas da versão para consola
 Description[sv]=Ett tema för de som saknar terminalversionen
+Description[uk]=Тема для тих, хто сумує за консольною версією
+Description[x-test]=xxA theme for those who miss the console versionxx
 VersionFormat=0.0
 Author=Parker Coates
 AuthorEmail=parker.coates@gmail.com
