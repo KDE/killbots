@@ -1,25 +1,12 @@
 [KillbotsRuleset]
 Name=ZZZ Crowded (testing)
-Name[el]=ZZZ πολυπληθές (δοκιμή)
-Name[et]=Name=Ülerahvastatud (test)
-Name[fr]=ZZZ Surpeuplé (en test)
-Name[gl]=ZZZ Ateigado (en probas)
-Name[km]=ZZZ ចង្អៀត (សាកល្បង)
-Name[pt]=Multidão ZZZ (teste)
+Name[et]=Ülerahvastatud (test)
 Name[sv]=ZZZ-trängsel (prov)
-Name[uk]=З натовпом (тестування)
-Name[x-test]=xxZZZ Crowded (testing)xx
 Author=Parker Coates
 AuthorContact=1285 Western Road, London, Ontario, Canada
 Description=<qt><p>A testing game configuration, not intended to be playable. Used to test the try-to-safe-teleport-but-board-is-full logic.</p><p>A 12 by 12 cell grid that quickly fill with enemies. Fortunately, there's a near infinite supply of safe teleports.</p></qt>
-Description[el]=<qt><p>Μια δοκιμαστική ρύθμιση του παιχνιδιού, που δεν προορίζεται για παιχνίδι. Χρησιμοποιείται για την προσπάθεια ελέγχου της λογικής προσπάθειας-τηλεμεταφοράς-ενώ-ο-πίνακας-είναι-πλήρης.</p><p>Ένας κάνναβος 12 με 12 κελιά για τη γρήγορη συμπλήρωση με εχθρούς. Ευτυχώς, υπάρχει μια σχεδόν άπειρη προμήθεια ασφαλών τηλεμεταφορών.</p></qt>
 Description[et]=<qt><p>Mägu testseadistus, ei ole mõeldud tegelikuks mängimiseks. Kasutusel turvalise telepordi ja täieliku loogika järgimise testimiseks.</p><p>12x12 ruudustik täitub kiiresti vaenlastega. Õnneks on turvalisi teleporte peaaegu lõputult.</p></qt>
-Description[fr]=<qt><p>Un jeu pour tester la configuration. Il n'est pas destiné à être jouable. Il est utilisé pour tester le fonctionnement de la téléportation sûre même quand la grille est pleine.</p> <p> Une grille de 12 cases par 12 qui se remplie rapidement d'ennemis. Heureusement, un nombre presque infini de points de téléportation sûre est fourni.</p></qt>
-Description[gl]=<qt><p>Unha configuración de partida para probas, non pretende ser xogábel. Emprégase para probar a lóxica try-to-safe-teleport-but-board-is-full.</p> <p>Unha grella de 12 por 12 que se se enche rapidamente de inimigos. Afortunadamente hai unha subministración case infinita de teleportacións.</p></qt>
-Description[pt]=<qt><p>Uma configuração do jogo para testes, sem a intenção de estar pronta para jogar. É usada para testar a lógica do tentar-o-tele-transporte-com-o-tabuleiro cheio.</p><p>Uma grelha de 12 por 12 células que se enche rapidamente de inimigos. Por sorte, existe um abastecimento quase infinito de tele-transportes seguros.</p></qt>
 Description[sv]=<qt><p>En provinställning av spelet, som inte är avsedd att vara spelbar. Används för att prova logiken vid försök att teleportera säkert när brädet är fullt.</p><p>Ett 12 gånger 12 rutnät som snabbt fylls med fiender. Som tur är finns ett nästan oändligt antal säkra teleporteringar.</p></qt>
-Description[uk]=<qt><p>Тестова конфігурація гри, не призначена власне для гри. Використовується для перевірки логіки спроб телепортації у безпечне місце під час заповнення поля гри.</p><p>Поле розміром 12 на 12 клітинок, яке швидко наповнюється ворогами. На щастя, існує майже незліченна кількість безпечних телепортів.</p></qt>
-Description[x-test]=xx<qt><p>A testing game configuration, not intended to be playable. Used to test the try-to-safe-teleport-but-board-is-full logic.</p><p>A 12 by 12 cell grid that quickly fill with enemies. Fortunately, there's a near infinite supply of safe teleports.</p></qt>xx
 Rows=12
 Columns=12
 EnemiesAtGameStart=20
