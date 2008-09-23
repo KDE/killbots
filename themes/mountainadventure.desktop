@@ -1,9 +1,23 @@
 [KGameTheme]
 Name=Mountain Adventure
+Name[el]=Ορεινή περιπέτεια
+Name[et]=Mägiseiklus
+Name[fr]=Aventure en montagne
+Name[gl]=Aventura na montaña
+Name[km]=ការ​ផ្សង​ព្រេង​តាម​ភ្នំ
+Name[pt]=Aventura na Montanha
 Name[sv]=Bergsäventyr
+Name[tr]=Dağ Macerası
+Name[uk]=Пригоди в горах
+Name[x-test]=xxMountain Adventurexx
 Description=<qt><p>Indiana Gnomes battles ghosts and bats on a misty mountainside.</p><p>Sprites by Nicu Buculei. Background by Eugene Trounev.</p></qt>
+Description[el]=<qt><p>Ο Indiana Gnomes μάχεται φαντάσματα και νυχτερίδες σε μια ομιχλώδης περιοχή του βουνού.</p><p>Φιγούρες από Nicu Buculei. Το φόντο από Eugene Trounev.</p></qt>
 Description[et]=<qt><p>Indiana Gnomes võitleb tontide ja nahkhiirtega uduhägustes mägedes.</p><p>Spraidid: Nicu Buculei. Taust: Eugene Trounev.</p></qt>
+Description[gl]=<qt><p>O gnomo Indiana loita con pantasmas e morcegos nunha montaña nevoenta.</p><p>Sprites de Nicu Buculei. Fondo por Eugene Trounev.</p></qt>
+Description[pt]=<qt><p>O Indiana Gnomes luta com fantasmas e morcegos numa montanha no Extremo-Oriente.</p><p>Imagens de Nicu Buculei. Fundo de Eugene Trounev.</p></qt>
 Description[sv]=<qt><p>Indiana Tomtar strider mot spöken och fladdermöss på en dimmig bergssida.</p><p>Figurer av Nicu Buculei. Bakgrund av Eugene Trounev.</p></qt>
+Description[uk]=<qt><p>Індіана Гномз б’ється з привидами і кажанами у таємничому гірському краї.</p><p>Спрайти від Nicu Buculei. Тло намалював Eugene Trounev.</p></qt>
+Description[x-test]=xx<qt><p>Indiana Gnomes battles ghosts and bats on a misty mountainside.</p><p>Sprites by Nicu Buculei. Background by Eugene Trounev.</p></qt>xx
 VersionFormat=0.0
 Author=Parker Coates
 AuthorEmail=parker.coates@gmail.com
