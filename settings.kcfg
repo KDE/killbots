@@ -34,10 +34,10 @@
 			<tooltip>The speed used to display animations</tooltip>
 			<whatsthis>Adjusts the speed at which the in game animations are displayed.</whatsthis>
 		</entry>
-		<entry name="AllowUnsafeMoves" type="Bool">
-			<default>false</default>
-			<tooltip>Allow the player to make fatal moves</tooltip>
-			<whatsthis>If unchecked, the game will ignore any move (with the exception of random teleports) that would result in the immediate death of the hero.</whatsthis>
+		<entry name="PreventUnsafeMoves" type="Bool">
+			<default>true</default>
+			<tooltip>Prevent the player from making fatal moves</tooltip>
+			<whatsthis>If checked, the game will ignore any move that would result in the immediate death of the hero (other than random teleports and waiting out the round).</whatsthis>
 		</entry>
 	</group>
 

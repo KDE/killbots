@@ -38,7 +38,7 @@ namespace Killbots
 		virtual ~OptionsPage();
 	
 	public: // data members
-		QCheckBox * kcfg_AllowUnsafeMoves;
+		QCheckBox * kcfg_PreventUnsafeMoves;
 		KComboBox * kcfg_MiddleClickAction;
 		KComboBox * kcfg_RightClickAction;
 		QSlider * kcfg_AnimationSpeed;

@@ -43,15 +43,15 @@ Killbots::OptionsPage::OptionsPage( QWidget * parent )
 	clickActionList << i18n("Wait Out Round");
 
 	kcfg_MiddleClickAction = new KComboBox();
-	kcfg_MiddleClickAction->setObjectName( "kcfg_MiddleClickAction" );
+	kcfg_MiddleClickAction->setObjectName("kcfg_MiddleClickAction");
 	kcfg_MiddleClickAction->addItems( clickActionList );
 
 	kcfg_RightClickAction = new KComboBox();
-	kcfg_RightClickAction->setObjectName( "kcfg_RightClickAction" );
+	kcfg_RightClickAction->setObjectName("kcfg_RightClickAction");
 	kcfg_RightClickAction->addItems( clickActionList );
 
 	kcfg_AnimationSpeed = new QSlider( Qt::Horizontal );
-	kcfg_AnimationSpeed->setObjectName( "kcfg_AnimationSpeed" );
+	kcfg_AnimationSpeed->setObjectName("kcfg_AnimationSpeed");
 	kcfg_AnimationSpeed->setSingleStep( 1 );
 	kcfg_AnimationSpeed->setPageStep( 1 );
 	QLabel * slowLabel = new QLabel( i18n("Slow") );
@@ -61,9 +61,6 @@ Killbots::OptionsPage::OptionsPage( QWidget * parent )
 	QLabel * instantLabel = new QLabel( i18n("Instant") );
 	instantLabel->setAlignment( Qt::AlignRight );
 
-	QLabel * speedLabel = new QLabel( i18n("Animation &speed:") );
-	speedLabel->setBuddy( kcfg_AnimationSpeed );
-
 	QGridLayout * speedLayout = new QGridLayout();
 	speedLayout->setMargin( 0 );
 	speedLayout->setSpacing( 0 );
@@ -72,8 +69,11 @@ Killbots::OptionsPage::OptionsPage( QWidget * parent )
 	speedLayout->addWidget( fastLabel, 1, 1 );
 	speedLayout->addWidget( instantLabel, 1, 2 );
 
-	kcfg_AllowUnsafeMoves = new QCheckBox( i18n("Allow &unsafe moves") );
-	kcfg_AllowUnsafeMoves->setObjectName( "kcfg_AllowUnsafeMoves" );
+	QLabel * speedLabel = new QLabel( i18n("Animation &speed:") );
+	speedLabel->setBuddy( kcfg_AnimationSpeed );
+
+	kcfg_PreventUnsafeMoves = new QCheckBox( i18n("Prevent &unsafe moves") );
+	kcfg_PreventUnsafeMoves->setObjectName("kcfg_PreventUnsafeMoves");
 
 	QFormLayout * formLayout = new QFormLayout( this );
 	formLayout->setLabelAlignment( Qt::AlignRight );
@@ -84,7 +84,7 @@ Killbots::OptionsPage::OptionsPage( QWidget * parent )
 	formLayout->addItem( new QSpacerItem( 0, 16, QSizePolicy::Minimum, QSizePolicy::Fixed ) );
 	formLayout->addRow( speedLabel, speedLayout );
 	formLayout->addItem( new QSpacerItem( 0, 16, QSizePolicy::Minimum, QSizePolicy::Fixed ) );
-	formLayout->addRow( 0, kcfg_AllowUnsafeMoves );
+	formLayout->addRow( 0, kcfg_PreventUnsafeMoves );
 }
 
 Killbots::OptionsPage::~OptionsPage()

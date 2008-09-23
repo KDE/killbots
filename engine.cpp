@@ -302,7 +302,7 @@ void Killbots::Engine::moveHero( HeroAction direction )
 
 	if ( moveIsValid( newCell, direction )
 	     && ( moveIsSafe( newCell, direction )
-	          || ( Settings::allowUnsafeMoves()
+	          || ( !Settings::preventUnsafeMoves()
 	             && !m_repeatMove
 	             )
 	        )
