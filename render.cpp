@@ -135,7 +135,7 @@ bool Killbots::Render::loadTheme( const QString & fileName )
 				rp->m_textColor = Qt::black;
 
 			// Generate cursors.
-			for ( int i = 0; i <= 8; i++ )
+			for ( int i = 0; i <= 8; ++i )
 			{
 				QPixmap pixmap = renderElement( "cursor" + QString::number( i ), QSize( 42, 42 ) );
 				if ( !pixmap.isNull() )

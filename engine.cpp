@@ -116,7 +116,7 @@ void Killbots::Engine::newRound()
 	m_spriteMap.insert( centre, m_hero );
 
 	// Create and randomly place junkheaps.
-	for ( int i = m_junkheapCount; i > 0 ; i-- )
+	for ( int i = m_junkheapCount; i > 0 ; --i )
 	{
 		QPoint point;
 		do
@@ -128,7 +128,7 @@ void Killbots::Engine::newRound()
 	}
 
 	// Create and randomly place robots.
-	for ( int i = m_robotCount; i > 0; i-- )
+	for ( int i = m_robotCount; i > 0; --i )
 	{
 		QPoint point;
 		do
@@ -140,7 +140,7 @@ void Killbots::Engine::newRound()
 	}
 
 	// Create and randomly place fastbots.
-	for ( int i = m_fastbotCount; i > 0; i-- )
+	for ( int i = m_fastbotCount; i > 0; --i )
 	{
 		QPoint point;
 		do
@@ -651,7 +651,7 @@ bool Killbots::Engine::moveIsSafe( const QPoint & cell, HeroAction direction ) c
 	QPoint cellBehindJunkheap = ( spriteTypeAt( cell ) != Junkheap ) ? QPoint( -1, -1 ) : cell + vectorFromDirection( direction );
 
 	// We check the each of the target cells neighbours.
-	for ( int i = Right; i <= DownRight && result; i++ )
+	for ( int i = Right; i <= DownRight && result; ++i )
 	{
 		QPoint neighbor = cell + vectorFromDirection( i );
 

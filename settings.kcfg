@@ -8,7 +8,6 @@
 
 	<group name="General">
 		<entry name="MiddleClickAction" type="Enum">
-			<whatsthis>Selects the action performed when middle-clicking on the main game area. If a middle mouse button is not available, this action can be performed by left- and right-clicking simultaneously or by left-clicking while holding the control key.</whatsthis>
 			<choices name="ClickAction">
 				<choice name="Nothing"/>
 				<choice name="Step"/>
@@ -19,21 +18,26 @@
 				<choice name="WaitOutRound"/>
 			</choices>
 			<default>RepeatedStep</default>
+			<tooltip>The action performed on a middle-click</tooltip>
+			<whatsthis>Selects the action performed when middle-clicking on the main game area. If a middle mouse button is not available, this action can be performed by left- and right-clicking simultaneously or by left-clicking while holding the control key.</whatsthis>
 		</entry>
 		<entry name="RightClickAction" type="Enum">
-			<whatsthis>Selects the action performed when right-clicking on the main game area.</whatsthis>
 			<choices name="ClickAction"/>
 			<default>TeleportSafelyIfPossible</default>
+			<tooltip>The action performed on a right-click</tooltip>
+			<whatsthis>Selects the action performed when right-clicking on the main game area.</whatsthis>
 		</entry>.
 		<entry name="AnimationSpeed" type="Int">
-			<whatsthis>Adjusts the speed at which the in game animations are displayed.</whatsthis>
 			<min>0</min>
 			<max>10</max>
 			<default>5</default>
+			<tooltip>The speed used to display animations</tooltip>
+			<whatsthis>Adjusts the speed at which the in game animations are displayed.</whatsthis>
 		</entry>
 		<entry name="AllowUnsafeMoves" type="Bool">
-			<whatsthis>If unchecked, the game will ignore any move (with the exception of random teleports) that would result in the immediate death of the hero.</whatsthis>
 			<default>false</default>
+			<tooltip>Allow the player to make fatal moves</tooltip>
+			<whatsthis>If unchecked, the game will ignore any move (with the exception of random teleports) that would result in the immediate death of the hero.</whatsthis>
 		</entry>
 	</group>
 
