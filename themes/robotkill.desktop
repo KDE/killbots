@@ -1,18 +1,10 @@
 [KGameTheme]
 Name=Robot Kill
 Name[et]=Robotite tapmine
-Name[km]=សម្លាប់មនុស្ស​យន្ត
 Name[sv]=Robotdöd
-Name[uk]=Вбивство роботів
-Name[x-test]=xxRobot Killxx
 Description=Robot Kill
-Description[el]=Σκότωμα ρομπότ
 Description[et]=Robotite tapmine
-Description[gl]=Mate robots
-Description[km]=សម្លាប់​មនុស្ស​យន្ត
 Description[sv]=Robotdöd
-Description[uk]=Вбивство роботів
-Description[x-test]=xxRobot Killxx
 VersionFormat=0.0
 Author=Eugene Trounev
 AuthorEmail=eugene.trounev@gmail.com
