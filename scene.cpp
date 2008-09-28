@@ -387,35 +387,25 @@ void Killbots::Scene::onNewGame( int rows, int columns, bool gameIncludesEnergy 
 	if ( firstGame )
 		firstGame = false;
 	else
-	{
-		m_popupMessage->setMessageTimeout( 3000 );
-		KGamePopupItem::Position corner = views().first()->layoutDirection() == Qt::LeftToRight ? KGamePopupItem::TopRight : KGamePopupItem::TopLeft;
-		m_popupMessage->showMessage( i18n("New game."), corner, KGamePopupItem::ReplacePrevious );
-	}
+		showMessage( i18n("New game."), 3000 );
 }
 
 
 void Killbots::Scene::onRoundComplete()
 {
-	m_popupMessage->setMessageTimeout( 3000 );
-	KGamePopupItem::Position corner = views().first()->layoutDirection() == Qt::LeftToRight ? KGamePopupItem::TopRight : KGamePopupItem::TopLeft;
-	m_popupMessage->showMessage( i18n("Round complete."), corner, KGamePopupItem::ReplacePrevious );
+	showMessage( i18n("Round complete."), 3000 );
 }
 
 
 void Killbots::Scene::onBoardFull()
 {
-	m_popupMessage->setMessageTimeout( 4000 );
-	KGamePopupItem::Position corner = views().first()->layoutDirection() == Qt::LeftToRight ? KGamePopupItem::TopRight : KGamePopupItem::TopLeft;
-	m_popupMessage->showMessage( i18n("Board is full.\nResetting enemy counts."), corner, KGamePopupItem::ReplacePrevious );
+	showMessage( i18n("Board is full.\nResetting enemy counts."), 4000 );
 }
 
 
 void Killbots::Scene::onGameOver()
 {
-	m_popupMessage->setMessageTimeout( 20000 );
-	KGamePopupItem::Position corner = views().first()->layoutDirection() == Qt::LeftToRight ? KGamePopupItem::TopRight : KGamePopupItem::TopLeft;
-	m_popupMessage->showMessage( i18n("Game over."), corner, KGamePopupItem::ReplacePrevious );
+	showMessage( i18n("Game over."), 20000 );
 }
 
 
@@ -528,6 +518,14 @@ Killbots::HeroAction Killbots::Scene::getMouseDirection( QPointF cursorPosition 
 void Killbots::Scene::updateSpritePos( Sprite * sprite ) const
 {
 	sprite->setPos( QPointF( sprite->gridPos().x() * m_cellSize.width(), sprite->gridPos().y() * m_cellSize.height() ) );
+}
+
+
+void Killbots::Scene::showMessage( const QString & text, int timeout )
+{
+	KGamePopupItem::Position corner = views().first()->layoutDirection() == Qt::LeftToRight ? KGamePopupItem::TopRight : KGamePopupItem::TopLeft;
+	m_popupMessage->setMessageTimeout( timeout );
+	m_popupMessage->showMessage( text, corner, KGamePopupItem::ReplacePrevious );
 }
 
 
