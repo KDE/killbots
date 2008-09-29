@@ -20,7 +20,7 @@
 
 #include "view.h"
 
-#include "config-killbots.h"
+#include <config-killbots.h>
 
 #ifdef USE_OPENGL
 #include <QtOpenGL/QGLWidget>

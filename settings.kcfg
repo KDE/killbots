@@ -43,15 +43,17 @@
 
 	<group name="Rules">
 		<entry name="Ruleset" type="String">
-			<whatsthis>Selects the set of game rules to be used in the next game.</whatsthis>
 			<default></default>
+			<tooltip>The selected set of game rules</tooltip>
+			<whatsthis>Selects the set of game rules to be used in the next game.</whatsthis>
 		</entry>
 	</group>
 
 	<group name="Theme">
 		<entry name="Theme" type="String">
-			<whatsthis>Selects the theme used to display all in game elements.</whatsthis>
 			<default></default>
+			<tooltip>The selected game theme</tooltip>
+			<whatsthis>Selects the theme used to display all in game elements.</whatsthis>
 		</entry>
 	</group>
 
