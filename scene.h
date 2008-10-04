@@ -78,7 +78,7 @@ namespace Killbots
 	private: // functions
 		void updateSpritePos( Sprite * sprite ) const;
 		HeroAction getMouseDirection( QPointF cursorPosition );
-		void showMessage( const QString & text, int timeout );
+		void showMessagePopup( const QString & text, int timeout );
 
 	private: // data members
 		QSize m_cellSize;

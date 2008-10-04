@@ -387,25 +387,25 @@ void Killbots::Scene::onNewGame( int rows, int columns, bool gameIncludesEnergy 
 	if ( firstGame )
 		firstGame = false;
 	else
-		showMessage( i18n("New game."), 3000 );
+		showMessagePopup( i18n("New game."), 3000 );
 }
 
 
 void Killbots::Scene::onRoundComplete()
 {
-	showMessage( i18n("Round complete."), 3000 );
+	showMessagePopup( i18n("Round complete."), 3000 );
 }
 
 
 void Killbots::Scene::onBoardFull()
 {
-	showMessage( i18n("Board is full.\nResetting enemy counts."), 4000 );
+	showMessagePopup( i18n("Board is full.\nResetting enemy counts."), 4000 );
 }
 
 
 void Killbots::Scene::onGameOver()
 {
-	showMessage( i18n("Game over."), 20000 );
+	showMessagePopup( i18n("Game over."), 20000 );
 }
 
 
@@ -521,7 +521,7 @@ void Killbots::Scene::updateSpritePos( Sprite * sprite ) const
 }
 
 
-void Killbots::Scene::showMessage( const QString & text, int timeout )
+void Killbots::Scene::showMessagePopup( const QString & text, int timeout )
 {
 	KGamePopupItem::Position corner = views().first()->layoutDirection() == Qt::LeftToRight ? KGamePopupItem::TopRight : KGamePopupItem::TopLeft;
 	m_popupMessage->setMessageTimeout( timeout );

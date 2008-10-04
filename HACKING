@@ -15,6 +15,8 @@ Ensure your editor doesn't do automatic conversion from spaces to tabs, as this 
 
 Labels (public, private, goto, case, etc.) do not get indented.
 
+Empty lines do not get indentation. In fact, no lines should have trailing whitespace.
+
 Examples:
 -------------------------------------------------------------------------------
 bool Killbots::Engine::cellIsValid( const QPoint & cell ) const
