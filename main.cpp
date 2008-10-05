@@ -29,9 +29,9 @@
 
 int main( int argc, char ** argv )
 {
-	KAboutData about( "killbots", "", ki18n("Killbots"), "0.1.0" );
+	KAboutData about( "killbots", "", ki18n("Killbots"), "0.9.0" );
 	about.setShortDescription( ki18n("The BSD classic \"robots\" ported to KDE.") );
-	about.setLicense( KAboutData::License_GPL_V2 );
+	about.setLicense( KAboutData::License_GPL_V3 );
 	about.setCopyrightStatement( ki18n("© 2007-2008, Parker Coates") );
 	about.addAuthor( ki18n("Parker Coates"), ki18n("Developer"), "parker.coates@gmail.com" );
 	about.addCredit( ki18n("Mark Rae"), ki18n("Author of Gnome Robots. Invented safe teleports, pushing junkheaps and fast robots."), "", "http://live.gnome.org/Robots" );
@@ -41,7 +41,6 @@ int main( int argc, char ** argv )
 	KApplication app;
 
 	KGlobal::locale()->insertCatalog("libkdegames");
-
 	KGlobal::dirs()->addResourceType("ruleset", "data", about.appName() + "/rulesets/");
 
 	Killbots::MainWindow * mainWindow = new Killbots::MainWindow;
