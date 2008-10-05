@@ -353,7 +353,7 @@ Preview=default.png
 
     <sect2>
       <title>The Preview File</title>
-      <para>The preview file is simply a <filename>PNG</filename> file containing a preview of the theme. The preview image should match the size and layout of the default theme's preview as closely as possible, as this makes it easier to compare themes in the theme selector.</para>
+      <para>The preview file is simply a <filename>PNG</filename> file containing a preview of the theme. The preview image should be 240 by 140 pixels and match layout of the default theme's preview as closely as possible, as this makes it easier to compare themes in the theme selector.</para>
     </sect2>
 
     <sect2>

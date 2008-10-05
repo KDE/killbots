@@ -154,8 +154,8 @@ void Killbots::Engine::newRound()
 	// Code used to generate theme previews
 // 	m_hero = m_scene->createSprite( Hero, QPoint( 0, 1 ) );
 // 	m_junkheaps << m_scene->createSprite( Junkheap, QPoint( 1, 1 ) );
-// 	m_robots << m_scene->createSprite( Robot, QPoint( 2, 0 ) );
-// 	m_fastbots << m_scene->createSprite( Fastbot, QPoint( 2, 1 ) );
+// 	m_bots << m_scene->createSprite( Robot, QPoint( 2, 0 ) );
+// 	m_bots << m_scene->createSprite( Fastbot, QPoint( 2, 1 ) );
 
 	refreshSpriteMap();
 

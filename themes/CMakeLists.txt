@@ -10,6 +10,7 @@ SET( theme_files
 	mountainadventure.svg
 	robotkill.svg
 	robotkill.desktop
+	robotkill.png
 )
 
 INSTALL( FILES ${theme_files}  DESTINATION ${DATA_INSTALL_DIR}/killbots/themes )
