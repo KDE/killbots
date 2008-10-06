@@ -39,19 +39,11 @@
 			<tooltip>Prevent the player from making fatal moves</tooltip>
 			<whatsthis>If checked, the game will ignore any move that would result in the immediate death of the hero (other than random teleports and waiting out the round).</whatsthis>
 		</entry>
-	</group>
-
-	<group name="Rules">
 		<entry name="Ruleset" type="String">
-			<default></default>
 			<tooltip>The selected set of game rules</tooltip>
 			<whatsthis>Selects the set of game rules to be used in the next game.</whatsthis>
 		</entry>
-	</group>
-
-	<group name="Theme">
 		<entry name="Theme" type="String">
-			<default></default>
 			<tooltip>The selected game theme</tooltip>
 			<whatsthis>Selects the theme used to display all in game elements.</whatsthis>
 		</entry>

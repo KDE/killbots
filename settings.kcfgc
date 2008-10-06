@@ -1,5 +1,5 @@
 # Code generation options for kconfig_compiler
-File=settings.kcfg
+File=killbots.kcfg
 NameSpace=Killbots
 ClassName=Settings
 Singleton=true
