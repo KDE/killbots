@@ -45,6 +45,7 @@ Killbots::Engine::Engine( Scene * scene, QObject * parent )
     m_hero( 0 ),
     m_busy( false ),
     m_repeatMove( false ),
+    m_rules( 0 ),
     m_spriteMap()
 {
 }
@@ -69,7 +70,12 @@ bool Killbots::Engine::gameInProgress()
 
 void Killbots::Engine::newGame()
 {
-	m_rules = Ruleset::load( Settings::ruleset() );
+	if ( !m_rules || m_rules->fileName() != Settings::ruleset() )
+	{
+		delete m_rules;
+		m_rules = 0;
+		m_rules = Ruleset::load( Settings::ruleset() );
+	}
 	if ( !m_rules )
 		m_rules = Ruleset::loadDefault();
 
