@@ -336,16 +336,16 @@
       <title>The Desktop File</title>
       <para>The desktop file follows standard <filename>INI</filename> syntax. The key-value pairs store information about the theme and point to the other files included in the theme. The following example is taken from the default theme.</para>
       <example>
-        <title>The Default Theme's Desktop File</title>
+        <title>An Example Theme Desktop File</title>
         <programlisting>
 [KGameTheme]
-Name=Default
-Description=The default theme
-Author=Parker Coates
-AuthorEmail=parker.coates@gmail.com
+Name=Example Theme
+Description=An example theme used to demonstrate theme creation. This one features pirates.
+Author=Mr. Artist
+AuthorEmail=mrartist@example.com
 Type=SVG
-FileName=default.svg
-Preview=default.png
+FileName=example.svg
+Preview=example.png
         </programlisting>
       </example>
       <para>The first four parameters contain metadata about the them and are straight forward enough. For &killbots; themes, the <varname>Type</varname> parameter should always be set to <literal>SVG</literal>. The final two parameters contain the file names of the two other theme files. While it's not strickly necessary, it is highly recommended that, for consistency's sake, all three files share the same base file name.</para>
