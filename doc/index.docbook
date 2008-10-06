@@ -61,22 +61,22 @@
 
 <chapter id="introduction">
   <title>Introduction</title>
-  
+
   <note>
     <title>Game type:</title>
     <para>Strategy</para>
   </note>
-  
+
   <note>
     <title>Number of players:</title>
     <para>One</para>
   </note>
-  
+
   <para>&killbots; is a simple game of evading killer robots. Who created the robots and why they have been programmed to destroy, no one knows. All that is known is that the robots are numerous and their sole objective is to destroy you. Fortunately for you, their creator has focused on quantity rather than quality and as a result the robots are severely lacking in intelligence. Your superior wit and a fancy teleportation device are your only weapons against the never-ending stream of mindless automatons.</para>
-  
+
   <note>
     <title>Note:</title>
-    <para>This documentation frequently refers to <quote>robots</quote>, <quote>junkheaps</quote>, etc., but &killbots; is fully themeable. That means the game sprites you see while playing might not match the futuristic ones described here. The game play and strategies, however, will remain the same, even if your hero is a carrot being chased through a garden patch by ravenous rabbits.</para>
+    <para>This documentation frequently refers to <quote>robots</quote>, <quote>junkheaps</quote>, etc., but &killbots; is fully themeable. That means the game sprites you see while playing might not match the futuristic themed ones described here. The game play and strategies, however, will remain the same, even if your hero is a carrot being chased through a garden patch by ravenous rabbits.</para>
   </note>
 
   <note>
@@ -108,7 +108,7 @@
           <term><firstterm>Hero</firstterm> <inlinemediaobject><imageobject><imagedata fileref="hero.png" format="PNG"/></imageobject></inlinemediaobject></term>
           <listitem>
             <para>The hero is the unfortunate soul stuck in a room with a bunch of killer robots. As the player, it is your job to ensure that he remains alive for as long possible.</para>
-            <para>At the beginning of each <firstterm>turn</firstterm>, the hero can perform one of three types of actions: he can stay where he is, he can move to an unoccupied adjacent cell, or he can perform a special action. See <link linkend="movement-controls" endterm="movement-controls-title"/> or <link linkend="special-actions" endterm="special-actions-title"/>.</para>
+            <para>At the beginning of each <firstterm>turn</firstterm>, the hero can perform one of three types of actions: he can stay where he is, he can move to an unoccupied adjacent cell, or he can perform a special action. See <link linkend="movement-controls" endterm="movement-controls-title"/> and <link linkend="special-actions" endterm="special-actions-title"/>.</para>
           </listitem>
         </varlistentry>
         <varlistentry>
