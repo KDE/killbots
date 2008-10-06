@@ -54,7 +54,10 @@ Killbots::MainWindow::MainWindow( QWidget * parent )
 	setAcceptDrops(false);
 
 	if ( !Render::loadTheme( Settings::theme() ) )
+	{
 		Render::loadDefaultTheme();
+		Settings::setTheme("themes/default.desktop");
+	}
 
 	m_scene = new Scene( this );
 	m_engine = new Engine( m_scene, this );

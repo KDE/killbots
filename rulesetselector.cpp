@@ -105,6 +105,9 @@ Killbots::RulesetSelector::~RulesetSelector()
 
 void Killbots::RulesetSelector::findRulesets()
 {
+	qDeleteAll( m_rulesetMap );
+	m_rulesetMap.clear();
+
 	m_listWidget->clear();
 	m_listWidget->setSortingEnabled( true );
 
@@ -130,6 +133,7 @@ void Killbots::RulesetSelector::findRulesets()
 	}
 
 	// Set the maximum height of the list widget to be no more than the size of its contents
+	// This is slightly hackish, but the effect is nice.
 	const int itemHeight = m_listWidget->visualItemRect( m_listWidget->item( 0 ) ).height();
 	const int verticalMargin = m_listWidget->height() - m_listWidget->viewport()->height();
 	m_listWidget->setMaximumHeight( itemHeight * m_listWidget->count() + verticalMargin );
