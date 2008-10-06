@@ -1,5 +1,5 @@
 [KGameTheme]
-Name=Default
+Name=Old Default
 Name[de]=Standard
 Name[el]=Προκαθορισμένο
 Name[es]=Predeterminado
@@ -17,7 +17,7 @@ Name[sv]=Förval
 Name[tr]=Öntanımlı
 Name[uk]=Типовий
 Name[x-test]=xxDefaultxx
-Description=The default theme
+Description=The old default theme
 Description[el]=Το προκαθορισμένο θέμα
 Description[et]=Vaiketeema
 Description[fr]=Le thème pas défaut
@@ -32,5 +32,5 @@ VersionFormat=0.9
 Author=Parker Coates
 AuthorEmail=parker.coates@gmail.com
 Type=SVG
-FileName=default.svg
-Preview=default.png
+FileName=olddefault.svg
+Preview=olddefault.png
