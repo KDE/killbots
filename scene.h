@@ -34,8 +34,7 @@ class KGamePopupItem;
 namespace Killbots
 {
 	class GameStatusDisplayItem;
-	class Ruleset;
-
+	
 	class Scene : public QGraphicsScene
 	{
 		Q_OBJECT

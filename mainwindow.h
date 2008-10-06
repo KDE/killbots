@@ -22,7 +22,6 @@
 #define KILLBOTS_MAINWINDOW_H
 
 class KActionCollection;
-class KConfigDialog;
 class KScoreDialog;
 #include <KDE/KXmlGuiWindow>
 
@@ -31,7 +30,6 @@ class QSignalMapper;
 namespace Killbots
 {
 	class Engine;
-	class Ruleset;
 	class Scene;
 	class View;
 
