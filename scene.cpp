@@ -376,11 +376,16 @@ void Killbots::Scene::animate( qreal value )
 
 void Killbots::Scene::onNewGame( int rows, int columns, bool gameIncludesEnergy )
 {
-	m_rows = rows;
-	m_columns = columns;
-	m_energyDisplay->setVisible( gameIncludesEnergy );
-
-	doLayout();
+	if ( m_rows != rows
+	     || m_columns != columns
+	     || m_energyDisplay->isVisible() != gameIncludesEnergy
+	   )
+	{
+		m_rows = rows;
+		m_columns = columns;
+		m_energyDisplay->setVisible( gameIncludesEnergy );
+		doLayout();
+	}
 
 	// Prevent the "New Game" popup from appearing when the application is first launched.
 	static bool firstGame = true;
