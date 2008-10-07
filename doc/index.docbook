@@ -170,7 +170,8 @@
     <sect2 id="teleport">
       <title>Teleport</title>
       <para>The hero somehow managed to get his hands on a personal teleporter. Unfortunately, it's not very reliable. Activating the teleporter causes the hero to be transported to a randomly selected cell anywhere on the grid. There is no limit to the number of teleports the hero can perform.</para>
-      <para>The destination cell is guaranteed to unoccupied, but there is a very real chance that it will be adjacent to an angry robot. Due to the risk inherent in teleporting, it should generally be reserved as a last ditch manuever, when there are no longer any safe moves available.</para>
+      <para>The destination cell is guaranteed to be unoccupied, but there is a very real chance that it will be adjacent to an angry robot. Due to the risk inherent in teleporting, it 
+should generally be reserved as a last ditch maneuver, when there are no longer any safe moves available.</para>
     </sect2>
 
     <sect2 id="teleport-safely">
@@ -189,7 +190,7 @@
         </mediaobject></screenshot></para>
       </example>
       <para>Waiting out the round causes the hero to freeze in place while the enemies continue their regular movement. This continues until one of two things happen: the enemies destroy themselves and the round finishes, or an enemy manages to reach the hero and the game ends. Once a wait out round command has been issued, it cannot be canceled, so one must be certain that the hero is, in fact, safe.</para>
-      <para>So why would one take an action that eliminates the opportunity to change one's mind? Well, it adds a bit of flourish and drama to the end of a round, but more importantly, there is a bonus awarded for each enemy destroyed while waiting out the round. The size and type (points or energy) of the bonus is determined by the ruleset.</para>
+      <para>So why would one take an action that eliminates the opportunity to change ones mind? Well, it adds a bit of flourish and drama to the end of a round, but more importantly, there is a bonus awarded for each enemy destroyed while waiting out the round. The size and type (points or energy) of the bonus is determined by the ruleset.</para>
     </sect2>
   </sect1>
 
@@ -348,7 +349,7 @@ FileName=example.svg
 Preview=example.png
         </programlisting>
       </example>
-      <para>The first four parameters contain metadata about the them and are straight forward enough. For &killbots; themes, the <varname>Type</varname> parameter should always be set to <literal>SVG</literal>. The final two parameters contain the file names of the two other theme files. While it's not strickly necessary, it is highly recommended that, for consistency's sake, all three files share the same base file name.</para>
+      <para>The first four parameters contain metadata about the them and are straight forward enough. For &killbots; themes, the <varname>Type</varname> parameter should always be set to <literal>SVG</literal>. The final two parameters contain the file names of the two other theme files. While it's not strictly necessary, it is highly recommended that, for consistency's sake, all three files share the same base file name.</para>
     </sect2>
 
     <sect2>
@@ -433,7 +434,7 @@ Preview=example.png
 
     <sect2>
       <title>Installing Custom Themes</title>
-      <para>In order for &killbots; to detect and use a new theme, the files must be moved to an appropriate directory. To install the theme for only the current user, copy the desktop, preview and SVG files to <filename>$<varname>KDEHOME</varname>/share/apps/killbots/themes</filename>. To make the theme available system wide, move the files to <filename><command>`kde-config --prefix`</command>/share/apps/killbots/themes</filename>. Note that this will likely require administrative priviledges.</para>
+      <para>In order for &killbots; to detect and use a new theme, the files must be moved to an appropriate directory. To install the theme for only the current user, copy the desktop, preview and SVG files to <filename>$<varname>KDEHOME</varname>/share/apps/killbots/themes</filename>. To make the theme available system wide, move the files to <filename><command>`kde-config --prefix`</command>/share/apps/killbots/themes</filename>. Note that this will likely require administrative privileges.</para>
     </sect2>
   </sect1>
 
@@ -450,7 +451,7 @@ Preview=example.png
 Name=&killbots;
 Author=Parker Coates
 AuthorContact=parker.coates@gmail.com
-Description=&lt;qt&gt;&lt;p&gt;The default &killbots; ruleset.&lt;/p&gt;&lt;p&gt;A 16 by 16 cell grid. The game starts with 8 robots, 4 more are added each round. 2 fastbots are added each round after Round 2. Teleporting safely costs 1 energy, with a maximum energy cap or 12. Multiple junkheaps are pushabel at a time. 5 points for each robot destroyed and 10 for each fastbot. 1 bonus energy for each enemy destroyed with a junkheap or while waiting out the round.&lt;/p&gt;&lt;/qt&gt;
+Description=&lt;qt&gt;&lt;p&gt;The default &killbots; ruleset.&lt;/p&gt;&lt;p&gt;A 16 by 16 cell grid. The game starts with 8 robots, 4 more are added each round. 2 fastbots are added each round after Round 2. Teleporting safely costs 1 energy, with a maximum energy cap or 12. Multiple junkheaps are pushable at a time. 5 points for each robot destroyed and 10 for each fastbot. 1 bonus energy for each enemy destroyed with a junkheap or while waiting out the round.&lt;/p&gt;&lt;/qt&gt;
 Description[sv]=&lt;qt&gt;&lt;p&gt;Regeluppsättningen som är standard i &killbots;.&lt;/p&gt;&lt;p&gt;Ett 16 gånger 16 rutnät. Spelet börjar med 8 robotar, ytterligare 4 läggs till varje omgång. Två snabbotar läggs till varje omgång efter den andra. Säker teleportering kostar en energienhet, med ett maximal energitak på 12. Flera skrothögar går att knuffa samtidigt. 5 poäng för varje förstörd robot och 10 för varje snabbot. 1 bonusenhet energi för varje fiende som förstörs med en skrothög eller vid väntan på omgångens slut.&lt;/p&gt;&lt;/qt&gt;
 Rows=16
 Columns=16
@@ -583,7 +584,7 @@ SquashKillEnergyBonus=1
 
     <sect2>
       <title>Installing Custom Rulesets</title>
-      <para>In order for &killbots; to detect and use a new ruleset, the file must be moved to an appropriate directory. To install the ruleset for only the current user, copy the file to <filename>$<varname>KDEHOME</varname>/share/apps/killbots/rulesets</filename>. To make the ruleset available system wide, move the file to <filename><command>`kde-config --prefix`</command>/share/apps/killbots/rulesets</filename>. Note that this will likely require administrative priviledges.</para>
+      <para>In order for &killbots; to detect and use a new ruleset, the file must be moved to an appropriate directory. To install the ruleset for only the current user, copy the file to <filename>$<varname>KDEHOME</varname>/share/apps/killbots/rulesets</filename>. To make the ruleset available system wide, move the file to <filename><command>`kde-config --prefix`</command>/share/apps/killbots/rulesets</filename>. Note that this will likely require administrative privileges.</para>
     </sect2>
 
   </sect1>
