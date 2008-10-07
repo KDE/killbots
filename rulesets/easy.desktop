@@ -1,5 +1,8 @@
 [KillbotsRuleset]
 Name=Easy
+Name[pt]=Fácil
+Name[pt_BR]=Fácil
+Name[uk]=Простий
 Author=Parker Coates
 AuthorContact=parker.coates@gmail.com
 Description=<qt><p>An easier ruleset.</p><p>A 20 by 20 cell grid with lots of space and 15 starting junkheaps for shelter. The game starts with 6 robots, 3 more are added each round. 1 fastbots are added each round after Round 5. The game starts with 5 energy and teleporting safely costs 1 energy. Maximum energy cap is 10 and increases by 1 every 2 rounds. Multiple junkheaps may be pushed at once. 5 points for each robot destroyed and 10 for each fastbot. 1 bonus energy for each enemy destroyed with a junkheap or while waiting out the round.</p></qt>

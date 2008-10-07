@@ -1,6 +1,12 @@
 [KGameTheme]
 Name=Mountain Adventure
+Name[pt]=Aventura na Montanha
+Name[pt_BR]=Aventura na Montanha
+Name[uk]=Пригоди в горах
 Description=<qt><p>Indiana Gnomes battles ghosts and bats on a misty mountainside.</p><p>Sprites by Nicu Buculei. Background by Eugene Trounev.</p></qt>
+Description[pt]=<qt><p>O Indiana Gnomes combate os fantasmas e morcegos num sopé de montanha húmido.</p><p>Imagens de Nicu Buculei. Fundo de Eugene Trounev.</p></qt>
+Description[pt_BR]=<qt><p>O Indiana Gnomes combate os fantasmas e morcegos num sopé de montanha húmido.</p><p>Imagens de Nicu Buculei. Fundo de Eugene Trounev.</p></qt>
+Description[uk]=<qt><p>Індіана Гномз б’ється з привидами і кажанами у таємничому гірському краї.</p><p>Спрайти від Nicu Buculei. Тло намалював Eugene Trounev.</p></qt>
 VersionFormat=0.9
 Author=Parker Coates
 AuthorEmail=parker.coates@gmail.com
