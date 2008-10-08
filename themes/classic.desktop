@@ -1,9 +1,13 @@
 [KGameTheme]
 Name=Classic
+Name[gl]=Clásico
+Name[nds]=Klass'sch
 Name[pt]=Clássico
 Name[pt_BR]=Clássico
 Name[uk]=Класичний
 Description=A theme for those who miss the console version
+Description[gl]=Un tema para quen teña morriña pola versión da consola
+Description[nds]=En Muster för de, de na de Konsoolverschoon lengen doot.
 Description[pt]=Um tema para os que sentem saudades da versão para a consola
 Description[pt_BR]=Um tema para os que sentem saudades da versão para a consola
 Description[uk]=Тема для тих, хто сумує за консольною версією

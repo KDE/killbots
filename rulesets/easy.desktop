@@ -1,11 +1,16 @@
 [KillbotsRuleset]
 Name=Easy
+Name[gl]=Fácil
+Name[nds]=Eenfach
 Name[pt]=Fácil
 Name[pt_BR]=Fácil
 Name[uk]=Простий
 Author=Parker Coates
 AuthorContact=parker.coates@gmail.com
 Description=<qt><p>An easier ruleset.</p><p>A 20 by 20 cell grid with lots of space and 15 starting junkheaps for shelter. The game starts with 6 robots, 3 more are added each round. 1 fastbots are added each round after Round 5. The game starts with 5 energy and teleporting safely costs 1 energy. Maximum energy cap is 10 and increases by 1 every 2 rounds. Multiple junkheaps may be pushed at once. 5 points for each robot destroyed and 10 for each fastbot. 1 bonus energy for each enemy destroyed with a junkheap or while waiting out the round.</p></qt>
+Description[gl]=<qt><p>Unhas regras máis fáciles.</p><p>Unha grella de 20 por 20 con moito espazo e 15 pezas de chatarra inicialmente para escudarse. A partida comeza con 6 robots, e engádense 3 máis cada rolda. Engádese 1 robot rápido cada rolda despois da 5ª. A partida comeza con 5 de enerxía e a teleportación segura costa 1 de enerxía. O máximo de enerxía é de 10 e aumenta 1 cada 2 roldas. Pode empurrar varias chatarras á vez. Danse 5 pontos por cada robot destruido e 10 por cada robot rápido. Dase 1 ponto extra de enerxía por cada inimigo destruido cunha chatarra ou mentres se agarda.</p></qt>
+Description[nds]=<qt><p>En eenfacher Regelsett.</p><p>En Gadder vun 20 op 20 Feller mit veel Ruum un op'n Anfang 15 Misthopens, mit de Du Di schulen kannst. Dat Speel fangt mit 6 Blickkeerls an, 3 kaamt dor elkeen Törn op to. Na den 5. Törn kummt dor elk Törn ok noch en Gaukeerl to. Du fangst mit 5 Energieeenheiten an, seker Teleporteren köst 1 Eenheit. De Bövergrenz för Energie liggt bi 10, man wasst elk 2 Törns üm 1. Du kannst mehr as een Misthopen op eenmaal schuven. 5 Pünkt för elkeen tweimaakt Blickkeerl un 10 för en Gaukeerl. 1 Energieeenheit bito för elkeen Feend, den Du mit en Misthopen oder bi't Afwedern vun den Törn tweimaakst.</p></qt>
+Description[uk]=<qt><p>Набір простіших правил.</p><p>Поле 20 на 20 клітинок з великим вільним простором і 15 початковими купами брухту, за якими можна сховатися. Гру розпочинають з 6 роботами, це по 3 додаються кожного раунду. Після п’ятого раунду кожного раунду додається по у швидкоботу. Гра розпочинається з 5 одиницями енергії, а телепортація у безпечне місце коштує 1 одиниці енергії, тоді як максимальний запас енергії складає 10, цей запас збільшується на 1 кожні 2 раунди. Можна пересувати по декілька куп брухту одночасно. 5 очок за кожного знищеного робота і 10 за кожного швидкобота. 1 бонусна енергія за кожного знищеного за допомогою купи брухту ворога або за ворога знищеного між раундами.</p></qt>
 Rows=20
 Columns=20
 EnemiesAtGameStart=6

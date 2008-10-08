@@ -1,9 +1,12 @@
 [KGameTheme]
 Name=Robot Kill
+Name[gl]=Mate robots
 Name[pt]=Morte do Robot
 Name[pt_BR]=Morte do Robot
 Name[uk]=Вбивство роботів
 Description=The default Killbots theme.
+Description[gl]=O tema predeterminado de Killbots.
+Description[nds]=Dat Killbot-Standardmuster
 Description[pt]=O tema predefinido do Killbots.
 Description[pt_BR]=O tema predefinido do Killbots.
 Description[uk]=Типова тема Killbots.
