@@ -122,7 +122,7 @@ namespace Killbots
 		bool moveIsValid( const QPoint & cell, HeroAction direction ) const;
 		bool moveIsSafe( const QPoint &  cell, HeroAction direction ) const;
 		bool canPushJunkheap( const Sprite * junkheap, HeroAction direction ) const;
-		QPoint vectorFromDirection( int direction ) const;
+		QPoint offsetFromDirection( int direction ) const;
 		void destroySprite( Sprite * sprite );
 		bool destroyAllCollidingBots( const Sprite * sprite );
 

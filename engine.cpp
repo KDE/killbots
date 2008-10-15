@@ -304,7 +304,7 @@ void Killbots::Engine::doAction( int action )
 
 void Killbots::Engine::moveHero( HeroAction direction )
 {
-	QPoint newCell = m_hero->gridPos() + vectorFromDirection( direction );
+	QPoint newCell = m_hero->gridPos() + offsetFromDirection( direction );
 
 	if ( moveIsValid( newCell, direction )
 	     && ( moveIsSafe( newCell, direction )
@@ -334,7 +334,7 @@ void Killbots::Engine::moveHero( HeroAction direction )
 
 void Killbots::Engine::pushJunkheap( Sprite * junkheap, HeroAction direction )
 {
-	QPoint nextCell = junkheap->gridPos() + vectorFromDirection( direction );
+	QPoint nextCell = junkheap->gridPos() + offsetFromDirection( direction );
 
 	Sprite * currentOccupant = m_spriteMap.value( nextCell );
 	if ( currentOccupant )
@@ -421,8 +421,8 @@ void Killbots::Engine::moveRobots( bool justFastbots )
 	{
 		if ( bot->spriteType() == Fastbot || !justFastbots )
 		{
-			QPoint vector( sign( m_hero->gridPos().x() - bot->gridPos().x() ), sign( m_hero->gridPos().y() - bot->gridPos().y() ) );
-			m_scene->slideSprite( bot, bot->gridPos() + vector );
+			QPoint offset( sign( m_hero->gridPos().x() - bot->gridPos().x() ), sign( m_hero->gridPos().y() - bot->gridPos().y() ) );
+			m_scene->slideSprite( bot, bot->gridPos() + offset );
 		}
 	}
 }
@@ -507,7 +507,7 @@ bool Killbots::Engine::cellIsValid( const QPoint & cell ) const
 
 bool Killbots::Engine::moveIsValid( const QPoint & cell, HeroAction direction ) const
 {
-	QPoint cellBehindCell = cell + vectorFromDirection( direction );
+	QPoint cellBehindCell = cell + offsetFromDirection( direction );
 
 /*	// The short version
 	return ( cellIsValid( cell )
@@ -544,7 +544,7 @@ bool Killbots::Engine::moveIsValid( const QPoint & cell, HeroAction direction ) 
 	else
 	{
 		result = false;
-		kDebug() << "Move is invalid. Cell is invalid.";
+		kDebug() << "Move is invalid. Cell is lies outside grid.";
 	}
 
 	return result;
@@ -654,12 +654,12 @@ bool Killbots::Engine::moveIsSafe( const QPoint & cell, HeroAction direction ) c
 	bool result = true;
 
 	// If we're pushing a junkheap, store the cell that the junkheap will end up in. Otherwise store an invalid cell.
-	QPoint cellBehindJunkheap = ( spriteTypeAt( cell ) != Junkheap ) ? QPoint( -1, -1 ) : cell + vectorFromDirection( direction );
+	QPoint cellBehindJunkheap = ( spriteTypeAt( cell ) != Junkheap ) ? QPoint( -1, -1 ) : cell + offsetFromDirection( direction );
 
 	// We check the each of the target cells neighbours.
 	for ( int i = Right; i <= DownRight && result; ++i )
 	{
-		QPoint neighbor = cell + vectorFromDirection( i );
+		QPoint neighbor = cell + offsetFromDirection( i );
 
 		// If the neighbour is invalid or the cell behind the junkheap, continue to the next neighbour.
 		if ( !cellIsValid( neighbor ) || spriteTypeAt( neighbor ) == Junkheap || neighbor == cellBehindJunkheap )
@@ -671,7 +671,7 @@ bool Killbots::Engine::moveIsSafe( const QPoint & cell, HeroAction direction ) c
 		else
 		{
 			// neighboursNeighbour is the cell behind the neighbour, with respect to the target cell.
-			QPoint neighborsNeighbor = neighbor + vectorFromDirection( i );
+			QPoint neighborsNeighbor = neighbor + offsetFromDirection( i );
 
 			// If we're examining a diagonal neighbour (an odd direction)...
 			if ( i % 2 == 1 )
@@ -687,9 +687,9 @@ bool Killbots::Engine::moveIsSafe( const QPoint & cell, HeroAction direction ) c
 				QList<QPoint> cellsBehindNeighbor;
 				cellsBehindNeighbor << neighborsNeighbor;
 				// Add neighboursNeighbour's anticlockwise neighbour. ( i + 2 ) % 8 is the direction a quarter turn anticlockwise from i.
-				cellsBehindNeighbor << neighborsNeighbor + vectorFromDirection( ( i + 2 ) % 8 );
+				cellsBehindNeighbor << neighborsNeighbor + offsetFromDirection( ( i + 2 ) % 8 );
 				// Add neighboursNeighbour's clockwise neighbour. ( i + 6 ) % 8 is the direction a quarter turn clockwise from i.
-				cellsBehindNeighbor << neighborsNeighbor + vectorFromDirection( ( i + 6 ) % 8 );
+				cellsBehindNeighbor << neighborsNeighbor + offsetFromDirection( ( i + 6 ) % 8 );
 
 				// Then we just count the number of fastbots and robots in the list of cells.
 				int fastbotsFound = 0;
@@ -715,7 +715,7 @@ bool Killbots::Engine::moveIsSafe( const QPoint & cell, HeroAction direction ) c
 
 bool Killbots::Engine::canPushJunkheap( const Sprite * junkheap, HeroAction direction ) const
 {
-	QPoint nextCell = junkheap->gridPos() + vectorFromDirection( direction );
+	QPoint nextCell = junkheap->gridPos() + offsetFromDirection( direction );
 
 	if ( m_rules->pushableJunkheaps() != Ruleset::None && cellIsValid( nextCell ) )
 	{
@@ -731,7 +731,7 @@ bool Killbots::Engine::canPushJunkheap( const Sprite * junkheap, HeroAction dire
 }
 
 
-QPoint Killbots::Engine::vectorFromDirection( int direction ) const
+QPoint Killbots::Engine::offsetFromDirection( int direction ) const
 {
 	if ( direction < 0 )
 		direction = -direction - 1;
