@@ -348,7 +348,7 @@ FileName=example.svg
 Preview=example.png
         </programlisting>
       </example>
-      <para>The first four parameters contain metadata about them and are straight forward enough. For &killbots; themes, the <varname>Type</varname> parameter should always be set to <literal>SVG</literal>. The final two parameters contain the file names of the two other theme files. While it's not strictly necessary, it is highly recommended that, for consistency's sake, all three files share the same base file name.</para>
+      <para>The first four parameters contain metadata about the theme and are straight forward enough. For &killbots; themes, the <varname>Type</varname> parameter should always be set to <literal>SVG</literal>. The final two parameters contain the file names of the two other theme files. While it's not strictly necessary, it is highly recommended that, for consistency's sake, all three files share the same base file name.</para>
     </sect2>
 
     <sect2>
