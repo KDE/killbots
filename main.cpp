@@ -30,7 +30,7 @@
 int main( int argc, char ** argv )
 {
 	KAboutData about( "killbots", "", ki18n("Killbots"), "0.9.0" );
-	about.setShortDescription( ki18n("The BSD classic \"robots\" ported to KDE.") );
+	about.setShortDescription( ki18n("A KDE game of killer robots and teleportation.") );
 	about.setLicense( KAboutData::License_GPL_V2 );
 	about.setCopyrightStatement( ki18n("© 2007-2008, Parker Coates") );
 	about.addAuthor( ki18n("Parker Coates"), ki18n("Developer"), "parker.coates@gmail.com" );
