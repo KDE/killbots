@@ -81,9 +81,9 @@ Killbots::OptionsPage::OptionsPage( QWidget * parent )
 	formLayout->setSpacing( KDialog::spacingHint() );
 	formLayout->addRow( i18n("&Middle-click action:"), kcfg_MiddleClickAction );
 	formLayout->addRow( i18n("&Right-click action:"), kcfg_RightClickAction );
-	formLayout->addItem( new QSpacerItem( 0, 16, QSizePolicy::Minimum, QSizePolicy::Fixed ) );
+	formLayout->addItem( new QSpacerItem( 0, KDialog::groupSpacingHint(), QSizePolicy::Minimum, QSizePolicy::Fixed ) );
 	formLayout->addRow( speedLabel, speedLayout );
-	formLayout->addItem( new QSpacerItem( 0, 16, QSizePolicy::Minimum, QSizePolicy::Fixed ) );
+	formLayout->addItem( new QSpacerItem( 0, KDialog::groupSpacingHint(), QSizePolicy::Minimum, QSizePolicy::Fixed ) );
 	formLayout->addRow( 0, kcfg_PreventUnsafeMoves );
 }
 
