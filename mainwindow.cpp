@@ -237,7 +237,7 @@ void Killbots::MainWindow::createScoreDialog()
 	{
 		Ruleset * ruleset = Ruleset::load( fileName );
 		if ( ruleset )
-			m_scoreDialog->addLocalizedConfigGroupName( qMakePair( ruleset->untranslatedName(), ruleset->name() ) );
+			m_scoreDialog->addLocalizedConfigGroupName( qMakePair( ruleset->scoreGroupKey(), ruleset->name() ) );
 		delete ruleset;
 	}
 }
@@ -250,7 +250,7 @@ void Killbots::MainWindow::onGameOver( int score, int round )
 		if ( !m_scoreDialog )
 			createScoreDialog();
 	
-		m_scoreDialog->setConfigGroup( qMakePair( m_engine->ruleset()->untranslatedName(), m_engine->ruleset()->name() ) );
+		m_scoreDialog->setConfigGroup( qMakePair( m_engine->ruleset()->scoreGroupKey(), m_engine->ruleset()->name() ) );
 	
 		KScoreDialog::FieldInfo scoreEntry;
 		scoreEntry[ KScoreDialog::Score ].setNum( score );
@@ -268,7 +268,7 @@ void Killbots::MainWindow::showHighscores()
 		createScoreDialog();
 
 	if ( m_engine->ruleset() )
-		m_scoreDialog->setConfigGroup( qMakePair( m_engine->ruleset()->untranslatedName(), m_engine->ruleset()->name() ) );
+		m_scoreDialog->setConfigGroup( qMakePair( m_engine->ruleset()->scoreGroupKey(), m_engine->ruleset()->name() ) );
 
 	m_scoreDialog->exec();
 }

@@ -35,12 +35,12 @@ namespace Killbots {
 		virtual ~Ruleset();
 		QString filePath() const;
 		QString fileName() const;
-		QByteArray untranslatedName() const;
+		QByteArray scoreGroupKey() const;
 
 	private: // functions
 		Ruleset( const QString & filePath ); // hidden
 		QString m_filePath;
-		QByteArray m_untranslatedName;
+		QByteArray m_scoreGroupKey;
 	};
 
 }

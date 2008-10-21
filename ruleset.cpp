@@ -62,7 +62,8 @@ Killbots::Ruleset::Ruleset( const QString & filePath )
   : RulesetBase( filePath )
 {
 	m_filePath = filePath;
-	m_untranslatedName = KConfigGroup( config(), "KillbotsRuleset").readEntryUntranslated("Name").toUtf8();
+	QString untranslatedName = KConfigGroup( config(), "KillbotsRuleset").readEntryUntranslated("Name");
+	m_scoreGroupKey = untranslatedName.simplified().remove(' ').toLatin1();
 }
 
 
@@ -83,7 +84,7 @@ QString Killbots::Ruleset::fileName() const
 }
 
 
-QByteArray Killbots::Ruleset::untranslatedName() const
+QByteArray Killbots::Ruleset::scoreGroupKey() const
 {
-	return m_untranslatedName;
+	return m_scoreGroupKey;
 }
