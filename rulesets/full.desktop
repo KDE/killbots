@@ -1,14 +1,5 @@
 [KillbotsRuleset]
 Name=Full ჵoard (testing)
-Name[es]=Tablero lleno (prueba)
-Name[gl]=Taboleiro completo (en probas)
-Name[nds]=Vull Brett (utproberen)
-Name[pt]=Tabuleiro Completo (testes)
-Name[pt_BR]=Tabuleiro Completo (testes)
-Name[sv]=Fullt bräde (prov)
-Name[uk]=Повна дошка (тестування)
-Name[x-test]=xxFull Board (testing)xx
-Name[zh_TW]=滿載（測試中）
 Author=Parker Coates
 AuthorContact=www.kde.org
 Description=<qt><p>A testing game configuration, not intended to be playable. Used to test the board-full-on-new-round logic.</p><p>A 18 by 10 cell grid that is quite full of enemies initially, but 60 more are added for the second round guaranteeing the board will be full.</p></qt>
