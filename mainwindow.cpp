@@ -32,14 +32,14 @@
 #include <KDE/KActionCollection>
 #include <KDE/KApplication>
 #include <KDE/KConfigDialog>
-#include <KDE/KGameThemeSelector>
+#include <KGameThemeSelector>
 #include <KDE/KLocalizedString>
 #include <KDE/KMessageBox>
-#include <KDE/KScoreDialog>
+#include <KScoreDialog>
 #include <KDE/KShortcutsDialog>
 #include <KDE/KStandardAction>
 #include <KDE/KStandardDirs>
-#include <KDE/KStandardGameAction>
+#include <KStandardGameAction>
 
 #include <QtCore/QSignalMapper>
 #include <QtCore/QTimer>

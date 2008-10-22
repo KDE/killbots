@@ -29,7 +29,7 @@
 #include <KDE/KDebug>
 #include <KDE/KLocalizedString>
 #include <KDE/KStandardDirs>
-#include <KDE/KGamePopupItem>
+#include <KGamePopupItem>
 
 #include <QtGui/QFontInfo>
 #include <QtGui/QPainter>
