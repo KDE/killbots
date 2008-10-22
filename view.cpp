@@ -20,22 +20,12 @@
 
 #include "view.h"
 
-#include <config-killbots.h>
-
-#ifdef USE_OPENGL
-#include <QtOpenGL/QGLWidget>
-#endif
-
 #include <QtGui/QResizeEvent>
 
 
 Killbots::View::View( QGraphicsScene * scene, QWidget * parent )
   : QGraphicsView( scene, parent )
 {
-#ifdef USE_OPENGL
-	setViewport( new QGLWidget() );
-#endif
-
 	setMinimumSize( QSize( 300, 200 ) );
 	setFrameShape( QFrame::NoFrame );
 	setBackgroundRole( QPalette::Window );
