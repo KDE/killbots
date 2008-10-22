@@ -36,7 +36,7 @@ KDE4_ADD_KCFG_FILES( killbots_SRCS settings.kcfgc rulesetbase.kcfgc )
 KDE4_ADD_EXECUTABLE( killbots ${killbots_SRCS} )
 SET( killbots_LINKLIBRARIES
 	${KDE4_KDEUI_LIBS}
-	${KDEGAMES_LIBRARY}
+	kdegames
 )
 IF( USE_OPENGL )
 	SET( killbots_LINKLIBRARIES ${killbots_LINKLIBRARIES} ${QT_QTOPENGL_LIBRARY} )
