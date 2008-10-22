@@ -48,7 +48,9 @@ Killbots::Scene::Scene( QObject * parent )
     m_roundDisplay( new GameStatusDisplayItem() ),
     m_scoreDisplay( new GameStatusDisplayItem() ),
     m_enemyCountDisplay( new GameStatusDisplayItem() ),
-    m_energyDisplay( new GameStatusDisplayItem() )
+    m_energyDisplay( new GameStatusDisplayItem() ),
+    m_rows( 0 ),
+    m_columns( 0 )
 {
 	setItemIndexMethod( QGraphicsScene::NoIndex );
 

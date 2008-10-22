@@ -53,6 +53,7 @@ Killbots::Engine::Engine( Scene * scene, QObject * parent )
 
 Killbots::Engine::~Engine()
 {
+	delete m_rules;
 }
 
 

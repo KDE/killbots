@@ -80,10 +80,6 @@ namespace Killbots
 		void showMessagePopup( const QString & text, int timeout );
 
 	private: // data members
-		QSize m_cellSize;
-		int m_rows;
-		int m_columns;
-
 		Sprite * m_hero;
 		QList<Sprite *> m_spritesToCreate;
 		QList<Sprite *> m_spritesToSlide;
@@ -99,6 +95,10 @@ namespace Killbots
 		GameStatusDisplayItem * m_enemyCountDisplay;
 		GameStatusDisplayItem * m_energyDisplay;
 		QSize m_displaySize;
+
+		QSize m_cellSize;
+		int m_rows;
+		int m_columns;
 	};
 }
 
