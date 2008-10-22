@@ -1,19 +1,8 @@
 PROJECT( killbots )
 
 
-###### Finding Dependencies ######
-FIND_PACKAGE( KDE4 REQUIRED )
-INCLUDE( KDE4Defaults )
-
-FIND_PACKAGE( LibKDEGames REQUIRED )
-
+###### Compile Time Options ######
 OPTION( WITH_OPENGL "Use OpenGL for game area" FALSE )
-IF( WITH_OPENGL )
-	FIND_PACKAGE( OpenGL )
-	IF( OPENGL_FOUND AND QT_QTOPENGL_FOUND )
-		SET( USE_OPENGL TRUE )
-	ENDIF( OPENGL_FOUND AND QT_QTOPENGL_FOUND )
-ENDIF( WITH_OPENGL )
 
 
 ###### Building the Killbots Executable ######
@@ -38,9 +27,9 @@ SET( killbots_LINKLIBRARIES
 	${KDE4_KDEUI_LIBS}
 	kdegames
 )
-IF( USE_OPENGL )
+IF( WITH_OPENGL AND OPENGL_SUPPORT )
 	SET( killbots_LINKLIBRARIES ${killbots_LINKLIBRARIES} ${QT_QTOPENGL_LIBRARY} )
-ENDIF( USE_OPENGL )
+ENDIF( WITH_OPENGL AND OPENGL_SUPPORT )
 TARGET_LINK_LIBRARIES( killbots ${killbots_LINKLIBRARIES} )
 
 
