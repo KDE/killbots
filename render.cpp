@@ -21,8 +21,8 @@
 #include "render.h"
 
 #include <KDE/KDebug>
-#include <KGameSvgDocument>
-#include <KGameTheme>
+#include <kgamesvgdocument.h>
+#include <kgametheme.h>
 #include <KDE/KGlobal>
 #include <KDE/KPixmapCache>
 #include <KDE/KSvgRenderer>
