@@ -1,8 +1,6 @@
 PROJECT( killbots )
 
 
-###### Building the Killbots Executable ######
-INCLUDE_DIRECTORIES( ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR} ${KDE4_INCLUDES} ${QT_INCLUDE_DIR} )
 SET( killbots_SRCS
 	engine.cpp
 	gamestatusdisplayitem.cpp
