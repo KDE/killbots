@@ -1,24 +1,6 @@
 [KGameTheme]
 Name=Old Default
-Name[es]=Antigüo tema predeterminado
-Name[gl]=Antigo predeterminado
-Name[nds]=Oolt Standard
-Name[pt]=Predefinido Antigo
-Name[pt_BR]=Predefinido Antigo
-Name[sv]=Gammalt standardtema
-Name[uk]=Стара типова
-Name[x-test]=xxOld Defaultxx
-Name[zh_TW]=舊式的預設主題
 Description=The old default theme
-Description[es]=El antigüo tema predeterminado
-Description[gl]=O tema antigo do xogo
-Description[nds]=Dat ole Standardmuster
-Description[pt]=O tema predefinido antigo
-Description[pt_BR]=O tema predefinido antigo
-Description[sv]=Det gamla standardtemat
-Description[uk]=Тема старої версії гри
-Description[x-test]=xxThe old default themexx
-Description[zh_TW]=舊式的預設主題
 VersionFormat=0.9
 Author=Parker Coates
 AuthorEmail=parker.coates@gmail.com

@@ -1,24 +1,6 @@
 [KGameTheme]
 Name=Robot Kill
-Name[el]=Σκότωμα ρομπότ
-Name[es]=Matar robot
-Name[gl]=Mate robots
-Name[pt]=Morte do Robot
-Name[pt_BR]=Morte do Robot
-Name[sv]=Robotdöd
-Name[uk]=Вбивство роботів
-Name[x-test]=xxRobot Killxx
-Name[zh_TW]=獵殺機器人
 Description=The default Killbots theme.
-Description[es]=El tema predeterminado de Killbots.
-Description[gl]=O tema predeterminado de Killbots.
-Description[nds]=Dat Killbot-Standardmuster
-Description[pt]=O tema predefinido do Killbots.
-Description[pt_BR]=O tema predefinido do Killbots.
-Description[sv]=Killbots standardtema
-Description[uk]=Типова тема Killbots.
-Description[x-test]=xxThe default Killbots theme.xx
-Description[zh_TW]=預設 Killbots 主題。
 VersionFormat=0.9
 Author=Eugene Trounev
 AuthorEmail=eugene.trounev@gmail.com

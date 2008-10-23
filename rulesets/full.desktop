@@ -3,15 +3,6 @@ Name=Full ჵoard (testing)
 Author=Parker Coates
 AuthorContact=www.kde.org
 Description=<qt><p>A testing game configuration, not intended to be playable. Used to test the board-full-on-new-round logic.</p><p>A 18 by 10 cell grid that is quite full of enemies initially, but 60 more are added for the second round guaranteeing the board will be full.</p></qt>
-Description[es]=<qt><p>La configuración de un juego de prueba no pretende ser jugable. Suele probar la lógica del tablero lleno en cada nueva ronda. </p><p>Una grilla de 18 por 10 celdas que inicialmente está repleta de enemigos, aunque 60 serán añadidos para la segunda ronda, garantizando así que se llene el tablero. 
-Description[gl]=<qt><p>Unha configuración de partida para probas, non pretende ser xogábel. Emprégase para probar a lóxica taboleiro-cheo-na-seguinte-volta.</p><p>Unha grella de 18 por 10 que inicialmente está bastante chea de inimigos, pero engádense 60 máis na segunda, garantindo que o taboleiro estará cheio.</p></qt>
-Description[nds]=<qt><p>En Utprobeer-Speelopstellen, lett sik nich spelen. Bruukt för't Utproberen vun de Brett-is-bi-Törnanfang-vull-Klappmatuur.</p><p>En Gadder vun 18 op 10 Feller, dat an'n Anfang recht vull mit Feenden is, man bi den tweten Törn kaamt dor noch 60 op to - dat Brett warrt mit Garantie vull.</p></qt>
-Description[pt]=<qt><p>Uma configuração de testes para o jogo, cuja possibilidade de o jogar não é pretendida. É usado para testar a lógica para o tabuleiro-cheio-numa-ronda-nova.</p><p>Uma grelha de 18 por 10 células que se encontra quase cheia de inimigos inicialmente, mas que adiciona ainda mais 60 na segunda ronda, garantindo que o tabuleiro irá ficar cheio.</p></qt>
-Description[pt_BR]=<qt><p>Uma configuração de testes para o jogo, cuja possibilidade de o jogar não é pretendida. É usado para testar a lógica para o tabuleiro-cheio-numa-ronda-nova.</p><p>Uma grelha de 18 por 10 células que se encontra quase cheia de inimigos inicialmente, mas que adiciona ainda mais 60 na segunda ronda, garantindo que o tabuleiro irá ficar cheio.</p></qt>
-Description[sv]=<qt><p>En provinställning av spelet, som inte är avsedd att vara spelbar. Används för att prova logiken när brädet är fullt vid en ny omgång.</p><p>Ett 18 gånger 10 rutnät som är riktigt fullt med fiender från början, och ytterligare 60 läggs till vid andra omgången, vilket garanterar att brädet blir fullt.</p></qt>
-Description[uk]=<qt><p>Тестова конфігурація гри, не призначена власне для гри. Використовується для перевірки логіки під час заповнення поля гри.</p><p>Поле розміром 18 на 10 клітинок, яке на початку сповнене ворогів, а у другому раунді додається ще 60 ворогів, які заповнюють все поле.</p></qt>
-Description[x-test]=xx<qt><p>A testing game configuration, not intended to be playable. Used to test the board-full-on-new-round logic.</p><p>A 18 by 10 cell grid that is quite full of enemies initially, but 60 more are added for the second round guaranteeing the board will be full.</p></qt>xx
-Description[zh_TW]=<qt><p>測試用的遊戲設定，可能沒辦法玩，用於測試棋盤滿載，又進入新回合的狀況。</p>  <p>18x10 格狀棋盤，滿滿都是敵人，每一回合增加 60 隻。</p></qt>
 Rows=10
 Columns=18
 EnemiesAtGameStart=20
