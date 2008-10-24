@@ -1,3 +1,10 @@
 ###### Installing Killbots Rulesets ######
-file( GLOB ruleset_files *.desktop )
+SET( ruleset_files
+    classic.desktop
+    default.desktop
+    dense.desktop
+    easy.desktop
+    full.desktop
+)
+
 install( FILES ${ruleset_files} DESTINATION ${DATA_INSTALL_DIR}/killbots/rulesets )
