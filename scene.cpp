@@ -26,10 +26,11 @@
 #include "settings.h"
 #include "sprite.h"
 
+#include <kgamepopupitem.h>
+
 #include <KDE/KDebug>
 #include <KDE/KLocalizedString>
 #include <KDE/KStandardDirs>
-#include <kgamepopupitem.h>
 
 #include <QtGui/QFontInfo>
 #include <QtGui/QPainter>

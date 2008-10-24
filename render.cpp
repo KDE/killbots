@@ -20,9 +20,10 @@
 
 #include "render.h"
 
-#include <KDE/KDebug>
 #include <kgamesvgdocument.h>
 #include <kgametheme.h>
+
+#include <KDE/KDebug>
 #include <KDE/KGlobal>
 #include <KDE/KPixmapCache>
 #include <KDE/KSvgRenderer>

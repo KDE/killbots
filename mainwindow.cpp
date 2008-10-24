@@ -28,18 +28,19 @@
 #include "settings.h"
 #include "view.h"
 
+#include <kgamethemeselector.h>
+#include <highscore/kscoredialog.h>
+#include <kstandardgameaction.h>
+
 #include <KDE/KAction>
 #include <KDE/KActionCollection>
 #include <KDE/KApplication>
 #include <KDE/KConfigDialog>
-#include <kgamethemeselector.h>
 #include <KDE/KLocalizedString>
 #include <KDE/KMessageBox>
-#include <highscore/kscoredialog.h>
 #include <KDE/KShortcutsDialog>
 #include <KDE/KStandardAction>
 #include <KDE/KStandardDirs>
-#include <kstandardgameaction.h>
 
 #include <QtCore/QSignalMapper>
 #include <QtCore/QTimer>
