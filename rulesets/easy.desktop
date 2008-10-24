@@ -1,8 +1,16 @@
 [KillbotsRuleset]
 Name=Easy
+Name[pt]=Fácil
+Name[pt_BR]=Fácil
+Name[uk]=Легкий
+Name[zh_TW]=容易
 Author=Parker Coates
 AuthorContact=parker.coates@gmail.com
 Description=<qt><p>An easier ruleset.</p><p>A 20 by 20 cell grid with lots of space and 15 starting junkheaps for shelter. The game starts with 6 robots, 3 more are added each round. 1 fastbots are added each round after Round 5. The game starts with 5 energy and teleporting safely costs 1 energy. Maximum energy cap is 10 and increases by 1 every 2 rounds. Multiple junkheaps may be pushed at once. 5 points for each robot destroyed and 10 for each fastbot. 1 bonus energy for each enemy destroyed with a junkheap or while waiting out the round.</p></qt>
+Description[pt]=<qt><p>Um conjunto de regras mais simples.</p><p>Uma grelha de 20 por 20 células com bastante espaço e 15 montes de lixo iniciais como abrigo. O jogo começa com 6 robots, sendo adicionados mais 3 a cada ronda. É adicionado também 1 robot rápido ao fim de cada ronda depois da Ronda 5. O jogo começa com 5 pontos de energia e o tele-transporte seguro custa 1 ponto de energia, com uma quebra máxima de energia igual a 10, aumentando em 1 ponto a cada 2 rondas. Pode empurrar vários montes de lixo de cada vez. Pode ganhar 5 pontos por cada robot destruído e 10 por cada robot rápido. Ganha 1 ponto de bónus de energia por cada inimigo destruído com um monte de lixo ou enquanto espera na ronda.</p></qt>
+Description[pt_BR]=<qt><p>Um conjunto de regras mais simples.</p><p>Uma grelha de 20 por 20 células com bastante espaço e 15 montes de lixo iniciais como abrigo. O jogo começa com 6 robots, sendo adicionados mais 3 a cada ronda. É adicionado também 1 robot rápido ao fim de cada ronda depois da Ronda 5. O jogo começa com 5 pontos de energia e o tele-transporte seguro custa 1 ponto de energia, com uma quebra máxima de energia igual a 10, aumentando em 1 ponto a cada 2 rondas. Pode empurrar vários montes de lixo de cada vez. Pode ganhar 5 pontos por cada robot destruído e 10 por cada robot rápido. Ganha 1 ponto de bónus de energia por cada inimigo destruído com um monte de lixo ou enquanto espera na ronda.</p></qt>
+Description[uk]=<qt><p>Набір простіших правил.</p><p>Поле 20 на 20 клітинок з великим вільним простором і 15 початковими купами брухту, за якими можна сховатися. Гру розпочинають з 6 роботами, це по 3 додаються кожного раунду. Після п’ятого раунду кожного раунду додається по у швидкоботу. Гра розпочинається з 5 одиницями енергії, а телепортація у безпечне місце коштує 1 одиниці енергії, тоді як максимальний запас енергії складає 10, цей запас збільшується на 1 кожні 2 раунди. Можна пересувати декілька куп брухту одночасно. 5 очок за кожного знищеного робота і 10 за кожного швидкобота. 1 бонусна енергія за кожного знищеного за допомогою купи брухту ворога або за ворога знищеного між раундами.</p></qt>
+Description[zh_TW]=<qt><p>簡單的規則集。</p>  <p>20x20 格狀棋盤，一開始就有 15 台車。開始時有六隻機器人，每一回合加三隻。第五回合之後每回合加一隻快速機器人。開始時能源有 5 點，每次安全傳送會花掉一點，最大容量一開始為 10 點，每兩回合可以再加 1 點容量。一次可以推多台車，打死一隻機器人得 5 分，快速機器人 10 分。若是用車子壓死機器人，或是機器人在回合外等待時就被打死，可以得到一點能源。</p></qt>
 Rows=20
 Columns=20
 EnemiesAtGameStart=6

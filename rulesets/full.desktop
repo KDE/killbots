@@ -1,8 +1,16 @@
 [KillbotsRuleset]
 Name=Full ჵoard (testing)
+Name[pt]=Tabuleiro Completo (testes)
+Name[pt_BR]=Tabuleiro Completo (testes)
+Name[uk]=Повна дошка (тестування)
+Name[zh_TW]=滿載（測試中）
 Author=Parker Coates
 AuthorContact=www.kde.org
 Description=<qt><p>A testing game configuration, not intended to be playable. Used to test the board-full-on-new-round logic.</p><p>A 18 by 10 cell grid that is quite full of enemies initially, but 60 more are added for the second round guaranteeing the board will be full.</p></qt>
+Description[pt]=<qt><p>Uma configuração de testes para o jogo, cuja possibilidade de o jogar não é pretendida. É usado para testar a lógica para o tabuleiro-cheio-numa-ronda-nova.</p><p>Uma grelha de 18 por 10 células que se encontra quase cheia de inimigos inicialmente, mas que adiciona ainda mais 60 na segunda ronda, garantindo que o tabuleiro irá ficar cheio.</p></qt>
+Description[pt_BR]=<qt><p>Uma configuração de testes para o jogo, cuja possibilidade de o jogar não é pretendida. É usado para testar a lógica para o tabuleiro-cheio-numa-ronda-nova.</p><p>Uma grelha de 18 por 10 células que se encontra quase cheia de inimigos inicialmente, mas que adiciona ainda mais 60 na segunda ronda, garantindo que o tabuleiro irá ficar cheio.</p></qt>
+Description[uk]=<qt><p>Тестова конфігурація гри, не призначена власне для гри. Використовується для перевірки логіки під час заповнення поля гри.</p><p>Поле розміром 18 на 10 клітинок, яке на початку сповнене ворогів, а у другому раунді додається ще 60 ворогів, які заповнюють все поле.</p></qt>
+Description[zh_TW]=<qt><p>測試用的遊戲設定，可能沒辦法玩，用於測試棋盤滿載，又進入新回合的狀況。</p>  <p>18x10 格狀棋盤，滿滿都是敵人，每一回合增加 60 隻。</p></qt>
 Rows=10
 Columns=18
 EnemiesAtGameStart=20
