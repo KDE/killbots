@@ -1,1 +1,2 @@
-KDE4_INSTALL_ICONS( ${ICON_INSTALL_DIR} )
+###### Installing Icons ######
+kde4_install_icons( ${ICON_INSTALL_DIR} )
