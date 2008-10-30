@@ -1,10 +1,12 @@
 [KGameTheme]
 Name=Old Default
+Name[nds]=Oolt Standard
 Name[pt]=Predefinido Antigo
 Name[pt_BR]=Predefinido Antigo
 Name[uk]=Стара типова
 Name[zh_TW]=舊式的預設主題
 Description=The old default theme
+Description[nds]=Dat ole Standardmuster
 Description[pt]=O tema predefinido antigo
 Description[pt_BR]=O tema predefinido antigo
 Description[uk]=Тема старої версії гри
