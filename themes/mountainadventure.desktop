@@ -3,12 +3,14 @@ Name=Mountain Adventure
 Name[nds]=Bargen-Eventüür
 Name[pt]=Aventura na Montanha
 Name[pt_BR]=Aventura na Montanha
+Name[sv]=Bergsäventyr
 Name[uk]=Пригоди в горах
 Name[zh_TW]=山中冒險
 Description=<qt><p>Indiana Gnomes battles ghosts and bats on a misty mountainside.</p><p>Sprites by Nicu Buculei. Background by Eugene Trounev.</p></qt>
 Description[nds]=<qt><p>Indiana Gnomes striedt gegen Spökels un sleit sik op en dakig Barghang.</p><p>Lüttbiller vun Nicu Buculei, Achtergrund vun Eugene Trounev.</p></qt>
 Description[pt]=<qt><p>O Indiana Gnomes combate os fantasmas e morcegos num sopé de montanha húmido.</p><p>Imagens de Nicu Buculei. Fundo de Eugene Trounev.</p></qt>
 Description[pt_BR]=<qt><p>O Indiana Gnomes combate os fantasmas e morcegos num sopé de montanha húmido.</p><p>Imagens de Nicu Buculei. Fundo de Eugene Trounev.</p></qt>
+Description[sv]=<qt><p>Indiana Tomtar strider mot spöken och fladdermöss på en dimmig bergssida.</p><p>Figurer av Nicu Buculei. Bakgrund av Eugene Trounev.</p></qt>
 Description[uk]=<qt><p>Індіана Гномз б’ється з привидами і кажанами у таємничому гірському краї.</p><p>Спрайти від Nicu Buculei. Тло намалював Eugene Trounev.</p></qt>
 Description[zh_TW]=<qt><p>Indiana Gnomes 在大霧籠罩的山上與鬼及蝙蝠戰鬥。</p>  <p>由 Nicu Buculei 與 Eugene Trounev 設計。</p></qt>
 VersionFormat=0.9
