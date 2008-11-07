@@ -1,6 +1,7 @@
 [KGameTheme]
 Name=Mountain Adventure
 Name[el]=Ορεινή περιπέτεια
+Name[gl]=Aventura na montaña
 Name[nds]=Bargen-Eventüür
 Name[pt]=Aventura na Montanha
 Name[pt_BR]=Aventura na Montanha
@@ -9,6 +10,7 @@ Name[uk]=Пригоди в горах
 Name[zh_TW]=山中冒險
 Description=<qt><p>Indiana Gnomes battles ghosts and bats on a misty mountainside.</p><p>Sprites by Nicu Buculei. Background by Eugene Trounev.</p></qt>
 Description[el]=<qt><p>O Indiana Gnomes πολεμά φαντάσματα και νυχτερίδες σε μια ομιχλώδη πλαγιά βουνού.</ p><p>Γραφικά από Nicu Buculei. Φόντο από Eugene Trounev.</p></qt>
+Description[gl]=<qt><p>O gnomo Indiana loita con pantasmas e morcegos nunha montaña nevoenta.</p><p>Sprites de Nicu Buculei. Fondo por Eugene Trounev.</p></qt>
 Description[nds]=<qt><p>Indiana Gnomes striedt gegen Spökels un sleit sik op en dakig Barghang.</p><p>Lüttbiller vun Nicu Buculei, Achtergrund vun Eugene Trounev.</p></qt>
 Description[pt]=<qt><p>O Indiana Gnomes combate os fantasmas e morcegos num sopé de montanha húmido.</p><p>Imagens de Nicu Buculei. Fundo de Eugene Trounev.</p></qt>
 Description[pt_BR]=<qt><p>O Indiana Gnomes combate os fantasmas e morcegos num sopé de montanha húmido.</p><p>Imagens de Nicu Buculei. Fundo de Eugene Trounev.</p></qt>

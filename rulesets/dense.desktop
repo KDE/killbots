@@ -1,6 +1,7 @@
 [KillbotsRuleset]
 Name=ZZZ Crowded (testing)
 Name[el]=Πολυπληθές ZZZ (δοκιμή)
+Name[gl]=ZZZ Ateigado (en probas)
 Name[nds]=ZZZ Vullpramst (utproberen)
 Name[pt]=Multidão ZZZ (testes)
 Name[pt_BR]=Multidão ZZZ (testes)
@@ -11,6 +12,7 @@ Author=Parker Coates
 AuthorContact=1285 Western Road, London, Ontario, Canada
 Description=<qt><p>A testing game configuration, not intended to be playable. Used to test the try-to-safe-teleport-but-board-is-full logic.</p><p>A 12 by 12 cell grid that quickly fill with enemies. Fortunately, there's a near infinite supply of safe teleports.</p></qt>
 Description[el]=<qt><p>Μια ρύθμιση δοκιμής του παιχνιδιού, που δεν προορίζεται για παιχνίδι. Χρησιμοποιείται  για τον έλεγχο της λογικής προσπάθειας τηλεμεταφοράς σε πλήρη πίνακα.</p><p>Ένας κάνναβος 12 επί 12 που γεμίζει γρήγορα με εχθρούς. Ευτυχώς υπάρχει μια σχεδόν απεριόριστη προμήθεια  τηλεμεταφορών με ασφάλεια.</p></qt>
+Description[gl]=<qt><p>Unha configuración de partida para probas, non pretende ser xogábel. Emprégase para probar a lóxica try-to-safe-teleport-but-board-is-full.</p> <p>Unha grella de 12 por 12 que se se enche rapidamente de inimigos. Afortunadamente hai unha subministración case infinita de teleportacións.</p></qt>
 Description[nds]=<qt><p>En Utprobeer-Speelopstellen, lett sik nich spelen. Bruukt för't Utproberen vun de Seker-teleporteren-bi-vullpramst-Brett-Klappmatuur.</p><p>En Gadder vun 12 op 12 Feller, dat sik gau mit Feenden füllt. Man goot, dat gifft seker Teleporteren meist ahn Enn.</p></qt>
 Description[pt]=<qt><p>Uma configuração de testes para o jogo, cuja possibilidade de o jogar não é pretendida. É usado para testar a lógica para tentar-o-tele-transporte-seguro-mas-o-tabuleiro-está-cheio.</p><p>Uma grelha de 12 por 12 células que se enche rapidamente de inimigos. Felizmente, existe um fornecimento quase infinito de tele-transportes seguros.</p></qt>
 Description[pt_BR]=<qt><p>Uma configuração de testes para o jogo, cuja possibilidade de o jogar não é pretendida. É usado para testar a lógica para tentar-o-tele-transporte-seguro-mas-o-tabuleiro-está-cheio.</p><p>Uma grelha de 12 por 12 células que se enche rapidamente de inimigos. Felizmente, existe um fornecimento quase infinito de tele-transportes seguros.</p></qt>

@@ -1,6 +1,7 @@
 [KGameTheme]
 Name=Old Default
 Name[el]=Προκαθορισμένο παλιό
+Name[gl]=Predeterminado
 Name[nds]=Oolt Standard
 Name[pt]=Predefinido Antigo
 Name[pt_BR]=Predefinido Antigo
@@ -9,6 +10,7 @@ Name[uk]=Стара типова
 Name[zh_TW]=舊式的預設主題
 Description=The old default theme
 Description[el]=Το παλιό προκαθορισμένο θέμα
+Description[gl]=Tema por omisión de KDiamond
 Description[nds]=Dat ole Standardmuster
 Description[pt]=O tema predefinido antigo
 Description[pt_BR]=O tema predefinido antigo

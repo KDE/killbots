@@ -1,6 +1,7 @@
 [KillbotsRuleset]
 Name=Full ჵoard (testing)
 Name[el]=Πλήρης πίνακας  δοκιμή
+Name[gl]=Taboleiro completo (en probas)
 Name[nds]=Vull Brett (utproberen)
 Name[pt]=Tabuleiro Completo (testes)
 Name[pt_BR]=Tabuleiro Completo (testes)
@@ -11,6 +12,7 @@ Author=Parker Coates
 AuthorContact=www.kde.org
 Description=<qt><p>A testing game configuration, not intended to be playable. Used to test the board-full-on-new-round logic.</p><p>A 18 by 10 cell grid that is quite full of enemies initially, but 60 more are added for the second round guaranteeing the board will be full.</p></qt>
 Description[el]=<qt><p>Μια ρύθμιση ελέγχου του παιχνιδιού που δεν προορίζεται για παιχνίδι. Χρησιμοποιείται  για τον έλεγχο της λογικής πλήρους πίνακα σε νέο γύρο.</p><p>Ένας κάνναβος 18 επί 10 κελιών  πλήρης από εχθρούς κατά την αρχή και με ταυτόχρονη προσθήκη 60 για το δεύτερο γύρο που  εγγυάται ένα πλήρως γεμισμένο πίνακα.</p></qt>
+Description[gl]=<qt><p>Unha configuración de partida para probas, non pretende ser xogábel. Emprégase para probar a lóxica taboleiro-cheo-na-seguinte-volta.</p><p>Unha grella de 18 por 10 que inicialmente está bastante chea de inimigos, pero engádense 60 máis na segunda, garantindo que o taboleiro estará cheio.</p></qt>
 Description[nds]=<qt><p>En Utprobeer-Speelopstellen, lett sik nich spelen. Bruukt för't Utproberen vun de Brett-is-bi-Törnanfang-vull-Klappmatuur.</p><p>En Gadder vun 18 op 10 Feller, dat an'n Anfang recht vull mit Feenden is, man bi den tweten Törn kaamt dor noch 60 op to - dat Brett warrt mit Garantie vull.</p></qt>
 Description[pt]=<qt><p>Uma configuração de testes para o jogo, cuja possibilidade de o jogar não é pretendida. É usado para testar a lógica para o tabuleiro-cheio-numa-ronda-nova.</p><p>Uma grelha de 18 por 10 células que se encontra quase cheia de inimigos inicialmente, mas que adiciona ainda mais 60 na segunda ronda, garantindo que o tabuleiro irá ficar cheio.</p></qt>
 Description[pt_BR]=<qt><p>Uma configuração de testes para o jogo, cuja possibilidade de o jogar não é pretendida. É usado para testar a lógica para o tabuleiro-cheio-numa-ronda-nova.</p><p>Uma grelha de 18 por 10 células que se encontra quase cheia de inimigos inicialmente, mas que adiciona ainda mais 60 na segunda ronda, garantindo que o tabuleiro irá ficar cheio.</p></qt>
