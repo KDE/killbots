@@ -7,6 +7,7 @@ Name[pt]=Multidão ZZZ (testes)
 Name[pt_BR]=Multidão ZZZ (testes)
 Name[sv]=ZZZ-trängsel (prov)
 Name[uk]=З натовпом (тестування)
+Name[x-test]=xxZZZ Crowded (testing)xx
 Name[zh_TW]=ZZZ 好擠啊（測試中）
 Author=Parker Coates
 AuthorContact=1285 Western Road, London, Ontario, Canada
@@ -18,6 +19,7 @@ Description[pt]=<qt><p>Uma configuração de testes para o jogo, cuja possibilid
 Description[pt_BR]=<qt><p>Uma configuração de testes para o jogo, cuja possibilidade de o jogar não é pretendida. É usado para testar a lógica para tentar-o-tele-transporte-seguro-mas-o-tabuleiro-está-cheio.</p><p>Uma grelha de 12 por 12 células que se enche rapidamente de inimigos. Felizmente, existe um fornecimento quase infinito de tele-transportes seguros.</p></qt>
 Description[sv]=<qt><p>En provinställning av spelet, som inte är avsedd att vara spelbar. Används för att prova logiken vid försök att teleportera säkert när brädet är fullt.</p><p>Ett 12 gånger 12 rutnät som snabbt fylls med fiender. Som tur är finns ett nästan oändligt antal säkra teleporteringar.</p></qt>
 Description[uk]=<qt><p>Тестова конфігурація гри, не призначена власне для гри. Використовується для перевірки логіки спроб телепортації у безпечне місце під час заповнення поля гри.</p><p>Поле розміром 12 на 12 клітинок, яке швидко наповнюється ворогами. На щастя, існує майже незліченна кількість безпечних телепортів.</p></qt>
+Description[x-test]=xx<qt><p>A testing game configuration, not intended to be playable. Used to test the try-to-safe-teleport-but-board-is-full logic.</p><p>A 12 by 12 cell grid that quickly fill with enemies. Fortunately, there's a near infinite supply of safe teleports.</p></qt>xx
 Description[zh_TW]=<qt><p>測試中的遊戲設定，可能沒辦法玩。用於測試「試著安全傳送，但棋盤已滿」的狀況。</p>  <p>12x12 格子，滿滿都是敵人。還好可以有幾乎無限次的安全傳送。</p></qt>
 Rows=12
 Columns=12
