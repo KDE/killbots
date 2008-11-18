@@ -68,45 +68,25 @@ namespace Killbots
 		explicit Engine( Scene * scene, QObject * parent = 0 );
 		virtual ~Engine();
 		const Ruleset * ruleset();
-		bool gameInProgress();
+		bool gameHasStarted();
 
 	public slots:
-		void newGame();
+		void requestNewGame();
 		void doAction( HeroAction action );
 		void doAction( int action );
-		void goToNextPhase();
 
 	signals:
 		void newGame( int rows, int columns, bool gameIncludesEnergy );
-		void roundComplete();
 		void gameOver( int score, int round );
-		void boardFull();
 		void roundChanged( int round );
 		void scoreChanged( int score );
 		void enemyCountChanged( int enemyCount );
 		void energyChanged( int energy );
 		void canAffordSafeTeleport( bool canAfford );
 
-	private: // types
-		enum Phase
-		{
-			CleanUpRound,
-			NewRound,
-			ReadyToStart,
-			MoveRobots,
-			AssessDamageToRobots,
-			MoveFastbots,
-			AssessDamageToFastbots,
-			BoardFull,
-			RoundComplete,
-			FinalPhase,
-			GameOver
-		};
-
 	private: // functions
-		void animateThenGoToNextPhase( Phase phase );
-
-		void newRound();
+		void newGame();
+		void newRound( bool incrementRound = true );
 		void moveHero( HeroAction direction );
 		void pushJunkheap( Sprite * junkheap, HeroAction direction );
 		void teleportHero();
@@ -115,6 +95,7 @@ namespace Killbots
 		void moveRobots( bool justFastbots = false );
 		void assessDamage();
 		void cleanUpRound();
+		void resetBotCounts();
 
 		void refreshSpriteMap();
 		int spriteTypeAt( const QPoint & cell ) const;
@@ -126,6 +107,9 @@ namespace Killbots
 		void destroySprite( Sprite * sprite );
 		bool destroyAllCollidingBots( const Sprite * sprite );
 
+	private slots:
+		void animationDone();
+
 	private: // data members
 		Scene * m_scene;
 
@@ -134,9 +118,11 @@ namespace Killbots
 		QList<Sprite *> m_junkheaps;
 
 		bool m_busy;
-		int m_nextPhase;
 		bool m_repeatMove;
 		bool m_waitOutRound;
+		bool m_doFastbots;
+		bool m_gameOver;
+		bool m_newGameRequested;
 		HeroAction m_lastDirection;
 
 		Ruleset * m_rules;

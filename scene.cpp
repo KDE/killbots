@@ -55,14 +55,15 @@ Killbots::Scene::Scene( QObject * parent )
 {
 	setItemIndexMethod( QGraphicsScene::NoIndex );
 
-	m_timeLine.setCurveShape( QTimeLine::LinearCurve );
+	m_timeLine.setCurveShape( QTimeLine::EaseInOutCurve );
 	setAnimationSpeed( Settings::animationSpeed() );
 	connect( &m_timeLine, SIGNAL(valueChanged(qreal)), this, SLOT(animate(qreal)) );
-	connect( &m_timeLine, SIGNAL(finished()), this, SIGNAL(animationDone()) );
+	connect( &m_timeLine, SIGNAL(finished()), this, SIGNAL(animationStageDone()) );
+	connect( this, SIGNAL(animationStageDone()), this, SLOT(nextAnimationStage()) );
 
 	m_popupMessage->setMessageOpacity( 0.85 );
 	addItem( m_popupMessage );
-	connect( m_popupMessage, SIGNAL(hidden()), this, SIGNAL(animationDone()) );
+	connect( m_popupMessage, SIGNAL(hidden()), this, SIGNAL(animationStageDone()) );
 
 	m_roundDisplay->setText( i18n("Round:") );
 	m_roundDisplay->setDigits( 2 );
@@ -90,6 +91,19 @@ Killbots::Scene::~Scene()
 void Killbots::Scene::doLayout()
 {
 	QSize size = views().first()->size();
+
+	// If no game has been started
+	if ( m_rows == 0 || m_columns == 0 )
+	{
+		setSceneRect( QRectF( QPointF( 0, 0 ), size ) );
+		m_roundDisplay->setPos( -1000000, 0 );
+		m_scoreDisplay->setPos( -1000000, 0 );
+		m_enemyCountDisplay->setPos( -1000000, 0 );
+		m_energyDisplay->setPos(  -1000000, 0 );
+		return;
+	}
+
+	kDebug() << "Doing layout @" << size;
 
 	// Make certain layout properties proportional to the scene height,
 	// but clamp them between reasonable values. There's probably room for more
@@ -172,8 +186,6 @@ void Killbots::Scene::doLayout()
 		}
 	}
 
-	kDebug() << "Doing layout @" << size;
-
 	if ( displaysOnTop )
 	{
 		// Set the sceneRect to centre the grid if possible, but ensure the display items are visible
@@ -230,6 +242,26 @@ void Killbots::Scene::doLayout()
 	update();
 }
 
+void Killbots::Scene::beginNewAnimationStage()
+{
+	m_spritesToCreate << QList<Sprite *>();
+	m_spritesToSlide << QList<Sprite *>();
+	m_spritesToTeleport << QList<Sprite *>();
+	m_spritesToDestroy << QList<Sprite *>();
+	m_messages << QString();
+
+	Q_ASSERT( m_spritesToCreate.size() == m_spritesToSlide.size()
+	          && m_spritesToSlide.size() == m_spritesToTeleport.size()
+	          && m_spritesToTeleport.size() == m_spritesToDestroy.size()
+	        );
+}
+
+
+void Killbots::Scene::showMessage( const QString & message )
+{
+	m_messages.last() = message;
+}
+
 
 Killbots::Sprite * Killbots::Scene::createSprite( SpriteType type, QPoint position )
 {
@@ -241,7 +273,7 @@ Killbots::Sprite * Killbots::Scene::createSprite( SpriteType type, QPoint positi
 	sprite->setZValue( type );
 
 	addItem( sprite );
-	m_spritesToCreate << sprite;
+	m_spritesToCreate.last() << sprite;
 
 	if ( type == Hero )
 		m_hero = sprite;
@@ -254,7 +286,7 @@ void Killbots::Scene::slideSprite( Sprite * sprite, QPoint position )
 {
 	sprite->storeGridPos();
 	sprite->setGridPos( position );
-	m_spritesToSlide << sprite;
+	m_spritesToSlide.last() << sprite;
 }
 
 
@@ -262,7 +294,7 @@ void Killbots::Scene::teleportSprite( Sprite * sprite, QPoint position )
 {
 	sprite->storeGridPos();
 	sprite->setGridPos( position );
-	m_spritesToTeleport << sprite;
+	m_spritesToTeleport.last() << sprite;
 }
 
 
@@ -271,7 +303,7 @@ void Killbots::Scene::destroySprite( Sprite * sprite )
 	if ( sprite->spriteType() == Hero )
 		m_hero = 0;
 
-	m_spritesToDestroy << sprite;
+	m_spritesToDestroy.last() << sprite;
 }
 
 
@@ -285,21 +317,35 @@ void Killbots::Scene::setAnimationSpeed( int speed )
 
 void Killbots::Scene::startAnimation()
 {
-	if ( m_spritesToCreate.isEmpty()
-	     && m_spritesToSlide.isEmpty()
-	     && m_spritesToTeleport.isEmpty()
-	     && m_spritesToDestroy.isEmpty()
+	m_stage = 0;
+	startAnimationStage();
+}
+
+
+void Killbots::Scene::startAnimationStage()
+{
+	QString message = m_messages.at(m_stage);
+
+	if ( m_spritesToCreate.at(m_stage).isEmpty()
+	     && m_spritesToSlide.at(m_stage).isEmpty()
+	     && m_spritesToTeleport.at(m_stage).isEmpty()
+	     && m_spritesToDestroy.at(m_stage).isEmpty()
+	     && message.isEmpty()
 	   )
 	{
-		emit animationDone();
+		emit animationStageDone();
 	}
-	else if ( m_timeLine.duration() < 60 )
+	else if ( m_timeLine.duration() < 60 && message.isEmpty() )
 	{
 		animate( 1.0 );
-		emit animationDone();
+		emit animationStageDone();
 	}
 	else
+	{
+		if ( !message.isEmpty() )
+			showMessagePopup( message, 3000 );
 		m_timeLine.start();
+	}
 }
 
 
@@ -310,7 +356,7 @@ void Killbots::Scene::animate( qreal value )
 	if ( value == 0.0 )
 	{
 		halfDone = false;
-		foreach ( Sprite * sprite, m_spritesToCreate )
+		foreach ( Sprite * sprite, m_spritesToCreate.at(m_stage) )
 		{
 			sprite->scale( value, value );
 			updateSpritePos( sprite );
@@ -318,14 +364,14 @@ void Killbots::Scene::animate( qreal value )
 	}
 	else if ( 0.0 < value && value < 1.0 )
 	{
-		foreach ( Sprite * sprite, m_spritesToCreate )
+		foreach ( Sprite * sprite, m_spritesToCreate.at(m_stage) )
 		{
 			updateSpritePos( sprite );
 			sprite->resetTransform();
 			sprite->scale( value, value );
 		}
 
-		foreach ( Sprite * sprite, m_spritesToSlide )
+		foreach ( Sprite * sprite, m_spritesToSlide.at(m_stage) )
 		{
 			QPointF posInGridCoordinates = value * QPointF( sprite->gridPos() - sprite->storedGridPos() ) + sprite->storedGridPos();
 			sprite->setPos( QPointF( posInGridCoordinates.x() * m_cellSize.width(), posInGridCoordinates.y() * m_cellSize.height() ) );
@@ -337,7 +383,7 @@ void Killbots::Scene::animate( qreal value )
 			if ( !halfDone )
 			{
 				halfDone = true;
-				foreach ( Sprite * sprite, m_spritesToTeleport )
+				foreach ( Sprite * sprite, m_spritesToTeleport.at(m_stage) )
 					updateSpritePos( sprite );
 			}
 			scaleFactor = 2 * value - 1.0;
@@ -345,13 +391,13 @@ void Killbots::Scene::animate( qreal value )
 		else
 			scaleFactor = 1.0 - 2 * value;
 
-		foreach ( Sprite * sprite, m_spritesToTeleport )
+		foreach ( Sprite * sprite, m_spritesToTeleport.at(m_stage) )
 		{
 			sprite->resetTransform();
 			sprite->scale( scaleFactor, scaleFactor );
 		}
 
-		foreach ( Sprite * sprite, m_spritesToDestroy )
+		foreach ( Sprite * sprite, m_spritesToDestroy.at(m_stage) )
 		{
 			sprite->resetTransform();
 			sprite->scale( 1 - value, 1 - value );
@@ -360,19 +406,42 @@ void Killbots::Scene::animate( qreal value )
 	}
 	else if ( value == 1.0 )
 	{
-		foreach ( Sprite * sprite, m_spritesToSlide + m_spritesToTeleport + m_spritesToCreate )
+		foreach ( Sprite * sprite, m_spritesToSlide.at(m_stage) + m_spritesToTeleport.at(m_stage) + m_spritesToCreate.at(m_stage) )
 		{
 			updateSpritePos( sprite );
 			sprite->resetTransform();
 			sprite->storeGridPos();
 		}
 
+		qDeleteAll( m_spritesToDestroy.at(m_stage) );
+
+		m_spritesToCreate[m_stage].clear();
+		m_spritesToSlide[m_stage].clear();
+		m_spritesToTeleport[m_stage].clear();
+		m_spritesToDestroy[m_stage].clear();
+	}
+}
+
+
+void Killbots::Scene::nextAnimationStage()
+{
+	if ( m_timeLine.state() == QTimeLine::Running || m_popupMessage->isVisible() )
+		return;
+
+	if ( m_stage < m_spritesToCreate.size() - 1 )
+	{
+		++m_stage;
+		startAnimationStage();
+	}
+	else
+	{
 		m_spritesToCreate.clear();
 		m_spritesToSlide.clear();
 		m_spritesToTeleport.clear();
-
-		qDeleteAll( m_spritesToDestroy );
 		m_spritesToDestroy.clear();
+		m_messages.clear();
+
+		emit animationDone();
 	}
 }
 
@@ -389,25 +458,6 @@ void Killbots::Scene::onNewGame( int rows, int columns, bool gameIncludesEnergy 
 		m_energyDisplay->setVisible( gameIncludesEnergy );
 		doLayout();
 	}
-
-	// Prevent the "New Game" popup from appearing when the application is first launched.
-	static bool firstGame = true;
-	if ( firstGame )
-		firstGame = false;
-	else
-		showMessagePopup( i18n("New game."), 3000 );
-}
-
-
-void Killbots::Scene::onRoundComplete()
-{
-	showMessagePopup( i18n("Round complete."), 3000 );
-}
-
-
-void Killbots::Scene::onBoardFull()
-{
-	showMessagePopup( i18n("Board is full.\nResetting enemy counts."), 4000 );
 }
 
 

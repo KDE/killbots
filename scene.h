@@ -43,21 +43,21 @@ namespace Killbots
 		explicit Scene( QObject * parent = 0 );
 		virtual ~Scene();
 
+		void setAnimationSpeed( int speed );
+
+		void beginNewAnimationStage();
 		Sprite * createSprite( SpriteType type, QPoint position );
 		void slideSprite( Sprite * sprite, QPoint position );
 		void teleportSprite( Sprite * sprite, QPoint position );
 		void destroySprite( Sprite * sprite );
+		void showMessage( const QString & message );
 
 	public slots:
 		void doLayout();
 
-		void setAnimationSpeed( int speed );
 		void startAnimation();
-		void animate( qreal value );
 
 		void onNewGame( int rows, int columns, bool gameIncludesEnergy );
-		void onRoundComplete();
-		void onBoardFull();
 		void onGameOver();
 
 		void updateRound( int round );
@@ -66,6 +66,7 @@ namespace Killbots
 		void updateEnergy( int energy );
 
 	signals:
+		void animationStageDone();
 		void animationDone();
 		void clicked( int action );
 
@@ -75,16 +76,22 @@ namespace Killbots
 		virtual void mouseReleaseEvent( QGraphicsSceneMouseEvent * mouseEvent );
 
 	private: // functions
+		void startAnimationStage();
 		void updateSpritePos( Sprite * sprite ) const;
 		HeroAction getMouseDirection( QPointF cursorPosition );
 		void showMessagePopup( const QString & text, int timeout );
 
+	private slots:
+		void nextAnimationStage();
+		void animate( qreal value );
+
 	private: // data members
 		Sprite * m_hero;
-		QList<Sprite *> m_spritesToCreate;
-		QList<Sprite *> m_spritesToSlide;
-		QList<Sprite *> m_spritesToTeleport;
-		QList<Sprite *> m_spritesToDestroy;
+		QList< QList<Sprite *> > m_spritesToCreate;
+		QList< QList<Sprite *> > m_spritesToSlide;
+		QList< QList<Sprite *> > m_spritesToTeleport;
+		QList< QList<Sprite *> > m_spritesToDestroy;
+		QStringList m_messages;
 
 		QTimeLine m_timeLine;
 
@@ -99,6 +106,7 @@ namespace Killbots
 		QSize m_cellSize;
 		int m_rows;
 		int m_columns;
+		int m_stage;
 	};
 }
 

@@ -25,6 +25,7 @@
 #include "sprite.h"
 
 #include <KDE/KDebug>
+#include <KDE/KLocale>
 #include <KDE/KRandom>
 
 uint qHash( const QPoint & point )
@@ -45,9 +46,14 @@ Killbots::Engine::Engine( Scene * scene, QObject * parent )
     m_hero( 0 ),
     m_busy( false ),
     m_repeatMove( false ),
+    m_waitOutRound( false ),
+    m_doFastbots( false ),
+    m_gameOver( false ),
+    m_newGameRequested( false ),
     m_rules( 0 ),
     m_spriteMap()
 {
+	connect( m_scene, SIGNAL(animationDone()), this, SLOT(animationDone()), Qt::QueuedConnection );
 }
 
 
@@ -63,14 +69,25 @@ const Killbots::Ruleset * Killbots::Engine::ruleset()
 }
 
 
-bool Killbots::Engine::gameInProgress()
+bool Killbots::Engine::gameHasStarted()
 {
 	return m_hero && m_score > 0;
 }
 
 
+void Killbots::Engine::requestNewGame()
+{
+	if ( !m_busy || m_gameOver )
+		newGame();
+	else
+		m_newGameRequested = true;
+}
+
+
 void Killbots::Engine::newGame()
 {
+	m_newGameRequested = false;
+
 	if ( !m_rules || m_rules->fileName() != Settings::ruleset() )
 	{
 		delete m_rules;
@@ -85,37 +102,43 @@ void Killbots::Engine::newGame()
 	bool energyIncluded = m_rules->energyAtGameStart() > 0 || m_rules->maxEnergyAtGameStart() > 0 || m_rules->maxEnergyAddedEachRound() > 0;
 	emit newGame( m_rules->rows(), m_rules->columns(), energyIncluded );
 
-	cleanUpRound();
-
-	m_round = 0;
+	m_gameOver = false;
 	m_score = 0;
-	m_energy = m_rules->energyAtGameStart() - m_rules->energyAddedEachRound();
-	m_maxEnergy = m_rules->maxEnergyAtGameStart() - m_rules->maxEnergyAddedEachRound();
-	m_robotCount = m_rules->enemiesAtGameStart() - m_rules->enemiesAddedEachRound();
-	m_fastbotCount = m_rules->fastEnemiesAtGameStart() - m_rules->fastEnemiesAddedEachRound();
-	m_junkheapCount = m_rules->junkheapsAtGameStart() - m_rules->junkheapsAddedEachRound();
 
-	animateThenGoToNextPhase( NewRound );
+	m_round = 1;
+
+	m_maxEnergy = m_rules->maxEnergyAtGameStart();
+	m_energy = m_rules->energyAtGameStart();
+	m_robotCount = m_rules->enemiesAtGameStart();
+	m_fastbotCount = m_rules->fastEnemiesAtGameStart();
+	m_junkheapCount = m_rules->junkheapsAtGameStart();
+
+	newRound(false);
 }
 
 
-void Killbots::Engine::newRound()
+void Killbots::Engine::newRound( bool incrementRound )
 {
+	cleanUpRound();
+
 	m_busy = true;
+	m_repeatMove = false;
 	m_waitOutRound = false;
+	m_doFastbots = false;
 
-	++m_round;
+	m_scene->beginNewAnimationStage();
 
-	m_bots.clear();
-	m_junkheaps.clear();
-	m_spriteMap.clear();
+	if ( incrementRound )
+	{
+		++m_round;
 
-	m_maxEnergy += m_rules->maxEnergyAddedEachRound();
-	m_robotCount += m_rules->enemiesAddedEachRound();
-	m_fastbotCount += m_rules->fastEnemiesAddedEachRound();
-	m_junkheapCount += m_rules->junkheapsAddedEachRound();
-	if ( m_energy < m_maxEnergy )
-		m_energy = qMin( m_energy + m_rules->energyAddedEachRound(), int( m_maxEnergy ) );
+		m_maxEnergy += m_rules->maxEnergyAddedEachRound();
+		if ( m_energy < m_maxEnergy )
+			m_energy = qMin( m_energy + m_rules->energyAddedEachRound(), int( m_maxEnergy ) );
+		m_robotCount += m_rules->enemiesAddedEachRound();
+		m_fastbotCount += m_rules->fastEnemiesAddedEachRound();
+		m_junkheapCount += m_rules->junkheapsAddedEachRound();
+	}
 
 	// Place the hero in the centre of the board.
 	QPoint centre = QPoint( qRound( m_rules->columns() / 2 ), qRound( m_rules->rows() / 2 ) );
@@ -171,100 +194,8 @@ void Killbots::Engine::newRound()
 	emit enemyCountChanged( m_bots.size() );
 	emit energyChanged( m_energy );
 	emit canAffordSafeTeleport( m_energy >= m_rules->costOfSafeTeleport() );
-}
 
-
-void Killbots::Engine::animateThenGoToNextPhase( Phase phase )
-{
-	m_nextPhase = phase;
 	m_scene->startAnimation();
-}
-
-
-void Killbots::Engine::goToNextPhase()
-{
-	if ( m_nextPhase == CleanUpRound )
-	{
-		cleanUpRound();
-		animateThenGoToNextPhase( NewRound );
-	}
-	else if ( m_nextPhase == NewRound )
-	{
-		newRound();
-
-		// If board is over half full, reset the counts.
-		if ( m_robotCount + m_fastbotCount + m_junkheapCount > m_rules->rows() * m_rules->columns() / 2 )
-			animateThenGoToNextPhase( BoardFull );
-		else
-			animateThenGoToNextPhase( ReadyToStart );
-	}
-	else if ( m_nextPhase == ReadyToStart )
-	{
-		m_busy = false;
-	}
-	else if ( m_nextPhase == MoveRobots )
-	{
-		moveRobots();
-		animateThenGoToNextPhase( AssessDamageToRobots );
-	}
-	else if ( m_nextPhase == AssessDamageToRobots )
-	{
-		assessDamage();
-
-		if ( !m_hero )
-		{
-			m_nextPhase = GameOver;
-			emit gameOver( m_score, m_round );
-		}
-		else if ( m_bots.isEmpty() )
-			animateThenGoToNextPhase( RoundComplete );
-		else
-			animateThenGoToNextPhase( MoveFastbots );
-	}
-	else if ( m_nextPhase == MoveFastbots )
-	{
-		moveRobots( true );
-		animateThenGoToNextPhase( AssessDamageToFastbots );
-	}
-	else if ( m_nextPhase == AssessDamageToFastbots )
-	{
-		assessDamage();
-
-		if ( !m_hero )
-		{
-			m_nextPhase = GameOver;
-			emit gameOver( m_score, m_round );
-		}
-		else if ( m_bots.isEmpty() )
-			animateThenGoToNextPhase( RoundComplete );
-		else
-			animateThenGoToNextPhase( FinalPhase );
-	}
-	else if ( m_nextPhase == BoardFull )
-	{
-		m_maxEnergy = m_rules->maxEnergyAtGameStart() - m_rules->maxEnergyAddedEachRound();
-		m_robotCount = m_rules->enemiesAtGameStart() - m_rules->enemiesAddedEachRound();
-		m_fastbotCount = m_rules->fastEnemiesAtGameStart() - m_rules->fastEnemiesAddedEachRound();
-		m_junkheapCount = m_rules->junkheapsAtGameStart() - m_rules->junkheapsAddedEachRound();
-
-		--m_round;
-		m_nextPhase = CleanUpRound;
-		emit boardFull();
-	}
-	else if ( m_nextPhase == RoundComplete )
-	{
-		m_nextPhase = CleanUpRound;
-		emit roundComplete();
-	}
-	else if ( m_nextPhase == FinalPhase )
-	{
-		if ( m_waitOutRound )
-			waitOutRound();
-		else if ( m_repeatMove )
-			moveHero( m_lastDirection );
-		else
-			m_busy = false;
-	}
 }
 
 
@@ -293,6 +224,8 @@ void Killbots::Engine::doAction( HeroAction action )
 		else if ( action == WaitOutRound )
 			waitOutRound();
 	}
+
+
 }
 
 
@@ -320,13 +253,18 @@ void Killbots::Engine::moveHero( HeroAction direction )
 
 		if ( direction != Hold )
 		{
+			m_scene->beginNewAnimationStage();
+
 			if ( spriteTypeAt( newCell ) == Junkheap )
 				pushJunkheap( m_spriteMap.value( newCell ), direction );
 
 			m_scene->slideSprite( m_hero, newCell );
 		}
 
-		animateThenGoToNextPhase( MoveRobots );
+		moveRobots();
+		assessDamage();
+		m_doFastbots = true;
+		m_scene->startAnimation();
 	}
 	else
 		m_busy = false;
@@ -364,8 +302,13 @@ void Killbots::Engine::teleportHero()
 		point = QPoint( KRandom::random() % m_rules->columns(), KRandom::random() % m_rules->rows() );
 	while ( spriteTypeAt( point ) != NoSprite || point == m_hero->gridPos() );
 
+	m_scene->beginNewAnimationStage();
 	m_scene->teleportSprite( m_hero, point );
-	animateThenGoToNextPhase( MoveRobots );
+
+	moveRobots();
+	assessDamage();
+	m_doFastbots = true;
+	m_scene->startAnimation();
 }
 
 
@@ -397,14 +340,21 @@ void Killbots::Engine::teleportHeroSafely()
 
 	// If we stepped through every cell and found none that were safe, reset the robot counts.
 	if ( point == startPoint )
-		animateThenGoToNextPhase( BoardFull );
+	{
+		resetBotCounts();
+	}
 	else
 	{
 		emit energyChanged( m_energy -= m_rules->costOfSafeTeleport() );
 		emit canAffordSafeTeleport( m_energy >= m_rules->costOfSafeTeleport() );
 
+		m_scene->beginNewAnimationStage();
 		m_scene->teleportSprite( m_hero, point );
-		animateThenGoToNextPhase( MoveRobots );
+
+		moveRobots();
+		assessDamage();
+		m_doFastbots = true;
+		m_scene->startAnimation();
 	}
 }
 
@@ -412,12 +362,18 @@ void Killbots::Engine::teleportHeroSafely()
 void Killbots::Engine::waitOutRound()
 {
 	m_waitOutRound = true;
-	animateThenGoToNextPhase( MoveRobots );
+
+	moveRobots();
+	assessDamage();
+	m_doFastbots = true;
+	m_scene->startAnimation();
 }
 
 
 void Killbots::Engine::moveRobots( bool justFastbots )
 {
+	m_scene->beginNewAnimationStage();
+
 	foreach( Sprite * bot, m_bots )
 	{
 		if ( bot->spriteType() == Fastbot || !justFastbots )
@@ -433,8 +389,10 @@ void Killbots::Engine::assessDamage()
 {
 	refreshSpriteMap();
 
+	m_scene->beginNewAnimationStage();
+
 	if ( m_spriteMap.count( m_hero->gridPos() ) > 0 )
-		destroySprite( m_hero );
+		m_gameOver = true;
 	else
 	{
 		// Check junkheaps for dead robots
@@ -465,14 +423,77 @@ void Killbots::Engine::assessDamage()
 
 void Killbots::Engine::cleanUpRound()
 {
+	m_scene->beginNewAnimationStage();
+
 	if ( m_hero )
 		destroySprite( m_hero );
 
 	foreach( Sprite * bot, m_bots )
 		destroySprite( bot );
+	m_bots.clear();
 
 	foreach( Sprite * junkheap, m_junkheaps )
 		destroySprite( junkheap );
+	m_junkheaps.clear();
+
+	m_spriteMap.clear();
+}
+
+
+void Killbots::Engine::resetBotCounts()
+{
+	m_scene->beginNewAnimationStage();
+	m_scene->showMessage( i18n("Board is full.\nResetting enemy counts.") );
+
+	m_maxEnergy = m_rules->maxEnergyAtGameStart();
+	m_robotCount = m_rules->enemiesAtGameStart();
+	m_fastbotCount = m_rules->fastEnemiesAtGameStart();
+	m_junkheapCount = m_rules->junkheapsAtGameStart();
+
+	newRound(false);
+}
+
+
+void Killbots::Engine::animationDone()
+{
+	if ( m_newGameRequested )
+	{
+		newGame();
+	}
+	else if ( m_doFastbots )
+	{
+		m_doFastbots = false;
+		moveRobots( true );
+		assessDamage();
+		m_scene->startAnimation();
+	}
+	else if ( m_gameOver )
+	{
+		emit gameOver( m_score, m_round );
+	}
+	else if ( m_bots.isEmpty() )
+	{
+		m_scene->beginNewAnimationStage();
+		m_scene->showMessage( i18n("Round complete.") );
+
+		newRound();
+	}
+	else if ( m_robotCount + m_fastbotCount + m_junkheapCount > m_rules->rows() * m_rules->columns() / 2 )
+	{
+		resetBotCounts();
+	}
+	else if ( m_waitOutRound )
+	{
+		waitOutRound();
+	}
+	else if ( m_repeatMove )
+	{
+		moveHero( m_lastDirection );
+	}
+	else
+	{
+		m_busy = false;
+	}
 }
 
 

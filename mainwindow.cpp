@@ -75,13 +75,10 @@ Killbots::MainWindow::MainWindow( QWidget * parent )
 	connect( m_view, SIGNAL(sizeChanged(QSize)), m_scene, SLOT(doLayout()) );
 
 	connect( m_scene, SIGNAL(clicked(int)), m_engine, SLOT(doAction(int)) );
-	connect( m_scene, SIGNAL(animationDone()), m_engine, SLOT(goToNextPhase()), Qt::QueuedConnection );
 
 	connect( m_engine, SIGNAL(newGame(int,int,bool)), m_scene, SLOT(onNewGame(int,int,bool)) );
-	connect( m_engine, SIGNAL(roundComplete()), m_scene, SLOT(onRoundComplete()) );
 	connect( m_engine, SIGNAL(gameOver(int,int)), m_scene, SLOT(onGameOver()) );
 	connect( m_engine, SIGNAL(gameOver(int,int)), this, SLOT(onGameOver(int,int)) );
-	connect( m_engine, SIGNAL(boardFull()), m_scene, SLOT(onBoardFull()) );
 
 	connect( m_engine, SIGNAL(roundChanged(int)), m_scene, SLOT(updateRound(int)) );
 	connect( m_engine, SIGNAL(scoreChanged(int)), m_scene, SLOT(updateScore(int)) );
@@ -89,7 +86,7 @@ Killbots::MainWindow::MainWindow( QWidget * parent )
 	connect( m_engine, SIGNAL(energyChanged(int)), m_scene, SLOT(updateEnergy(int)) );
 	connect( m_engine, SIGNAL(canAffordSafeTeleport(bool)), m_safeTeleportAction, SLOT(setEnabled(bool)) );
 
-	m_engine->newGame();
+	QTimer::singleShot( 25, m_engine, SLOT(requestNewGame()) );
 }
 
 
@@ -100,7 +97,7 @@ Killbots::MainWindow::~MainWindow()
 
 void Killbots::MainWindow::setupActions()
 {
-	KStandardGameAction::gameNew( m_engine, SLOT(newGame()), actionCollection() );
+	KStandardGameAction::gameNew( m_engine, SLOT(requestNewGame()), actionCollection() );
 	KStandardGameAction::highscores( this, SLOT(showHighscores()), actionCollection() );
 	KStandardGameAction::quit( kapp, SLOT(quit()), actionCollection() );
 
@@ -209,7 +206,7 @@ void Killbots::MainWindow::onConfigDialogClosed()
 {
 	if ( m_rulesetChanged )
 	{
-		if ( !m_engine->gameInProgress()
+		if ( !m_engine->gameHasStarted()
 		     || KMessageBox::questionYesNo( this,
 		                                    i18n("A new ruleset has been selected, but there is already a game in progress."),
 		                                    i18n("Ruleset Changed"),
@@ -218,7 +215,7 @@ void Killbots::MainWindow::onConfigDialogClosed()
 		                                  ) == KMessageBox::No
 		   )
 		{
-			m_engine->newGame();
+			m_engine->requestNewGame();
 		}
 
 		m_rulesetChanged = false;
