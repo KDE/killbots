@@ -72,8 +72,8 @@ namespace Killbots
 
 	public slots:
 		void requestNewGame();
-		void doAction( HeroAction action );
-		void doAction( int action );
+		void requestAction( HeroAction action );
+		void requestAction( int action );
 
 	signals:
 		void newGame( int rows, int columns, bool gameIncludesEnergy );
@@ -83,11 +83,14 @@ namespace Killbots
 	private: // functions
 		void newGame();
 		void newRound( bool incrementRound = true );
-		void moveHero( HeroAction direction );
+		void doAction( HeroAction direction );
+
+		bool moveHero( HeroAction direction );
+		bool teleportHero();
+		bool teleportHeroSafely();
+		bool waitOutRound();
+
 		void pushJunkheap( Sprite * junkheap, HeroAction direction );
-		void teleportHero();
-		void teleportHeroSafely();
-		void waitOutRound();
 		void moveRobots( bool justFastbots = false );
 		void assessDamage();
 		void cleanUpRound();

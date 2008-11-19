@@ -374,13 +374,6 @@ void Killbots::Scene::startAnimation()
 
 void Killbots::Scene::startAnimationStage()
 {
-	QString message = m_stages.first().message;
-
-	if ( !message.isEmpty() )
-		showMessagePopup( message, 3000 );
-
-	m_timeLine.start();
-
 	if ( m_stages.first().round != -1 )
 		m_roundDisplay->setValue( m_stages.first().round );
 
@@ -392,6 +385,21 @@ void Killbots::Scene::startAnimationStage()
 
 	if ( m_stages.first().energy != -1 )
 		m_energyDisplay->setValue( m_stages.first().energy );
+
+	QString message = m_stages.first().message;
+
+	if ( m_timeLine.duration() < 60 && message.isEmpty() )
+	{
+		animate( 1.0 );
+		emit animationStageDone();
+	}
+	else
+	{
+		if ( !message.isEmpty() )
+			showMessagePopup( message, 3000 );
+
+		m_timeLine.start();
+	}
 }
 
 

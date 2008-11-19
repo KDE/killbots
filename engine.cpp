@@ -199,44 +199,66 @@ void Killbots::Engine::newRound( bool incrementRound )
 }
 
 
-void Killbots::Engine::doAction( HeroAction action )
+void Killbots::Engine::requestAction( HeroAction action )
 {
 	m_repeatMove = false;
 
 	if ( !m_busy )
 	{
 		m_busy = true;
-		refreshSpriteMap();
-
-		if ( action <= Hold )
-			moveHero( action );
-		else if ( action == Teleport )
-			teleportHero();
-		else if ( action == TeleportSafely && m_energy >= m_rules->costOfSafeTeleport() )
-			teleportHeroSafely();
-		else if ( action == TeleportSafelyIfPossible )
-		{
-			if ( m_energy >= m_rules->costOfSafeTeleport() )
-				teleportHeroSafely();
-			else
-				teleportHero();
-		}
-		else if ( action == WaitOutRound )
-			waitOutRound();
+		doAction( action );
 	}
-
-
 }
 
 
 // This slot is provided only for QSignalMapper compatibility.
-void Killbots::Engine::doAction( int action )
+void Killbots::Engine::requestAction( int action )
 {
 	doAction( static_cast<HeroAction>( action ) );
 }
 
 
-void Killbots::Engine::moveHero( HeroAction direction )
+void Killbots::Engine::doAction( HeroAction action )
+{
+	refreshSpriteMap();
+
+	bool actionSuccessful = false;
+
+	if ( action <= Hold )
+		actionSuccessful = moveHero( action );
+	else if ( action == Teleport )
+		actionSuccessful = teleportHero();
+	else if ( action == TeleportSafely && m_energy >= m_rules->costOfSafeTeleport() )
+		actionSuccessful = teleportHeroSafely();
+	else if ( action == TeleportSafelyIfPossible )
+	{
+		if ( m_energy >= m_rules->costOfSafeTeleport() )
+			actionSuccessful = teleportHeroSafely();
+		else
+			actionSuccessful = teleportHero();
+	}
+	else if ( action == WaitOutRound )
+		actionSuccessful = waitOutRound();
+
+	if ( actionSuccessful )
+	{
+		moveRobots();
+		assessDamage();
+		if ( m_bots.isEmpty() )
+			m_scene->showMessage( i18n("Round complete.") );
+		else
+			m_doFastbots = true;
+		m_scene->startAnimation();
+	}
+	else
+	{
+		m_busy = false;
+		m_repeatMove = false;
+	}
+}
+
+
+bool Killbots::Engine::moveHero( HeroAction direction )
 {
 	QPoint newCell = m_hero->gridPos() + offsetFromDirection( direction );
 
@@ -260,14 +282,10 @@ void Killbots::Engine::moveHero( HeroAction direction )
 
 			m_scene->slideSprite( m_hero, newCell );
 		}
-
-		moveRobots();
-		assessDamage();
-		m_doFastbots = true;
-		m_scene->startAnimation();
+		return true;
 	}
 	else
-		m_busy = false;
+		return false;
 }
 
 
@@ -295,7 +313,7 @@ void Killbots::Engine::pushJunkheap( Sprite * junkheap, HeroAction direction )
 }
 
 
-void Killbots::Engine::teleportHero()
+bool Killbots::Engine::teleportHero()
 {
 	QPoint point;
 	do
@@ -305,14 +323,11 @@ void Killbots::Engine::teleportHero()
 	m_scene->beginNewAnimationStage();
 	m_scene->teleportSprite( m_hero, point );
 
-	moveRobots();
-	assessDamage();
-	m_doFastbots = true;
-	m_scene->startAnimation();
+	return true;
 }
 
 
-void Killbots::Engine::teleportHeroSafely()
+bool Killbots::Engine::teleportHeroSafely()
 {
 	// Choose a random cell...
 	QPoint startPoint = QPoint( KRandom::random() % m_rules->columns(), KRandom::random() % m_rules->rows() );
@@ -342,6 +357,7 @@ void Killbots::Engine::teleportHeroSafely()
 	if ( point == startPoint )
 	{
 		resetBotCounts();
+		return false;
 	}
 	else
 	{
@@ -352,22 +368,16 @@ void Killbots::Engine::teleportHeroSafely()
 
 		m_scene->teleportSprite( m_hero, point );
 
-		moveRobots();
-		assessDamage();
-		m_doFastbots = true;
-		m_scene->startAnimation();
+		return true;
 	}
 }
 
 
-void Killbots::Engine::waitOutRound()
+bool Killbots::Engine::waitOutRound()
 {
 	m_waitOutRound = true;
 
-	moveRobots();
-	assessDamage();
-	m_doFastbots = true;
-	m_scene->startAnimation();
+	return true;
 }
 
 
@@ -466,6 +476,8 @@ void Killbots::Engine::animationDone()
 		m_doFastbots = false;
 		moveRobots( true );
 		assessDamage();
+		if ( m_bots.isEmpty() )
+			m_scene->showMessage( i18n("Round complete.") );
 		m_scene->startAnimation();
 	}
 	else if ( m_gameOver )
@@ -474,9 +486,6 @@ void Killbots::Engine::animationDone()
 	}
 	else if ( m_bots.isEmpty() )
 	{
-		m_scene->beginNewAnimationStage();
-		m_scene->showMessage( i18n("Round complete.") );
-
 		newRound();
 	}
 	else if ( m_robotCount + m_fastbotCount + m_junkheapCount > m_rules->rows() * m_rules->columns() / 2 )
@@ -485,11 +494,11 @@ void Killbots::Engine::animationDone()
 	}
 	else if ( m_waitOutRound )
 	{
-		waitOutRound();
+		doAction( WaitOutRound );
 	}
 	else if ( m_repeatMove )
 	{
-		moveHero( m_lastDirection );
+		doAction( m_lastDirection );
 	}
 	else
 	{

@@ -74,7 +74,7 @@ Killbots::MainWindow::MainWindow( QWidget * parent )
 
 	connect( m_view, SIGNAL(sizeChanged(QSize)), m_scene, SLOT(doLayout()) );
 
-	connect( m_scene, SIGNAL(clicked(int)), m_engine, SLOT(doAction(int)) );
+	connect( m_scene, SIGNAL(clicked(int)), m_engine, SLOT(requestAction(int)) );
 
 	connect( m_engine, SIGNAL(newGame(int,int,bool)), m_scene, SLOT(onNewGame(int,int,bool)) );
 	connect( m_engine, SIGNAL(gameOver(int,int)), m_scene, SLOT(onGameOver()) );
@@ -115,7 +115,7 @@ void Killbots::MainWindow::setupActions()
 	setupMappedAction( m_keyboardActions,  "Move Down",                    "move_down",       Qt::Key_X,     Qt::Key_2,     Down                     );
 	setupMappedAction( m_keyboardActions,  "Move Down and Right",          "move_down_right", Qt::Key_C,     Qt::Key_3,     DownRight                );
 
-	connect( m_keyboardMapper, SIGNAL(mapped(int)), m_engine, SLOT(doAction(int)) );
+	connect( m_keyboardMapper, SIGNAL(mapped(int)), m_engine, SLOT(requestAction(int)) );
 
 	m_safeTeleportAction = actionCollection()->action("teleport_safely");
 
