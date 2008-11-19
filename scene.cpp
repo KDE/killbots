@@ -41,6 +41,40 @@
 #include <cmath>
 
 
+struct Killbots::Scene::AnimationStage
+{
+	AnimationStage()
+	  : round(-1),
+		score(-1),
+		enemyCount(-1),
+		energy(-1)
+	{
+	};
+
+	bool isEmpty() const
+	{
+		return spritesToCreate.isEmpty()
+			&& spritesToSlide.isEmpty()
+			&& spritesToTeleport.isEmpty()
+			&& spritesToDestroy.isEmpty()
+			&& round == -1
+			&& score == -1
+			&& enemyCount == -1
+			&& energy == -1;
+	};
+
+	QList<Sprite *> spritesToCreate;
+	QList<Sprite *> spritesToSlide;
+	QList<Sprite *> spritesToTeleport;
+	QList<Sprite *> spritesToDestroy;
+	QString message;
+	int round;
+	int score;
+	int enemyCount;
+	int energy;
+};
+
+
 Killbots::Scene::Scene( QObject * parent )
   : QGraphicsScene( parent ),
     m_hero( 0 ),
@@ -242,24 +276,19 @@ void Killbots::Scene::doLayout()
 	update();
 }
 
-void Killbots::Scene::beginNewAnimationStage()
-{
-	m_spritesToCreate << QList<Sprite *>();
-	m_spritesToSlide << QList<Sprite *>();
-	m_spritesToTeleport << QList<Sprite *>();
-	m_spritesToDestroy << QList<Sprite *>();
-	m_messages << QString();
 
-	Q_ASSERT( m_spritesToCreate.size() == m_spritesToSlide.size()
-	          && m_spritesToSlide.size() == m_spritesToTeleport.size()
-	          && m_spritesToTeleport.size() == m_spritesToDestroy.size()
-	        );
+void Killbots::Scene::setAnimationSpeed( int speed )
+{
+	// Equation converts speed in the range 0 to 10 to a duration in the range
+	// 1 to 0.05 seconds. There's probably a better way to do this.
+	m_timeLine.setDuration( int( pow( 1.35, -speed ) * 1000 ) );
 }
 
 
-void Killbots::Scene::showMessage( const QString & message )
+void Killbots::Scene::beginNewAnimationStage()
 {
-	m_messages.last() = message;
+	if ( m_stages.isEmpty() || !m_stages.last().isEmpty() )
+		m_stages << AnimationStage();
 }
 
 
@@ -273,7 +302,7 @@ Killbots::Sprite * Killbots::Scene::createSprite( SpriteType type, QPoint positi
 	sprite->setZValue( type );
 
 	addItem( sprite );
-	m_spritesToCreate.last() << sprite;
+	m_stages.last().spritesToCreate << sprite;
 
 	if ( type == Hero )
 		m_hero = sprite;
@@ -286,7 +315,7 @@ void Killbots::Scene::slideSprite( Sprite * sprite, QPoint position )
 {
 	sprite->storeGridPos();
 	sprite->setGridPos( position );
-	m_spritesToSlide.last() << sprite;
+	m_stages.last().spritesToSlide << sprite;
 }
 
 
@@ -294,7 +323,7 @@ void Killbots::Scene::teleportSprite( Sprite * sprite, QPoint position )
 {
 	sprite->storeGridPos();
 	sprite->setGridPos( position );
-	m_spritesToTeleport.last() << sprite;
+	m_stages.last().spritesToTeleport << sprite;
 }
 
 
@@ -303,49 +332,66 @@ void Killbots::Scene::destroySprite( Sprite * sprite )
 	if ( sprite->spriteType() == Hero )
 		m_hero = 0;
 
-	m_spritesToDestroy.last() << sprite;
+	m_stages.last().spritesToDestroy << sprite;
 }
 
 
-void Killbots::Scene::setAnimationSpeed( int speed )
+void Killbots::Scene::showMessage( const QString & message )
 {
-	// Equation converts speed in the range 0 to 10 to a duration in the range
-	// 1 to 0.05 seconds. There's probably a better way to do this.
-	m_timeLine.setDuration( int( pow( 1.35, -speed ) * 1000 ) );
+	m_stages.last().message = message;
+}
+
+
+void Killbots::Scene::updateRound( int round )
+{
+	m_stages.last().round = round;
+}
+
+
+void Killbots::Scene::updateScore( int score )
+{
+	m_stages.last().score = score;
+}
+
+
+void Killbots::Scene::updateEnemyCount( int enemyCount )
+{
+	m_stages.last().enemyCount = enemyCount;
+}
+
+
+void Killbots::Scene::updateEnergy( int energy )
+{
+	m_stages.last().energy = energy;
 }
 
 
 void Killbots::Scene::startAnimation()
 {
-	m_stage = 0;
 	startAnimationStage();
 }
 
 
 void Killbots::Scene::startAnimationStage()
 {
-	QString message = m_messages.at(m_stage);
+	QString message = m_stages.first().message;
 
-	if ( m_spritesToCreate.at(m_stage).isEmpty()
-	     && m_spritesToSlide.at(m_stage).isEmpty()
-	     && m_spritesToTeleport.at(m_stage).isEmpty()
-	     && m_spritesToDestroy.at(m_stage).isEmpty()
-	     && message.isEmpty()
-	   )
-	{
-		emit animationStageDone();
-	}
-	else if ( m_timeLine.duration() < 60 && message.isEmpty() )
-	{
-		animate( 1.0 );
-		emit animationStageDone();
-	}
-	else
-	{
-		if ( !message.isEmpty() )
-			showMessagePopup( message, 3000 );
-		m_timeLine.start();
-	}
+	if ( !message.isEmpty() )
+		showMessagePopup( message, 3000 );
+
+	m_timeLine.start();
+
+	if ( m_stages.first().round != -1 )
+		m_roundDisplay->setValue( m_stages.first().round );
+
+	if ( m_stages.first().score != -1 )
+		m_scoreDisplay->setValue( m_stages.first().score );
+
+	if ( m_stages.first().enemyCount != -1 )
+		m_enemyCountDisplay->setValue( m_stages.first().enemyCount );
+
+	if ( m_stages.first().energy != -1 )
+		m_energyDisplay->setValue( m_stages.first().energy );
 }
 
 
@@ -356,7 +402,7 @@ void Killbots::Scene::animate( qreal value )
 	if ( value == 0.0 )
 	{
 		halfDone = false;
-		foreach ( Sprite * sprite, m_spritesToCreate.at(m_stage) )
+		foreach ( Sprite * sprite, m_stages.first().spritesToCreate )
 		{
 			sprite->scale( value, value );
 			updateSpritePos( sprite );
@@ -364,14 +410,14 @@ void Killbots::Scene::animate( qreal value )
 	}
 	else if ( 0.0 < value && value < 1.0 )
 	{
-		foreach ( Sprite * sprite, m_spritesToCreate.at(m_stage) )
+		foreach ( Sprite * sprite, m_stages.first().spritesToCreate )
 		{
 			updateSpritePos( sprite );
 			sprite->resetTransform();
 			sprite->scale( value, value );
 		}
 
-		foreach ( Sprite * sprite, m_spritesToSlide.at(m_stage) )
+		foreach ( Sprite * sprite, m_stages.first().spritesToSlide )
 		{
 			QPointF posInGridCoordinates = value * QPointF( sprite->gridPos() - sprite->storedGridPos() ) + sprite->storedGridPos();
 			sprite->setPos( QPointF( posInGridCoordinates.x() * m_cellSize.width(), posInGridCoordinates.y() * m_cellSize.height() ) );
@@ -383,7 +429,7 @@ void Killbots::Scene::animate( qreal value )
 			if ( !halfDone )
 			{
 				halfDone = true;
-				foreach ( Sprite * sprite, m_spritesToTeleport.at(m_stage) )
+				foreach ( Sprite * sprite, m_stages.first().spritesToTeleport )
 					updateSpritePos( sprite );
 			}
 			scaleFactor = 2 * value - 1.0;
@@ -391,13 +437,13 @@ void Killbots::Scene::animate( qreal value )
 		else
 			scaleFactor = 1.0 - 2 * value;
 
-		foreach ( Sprite * sprite, m_spritesToTeleport.at(m_stage) )
+		foreach ( Sprite * sprite, m_stages.first().spritesToTeleport )
 		{
 			sprite->resetTransform();
 			sprite->scale( scaleFactor, scaleFactor );
 		}
 
-		foreach ( Sprite * sprite, m_spritesToDestroy.at(m_stage) )
+		foreach ( Sprite * sprite, m_stages.first().spritesToDestroy )
 		{
 			sprite->resetTransform();
 			sprite->scale( 1 - value, 1 - value );
@@ -406,19 +452,14 @@ void Killbots::Scene::animate( qreal value )
 	}
 	else if ( value == 1.0 )
 	{
-		foreach ( Sprite * sprite, m_spritesToSlide.at(m_stage) + m_spritesToTeleport.at(m_stage) + m_spritesToCreate.at(m_stage) )
+		foreach ( Sprite * sprite, m_stages.first().spritesToSlide + m_stages.first().spritesToTeleport + m_stages.first().spritesToCreate )
 		{
 			updateSpritePos( sprite );
 			sprite->resetTransform();
 			sprite->storeGridPos();
 		}
 
-		qDeleteAll( m_spritesToDestroy.at(m_stage) );
-
-		m_spritesToCreate[m_stage].clear();
-		m_spritesToSlide[m_stage].clear();
-		m_spritesToTeleport[m_stage].clear();
-		m_spritesToDestroy[m_stage].clear();
+		qDeleteAll( m_stages.first().spritesToDestroy );
 	}
 }
 
@@ -428,21 +469,12 @@ void Killbots::Scene::nextAnimationStage()
 	if ( m_timeLine.state() == QTimeLine::Running || m_popupMessage->isVisible() )
 		return;
 
-	if ( m_stage < m_spritesToCreate.size() - 1 )
-	{
-		++m_stage;
-		startAnimationStage();
-	}
-	else
-	{
-		m_spritesToCreate.clear();
-		m_spritesToSlide.clear();
-		m_spritesToTeleport.clear();
-		m_spritesToDestroy.clear();
-		m_messages.clear();
+	m_stages.removeFirst();
 
+	if ( m_stages.size() )
+		startAnimationStage();
+	else
 		emit animationDone();
-	}
 }
 
 
@@ -464,30 +496,6 @@ void Killbots::Scene::onNewGame( int rows, int columns, bool gameIncludesEnergy 
 void Killbots::Scene::onGameOver()
 {
 	showMessagePopup( i18n("Game over."), 20000 );
-}
-
-
-void Killbots::Scene::updateRound( int round )
-{
-	m_roundDisplay->setValue( round );
-}
-
-
-void Killbots::Scene::updateScore( int score )
-{
-	m_scoreDisplay->setValue( score );
-}
-
-
-void Killbots::Scene::updateEnemyCount( int enemyCount )
-{
-	m_enemyCountDisplay->setValue( enemyCount );
-}
-
-
-void Killbots::Scene::updateEnergy( int energy )
-{
-	m_energyDisplay->setValue( energy );
 }
 
 

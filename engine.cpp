@@ -189,10 +189,10 @@ void Killbots::Engine::newRound( bool incrementRound )
 
 	refreshSpriteMap();
 
-	emit roundChanged( m_round );
-	emit scoreChanged( m_score );
-	emit enemyCountChanged( m_bots.size() );
-	emit energyChanged( m_energy );
+	m_scene->updateRound( m_round );
+	m_scene->updateScore( m_score );
+	m_scene->updateEnemyCount( m_bots.size() );
+	m_scene->updateEnergy( m_energy );
 	emit canAffordSafeTeleport( m_energy >= m_rules->costOfSafeTeleport() );
 
 	m_scene->startAnimation();
@@ -286,7 +286,7 @@ void Killbots::Engine::pushJunkheap( Sprite * junkheap, HeroAction direction )
 			m_score += m_rules->squashKillPointBonus();
 			if ( m_energy < m_maxEnergy )
 				m_energy = qMin( m_energy + m_rules->squashKillEnergyBonus(), int( m_maxEnergy ) );
-			emit energyChanged( m_energy );
+			m_scene->updateEnergy( m_energy );
 			emit canAffordSafeTeleport( m_energy >= m_rules->costOfSafeTeleport() );
 		}
 	}
@@ -345,10 +345,11 @@ void Killbots::Engine::teleportHeroSafely()
 	}
 	else
 	{
-		emit energyChanged( m_energy -= m_rules->costOfSafeTeleport() );
+		m_scene->beginNewAnimationStage();
+
+		m_scene->updateEnergy( m_energy -= m_rules->costOfSafeTeleport() );
 		emit canAffordSafeTeleport( m_energy >= m_rules->costOfSafeTeleport() );
 
-		m_scene->beginNewAnimationStage();
 		m_scene->teleportSprite( m_hero, point );
 
 		moveRobots();
@@ -413,9 +414,9 @@ void Killbots::Engine::assessDamage()
 				i++;
 		}
 
-		emit scoreChanged( m_score );
-		emit enemyCountChanged( m_bots.size() );
-		emit energyChanged( m_energy );
+		m_scene->updateScore( m_score );
+		m_scene->updateEnemyCount( m_bots.size() );
+		m_scene->updateEnergy( m_energy );
 		emit canAffordSafeTeleport( m_energy >= m_rules->costOfSafeTeleport() );
 	}
 }

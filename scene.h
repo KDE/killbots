@@ -26,7 +26,6 @@
 
 class KGamePopupItem;
 
-#include <QtCore/QHash>
 #include <QtCore/QTimeLine>
 #include <QtGui/QGraphicsScene>
 
@@ -51,19 +50,16 @@ namespace Killbots
 		void teleportSprite( Sprite * sprite, QPoint position );
 		void destroySprite( Sprite * sprite );
 		void showMessage( const QString & message );
-
-	public slots:
-		void doLayout();
-
-		void startAnimation();
-
-		void onNewGame( int rows, int columns, bool gameIncludesEnergy );
-		void onGameOver();
-
 		void updateRound( int round );
 		void updateScore( int score );
 		void updateEnemyCount( int enemyCount );
 		void updateEnergy( int energy );
+		void startAnimation();
+
+	public slots:
+		void doLayout();
+		void onNewGame( int rows, int columns, bool gameIncludesEnergy );
+		void onGameOver();
 
 	signals:
 		void animationStageDone();
@@ -74,6 +70,9 @@ namespace Killbots
 		virtual void drawBackground( QPainter * painter, const QRectF & rect );
 		virtual void mouseMoveEvent( QGraphicsSceneMouseEvent * mouseEvent );
 		virtual void mouseReleaseEvent( QGraphicsSceneMouseEvent * mouseEvent );
+
+	private: // types
+		struct AnimationStage;
 
 	private: // functions
 		void startAnimationStage();
@@ -87,11 +86,7 @@ namespace Killbots
 
 	private: // data members
 		Sprite * m_hero;
-		QList< QList<Sprite *> > m_spritesToCreate;
-		QList< QList<Sprite *> > m_spritesToSlide;
-		QList< QList<Sprite *> > m_spritesToTeleport;
-		QList< QList<Sprite *> > m_spritesToDestroy;
-		QStringList m_messages;
+		QList<AnimationStage> m_stages;
 
 		QTimeLine m_timeLine;
 
@@ -106,7 +101,6 @@ namespace Killbots
 		QSize m_cellSize;
 		int m_rows;
 		int m_columns;
-		int m_stage;
 	};
 }
 

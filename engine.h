@@ -78,10 +78,6 @@ namespace Killbots
 	signals:
 		void newGame( int rows, int columns, bool gameIncludesEnergy );
 		void gameOver( int score, int round );
-		void roundChanged( int round );
-		void scoreChanged( int score );
-		void enemyCountChanged( int enemyCount );
-		void energyChanged( int energy );
 		void canAffordSafeTeleport( bool canAfford );
 
 	private: // functions
