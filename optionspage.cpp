@@ -54,6 +54,7 @@ Killbots::OptionsPage::OptionsPage( QWidget * parent )
 	kcfg_AnimationSpeed->setObjectName("kcfg_AnimationSpeed");
 	kcfg_AnimationSpeed->setSingleStep( 1 );
 	kcfg_AnimationSpeed->setPageStep( 1 );
+	kcfg_AnimationSpeed->setMinimumWidth( 200 );
 	QLabel * slowLabel = new QLabel( i18n("Slow") );
 	slowLabel->setAlignment( Qt::AlignLeft );
 	QLabel * fastLabel = new QLabel( i18n("Fast") );
