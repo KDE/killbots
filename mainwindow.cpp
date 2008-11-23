@@ -99,21 +99,21 @@ void Killbots::MainWindow::setupActions()
 	KStandardAction::keyBindings( this, SLOT(configureShortcuts()), actionCollection() );
 	KStandardAction::preferences( this, SLOT(configurePreferences()), actionCollection() );
 
-	setupMappedAction( actionCollection(), "Teleport",                     "teleport",        Qt::Key_R,     Qt::Key_Minus, Teleport,       "roll"   );
-	setupMappedAction( actionCollection(), "Teleport Safely",              "teleport_safely", Qt::Key_T,     Qt::Key_Plus,  TeleportSafely, "games-solve"   );
-	setupMappedAction( actionCollection(), "Teleport, Safely If Possible", "teleport_sip",    Qt::Key_Space, Qt::Key_0,     TeleportSafelyIfPossible );
-	setupMappedAction( actionCollection(), "Wait Out Round",               "wait",            Qt::Key_Y,     Qt::Key_Enter, WaitOutRound,    "process-stop"    );
+	setupMappedAction( actionCollection(), i18n("Teleport"),                     "teleport",        Qt::Key_R,     Qt::Key_Minus, Teleport,       "roll"   );
+	setupMappedAction( actionCollection(), i18n("Teleport Safely"),              "teleport_safely", Qt::Key_T,     Qt::Key_Plus,  TeleportSafely, "games-solve"   );
+	setupMappedAction( actionCollection(), i18n("Teleport, Safely If Possible"), "teleport_sip",    Qt::Key_Space, Qt::Key_0,     TeleportSafelyIfPossible );
+	setupMappedAction( actionCollection(), i18n("Wait Out Round"),               "wait",            Qt::Key_Y,     Qt::Key_Enter, WaitOutRound,    "process-stop"    );
 
 	// Keyboard Actions - these are shown in Configure Shortcuts but not in Configure Toolbars
-	setupMappedAction( m_keyboardActions,  "Move Up and Left",             "move_up_left",    Qt::Key_Q,     Qt::Key_7,     UpLeft                   );
-	setupMappedAction( m_keyboardActions,  "Move Up",                      "move_up",         Qt::Key_W,     Qt::Key_8,     Up                       );
-	setupMappedAction( m_keyboardActions,  "Move Up and Right",            "move_up_right",   Qt::Key_E,     Qt::Key_9,     UpRight                  );
-	setupMappedAction( m_keyboardActions,  "Move Left",                    "move_left",       Qt::Key_A,     Qt::Key_4,     Left                     );
-	setupMappedAction( m_keyboardActions,  "Stand Still",                  "stand_still",     Qt::Key_S,     Qt::Key_5,     Hold                     );
-	setupMappedAction( m_keyboardActions,  "Move Right",                   "move_right",      Qt::Key_D,     Qt::Key_6,     Right                    );
-	setupMappedAction( m_keyboardActions,  "Move Down and Left",           "move_down_left",  Qt::Key_Z,     Qt::Key_1,     DownLeft                 );
-	setupMappedAction( m_keyboardActions,  "Move Down",                    "move_down",       Qt::Key_X,     Qt::Key_2,     Down                     );
-	setupMappedAction( m_keyboardActions,  "Move Down and Right",          "move_down_right", Qt::Key_C,     Qt::Key_3,     DownRight                );
+	setupMappedAction( m_keyboardActions,  i18n("Move Up and Left"),             "move_up_left",    Qt::Key_Q,     Qt::Key_7,     UpLeft                   );
+	setupMappedAction( m_keyboardActions,  i18n("Move Up"),                      "move_up",         Qt::Key_W,     Qt::Key_8,     Up                       );
+	setupMappedAction( m_keyboardActions,  i18n("Move Up and Right"),            "move_up_right",   Qt::Key_E,     Qt::Key_9,     UpRight                  );
+	setupMappedAction( m_keyboardActions,  i18n("Move Left"),                    "move_left",       Qt::Key_A,     Qt::Key_4,     Left                     );
+	setupMappedAction( m_keyboardActions,  i18n("Stand Still"),                  "stand_still",     Qt::Key_S,     Qt::Key_5,     Hold                     );
+	setupMappedAction( m_keyboardActions,  i18n("Move Right"),                   "move_right",      Qt::Key_D,     Qt::Key_6,     Right                    );
+	setupMappedAction( m_keyboardActions,  i18n("Move Down and Left"),           "move_down_left",  Qt::Key_Z,     Qt::Key_1,     DownLeft                 );
+	setupMappedAction( m_keyboardActions,  i18n("Move Down"),                    "move_down",       Qt::Key_X,     Qt::Key_2,     Down                     );
+	setupMappedAction( m_keyboardActions,  i18n("Move Down and Right"),          "move_down_right", Qt::Key_C,     Qt::Key_3,     DownRight                );
 
 	connect( m_keyboardMapper, SIGNAL(mapped(int)), m_engine, SLOT(requestAction(int)) );
 
@@ -123,9 +123,9 @@ void Killbots::MainWindow::setupActions()
 }
 
 
-void Killbots::MainWindow::setupMappedAction( KActionCollection * collection, const char * displayName, const QString & internalName, const QKeySequence & primaryShortcut, const QKeySequence & alternateShortcut, int mapping, const QString & icon )
+void Killbots::MainWindow::setupMappedAction( KActionCollection * collection, const QString & displayName, const QString & internalName, const QKeySequence & primaryShortcut, const QKeySequence & alternateShortcut, int mapping, const QString & icon )
 {
-	KAction * action = new KAction( i18n( displayName ), collection );
+	KAction * action = new KAction( displayName, collection );
 	action->setObjectName( internalName );
 	action->setShortcut( KShortcut( primaryShortcut, alternateShortcut ) );
 	if ( !icon.isEmpty() )
