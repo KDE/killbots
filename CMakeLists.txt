@@ -21,7 +21,7 @@ SET( killbots_SRCS
 )
 kde4_add_kcfg_files( killbots_SRCS settings.kcfgc rulesetbase.kcfgc )
 kde4_add_executable( killbots ${killbots_SRCS} )
-target_link_libraries( killbots ${KDE4_KDEUI_LIBS} kdegames )
+target_link_libraries( killbots ${KDE4_KDEUI_LIBS} kdegames ${QT_QTXML_LIBRARY})
 
 ###### Installing Files ######
 install( TARGETS killbots ${INSTALL_TARGETS_DEFAULT_ARGS} )
