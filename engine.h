@@ -89,7 +89,6 @@ namespace Killbots
 		bool moveHero( HeroAction direction );
 		bool teleportHero();
 		bool teleportHeroSafely();
-		bool waitOutRound();
 
 		void pushJunkheap( Sprite * junkheap, HeroAction direction );
 		void moveRobots( bool justFastbots = false );
@@ -118,12 +117,10 @@ namespace Killbots
 		QList<Sprite *> m_junkheaps;
 
 		bool m_busy;
-		bool m_repeatMove;
-		bool m_waitOutRound;
-		bool m_doFastbots;
+		bool m_processFastbots;
 		bool m_gameOver;
 		bool m_newGameRequested;
-		HeroAction m_lastDirection;
+		HeroAction m_repeatedAction;
 		HeroAction m_queuedAction;
 
 		Ruleset * m_rules;

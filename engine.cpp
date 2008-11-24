@@ -45,11 +45,10 @@ Killbots::Engine::Engine( Scene * scene, QObject * parent )
     m_scene( scene ),
     m_hero( 0 ),
     m_busy( false ),
-    m_repeatMove( false ),
-    m_waitOutRound( false ),
-    m_doFastbots( false ),
+    m_processFastbots( false ),
     m_gameOver( false ),
     m_newGameRequested( false ),
+    m_repeatedAction( NoAction ),
     m_queuedAction( NoAction ),
     m_rules( 0 ),
     m_round( 0 ),
@@ -136,9 +135,10 @@ void Killbots::Engine::newRound( bool incrementRound )
 	cleanUpRound();
 
 	m_busy = true;
-	m_repeatMove = false;
-	m_waitOutRound = false;
-	m_doFastbots = false;
+	m_processFastbots = false;
+
+	m_repeatedAction = NoAction;
+	m_queuedAction = NoAction;
 
 	m_scene->beginNewAnimationStage();
 
@@ -213,15 +213,18 @@ void Killbots::Engine::newRound( bool incrementRound )
 
 void Killbots::Engine::requestAction( HeroAction action )
 {
-	bool oldRepeatMove = m_repeatMove;
-	m_repeatMove = false;
+	bool justStoppedRepeating = m_repeatedAction != WaitOutRound && m_repeatedAction != NoAction;
+	if ( justStoppedRepeating )
+	{
+		m_repeatedAction = NoAction;
+	}
 
 	if ( !m_busy )
 	{
 		m_busy = true;
 		doAction( action );
 	}
-	else if ( !oldRepeatMove)
+	else if ( !justStoppedRepeating )
 	{
 		m_queuedAction = action;
 	}
@@ -255,7 +258,8 @@ void Killbots::Engine::doAction( HeroAction action )
 	}
 	else if ( action == WaitOutRound )
 	{
-		actionSuccessful = waitOutRound();
+		m_repeatedAction = WaitOutRound;
+		actionSuccessful = true;
 	}
 
 	if ( actionSuccessful )
@@ -265,13 +269,13 @@ void Killbots::Engine::doAction( HeroAction action )
 		if ( m_bots.isEmpty() )
 			m_scene->showRoundCompleteMessage();
 		else
-			m_doFastbots = true;
+			m_processFastbots = true;
 		m_scene->startAnimation();
 	}
 	else
 	{
 		m_busy = false;
-		m_repeatMove = false;
+		m_repeatedAction = NoAction;
 	}
 }
 
@@ -283,13 +287,15 @@ bool Killbots::Engine::moveHero( HeroAction direction )
 	if ( moveIsValid( newCell, direction )
 	     && ( moveIsSafe( newCell, direction )
 	          || ( !Settings::preventUnsafeMoves()
-	             && !m_repeatMove
+	               && m_repeatedAction == NoAction
 	             )
 	        )
 	   )
 	{
-		m_lastDirection = direction;
-		m_repeatMove = ( direction < 0 );
+		if ( direction < 0 )
+			m_repeatedAction = direction;
+		else
+			m_repeatedAction = NoAction;
 
 		if ( direction != Hold )
 		{
@@ -392,14 +398,6 @@ bool Killbots::Engine::teleportHeroSafely()
 }
 
 
-bool Killbots::Engine::waitOutRound()
-{
-	m_waitOutRound = true;
-
-	return true;
-}
-
-
 void Killbots::Engine::moveRobots( bool justFastbots )
 {
 	m_scene->beginNewAnimationStage();
@@ -491,9 +489,9 @@ void Killbots::Engine::animationDone()
 	{
 		newGame();
 	}
-	else if ( m_doFastbots )
+	else if ( m_processFastbots )
 	{
-		m_doFastbots = false;
+		m_processFastbots = false;
 		moveRobots( true );
 		assessDamage();
 		if ( m_bots.isEmpty() )
@@ -512,13 +510,9 @@ void Killbots::Engine::animationDone()
 			resetBotCounts();
 		m_scene->startAnimation();
 	}
-	else if ( m_waitOutRound )
+	else if ( m_repeatedAction != NoAction )
 	{
-		doAction( WaitOutRound );
-	}
-	else if ( m_repeatMove )
-	{
-		doAction( m_lastDirection );
+		doAction( m_repeatedAction );
 	}
 	else if ( m_queuedAction != NoAction )
 	{
@@ -825,7 +819,7 @@ void Killbots::Engine::destroySprite( Sprite * sprite )
 		m_hero = 0;
 	else if ( type == Robot )
 	{
-		if ( m_waitOutRound )
+		if ( m_repeatedAction == WaitOutRound )
 		{
 			m_score += m_rules->waitKillPointBonus();
 			if ( m_energy < m_maxEnergy )
@@ -836,7 +830,7 @@ void Killbots::Engine::destroySprite( Sprite * sprite )
 	}
 	else if ( type == Fastbot )
 	{
-		if ( m_waitOutRound )
+		if (  m_repeatedAction == WaitOutRound )
 		{
 			m_score += m_rules->waitKillPointBonus();
 			if ( m_energy < m_maxEnergy )
