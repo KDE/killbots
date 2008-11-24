@@ -116,7 +116,7 @@ namespace Killbots
 		QList<Sprite *> m_bots;
 		QList<Sprite *> m_junkheaps;
 
-		bool m_busy;
+		bool m_busyAnimating;
 		bool m_processFastbots;
 		bool m_gameOver;
 		bool m_newGameRequested;

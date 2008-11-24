@@ -44,7 +44,7 @@ Killbots::Engine::Engine( Scene * scene, QObject * parent )
   : QObject( parent ),
     m_scene( scene ),
     m_hero( 0 ),
-    m_busy( false ),
+    m_busyAnimating( false ),
     m_processFastbots( false ),
     m_gameOver( false ),
     m_newGameRequested( false ),
@@ -84,7 +84,7 @@ bool Killbots::Engine::gameHasStarted()
 
 void Killbots::Engine::requestNewGame()
 {
-	if ( !m_busy || m_gameOver )
+	if ( !m_busyAnimating || m_gameOver )
 		newGame();
 	else
 		m_newGameRequested = true;
@@ -126,7 +126,123 @@ void Killbots::Engine::newGame()
 	m_junkheapCount = m_rules->junkheapsAtGameStart();
 
 	newRound(false);
+	m_busyAnimating = true;
 	m_scene->startAnimation();
+}
+
+
+void Killbots::Engine::requestAction( HeroAction action )
+{
+	bool justStoppedRepeating = m_repeatedAction != WaitOutRound && m_repeatedAction != NoAction;
+	if ( justStoppedRepeating )
+	{
+		m_repeatedAction = NoAction;
+	}
+
+	if ( !m_busyAnimating )
+	{
+		doAction( action );
+	}
+	else if ( !justStoppedRepeating )
+	{
+		m_queuedAction = action;
+	}
+}
+
+
+// This slot is provided only for QSignalMapper compatibility.
+void Killbots::Engine::requestAction( int action )
+{
+	requestAction( static_cast<HeroAction>( action ) );
+}
+
+
+void Killbots::Engine::doAction( HeroAction action )
+{
+	refreshSpriteMap();
+
+	bool actionSuccessful = false;
+	bool boardFull = false;
+
+	if ( action <= Hold )
+	{
+		actionSuccessful = moveHero( action );
+	}
+	else if ( ( action == TeleportSafely || action == TeleportSafelyIfPossible ) && m_energy >= m_rules->costOfSafeTeleport() )
+	{
+		actionSuccessful = teleportHeroSafely();
+		boardFull = !actionSuccessful;
+	}
+	else if ( action == Teleport || action == TeleportSafelyIfPossible )
+	{
+		actionSuccessful = teleportHero();
+	}
+	else if ( action == WaitOutRound )
+	{
+		m_repeatedAction = WaitOutRound;
+		actionSuccessful = true;
+	}
+
+	if ( actionSuccessful )
+	{
+		moveRobots();
+		assessDamage();
+		if ( m_bots.isEmpty() )
+			m_scene->showRoundCompleteMessage();
+		else
+			m_processFastbots = true;
+		m_busyAnimating = true;
+		m_scene->startAnimation();
+	}
+	else if ( boardFull )
+	{
+		resetBotCounts();
+		m_busyAnimating = true;
+		m_scene->startAnimation();
+	}
+}
+
+
+void Killbots::Engine::animationDone()
+{
+	m_busyAnimating = false;
+
+	if ( m_newGameRequested )
+	{
+		newGame();
+	}
+	else if ( m_processFastbots )
+	{
+		m_processFastbots = false;
+		moveRobots( true );
+		assessDamage();
+		if ( m_bots.isEmpty() )
+			m_scene->showRoundCompleteMessage();
+		m_busyAnimating = true;
+		m_scene->startAnimation();
+	}
+	else if ( m_gameOver )
+	{
+		m_scene->showGameOverMessage();
+		emit gameOver( m_score, m_round );
+	}
+	else if ( m_bots.isEmpty() )
+	{
+		newRound();
+		if ( m_robotCount + m_fastbotCount + m_junkheapCount > m_rules->rows() * m_rules->columns() / 2 )
+			resetBotCounts();
+		m_busyAnimating = true;
+		m_scene->startAnimation();
+	}
+	else if ( m_repeatedAction != NoAction )
+	{
+		doAction( m_repeatedAction );
+	}
+	else if ( m_queuedAction != NoAction )
+	{
+		doAction( m_queuedAction );
+		m_queuedAction = NoAction;
+	}
 }
 
 
@@ -134,9 +250,7 @@ void Killbots::Engine::newRound( bool incrementRound )
 {
 	cleanUpRound();
 
-	m_busy = true;
 	m_processFastbots = false;
-
 	m_repeatedAction = NoAction;
 	m_queuedAction = NoAction;
 
@@ -211,75 +325,6 @@ void Killbots::Engine::newRound( bool incrementRound )
 }
 
 
-void Killbots::Engine::requestAction( HeroAction action )
-{
-	bool justStoppedRepeating = m_repeatedAction != WaitOutRound && m_repeatedAction != NoAction;
-	if ( justStoppedRepeating )
-	{
-		m_repeatedAction = NoAction;
-	}
-
-	if ( !m_busy )
-	{
-		m_busy = true;
-		doAction( action );
-	}
-	else if ( !justStoppedRepeating )
-	{
-		m_queuedAction = action;
-	}
-}
-
-
-// This slot is provided only for QSignalMapper compatibility.
-void Killbots::Engine::requestAction( int action )
-{
-	requestAction( static_cast<HeroAction>( action ) );
-}
-
-
-void Killbots::Engine::doAction( HeroAction action )
-{
-	refreshSpriteMap();
-
-	bool actionSuccessful = false;
-
-	if ( action <= Hold )
-	{
-		actionSuccessful = moveHero( action );
-	}
-	else if ( ( action == TeleportSafely || action == TeleportSafelyIfPossible ) && m_energy >= m_rules->costOfSafeTeleport() )
-	{
-		actionSuccessful = teleportHeroSafely();
-	}
-	else if ( action == Teleport || action == TeleportSafelyIfPossible )
-	{
-		actionSuccessful = teleportHero();
-	}
-	else if ( action == WaitOutRound )
-	{
-		m_repeatedAction = WaitOutRound;
-		actionSuccessful = true;
-	}
-
-	if ( actionSuccessful )
-	{
-		moveRobots();
-		assessDamage();
-		if ( m_bots.isEmpty() )
-			m_scene->showRoundCompleteMessage();
-		else
-			m_processFastbots = true;
-		m_scene->startAnimation();
-	}
-	else
-	{
-		m_busy = false;
-		m_repeatedAction = NoAction;
-	}
-}
-
-
 bool Killbots::Engine::moveHero( HeroAction direction )
 {
 	QPoint newCell = m_hero->gridPos() + offsetFromDirection( direction );
@@ -309,7 +354,10 @@ bool Killbots::Engine::moveHero( HeroAction direction )
 		return true;
 	}
 	else
+	{
+		m_repeatedAction = NoAction;
 		return false;
+	}
 }
 
 
@@ -380,8 +428,6 @@ bool Killbots::Engine::teleportHeroSafely()
 	// If we stepped through every cell and found none that were safe, reset the robot counts.
 	if ( point == startPoint )
 	{
-		resetBotCounts();
-		m_scene->startAnimation();
 		return false;
 	}
 	else
@@ -478,49 +524,6 @@ void Killbots::Engine::resetBotCounts()
 
 	m_scene->beginNewAnimationStage();
 	newRound(false);
-}
-
-
-void Killbots::Engine::animationDone()
-{
-	if ( m_newGameRequested )
-	{
-		newGame();
-	}
-	else if ( m_processFastbots )
-	{
-		m_processFastbots = false;
-		moveRobots( true );
-		assessDamage();
-		if ( m_bots.isEmpty() )
-			m_scene->showRoundCompleteMessage();
-		m_scene->startAnimation();
-	}
-	else if ( m_gameOver )
-	{
-		m_scene->showGameOverMessage();
-		emit gameOver( m_score, m_round );
-	}
-	else if ( m_bots.isEmpty() )
-	{
-		newRound();
-		if ( m_robotCount + m_fastbotCount + m_junkheapCount > m_rules->rows() * m_rules->columns() / 2 )
-			resetBotCounts();
-		m_scene->startAnimation();
-	}
-	else if ( m_repeatedAction != NoAction )
-	{
-		doAction( m_repeatedAction );
-	}
-	else if ( m_queuedAction != NoAction )
-	{
-		doAction( m_queuedAction );
-		m_queuedAction = NoAction;
-	}
-	else
-	{
-		m_busy = false;
-	}
 }
 
 
