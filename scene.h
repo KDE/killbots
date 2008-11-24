@@ -82,7 +82,7 @@ namespace Killbots
 	private: // functions
 		void startAnimationStage();
 		void updateSpritePos( Sprite * sprite ) const;
-		HeroAction getMouseDirection( QPointF cursorPosition );
+		HeroAction getMouseDirection( QGraphicsSceneMouseEvent * event );
 
 	private slots:
 		void nextAnimationStage();

@@ -98,9 +98,11 @@ Killbots::Scene::Scene( QObject * parent )
 	connect( this, SIGNAL(animationStageDone()), this, SLOT(nextAnimationStage()) );
 
 	m_immediatePopup->setMessageOpacity( 0.85 );
+	m_immediatePopup->setHideOnMouseClick( true );
 	addItem( m_immediatePopup );
 
 	m_queuedPopup->setMessageOpacity( 0.85 );
+	m_queuedPopup->setHideOnMouseClick( true );
 	addItem( m_queuedPopup );
 	connect( m_queuedPopup, SIGNAL(hidden()), this, SIGNAL(animationStageDone()) );
 
@@ -304,6 +306,8 @@ Killbots::Sprite * Killbots::Scene::createSprite( SpriteType type, QPoint positi
 	sprite->setSize( m_cellSize );
 	sprite->setGridPos( position );
 	sprite->setPos( -1000000.0, -1000000.0 );
+
+	// A bit of a hack, but we use the sprite type for stacking order.
 	sprite->setZValue( type );
 
 	addItem( sprite );
@@ -560,58 +564,64 @@ void Killbots::Scene::drawBackground( QPainter * painter, const QRectF & )
 
 void Killbots::Scene::mouseMoveEvent( QGraphicsSceneMouseEvent * event )
 {
-	getMouseDirection( event->scenePos() );
-	event->accept();
+	getMouseDirection( event );
 	QGraphicsScene::mouseMoveEvent( event );
 }
 
 
 void Killbots::Scene::mouseReleaseEvent( QGraphicsSceneMouseEvent * event )
 {
-	Settings::ClickAction userAction = Settings::Nothing;
+	HeroAction actionFromPosition = getMouseDirection( event );
 
-	if ( event->button() == Qt::LeftButton )
+	if ( actionFromPosition != NoAction )
 	{
-		if ( event->modifiers() & Qt::ControlModifier )
+		Settings::ClickAction userAction = Settings::Nothing;
+	
+		if ( event->button() == Qt::LeftButton )
+		{
+			if ( event->modifiers() & Qt::ControlModifier )
+				userAction = Settings::middleClickAction();
+			else
+				userAction = Settings::Step;
+		}
+		else if ( event->button() == Qt::RightButton )
+			userAction = Settings::rightClickAction();
+		else if ( event->button() == Qt::MidButton )
 			userAction = Settings::middleClickAction();
-		else
-			userAction = Settings::Step;
+	
+		if ( userAction == Settings::Step )
+			emit clicked( actionFromPosition );
+		else if ( userAction == Settings::RepeatedStep )
+			emit clicked( -actionFromPosition - 1 );
+		else if ( userAction == Settings::Teleport )
+			emit clicked( Teleport );
+		else if ( userAction == Settings::TeleportSafely )
+			emit clicked( TeleportSafely );
+		else if ( userAction == Settings::TeleportSafelyIfPossible )
+			emit clicked( TeleportSafelyIfPossible );
+		else if ( userAction == Settings::WaitOutRound )
+			emit clicked( WaitOutRound );
 	}
-	else if ( event->button() == Qt::RightButton )
-		userAction = Settings::rightClickAction();
-	else if ( event->button() == Qt::MidButton )
-		userAction = Settings::middleClickAction();
-
-	if ( userAction == Settings::Step )
-		emit clicked( getMouseDirection( event->scenePos() ) );
-	else if ( userAction == Settings::RepeatedStep )
-		emit clicked( -getMouseDirection( event->scenePos() ) - 1 );
-	else if ( userAction == Settings::Teleport )
-		emit clicked( Teleport );
-	else if ( userAction == Settings::TeleportSafely )
-		emit clicked( TeleportSafely );
-	else if ( userAction == Settings::TeleportSafelyIfPossible )
-		emit clicked( TeleportSafelyIfPossible );
-	else if ( userAction == Settings::WaitOutRound )
-		emit clicked( WaitOutRound );
-
-	event->accept();
 
 	QGraphicsScene::mouseReleaseEvent( event );
 }
 
 
-Killbots::HeroAction Killbots::Scene::getMouseDirection( QPointF cursorPosition )
+Killbots::HeroAction Killbots::Scene::getMouseDirection( QGraphicsSceneMouseEvent * event )
 {
 	HeroAction result;
+	QPointF cursorPosition = event->scenePos();
 
-	if ( m_hero )
+	bool overPopup = m_queuedPopup->sceneBoundingRect().contains( cursorPosition )
+	                 || m_immediatePopup->sceneBoundingRect().contains( cursorPosition );
+
+	if ( m_hero && sceneRect().contains( m_hero->pos() ) && !overPopup )
 	{
 		if ( m_hero->sceneBoundingRect().contains( cursorPosition ) )
 			result = Hold;
 		else
 		{
-			static const qreal piOver4 = 0.78539816339744830961566L;
+			const qreal piOver4 = 0.78539816339744830961566L;
 
 			QPointF delta = cursorPosition - m_hero->sceneBoundingRect().center();
 			int direction = qRound( atan2( -delta.y(), delta.x() ) / piOver4 );
@@ -626,7 +636,7 @@ Killbots::HeroAction Killbots::Scene::getMouseDirection( QPointF cursorPosition 
 	else
 	{
 		views().first()->unsetCursor();
-		result = Hold;
+		result = NoAction;
 	}
 
 	return result;
