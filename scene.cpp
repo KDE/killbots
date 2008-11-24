@@ -546,6 +546,7 @@ void Killbots::Scene::showBoardFullMessage()
 
 void Killbots::Scene::showGameOverMessage()
 {
+	m_hero = 0;
 	showUnqueuedMessage( i18n("Game over."), 15000 );
 }
 

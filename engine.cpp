@@ -421,31 +421,29 @@ void Killbots::Engine::assessDamage()
 
 	if ( m_spriteMap.count( m_hero->gridPos() ) > 0 )
 		m_gameOver = true;
-	else
+
+	// Check junkheaps for dead robots
+	foreach ( Sprite * junkheap, m_junkheaps )
+		destroyAllCollidingBots( junkheap );
+
+	// Check for robot-on-robot violence
+	int i = 0;
+	while ( i < m_bots.size() )
 	{
-		// Check junkheaps for dead robots
-		foreach ( Sprite * junkheap, m_junkheaps )
-			destroyAllCollidingBots( junkheap );
-
-		// Check for robot-on-robot violence
-		int i = 0;
-		while ( i < m_bots.size() )
+		Sprite * bot = m_bots[i];
+		if ( bot->gridPos() != m_hero->gridPos() && destroyAllCollidingBots( bot ) )
 		{
-			Sprite * bot = m_bots[i];
-			if ( destroyAllCollidingBots( bot ) )
-			{
-				m_junkheaps << m_scene->createSprite( Junkheap, bot->gridPos() );
-				destroySprite( bot );
-			}
-			else
-				i++;
+			m_junkheaps << m_scene->createSprite( Junkheap, bot->gridPos() );
+			destroySprite( bot );
 		}
-
-		m_scene->updateScore( m_score );
-		m_scene->updateEnemyCount( m_bots.size() );
-		m_scene->updateEnergy( m_energy );
-		emit canAffordSafeTeleport( m_energy >= m_rules->costOfSafeTeleport() );
+		else
+			i++;
 	}
+
+	m_scene->updateScore( m_score );
+	m_scene->updateEnemyCount( m_bots.size() );
+	m_scene->updateEnergy( m_energy );
+	emit canAffordSafeTeleport( m_energy >= m_rules->costOfSafeTeleport() );
 }
 
 
@@ -819,24 +817,30 @@ void Killbots::Engine::destroySprite( Sprite * sprite )
 		m_hero = 0;
 	else if ( type == Robot )
 	{
-		if ( m_repeatedAction == WaitOutRound )
+		if ( !m_gameOver )
 		{
-			m_score += m_rules->waitKillPointBonus();
-			if ( m_energy < m_maxEnergy )
-				m_energy = qMin( m_energy + m_rules->waitKillEnergyBonus(), int( m_maxEnergy ) );
+			if ( m_repeatedAction == WaitOutRound )
+			{
+				m_score += m_rules->waitKillPointBonus();
+				if ( m_energy < m_maxEnergy )
+					m_energy = qMin( m_energy + m_rules->waitKillEnergyBonus(), int( m_maxEnergy ) );
+			}
+			m_score += m_rules->pointsPerEnemyKilled();
 		}
-		m_score += m_rules->pointsPerEnemyKilled();
 		m_bots.removeOne( sprite );
 	}
 	else if ( type == Fastbot )
 	{
-		if (  m_repeatedAction == WaitOutRound )
+		if ( !m_gameOver )
 		{
-			m_score += m_rules->waitKillPointBonus();
-			if ( m_energy < m_maxEnergy )
-				m_energy = qMin( m_energy + m_rules->waitKillEnergyBonus(), int( m_maxEnergy ) );
+			if (  m_repeatedAction == WaitOutRound )
+			{
+				m_score += m_rules->waitKillPointBonus();
+				if ( m_energy < m_maxEnergy )
+					m_energy = qMin( m_energy + m_rules->waitKillEnergyBonus(), int( m_maxEnergy ) );
+			}
+			m_score += m_rules->pointsPerFastEnemyKilled();
 		}
-		m_score += m_rules->pointsPerFastEnemyKilled();
 		m_bots.removeOne( sprite );
 	}
 	else if ( type == Junkheap )
