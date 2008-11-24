@@ -9,9 +9,6 @@ SET( theme_files
     mountainadventure.desktop
     mountainadventure.png
     mountainadventure.svg
-    olddefault.svg
-    olddefault.desktop
-    olddefault.png
 )
 
 install( FILES ${theme_files} DESTINATION ${DATA_INSTALL_DIR}/killbots/themes )
