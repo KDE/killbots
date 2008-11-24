@@ -50,6 +50,7 @@ Killbots::Engine::Engine( Scene * scene, QObject * parent )
     m_doFastbots( false ),
     m_gameOver( false ),
     m_newGameRequested( false ),
+    m_queuedAction( NoAction ),
     m_rules( 0 ),
     m_round( 0 ),
     m_score( 0 ),
@@ -212,12 +213,17 @@ void Killbots::Engine::newRound( bool incrementRound )
 
 void Killbots::Engine::requestAction( HeroAction action )
 {
+	bool oldRepeatMove = m_repeatMove;
 	m_repeatMove = false;
 
 	if ( !m_busy )
 	{
 		m_busy = true;
 		doAction( action );
+	}
+	else if ( !oldRepeatMove)
+	{
+		m_queuedAction = action;
 	}
 }
 
@@ -513,6 +519,11 @@ void Killbots::Engine::animationDone()
 	else if ( m_repeatMove )
 	{
 		doAction( m_lastDirection );
+	}
+	else if ( m_queuedAction != NoAction )
+	{
+		doAction( m_queuedAction );
+		m_queuedAction = NoAction;
 	}
 	else
 	{

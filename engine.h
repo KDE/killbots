@@ -34,7 +34,7 @@ namespace Killbots
 
 	enum HeroAction
 	{
-		Right,
+		Right = 0,
 		UpRight,
 		Up,
 		UpLeft,
@@ -48,6 +48,7 @@ namespace Killbots
 		TeleportSafely,
 		TeleportSafelyIfPossible,
 		WaitOutRound,
+		NoAction,
 
 		RepeatRight = -( Right + 1 ),
 		RepeatUpRight = -( UpRight + 1 ),
@@ -123,6 +124,7 @@ namespace Killbots
 		bool m_gameOver;
 		bool m_newGameRequested;
 		HeroAction m_lastDirection;
+		HeroAction m_queuedAction;
 
 		Ruleset * m_rules;
 		int m_round;
