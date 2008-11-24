@@ -51,6 +51,13 @@ Killbots::Engine::Engine( Scene * scene, QObject * parent )
     m_gameOver( false ),
     m_newGameRequested( false ),
     m_rules( 0 ),
+    m_round( 0 ),
+    m_score( 0 ),
+    m_energy( 0 ),
+    m_maxEnergy( 0.0 ),
+    m_robotCount( 0.0 ),
+    m_fastbotCount( 0.0 ),
+    m_junkheapCount( 0.0 ),
     m_spriteMap()
 {
 	connect( m_scene, SIGNAL(animationDone()), this, SLOT(animationDone()), Qt::QueuedConnection );
@@ -86,8 +93,6 @@ void Killbots::Engine::requestNewGame()
 
 void Killbots::Engine::newGame()
 {
-	m_newGameRequested = false;
-
 	if ( !m_rules || m_rules->fileName() != Settings::ruleset() )
 	{
 		delete m_rules;
@@ -102,6 +107,13 @@ void Killbots::Engine::newGame()
 	bool energyIncluded = m_rules->energyAtGameStart() > 0 || m_rules->maxEnergyAtGameStart() > 0 || m_rules->maxEnergyAddedEachRound() > 0;
 	emit newGame( m_rules->rows(), m_rules->columns(), energyIncluded );
 
+	// Don't show the new game message on first start.
+	if ( m_round != 0 )
+	{
+		m_scene->showNewGameMessage();
+	}
+
+	m_newGameRequested = false;
 	m_gameOver = false;
 	m_score = 0;
 
@@ -214,7 +226,7 @@ void Killbots::Engine::requestAction( HeroAction action )
 // This slot is provided only for QSignalMapper compatibility.
 void Killbots::Engine::requestAction( int action )
 {
-	doAction( static_cast<HeroAction>( action ) );
+	requestAction( static_cast<HeroAction>( action ) );
 }
 
 
@@ -245,7 +257,7 @@ void Killbots::Engine::doAction( HeroAction action )
 		moveRobots();
 		assessDamage();
 		if ( m_bots.isEmpty() )
-			m_scene->showMessage( i18n("Round complete.") );
+			m_scene->showRoundCompleteMessage();
 		else
 			m_doFastbots = true;
 		m_scene->startAnimation();
@@ -454,7 +466,7 @@ void Killbots::Engine::cleanUpRound()
 void Killbots::Engine::resetBotCounts()
 {
 	m_scene->beginNewAnimationStage();
-	m_scene->showMessage( i18n("Board is full.\nResetting enemy counts.") );
+	m_scene->showBoardFullMessage();
 
 	m_maxEnergy = m_rules->maxEnergyAtGameStart();
 	m_robotCount = m_rules->enemiesAtGameStart();
@@ -477,12 +489,13 @@ void Killbots::Engine::animationDone()
 		moveRobots( true );
 		assessDamage();
 		if ( m_bots.isEmpty() )
-			m_scene->showMessage( i18n("Round complete.") );
+			m_scene->showRoundCompleteMessage();
 		m_scene->startAnimation();
 	}
 	else if ( m_gameOver )
 	{
 		emit gameOver( m_score, m_round );
+		m_scene->showGameOverMessage();
 	}
 	else if ( m_bots.isEmpty() )
 	{

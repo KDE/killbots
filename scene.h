@@ -43,13 +43,19 @@ namespace Killbots
 		virtual ~Scene();
 
 		void setAnimationSpeed( int speed );
+		void showUnqueuedMessage( const QString & message, int timeOut = 3000 );
+
+		void showNewGameMessage();
+		void showRoundCompleteMessage();
+		void showBoardFullMessage();
+		void showGameOverMessage();
 
 		void beginNewAnimationStage();
 		Sprite * createSprite( SpriteType type, QPoint position );
 		void slideSprite( Sprite * sprite, QPoint position );
 		void teleportSprite( Sprite * sprite, QPoint position );
 		void destroySprite( Sprite * sprite );
-		void showMessage( const QString & message );
+		void showQueuedMessage( const QString & message );
 		void updateRound( int round );
 		void updateScore( int score );
 		void updateEnemyCount( int enemyCount );
@@ -59,7 +65,6 @@ namespace Killbots
 	public slots:
 		void doLayout();
 		void onNewGame( int rows, int columns, bool gameIncludesEnergy );
-		void onGameOver();
 
 	signals:
 		void animationStageDone();
@@ -78,7 +83,6 @@ namespace Killbots
 		void startAnimationStage();
 		void updateSpritePos( Sprite * sprite ) const;
 		HeroAction getMouseDirection( QPointF cursorPosition );
-		void showMessagePopup( const QString & text, int timeout );
 
 	private slots:
 		void nextAnimationStage();
@@ -90,7 +94,8 @@ namespace Killbots
 
 		QTimeLine m_timeLine;
 
-		KGamePopupItem * m_popupMessage;
+		KGamePopupItem * m_immediatePopup;
+		KGamePopupItem * m_queuedPopup;
 
 		GameStatusDisplayItem * m_roundDisplay;
 		GameStatusDisplayItem * m_scoreDisplay;

@@ -79,7 +79,8 @@ Killbots::Scene::Scene( QObject * parent )
   : QGraphicsScene( parent ),
     m_hero( 0 ),
     m_timeLine( 1000, this ),
-    m_popupMessage( new KGamePopupItem ),
+    m_immediatePopup( new KGamePopupItem ),
+    m_queuedPopup( new KGamePopupItem ),
     m_roundDisplay( new GameStatusDisplayItem() ),
     m_scoreDisplay( new GameStatusDisplayItem() ),
     m_enemyCountDisplay( new GameStatusDisplayItem() ),
@@ -95,9 +96,12 @@ Killbots::Scene::Scene( QObject * parent )
 	connect( &m_timeLine, SIGNAL(finished()), this, SIGNAL(animationStageDone()) );
 	connect( this, SIGNAL(animationStageDone()), this, SLOT(nextAnimationStage()) );
 
-	m_popupMessage->setMessageOpacity( 0.85 );
-	addItem( m_popupMessage );
-	connect( m_popupMessage, SIGNAL(hidden()), this, SIGNAL(animationStageDone()) );
+	m_immediatePopup->setMessageOpacity( 0.85 );
+	addItem( m_immediatePopup );
+
+	m_queuedPopup->setMessageOpacity( 0.85 );
+	addItem( m_queuedPopup );
+	connect( m_queuedPopup, SIGNAL(hidden()), this, SIGNAL(animationStageDone()) );
 
 	m_roundDisplay->setText( i18n("Round:") );
 	m_roundDisplay->setDigits( 2 );
@@ -336,9 +340,20 @@ void Killbots::Scene::destroySprite( Sprite * sprite )
 }
 
 
-void Killbots::Scene::showMessage( const QString & message )
+void Killbots::Scene::showQueuedMessage( const QString & message )
 {
 	m_stages.last().message = message;
+}
+
+
+void Killbots::Scene::showUnqueuedMessage( const QString & message, int timeout )
+{
+	if ( !m_queuedPopup->isVisible() )
+	{
+		KGamePopupItem::Position corner = views().first()->layoutDirection() == Qt::LeftToRight ? KGamePopupItem::TopRight : KGamePopupItem::TopLeft;
+		m_immediatePopup->setMessageTimeout( timeout );
+		m_immediatePopup->showMessage( message, corner, KGamePopupItem::ReplacePrevious );
+	}
 }
 
 
@@ -396,7 +411,13 @@ void Killbots::Scene::startAnimationStage()
 	else
 	{
 		if ( !message.isEmpty() )
-			showMessagePopup( message, 3000 );
+		{
+			if ( m_immediatePopup->isVisible() )
+				m_immediatePopup->hide();
+			KGamePopupItem::Position corner = views().first()->layoutDirection() == Qt::LeftToRight ? KGamePopupItem::TopRight : KGamePopupItem::TopLeft;
+			m_queuedPopup->setMessageTimeout( 3000 );
+			m_queuedPopup->showMessage( message, corner, KGamePopupItem::ReplacePrevious );
+		}
 
 		m_timeLine.start();
 	}
@@ -474,8 +495,11 @@ void Killbots::Scene::animate( qreal value )
 
 void Killbots::Scene::nextAnimationStage()
 {
-	if ( m_timeLine.state() == QTimeLine::Running || m_popupMessage->isVisible() )
+	if ( m_timeLine.state() == QTimeLine::Running || m_queuedPopup->isVisible() )
+	{
+		kDebug() << "Waiting for other to finish.";
 		return;
+	}
 
 	m_stages.removeFirst();
 
@@ -501,9 +525,27 @@ void Killbots::Scene::onNewGame( int rows, int columns, bool gameIncludesEnergy 
 }
 
 
-void Killbots::Scene::onGameOver()
+void Killbots::Scene::showNewGameMessage()
 {
-	showMessagePopup( i18n("Game over."), 20000 );
+	showUnqueuedMessage( i18n("New game.") );
+}
+
+
+void Killbots::Scene::showRoundCompleteMessage()
+{
+	showQueuedMessage( i18n("Round complete.") );
+}
+
+
+void Killbots::Scene::showBoardFullMessage()
+{
+	showQueuedMessage( i18n("Board is full.\nResetting enemy counts.") );
+}
+
+
+void Killbots::Scene::showGameOverMessage()
+{
+	showUnqueuedMessage( i18n("Game over."), 10000 );
 }
 
 
@@ -593,14 +635,5 @@ void Killbots::Scene::updateSpritePos( Sprite * sprite ) const
 {
 	sprite->setPos( QPointF( sprite->gridPos().x() * m_cellSize.width(), sprite->gridPos().y() * m_cellSize.height() ) );
 }
-
-
-void Killbots::Scene::showMessagePopup( const QString & text, int timeout )
-{
-	KGamePopupItem::Position corner = views().first()->layoutDirection() == Qt::LeftToRight ? KGamePopupItem::TopRight : KGamePopupItem::TopLeft;
-	m_popupMessage->setMessageTimeout( timeout );
-	m_popupMessage->showMessage( text, corner, KGamePopupItem::ReplacePrevious );
-}
-
 
 #include "scene.moc"

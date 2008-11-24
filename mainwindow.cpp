@@ -77,7 +77,6 @@ Killbots::MainWindow::MainWindow( QWidget * parent )
 	connect( m_scene, SIGNAL(clicked(int)), m_engine, SLOT(requestAction(int)) );
 
 	connect( m_engine, SIGNAL(newGame(int,int,bool)), m_scene, SLOT(onNewGame(int,int,bool)) );
-	connect( m_engine, SIGNAL(gameOver(int,int)), m_scene, SLOT(onGameOver()) );
 	connect( m_engine, SIGNAL(gameOver(int,int)), this, SLOT(onGameOver(int,int)) );
 	connect( m_engine, SIGNAL(canAffordSafeTeleport(bool)), m_safeTeleportAction, SLOT(setEnabled(bool)) );
 
