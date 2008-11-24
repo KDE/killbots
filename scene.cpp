@@ -57,6 +57,7 @@ struct Killbots::Scene::AnimationStage
 			&& spritesToSlide.isEmpty()
 			&& spritesToTeleport.isEmpty()
 			&& spritesToDestroy.isEmpty()
+			&& message.isEmpty()
 			&& round == -1
 			&& score == -1
 			&& enemyCount == -1
@@ -545,7 +546,7 @@ void Killbots::Scene::showBoardFullMessage()
 
 void Killbots::Scene::showGameOverMessage()
 {
-	showUnqueuedMessage( i18n("Game over."), 10000 );
+	showUnqueuedMessage( i18n("Game over."), 15000 );
 }
 
 

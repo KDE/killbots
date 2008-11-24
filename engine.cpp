@@ -126,6 +126,7 @@ void Killbots::Engine::newGame()
 	m_junkheapCount = m_rules->junkheapsAtGameStart();
 
 	newRound(false);
+	m_scene->startAnimation();
 }
 
 
@@ -206,8 +207,6 @@ void Killbots::Engine::newRound( bool incrementRound )
 	m_scene->updateEnemyCount( m_bots.size() );
 	m_scene->updateEnergy( m_energy );
 	emit canAffordSafeTeleport( m_energy >= m_rules->costOfSafeTeleport() );
-
-	m_scene->startAnimation();
 }
 
 
@@ -237,20 +236,21 @@ void Killbots::Engine::doAction( HeroAction action )
 	bool actionSuccessful = false;
 
 	if ( action <= Hold )
-		actionSuccessful = moveHero( action );
-	else if ( action == Teleport )
-		actionSuccessful = teleportHero();
-	else if ( action == TeleportSafely && m_energy >= m_rules->costOfSafeTeleport() )
-		actionSuccessful = teleportHeroSafely();
-	else if ( action == TeleportSafelyIfPossible )
 	{
-		if ( m_energy >= m_rules->costOfSafeTeleport() )
-			actionSuccessful = teleportHeroSafely();
-		else
-			actionSuccessful = teleportHero();
+		actionSuccessful = moveHero( action );
+	}
+	else if ( ( action == TeleportSafely || action == TeleportSafelyIfPossible ) && m_energy >= m_rules->costOfSafeTeleport() )
+	{
+		actionSuccessful = teleportHeroSafely();
+	}
+	else if ( action == Teleport || action == TeleportSafelyIfPossible )
+	{
+		actionSuccessful = teleportHero();
 	}
 	else if ( action == WaitOutRound )
+	{
 		actionSuccessful = waitOutRound();
+	}
 
 	if ( actionSuccessful )
 	{
@@ -369,6 +369,7 @@ bool Killbots::Engine::teleportHeroSafely()
 	if ( point == startPoint )
 	{
 		resetBotCounts();
+		m_scene->startAnimation();
 		return false;
 	}
 	else
@@ -473,6 +474,7 @@ void Killbots::Engine::resetBotCounts()
 	m_fastbotCount = m_rules->fastEnemiesAtGameStart();
 	m_junkheapCount = m_rules->junkheapsAtGameStart();
 
+	m_scene->beginNewAnimationStage();
 	newRound(false);
 }
 
@@ -494,16 +496,15 @@ void Killbots::Engine::animationDone()
 	}
 	else if ( m_gameOver )
 	{
-		emit gameOver( m_score, m_round );
 		m_scene->showGameOverMessage();
+		emit gameOver( m_score, m_round );
 	}
 	else if ( m_bots.isEmpty() )
 	{
 		newRound();
-	}
-	else if ( m_robotCount + m_fastbotCount + m_junkheapCount > m_rules->rows() * m_rules->columns() / 2 )
-	{
-		resetBotCounts();
+		if ( m_robotCount + m_fastbotCount + m_junkheapCount > m_rules->rows() * m_rules->columns() / 2 )
+			resetBotCounts();
+		m_scene->startAnimation();
 	}
 	else if ( m_waitOutRound )
 	{
