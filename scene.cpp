@@ -500,18 +500,16 @@ void Killbots::Scene::animate( qreal value )
 
 void Killbots::Scene::nextAnimationStage()
 {
-	if ( m_timeLine.state() == QTimeLine::Running || m_queuedPopup->isVisible() )
+	// Wait for both the timeline and the popup to finish before moving to the next stage.
+	if ( m_timeLine.state() != QTimeLine::Running && !m_queuedPopup->isVisible() )
 	{
-		kDebug() << "Waiting for other to finish.";
-		return;
+		m_stages.removeFirst();
+	
+		if ( m_stages.size() )
+			startAnimationStage();
+		else
+			emit animationDone();
 	}
-
-	m_stages.removeFirst();
-
-	if ( m_stages.size() )
-		startAnimationStage();
-	else
-		emit animationDone();
 }
 
 
@@ -648,4 +646,4 @@ void Killbots::Scene::updateSpritePos( Sprite * sprite ) const
 	sprite->setPos( QPointF( sprite->gridPos().x() * m_cellSize.width(), sprite->gridPos().y() * m_cellSize.height() ) );
 }
 
-#include "scene.moc"
+#include "moc_scene.cpp"

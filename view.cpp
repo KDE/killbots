@@ -50,4 +50,4 @@ void Killbots::View::resizeEvent( QResizeEvent * event )
 	QGraphicsView::resizeEvent( event );
 }
 
-#include "view.moc"
+#include "moc_view.cpp"

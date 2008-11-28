@@ -92,4 +92,4 @@ Killbots::OptionsPage::~OptionsPage()
 {
 }
 
-#include "optionspage.moc"
+#include "moc_optionspage.cpp"

@@ -265,4 +265,4 @@ void Killbots::MainWindow::showHighscores()
 	m_scoreDialog->exec();
 }
 
-#include "mainwindow.moc"
+#include "moc_mainwindow.cpp"
