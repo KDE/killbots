@@ -98,8 +98,9 @@ void Killbots::MainWindow::setupActions()
 	KStandardAction::keyBindings( this, SLOT(configureShortcuts()), actionCollection() );
 	KStandardAction::preferences( this, SLOT(configurePreferences()), actionCollection() );
 
-	setupMappedAction( actionCollection(), i18n("Teleport"),                     "teleport",        Qt::Key_Minus, Qt::Key_R,     Teleport,                "roll"         );
+	m_safeTeleportAction =
 	setupMappedAction( actionCollection(), i18n("Teleport Safely"),              "teleport_safely", Qt::Key_Plus,  Qt::Key_T,     TeleportSafely,          "games-solve"  );
+	setupMappedAction( actionCollection(), i18n("Teleport"),                     "teleport",        Qt::Key_Minus, Qt::Key_R,     Teleport,                "roll"         );
 	setupMappedAction( actionCollection(), i18n("Teleport, Safely If Possible"), "teleport_sip",    Qt::Key_0,     Qt::Key_Space, TeleportSafelyIfPossible                );
 	setupMappedAction( actionCollection(), i18n("Wait Out Round"),               "wait",            Qt::Key_Enter, Qt::Key_Y,     WaitOutRound,            "process-stop" );
 
@@ -116,13 +117,11 @@ void Killbots::MainWindow::setupActions()
 
 	connect( m_keyboardMapper, SIGNAL(mapped(int)), m_engine, SLOT(requestAction(int)) );
 
-	m_safeTeleportAction = actionCollection()->action("teleport_safely");
-
 	m_keyboardActions->associateWidget(this);
 }
 
 
-void Killbots::MainWindow::setupMappedAction( KActionCollection * collection, const QString & displayName, const QString & internalName, const QKeySequence & primaryShortcut, const QKeySequence & alternateShortcut, int mapping, const QString & icon )
+KAction * Killbots::MainWindow::setupMappedAction( KActionCollection * collection, const QString & displayName, const QString & internalName, const QKeySequence & primaryShortcut, const QKeySequence & alternateShortcut, int mapping, const QString & icon )
 {
 	KAction * action = new KAction( displayName, collection );
 	action->setObjectName( internalName );
@@ -133,6 +132,8 @@ void Killbots::MainWindow::setupMappedAction( KActionCollection * collection, co
 	connect( action, SIGNAL(triggered()), m_keyboardMapper, SLOT(map()) );
 	m_keyboardMapper->setMapping( action, mapping );
 	collection->addAction( internalName, action );
+
+	return action;
 }
 
 

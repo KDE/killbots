@@ -21,6 +21,7 @@
 #ifndef KILLBOTS_MAINWINDOW_H
 #define KILLBOTS_MAINWINDOW_H
 
+class KAction;
 class KActionCollection;
 class KScoreDialog;
 #include <KDE/KXmlGuiWindow>
@@ -43,7 +44,7 @@ namespace Killbots
 
 	private: // functions
 		void setupActions();
-		void setupMappedAction( KActionCollection * collection, const QString & displayName, const QString & internalName, const QKeySequence & primaryShortcut, const QKeySequence & alternateShortcut, int mapping, const QString & icon = QString() );
+		KAction * setupMappedAction( KActionCollection * collection, const QString & displayName, const QString & internalName, const QKeySequence & primaryShortcut, const QKeySequence & alternateShortcut, int mapping, const QString & icon = QString() );
 		void createScoreDialog();
 
 	private slots:
@@ -60,7 +61,7 @@ namespace Killbots
 		View * m_view;
 		KScoreDialog * m_scoreDialog;
 
-		QAction * m_safeTeleportAction;
+		KAction * m_safeTeleportAction;
 		KActionCollection * m_keyboardActions;
 		QSignalMapper * m_keyboardMapper;
 
