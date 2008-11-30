@@ -249,7 +249,8 @@ void Killbots::MainWindow::onGameOver( int score, int round )
 		scoreEntry[ KScoreDialog::Level ].setNum( round );
 	
 		if ( m_scoreDialog->addScore( scoreEntry ) )
-			m_scoreDialog->exec();
+			QTimer::singleShot( 1000, this, SLOT(showHighscores()) );
+//			m_scoreDialog->exec();
 	}
 }
 
@@ -258,9 +259,6 @@ void Killbots::MainWindow::showHighscores()
 {
 	if ( !m_scoreDialog )
 		createScoreDialog();
-
-	if ( m_engine->ruleset() )
-		m_scoreDialog->setConfigGroup( qMakePair( m_engine->ruleset()->scoreGroupKey(), m_engine->ruleset()->name() ) );
 
 	m_scoreDialog->exec();
 }
