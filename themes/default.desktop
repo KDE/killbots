@@ -2,6 +2,7 @@
 Name=Robot Kill
 Name[el]=Σκότωμα ρομπότ
 Name[gl]=Mate robots
+Name[km]=មនុស្ស​យន្ត​សម្លាប់
 Name[pt]=Morte do Robot
 Name[pt_BR]=Morte do Robot
 Name[sv]=Robotdöd
@@ -11,6 +12,7 @@ Name[zh_TW]=獵殺機器人
 Description=The default Killbots theme.
 Description[el]=Το προκαθορισμένο θέμα του Killbots.
 Description[gl]=O tema predeterminado de Killbots.
+Description[km]=ស្បែក​របស់ Killbots លំនាំដើម ។
 Description[nds]=Dat Killbot-Standardmuster
 Description[nn]=Standardtemaet til Killbots
 Description[pt]=O tema predefinido do Killbots.
