@@ -43,9 +43,7 @@ Killbots::Ruleset * Killbots::Ruleset::load( const QString & fileName )
 		}
 	}
 
-	if ( result )
-		kDebug() << "Successfully loaded " << fileName;
-	else
+	if ( !result )
 		kDebug() << "Failed to load " << fileName;
 
 	return result;

@@ -36,7 +36,6 @@ namespace Killbots
 		bool loadTheme( const QString & fileName );
 		bool loadDefaultTheme();
 		QPixmap renderElement( const QString & elementId, QSize size );
-		QPixmap renderGrid( int rows, int columns, QSize cellSize );
 		QCursor cursorFromAction( int direction );
 		QColor textColor();
 		qreal aspectRatio();

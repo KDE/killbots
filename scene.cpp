@@ -80,7 +80,7 @@ Killbots::Scene::Scene( QObject * parent )
   : QGraphicsScene( parent ),
     m_hero( 0 ),
     m_timeLine( 1000, this ),
-    m_immediatePopup( new KGamePopupItem ),
+    m_unqueuedPopup( new KGamePopupItem ),
     m_queuedPopup( new KGamePopupItem ),
     m_roundDisplay( new GameStatusDisplayItem() ),
     m_scoreDisplay( new GameStatusDisplayItem() ),
@@ -97,9 +97,9 @@ Killbots::Scene::Scene( QObject * parent )
 	connect( &m_timeLine, SIGNAL(finished()), this, SIGNAL(animationStageDone()) );
 	connect( this, SIGNAL(animationStageDone()), this, SLOT(nextAnimationStage()) );
 
-	m_immediatePopup->setMessageOpacity( 0.85 );
-	m_immediatePopup->setHideOnMouseClick( true );
-	addItem( m_immediatePopup );
+	m_unqueuedPopup->setMessageOpacity( 0.85 );
+	m_unqueuedPopup->setHideOnMouseClick( true );
+	addItem( m_unqueuedPopup );
 
 	m_queuedPopup->setMessageOpacity( 0.85 );
 	m_queuedPopup->setHideOnMouseClick( true );
@@ -144,7 +144,7 @@ void Killbots::Scene::doLayout()
 		return;
 	}
 
-	kDebug() << "Doing layout @" << size;
+	kDebug() << "Laying out scene at" << size;
 
 	// Make certain layout properties proportional to the scene height,
 	// but clamp them between reasonable values. There's probably room for more
@@ -356,8 +356,8 @@ void Killbots::Scene::showUnqueuedMessage( const QString & message, int timeout 
 	if ( !m_queuedPopup->isVisible() )
 	{
 		KGamePopupItem::Position corner = views().first()->layoutDirection() == Qt::LeftToRight ? KGamePopupItem::TopRight : KGamePopupItem::TopLeft;
-		m_immediatePopup->setMessageTimeout( timeout );
-		m_immediatePopup->showMessage( message, corner, KGamePopupItem::ReplacePrevious );
+		m_unqueuedPopup->setMessageTimeout( timeout );
+		m_unqueuedPopup->showMessage( message, corner, KGamePopupItem::ReplacePrevious );
 	}
 }
 
@@ -417,8 +417,8 @@ void Killbots::Scene::startAnimationStage()
 	{
 		if ( !message.isEmpty() )
 		{
-			if ( m_immediatePopup->isVisible() )
-				m_immediatePopup->hide();
+			if ( m_unqueuedPopup->isVisible() )
+				m_unqueuedPopup->hide();
 			KGamePopupItem::Position corner = views().first()->layoutDirection() == Qt::LeftToRight ? KGamePopupItem::TopRight : KGamePopupItem::TopLeft;
 			m_queuedPopup->setMessageTimeout( 3000 );
 			m_queuedPopup->showMessage( message, corner, KGamePopupItem::ReplacePrevious );
@@ -515,7 +515,7 @@ void Killbots::Scene::nextAnimationStage()
 
 void Killbots::Scene::onNewGame( int rows, int columns, bool gameIncludesEnergy )
 {
-	if ( m_rows != rows
+	if (    m_rows != rows
 	     || m_columns != columns
 	     || m_energyDisplay->isVisible() != gameIncludesEnergy
 	   )
@@ -556,7 +556,9 @@ void Killbots::Scene::showGameOverMessage()
 void Killbots::Scene::drawBackground( QPainter * painter, const QRectF & )
 {
 	painter->drawPixmap( sceneRect().topLeft(), Render::renderElement( "background", QSize( qRound( sceneRect().width() ), qRound( sceneRect().height() ) ) ) );
-	painter->drawPixmap( -m_cellSize.width() / 2, -m_cellSize.height() / 2, Render::renderGrid( m_columns, m_rows, m_cellSize ) );
+
+	QRect gridArea( -m_cellSize.width() / 2, -m_cellSize.height() / 2, m_columns * m_cellSize.width(), m_rows * m_cellSize.height() );
+	painter->drawTiledPixmap( gridArea, Render::renderElement( "cell", m_cellSize ) );
 }
 
 
@@ -610,10 +612,12 @@ Killbots::HeroAction Killbots::Scene::getMouseDirection( QGraphicsSceneMouseEven
 	HeroAction result;
 	QPointF cursorPosition = event->scenePos();
 
-	bool overPopup = m_queuedPopup->sceneBoundingRect().contains( cursorPosition )
-	                 || m_immediatePopup->sceneBoundingRect().contains( cursorPosition );
+	bool heroOnScreen = m_hero && sceneRect().contains( m_hero->sceneBoundingRect() );
 
-	if ( m_hero && sceneRect().contains( m_hero->pos() ) && !overPopup )
+	bool popupUnderCursor = m_queuedPopup->sceneBoundingRect().contains( cursorPosition )
+	                        || m_unqueuedPopup->sceneBoundingRect().contains( cursorPosition );
+
+	if ( heroOnScreen && !popupUnderCursor )
 	{
 		if ( m_hero->sceneBoundingRect().contains( cursorPosition ) )
 			result = Hold;

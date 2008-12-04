@@ -94,7 +94,7 @@ namespace Killbots
 
 		QTimeLine m_timeLine;
 
-		KGamePopupItem * m_immediatePopup;
+		KGamePopupItem * m_unqueuedPopup;
 		KGamePopupItem * m_queuedPopup;
 
 		GameStatusDisplayItem * m_roundDisplay;

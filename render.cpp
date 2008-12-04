@@ -179,29 +179,6 @@ QPixmap Killbots::Render::renderElement( const QString & elementId, QSize size )
 }
 
 
-QPixmap Killbots::Render::renderGrid( int columns, int rows, QSize cellSize )
-{
-	QPixmap result;
-
-	QString key = "grid" + QString::number(columns) + 'x' + QString::number(rows) + 'x' + QString::number(cellSize.width()) + 'x' + QString::number(cellSize.height());
-
-	if ( !rp->m_pixmapCache.find( key, result ) )
-	{
-		kDebug() << "Rendering \"grid\" at " << rows << " rows and " << columns << " columns.";
-
-		result = QPixmap( columns * cellSize.width(), rows * cellSize.height() );
-		result.fill( Qt::transparent );
-
-		QPainter p( &result );
-		p.drawTiledPixmap( result.rect(), renderElement( "cell", cellSize ) );
-		p.end();
-
-		rp->m_pixmapCache.insert( key, result );
-	}
-	return result;
-}
-
-
 QCursor Killbots::Render::cursorFromAction( int direction )
 {
 	return rp->m_cursors.value( direction, Qt::ArrowCursor );

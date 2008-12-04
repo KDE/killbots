@@ -142,7 +142,6 @@ void Killbots::RulesetSelector::findRulesets()
 
 void Killbots::RulesetSelector::selectionChanged( QString rulesetName )
 {
-	kDebug() << "Reading ruleset details for " << rulesetName;
 	Ruleset * ruleset = m_rulesetMap[rulesetName];
 
 	kcfg_Ruleset->setText( ruleset->fileName() );
