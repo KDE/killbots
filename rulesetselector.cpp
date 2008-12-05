@@ -24,7 +24,6 @@
 #include "settings.h"
 
 #include <KDE/KDebug>
-#include <KDE/KDialog>
 #include <KDE/KLineEdit>
 #include <KDE/KLocalizedString>
 #include <KDE/KStandardDirs>
@@ -73,8 +72,6 @@ Killbots::RulesetSelector::RulesetSelector( QWidget * parent )
 	m_description->setWordWrap( true );
 
 	QGridLayout * boxLayout = new QGridLayout( groupBox );
-	boxLayout->setMargin( KDialog::spacingHint() );
-	boxLayout->setSpacing( KDialog::spacingHint() );
 	boxLayout->setColumnStretch( 1, 10 );
 	boxLayout->setRowStretch( 4, 10 );
 	boxLayout->addWidget( authorLabel, 1, 0 );
@@ -85,7 +82,6 @@ Killbots::RulesetSelector::RulesetSelector( QWidget * parent )
 	boxLayout->addWidget( m_description, 3, 1 );
 
 	QVBoxLayout * layout = new QVBoxLayout( this );
-	layout->setSpacing( KDialog::spacingHint() );
 	layout->setMargin( 0 );
 	layout->addWidget( kcfg_Ruleset );
 	layout->addWidget( m_listWidget );

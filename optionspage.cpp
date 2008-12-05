@@ -21,7 +21,6 @@
 #include "optionspage.h"
 
 #include <KDE/KComboBox>
-#include <KDE/KDialog>
 #include <KDE/KLocalizedString>
 
 #include <QtGui/QCheckBox>
@@ -53,7 +52,6 @@ Killbots::OptionsPage::OptionsPage( QWidget * parent )
 	kcfg_AnimationSpeed = new QSlider( Qt::Horizontal );
 	kcfg_AnimationSpeed->setObjectName("kcfg_AnimationSpeed");
 	kcfg_AnimationSpeed->setSingleStep( 1 );
-	kcfg_AnimationSpeed->setPageStep( 1 );
 	kcfg_AnimationSpeed->setMinimumWidth( 200 );
 	QLabel * slowLabel = new QLabel( i18n("Slow") );
 	slowLabel->setAlignment( Qt::AlignLeft );
@@ -77,14 +75,12 @@ Killbots::OptionsPage::OptionsPage( QWidget * parent )
 	kcfg_PreventUnsafeMoves->setObjectName("kcfg_PreventUnsafeMoves");
 
 	QFormLayout * formLayout = new QFormLayout( this );
-	formLayout->setLabelAlignment( Qt::AlignRight );
 	formLayout->setMargin( 0 );
-	formLayout->setSpacing( KDialog::spacingHint() );
 	formLayout->addRow( i18n("&Middle-click action:"), kcfg_MiddleClickAction );
 	formLayout->addRow( i18n("&Right-click action:"), kcfg_RightClickAction );
-	formLayout->addItem( new QSpacerItem( 0, KDialog::groupSpacingHint(), QSizePolicy::Minimum, QSizePolicy::Fixed ) );
+	formLayout->addItem( new QSpacerItem( 0, 16, QSizePolicy::Minimum, QSizePolicy::Fixed ) );
 	formLayout->addRow( speedLabel, speedLayout );
-	formLayout->addItem( new QSpacerItem( 0, KDialog::groupSpacingHint(), QSizePolicy::Minimum, QSizePolicy::Fixed ) );
+	formLayout->addItem( new QSpacerItem( 0, 16, QSizePolicy::Minimum, QSizePolicy::Fixed ) );
 	formLayout->addRow( 0, kcfg_PreventUnsafeMoves );
 }
 
