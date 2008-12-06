@@ -1,5 +1,6 @@
 [KGameTheme]
 Name=Mountain Adventure
+Name[cs]=Horské dobrodružství
 Name[el]=Ορεινή περιπέτεια
 Name[gl]=Aventura na montaña
 Name[km]=ភ្នំ​គ្រោះថ្នាក់
@@ -10,6 +11,7 @@ Name[pt_BR]=Aventura na Montanha
 Name[sv]=Bergsäventyr
 Name[uk]=Пригоди в горах
 Name[x-test]=xxMountain Adventurexx
+Name[zh_CN]=山中冒险
 Name[zh_TW]=山中冒險
 Description=<qt><p>Indiana Gnomes battles ghosts and bats on a misty mountainside.</p><p>Sprites by Nicu Buculei. Background by Eugene Trounev.</p></qt>
 Description[el]=<qt><p>O Indiana Gnomes πολεμά φαντάσματα και νυχτερίδες σε μια ομιχλώδη πλαγιά βουνού.</ p><p>Γραφικά από Nicu Buculei. Φόντο από Eugene Trounev.</p></qt>
@@ -21,6 +23,7 @@ Description[pt_BR]=<qt><p>O Indiana Gnomes combate os fantasmas e morcegos num s
 Description[sv]=<qt><p>Indiana Tomtar strider mot spöken och fladdermöss på en dimmig bergssida.</p><p>Figurer av Nicu Buculei. Bakgrund av Eugene Trounev.</p></qt>
 Description[uk]=<qt><p>Індіана Гномз б’ється з привидами і кажанами у таємничому гірському краї.</p><p>Спрайти від Nicu Buculei. Тло намалював Eugene Trounev.</p></qt>
 Description[x-test]=xx<qt><p>Indiana Gnomes battles ghosts and bats on a misty mountainside.</p><p>Sprites by Nicu Buculei. Background by Eugene Trounev.</p></qt>xx
+Description[zh_CN]=<qt><p>印第安纳侏儒们在浓雾笼罩的山中和鬼魂与蝙蝠作战。</p><p>由 Nicu Buculei 设计，背景由 Eugene Trounev 提供。</p></qt>
 Description[zh_TW]=<qt><p>Indiana Gnomes 在大霧籠罩的山上與鬼及蝙蝠戰鬥。</p>  <p>由 Nicu Buculei 與 Eugene Trounev 設計。</p></qt>
 VersionFormat=0.9
 Author=Parker Coates
