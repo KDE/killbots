@@ -139,7 +139,7 @@ void Killbots::Engine::requestAction( HeroAction action )
 		m_repeatedAction = NoAction;
 	}
 
-	if ( !m_busyAnimating )
+	if ( !m_busyAnimating && !m_gameOver )
 	{
 		doAction( action );
 	}
