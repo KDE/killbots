@@ -221,7 +221,7 @@ void Killbots::MainWindow::onConfigDialogClosed()
 void Killbots::MainWindow::createScoreDialog()
 {
 	m_scoreDialog = new KScoreDialog( KScoreDialog::Name, this );
-	m_scoreDialog->addField( KScoreDialog::Level, "Round", "round" );
+	m_scoreDialog->addField( KScoreDialog::Level, i18n("Round"), "round" );
 	m_scoreDialog->setModal( false );
 
 	QStringList fileList;
