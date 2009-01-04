@@ -103,8 +103,8 @@ namespace Killbots
 		bool moveIsSafe( const QPoint &  cell, HeroAction direction ) const;
 		bool canPushJunkheap( const Sprite * junkheap, HeroAction direction ) const;
 		QPoint offsetFromDirection( int direction ) const;
-		void destroySprite( Sprite * sprite );
-		bool destroyAllCollidingBots( const Sprite * sprite );
+		void destroySprite( Sprite * sprite, bool calculatePoints = true );
+		bool destroyAllCollidingBots( const Sprite * sprite, bool calculatePoints = true );
 
 	private slots:
 		void animationDone();

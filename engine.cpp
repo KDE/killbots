@@ -101,7 +101,6 @@ void Killbots::Engine::newGame()
 	}
 	if ( !m_rules )
 		m_rules = Ruleset::loadDefault();
-
 	Q_ASSERT( m_rules != 0 );
 
 	bool energyIncluded = m_rules->energyAtGameStart() > 0 || m_rules->maxEnergyAtGameStart() > 0 || m_rules->maxEnergyAddedEachRound() > 0;
@@ -483,7 +482,9 @@ void Killbots::Engine::assessDamage()
 			destroySprite( bot );
 		}
 		else
+		{
 			i++;
+		}
 	}
 
 	m_scene->updateScore( m_score );
@@ -499,9 +500,10 @@ void Killbots::Engine::cleanUpRound()
 
 	if ( m_hero )
 		destroySprite( m_hero );
+	m_hero = 0;
 
 	foreach( Sprite * bot, m_bots )
-		destroySprite( bot );
+		destroySprite( bot, false );
 	m_bots.clear();
 
 	foreach( Sprite * junkheap, m_junkheaps )
@@ -509,6 +511,54 @@ void Killbots::Engine::cleanUpRound()
 	m_junkheaps.clear();
 
 	m_spriteMap.clear();
+}
+
+
+void Killbots::Engine::destroySprite( Sprite * sprite, bool calculatePoints )
+{
+	SpriteType type = sprite->spriteType();
+
+	if ( type == Robot || type == Fastbot)
+	{
+		if ( calculatePoints )
+		{
+			if ( type == Robot )
+				m_score += m_rules->pointsPerEnemyKilled();
+			else
+				m_score += m_rules->pointsPerFastEnemyKilled();
+
+			if ( m_repeatedAction == WaitOutRound )
+			{
+				m_score += m_rules->waitKillPointBonus();
+				if ( m_energy < m_maxEnergy )
+					m_energy = qMin( m_energy + m_rules->waitKillEnergyBonus(), int( m_maxEnergy ) );
+			}
+		}
+		m_bots.removeOne( sprite );
+	}
+	else if ( type == Junkheap )
+	{
+		m_junkheaps.removeOne( sprite );
+	}
+
+	m_scene->destroySprite( sprite );
+}
+
+
+bool Killbots::Engine::destroyAllCollidingBots( const Sprite * sprite, bool calculatePoints )
+{
+	bool result = false;
+
+	foreach ( Sprite * robot, m_spriteMap.values( sprite->gridPos() ) )
+	{
+		if ( robot != sprite && ( robot->spriteType() == Robot || robot->spriteType() == Fastbot ) )
+		{
+			destroySprite( robot, calculatePoints );
+			result = true;
+		}
+	}
+
+	return result;
 }
 
 
@@ -809,62 +859,4 @@ QPoint Killbots::Engine::offsetFromDirection( int direction ) const
 	default:
 		return QPoint(  0,  0 );
 	};
-}
-
-
-void Killbots::Engine::destroySprite( Sprite * sprite )
-{
-	SpriteType type = sprite->spriteType();
-
-	if ( type == Hero )
-		m_hero = 0;
-	else if ( type == Robot )
-	{
-		if ( !m_gameOver )
-		{
-			if ( m_repeatedAction == WaitOutRound )
-			{
-				m_score += m_rules->waitKillPointBonus();
-				if ( m_energy < m_maxEnergy )
-					m_energy = qMin( m_energy + m_rules->waitKillEnergyBonus(), int( m_maxEnergy ) );
-			}
-			m_score += m_rules->pointsPerEnemyKilled();
-		}
-		m_bots.removeOne( sprite );
-	}
-	else if ( type == Fastbot )
-	{
-		if ( !m_gameOver )
-		{
-			if (  m_repeatedAction == WaitOutRound )
-			{
-				m_score += m_rules->waitKillPointBonus();
-				if ( m_energy < m_maxEnergy )
-					m_energy = qMin( m_energy + m_rules->waitKillEnergyBonus(), int( m_maxEnergy ) );
-			}
-			m_score += m_rules->pointsPerFastEnemyKilled();
-		}
-		m_bots.removeOne( sprite );
-	}
-	else if ( type == Junkheap )
-		m_junkheaps.removeOne( sprite );
-
-	m_scene->destroySprite( sprite );
-}
-
-
-bool Killbots::Engine::destroyAllCollidingBots( const Sprite * sprite )
-{
-	bool result = false;
-
-	foreach ( Sprite * robot, m_spriteMap.values( sprite->gridPos() ) )
-	{
-		if ( robot != sprite && ( robot->spriteType() == Robot || robot->spriteType() == Fastbot ) )
-		{
-			destroySprite( robot );
-			result = true;
-		}
-	}
-
-	return result;
 }
