@@ -469,17 +469,17 @@ void Killbots::Engine::assessDamage()
 
 	// Check junkheaps for dead robots
 	foreach ( Sprite * junkheap, m_junkheaps )
-		destroyAllCollidingBots( junkheap );
+		destroyAllCollidingBots( junkheap, !m_gameOver );
 
 	// Check for robot-on-robot violence
 	int i = 0;
 	while ( i < m_bots.size() )
 	{
 		Sprite * bot = m_bots[i];
-		if ( bot->gridPos() != m_hero->gridPos() && destroyAllCollidingBots( bot ) )
+		if ( bot->gridPos() != m_hero->gridPos() && destroyAllCollidingBots( bot, !m_gameOver ) )
 		{
 			m_junkheaps << m_scene->createSprite( Junkheap, bot->gridPos() );
-			destroySprite( bot );
+			destroySprite( bot, !m_gameOver );
 		}
 		else
 		{
