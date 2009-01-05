@@ -78,7 +78,11 @@ Killbots::MainWindow::MainWindow( QWidget * parent )
 
 	connect( m_engine, SIGNAL(newGame(int,int,bool)), m_scene, SLOT(onNewGame(int,int,bool)) );
 	connect( m_engine, SIGNAL(gameOver(int,int)), this, SLOT(onGameOver(int,int)) );
-	connect( m_engine, SIGNAL(canAffordSafeTeleport(bool)), m_safeTeleportAction, SLOT(setEnabled(bool)) );
+
+	connect( m_engine, SIGNAL(teleportAllowed(bool)),       actionCollection()->action("teleport"),        SLOT(setEnabled(bool)) );
+	connect( m_engine, SIGNAL(teleportAllowed(bool)),       actionCollection()->action("teleport_sip"),    SLOT(setEnabled(bool)) );
+	connect( m_engine, SIGNAL(teleportSafelyAllowed(bool)), actionCollection()->action("teleport_safely"), SLOT(setEnabled(bool)) );
+	connect( m_engine, SIGNAL(waitOutRoundAllowed(bool)),   actionCollection()->action("wait_out_round"),  SLOT(setEnabled(bool)) );
 
 	QTimer::singleShot( 25, m_engine, SLOT(requestNewGame()) );
 }
@@ -98,11 +102,10 @@ void Killbots::MainWindow::setupActions()
 	KStandardAction::keyBindings( this, SLOT(configureShortcuts()), actionCollection() );
 	KStandardAction::preferences( this, SLOT(configurePreferences()), actionCollection() );
 
-	m_safeTeleportAction =
 	setupMappedAction( actionCollection(), i18n("Teleport Safely"),              "teleport_safely", Qt::Key_Plus,     Qt::Key_T,     TeleportSafely,          "games-solve"  );
 	setupMappedAction( actionCollection(), i18n("Teleport"),                     "teleport",        Qt::Key_Minus,    Qt::Key_R,     Teleport,                "roll"         );
 	setupMappedAction( actionCollection(), i18n("Teleport, Safely If Possible"), "teleport_sip",    Qt::Key_0,        Qt::Key_Space, TeleportSafelyIfPossible                );
-	setupMappedAction( actionCollection(), i18n("Wait Out Round"),               "wait",            Qt::Key_Asterisk, Qt::Key_Y,     WaitOutRound,            "process-stop" );
+	setupMappedAction( actionCollection(), i18n("Wait Out Round"),               "wait_out_round",  Qt::Key_Asterisk, Qt::Key_Y,     WaitOutRound,            "process-stop" );
 
 	// Keyboard Actions - these are shown in Configure Shortcuts but not in Configure Toolbars
 	setupMappedAction( m_keyboardActions,  i18n("Move Up and Left"),             "move_up_left",    Qt::Key_7,        Qt::Key_Q,     UpLeft                   );

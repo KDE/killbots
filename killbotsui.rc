@@ -7,7 +7,7 @@
 			<Action name="teleport"/>
 			<Action name="teleport_safely"/>
 			<Action name="teleport_sip"/>
-			<Action name="wait"/>
+			<Action name="wait_out_round"/>
 		</Menu>
 	</MenuBar>
 
@@ -19,7 +19,7 @@
 		<Separator />
 		<Action name="teleport"/>
 		<Action name="teleport_safely"/>
-		<Action name="wait"/>
+		<Action name="wait_out_round"/>
 	</ToolBar>
 
 </kpartgui>

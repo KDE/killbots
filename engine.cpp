@@ -124,6 +124,10 @@ void Killbots::Engine::newGame()
 	m_fastbotCount = m_rules->fastEnemiesAtGameStart();
 	m_junkheapCount = m_rules->junkheapsAtGameStart();
 
+	emit teleportAllowed( true );
+	emit teleportSafelyAllowed( m_energy >= m_rules->costOfSafeTeleport() );
+	emit waitOutRoundAllowed( true );
+
 	newRound(false);
 	m_busyAnimating = true;
 	m_scene->startAnimation();
@@ -132,8 +136,9 @@ void Killbots::Engine::newGame()
 
 void Killbots::Engine::requestAction( HeroAction action )
 {
-	bool justStoppedRepeating = m_repeatedAction != WaitOutRound && m_repeatedAction != NoAction;
-	if ( justStoppedRepeating )
+	// If the hero is doing a repeated move the new request only stops the hero.
+	bool cancelRepeatedMove = m_repeatedAction != WaitOutRound && m_repeatedAction != NoAction;
+	if ( cancelRepeatedMove )
 	{
 		m_repeatedAction = NoAction;
 	}
@@ -142,7 +147,7 @@ void Killbots::Engine::requestAction( HeroAction action )
 	{
 		doAction( action );
 	}
-	else if ( !justStoppedRepeating )
+	else if ( !cancelRepeatedMove )
 	{
 		m_queuedAction = action;
 	}
@@ -158,10 +163,10 @@ void Killbots::Engine::requestAction( int action )
 
 void Killbots::Engine::doAction( HeroAction action )
 {
-	refreshSpriteMap();
-
 	bool actionSuccessful = false;
 	bool boardFull = false;
+
+	refreshSpriteMap();
 
 	if ( action <= Hold )
 	{
@@ -223,6 +228,9 @@ void Killbots::Engine::animationDone()
 	else if ( m_gameOver )
 	{
 		m_scene->showGameOverMessage();
+		emit teleportAllowed( false );
+		emit teleportSafelyAllowed( false );
+		emit waitOutRoundAllowed( false );
 		emit gameOver( m_score, m_round );
 	}
 	else if ( m_bots.isEmpty() )
@@ -320,7 +328,7 @@ void Killbots::Engine::newRound( bool incrementRound )
 	m_scene->updateScore( m_score );
 	m_scene->updateEnemyCount( m_bots.size() );
 	m_scene->updateEnergy( m_energy );
-	emit canAffordSafeTeleport( m_energy >= m_rules->costOfSafeTeleport() );
+	emit teleportSafelyAllowed( m_energy >= m_rules->costOfSafeTeleport() );
 }
 
 
@@ -376,7 +384,7 @@ void Killbots::Engine::pushJunkheap( Sprite * junkheap, HeroAction direction )
 			if ( m_energy < m_maxEnergy )
 				m_energy = qMin( m_energy + m_rules->squashKillEnergyBonus(), int( m_maxEnergy ) );
 			m_scene->updateEnergy( m_energy );
-			emit canAffordSafeTeleport( m_energy >= m_rules->costOfSafeTeleport() );
+			emit teleportSafelyAllowed( m_energy >= m_rules->costOfSafeTeleport() );
 		}
 	}
 
@@ -434,7 +442,7 @@ bool Killbots::Engine::teleportHeroSafely()
 		m_scene->beginNewAnimationStage();
 
 		m_scene->updateEnergy( m_energy -= m_rules->costOfSafeTeleport() );
-		emit canAffordSafeTeleport( m_energy >= m_rules->costOfSafeTeleport() );
+		emit teleportSafelyAllowed( m_energy >= m_rules->costOfSafeTeleport() );
 
 		m_scene->teleportSprite( m_hero, point );
 
@@ -490,7 +498,7 @@ void Killbots::Engine::assessDamage()
 	m_scene->updateScore( m_score );
 	m_scene->updateEnemyCount( m_bots.size() );
 	m_scene->updateEnergy( m_energy );
-	emit canAffordSafeTeleport( m_energy >= m_rules->costOfSafeTeleport() );
+	emit teleportSafelyAllowed( m_energy >= m_rules->costOfSafeTeleport() );
 }
 
 

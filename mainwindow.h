@@ -61,7 +61,6 @@ namespace Killbots
 		View * m_view;
 		KScoreDialog * m_scoreDialog;
 
-		KAction * m_safeTeleportAction;
 		KActionCollection * m_keyboardActions;
 		QSignalMapper * m_keyboardMapper;
 
