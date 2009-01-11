@@ -163,12 +163,12 @@ void Killbots::MainWindow::configurePreferences()
 		configDialog->addPage( new OptionsPage( this ),
 		                       i18n("General"),
 		                       "configure",
-		                       i18n("Configure general gameplay settings")
+		                       i18n("Configure general settings")
 		                     );
 		configDialog->addPage( new RulesetSelector( this ),
-		                       i18n("Rules"),
+		                       i18n("Game Type"),
 		                       "games-config-custom",
-		                       i18n("Select a set of game rules to use")
+		                       i18n("Select a game type")
 		                     );
 		configDialog->addPage( new KGameThemeSelector( this, Settings::self(), KGameThemeSelector::NewStuffDisableDownload ),
 		                       i18n("Theme"),
