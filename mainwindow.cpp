@@ -160,9 +160,21 @@ void Killbots::MainWindow::configurePreferences()
 		KConfigDialog * configDialog = new KConfigDialog( this, "configurePreferencesDialog", Settings::self() );
 
 		// Creating setting pages and adding them to the dialog
-		configDialog->addPage( new OptionsPage( this ), i18n("General"), "configure" );
-		configDialog->addPage( new RulesetSelector( this ), i18n("Rules"), "games-config-custom" );
-		configDialog->addPage( new KGameThemeSelector( this, Settings::self(), KGameThemeSelector::NewStuffDisableDownload ), i18n("Theme"), "games-config-theme" );
+		configDialog->addPage( new OptionsPage( this ),
+		                       i18n("General"),
+		                       "configure",
+		                       i18n("Configure general gameplay settings")
+		                     );
+		configDialog->addPage( new RulesetSelector( this ),
+		                       i18n("Rules"),
+		                       "games-config-custom",
+		                       i18n("Select a set of game rules to use")
+		                     );
+		configDialog->addPage( new KGameThemeSelector( this, Settings::self(), KGameThemeSelector::NewStuffDisableDownload ),
+		                       i18n("Theme"),
+		                       "games-config-theme",
+		                       i18n("Select a graphical theme")
+		                     );
 
 		configDialog->setMaximumSize( 800, 600 );
 		configDialog->setInitialSize( QSize( 600, 450 ) );
