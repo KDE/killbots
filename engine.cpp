@@ -103,8 +103,7 @@ void Killbots::Engine::newGame()
 		m_rules = Ruleset::loadDefault();
 	Q_ASSERT( m_rules != 0 );
 
-	bool energyIncluded = m_rules->energyAtGameStart() > 0 || m_rules->maxEnergyAtGameStart() > 0 || m_rules->maxEnergyAddedEachRound() > 0;
-	emit newGame( m_rules->rows(), m_rules->columns(), energyIncluded );
+	emit newGame( m_rules->rows(), m_rules->columns(), m_rules->energyEnabled() );
 
 	// Don't show the new game message on first start.
 	if ( m_round != 0 )
@@ -118,14 +117,15 @@ void Killbots::Engine::newGame()
 
 	m_round = 1;
 
-	m_maxEnergy = m_rules->maxEnergyAtGameStart();
-	m_energy = m_rules->energyAtGameStart();
+	m_maxEnergy = m_rules->energyEnabled() ? m_rules->maxEnergyAtGameStart() : 0;
+	m_energy = m_rules->energyEnabled() ? m_rules->energyAtGameStart() : 0;
 	m_robotCount = m_rules->enemiesAtGameStart();
 	m_fastbotCount = m_rules->fastEnemiesAtGameStart();
 	m_junkheapCount = m_rules->junkheapsAtGameStart();
 
 	emit teleportAllowed( true );
-	emit teleportSafelyAllowed( m_energy >= m_rules->costOfSafeTeleport() );
+	emit teleportSafelyAllowed( m_rules->safeTeleportEnabled() && m_energy >= m_rules->costOfSafeTeleport() );
+	emit sonicScrewdriverAllowed( m_rules->sonicScrewdriverEnabled() && m_energy >= m_rules->costOfSonicScrewdriver() );
 	emit waitOutRoundAllowed( true );
 
 	newRound(false);
@@ -172,7 +172,10 @@ void Killbots::Engine::doAction( HeroAction action )
 	{
 		actionSuccessful = moveHero( action );
 	}
-	else if ( ( action == TeleportSafely || action == TeleportSafelyIfPossible ) && m_energy >= m_rules->costOfSafeTeleport() )
+	else if ( ( action == TeleportSafely || action == TeleportSafelyIfPossible )
+	          && m_rules->safeTeleportEnabled()
+	          && m_energy >= m_rules->costOfSafeTeleport()
+	        )
 	{
 		actionSuccessful = teleportHeroSafely();
 		boardFull = !actionSuccessful;
@@ -180,6 +183,10 @@ void Killbots::Engine::doAction( HeroAction action )
 	else if ( action == Teleport || action == TeleportSafelyIfPossible )
 	{
 		actionSuccessful = teleportHero();
+	}
+	else if ( action == SonicScrewdriver && m_energy >= m_rules->costOfSonicScrewdriver() )
+	{
+		actionSuccessful = sonicScrewdriver();
 	}
 	else if ( action == WaitOutRound )
 	{
@@ -230,6 +237,7 @@ void Killbots::Engine::animationDone()
 		m_scene->showGameOverMessage();
 		emit teleportAllowed( false );
 		emit teleportSafelyAllowed( false );
+		emit sonicScrewdriverAllowed( false );
 		emit waitOutRoundAllowed( false );
 		emit gameOver( m_score, m_round );
 	}
@@ -267,9 +275,12 @@ void Killbots::Engine::newRound( bool incrementRound )
 	{
 		++m_round;
 
-		m_maxEnergy += m_rules->maxEnergyAddedEachRound();
-		if ( m_energy < m_maxEnergy )
-			m_energy = qMin( m_energy + m_rules->energyAddedEachRound(), int( m_maxEnergy ) );
+		if ( m_rules->energyEnabled() )
+		{
+			m_maxEnergy += m_rules->maxEnergyAddedEachRound();
+			if ( m_energy < m_maxEnergy )
+				m_energy = qMin( m_energy + m_rules->energyAddedEachRound(), int( m_maxEnergy ) );
+		}
 		m_robotCount += m_rules->enemiesAddedEachRound();
 		m_fastbotCount += m_rules->fastEnemiesAddedEachRound();
 		m_junkheapCount += m_rules->junkheapsAddedEachRound();
@@ -328,7 +339,9 @@ void Killbots::Engine::newRound( bool incrementRound )
 	m_scene->updateScore( m_score );
 	m_scene->updateEnemyCount( m_bots.size() );
 	m_scene->updateEnergy( m_energy );
-	emit teleportSafelyAllowed( m_energy >= m_rules->costOfSafeTeleport() );
+	emit teleportSafelyAllowed( m_rules->safeTeleportEnabled() && m_energy >= m_rules->costOfSafeTeleport() );
+	emit sonicScrewdriverAllowed( m_rules->sonicScrewdriverEnabled() && m_energy >= m_rules->costOfSonicScrewdriver() );
+
 }
 
 
@@ -381,10 +394,13 @@ void Killbots::Engine::pushJunkheap( Sprite * junkheap, HeroAction direction )
 		{
 			destroySprite( currentOccupant );
 			m_score += m_rules->squashKillPointBonus();
-			if ( m_energy < m_maxEnergy )
+			if ( m_rules->energyEnabled() && m_energy < m_maxEnergy )
+			{
 				m_energy = qMin( m_energy + m_rules->squashKillEnergyBonus(), int( m_maxEnergy ) );
-			m_scene->updateEnergy( m_energy );
-			emit teleportSafelyAllowed( m_energy >= m_rules->costOfSafeTeleport() );
+				m_scene->updateEnergy( m_energy );
+				emit teleportSafelyAllowed( m_rules->safeTeleportEnabled() && m_energy >= m_rules->costOfSafeTeleport() );
+				emit sonicScrewdriverAllowed( m_rules->sonicScrewdriverEnabled() && m_energy >= m_rules->costOfSonicScrewdriver() );
+			}
 		}
 	}
 
@@ -443,10 +459,41 @@ bool Killbots::Engine::teleportHeroSafely()
 
 		m_scene->updateEnergy( m_energy -= m_rules->costOfSafeTeleport() );
 		emit teleportSafelyAllowed( m_energy >= m_rules->costOfSafeTeleport() );
+		emit sonicScrewdriverAllowed( m_rules->sonicScrewdriverEnabled() && m_energy >= m_rules->costOfSonicScrewdriver() );
 
 		m_scene->teleportSprite( m_hero, point );
 
 		return true;
+	}
+}
+
+
+bool Killbots::Engine::sonicScrewdriver()
+{
+	QList<Sprite *> neighbors;
+	for ( int i = Right; i <= DownRight; ++i )
+	{
+		QPoint neighbor = m_hero->gridPos() + offsetFromDirection( i );
+		if ( cellIsValid( neighbor ) && ( spriteTypeAt( neighbor ) == Robot || spriteTypeAt( neighbor ) == Fastbot ) )
+			neighbors << m_spriteMap.value(neighbor);
+	}
+
+	if ( neighbors.size() )
+	{
+		m_scene->beginNewAnimationStage();
+
+		m_scene->updateEnergy( m_energy -= m_rules->costOfSonicScrewdriver() );
+		emit sonicScrewdriverAllowed( m_energy >= m_rules->costOfSonicScrewdriver() );
+		emit teleportSafelyAllowed( m_rules->safeTeleportEnabled() && m_energy >= m_rules->costOfSafeTeleport() );
+
+		foreach ( Sprite * sprite, neighbors )
+			destroySprite( sprite );
+
+		return true;
+	}
+	else
+	{
+		return false;
 	}
 }
 
@@ -498,7 +545,8 @@ void Killbots::Engine::assessDamage()
 	m_scene->updateScore( m_score );
 	m_scene->updateEnemyCount( m_bots.size() );
 	m_scene->updateEnergy( m_energy );
-	emit teleportSafelyAllowed( m_energy >= m_rules->costOfSafeTeleport() );
+	emit teleportSafelyAllowed( m_rules->safeTeleportEnabled() && m_energy >= m_rules->costOfSafeTeleport() );
+	emit sonicScrewdriverAllowed( m_rules->sonicScrewdriverEnabled() && m_energy >= m_rules->costOfSonicScrewdriver() );
 }
 
 
@@ -538,8 +586,13 @@ void Killbots::Engine::destroySprite( Sprite * sprite, bool calculatePoints )
 			if ( m_repeatedAction == WaitOutRound )
 			{
 				m_score += m_rules->waitKillPointBonus();
-				if ( m_energy < m_maxEnergy )
+				if ( m_rules->energyEnabled() && m_energy < m_maxEnergy )
+				{
 					m_energy = qMin( m_energy + m_rules->waitKillEnergyBonus(), int( m_maxEnergy ) );
+					m_scene->updateEnergy( m_energy );
+					emit teleportSafelyAllowed( m_rules->safeTeleportEnabled() && m_energy >= m_rules->costOfSafeTeleport() );
+					emit sonicScrewdriverAllowed( m_rules->sonicScrewdriverEnabled() && m_energy >= m_rules->costOfSonicScrewdriver() );
+				}
 			}
 		}
 		m_bots.removeOne( sprite );

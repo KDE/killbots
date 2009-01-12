@@ -63,11 +63,15 @@ EnemiesAtGameStart=10
 EnemiesAddedEachRound=5
 FastEnemiesAtGameStart=0
 FastEnemiesAddedEachRound=0
+EnergyEnabled=false
 EnergyAtGameStart=0
 EnergyAddedEachRound=0
 MaxEnergyAtGameStart=0
 MaxEnergyAddedEachRound=0
-CostOfSafeTeleport=99
+SafeTeleportEnabled=false
+CostOfSafeTeleport=1
+SonicScrewdriverEnabled=false
+CostOfSonicScrewdriver=1
 PushableJunkheaps=None
 SquaskKillsEnabled=false
 JunkheapsAtGameStart=0
@@ -78,5 +82,3 @@ WaitKillPointBonus=1
 WaitKillEnergyBonus=0
 SquashKillPointBonus=0
 SquashKillEnergyBonus=0
-
-

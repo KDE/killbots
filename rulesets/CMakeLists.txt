@@ -1,6 +1,7 @@
 ###### Installing Killbots Rulesets ######
 SET( ruleset_files
     classic.desktop
+    daleks.desktop
     default.desktop
     easy.desktop
 )

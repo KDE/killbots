@@ -48,6 +48,7 @@ namespace Killbots
 		TeleportSafely,
 		TeleportSafelyIfPossible,
 		WaitOutRound,
+		SonicScrewdriver,
 		NoAction,
 
 		RepeatRight = -( Right + 1 ),
@@ -81,6 +82,7 @@ namespace Killbots
 		void gameOver( int score, int round );
 		void teleportAllowed( bool allowed );
 		void teleportSafelyAllowed( bool allowed );
+		void sonicScrewdriverAllowed( bool allowed );
 		void waitOutRoundAllowed( bool allowed );
 
 	private: // functions
@@ -91,6 +93,7 @@ namespace Killbots
 		bool moveHero( HeroAction direction );
 		bool teleportHero();
 		bool teleportHeroSafely();
+		bool sonicScrewdriver();
 
 		void pushJunkheap( Sprite * junkheap, HeroAction direction );
 		void moveRobots( bool justFastbots = false );

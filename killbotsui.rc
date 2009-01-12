@@ -7,6 +7,7 @@
 			<Action name="teleport"/>
 			<Action name="teleport_safely"/>
 			<Action name="teleport_sip"/>
+			<Action name="screwdriver"/>
 			<Action name="wait_out_round"/>
 		</Menu>
 	</MenuBar>
