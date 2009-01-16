@@ -1,0 +1,34 @@
+Translating Keyboard Controls in Killbots
+
+To effectively use the keyboard to control Killbots. the movement keys must be
+assigned to a 3 by 3 grid of adjacent keys. In KDE 4.2, the basic directional
+controls were assigned to Q,W,E,A,S,D,Z,X,C,(the leftmost block of letter keys
+on a QWERTY keyboard). Special action keys were assigned to those just right
+of this block. The keys of the numeric keypad were added as an alternate set.
+
+It was quickly noticed that while the QWE... keys were convenient for those
+with American-style keyboards, they were of little to no use to those on other
+layouts where the keys might be spread about at random. Also most laptop users
+do not have numeric keypads, so for a large percentage of users neither set
+of default shortcuts were usable.
+
+As a result I'm asking you, the translators, to translate these keys to their
+physical equivalents on the localised keyboard layout. I realise that some
+locales might not have their own keyboard layout, while others might have
+more than one. In such cases, please choose the layout that is most commonly
+found on new keyboards sold in your locale. (Keep in mind that we are only
+discussing default key assignments. The user still has the option of
+reassigning the shortcuts manually in the Configure Shortcuts dialog.)
+
+The following are some example mappings (taken from Wikipedia):
+
+US-English  French      Greek       Ukranian    Hebrew
+
+QWERT       AZERT       ;ςΕΡΤ       ЙЦУКЕ       /'ארק
+ASDF        QSDF        ΑΣΔΦ        ФІВА        כגדש
+ZXCV        WXCV        ΖΧΨΩ        ЯЧСМ        הבסז
+
+
+
+
+

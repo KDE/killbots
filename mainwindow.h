@@ -44,7 +44,8 @@ namespace Killbots
 
 	private: // functions
 		void setupActions();
-		KAction * setupMappedAction( KActionCollection * collection, const QString & displayName, const QString & internalName, const QKeySequence & primaryShortcut, const QKeySequence & alternateShortcut, int mapping, const QString & icon = QString() );
+		KAction * setupMappedAction( KActionCollection * collection, const QString & displayName, const QString & internalName, const QKeySequence & primaryShortcut, const QKeySequence & alternateShortcut, int mapping, const QString & icon );
+		KAction * createMappedAction( KActionCollection * collection, int mapping, const QString & internalName, const QString & displayName, const QString & translatedShortcut, const QKeySequence & alternateShortcut, const QString & toolTip = QString(), const QString & icon = QString() );
 		void createScoreDialog();
 
 	private slots:

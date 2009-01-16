@@ -103,22 +103,116 @@ void Killbots::MainWindow::setupActions()
 	KStandardAction::keyBindings( this, SLOT(configureShortcuts()), actionCollection() );
 	KStandardAction::preferences( this, SLOT(configurePreferences()), actionCollection() );
 
-	setupMappedAction( actionCollection(), i18n("Teleport Safely"),              "teleport_safely", Qt::Key_Plus,     Qt::Key_T,     TeleportSafely,          "games-solve"  );
-	setupMappedAction( actionCollection(), i18n("Teleport"),                     "teleport",        Qt::Key_Minus,    Qt::Key_R,     Teleport,                "roll"         );
-	setupMappedAction( actionCollection(), i18n("Teleport, Safely If Possible"), "teleport_sip",    Qt::Key_0,        Qt::Key_Space, TeleportSafelyIfPossible                );
-	setupMappedAction( actionCollection(), i18n("Sonic Screwdriver"),            "screwdriver",     Qt::Key_Period,   Qt::Key_F,     SonicScrewdriver,        "edit-bomb"    );
-	setupMappedAction( actionCollection(), i18n("Wait Out Round"),               "wait_out_round",  Qt::Key_Asterisk, Qt::Key_Y,     WaitOutRound,            "process-stop" );
+	createMappedAction( actionCollection(),
+	                    TeleportSafely,
+	                    "teleport_safely",
+	                    i18n("Teleport Safely"),
+	                    i18nc("Shortcut for teleport safely. See http://websvn.kde.org/trunk/KDE/kdegames/killbots/README.translators?view=markup", "T"),
+	                    Qt::Key_Plus,
+	                    i18n("Teleport to a safe location"),
+	                    "games-solve"
+	                  );
+	createMappedAction( actionCollection(),
+	                    Teleport,
+	                    "teleport",
+	                    i18n("Teleport"),
+	                    i18nc("Shortcut for teleport. See http://websvn.kde.org/trunk/KDE/kdegames/killbots/README.translators?view=markup", "R"),
+	                    Qt::Key_Minus,
+	                    i18n("Teleport to a random location"),
+	                    "roll"
+	                  );
+	createMappedAction( actionCollection(),
+	                    TeleportSafelyIfPossible,
+	                    "teleport_sip",
+	                    i18n("Teleport, Safely If Possible"),
+	                    i18nc("Shortcut for teleport safely if possible. See http://websvn.kde.org/trunk/KDE/kdegames/killbots/README.translators?view=markup", "Space"),
+	                    Qt::Key_0,
+	                    i18n("Teleport safely if that action is enabled, otherwise teleport randomly")
+	                  );
+	createMappedAction( actionCollection(),
+	                    SonicScrewdriver,
+	                    "screwdriver",
+	                    i18n("Sonic Screwdriver"),
+	                    i18nc("Shortcut for sonicscrewdriver. See http://websvn.kde.org/trunk/KDE/kdegames/killbots/README.translators?view=markup", "F"),
+	                    Qt::Key_Period,
+	                    i18n("Destroy all enemies in neighboring cells"),
+	                    "edit-bomb"
+	                  );
+	createMappedAction( actionCollection(),
+	                    WaitOutRound,
+	                    "wait_out_round",
+	                    i18n("Wait Out Round"),
+	                    i18nc("Shortcut for wait out round. See http://websvn.kde.org/trunk/KDE/kdegames/killbots/README.translators?view=markup", "V"),
+	                    Qt::Key_Asterisk,
+	                    i18n("Risk remaining in place until the end of the round for bonuses"),
+	                    "process-stop"
+	                  );
+
 
 	// Keyboard Actions - these are shown in Configure Shortcuts but not in Configure Toolbars
-	setupMappedAction( m_keyboardActions,  i18n("Move Up and Left"),             "move_up_left",    Qt::Key_7,        Qt::Key_Q,     UpLeft                   );
-	setupMappedAction( m_keyboardActions,  i18n("Move Up"),                      "move_up",         Qt::Key_8,        Qt::Key_W,     Up                       );
-	setupMappedAction( m_keyboardActions,  i18n("Move Up and Right"),            "move_up_right",   Qt::Key_9,        Qt::Key_E,     UpRight                  );
-	setupMappedAction( m_keyboardActions,  i18n("Move Left"),                    "move_left",       Qt::Key_4,        Qt::Key_A,     Left                     );
-	setupMappedAction( m_keyboardActions,  i18n("Stand Still"),                  "stand_still",     Qt::Key_5,        Qt::Key_S,     Hold                     );
-	setupMappedAction( m_keyboardActions,  i18n("Move Right"),                   "move_right",      Qt::Key_6,        Qt::Key_D,     Right                    );
-	setupMappedAction( m_keyboardActions,  i18n("Move Down and Left"),           "move_down_left",  Qt::Key_1,        Qt::Key_Z,     DownLeft                 );
-	setupMappedAction( m_keyboardActions,  i18n("Move Down"),                    "move_down",       Qt::Key_2,        Qt::Key_X,     Down                     );
-	setupMappedAction( m_keyboardActions,  i18n("Move Down and Right"),          "move_down_right", Qt::Key_3,        Qt::Key_C,     DownRight                );
+	createMappedAction( m_keyboardActions,
+	                    UpLeft,
+	                    "move_up_left",
+	                    i18n("Move Up and Left"),
+	                    i18nc("Shortcut for move up and left. See http://websvn.kde.org/trunk/KDE/kdegames/killbots/README.translators?view=markup", "Q"),
+	                    Qt::Key_7
+	                  );
+	createMappedAction( m_keyboardActions,
+	                    Up,
+	                    "move_up",
+	                    i18n("Move Up"),
+	                    i18nc("Shortcut for move up. See http://websvn.kde.org/trunk/KDE/kdegames/killbots/README.translators?view=markup", "W"),
+	                    Qt::Key_8
+	                  );
+	createMappedAction( m_keyboardActions,
+	                    UpRight,
+	                    "move_up_right",
+	                    i18n("Move Up and Right"),
+	                    i18nc("Shortcut for move up and right. See http://websvn.kde.org/trunk/KDE/kdegames/killbots/README.translators?view=markup", "E"),
+	                    Qt::Key_9
+	                  );
+	createMappedAction( m_keyboardActions,
+	                    Left,
+	                    "move_left",
+	                    i18n("Move Left"),
+	                    i18nc("Shortcut for move left. See http://websvn.kde.org/trunk/KDE/kdegames/killbots/README.translators?view=markup", "A"),
+	                    Qt::Key_4
+	                  );
+	createMappedAction( m_keyboardActions,
+	                    Hold,
+	                    "stand_still",
+	                    i18n("Stand Still"),
+	                    i18nc("Shortcut for stand still. See http://websvn.kde.org/trunk/KDE/kdegames/killbots/README.translators?view=markup", "S"),
+	                    Qt::Key_5
+	                  );
+	createMappedAction( m_keyboardActions,
+	                    Right,
+	                    "move_right",
+	                    i18n("Move Right"),
+	                    i18nc("Shortcut for move right. See http://websvn.kde.org/trunk/KDE/kdegames/killbots/README.translators?view=markup", "D"),
+	                    Qt::Key_6
+	                  );
+	createMappedAction( m_keyboardActions,
+	                    DownLeft,
+	                    "move_down_left",
+	                    i18n("Move Down and Left"),
+	                    i18nc("Shortcut for move down and left. See http://websvn.kde.org/trunk/KDE/kdegames/killbots/README.translators?view=markup", "Z"),
+	                    Qt::Key_1
+	                    );
+	createMappedAction( m_keyboardActions,
+	                    Down,
+	                    "move_down",
+	                    i18n("Move Down"),
+	                    i18nc("Shortcut for move down. See http://websvn.kde.org/trunk/KDE/kdegames/killbots/README.translators?view=markup", "X"),
+	                    Qt::Key_2
+	                  );
+	createMappedAction( m_keyboardActions,
+	                    DownRight,
+	                    "move_down_right",
+	                    i18n("Move Down and Right"),
+	                    i18nc("Shortcut for move down and right. See http://websvn.kde.org/trunk/KDE/kdegames/killbots/README.translators?view=markup", "C"),
+	                    Qt::Key_3
+	                  );
 
 	connect( m_keyboardMapper, SIGNAL(mapped(int)), m_engine, SLOT(requestAction(int)) );
 
@@ -126,11 +220,21 @@ void Killbots::MainWindow::setupActions()
 }
 
 
-KAction * Killbots::MainWindow::setupMappedAction( KActionCollection * collection, const QString & displayName, const QString & internalName, const QKeySequence & primaryShortcut, const QKeySequence & alternateShortcut, int mapping, const QString & icon )
+KAction * Killbots::MainWindow::createMappedAction( KActionCollection * collection,
+                                                    int mapping,
+                                                    const QString & internalName,
+                                                    const QString & displayName,
+                                                    const QString & translatedShortcut,
+                                                    const QKeySequence & alternateShortcut,
+                                                    const QString & toolTip,
+                                                    const QString & icon
+                                                  )
 {
 	KAction * action = new KAction( displayName, collection );
 	action->setObjectName( internalName );
-	action->setShortcut( KShortcut( primaryShortcut, alternateShortcut ) );
+	action->setShortcut( KShortcut( QKeySequence( translatedShortcut ), alternateShortcut ) );
+	if ( !toolTip.isEmpty() )
+		action->setToolTip( toolTip );
 	if ( !icon.isEmpty() )
 		action->setIcon( KIcon( icon ) );
 
@@ -259,13 +363,13 @@ void Killbots::MainWindow::onGameOver( int score, int round )
 	{
 		if ( !m_scoreDialog )
 			createScoreDialog();
-	
+
 		m_scoreDialog->setConfigGroup( qMakePair( m_engine->ruleset()->scoreGroupKey(), m_engine->ruleset()->name() ) );
-	
+
 		KScoreDialog::FieldInfo scoreEntry;
 		scoreEntry[ KScoreDialog::Score ].setNum( score );
 		scoreEntry[ KScoreDialog::Level ].setNum( round );
-	
+
 		if ( m_scoreDialog->addScore( scoreEntry ) )
 			QTimer::singleShot( 1000, this, SLOT(showHighscores()) );
 	}
