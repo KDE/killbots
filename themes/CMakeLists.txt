@@ -1,5 +1,5 @@
 ###### Installing Themes ######
-SET( theme_files
+set( theme_files
     classic.desktop
     classic.png
     classic.svg

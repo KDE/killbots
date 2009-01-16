@@ -6,7 +6,7 @@ add_subdirectory( rulesets )
 add_subdirectory( themes )
 
 ###### Building killbots executable ######
-SET( killbots_SRCS
+set( killbots_SRCS
     engine.cpp
     gamestatusdisplayitem.cpp
     mainwindow.cpp

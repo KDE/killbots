@@ -1,5 +1,5 @@
 ###### Installing Killbots Rulesets ######
-SET( ruleset_files
+set( ruleset_files
     classic.desktop
     daleks.desktop
     default.desktop
