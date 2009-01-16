@@ -6,16 +6,23 @@
  Indentation
 *******************************************************************************
 
-Structural indentation is done with tabs. Formatting is done with spaces. All code having the
-same nested depth has the same number of tabs. This separates meaning from presentation.
+Structural indentation is done with tabs. Formatting is done with spaces. All
+code having the same nested depth has the same number of tabs. This separates
+meaning from presentation.
 
-Tabwidth is a matter of personal preference. If the above is followed source is tabwidth independent.
+Tabwidth is a matter of personal preference. If the above is followed source is
+tabwidth independent.
 
-Ensure your editor doesn't do automatic conversion from spaces to tabs, as this will break things.
+Ensure your editor doesn't do automatic conversion from spaces to tabs, as this
+will break things.
 
 Labels (public, private, goto, case, etc.) do not get indented.
 
-Empty lines do not get indentation. In fact, no lines should have trailing whitespace.
+Empty lines do not get indentation. In fact, no lines should have trailing
+whitespace.
+
+If a pair of parentheses span multiple lines, the closing parenthesis should be
+indented (with spaces) to appear in the same column as the opening parenthesis.
 
 Examples:
 -------------------------------------------------------------------------------
@@ -47,7 +54,9 @@ ________.....KMessageBox::questionYesNo( this,
 ________.................................i18n("A new ruleset has been selected, but there is already a game in progress."),
 ________.................................i18n("Rule Set Changed"),
 ________.................................KGuiItem( i18n("Continue Current Game") ),
-________.................................KGuiItem( i18n("Start a New Game") ) ) == KMessageBox::No )
+________.................................KGuiItem( i18n("Start a New Game") )
+________...............................) == KMessageBox::No
+________...)
 ________{
 -------------------------------------------------------------------------------
 
@@ -56,12 +65,15 @@ ________{
  Braces
 *******************************************************************************
 
-Opening braces are always on a new line.
+Opening and closing braces are always on a new line.
 
-For loop or conditional statements, braces can be omitted if the block is a single-line
-statement and the conditional fits on a single line.
+For loop or conditional statements, braces can be omitted if the block is a
+single-line statement and the conditional fits on a single line. If braces are
+used in one block of an if-elseif-else statement, they should be used in the
+other blocks even if those blocks are a single line.
 
-Blocks never appear on the same line as the loop/conditional, even if braces aren't used.
+Blocks never appear on the same line as the loop/conditional, even if braces
+aren't used.
 
 Empty blocks are represented on a single line as '{}'
 
@@ -86,7 +98,9 @@ if ( m_rules->pushableJunkheaps() != Ruleset::None && cellIsValid( nextCell ) )
         return m_rules->squaskKillsEnabled();
 }
 else
+{
     return false;
+}
 -------------------------------------------------------------------------------
 while ( m_rulesetMap.contains( name ) )
     name += '_';
@@ -96,24 +110,29 @@ while ( m_rulesetMap.contains( name ) )
  Whitespace
 *******************************************************************************
 
-Lines should generally be kept to less than 100 characters, but don't make code uglier just to avoid width.
+Lines should generally be kept to less than 100 characters, but don't make code
+uglier just to avoid width.
 
 Two empty lines should be used to separate function definitions.
 
-Within a block, empty lines may be used to break up unrelated lines, but never more than one.
+Within a block, empty lines may be used to break up unrelated lines, but never
+more than one.
 
 No space appears between the function name and the opening bracket.
 
-A single space appears between the loop/conditional statement name and the opening bracket.
+A single space appears between the loop/conditional statement name and the
+opening bracket.
 
-Padding spaces appear inside of all parentheses, unless the parentheses are empty or contain only a
-string literal.
+Padding spaces appear inside of all parentheses, unless the parentheses are
+empty or contain only a string literal.
 
-Binary operators are separated from their operands with a single space. Unary operators are not.
+Binary operators are separated from their operands with a single space. Unary
+operators are not.
 
 Pointer and reference symbols have a space on either side.
 
-No padding spaces appear inside angle brackets when using template functions/classes.
+No padding spaces appear inside angle brackets when using template functions
+or classes.
 
 No space appears between a label and the following colon.
 
@@ -126,16 +145,17 @@ No whitespace should appear inside Qt's SIGNAL and SLOT macros.
 
 All identifiers should use camel case.
 
-Classnames and namespaces begin with uppercase letters. All other identifiers begin with
-lowercase letters.
+Classnames and namespaces begin with uppercase letters. All other identifiers
+begin with lowercase letters.
 
-Class data members are prefixed with 'm_', unless they are public KConfigXT widgets,
-in which case, they are prefixed with 'kfcg_'.
+Class data members are prefixed with 'm_', unless they are public KConfigXT
+widgets, in which case, they are prefixed with 'kfcg_'.
 
-Indentifiers should favour descriptiveness over brevity. Single letter variables are acceptable only
-for iterators or coordinates.
+Indentifiers should favour descriptiveness over brevity. Single letter
+variables are acceptable only for iterators or coordinates.
 
-All indentifiers should use American English spelling. (Comments can be in your choice of English.)
+All indentifiers should use American English spelling. (Comments can be in your
+choice of English.)
 
 Examples:
 -------------------------------------------------------------------------------
@@ -177,9 +197,10 @@ namespace Killbots
 
 Feel free to comment as much as possible.
 
-Comments should describe the purpose of logic or give background details not obvious from
-the code. Comments should not describe what the code is doing, unless the code is extremely
-dense (in which case the code should probably be rewritten/refactored anyway).
+Comments should describe the purpose of logic or give background details not
+obvious from the code. Comments should not describe what the code is doing,
+unless the code is extremely dense (in which case the code should probably be
+rewritten/refactored anyway).
 
 Comments appear on the line before the code it is commenting on.
 
@@ -190,11 +211,12 @@ Use '/**/' for comments longer than 3 lines.
  Class Definitions
 *******************************************************************************
 
-Classes should be given simple names and placed inside the Killbots namespace instead
-of adding a prefix. (i.e. Killbots::MainWindow instead of KillbotsMainWindow)
+Classes should be given simple names and placed inside the Killbots namespace
+instead of adding a prefix. (i.e. Killbots::MainWindow instead of
+KillbotsMainWindow)
 
-No inline function definitions in the header, even if there a single statement. Same goes
-for constructors.
+No inline function definitions in the header, even if they are a single
+statement. Same goes for constructors.
 
 Define destructors even if they're empty.
 
@@ -273,14 +295,16 @@ namespace Killbots
  Miscellaneous
 *******************************************************************************
 
-It is generally preferred that functions have a single return statement, but multiple
-returns statements are exceptable if a single return would make the code more complicated.
+It is generally preferred that functions have a single return statement, but
+multiple returns statements are exceptable if a single return would make the
+code more complicated.
 
 Use the "Q_UNUSED" macro on unused function parameters.
 
-Use "static_cast<>" instead of the C or C++ style type casts when casting pointers.
+Use "static_cast<>" instead of the C or C++ style type casts when casting
+pointers.
 
-When converting one type to another use C++ or constructor style casts. For example, use
-"int()" to convert floating types to integers.
+When converting one type to another use C++ or constructor style casts. For
+example, use "int()" to convert floating types to integers.
 
 Make sure code passes all the English Breakfast Network checks.
