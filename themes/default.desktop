@@ -2,6 +2,7 @@
 Name=Robot Kill
 Name[de]=Roboterzerstörung
 Name[el]=Σκότωμα ρομπότ
+Name[es]=Robot asesino
 Name[et]=Robotite tapmine
 Name[fr]=Tueur de robots
 Name[gl]=Mate robots
@@ -20,6 +21,7 @@ Description[cs]=Výchozí motiv pro Killbots.
 Description[da]=Killbots' standardtema.
 Description[de]=Das standardmäßige Design von Killbots.
 Description[el]=Το προκαθορισμένο θέμα του Killbots.
+Description[es]=El tema predeterminado de Killbots
 Description[et]=Killbotsi vaikimisi teema.
 Description[fr]=Le thème par défaut de Killbots.
 Description[gl]=O tema predeterminado de Killbots.
