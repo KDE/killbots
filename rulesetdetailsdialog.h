@@ -18,46 +18,20 @@
  *  Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#ifndef KILLBOTS_RULESETSELECTOR_H
-#define KILLBOTS_RULESETSELECTOR_H
+#ifndef KILLBOTS_RULESETDETAILSDIALOG_H
+#define KILLBOTS_RULESETDETAILSDIALOG_H
 
-class KLineEdit;
+#include <KDE/KDialog>
 
-#include <QtCore/QMap>
-class QLabel;
-class QListWidget;
-class QTableWidget;
-#include <QtGui/QWidget>
-
-namespace Killbots
-{
+namespace Killbots {
 	class Ruleset;
 
-	class RulesetSelector : public QWidget
+	class RulesetDetailsDialog : public KDialog
 	{
-		Q_OBJECT
-
-	public: // functions
-		explicit RulesetSelector( QWidget * parent = 0 );
-		virtual ~RulesetSelector();
-
-	public: // data members
-		KLineEdit * kcfg_Ruleset;
-
-	private: // functions
-		void findRulesets();
-
-	private slots:
-		void selectionChanged( QString rulesetName );
-		void showDetailsDialog();
-
-	private: // data members
-		QListWidget * m_listWidget;
-		QLabel * m_author;
-		QLabel * m_authorContact;
-		QLabel * m_description;
-		QMap< QString, Ruleset * > m_rulesetMap;
+	public:
+		RulesetDetailsDialog( const Ruleset * ruleset, QWidget * parent = 0 );
 	};
+
 }
 
-#endif
+#endif // KILLBOTS_RULESETDETAILSDIALOG_H

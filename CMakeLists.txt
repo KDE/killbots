@@ -14,6 +14,7 @@ set( killbots_SRCS
     optionspage.cpp
     render.cpp
     ruleset.cpp
+    rulesetdetailsdialog.cpp
     rulesetselector.cpp
     scene.cpp
     sprite.cpp

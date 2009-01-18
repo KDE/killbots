@@ -16,53 +16,68 @@
 		<entry name="Rows" type="Int">
 			<min>6</min>
 			<default>16</default>
+			<label>Number of rows in game grid</label>
 		</entry>
 		<entry name="Columns" type="Int">
 			<min>6</min>
 			<default>16</default>
+			<label>Number of columns in game grid</label>
 		</entry>
 		<entry name="EnemiesAtGameStart" type="Double">
 			<default>8</default>
+			<label>Number of regular enemies in first round</label>
 		</entry>
 		<entry name="EnemiesAddedEachRound" type="Double">
 			<default>4</default>
+			<label>Number of regular enemies added in each new round</label>
 		</entry>
 		<entry name="FastEnemiesAtGameStart" type="Double">
 			<default>-4</default>
+			<label>Number of fast enemies in first round</label>
 		</entry>
 		<entry name="FastEnemiesAddedEachRound" type="Double">
 			<default>2</default>
+			<label>Number of fast enemies added in each new round</label>
 		</entry>
 		<entry name="EnergyEnabled" type="Bool">
 			<default>true</default>
+			<label>Player can accumulate energy</label>
 		</entry>
 		<entry name="EnergyAtGameStart" type="Int">
 			<min>0</min>
 			<default>0</default>
+			<label>Energy at start of first round</label>
 		</entry>
 		<entry name="EnergyAddedEachRound" type="Int">
 			<default>0</default>
+			<label>Energy awarded for completing a round</label>
 		</entry>
 		<entry name="MaxEnergyAtGameStart" type="Double">
 			<min>0</min>
 			<default>12</default>
+			<label>Maximum energy cap in first round</label>
 		</entry>
 		<entry name="MaxEnergyAddedEachRound" type="Double">
 			<default>0</default>
+			<label>Increase in maximum energy cap for each new round</label>
 		</entry>
 		<entry name="SafeTeleportEnabled" type="Bool">
 			<default>true</default>
+			<label>Player can perform safe teleports</label>
 		</entry>
 		<entry name="CostOfSafeTeleport" type="Int">
 			<min>1</min>
 			<default>1</default>
+			<label>The cost of performing a safe teleport</label>
 		</entry>
 		<entry name="SonicScrewdriverEnabled" type="Bool">
 			<default>false</default>
+			<label>Player can use sonic screwdriver</label>
 		</entry>
 		<entry name="CostOfSonicScrewdriver" type="Int">
 			<min>1</min>
 			<default>1</default>
+			<label>Cost of using sonic screwdriver</label>
 		</entry>
 		<entry name="PushableJunkheaps" type="Enum">
 			<choices name="JunkheapsThatCanBePushed">
@@ -71,39 +86,49 @@
 				<choice name="Many"/>
 			</choices>
 			<default>Many</default>
+			<label>Number of junkheaps that can be pushed at once</label>
 		</entry>
 		<entry name="SquaskKillsEnabled" type="Bool">
 			<default>true</default>
+			<label>Player can destroy enemies with a pushed junkheap</label>
 		</entry>
 		<entry name="JunkheapsAtGameStart" type="Double">
 			<default>0</default>
+			<label>Junkheaps placed on grid at start of first round</label>
 		</entry>
 		<entry name="JunkheapsAddedEachRound" type="Double">
 			<default>0</default>
+			<label>Junkheaps added to the grid for each new round</label>
 		</entry>
 		<entry name="PointsPerEnemyKilled" type="Int">
 			<min>0</min>
 			<default>5</default>
+			<label>Points awarded for each regular enemy destroyed</label>
 		</entry>
 		<entry name="PointsPerFastEnemyKilled" type="Int">
 			<min>0</min>
 			<default>10</default>
+			<label>Points awarded for each fast enemy destroyed</label>
 		</entry>
 		<entry name="WaitKillPointBonus" type="Int">
 			<min>0</min>
 			<default>0</default>
+			<label>Points awarded for each enemy destroyed while waiting out the round</label>
 		</entry>
 		<entry name="WaitKillEnergyBonus" type="Int">
 			<min>0</min>
 			<default>1</default>
+			<label>Energy awarded for each enemy destroyed while waiting out the round</label>
 		</entry>
 		<entry name="SquashKillPointBonus" type="Int">
 			<min>0</min>
 			<default>0</default>
+			<label>Points awarded for each enemy destroyed with a pushed junkheap</label>
 		</entry>
 		<entry name="SquashKillEnergyBonus" type="Int">
 			<min>0</min>
 			<default>1</default>
+			<label>Energy awarded for each enemy destroyed with a pushed junkheap</label>
 		</entry>
 	</group>
 </kcfg>

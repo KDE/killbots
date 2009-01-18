@@ -1,6 +1,6 @@
 /*
  *  Killbots
- *  Copyright (C) 2006-2008  Parker Coates <parker.coates@gmail.com>
+ *  Copyright (C) 2006-2009  Parker Coates <parker.coates@gmail.com>
  *
  *  This program is free software; you can redistribute it and/or
  *  modify it under the terms of the GNU General Public License as
@@ -21,6 +21,7 @@
 #include "rulesetselector.h"
 
 #include "ruleset.h"
+#include "rulesetdetailsdialog.h"
 #include "settings.h"
 
 #include <KDE/KDebug>
@@ -32,7 +33,9 @@
 #include <QtGui/QLabel>
 #include <QtGui/QLayout>
 #include <QtGui/QListWidget>
+#include <QtGui/QPushButton>
 #include <QtGui/QScrollArea>
+#include <QtGui/QTableWidget>
 
 Killbots::RulesetSelector::RulesetSelector( QWidget * parent )
   : QWidget( parent ),
@@ -71,6 +74,8 @@ Killbots::RulesetSelector::RulesetSelector( QWidget * parent )
 	m_description->setAlignment( Qt::AlignLeft | Qt::AlignTop );
 	m_description->setWordWrap( true );
 
+	QPushButton * detailsButton = new QPushButton( i18n("Details...") );
+
 	QGridLayout * boxLayout = new QGridLayout( groupBox );
 	boxLayout->setColumnStretch( 1, 10 );
 	boxLayout->setRowStretch( 4, 10 );
@@ -80,6 +85,7 @@ Killbots::RulesetSelector::RulesetSelector( QWidget * parent )
 	boxLayout->addWidget( m_authorContact, 2, 1 );
 	boxLayout->addWidget( descriptionLabel, 3, 0 );
 	boxLayout->addWidget( m_description, 3, 1 );
+	boxLayout->addWidget( detailsButton, 4, 1, Qt::AlignLeft );
 
 	QVBoxLayout * layout = new QVBoxLayout( this );
 	layout->setMargin( 0 );
@@ -88,6 +94,7 @@ Killbots::RulesetSelector::RulesetSelector( QWidget * parent )
 	layout->addWidget( groupBox, 10 );
 
 	connect( m_listWidget, SIGNAL(currentTextChanged(QString)), this, SLOT(selectionChanged(QString)) );
+	connect( detailsButton, SIGNAL(clicked()), this, SLOT(showDetailsDialog()) );
 
 	findRulesets();
 }
@@ -133,12 +140,14 @@ void Killbots::RulesetSelector::findRulesets()
 	const int itemHeight = m_listWidget->visualItemRect( m_listWidget->item( 0 ) ).height();
 	const int verticalMargin = m_listWidget->height() - m_listWidget->viewport()->height();
 	m_listWidget->setMaximumHeight( itemHeight * m_listWidget->count() + verticalMargin );
+
+
 }
 
 
 void Killbots::RulesetSelector::selectionChanged( QString rulesetName )
 {
-	Ruleset * ruleset = m_rulesetMap[rulesetName];
+	Ruleset * ruleset = m_rulesetMap.value( rulesetName );
 
 	kcfg_Ruleset->setText( ruleset->fileName() );
 
@@ -152,5 +161,14 @@ void Killbots::RulesetSelector::selectionChanged( QString rulesetName )
 	else
 		m_authorContact->setText( ruleset->authorContact() );
 	m_description->setText( ruleset->description() );
+}
+
+
+void Killbots::RulesetSelector::showDetailsDialog()
+{
+	Ruleset * ruleset = m_rulesetMap.value( m_listWidget->currentItem()->text() );
+
+	RulesetDetailsDialog dialog( ruleset, this );
+	dialog.exec();
 }
 
