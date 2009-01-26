@@ -130,5 +130,10 @@
 			<default>1</default>
 			<label>Energy awarded for each enemy destroyed with a pushed junkheap</label>
 		</entry>
+		<entry name="PointsPerEnergyAboveMax" type="Int">
+			<min>0</min>
+			<default>10</default>
+			<label>Points awarded for each energy awarded above maximum energy cap</label>
+		</entry>
 	</group>
 </kcfg>
