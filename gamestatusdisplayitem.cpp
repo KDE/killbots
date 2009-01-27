@@ -1,6 +1,6 @@
 /*
  *  Killbots
- *  Copyright (C) 2006-2008  Parker Coates <parker.coates@gmail.com>
+ *  Copyright (C) 2006-2009  Parker Coates <parker.coates@gmail.com>
  *
  *  This program is free software; you can redistribute it and/or
  *  modify it under the terms of the GNU General Public License as
@@ -33,6 +33,7 @@ Killbots::GameStatusDisplayItem::GameStatusDisplayItem( const QString & labelTex
     m_digits( 3 )
 {
 	setFont( QFont() );
+	setSize( preferredSize() );
 }
 
 
@@ -49,15 +50,14 @@ void Killbots::GameStatusDisplayItem::setSize( QSize size )
 }
 
 
-void Killbots::GameStatusDisplayItem::adjustSize()
+QSize Killbots::GameStatusDisplayItem::preferredSize()
 {
-	QString fullString = m_label + QString( m_digits + 1, '8' );
+	QSize labelSize = QFontMetrics( m_font ).boundingRect( m_label ).size();
+	QSize digitsSize = QFontMetrics( m_boldFont ).boundingRect( QString( m_digits + 1, '8' ) ).size();
 
-	QSize size = QFontMetrics( m_boldFont ).boundingRect( fullString ).size();
-
-	size += 2 * QSize( m_margin, m_margin );
-
-	setSize( size );
+	return QSize( labelSize.width() + digitsSize.width() + 2 * m_margin,
+	              qMax( labelSize.height(), digitsSize.height() ) + 2 * m_margin
+	            );
 }
 
 
@@ -91,8 +91,11 @@ void Killbots::GameStatusDisplayItem::paint( QPainter * p, const QStyleOptionGra
 
 void Killbots::GameStatusDisplayItem::setText( const QString & text )
 {
-	m_label = text;
-	update();
+	if ( text != m_label )
+	{
+		m_label = text;
+		update();
+	}
 }
 
 
@@ -104,8 +107,11 @@ QString Killbots::GameStatusDisplayItem::text() const
 
 void Killbots::GameStatusDisplayItem::setValue( int value )
 {
-	m_value = value;
-	update();
+	if ( value != m_value )
+	{
+		m_value = value;
+		update();
+	}
 }
 
 
@@ -117,8 +123,10 @@ int Killbots::GameStatusDisplayItem::value() const
 
 void Killbots::GameStatusDisplayItem::setDigits( int digits )
 {
-	m_digits = digits;
-	adjustSize();
+	if ( digits != m_digits )
+	{
+		m_digits = digits;
+	}
 }
 
 
@@ -130,13 +138,15 @@ int Killbots::GameStatusDisplayItem::digits() const
 
 void Killbots::GameStatusDisplayItem::setFont( const QFont & font )
 {
-	m_font = font;
+	if ( font != m_font )
+	{
+		m_font = font;
 
-	m_boldFont = font;
-	m_boldFont.setBold( true );
+		m_boldFont = font;
+		m_boldFont.setBold( true );
 
-	m_margin = int( m_boldFont.pixelSize() * 0.6 );
-	adjustSize();
+		m_margin = int( m_boldFont.pixelSize() * 0.6 );
+	}
 }
 
 

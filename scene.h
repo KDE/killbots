@@ -1,6 +1,6 @@
 /*
  *  Killbots
- *  Copyright (C) 2006-2008  Parker Coates <parker.coates@gmail.com>
+ *  Copyright (C) 2006-2009  Parker Coates <parker.coates@gmail.com>
  *
  *  This program is free software; you can redistribute it and/or
  *  modify it under the terms of the GNU General Public License as
@@ -101,7 +101,6 @@ namespace Killbots
 		GameStatusDisplayItem * m_scoreDisplay;
 		GameStatusDisplayItem * m_enemyCountDisplay;
 		GameStatusDisplayItem * m_energyDisplay;
-		QSize m_displaySize;
 
 		QSize m_cellSize;
 		int m_rows;

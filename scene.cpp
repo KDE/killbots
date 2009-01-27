@@ -1,6 +1,6 @@
 /*
  *  Killbots
- *  Copyright (C) 2006-2008  Parker Coates <parker.coates@gmail.com>
+ *  Copyright (C) 2006-2009  Parker Coates <parker.coates@gmail.com>
  *
  *  This program is free software; you can redistribute it and/or
  *  modify it under the terms of the GNU General Public License as
@@ -133,14 +133,17 @@ void Killbots::Scene::doLayout()
 {
 	QSize size = views().first()->size();
 
+	QList<GameStatusDisplayItem *> displayList;
+	displayList << m_roundDisplay << m_scoreDisplay << m_enemyCountDisplay;
+	if ( m_energyDisplay->isVisible() )
+		displayList << m_energyDisplay;
+
 	// If no game has been started
 	if ( m_rows == 0 || m_columns == 0 )
 	{
 		setSceneRect( QRectF( QPointF( 0, 0 ), size ) );
-		m_roundDisplay->setPos( -1000000, 0 );
-		m_scoreDisplay->setPos( -1000000, 0 );
-		m_enemyCountDisplay->setPos( -1000000, 0 );
-		m_energyDisplay->setPos(  -1000000, 0 );
+		foreach ( GameStatusDisplayItem * display, displayList )
+			display->setPos( -1000000, 0 );
 		return;
 	}
 
@@ -154,43 +157,43 @@ void Killbots::Scene::doLayout()
 	const int newPixelSize = qBound( QFontInfo( QFont() ).pixelSize(), baseDimension, 25 );
 	const qreal aspectRatio = Render::aspectRatio();
 
+
+
+	QSize displaySize;
 	// If the font size has changed, resize the display items.
-	if ( m_roundDisplay->font().pixelSize() != newPixelSize )
+	// Note that we check the font size of the last display in the list so we 
+	// notice if the energy display has just been included.
+	if ( displayList.last()->font().pixelSize() != newPixelSize )
 	{
-		QFont font = m_roundDisplay->font();
+		QFont font = displayList.first()->font();
 		font.setPixelSize( newPixelSize  );
 
-		// After being given the new font, the displays will automatically
-		// adjust their size to fit their contents.
-		m_roundDisplay->setFont( font );
-		m_scoreDisplay->setFont( font );
-		m_enemyCountDisplay->setFont( font );
-		m_energyDisplay->setFont( font );
-
-		// Determine the size of the widest display. (This will depend on the locale.)
-		qreal widest = qMax( m_roundDisplay->boundingRect().width(), m_scoreDisplay->boundingRect().width() );
-		widest = qMax( widest, m_enemyCountDisplay->boundingRect().width() );
-		if ( m_energyDisplay->isVisible() )
-			widest = qMax( widest, m_energyDisplay->boundingRect().width() );
-		m_displaySize = QSize( qRound( widest ), qRound( m_roundDisplay->boundingRect().height() ) );
-
-		// Apply largest size to all displays.
-		m_roundDisplay->setSize( m_displaySize );
-		m_scoreDisplay->setSize( m_displaySize );
-		m_enemyCountDisplay->setSize( m_displaySize );
-		m_energyDisplay->setSize( m_displaySize );
+		foreach ( GameStatusDisplayItem * display, displayList )
+		{
+			display->setFont( font );
+			QSize preferredSize = display->preferredSize();
+			if ( preferredSize.width() > displaySize.width() )
+				displaySize.setWidth( preferredSize.width() );
+			if ( preferredSize.height() > displaySize.height() )
+				displaySize.setHeight( preferredSize.height() );
+		}
+		foreach ( GameStatusDisplayItem * display, displayList )
+			display->setSize( displaySize );
+	}
+	else
+	{
+		displaySize = displayList.first()->boundingRect().size().toSize();
 	}
 
 	// Determine the total width required to arrange the displays horizontally.
-	int widthOfDisplaysOnTop = 3 * m_displaySize.width() + 2 * spacing;
-	if ( m_energyDisplay->isVisible() )
-		widthOfDisplaysOnTop += m_displaySize.width() + spacing;
+	int widthOfDisplaysOnTop = displayList.size() * displaySize.width()
+	                           + ( displayList.size() - 1 ) * spacing;
 
 	// The displays can either be placed centred, across the top of the
 	// scene or top-aligned, down the side of the scene. We first calculate
 	// what the cell size would be for both options.
 	qreal cellWidthSide;
-	int availableWidth = size.width() - 3 * spacing - m_displaySize.width();
+	int availableWidth = size.width() - 3 * spacing - displaySize.width();
 	int availableHeight = size.height() - 2 * spacing;
 	if ( availableWidth / m_columns < availableHeight / m_rows * aspectRatio )
 		cellWidthSide = availableWidth / m_columns;
@@ -199,7 +202,7 @@ void Killbots::Scene::doLayout()
 
 	qreal cellWidthTop;
 	availableWidth = size.width() - 2 * spacing;
-	availableHeight = size.height() - 3 * spacing - m_displaySize.height();
+	availableHeight = size.height() - 3 * spacing - displaySize.height();
 	if ( availableWidth / m_columns < availableHeight / m_rows * aspectRatio )
 		cellWidthTop = availableWidth / m_columns;
 	else
@@ -215,7 +218,6 @@ void Killbots::Scene::doLayout()
 	if ( newCellSize != m_cellSize )
 	{
 		m_cellSize = newCellSize;
-
 		foreach ( QGraphicsItem * item, items() )
 		{
 			Sprite * sprite = qgraphicsitem_cast<Sprite *>( item );
@@ -232,17 +234,19 @@ void Killbots::Scene::doLayout()
 		// Set the sceneRect to centre the grid if possible, but ensure the display items are visible
 		const qreal sceneRectXPos = -( size.width() - m_cellSize.width() * ( m_columns - 1 ) ) / 2.0;
 		const qreal centeredYPos = - ( size.height() - m_cellSize.height() * ( m_rows - 1 ) ) / 2.0;
-		const qreal indentedYPos = - ( m_cellSize.height() / 2.0 + 2 * spacing + m_displaySize.height() );
+		const qreal indentedYPos = - ( m_cellSize.height() / 2.0 + 2 * spacing + displaySize.height() );
 		const qreal sceneRectYPos = qMin( centeredYPos, indentedYPos );
 		setSceneRect( QRectF( sceneRectXPos, sceneRectYPos, size.width(), size.height() ) );
 
 		// Position the display items centered at the top of the scene
-		const qreal displayYPos = ( sceneRectYPos - ( m_displaySize.height() + m_cellSize.height() / 2.0 ) ) / 2;
+		const qreal displayYPos = ( sceneRectYPos - ( displaySize.height() + m_cellSize.height() / 2.0 ) ) / 2;
 
-		m_roundDisplay->setPos( sceneRectXPos + ( size.width() - widthOfDisplaysOnTop ) / 2.0, displayYPos );
-		m_scoreDisplay->setPos( m_roundDisplay->sceneBoundingRect().right() + spacing, displayYPos );
-		m_enemyCountDisplay->setPos( m_scoreDisplay->sceneBoundingRect().right() + spacing, displayYPos );
-		m_energyDisplay->setPos( m_enemyCountDisplay->sceneBoundingRect().right() + spacing, displayYPos );
+		int xPos = sceneRectXPos + ( size.width() - widthOfDisplaysOnTop ) / 2.0;
+		foreach ( GameStatusDisplayItem * display, displayList )
+		{
+			display->setPos( xPos, displayYPos );
+			xPos += displaySize.width() + spacing;
+		}
 	}
 	else
 	{
@@ -256,26 +260,28 @@ void Killbots::Scene::doLayout()
 		if ( views().first()->layoutDirection() == Qt::LeftToRight )
 		{
 			// Set the sceneRect to centre the grid if possible, but ensure the display items are visible
-			const qreal indentedXPos = - ( m_cellSize.width() / 2.0 + 2 * spacing + m_displaySize.width() );
+			const qreal indentedXPos = - ( m_cellSize.width() / 2.0 + 2 * spacing + displaySize.width() );
 			sceneRectXPos = qMin( centeredXPos, indentedXPos );
 
 			// Position the display items to the left of the grid
-			displayXPos = - ( spacing + m_displaySize.width() + m_cellSize.width() / 2 );
+			displayXPos = - ( spacing + displaySize.width() + m_cellSize.width() / 2 );
 		}
 		else
 		{
 			// Set the sceneRect to centre the grid if possible, but ensure the display items are visible
-			const qreal indentedXPos = ( m_cellSize.width() * m_columns + 1 * spacing + m_displaySize.width() ) - size.width();
+			const qreal indentedXPos = ( m_cellSize.width() * m_columns + 1 * spacing + displaySize.width() ) - size.width();
 			sceneRectXPos = qMax( centeredXPos, indentedXPos );
 
 			// Position the display items to the right of the grid
 			displayXPos = m_cellSize.width() * ( m_columns - 0.5 ) + spacing;
 		}
 
-		m_roundDisplay->setPos( displayXPos, -m_cellSize.height() / 2 );
-		m_scoreDisplay->setPos( displayXPos, m_roundDisplay->sceneBoundingRect().bottom() + spacing );
-		m_enemyCountDisplay->setPos( displayXPos, m_scoreDisplay->sceneBoundingRect().bottom() + spacing );
-		m_energyDisplay->setPos( displayXPos, m_enemyCountDisplay->sceneBoundingRect().bottom() + spacing );
+		int yPos = -m_cellSize.height() / 2;
+		foreach ( GameStatusDisplayItem * display, displayList )
+		{
+			display->setPos( displayXPos, yPos );
+			yPos += displaySize.height() + spacing;
+		}
 
 		setSceneRect( QRectF( sceneRectXPos, sceneRectYPos, size.width(), size.height() ) );
 	}

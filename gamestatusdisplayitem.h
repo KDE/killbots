@@ -1,6 +1,6 @@
 /*
  *  Killbots
- *  Copyright (C) 2006-2008  Parker Coates <parker.coates@gmail.com>
+ *  Copyright (C) 2006-2009  Parker Coates <parker.coates@gmail.com>
  *
  *  This program is free software; you can redistribute it and/or
  *  modify it under the terms of the GNU General Public License as
@@ -49,7 +49,7 @@ namespace Killbots
 		void setValue( int value );
 		void setDigits( int digits );
 		void setSize( QSize size );
-		void adjustSize();
+		QSize preferredSize();
 
 	private: // data members
 		QString m_label;
