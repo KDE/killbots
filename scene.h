@@ -50,11 +50,6 @@ namespace Killbots
 		void teleportSprite( Sprite * sprite, QPoint position );
 		void destroySprite( Sprite * sprite );
 
-		void showNewGameMessage();
-		void showRoundCompleteMessage();
-		void showBoardFullMessage();
-		void showGameOverMessage();
-
 		void startAnimation();
 
 	public slots:
@@ -62,6 +57,11 @@ namespace Killbots
 		void updateScore( int score );
 		void updateEnemyCount( int enemyCount );
 		void updateEnergy( int energy );
+
+		void showNewGameMessage();
+		void showRoundCompleteMessage();
+		void showBoardFullMessage();
+		void showGameOverMessage();
 
 		void doLayout();
 		void onNewGame( int rows, int columns, bool gameIncludesEnergy );

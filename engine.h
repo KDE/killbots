@@ -86,6 +86,11 @@ namespace Killbots
 		void enemyCountChanged( int enemyCount );
 		void energyChanged( int energy );
 
+		void showNewGameMessage();
+		void showRoundCompleteMessage();
+		void showBoardFullMessage();
+		void showGameOverMessage();
+
 		void teleportAllowed( bool allowed );
 		void teleportSafelyAllowed( bool allowed );
 		void sonicScrewdriverAllowed( bool allowed );

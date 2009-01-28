@@ -112,7 +112,7 @@ void Killbots::Engine::newGame()
 	// Don't show the new game message on first start.
 	if ( m_round != 0 )
 	{
-		m_scene->showNewGameMessage();
+		 emit showNewGameMessage();
 	}
 
 	m_newGameRequested = false;
@@ -197,7 +197,7 @@ void Killbots::Engine::doAction( HeroAction action )
 		moveRobots();
 		assessDamage();
 		if ( m_bots.isEmpty() )
-			m_scene->showRoundCompleteMessage();
+			emit showRoundCompleteMessage();
 		else
 			m_processFastbots = true;
 		m_busyAnimating = true;
@@ -226,13 +226,13 @@ void Killbots::Engine::animationDone()
 		moveRobots( true );
 		assessDamage();
 		if ( m_bots.isEmpty() )
-			m_scene->showRoundCompleteMessage();
+			emit showRoundCompleteMessage();
 		m_busyAnimating = true;
 		m_scene->startAnimation();
 	}
 	else if ( m_gameOver )
 	{
-		m_scene->showGameOverMessage();
+		emit showGameOverMessage();
 		emit teleportAllowed( false );
 		emit waitOutRoundAllowed( false );
 		emit teleportSafelyAllowed( false );
@@ -626,7 +626,7 @@ void Killbots::Engine::updateEnergy( int changeInEnergy )
 void Killbots::Engine::resetBotCounts()
 {
 	m_scene->beginNewAnimationStage();
-	m_scene->showBoardFullMessage();
+	emit showBoardFullMessage();
 
 	m_maxEnergy = m_rules->maxEnergyAtGameStart();
 	m_robotCount = m_rules->enemiesAtGameStart();
