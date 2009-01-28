@@ -80,6 +80,12 @@ namespace Killbots
 	signals:
 		void newGame( int rows, int columns, bool gameIncludesEnergy );
 		void gameOver( int score, int round );
+
+		void roundChanged( int round );
+		void scoreChanged( int score );
+		void enemyCountChanged( int enemyCount );
+		void energyChanged( int energy );
+
 		void teleportAllowed( bool allowed );
 		void teleportSafelyAllowed( bool allowed );
 		void sonicScrewdriverAllowed( bool allowed );
@@ -110,8 +116,8 @@ namespace Killbots
 		QPoint offsetFromDirection( int direction ) const;
 		void destroySprite( Sprite * sprite, bool calculatePoints = true );
 		bool destroyAllCollidingBots( const Sprite * sprite, bool calculatePoints = true );
+		void updateScore( int changeInScore );
 		void updateEnergy( int changeInEnergy );
-		void updateOutsideWorld( bool enableActions = true );
 
 	private slots:
 		void animationDone();

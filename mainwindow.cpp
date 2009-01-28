@@ -79,6 +79,11 @@ Killbots::MainWindow::MainWindow( QWidget * parent )
 	connect( m_engine, SIGNAL(newGame(int,int,bool)), m_scene, SLOT(onNewGame(int,int,bool)) );
 	connect( m_engine, SIGNAL(gameOver(int,int)), this, SLOT(onGameOver(int,int)) );
 
+	connect( m_engine, SIGNAL(roundChanged(int)), m_scene, SLOT(updateRound(int)) );
+	connect( m_engine, SIGNAL(scoreChanged(int)), m_scene, SLOT(updateScore(int)) );
+	connect( m_engine, SIGNAL(enemyCountChanged(int)), m_scene, SLOT(updateEnemyCount(int)) );
+	connect( m_engine, SIGNAL(energyChanged(int)), m_scene, SLOT(updateEnergy(int)) );
+
 	connect( m_engine, SIGNAL(teleportAllowed(bool)),         actionCollection()->action("teleport"),        SLOT(setEnabled(bool)) );
 	connect( m_engine, SIGNAL(teleportAllowed(bool)),         actionCollection()->action("teleport_sip"),    SLOT(setEnabled(bool)) );
 	connect( m_engine, SIGNAL(teleportSafelyAllowed(bool)),   actionCollection()->action("teleport_safely"), SLOT(setEnabled(bool)) );
