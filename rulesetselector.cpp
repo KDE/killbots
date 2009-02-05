@@ -39,7 +39,8 @@
 
 Killbots::RulesetSelector::RulesetSelector( QWidget * parent )
   : QWidget( parent ),
-    m_rulesetMap()
+    m_rulesetMap(),
+    m_detailsDialog( 0 )
 {
 	// Create a hidden KLineEdit to use the automatic KConfigXT connection
 	kcfg_Ruleset = new KLineEdit();
@@ -77,8 +78,6 @@ Killbots::RulesetSelector::RulesetSelector( QWidget * parent )
 	QPushButton * detailsButton = new QPushButton( i18n("Details...") );
 
 	QGridLayout * boxLayout = new QGridLayout( groupBox );
-	boxLayout->setColumnStretch( 1, 10 );
-	boxLayout->setRowStretch( 4, 10 );
 	boxLayout->addWidget( authorLabel, 1, 0 );
 	boxLayout->addWidget( m_author, 1, 1 );
 	boxLayout->addWidget( contactLabel, 2, 0 );
@@ -86,6 +85,8 @@ Killbots::RulesetSelector::RulesetSelector( QWidget * parent )
 	boxLayout->addWidget( descriptionLabel, 3, 0 );
 	boxLayout->addWidget( m_description, 3, 1 );
 	boxLayout->addWidget( detailsButton, 4, 1, Qt::AlignLeft );
+	boxLayout->setColumnStretch( 1, 10 );
+	boxLayout->setRowStretch( 5, 10 );
 
 	QVBoxLayout * layout = new QVBoxLayout( this );
 	layout->setMargin( 0 );
@@ -161,14 +162,19 @@ void Killbots::RulesetSelector::selectionChanged( QString rulesetName )
 	else
 		m_authorContact->setText( ruleset->authorContact() );
 	m_description->setText( ruleset->description() );
+
+	if ( m_detailsDialog && m_detailsDialog->isVisible() )
+		m_detailsDialog->loadRuleset( ruleset );
 }
 
 
 void Killbots::RulesetSelector::showDetailsDialog()
 {
-	Ruleset * ruleset = m_rulesetMap.value( m_listWidget->currentItem()->text() );
+	if ( !m_detailsDialog )
+		m_detailsDialog = new RulesetDetailsDialog( this );
 
-	RulesetDetailsDialog dialog( ruleset, this );
-	dialog.exec();
+	Ruleset * ruleset = m_rulesetMap.value( m_listWidget->currentItem()->text() );
+	m_detailsDialog->loadRuleset( ruleset );
+	m_detailsDialog->show();
 }
 

@@ -32,6 +32,7 @@ class QTableWidget;
 namespace Killbots
 {
 	class Ruleset;
+	class RulesetDetailsDialog;
 
 	class RulesetSelector : public QWidget
 	{
@@ -57,6 +58,7 @@ namespace Killbots
 		QLabel * m_authorContact;
 		QLabel * m_description;
 		QMap< QString, Ruleset * > m_rulesetMap;
+		RulesetDetailsDialog * m_detailsDialog;
 	};
 }
 

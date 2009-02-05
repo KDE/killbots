@@ -23,13 +23,23 @@
 
 #include <KDE/KDialog>
 
+#include <QtCore/QMap>
+class QLabel;
+
 namespace Killbots {
 	class Ruleset;
 
 	class RulesetDetailsDialog : public KDialog
 	{
 	public:
-		RulesetDetailsDialog( const Ruleset * ruleset, QWidget * parent = 0 );
+		RulesetDetailsDialog( QWidget * parent = 0 );
+		void loadRuleset( const Ruleset * ruleset );
+
+	private:
+		static const QStringList maskedItems;
+		static const QStringList junkheapEnumText;
+
+		QMap<QString, QLabel *> m_labels;
 	};
 
 }
