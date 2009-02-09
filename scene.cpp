@@ -44,12 +44,11 @@
 struct Killbots::Scene::AnimationStage
 {
 	AnimationStage()
-	  : round(-1),
-		score(-1),
-		enemyCount(-1),
-		energy(-1)
-	{
-	};
+	  : newRound( -1 ),
+	    newScore( -1 ),
+	    newEnemyCount( -1 ),
+	    newEnergy( -1 )
+	{};
 
 	bool isEmpty() const
 	{
@@ -58,10 +57,10 @@ struct Killbots::Scene::AnimationStage
 			&& spritesToTeleport.isEmpty()
 			&& spritesToDestroy.isEmpty()
 			&& message.isEmpty()
-			&& round == -1
-			&& score == -1
-			&& enemyCount == -1
-			&& energy == -1;
+			&& newRound == -1
+			&& newScore == -1
+			&& newEnemyCount == -1
+			&& newEnergy == -1;
 	};
 
 	QList<Sprite *> spritesToCreate;
@@ -69,10 +68,10 @@ struct Killbots::Scene::AnimationStage
 	QList<Sprite *> spritesToTeleport;
 	QList<Sprite *> spritesToDestroy;
 	QString message;
-	int round;
-	int score;
-	int enemyCount;
-	int energy;
+	int oldRound, newRound;
+	int oldScore, newScore;
+	int oldEnemyCount, newEnemyCount;
+	int oldEnergy, newEnergy;
 };
 
 
@@ -161,7 +160,7 @@ void Killbots::Scene::doLayout()
 
 	QSize displaySize;
 	// If the font size has changed, resize the display items.
-	// Note that we check the font size of the last display in the list so we 
+	// Note that we check the font size of the last display in the list so we
 	// notice if the energy display has just been included.
 	if ( displayList.last()->font().pixelSize() != newPixelSize )
 	{
@@ -300,8 +299,25 @@ void Killbots::Scene::setAnimationSpeed( int speed )
 
 void Killbots::Scene::beginNewAnimationStage()
 {
-	if ( m_stages.isEmpty() || !m_stages.last().isEmpty() )
-		m_stages << AnimationStage();
+	if ( m_stages.isEmpty() )
+	{
+		AnimationStage newStage;
+		newStage.oldRound = m_roundDisplay->value();
+		newStage.oldScore = m_scoreDisplay->value();
+		newStage.oldEnemyCount = m_enemyCountDisplay->value();
+		newStage.oldEnergy = m_energyDisplay->value();
+		m_stages << newStage;
+	}
+	else if ( !m_stages.last().isEmpty() )
+	{
+		AnimationStage newStage;
+		const AnimationStage & lastStage = m_stages.last();
+		newStage.oldRound = lastStage.newRound == -1 ? lastStage.oldRound : lastStage.newRound;
+		newStage.oldScore = lastStage.newScore == -1 ? lastStage.oldScore : lastStage.newScore;
+		newStage.oldEnemyCount = lastStage.newEnemyCount == -1 ? lastStage.oldEnemyCount : lastStage.newEnemyCount;
+		newStage.oldEnergy = lastStage.newEnergy == -1 ? lastStage.oldEnergy : lastStage.newEnergy;
+		m_stages << newStage;
+	}
 }
 
 
@@ -370,25 +386,25 @@ void Killbots::Scene::showUnqueuedMessage( const QString & message, int timeout 
 
 void Killbots::Scene::updateRound( int round )
 {
-	m_stages.last().round = round;
+	m_stages.last().newRound = round;
 }
 
 
 void Killbots::Scene::updateScore( int score )
 {
-	m_stages.last().score = score;
+	m_stages.last().newScore = score;
 }
 
 
 void Killbots::Scene::updateEnemyCount( int enemyCount )
 {
-	m_stages.last().enemyCount = enemyCount;
+	m_stages.last().newEnemyCount = enemyCount;
 }
 
 
 void Killbots::Scene::updateEnergy( int energy )
 {
-	m_stages.last().energy = energy;
+	m_stages.last().newEnergy = energy;
 }
 
 
@@ -400,18 +416,6 @@ void Killbots::Scene::startAnimation()
 
 void Killbots::Scene::startAnimationStage()
 {
-	if ( m_stages.first().round != -1 )
-		m_roundDisplay->setValue( m_stages.first().round );
-
-	if ( m_stages.first().score != -1 )
-		m_scoreDisplay->setValue( m_stages.first().score );
-
-	if ( m_stages.first().enemyCount != -1 )
-		m_enemyCountDisplay->setValue( m_stages.first().enemyCount );
-
-	if ( m_stages.first().energy != -1 )
-		m_energyDisplay->setValue( m_stages.first().energy );
-
 	QString message = m_stages.first().message;
 
 	if ( m_timeLine.duration() < 60 && message.isEmpty() )
@@ -438,11 +442,24 @@ void Killbots::Scene::startAnimationStage()
 void Killbots::Scene::animate( qreal value )
 {
 	static bool halfDone;
+	AnimationStage stage = m_stages.first();
+
+	if ( stage.newRound != -1 )
+		m_roundDisplay->setValue( int( stage.oldRound + value * ( stage.newRound - stage.oldRound ) ) );
+
+	if ( stage.newScore != -1 )
+		m_scoreDisplay->setValue( int( stage.oldScore + value * ( stage.newScore - stage.oldScore ) ) );
+
+	if ( stage.newEnemyCount != -1 )
+		m_enemyCountDisplay->setValue( int( stage.oldEnemyCount + value * ( stage.newEnemyCount - stage.oldEnemyCount ) ) );
+
+	if ( stage.newEnergy != -1 )
+		m_energyDisplay->setValue( int( stage.oldEnergy + value * ( stage.newEnergy - stage.oldEnergy ) ) );
 
 	if ( value == 0.0 )
 	{
 		halfDone = false;
-		foreach ( Sprite * sprite, m_stages.first().spritesToCreate )
+		foreach ( Sprite * sprite, stage.spritesToCreate )
 		{
 			sprite->scale( value, value );
 			updateSpritePos( sprite );
@@ -450,14 +467,14 @@ void Killbots::Scene::animate( qreal value )
 	}
 	else if ( 0.0 < value && value < 1.0 )
 	{
-		foreach ( Sprite * sprite, m_stages.first().spritesToCreate )
+		foreach ( Sprite * sprite, stage.spritesToCreate )
 		{
 			updateSpritePos( sprite );
 			sprite->resetTransform();
 			sprite->scale( value, value );
 		}
 
-		foreach ( Sprite * sprite, m_stages.first().spritesToSlide )
+		foreach ( Sprite * sprite, stage.spritesToSlide )
 		{
 			QPointF posInGridCoordinates = value * QPointF( sprite->gridPos() - sprite->storedGridPos() ) + sprite->storedGridPos();
 			sprite->setPos( QPointF( posInGridCoordinates.x() * m_cellSize.width(), posInGridCoordinates.y() * m_cellSize.height() ) );
@@ -469,21 +486,23 @@ void Killbots::Scene::animate( qreal value )
 			if ( !halfDone )
 			{
 				halfDone = true;
-				foreach ( Sprite * sprite, m_stages.first().spritesToTeleport )
+				foreach ( Sprite * sprite, stage.spritesToTeleport )
 					updateSpritePos( sprite );
 			}
 			scaleFactor = 2 * value - 1.0;
 		}
 		else
+		{
 			scaleFactor = 1.0 - 2 * value;
+		}
 
-		foreach ( Sprite * sprite, m_stages.first().spritesToTeleport )
+		foreach ( Sprite * sprite, stage.spritesToTeleport )
 		{
 			sprite->resetTransform();
 			sprite->scale( scaleFactor, scaleFactor );
 		}
 
-		foreach ( Sprite * sprite, m_stages.first().spritesToDestroy )
+		foreach ( Sprite * sprite, stage.spritesToDestroy )
 		{
 			sprite->resetTransform();
 			sprite->scale( 1 - value, 1 - value );
@@ -492,14 +511,14 @@ void Killbots::Scene::animate( qreal value )
 	}
 	else if ( value == 1.0 )
 	{
-		foreach ( Sprite * sprite, m_stages.first().spritesToSlide + m_stages.first().spritesToTeleport + m_stages.first().spritesToCreate )
+		foreach ( Sprite * sprite, stage.spritesToSlide + stage.spritesToTeleport + stage.spritesToCreate )
 		{
 			updateSpritePos( sprite );
 			sprite->resetTransform();
 			sprite->storeGridPos();
 		}
 
-		qDeleteAll( m_stages.first().spritesToDestroy );
+		qDeleteAll( stage.spritesToDestroy );
 	}
 }
 
@@ -510,7 +529,7 @@ void Killbots::Scene::nextAnimationStage()
 	if ( m_timeLine.state() != QTimeLine::Running && !m_queuedPopup->isVisible() )
 	{
 		m_stages.removeFirst();
-	
+
 		if ( m_stages.size() )
 			startAnimationStage();
 		else
@@ -582,7 +601,7 @@ void Killbots::Scene::mouseReleaseEvent( QGraphicsSceneMouseEvent * event )
 	if ( actionFromPosition != NoAction )
 	{
 		Settings::ClickAction userAction = Settings::Nothing;
-	
+
 		if ( event->button() == Qt::LeftButton )
 		{
 			if ( event->modifiers() & Qt::ControlModifier )
@@ -594,7 +613,7 @@ void Killbots::Scene::mouseReleaseEvent( QGraphicsSceneMouseEvent * event )
 			userAction = Settings::rightClickAction();
 		else if ( event->button() == Qt::MidButton )
 			userAction = Settings::middleClickAction();
-	
+
 		if ( userAction == Settings::Step )
 			emit clicked( actionFromPosition );
 		else if ( userAction == Settings::RepeatedStep )
