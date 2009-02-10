@@ -4,7 +4,7 @@ Name[gl]=Robots asasinos
 Name[x-test]=xxKillbotsxx
 Author=Parker Coates
 AuthorContact=parker.coates@gmail.com
-Description=<qt><p>The default Killbots ruleset.</p><p>A 16 by 16 cell grid. The game starts with 8 robots, 4 more are added each round. 2 fastbots are added each round after Round 2. Teleporting safely costs 1 energy, with a maximum energy cap of 12. Multiple junkheaps may be pushed at once. 5 points for each robot destroyed and 10 for each fastbot. 1 bonus energy for each enemy destroyed with a junkheap or while waiting out the round.</p></qt>
+Description=<qt><p>The default Killbots game type.</p><p>Includes a medium size grid, safe teleports, fast enemies and pushable junkheaps.</p></qt>
 Description[da]=<qt><p>Standard-regelsættet for Killbots.</p><p>Et 16 x 16 cellegitter. spillet starter med 8 roboter, 4 mere tilføjes hver runde. 2 hurtigrobotter tilføjes hver runde efter runde 2. Sikker teleportering koster 1 energi, med et maksimalt energibeholdning på 12. Flere skrotdynger kan fkubbes ad gangen. 5 point for hver ødelagt robot og 10 for hver hurtigrobot. 1 bonusenergi for hver fjende ødelagt med en skrotdynge eller mens du venter runden ud.</p></qt>
 Description[de]=<qt><p>Der standardmäßige Regelsatz von Killbots.</p><p>Ein Spielfeld mit 16 x 16 Zellen. Das Spiel startet mit 8 Robotern und 4 Roboter werden jede Runde hinzugefügt. Je 2 „Schnelle Roboter“ werden ab Beginn der dritten Runde hinzugefügt. „Sicheres Teleportieren“ kostet 1 Energieeinheit und 12 Energieeinheiten sind maximal möglich. Mehrere „Müllhalden“ können gleichzeitig geschoben werden. Für die Zerstörung der Roboter gibt es 5 Punkte und für „Schnelle Roboter“ 10 Punkte. Für das Zerstören eines Gegners mit einer „Müllhalde“ oder während dem „Aussitzen“ gibt es 1 Energieeinheit.</p></qt>
 Description[el]=<qt><p>Το προκαθορισμένο σύνολο κανόνων Killbots.</p><p>Κάνναβος 16 επί 16. Το παιχνίδι ξεκινά με 8 ρομπότ, προσθήκη 4 σε κάθε γύρο, προσθήκη 2 γρήγορων ρομπότ σε κάθε γύρο μετά τον 12. Η ασφαλής τηλεμεταφορά κοστίζει 1 ενέργεια, με μέγιστη τιμή ενέργειας το 12. Πολλαπλές στοίβες σκουπιδιών μπορούν να μετακινηθούν ταυτόχρονα. 5 πόντοι για  κάθε κατεστραμμένο ρομπότ και 10 για κάθε γρήγορο ρομπότ. 1 επιπλέον πόντος για κάθε  κατεστραμμένο ρομπότ με στοίβα σκουπιδιών ή κατά την ανανμονή εξόδου από το γύρο.</p></qt>
@@ -38,7 +38,7 @@ MaxEnergyAddedEachRound=0.0
 SafeTeleportEnabled=true
 CostOfSafeTeleport=1
 SonicScrewdriverEnabled=false
-CostOfSonicScrewdriver=1
+CostOfSonicScrewdriver=0
 PushableJunkheaps=Many
 SquaskKillsEnabled=true
 JunkheapsAtGameStart=0.0
