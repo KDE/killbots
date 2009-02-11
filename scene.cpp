@@ -155,8 +155,6 @@ void Killbots::Scene::doLayout()
 	const int newPixelSize = qBound( QFontInfo( QFont() ).pixelSize(), baseDimension, 25 );
 	const qreal aspectRatio = Render::aspectRatio();
 
-
-
 	QSize displaySize;
 	// If the font size has changed, resize the display items.
 	// Note that we check the font size of the last display in the list so we

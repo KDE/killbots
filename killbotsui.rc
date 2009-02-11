@@ -21,6 +21,8 @@
 		<Action name="teleport"/>
 		<Action name="teleport_safely"/>
 		<Action name="wait_out_round"/>
+		<Separator />
+		<Action name="options_configure"/>
 	</ToolBar>
 
 </kpartgui>
