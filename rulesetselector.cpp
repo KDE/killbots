@@ -49,8 +49,8 @@ Killbots::RulesetSelector::RulesetSelector( QWidget * parent )
 	m_listWidget = new QListWidget();
 	m_listWidget->setWhatsThis( i18n("A list of the Killbots rulesets installed on this computer.") );
 
-	QGroupBox * groupBox = new QGroupBox( i18n("Ruleset Details") );
-	groupBox->setWhatsThis( i18n("Information on the currently selected ruleset.") );
+	QGroupBox * groupBox = new QGroupBox( i18n("Game Type Details") );
+	groupBox->setWhatsThis( i18n("Lists information on the currently selected game type") );
 
 	QLabel * authorLabel = new QLabel( i18n("Author:") );
 	authorLabel->setAlignment( Qt::AlignRight | Qt::AlignTop );
@@ -75,6 +75,8 @@ Killbots::RulesetSelector::RulesetSelector( QWidget * parent )
 	m_description->setWordWrap( true );
 
 	QPushButton * detailsButton = new QPushButton( i18n("Details...") );
+	detailsButton->setToolTip( i18n("Show the detailed parameters of the selected game type") );
+	detailsButton->setWhatsThis( i18n("Opens a dialog listing the values of all internal parameters for the selected game type.") );
 
 	QGridLayout * boxLayout = new QGridLayout( groupBox );
 	boxLayout->addWidget( authorLabel, 1, 0 );

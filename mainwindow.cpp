@@ -248,15 +248,15 @@ KAction * Killbots::MainWindow::createMappedAction( KActionCollection * collecti
                                                     const QString & displayName,
                                                     const QString & translatedShortcut,
                                                     const QKeySequence & alternateShortcut,
-                                                    const QString & toolTip,
+                                                    const QString & helpText,
                                                     const QString & icon
                                                   )
 {
 	KAction * action = new KAction( displayName, collection );
 	action->setObjectName( internalName );
 	action->setShortcut( KShortcut( QKeySequence( translatedShortcut ), alternateShortcut ) );
-	if ( !toolTip.isEmpty() )
-		action->setToolTip( toolTip );
+	if ( !helpText.isEmpty() )
+		action->setHelpText( helpText );
 	if ( !icon.isEmpty() )
 		action->setIcon( KIcon( icon ) );
 
