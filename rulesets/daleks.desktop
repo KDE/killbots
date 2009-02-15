@@ -12,6 +12,7 @@ Description[pt]=<qt><p>Uma aproximação das regras usadas no Daleks, um jogo de
 Description[pt_BR]=<qt><p>Uma aproximação das regras usadas no Daleks, um jogo de 'robots' para os primeiros computadores da Apple.</p><p>É atribuído ao herói um ponto de energia que poderá ser usado para alimentar a chave de parafusos sónica. Todas as outras funcionalidades especiais estão desactivadas.</p></qt>
 Description[sv]=<qt><p>En approximation av reglerna som används i Daleks, ett robotliknande spel för tidiga datorer från Apple.</p><p>Hjälten tilldelas en energienhet varje omgång, som kan användas att driva den soniska skruvmejseln. Alla övriga specialfunktioner är avstängda.</p></qt>
 Description[uk]=<qt><p>Наближення до правил, які використовуються у Daleks, схожій на robots грі для ранніх комп’ютерів.</p><p>На початку кожного раунду герой сповнений енергії, отже може використовувати звукову викрутку. Всі інші особливі можливості вимкнено.</p></qt>
+Description[zh_TW]=<qt><p>近似在戴立克（早期 Apple 電腦中的此遊戲）中使用的規則。</p> <p>主角在每一回合都分配到一點能量，讓他可以啟動音速起子。所有其它的特殊功能都被關閉。</p></qt>
 Rows=20
 Columns=20
 EnemiesAtGameStart=8.0

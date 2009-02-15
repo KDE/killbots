@@ -34,6 +34,7 @@ Description[pt]=<qt><p>Uma versão simplificada do tipo de jogo "Killbots".</p><
 Description[pt_BR]=<qt><p>Uma versão simplificada do tipo de jogo "Killbots".</p><p>Inclui uma grelha de jogo maior, preenchida com montes de lixo, uma determinada quantidade de energia e um tecto de energia que vai aumentando.</p></qt>
 Description[sv]=<qt><p>En enklare version av "Killbots" speltyp.</p><p>Inkluderar ett större spelrutnät förberett med skrothögar, en undanstoppad energimängd vid start och ett ökande energitak.</p></qt>
 Description[uk]=<qt><p>Полегшена версія типу гри «Killbots».</p><p>Більше ігрове поле з купами брухту, початковий заряд енергії і збільшення запасу енергії.</p></qt>
+Description[zh_TW]=<qt><p>簡單版的 Killbots 遊戲型態。</p> <p>包含一個較大的棋盤格，已經有一些垃圾堆，並且有能量存放處與會增加能量的帽子。</p><qt>
 Rows=20
 Columns=20
 EnemiesAtGameStart=6.0

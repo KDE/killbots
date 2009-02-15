@@ -10,6 +10,7 @@ Description[pt]=<qt><p>O tipo de jogo predefinido do Killbots.</p><p>Inclui uma 
 Description[pt_BR]=<qt><p>O tipo de jogo predefinido do Killbots.</p><p>Inclui uma grelha de tamanho médio, tele-transportes seguros, inimigos rápidos e montes de lixo para empurrar.</p></qt>
 Description[sv]=<qt><p>Killbots standardspeltyp.</p><p>Inkluderar ett medelstort rutnät, säker teleportering, snabba fiender och knuffbara skrothögar.</p></qt>
 Description[uk]=<qt><p>Типовий тип гри Killbots.</p><p>Ігрове поле середніх розмірів, безпечні телепортації, швидкі вороги і придатні до пересування купи брухту.</p></qt>
+Description[zh_TW]=<qt><p>預設的 Killbots 遊戲型態。</p> <p>包含中等大小的棋盤格，安全傳送，快速機器人與可推動的垃圾堆。</p></qt>
 Rows=16
 Columns=16
 EnemiesAtGameStart=8.0

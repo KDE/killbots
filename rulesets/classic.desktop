@@ -46,6 +46,7 @@ Description[pt]=<qt><p>O conjunto de regras usado na versão original para a lin
 Description[pt_BR]=<qt><p>O conjunto de regras usado na versão original para a linha de comandos em BSD do <tt>robots</tt>. Nada de bonito, tendo apenas os elementos básicos. Não tem os robots rápidos, nem os tele-transportes seguros, nem os montes de lixo para empurrar, e uma enorme grelha de jogo.</p><p>Devido ao seu tamanho maior, recomenda-se que use um tema com peças mais estreitas, de modo a caber melhor no seu ecrã.</p></qt>
 Description[sv]=<qt><p>Regeluppsättningen som användes i den ursprungliga kommandoradversionen i BSD av <tt>robots</tt>. Ingenting speciellt, bara de grundläggande spelelementen: Inga snabbotar, ingen säker teleportering, inget knuffande av skrothögar, och ett enormt rutnät.</p><p>På grund av dess stora bredd, rekommenderas du att använda ett tema med smalare rutor för att det ska få plats bättre på skärmen.</p></qt>
 Description[uk]=<qt><p>Набір правил, що використовувався у оригінальній версії для командного рядка під BSD гри <tt>robots</tt>.</p><p>Нічого зайвого, лише базові елементи гри: без швидкоботів, без безпечних телепортів, без штовхання куп брухту і велике ігрове поле.</p><p>Через більшу ширину поля рекомендуємо використовувати тему з вужчими плитками, яка краще пасує до розмірів вашого екрана.</p></qt>
+Description[zh_TW]=<qt><p>這個規則集用於原始 BSD 命令列版本的 <tt>robots</tt> 遊戲。</p> <p>沒有很炫的功能，只有最基本的遊戲元素：沒有快速機器人，沒有安全傳送，不能推垃圾堆，還有棋盤要大得多。</p>  <p>因為棋盤很大，建議使用較窄的主題才不會超出螢幕。</p></qt>
 Rows=22
 Columns=59
 EnemiesAtGameStart=10.0
