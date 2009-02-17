@@ -29,6 +29,7 @@ Name[zh_TW]=容易
 Author=Parker Coates
 AuthorContact=parker.coates@gmail.com
 Description=<qt><p>An easier version of the "Killbots" game type.</p><p>Includes a bigger game grid prepopulated with junkheaps, a starting stash of energy and an increasing energy cap.</p></qt>
+Description[et]=<qt><p>Killbotsi lihtsaim mängutüüp.</p><p>Sisaldab suuremat ruudustikku, mis on juba täis rämpsukuhilaid, kus pakutakse kohe alguses energiat ning nende lubatav hulk aina suureneb.</p></qt>
 Description[nds]=<qt><p>En eenfacher Verschoon vun "Killbots":</p><p>En grötter Speelfeld mit Misthopens dor op, en Anfangvörraat vun Energie un en wassen Energie-Bövergrenz.</p></qt>
 Description[pt]=<qt><p>Uma versão simplificada do tipo de jogo "Killbots".</p><p>Inclui uma grelha de jogo maior, preenchida com montes de lixo, uma determinada quantidade de energia e um tecto de energia que vai aumentando.</p></qt>
 Description[pt_BR]=<qt><p>Uma versão simplificada do tipo de jogo "Killbots".</p><p>Inclui uma grelha de jogo maior, preenchida com montes de lixo, uma determinada quantidade de energia e um tecto de energia que vai aumentando.</p></qt>
