@@ -97,7 +97,7 @@ namespace Killbots
 
 	private: // functions
 		void newGame();
-		void newRound( bool incrementRound = true );
+		void newRound( bool incrementRound = true, const QString & layout = QString() );
 		void doAction( HeroAction direction );
 
 		bool moveHero( HeroAction direction );
@@ -113,6 +113,7 @@ namespace Killbots
 
 		void refreshSpriteMap();
 		int spriteTypeAt( const QPoint & cell ) const;
+		QPoint randomEmptyCell() const;
 		bool cellIsValid( const QPoint & cell ) const;
 		bool moveIsValid( const QPoint & cell, HeroAction direction ) const;
 		bool moveIsSafe( const QPoint &  cell, HeroAction direction ) const;
