@@ -3,8 +3,6 @@
   <!ENTITY killbots "<application>Killbots</application>">
   <!ENTITY kappname "&killbots;">
   <!ENTITY package "kdegames">
-  <!ENTITY kappversion "0.1.0">
-  <!ENTITY docupdate "2008-03-24">
   <!ENTITY % addindex "IGNORE">
   <!ENTITY % English "INCLUDE">
 ]>
@@ -33,12 +31,11 @@
 
   <legalnotice>&FDLNotice;</legalnotice>
 
-  <date>&docupdate;</date>
-  <releaseinfo>&kappversion;</releaseinfo>
+  <date>2008-03-24</date>
+  <releaseinfo>1.0.0</releaseinfo>
 
   <abstract>
     <para>&killbots; is a &kde; port of the classic BSD console game <command>robots</command>.</para>
-    <para>This handbook documents &killbots; version &kappversion;</para>
   </abstract>
 
   <keywordset>
