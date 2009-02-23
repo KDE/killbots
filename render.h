@@ -22,9 +22,8 @@
 
 class QColor;
 class QCursor;
-class QSize;
-class QString;
 class QPixmap;
+class QSize;
 class QString;
 #include <Qt>
 
