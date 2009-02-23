@@ -69,18 +69,18 @@ bool Killbots::Render::loadTheme( const QString & fileName )
 	KGameTheme newTheme;
 	if ( newTheme.load( fileName ) )
 	{
-		QDateTime cacheTimeStamp = QDateTime::fromTime_t( rp->m_pixmapCache.timestamp() );
-		QDateTime desktopFileTimeStamp = QFileInfo( newTheme.path() ).lastModified();
-		QDateTime svgFileTimeStamp = QFileInfo( newTheme.graphics() ).lastModified();
+		const QDateTime cacheTimeStamp = QDateTime::fromTime_t( rp->m_pixmapCache.timestamp() );
+		const QDateTime desktopFileTimeStamp = QFileInfo( newTheme.path() ).lastModified();
+		const QDateTime svgFileTimeStamp = QFileInfo( newTheme.graphics() ).lastModified();
 
 		// We check to see if the cache contains a key matching the path to the
 		// new theme file.
 		QPixmap nullPixmap;
-		bool isNotInCache = !rp->m_pixmapCache.find( newTheme.path(), nullPixmap );
+		const bool isNotInCache = !rp->m_pixmapCache.find( newTheme.path(), nullPixmap );
 		if ( isNotInCache )
 			kDebug() << "Theme is not already in cache.";
 
-		bool desktopFileIsNewer = desktopFileTimeStamp > cacheTimeStamp;
+		const bool desktopFileIsNewer = desktopFileTimeStamp > cacheTimeStamp;
 		if ( desktopFileIsNewer )
 		{
 			kDebug() << "Desktop file is newer than cache.";
@@ -88,7 +88,7 @@ bool Killbots::Render::loadTheme( const QString & fileName )
 			kDebug() << "Desktop file timestamp is" << desktopFileTimeStamp.toString( Qt::ISODate );
 		}
 
-		bool svgFileIsNewer = svgFileTimeStamp > cacheTimeStamp;
+		const bool svgFileIsNewer = svgFileTimeStamp > cacheTimeStamp;
 		if ( svgFileIsNewer )
 		{
 			kDebug() << "SVG file is newer than cache.";
@@ -99,7 +99,7 @@ bool Killbots::Render::loadTheme( const QString & fileName )
 		// Discard the cache if the loaded theme doesn't match the one already
 		// in the cache, or if either of the theme files have been updated
 		// since the cache was created.
-		bool discardCache = isNotInCache || svgFileIsNewer || desktopFileIsNewer;
+		const bool discardCache = isNotInCache || svgFileIsNewer || desktopFileIsNewer;
 
 		// Only bother actually loading the SVG if no SVG has been loaded
 		// yet or if the cache must be discarded.
@@ -119,11 +119,10 @@ bool Killbots::Render::loadTheme( const QString & fileName )
 
 			result = rp->m_hasBeenLoaded = rp->m_svgRenderer.load( newTheme.graphics() );
 
-			// Get the theme's aspect ratio from the .desktop file, defaulting to 1.0.
-			QRectF tileRect = rp->m_svgRenderer.boundsOnElement("cell");
+			// Get the theme's aspect ratio from the .desktop file.
+			const QRectF tileRect = rp->m_svgRenderer.boundsOnElement("cell");
 			rp->m_aspectRatio = tileRect.width() / tileRect.height();
-			if ( rp->m_aspectRatio <= 0.3333 || rp->m_aspectRatio >= 3.0 )
-				rp->m_aspectRatio = 1.0;
+			rp->m_aspectRatio = qBound( 0.3333, rp->m_aspectRatio, 3.0 );
 
 			// Get the theme's text color. Use the fill color of the "text" SVG element.
 			// If it exists doesn't exist or the fill isn't a valid color, default to black.
@@ -137,7 +136,7 @@ bool Killbots::Render::loadTheme( const QString & fileName )
 			// Generate cursors.
 			for ( int i = 0; i <= 8; ++i )
 			{
-				QPixmap pixmap = renderElement( "cursor" + QString::number( i ), QSize( 42, 42 ) );
+				const QPixmap pixmap = renderElement( QString("cursor%1").arg( i ), QSize( 42, 42 ) );
 				if ( !pixmap.isNull() )
 					rp->m_cursors.insert( i, QCursor( pixmap ) );
 			}
@@ -158,7 +157,8 @@ QPixmap Killbots::Render::renderElement( const QString & elementId, QSize size )
 {
 	QPixmap result;
 
-	QString key = elementId + QString::number( size.width() ) + 'x' + QString::number( size.height() );
+	const QString key = elementId + QString::number( size.width() )
+	                    + 'x' + QString::number( size.height() );
 
 	if ( !rp->m_pixmapCache.find( key, result ) )
 	{
