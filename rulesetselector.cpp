@@ -50,7 +50,7 @@ Killbots::RulesetSelector::RulesetSelector( QWidget * parent )
 	m_listWidget->setWhatsThis( i18n("A list of the Killbots rulesets installed on this computer.") );
 
 	QGroupBox * groupBox = new QGroupBox( i18n("Game Type Details") );
-	groupBox->setWhatsThis( i18n("Lists information on the currently selected game type") );
+	groupBox->setWhatsThis( i18n("Lists information on the currently selected game type.") );
 
 	QLabel * authorLabel = new QLabel( i18n("Author:") );
 	authorLabel->setAlignment( Qt::AlignRight | Qt::AlignTop );
