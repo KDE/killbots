@@ -5,6 +5,7 @@ Name[x-test]=xxKillbotsxx
 Author=Parker Coates
 AuthorContact=parker.coates@gmail.com
 Description=<qt><p>The default Killbots game type.</p><p>Includes a medium size grid, safe teleports, fast enemies and pushable junkheaps.</p></qt>
+Description[el]=<qt><p>Ο προκαθορισμένος τύπος παιχνιδιού Killbots.</p><p>Περιλαμβάνει έναν μεσαίο κάνναβο, ασφαλείς τηλεμεταφορές, γρήγορους εχθρούς και μετακινούμενες στοίβες σκουπιδιών.</p></qt>
 Description[et]=<qt><p>Killbotsi vaikimisi mängutüüp.</p><p>Sisaldab keskmise suurusega ruudustikku, turvalisi teleporte, kiireid vaenlasi ja lükatavaid rämpsukuhilaid.</p></qt>
 Description[gl]=<qt><p>O xogo tipo Killbots por omisión.</p><p>Inclúe unha grella mediana, teleportacións seguras, enemigos rápidos e chatarra que se pode empurrar.</p></qt>
 Description[nds]=<qt><p>Dat Standard-Killbots-Speel:</p><p>En Middelgroot Speelfeld, seker Teleporteren, gaue Blickkeerls un Misthopens laat sik schuven.</p></qt>
