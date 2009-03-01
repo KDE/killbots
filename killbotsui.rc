@@ -1,5 +1,11 @@
-<!DOCTYPE kpartgui SYSTEM "kpartgui.dtd">
-<gui name="killbots" version="2">
+<?xml version="1.0" encoding="UTF-8" ?>
+<gui name="killbots"
+     version="2"
+     xmlns="http://www.kde.org/standards/kxmlgui/1.0"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="http://www.kde.org/standards/kxmlgui/1.0
+                         http://www.kde.org/standards/kxmlgui/1.0/kxmlgui.xsd"
+>
 
 	<MenuBar>
 		<Menu name="moveMenu">
