@@ -25,7 +25,7 @@
 			<default>TeleportSafelyIfPossible</default>
 			<tooltip>The action performed on a right-click</tooltip>
 			<whatsthis>Selects the action performed when right-clicking on the main game area.</whatsthis>
-		</entry>.
+		</entry>
 		<entry name="AnimationSpeed" type="Int">
 			<min>0</min>
 			<max>10</max>
