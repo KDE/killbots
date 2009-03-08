@@ -134,7 +134,7 @@ void Killbots::MainWindow::configurePreferences()
 		                       i18n("Select a game type")
 		                     );
 		configDialog->addPage( new KGameThemeSelector( this, Settings::self(), KGameThemeSelector::NewStuffDisableDownload ),
-		                       i18n("Theme"),
+		                       i18n("Appearance"),
 		                       "games-config-theme",
 		                       i18n("Select a graphical theme")
 		                     );

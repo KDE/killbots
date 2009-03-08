@@ -142,8 +142,6 @@ void Killbots::RulesetSelector::findRulesets()
 	const int itemHeight = m_listWidget->visualItemRect( m_listWidget->item( 0 ) ).height();
 	const int verticalMargin = m_listWidget->height() - m_listWidget->viewport()->height();
 	m_listWidget->setMaximumHeight( itemHeight * m_listWidget->count() + verticalMargin );
-
-
 }
 
 
