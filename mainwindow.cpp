@@ -177,8 +177,8 @@ void Killbots::MainWindow::onConfigDialogClosed()
 	{
 		if ( !m_engine->gameHasStarted()
 		     || KMessageBox::questionYesNo( this,
-		                                    i18n("A new ruleset has been selected, but there is already a game in progress."),
-		                                    i18n("Ruleset Changed"),
+		                                    i18n("A new game type has been selected, but there is already a game in progress."),
+		                                    i18n("Game Type Changed"),
 		                                    KGuiItem( i18n("Continue Current Game") ),
 		                                    KGuiItem( i18n("Start a New Game") )
 		                                  ) == KMessageBox::No
