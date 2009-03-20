@@ -7,10 +7,11 @@ add_subdirectory( themes )
 
 ###### Building killbots executable ######
 set( killbots_SRCS
+    main.cpp
+    coordinator.cpp
     engine.cpp
     gamestatusdisplayitem.cpp
     mainwindow.cpp
-    main.cpp
     optionspage.cpp
     render.cpp
     ruleset.cpp
@@ -20,8 +21,8 @@ set( killbots_SRCS
     sprite.cpp
     view.cpp
 )
-kde4_add_app_icon( killbots_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/icons/hi*-app-killbots.png"})
 kde4_add_kcfg_files( killbots_SRCS settings.kcfgc rulesetbase.kcfgc )
+kde4_add_app_icon( killbots_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/icons/hi*-app-killbots.png"})
 kde4_add_executable( killbots ${killbots_SRCS} )
 target_link_libraries( killbots ${KDE4_KDEUI_LIBS} kdegames ${QT_QTXML_LIBRARY})
 

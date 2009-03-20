@@ -20,6 +20,7 @@
 #ifndef KILLBOTS_ENGINE_H
 #define KILLBOTS_ENGINE_H
 
+#include "actions.h"
 #include "ruleset.h"
 
 #include <QtCore/QObject>
@@ -28,62 +29,46 @@ class QPoint;
 
 namespace Killbots
 {
+	class Coordinator;
 	class Scene;
 	class Sprite;
-
-	enum HeroAction
-	{
-		Right = 0,
-		UpRight,
-		Up,
-		UpLeft,
-		Left,
-		DownLeft,
-		Down,
-		DownRight,
-		Hold,
-
-		Teleport,
-		TeleportSafely,
-		TeleportSafelyIfPossible,
-		WaitOutRound,
-		SonicScrewdriver,
-		NoAction,
-
-		RepeatRight = -( Right + 1 ),
-		RepeatUpRight = -( UpRight + 1 ),
-		RepeatUp = -( Up + 1 ),
-		RepeatUpLeft = -( UpLeft + 1 ),
-		RepeatLeft = -( Left + 1 ),
-		RepeatDownLeft = -( DownLeft + 1 ),
-		RepeatDown = -( Down + 1 ),
-		RepeatDownRight = -( DownRight + 1 ),
-		RepeatHold = -( Hold + 1 )
-	};
 
 	class Engine : public QObject
 	{
 		Q_OBJECT
 
 	public: // functions
-		explicit Engine( Scene * scene, QObject * parent = 0 );
+		explicit Engine( Coordinator * scene, QObject * parent = 0 );
 		virtual ~Engine();
-		const Ruleset * ruleset();
-		bool gameHasStarted();
 
-	public slots:
-		void requestNewGame();
-		void requestAction( HeroAction action );
-		void requestAction( int action );
+		const Ruleset * ruleset() const;
+		bool gameHasStarted() const;
+		bool isRoundComplete() const;
+		bool isHeroDead() const;
+		bool isBoardFull() const;
+		bool canSafeTeleport() const;
+		bool canSonicScrewdriver() const;
+
+		void startNewGame();
+		void startNewRound( bool incrementRound = true, const QString & layout = QString() );
+
+		bool moveHero( Killbots::HeroAction direction );
+		bool teleportHero();
+		bool teleportHeroSafely();
+		bool sonicScrewdriver();
+		bool waitOutRound();
+
+		void moveRobots( bool justFastbots = false );
+		void assessDamage();
+		void resetBotCounts();
+		void endGame();
 
 	signals:
-		void newGame( int rows, int columns, bool gameIncludesEnergy );
-		void gameOver( int score, int round );
-
 		void roundChanged( int round );
 		void scoreChanged( int score );
 		void enemyCountChanged( int enemyCount );
 		void energyChanged( int energy );
+		void gameOver( int score, int round );
 
 		void showNewGameMessage();
 		void showRoundCompleteMessage();
@@ -96,50 +81,29 @@ namespace Killbots
 		void waitOutRoundAllowed( bool allowed );
 
 	private: // functions
-		void newGame();
-		void newRound( bool incrementRound = true, const QString & layout = QString() );
-		void doAction( HeroAction direction );
-
-		bool moveHero( HeroAction direction );
-		bool teleportHero();
-		bool teleportHeroSafely();
-		bool sonicScrewdriver();
-
-		void pushJunkheap( Sprite * junkheap, HeroAction direction );
-		void moveRobots( bool justFastbots = false );
-		void assessDamage();
-		void cleanUpRound();
-		void resetBotCounts();
-
 		void refreshSpriteMap();
 		int spriteTypeAt( const QPoint & cell ) const;
+		QPoint offsetFromDirection( int direction ) const;
 		QPoint randomEmptyCell() const;
+
 		bool cellIsValid( const QPoint & cell ) const;
 		bool moveIsValid( const QPoint & cell, HeroAction direction ) const;
 		bool moveIsSafe( const QPoint &  cell, HeroAction direction ) const;
 		bool canPushJunkheap( const Sprite * junkheap, HeroAction direction ) const;
-		QPoint offsetFromDirection( int direction ) const;
+
+		void pushJunkheap( Sprite * junkheap, HeroAction direction );
+		void cleanUpRound();
 		void destroySprite( Sprite * sprite, bool calculatePoints = true );
 		bool destroyAllCollidingBots( const Sprite * sprite, bool calculatePoints = true );
 		void updateScore( int changeInScore );
 		void updateEnergy( int changeInEnergy );
 
-	private slots:
-		void animationDone();
-
 	private: // data members
-		Scene * m_scene;
+		Coordinator * m_coordinator;
 
 		Sprite * m_hero;
 		QList<Sprite *> m_bots;
 		QList<Sprite *> m_junkheaps;
-
-		bool m_busyAnimating;
-		bool m_processFastbots;
-		bool m_gameOver;
-		bool m_newGameRequested;
-		HeroAction m_repeatedAction;
-		HeroAction m_queuedAction;
 
 		Ruleset * m_rules;
 		int m_round;
@@ -150,7 +114,10 @@ namespace Killbots
 		qreal m_fastbotCount;
 		qreal m_junkheapCount;
 
-		QMultiHash< QPoint, Sprite * > m_spriteMap;
+		bool m_heroIsDead;
+		bool m_waitingOutRound;
+
+		QMultiHash<QPoint, Sprite *> m_spriteMap;
 	};
 }
 

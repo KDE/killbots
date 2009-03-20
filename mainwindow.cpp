@@ -19,6 +19,7 @@
 
 #include "mainwindow.h"
 
+#include "coordinator.h"
 #include "engine.h"
 #include "optionspage.h"
 #include "render.h"
@@ -59,8 +60,14 @@ Killbots::MainWindow::MainWindow( QWidget * parent )
 		Settings::setTheme("themes/default.desktop");
 	}
 
+	m_coordinator = new Coordinator( this );
+	m_coordinator->setAnimationSpeed( Settings::animationSpeed() );
+
+	m_engine = new Engine( m_coordinator, this );
+	m_coordinator->setEngine( m_engine );
+
 	m_scene = new Scene( this );
-	m_engine = new Engine( m_scene, this );
+	m_coordinator->setScene( m_scene );
 
 	m_view = new View( m_scene, this );
 	m_view->setMinimumSize( 400, 280 );
@@ -73,20 +80,9 @@ Killbots::MainWindow::MainWindow( QWidget * parent )
 
 	connect( m_view, SIGNAL(sizeChanged(QSize)), m_scene, SLOT(doLayout()) );
 
-	connect( m_scene, SIGNAL(clicked(int)), m_engine, SLOT(requestAction(int)) );
+	connect( m_scene, SIGNAL(clicked(int)), m_coordinator, SLOT(requestAction(int)) );
 
-	connect( m_engine, SIGNAL(newGame(int,int,bool)), m_scene, SLOT(onNewGame(int,int,bool)) );
 	connect( m_engine, SIGNAL(gameOver(int,int)), this, SLOT(onGameOver(int,int)) );
-
-	connect( m_engine, SIGNAL(roundChanged(int)), m_scene, SLOT(updateRound(int)) );
-	connect( m_engine, SIGNAL(scoreChanged(int)), m_scene, SLOT(updateScore(int)) );
-	connect( m_engine, SIGNAL(enemyCountChanged(int)), m_scene, SLOT(updateEnemyCount(int)) );
-	connect( m_engine, SIGNAL(energyChanged(int)), m_scene, SLOT(updateEnergy(int)) );
-
-	connect( m_engine, SIGNAL(showNewGameMessage()), m_scene, SLOT(showNewGameMessage()) );
-	connect( m_engine, SIGNAL(showRoundCompleteMessage()), m_scene, SLOT(showRoundCompleteMessage()) );
-	connect( m_engine, SIGNAL(showBoardFullMessage()), m_scene, SLOT(showBoardFullMessage()) );
-	connect( m_engine, SIGNAL(showGameOverMessage()), m_scene, SLOT(showGameOverMessage()) );
 
 	connect( m_engine, SIGNAL(teleportAllowed(bool)),         actionCollection()->action("teleport"),        SLOT(setEnabled(bool)) );
 	connect( m_engine, SIGNAL(teleportAllowed(bool)),         actionCollection()->action("teleport_sip"),    SLOT(setEnabled(bool)) );
@@ -94,7 +90,7 @@ Killbots::MainWindow::MainWindow( QWidget * parent )
 	connect( m_engine, SIGNAL(sonicScrewdriverAllowed(bool)), actionCollection()->action("screwdriver"),     SLOT(setEnabled(bool)) );
 	connect( m_engine, SIGNAL(waitOutRoundAllowed(bool)),     actionCollection()->action("wait_out_round"),  SLOT(setEnabled(bool)) );
 
-	QTimer::singleShot( 25, m_engine, SLOT(requestNewGame()) );
+	QTimer::singleShot( 0, m_coordinator, SLOT(requestNewGame()) );
 }
 
 
@@ -159,7 +155,7 @@ void Killbots::MainWindow::onSettingsChanged()
 		m_scene->doLayout();
 	}
 
-	m_scene->setAnimationSpeed( Settings::animationSpeed() );
+	m_coordinator->setAnimationSpeed( Settings::animationSpeed() );
 
 	if ( m_engine->ruleset()->fileName() != Settings::ruleset() )
 	{
@@ -188,7 +184,7 @@ void Killbots::MainWindow::onConfigDialogClosed()
 		                                  ) == KMessageBox::No
 		   )
 		{
-			m_engine->requestNewGame();
+			m_coordinator->requestNewGame();
 		}
 
 		m_rulesetChanged = false;
@@ -270,7 +266,7 @@ KAction * Killbots::MainWindow::createMappedAction( KActionCollection * collecti
 
 void Killbots::MainWindow::setupActions()
 {
-	KStandardGameAction::gameNew( m_engine, SLOT(requestNewGame()), actionCollection() );
+	KStandardGameAction::gameNew( m_coordinator, SLOT(requestNewGame()), actionCollection() );
 	KStandardGameAction::highscores( this, SLOT(showHighscores()), actionCollection() );
 	KStandardGameAction::quit( kapp, SLOT(quit()), actionCollection() );
 
@@ -388,7 +384,7 @@ void Killbots::MainWindow::setupActions()
 	                    Qt::Key_3
 	                  );
 
-	connect( m_keyboardMapper, SIGNAL(mapped(int)), m_engine, SLOT(requestAction(int)) );
+	connect( m_keyboardMapper, SIGNAL(mapped(int)), m_coordinator, SLOT(requestAction(int)) );
 
 	m_keyboardActions->associateWidget(this);
 }

@@ -19,12 +19,11 @@
 
 #include "engine.h"
 
-#include "scene.h"
+#include "coordinator.h"
 #include "settings.h"
 #include "sprite.h"
 
 #include <KDE/KDebug>
-#include <KDE/KLocale>
 #include <KDE/KRandom>
 
 uint qHash( const QPoint & point )
@@ -39,16 +38,10 @@ inline int sign( int num )
 }
 
 
-Killbots::Engine::Engine( Scene * scene, QObject * parent )
+Killbots::Engine::Engine( Killbots::Coordinator* scene, QObject* parent )
   : QObject( parent ),
-    m_scene( scene ),
+    m_coordinator( scene ),
     m_hero( 0 ),
-    m_busyAnimating( false ),
-    m_processFastbots( false ),
-    m_gameOver( false ),
-    m_newGameRequested( false ),
-    m_repeatedAction( NoAction ),
-    m_queuedAction( NoAction ),
     m_rules( 0 ),
     m_round( 0 ),
     m_score( 0 ),
@@ -57,9 +50,10 @@ Killbots::Engine::Engine( Scene * scene, QObject * parent )
     m_robotCount( 0.0 ),
     m_fastbotCount( 0.0 ),
     m_junkheapCount( 0.0 ),
+    m_heroIsDead( false ),
+    m_waitingOutRound( false ),
     m_spriteMap()
 {
-	connect( m_scene, SIGNAL(animationDone()), this, SLOT(animationDone()), Qt::QueuedConnection );
 }
 
 
@@ -69,28 +63,52 @@ Killbots::Engine::~Engine()
 }
 
 
-const Killbots::Ruleset * Killbots::Engine::ruleset()
+const Killbots::Ruleset * Killbots::Engine::ruleset() const
 {
 	return m_rules;
 }
 
 
-bool Killbots::Engine::gameHasStarted()
+bool Killbots::Engine::gameHasStarted() const
 {
 	return m_hero && m_score > 0;
 }
 
 
-void Killbots::Engine::requestNewGame()
+bool Killbots::Engine::isRoundComplete() const
 {
-	if ( !m_busyAnimating || m_gameOver )
-		newGame();
-	else
-		m_newGameRequested = true;
+	return m_bots.isEmpty();
 }
 
 
-void Killbots::Engine::newGame()
+bool Killbots::Engine::isHeroDead() const
+{
+	return m_heroIsDead;
+}
+
+
+bool Killbots::Engine::isBoardFull() const
+{
+	return m_robotCount + m_fastbotCount + m_junkheapCount
+	       > m_rules->rows() * m_rules->columns() / 2;
+}
+
+
+bool Killbots::Engine::canSafeTeleport() const
+{
+	return m_rules->safeTeleportEnabled()
+	       && m_energy >= m_rules->costOfSafeTeleport();
+}
+
+
+bool Killbots::Engine::canSonicScrewdriver() const
+{
+	return m_rules->sonicScrewdriverEnabled()
+	       && m_energy >= m_rules->costOfSonicScrewdriver();
+}
+
+
+void Killbots::Engine::startNewGame()
 {
 	if ( !m_rules || m_rules->fileName() != Settings::ruleset() )
 	{
@@ -105,14 +123,14 @@ void Killbots::Engine::newGame()
 	// Don't show the new game message on first start.
 	if ( m_round != 0 )
 		 emit showNewGameMessage();
-	emit newGame( m_rules->rows(), m_rules->columns(), m_rules->energyEnabled() );
+
 	emit teleportAllowed( true );
 	emit waitOutRoundAllowed( true );
-	emit teleportSafelyAllowed( m_rules->safeTeleportEnabled() && m_energy >= m_rules->costOfSafeTeleport() );
-	emit sonicScrewdriverAllowed( m_rules->sonicScrewdriverEnabled() && m_energy >= m_rules->costOfSonicScrewdriver() );
+	emit teleportSafelyAllowed( canSafeTeleport() );
+	emit sonicScrewdriverAllowed( canSonicScrewdriver() );
 
-	m_newGameRequested = false;
-	m_gameOver = false;
+// 	m_newGameRequested = false;
+	m_heroIsDead = false;
 
 	m_round = 1;
 	m_score = 0;
@@ -125,149 +143,17 @@ void Killbots::Engine::newGame()
 	// Code used to generate theme previews
 	//newRound( "  r\nhjf", false );
 
-	newRound( false );
-	m_busyAnimating = true;
-	m_scene->startAnimation();
+	startNewRound( false );
 }
 
 
-void Killbots::Engine::requestAction( HeroAction action )
-{
-	// If the hero is doing a repeated move the new request only stops the hero.
-	const bool cancelRepeatedMove = m_repeatedAction != WaitOutRound
-	                                && m_repeatedAction != NoAction;
-	if ( cancelRepeatedMove )
-	{
-		m_repeatedAction = NoAction;
-	}
-
-	if ( !m_busyAnimating && !m_gameOver )
-	{
-		doAction( action );
-	}
-	else if ( !cancelRepeatedMove )
-	{
-		m_queuedAction = action;
-	}
-}
-
-
-// This slot is provided only for QSignalMapper compatibility.
-void Killbots::Engine::requestAction( int action )
-{
-	requestAction( static_cast<HeroAction>( action ) );
-}
-
-
-void Killbots::Engine::doAction( HeroAction action )
-{
-	bool actionSuccessful = false;
-	bool boardFull = false;
-
-	refreshSpriteMap();
-
-	if ( action <= Hold )
-	{
-		actionSuccessful = moveHero( action );
-	}
-	else if ( ( action == TeleportSafely || action == TeleportSafelyIfPossible )
-	          && m_rules->safeTeleportEnabled()
-	          && m_energy >= m_rules->costOfSafeTeleport()
-	        )
-	{
-		actionSuccessful = teleportHeroSafely();
-		boardFull = !actionSuccessful;
-	}
-	else if ( action == Teleport || action == TeleportSafelyIfPossible )
-	{
-		actionSuccessful = teleportHero();
-	}
-	else if ( action == SonicScrewdriver && m_energy >= m_rules->costOfSonicScrewdriver() )
-	{
-		actionSuccessful = sonicScrewdriver();
-	}
-	else if ( action == WaitOutRound )
-	{
-		m_repeatedAction = WaitOutRound;
-		actionSuccessful = true;
-	}
-
-	if ( actionSuccessful )
-	{
-		moveRobots();
-		assessDamage();
-		if ( m_bots.isEmpty() )
-			emit showRoundCompleteMessage();
-		else
-			m_processFastbots = true;
-		m_busyAnimating = true;
-		m_scene->startAnimation();
-	}
-	else if ( boardFull )
-	{
-		resetBotCounts();
-		m_busyAnimating = true;
-		m_scene->startAnimation();
-	}
-}
-
-
-void Killbots::Engine::animationDone()
-{
-	m_busyAnimating = false;
-
-	if ( m_newGameRequested )
-	{
-		newGame();
-	}
-	else if ( m_processFastbots )
-	{
-		m_processFastbots = false;
-		moveRobots( true );
-		assessDamage();
-		if ( m_bots.isEmpty() )
-			emit showRoundCompleteMessage();
-		m_busyAnimating = true;
-		m_scene->startAnimation();
-	}
-	else if ( m_gameOver )
-	{
-		emit showGameOverMessage();
-		emit teleportAllowed( false );
-		emit waitOutRoundAllowed( false );
-		emit teleportSafelyAllowed( false );
-		emit sonicScrewdriverAllowed( false );
-		emit gameOver( m_score, m_round );
-	}
-	else if ( m_bots.isEmpty() )
-	{
-		newRound();
-		if ( m_robotCount + m_fastbotCount + m_junkheapCount > m_rules->rows() * m_rules->columns() / 2 )
-			resetBotCounts();
-		m_busyAnimating = true;
-		m_scene->startAnimation();
-	}
-	else if ( m_repeatedAction != NoAction )
-	{
-		doAction( m_repeatedAction );
-	}
-	else if ( m_queuedAction != NoAction )
-	{
-		doAction( m_queuedAction );
-		m_queuedAction = NoAction;
-	}
-}
-
-
-void Killbots::Engine::newRound( bool incrementRound, const QString & layout )
+void Killbots::Engine::startNewRound( bool incrementRound, const QString & layout )
 {
 	cleanUpRound();
 
-	m_processFastbots = false;
-	m_repeatedAction = NoAction;
-	m_queuedAction = NoAction;
+	m_waitingOutRound = false;
 
-	m_scene->beginNewAnimationStage();
+	m_coordinator->beginNewAnimationStage();
 
 	if ( incrementRound )
 	{
@@ -287,13 +173,13 @@ void Killbots::Engine::newRound( bool incrementRound, const QString & layout )
 	{
 		// Place the hero in the centre of the board.
 		const QPoint centre = QPoint( qRound( m_rules->columns() / 2 ), qRound( m_rules->rows() / 2 ) );
-		m_hero = m_scene->createSprite( Hero, centre );
+		m_hero = m_coordinator->createSprite( Hero, centre );
 
 		// Create and randomly place junkheaps.
 		for ( int i = m_junkheapCount; i > 0 ; --i )
 		{
 			const QPoint point = randomEmptyCell();
-			m_junkheaps << m_scene->createSprite( Junkheap, point );
+			m_junkheaps << m_coordinator->createSprite( Junkheap, point );
 			m_spriteMap.insert( point, m_junkheaps.last() );
 		}
 
@@ -301,7 +187,7 @@ void Killbots::Engine::newRound( bool incrementRound, const QString & layout )
 		for ( int i = m_robotCount; i > 0; --i )
 		{
 			const QPoint point = randomEmptyCell();
-			m_bots << m_scene->createSprite( Robot, point );
+			m_bots << m_coordinator->createSprite( Robot, point );
 			m_spriteMap.insert( point, m_bots.last() );
 		}
 
@@ -309,7 +195,7 @@ void Killbots::Engine::newRound( bool incrementRound, const QString & layout )
 		for ( int i = m_fastbotCount; i > 0; --i )
 		{
 			const QPoint point = randomEmptyCell();
-			m_bots << m_scene->createSprite( Fastbot, point );
+			m_bots << m_coordinator->createSprite( Fastbot, point );
 			m_spriteMap.insert( point, m_bots.last() );
 		}
 	}
@@ -324,13 +210,13 @@ void Killbots::Engine::newRound( bool incrementRound, const QString & layout )
 				const QPoint point( c, r );
 
 				if ( ch == 'h' && m_hero == 0 )
-					m_hero = m_scene->createSprite( Hero, point );
+					m_hero = m_coordinator->createSprite( Hero, point );
 				else if ( ch == 'r' )
-					m_bots << m_scene->createSprite( Robot, point );
+					m_bots << m_coordinator->createSprite( Robot, point );
 				else if ( ch == 'f' )
-					m_bots << m_scene->createSprite( Fastbot, point );
+					m_bots << m_coordinator->createSprite( Fastbot, point );
 				else if ( ch == 'j' )
-					m_junkheaps << m_scene->createSprite( Junkheap, point );
+					m_junkheaps << m_coordinator->createSprite( Junkheap, point );
 			}
 		}
 	}
@@ -345,67 +231,39 @@ void Killbots::Engine::newRound( bool incrementRound, const QString & layout )
 
 
 // Returns true if the move was performed, returns false otherwise.
-bool Killbots::Engine::moveHero( HeroAction direction )
+bool Killbots::Engine::moveHero( Killbots::HeroAction direction )
 {
+	refreshSpriteMap();
 	const QPoint newCell = m_hero->gridPos() + offsetFromDirection( direction );
+	const bool preventUnsafeMoves = Settings::preventUnsafeMoves() || direction < 0;
 
-	if ( moveIsValid( newCell, direction )
-	     && ( moveIsSafe( newCell, direction )
-	          || ( !Settings::preventUnsafeMoves()
-	               && m_repeatedAction == NoAction
-	             )
-	        )
-	   )
+	if ( moveIsValid( newCell, direction ) && ( moveIsSafe( newCell, direction ) || !preventUnsafeMoves ) )
 	{
-		m_repeatedAction = direction < 0 ? direction : NoAction;
-
 		if ( direction != Hold )
 		{
-			m_scene->beginNewAnimationStage();
+			m_coordinator->beginNewAnimationStage();
 
 			if ( spriteTypeAt( newCell ) == Junkheap )
 				pushJunkheap( m_spriteMap.value( newCell ), direction );
 
-			m_scene->slideSprite( m_hero, newCell );
+			m_coordinator->slideSprite( m_hero, newCell );
 		}
 		return true;
 	}
 	else
 	{
-		m_repeatedAction = NoAction;
 		return false;
 	}
-}
-
-
-void Killbots::Engine::pushJunkheap( Sprite * junkheap, HeroAction direction )
-{
-	const QPoint nextCell = junkheap->gridPos() + offsetFromDirection( direction );
-	Sprite * currentOccupant = m_spriteMap.value( nextCell );
-	if ( currentOccupant )
-	{
-		if ( currentOccupant->spriteType() == Junkheap )
-		{
-			pushJunkheap( currentOccupant, direction );
-		}
-		else
-		{
-			destroySprite( currentOccupant );
-			updateScore( m_rules->squashKillPointBonus() );
-			updateEnergy( m_rules->squashKillEnergyBonus() );
-		}
-	}
-
-	m_scene->slideSprite( junkheap, nextCell );
 }
 
 
 // Always returns true as teleports always succeed.
 bool Killbots::Engine::teleportHero()
 {
+	refreshSpriteMap();
 	const QPoint point = randomEmptyCell();
-	m_scene->beginNewAnimationStage();
-	m_scene->teleportSprite( m_hero, point );
+	m_coordinator->beginNewAnimationStage();
+	m_coordinator->teleportSprite( m_hero, point );
 	return true;
 }
 
@@ -414,6 +272,8 @@ bool Killbots::Engine::teleportHero()
 // the board must be full.
 bool Killbots::Engine::teleportHeroSafely()
 {
+	refreshSpriteMap();
+
 	// Choose a random cell...
 	const QPoint startPoint = QPoint( KRandom::random() % m_rules->columns(), KRandom::random() % m_rules->rows() );
 	QPoint point = startPoint;
@@ -445,9 +305,9 @@ bool Killbots::Engine::teleportHeroSafely()
 	}
 	else
 	{
-		m_scene->beginNewAnimationStage();
+		m_coordinator->beginNewAnimationStage();
 		updateEnergy( -m_rules->costOfSafeTeleport() );
-		m_scene->teleportSprite( m_hero, point );
+		m_coordinator->teleportSprite( m_hero, point );
 
 		return true;
 	}
@@ -457,6 +317,7 @@ bool Killbots::Engine::teleportHeroSafely()
 // Returns true if any enemies were within range.
 bool Killbots::Engine::sonicScrewdriver()
 {
+	refreshSpriteMap();
 	QList<Sprite *> neighbors;
 	for ( int i = Right; i <= DownRight; ++i )
 	{
@@ -467,7 +328,7 @@ bool Killbots::Engine::sonicScrewdriver()
 
 	if ( neighbors.size() )
 	{
-		m_scene->beginNewAnimationStage();
+		m_coordinator->beginNewAnimationStage();
 		foreach ( Sprite * sprite, neighbors )
 			destroySprite( sprite );
 		updateEnergy( -m_rules->costOfSonicScrewdriver() );
@@ -480,16 +341,23 @@ bool Killbots::Engine::sonicScrewdriver()
 }
 
 
+bool Killbots::Engine::waitOutRound()
+{
+	m_waitingOutRound = true;
+	return true;
+}
+
+
 void Killbots::Engine::moveRobots( bool justFastbots )
 {
-	m_scene->beginNewAnimationStage();
+	m_coordinator->beginNewAnimationStage();
 
 	foreach( Sprite * bot, m_bots )
 	{
 		if ( bot->spriteType() == Fastbot || !justFastbots )
 		{
 			const QPoint offset( sign( m_hero->gridPos().x() - bot->gridPos().x() ), sign( m_hero->gridPos().y() - bot->gridPos().y() ) );
-			m_scene->slideSprite( bot, bot->gridPos() + offset );
+			m_coordinator->slideSprite( bot, bot->gridPos() + offset );
 		}
 	}
 }
@@ -499,139 +367,42 @@ void Killbots::Engine::assessDamage()
 {
 	refreshSpriteMap();
 
-	m_scene->beginNewAnimationStage();
+	m_coordinator->beginNewAnimationStage();
 
 	if ( m_spriteMap.count( m_hero->gridPos() ) > 0 )
-		m_gameOver = true;
+		m_heroIsDead = true;
 
 	// Check junkheaps for dead robots
 	foreach ( Sprite * junkheap, m_junkheaps )
-		destroyAllCollidingBots( junkheap, !m_gameOver );
+		destroyAllCollidingBots( junkheap, !m_heroIsDead );
 
 	// Check for robot-on-robot violence
 	int i = 0;
 	while ( i < m_bots.size() )
 	{
 		Sprite * bot = m_bots[i];
-		if ( bot->gridPos() != m_hero->gridPos() && destroyAllCollidingBots( bot, !m_gameOver ) )
+		if ( bot->gridPos() != m_hero->gridPos() && destroyAllCollidingBots( bot, !m_heroIsDead ) )
 		{
-			m_junkheaps << m_scene->createSprite( Junkheap, bot->gridPos() );
-			destroySprite( bot, !m_gameOver );
+			m_junkheaps << m_coordinator->createSprite( Junkheap, bot->gridPos() );
+			destroySprite( bot, !m_heroIsDead );
 		}
 		else
 		{
 			i++;
 		}
 	}
-}
 
-
-void Killbots::Engine::cleanUpRound()
-{
-	m_scene->beginNewAnimationStage();
-
-	if ( m_hero )
-		destroySprite( m_hero );
-	m_hero = 0;
-
-	foreach( Sprite * bot, m_bots )
-		destroySprite( bot, false );
-	m_bots.clear();
-
-	foreach( Sprite * junkheap, m_junkheaps )
-		destroySprite( junkheap );
-	m_junkheaps.clear();
-
-	m_spriteMap.clear();
-}
-
-
-void Killbots::Engine::destroySprite( Sprite * sprite, bool calculatePoints )
-{
-	const SpriteType type = sprite->spriteType();
-
-	if ( type == Robot || type == Fastbot)
+	if ( isRoundComplete() )
 	{
-		if ( calculatePoints )
-		{
-			if ( type == Robot )
-				updateScore( m_rules->pointsPerEnemyKilled() );
-			else
-				updateScore( m_rules->pointsPerFastEnemyKilled() );
-
-			if ( m_repeatedAction == WaitOutRound )
-			{
-				updateScore(  m_rules->waitKillPointBonus() );
-				updateEnergy( m_rules->waitKillEnergyBonus() );
-			}
-		}
-		m_bots.removeOne( sprite );
-		emit enemyCountChanged( m_bots.size() );
-	}
-	else if ( type == Junkheap )
-	{
-		m_junkheaps.removeOne( sprite );
-	}
-
-	m_scene->destroySprite( sprite );
-}
-
-
-bool Killbots::Engine::destroyAllCollidingBots( const Sprite * sprite, bool calculatePoints )
-{
-	bool result = false;
-
-	foreach ( Sprite * robot, m_spriteMap.values( sprite->gridPos() ) )
-	{
-		if ( robot != sprite && ( robot->spriteType() == Robot || robot->spriteType() == Fastbot ) )
-		{
-			destroySprite( robot, calculatePoints );
-			result = true;
-		}
-	}
-
-	return result;
-}
-
-
-void Killbots::Engine::updateScore( int changeInScore )
-{
-	if ( changeInScore != 0 )
-	{
-		m_score = m_score + changeInScore;
-		emit scoreChanged( m_score );
-	}
-}
-
-
-void Killbots::Engine::updateEnergy( int changeInEnergy )
-{
-	if ( m_rules->energyEnabled() && changeInEnergy != 0 )
-	{
-		if ( changeInEnergy > 0 && m_energy > int( m_maxEnergy ) )
-		{
-			m_score += changeInEnergy * m_rules->pointsPerEnergyAboveMax();
-		}
-		else if ( changeInEnergy > 0 && m_energy + changeInEnergy > int( m_maxEnergy ) )
-		{
-			m_score += ( m_energy + changeInEnergy - int( m_maxEnergy ) ) * m_rules->pointsPerEnergyAboveMax();
-			m_energy = int( m_maxEnergy );
-		}
-		else
-		{
-			m_energy = m_energy + changeInEnergy;
-		}
-
-		emit energyChanged( m_energy );
-		emit teleportSafelyAllowed( m_rules->safeTeleportEnabled() && m_energy >= m_rules->costOfSafeTeleport()  );
-		emit sonicScrewdriverAllowed( m_rules->sonicScrewdriverEnabled() && m_energy >= m_rules->costOfSonicScrewdriver() );
+		m_coordinator->beginNewAnimationStage();
+		emit showRoundCompleteMessage();
 	}
 }
 
 
 void Killbots::Engine::resetBotCounts()
 {
-	m_scene->beginNewAnimationStage();
+	m_coordinator->beginNewAnimationStage();
 	emit showBoardFullMessage();
 
 	m_maxEnergy = m_rules->maxEnergyAtGameStart();
@@ -639,8 +410,19 @@ void Killbots::Engine::resetBotCounts()
 	m_fastbotCount = m_rules->fastEnemiesAtGameStart();
 	m_junkheapCount = m_rules->junkheapsAtGameStart();
 
-	m_scene->beginNewAnimationStage();
-	newRound(false);
+	m_coordinator->beginNewAnimationStage();
+	startNewRound(false);
+}
+
+
+void Killbots::Engine::endGame()
+{
+	emit showGameOverMessage();
+	emit teleportAllowed( false );
+	emit waitOutRoundAllowed( false );
+	emit teleportSafelyAllowed( false );
+	emit sonicScrewdriverAllowed( false );
+	emit gameOver( m_score, m_round );
 }
 
 
@@ -664,6 +446,35 @@ int Killbots::Engine::spriteTypeAt( const QPoint & cell ) const
 		return m_spriteMap.value( cell )->spriteType();
 	else
 		return NoSprite;
+}
+
+
+QPoint Killbots::Engine::offsetFromDirection( int direction ) const
+{
+	if ( direction < 0 )
+		direction = -direction - 1;
+
+	switch( direction )
+	{
+	case Right:
+		return QPoint(  1,  0 );
+	case UpRight:
+		return QPoint(  1, -1 );
+	case Up:
+		return QPoint(  0, -1 );
+	case UpLeft:
+		return QPoint( -1, -1 );
+	case Left:
+		return QPoint( -1,  0 );
+	case DownLeft:
+		return QPoint( -1,  1 );
+	case Down:
+		return QPoint(  0,  1 );
+	case DownRight:
+		return QPoint(  1,  1 );
+	default:
+		return QPoint(  0,  0 );
+	};
 }
 
 
@@ -926,30 +737,126 @@ bool Killbots::Engine::canPushJunkheap( const Sprite * junkheap, HeroAction dire
 }
 
 
-QPoint Killbots::Engine::offsetFromDirection( int direction ) const
+void Killbots::Engine::pushJunkheap( Sprite * junkheap, HeroAction direction )
 {
-	if ( direction < 0 )
-		direction = -direction - 1;
-
-	switch( direction )
+	const QPoint nextCell = junkheap->gridPos() + offsetFromDirection( direction );
+	Sprite * currentOccupant = m_spriteMap.value( nextCell );
+	if ( currentOccupant )
 	{
-	case Right:
-		return QPoint(  1,  0 );
-	case UpRight:
-		return QPoint(  1, -1 );
-	case Up:
-		return QPoint(  0, -1 );
-	case UpLeft:
-		return QPoint( -1, -1 );
-	case Left:
-		return QPoint( -1,  0 );
-	case DownLeft:
-		return QPoint( -1,  1 );
-	case Down:
-		return QPoint(  0,  1 );
-	case DownRight:
-		return QPoint(  1,  1 );
-	default:
-		return QPoint(  0,  0 );
-	};
+		if ( currentOccupant->spriteType() == Junkheap )
+		{
+			pushJunkheap( currentOccupant, direction );
+		}
+		else
+		{
+			destroySprite( currentOccupant );
+			updateScore( m_rules->squashKillPointBonus() );
+			updateEnergy( m_rules->squashKillEnergyBonus() );
+		}
+	}
+
+	m_coordinator->slideSprite( junkheap, nextCell );
+}
+
+
+void Killbots::Engine::cleanUpRound()
+{
+	m_coordinator->beginNewAnimationStage();
+
+	if ( m_hero )
+		destroySprite( m_hero );
+	m_hero = 0;
+
+	foreach( Sprite * bot, m_bots )
+		destroySprite( bot, false );
+	m_bots.clear();
+
+	foreach( Sprite * junkheap, m_junkheaps )
+		destroySprite( junkheap );
+	m_junkheaps.clear();
+
+	m_spriteMap.clear();
+}
+
+
+void Killbots::Engine::destroySprite( Sprite * sprite, bool calculatePoints )
+{
+	const SpriteType type = sprite->spriteType();
+
+	if ( type == Robot || type == Fastbot)
+	{
+		if ( calculatePoints )
+		{
+			if ( type == Robot )
+				updateScore( m_rules->pointsPerEnemyKilled() );
+			else
+				updateScore( m_rules->pointsPerFastEnemyKilled() );
+
+			if ( m_waitingOutRound )
+			{
+				updateScore(  m_rules->waitKillPointBonus() );
+				updateEnergy( m_rules->waitKillEnergyBonus() );
+			}
+		}
+		m_bots.removeOne( sprite );
+		emit enemyCountChanged( m_bots.size() );
+	}
+	else if ( type == Junkheap )
+	{
+		m_junkheaps.removeOne( sprite );
+	}
+
+	m_coordinator->destroySprite( sprite );
+}
+
+
+bool Killbots::Engine::destroyAllCollidingBots( const Sprite * sprite, bool calculatePoints )
+{
+	bool result = false;
+
+	foreach ( Sprite * robot, m_spriteMap.values( sprite->gridPos() ) )
+	{
+		if ( robot != sprite && ( robot->spriteType() == Robot || robot->spriteType() == Fastbot ) )
+		{
+			destroySprite( robot, calculatePoints );
+			result = true;
+		}
+	}
+
+	return result;
+}
+
+
+void Killbots::Engine::updateScore( int changeInScore )
+{
+	if ( changeInScore != 0 )
+	{
+		m_score = m_score + changeInScore;
+		emit scoreChanged( m_score );
+	}
+}
+
+
+void Killbots::Engine::updateEnergy( int changeInEnergy )
+{
+	if ( m_rules->energyEnabled() && changeInEnergy != 0 )
+	{
+		if ( changeInEnergy > 0 && m_energy > int( m_maxEnergy ) )
+		{
+			m_score += changeInEnergy * m_rules->pointsPerEnergyAboveMax();
+		}
+		else if ( changeInEnergy > 0 && m_energy + changeInEnergy > int( m_maxEnergy ) )
+		{
+			m_score += ( m_energy + changeInEnergy - int( m_maxEnergy ) ) * m_rules->pointsPerEnergyAboveMax();
+			m_energy = int( m_maxEnergy );
+		}
+		else
+		{
+			m_energy = m_energy + changeInEnergy;
+		}
+
+		emit energyChanged( m_energy );
+		emit teleportSafelyAllowed( canSafeTeleport() );
+		emit sonicScrewdriverAllowed( canSonicScrewdriver() );
+	}
 }

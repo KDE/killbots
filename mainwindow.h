@@ -30,6 +30,7 @@ class QSignalMapper;
 namespace Killbots
 {
 	class Engine;
+	class Coordinator;
 	class Scene;
 	class View;
 
@@ -59,6 +60,7 @@ namespace Killbots
 		Scene * m_scene;
 		Engine * m_engine;
 		View * m_view;
+		Coordinator * m_coordinator;
 		KScoreDialog * m_scoreDialog;
 
 		KActionCollection * m_keyboardActions;

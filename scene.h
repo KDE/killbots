@@ -20,12 +20,9 @@
 #ifndef KILLBOTS_SCENE_H
 #define KILLBOTS_SCENE_H
 
-#include "engine.h"
+#include "actions.h"
 #include "sprite.h"
 
-class KGamePopupItem;
-
-#include <QtCore/QTimeLine>
 #include <QtGui/QGraphicsScene>
 
 
@@ -41,33 +38,22 @@ namespace Killbots
 		explicit Scene( QObject * parent = 0 );
 		virtual ~Scene();
 
-		void setAnimationSpeed( int speed );
+		void addNumericDisplay( GameStatusDisplayItem * displayItem );
+		void setGridSize( int rows, int columns );
+		void forgetHero();
 
-		void beginNewAnimationStage();
 		Sprite * createSprite( SpriteType type, QPoint position );
-		void slideSprite( Sprite * sprite, QPoint position );
-		void teleportSprite( Sprite * sprite, QPoint position );
-		void destroySprite( Sprite * sprite );
-
-		void startAnimation();
+		void animateSprites( const QList<Sprite *> & newSprites,
+		                     const QList<Sprite *> & slidingSprites,
+		                     const QList<Sprite *> & teleportingSprites,
+		                     const QList<Sprite *> & destroyedSprites,
+		                     qreal value
+		                   ) const;
 
 	public slots:
-		void updateRound( int round );
-		void updateScore( int score );
-		void updateEnemyCount( int enemyCount );
-		void updateEnergy( int energy );
-
-		void showNewGameMessage();
-		void showRoundCompleteMessage();
-		void showBoardFullMessage();
-		void showGameOverMessage();
-
 		void doLayout();
-		void onNewGame( int rows, int columns, bool gameIncludesEnergy );
 
 	signals:
-		void animationStageDone();
-		void animationDone();
 		void clicked( int action );
 
 	protected: // functions
@@ -75,33 +61,15 @@ namespace Killbots
 		virtual void mouseMoveEvent( QGraphicsSceneMouseEvent * mouseEvent );
 		virtual void mouseReleaseEvent( QGraphicsSceneMouseEvent * mouseEvent );
 
-	private: // types
-		struct AnimationStage;
-
 	private: // functions
-		void startAnimationStage();
+		HeroAction getMouseDirection( QPointF cursorPosition ) const;
+		bool popupAtPosition( QPointF position ) const;
 		void updateSpritePos( Sprite * sprite ) const;
-		HeroAction getMouseDirection( QGraphicsSceneMouseEvent * event );
-		void showUnqueuedMessage( const QString & message, int timeOut = 3000 );
-		void showQueuedMessage( const QString & message );
-
-	private slots:
-		void nextAnimationStage();
-		void animate( qreal value );
 
 	private: // data members
 		Sprite * m_hero;
-		QList<AnimationStage> m_stages;
 
-		QTimeLine m_timeLine;
-
-		KGamePopupItem * m_unqueuedPopup;
-		KGamePopupItem * m_queuedPopup;
-
-		GameStatusDisplayItem * m_roundDisplay;
-		GameStatusDisplayItem * m_scoreDisplay;
-		GameStatusDisplayItem * m_enemyCountDisplay;
-		GameStatusDisplayItem * m_energyDisplay;
+		QList<GameStatusDisplayItem *> m_numericDisplays;
 
 		QSize m_cellSize;
 		int m_rows;

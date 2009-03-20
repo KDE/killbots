@@ -140,8 +140,7 @@ void Killbots::GameStatusDisplayItem::setFont( const QFont & font )
 	if ( font != m_font )
 	{
 		m_font = font;
-
-		m_boldFont = font;
+		m_boldFont = m_font;
 		m_boldFont.setBold( true );
 
 		m_margin = int( m_boldFont.pixelSize() * 0.6 );
