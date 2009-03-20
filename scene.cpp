@@ -199,11 +199,7 @@ void Killbots::Scene::doLayout()
 		foreach ( NumericDisplayItem * display, m_numericDisplays )
 		{
 			display->setFont( font );
-			QSize preferredSize = display->preferredSize();
-			if ( preferredSize.width() > displaySize.width() )
-				displaySize.setWidth( preferredSize.width() );
-			if ( preferredSize.height() > displaySize.height() )
-				displaySize.setHeight( preferredSize.height() );
+			displaySize = displaySize.expandedTo( display->preferredSize() );
 		}
 		foreach ( NumericDisplayItem * display, m_numericDisplays )
 			display->setSize( displaySize );
