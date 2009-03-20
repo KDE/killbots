@@ -19,7 +19,7 @@
 
 #include "scene.h"
 
-#include "gamestatusdisplayitem.h"
+#include "numericdisplayitem.h"
 #include "render.h"
 #include "settings.h"
 #include "sprite.h"
@@ -50,7 +50,7 @@ Killbots::Scene::~Scene()
 }
 
 
-void Killbots::Scene::addNumericDisplay( GameStatusDisplayItem * displayItem )
+void Killbots::Scene::addNumericDisplay( NumericDisplayItem * displayItem )
 {
 	addItem( displayItem );
 	displayItem->setPos( -1000000, 0 );
@@ -196,7 +196,7 @@ void Killbots::Scene::doLayout()
 		QFont font;
 		font.setPixelSize( newFontPixelSize  );
 
-		foreach ( GameStatusDisplayItem * display, m_numericDisplays )
+		foreach ( NumericDisplayItem * display, m_numericDisplays )
 		{
 			display->setFont( font );
 			QSize preferredSize = display->preferredSize();
@@ -205,7 +205,7 @@ void Killbots::Scene::doLayout()
 			if ( preferredSize.height() > displaySize.height() )
 				displaySize.setHeight( preferredSize.height() );
 		}
-		foreach ( GameStatusDisplayItem * display, m_numericDisplays )
+		foreach ( NumericDisplayItem * display, m_numericDisplays )
 			display->setSize( displaySize );
 	}
 	else
@@ -214,8 +214,8 @@ void Killbots::Scene::doLayout()
 	}
 
 	// The rest of the function deals only with a list of visible displays.
-	QList<GameStatusDisplayItem *> visibleDisplays;
-	foreach ( GameStatusDisplayItem * display, m_numericDisplays )
+	QList<NumericDisplayItem *> visibleDisplays;
+	foreach ( NumericDisplayItem * display, m_numericDisplays )
 	{
 		if ( display->isVisible() )
 			visibleDisplays << display;
@@ -273,7 +273,7 @@ void Killbots::Scene::doLayout()
 		const qreal displayYPos = ( sceneRectYPos - ( displaySize.height() + m_cellSize.height() / 2.0 ) ) / 2;
 
 		int xPos = sceneRectXPos + ( size.width() - widthOfDisplaysOnTop ) / 2.0;
-		foreach ( GameStatusDisplayItem * display, visibleDisplays )
+		foreach ( NumericDisplayItem * display, visibleDisplays )
 		{
 			display->setPos( xPos, displayYPos );
 			xPos += displaySize.width() + spacing;
@@ -310,7 +310,7 @@ void Killbots::Scene::doLayout()
 		}
 
 		int yPos = -m_cellSize.height() / 2;
-		foreach ( GameStatusDisplayItem * display, visibleDisplays )
+		foreach ( NumericDisplayItem * display, visibleDisplays )
 		{
 			display->setPos( displayXPos, yPos );
 			yPos += displaySize.height() + spacing;

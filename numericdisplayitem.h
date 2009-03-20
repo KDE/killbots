@@ -17,8 +17,8 @@
  *  along with Killbots. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef KILLBOTS_GAMESTATUSDISPLAYITEM_H
-#define KILLBOTS_GAMESTATUSDISPLAYITEM_H
+#ifndef KILLBOTS_NUMERICDISPLAYITEM_H
+#define KILLBOTS_NUMERICDISPLAYITEM_H
 
 #include <QtGui/QFont>
 #include <QtGui/QGraphicsItem>
@@ -26,42 +26,41 @@
 namespace Killbots
 {
 
-	class GameStatusDisplayItem : public QObject, public QGraphicsItem
+	class NumericDisplayItem : public QObject, public QGraphicsItem
 	{
 		Q_OBJECT
 
 	public: // functions
-		explicit GameStatusDisplayItem( const QString & labelText = QString(), QGraphicsItem * parent = 0 );
-		virtual ~GameStatusDisplayItem();
+		explicit NumericDisplayItem( const QString & label = QString(), QGraphicsItem * parent = 0 );
+		virtual ~NumericDisplayItem();
 
-		QString text() const;
 		int value() const;
+		QString label() const;
 		int digits() const;
-		void setFont( const QFont & font );
 		QFont font() const;
+		QSize preferredSize();
 
 		virtual QRectF boundingRect() const;
 		virtual void paint( QPainter * p, const QStyleOptionGraphicsItem * option, QWidget * widget = 0 );
 
 	public slots:
-		void setText( const QString & text );
 		void setValue( int value );
+		void setLabel( const QString & label );
 		void setDigits( int digits );
+		void setFont( const QFont & font );
 		void setSize( QSize size );
-		QSize preferredSize();
 
 	private: // data members
 		QString m_label;
 		int m_value;
-
-		int m_margin;
 		int m_digits;
+
 		QRectF m_boundingRect;
+		int m_margin;
 
 		QFont m_font;
 		QFont m_boldFont;
 	};
-
 }
 
 #endif

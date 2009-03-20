@@ -28,7 +28,7 @@
 
 namespace Killbots
 {
-	class GameStatusDisplayItem;
+	class NumericDisplayItem;
 	
 	class Scene : public QGraphicsScene
 	{
@@ -38,7 +38,7 @@ namespace Killbots
 		explicit Scene( QObject * parent = 0 );
 		virtual ~Scene();
 
-		void addNumericDisplay( GameStatusDisplayItem * displayItem );
+		void addNumericDisplay( NumericDisplayItem * displayItem );
 		void setGridSize( int rows, int columns );
 		void forgetHero();
 
@@ -69,7 +69,7 @@ namespace Killbots
 	private: // data members
 		Sprite * m_hero;
 
-		QList<GameStatusDisplayItem *> m_numericDisplays;
+		QList<NumericDisplayItem *> m_numericDisplays;
 
 		QSize m_cellSize;
 		int m_rows;

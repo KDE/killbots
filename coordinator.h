@@ -33,7 +33,7 @@ namespace Killbots
 {
 	class Scene;
 	class Engine;
-	class GameStatusDisplayItem;
+	class NumericDisplayItem;
 
 	class Coordinator : public QObject
 	{
@@ -89,10 +89,10 @@ namespace Killbots
 		Engine * m_engine;
 		Scene * m_scene;
 
-		GameStatusDisplayItem * m_roundDisplay;
-		GameStatusDisplayItem * m_scoreDisplay;
-		GameStatusDisplayItem * m_enemyCountDisplay;
-		GameStatusDisplayItem * m_energyDisplay;
+		NumericDisplayItem * m_roundDisplay;
+		NumericDisplayItem * m_scoreDisplay;
+		NumericDisplayItem * m_enemyCountDisplay;
+		NumericDisplayItem * m_energyDisplay;
 
 		KGamePopupItem * m_unqueuedPopup;
 		KGamePopupItem * m_queuedPopup;

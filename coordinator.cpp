@@ -20,7 +20,7 @@
 #include "coordinator.h"
 
 #include "engine.h"
-#include "gamestatusdisplayitem.h"
+#include "numericdisplayitem.h"
 #include "ruleset.h"
 #include "scene.h"
 #include "sprite.h"
@@ -116,23 +116,23 @@ void Killbots::Coordinator::setScene( Scene * scene )
 {
 	m_scene = scene;
 
-	m_roundDisplay = new GameStatusDisplayItem;
-	m_roundDisplay->setText( i18n("Round:") );
+	m_roundDisplay = new NumericDisplayItem;
+	m_roundDisplay->setLabel( i18n("Round:") );
 	m_roundDisplay->setDigits( 2 );
 	m_scene->addNumericDisplay( m_roundDisplay );
 
-	m_scoreDisplay = new GameStatusDisplayItem;
-	m_scoreDisplay->setText( i18n("Score:") );
+	m_scoreDisplay = new NumericDisplayItem;
+	m_scoreDisplay->setLabel( i18n("Score:") );
 	m_scoreDisplay->setDigits( 5 );
 	m_scene->addNumericDisplay( m_scoreDisplay );
 
-	m_enemyCountDisplay = new GameStatusDisplayItem;
-	m_enemyCountDisplay->setText( i18n("Enemies:") );
+	m_enemyCountDisplay = new NumericDisplayItem;
+	m_enemyCountDisplay->setLabel( i18n("Enemies:") );
 	m_enemyCountDisplay->setDigits( 3 );
 	m_scene->addNumericDisplay( m_enemyCountDisplay );
 
-	m_energyDisplay = new GameStatusDisplayItem;
-	m_energyDisplay->setText( i18n("Energy:") );
+	m_energyDisplay = new NumericDisplayItem;
+	m_energyDisplay->setLabel( i18n("Energy:") );
 	m_energyDisplay->setDigits( 2 );
 	m_scene->addNumericDisplay( m_energyDisplay );
 

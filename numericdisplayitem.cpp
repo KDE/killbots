@@ -17,7 +17,7 @@
  *  along with Killbots. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "gamestatusdisplayitem.h"
+#include "numericdisplayitem.h"
 
 #include "render.h"
 
@@ -25,9 +25,9 @@
 #include <QtGui/QPainter>
 
 
-Killbots::GameStatusDisplayItem::GameStatusDisplayItem( const QString & labelText, QGraphicsItem * parent )
+Killbots::NumericDisplayItem::NumericDisplayItem( const QString & label, QGraphicsItem * parent )
   : QGraphicsItem( parent ),
-    m_label( labelText ),
+    m_label( label ),
     m_value( 0 ),
     m_digits( 3 )
 {
@@ -36,20 +36,36 @@ Killbots::GameStatusDisplayItem::GameStatusDisplayItem( const QString & labelTex
 }
 
 
-Killbots::GameStatusDisplayItem::~GameStatusDisplayItem()
+Killbots::NumericDisplayItem::~NumericDisplayItem()
 {
 }
 
 
-void Killbots::GameStatusDisplayItem::setSize( QSize size )
+int Killbots::NumericDisplayItem::value() const
 {
-	prepareGeometryChange();
-	m_boundingRect = QRectF( QPointF(), size );
-	update();
+	return m_value;
 }
 
 
-QSize Killbots::GameStatusDisplayItem::preferredSize()
+QString Killbots::NumericDisplayItem::label() const
+{
+	return m_label;
+}
+
+
+int Killbots::NumericDisplayItem::digits() const
+{
+	return m_digits;
+}
+
+
+QFont Killbots::NumericDisplayItem::font() const
+{
+	return m_font;
+}
+
+
+QSize Killbots::NumericDisplayItem::preferredSize()
 {
 	QSize labelSize = QFontMetrics( m_font ).boundingRect( m_label ).size();
 	QSize digitsSize = QFontMetrics( m_boldFont ).boundingRect( QString( m_digits + 1, '8' ) ).size();
@@ -60,13 +76,13 @@ QSize Killbots::GameStatusDisplayItem::preferredSize()
 }
 
 
-QRectF Killbots::GameStatusDisplayItem::boundingRect() const
+QRectF Killbots::NumericDisplayItem::boundingRect() const
 {
 	return m_boundingRect;
 }
 
 
-void Killbots::GameStatusDisplayItem::paint( QPainter * p, const QStyleOptionGraphicsItem * option, QWidget * widget )
+void Killbots::NumericDisplayItem::paint( QPainter * p, const QStyleOptionGraphicsItem * option, QWidget * widget )
 {
 	Q_UNUSED( option )
 	Q_UNUSED( widget )
@@ -88,23 +104,7 @@ void Killbots::GameStatusDisplayItem::paint( QPainter * p, const QStyleOptionGra
 }
 
 
-void Killbots::GameStatusDisplayItem::setText( const QString & text )
-{
-	if ( text != m_label )
-	{
-		m_label = text;
-		update();
-	}
-}
-
-
-QString Killbots::GameStatusDisplayItem::text() const
-{
-	return m_label;
-}
-
-
-void Killbots::GameStatusDisplayItem::setValue( int value )
+void Killbots::NumericDisplayItem::setValue( int value )
 {
 	if ( value != m_value )
 	{
@@ -114,13 +114,17 @@ void Killbots::GameStatusDisplayItem::setValue( int value )
 }
 
 
-int Killbots::GameStatusDisplayItem::value() const
+void Killbots::NumericDisplayItem::setLabel( const QString & label )
 {
-	return m_value;
+	if ( label != m_label )
+	{
+		m_label = label;
+		update();
+	}
 }
 
 
-void Killbots::GameStatusDisplayItem::setDigits( int digits )
+void Killbots::NumericDisplayItem::setDigits( int digits )
 {
 	if ( digits != m_digits )
 	{
@@ -129,13 +133,7 @@ void Killbots::GameStatusDisplayItem::setDigits( int digits )
 }
 
 
-int Killbots::GameStatusDisplayItem::digits() const
-{
-	return m_digits;
-}
-
-
-void Killbots::GameStatusDisplayItem::setFont( const QFont & font )
+void Killbots::NumericDisplayItem::setFont( const QFont & font )
 {
 	if ( font != m_font )
 	{
@@ -148,9 +146,11 @@ void Killbots::GameStatusDisplayItem::setFont( const QFont & font )
 }
 
 
-QFont Killbots::GameStatusDisplayItem::font() const
+void Killbots::NumericDisplayItem::setSize( QSize size )
 {
-	return m_font;
+	prepareGeometryChange();
+	m_boundingRect = QRectF( QPointF(), size );
+	update();
 }
 
 

@@ -10,8 +10,8 @@ set( killbots_SRCS
     main.cpp
     coordinator.cpp
     engine.cpp
-    gamestatusdisplayitem.cpp
     mainwindow.cpp
+    numericdisplayitem.cpp
     optionspage.cpp
     render.cpp
     ruleset.cpp
