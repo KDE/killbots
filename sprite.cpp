@@ -92,6 +92,11 @@ void Killbots::Sprite::setSize( QSize size )
 	}
 
 	setOffset( -0.5 * QPointF( size.width(), size.height() ) );
-	setPixmap( Render::renderElement( elementHash.value( m_type ) , size ) );
+	setPixmap( Render::renderElement( elementHash.value( m_type ), size ) );
 }
 
+
+int Killbots::Sprite::type() const
+{
+	return Type;
+}

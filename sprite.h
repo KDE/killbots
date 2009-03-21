@@ -35,6 +35,11 @@ namespace Killbots
 
 	class Sprite : public QGraphicsPixmapItem
 	{
+	public: // types
+		enum {
+			Type = UserType + 1
+		};
+
 	public: // functions
 		explicit Sprite();
 		virtual ~Sprite();
@@ -49,6 +54,8 @@ namespace Killbots
 		void advanceGridPosQueue();
 
 		void setSize( QSize size );
+
+		virtual int type() const;
 
 	private: // data members
 		SpriteType m_type;
