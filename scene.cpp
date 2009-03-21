@@ -142,7 +142,7 @@ void Killbots::Scene::animateSprites( const QList<Sprite *> & newSprites,
 		{
 			sprite->resetTransform();
 			sprite->scale( 1 - value, 1 - value );
-			sprite->rotate( value * 360 );
+			sprite->rotate( value * 180 );
 		}
 	}
 	else
