@@ -25,8 +25,9 @@
 
 
 Killbots::Sprite::Sprite()
-  : QGraphicsItem()
+  : QGraphicsPixmapItem()
 {
+	setShapeMode( QGraphicsPixmapItem::BoundingRectShape );
 }
 
 
@@ -71,38 +72,21 @@ void Killbots::Sprite::setSpriteType( Killbots::SpriteType type )
 }
 
 
-QRectF Killbots::Sprite::boundingRect() const
-{
-	return QRectF( -0.5 * QPointF( m_size.width(), m_size.height() ), m_size );
-}
-
-
 void Killbots::Sprite::setSize( QSize size )
 {
-	prepareGeometryChange();
-	m_size = size;
+	static QHash<SpriteType, QString> elementHash;
+	if ( elementHash.isEmpty() )
+	{
+		elementHash.insert( Hero, "hero" );
+		elementHash.insert( Robot, "enemy" );
+		elementHash.insert( Fastbot, "fastenemy" );
+		elementHash.insert( Junkheap, "junkheap" );
+	}
+
+	setOffset( -0.5 * QPointF( size.width(), size.height() ) );
+	setPixmap( Render::renderElement( elementHash.value( m_type ) , size ) );
 }
 
-
-void Killbots::Sprite::paint( QPainter * p, const QStyleOptionGraphicsItem * option, QWidget * widget )
-{
-	Q_UNUSED( option )
-	Q_UNUSED( widget )
-
-	QString elementName;
-	if ( m_type == NoSprite )
-		elementName = "tile";
-	else if ( m_type == Hero )
-		elementName = "hero";
-	else if ( m_type == Robot )
-		elementName = "enemy";
-	else if ( m_type == Fastbot )
-		elementName = "fastenemy";
-	else if ( m_type == Junkheap )
-		elementName = "junkheap";
-
-	p->drawPixmap( boundingRect().topLeft(), Render::renderElement( elementName , m_size ) );
-}
 
 int Killbots::Sprite::type() const
 {

@@ -80,15 +80,12 @@ Killbots::Sprite * Killbots::Scene::createSprite( SpriteType type, QPoint positi
 	sprite->setSpriteType( type );
 	sprite->setSize( m_cellSize );
 	sprite->setGridPos( position );
-
 	// Create the sprite off screen
 	sprite->setPos( -1000000, 0 );
-
 	// A bit of a hack, but we use the sprite type for stacking order.
 	sprite->setZValue( type );
 
 	addItem( sprite );
-// 	m_stages.last().spritesToCreate << sprite;
 
 	if ( type == Hero )
 		m_hero = sprite;
