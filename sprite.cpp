@@ -53,10 +53,12 @@ void Killbots::Sprite::enqueueGridPos( QPoint position )
 	m_gridPositions << position;
 }
 
+
 QPoint Killbots::Sprite::currentGridPos() const
 {
 	return m_gridPositions.first();
 }
+
 
 QPoint Killbots::Sprite::nextGridPos() const
 {
@@ -64,10 +66,12 @@ QPoint Killbots::Sprite::nextGridPos() const
 	return m_gridPositions.at( 1 );
 }
 
+
 QPoint Killbots::Sprite::gridPos() const
 {
 	return m_gridPositions.last();
 }
+
 
 void Killbots::Sprite::advanceGridPosQueue()
 {
