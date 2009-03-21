@@ -27,8 +27,8 @@ namespace Killbots
 	enum SpriteType
 	{
 		NoSprite,
-		Hero,
 		Junkheap,
+		Hero,
 		Robot,
 		Fastbot
 	};
