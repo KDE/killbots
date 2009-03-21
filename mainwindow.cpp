@@ -90,7 +90,9 @@ Killbots::MainWindow::MainWindow( QWidget * parent )
 	connect( m_engine, SIGNAL(sonicScrewdriverAllowed(bool)), actionCollection()->action("screwdriver"),     SLOT(setEnabled(bool)) );
 	connect( m_engine, SIGNAL(waitOutRoundAllowed(bool)),     actionCollection()->action("wait_out_round"),  SLOT(setEnabled(bool)) );
 
-	QTimer::singleShot( 0, m_coordinator, SLOT(requestNewGame()) );
+	// Delaying the start of the first game by 50ms to avoid resize events after
+	// the game has been started. Delaying by 0ms doesn't seem to be enough.
+	QTimer::singleShot( 50, m_coordinator, SLOT(requestNewGame()) );
 }
 
 
