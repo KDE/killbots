@@ -231,20 +231,15 @@ void Killbots::Scene::doLayout()
 	// that option, but only if the displays would actually fit.
 	const bool displaysOnTop = ( cellWidthTop > cellWidthSide && size.width() > widthOfDisplaysOnTop );
 	const qreal newCellWidth = displaysOnTop ? cellWidthTop : cellWidthSide;
-	const QSize newCellSize = QSize( qRound( newCellWidth ), qRound( newCellWidth / aspectRatio ) );
+	m_cellSize = QSize( qRound( newCellWidth ), qRound( newCellWidth / aspectRatio ) );
 
-	// If the cellSize has actually changed, update all the sprites.
-	if ( newCellSize != m_cellSize )
+	foreach ( QGraphicsItem * item, items() )
 	{
-		m_cellSize = newCellSize;
-		foreach ( QGraphicsItem * item, items() )
+		Sprite * sprite = qgraphicsitem_cast<Sprite *>( item );
+		if ( sprite )
 		{
-			Sprite * sprite = qgraphicsitem_cast<Sprite *>( item );
-			if ( sprite )
-			{
-				sprite->setSize( m_cellSize );
-				updateSpritePos( sprite, sprite->currentGridPos() );
-			}
+			sprite->setSize( m_cellSize );
+			updateSpritePos( sprite, sprite->currentGridPos() );
 		}
 	}
 
