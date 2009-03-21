@@ -22,7 +22,6 @@
 #include "numericdisplayitem.h"
 #include "render.h"
 #include "settings.h"
-#include "sprite.h"
 
 #include "kgamepopupitem.h"
 
@@ -79,11 +78,12 @@ Killbots::Sprite * Killbots::Scene::createSprite( SpriteType type, QPoint positi
 	Sprite * sprite = new Sprite();
 	sprite->setSpriteType( type );
 	sprite->setSize( m_cellSize );
-	sprite->setGridPos( position );
-	// Create the sprite off screen
-	sprite->setPos( -1000000, 0 );
+	sprite->enqueueGridPos( position );
+	updateSpritePos( sprite, position );
+	sprite->scale( 0, 0 );
 	// A bit of a hack, but we use the sprite type for stacking order.
 	sprite->setZValue( type );
+
 
 	addItem( sprite );
 
@@ -106,12 +106,6 @@ void Killbots::Scene::animateSprites( const QList<Sprite *> & newSprites,
 	if ( value == 0.0 )
 	{
 		halfDone = false;
-
-		foreach ( Sprite * sprite, newSprites )
-		{
-			updateSpritePos( sprite );
-			sprite->scale( 0, 0 );
-		}
 	}
 	else if ( value < 1.0 )
 	{
@@ -123,7 +117,7 @@ void Killbots::Scene::animateSprites( const QList<Sprite *> & newSprites,
 
 		foreach ( Sprite * sprite, slidingSprites )
 		{
-			QPointF posInGridCoordinates = value * QPointF( sprite->gridPos() - sprite->storedGridPos() ) + sprite->storedGridPos();
+			QPointF posInGridCoordinates = value * QPointF( sprite->nextGridPos() - sprite->currentGridPos() ) + sprite->currentGridPos();
 			sprite->setPos( QPointF( posInGridCoordinates.x() * m_cellSize.width(), posInGridCoordinates.y() * m_cellSize.height() ) );
 		}
 
@@ -135,7 +129,7 @@ void Killbots::Scene::animateSprites( const QList<Sprite *> & newSprites,
 		{
 			halfDone = true;
 			foreach ( Sprite * sprite, teleportingSprites )
-				updateSpritePos( sprite );
+				updateSpritePos( sprite, sprite->nextGridPos() );
 		}
 
 		foreach ( Sprite * sprite, teleportingSprites )
@@ -155,9 +149,9 @@ void Killbots::Scene::animateSprites( const QList<Sprite *> & newSprites,
 	{
 		foreach ( Sprite * sprite, newSprites + slidingSprites + teleportingSprites )
 		{
-			updateSpritePos( sprite );
 			sprite->resetTransform();
-			sprite->storeGridPos();
+			sprite->advanceGridPosQueue();
+			updateSpritePos( sprite, sprite->currentGridPos() );
 		}
 
 		qDeleteAll( destroyedSprites );
@@ -249,7 +243,7 @@ void Killbots::Scene::doLayout()
 			if ( sprite )
 			{
 				sprite->setSize( m_cellSize );
-				updateSpritePos( sprite );
+				updateSpritePos( sprite, sprite->currentGridPos() );
 			}
 		}
 	}
@@ -421,9 +415,9 @@ bool Killbots::Scene::popupAtPosition( QPointF position ) const
 }
 
 
-void Killbots::Scene::updateSpritePos( Sprite * sprite ) const
+void Killbots::Scene::updateSpritePos( Sprite * sprite, QPoint gridPosition ) const
 {
-	sprite->setPos( QPointF( sprite->gridPos().x() * m_cellSize.width(), sprite->gridPos().y() * m_cellSize.height() ) );
+	sprite->setPos( gridPosition.x() * m_cellSize.width(), gridPosition.y() * m_cellSize.height() );
 }
 
 #include "moc_scene.cpp"

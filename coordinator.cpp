@@ -23,7 +23,6 @@
 #include "numericdisplayitem.h"
 #include "ruleset.h"
 #include "scene.h"
-#include "sprite.h"
 
 #include <kgamepopupitem.h>
 
@@ -81,7 +80,6 @@ Killbots::Coordinator::Coordinator( QObject * parent )
     m_queuedPopup( 0 ),
     m_timeLine( 1000, this ),
     m_busyAnimating( false ),
-    m_processFastbots( false ),
     m_newGameRequested( false ),
     m_queuedAction( NoAction )
 {
@@ -243,7 +241,10 @@ void Killbots::Coordinator::doAction( HeroAction action )
 		m_engine->moveRobots();
 		m_engine->assessDamage();
 		if ( !m_engine->isRoundComplete() )
-			m_processFastbots = true;
+		{
+			m_engine->moveRobots( true );
+			m_engine->assessDamage();
+		}
 		startAnimation();
 	}
 	else if ( boardFull )
@@ -261,13 +262,6 @@ void Killbots::Coordinator::animationDone()
 	if ( m_newGameRequested )
 	{
 		startNewGame();
-	}
-	else if ( m_processFastbots )
-	{
-		m_processFastbots = false;
-		m_engine->moveRobots( true );
-		m_engine->assessDamage();
-		startAnimation();
 	}
 	else if ( m_engine->isHeroDead() )
 	{
@@ -395,16 +389,14 @@ Killbots::Sprite * Killbots::Coordinator::createSprite( SpriteType type, QPoint 
 
 void Killbots::Coordinator::slideSprite( Sprite * sprite, QPoint position )
 {
-	sprite->storeGridPos();
-	sprite->setGridPos( position );
+	sprite->enqueueGridPos( position );
 	m_stages.last().spritesToSlide << sprite;
 }
 
 
 void Killbots::Coordinator::teleportSprite( Sprite * sprite, QPoint position )
 {
-	sprite->storeGridPos();
-	sprite->setGridPos( position );
+	sprite->enqueueGridPos( position );
 	m_stages.last().spritesToTeleport << sprite;
 }
 

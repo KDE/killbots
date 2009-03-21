@@ -102,7 +102,6 @@ namespace Killbots
 		QList<AnimationStage> m_stages;
 
 		bool m_busyAnimating;
-		bool m_processFastbots;
 		bool m_newGameRequested;
 		HeroAction m_repeatedAction;
 		HeroAction m_queuedAction;

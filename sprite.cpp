@@ -36,30 +36,6 @@ Killbots::Sprite::~Sprite()
 }
 
 
-QPoint Killbots::Sprite::gridPos() const
-{
-	return m_gridPos;
-}
-
-
-void Killbots::Sprite::setGridPos( QPoint position )
-{
-	m_gridPos = position;
-}
-
-
-QPoint Killbots::Sprite::storedGridPos() const
-{
-	return m_storedGridPos;
-}
-
-
-void Killbots::Sprite::storeGridPos()
-{
-	m_storedGridPos = m_gridPos;
-}
-
-
 Killbots::SpriteType Killbots::Sprite::spriteType() const
 {
 	return m_type;
@@ -69,6 +45,34 @@ Killbots::SpriteType Killbots::Sprite::spriteType() const
 void Killbots::Sprite::setSpriteType( Killbots::SpriteType type )
 {
 	m_type = type;
+}
+
+
+void Killbots::Sprite::enqueueGridPos( QPoint position )
+{
+	m_gridPositions << position;
+};
+
+QPoint Killbots::Sprite::currentGridPos() const
+{
+	return m_gridPositions.first();
+};
+
+QPoint Killbots::Sprite::nextGridPos() const
+{
+	Q_ASSERT( m_gridPositions.size() > 1 );
+	return m_gridPositions.at( 1 );
+};
+
+QPoint Killbots::Sprite::gridPos() const
+{
+	return m_gridPositions.last();
+};
+
+void Killbots::Sprite::advanceGridPosQueue()
+{
+	if ( m_gridPositions.size() > 1 )
+		m_gridPositions.removeFirst();
 }
 
 
@@ -85,10 +89,4 @@ void Killbots::Sprite::setSize( QSize size )
 
 	setOffset( -0.5 * QPointF( size.width(), size.height() ) );
 	setPixmap( Render::renderElement( elementHash.value( m_type ) , size ) );
-}
-
-
-int Killbots::Sprite::type() const
-{
-	return Type;
 }

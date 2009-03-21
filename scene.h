@@ -64,7 +64,7 @@ namespace Killbots
 	private: // functions
 		HeroAction getMouseDirection( QPointF cursorPosition ) const;
 		bool popupAtPosition( QPointF position ) const;
-		void updateSpritePos( Sprite * sprite ) const;
+		void updateSpritePos( Sprite * sprite, QPoint gridPosition ) const;
 
 	private: // data members
 		Sprite * m_hero;
