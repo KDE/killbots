@@ -48,8 +48,6 @@
 Killbots::MainWindow::MainWindow( QWidget * parent )
   : KXmlGuiWindow( parent ),
     m_scoreDialog( 0 ),
-    m_keyboardActions( new KActionCollection( this, KGlobal::mainComponent() ) ),
-    m_keyboardMapper( new QSignalMapper( this ) ),
     m_rulesetChanged( false )
 {
 	setAcceptDrops(false);
@@ -59,6 +57,9 @@ Killbots::MainWindow::MainWindow( QWidget * parent )
 		Render::loadDefaultTheme();
 		Settings::setTheme("themes/default.desktop");
 	}
+
+	m_keyboardActions = new KActionCollection( this, KGlobal::mainComponent() );
+	m_keyboardMapper = new QSignalMapper( this );
 
 	m_coordinator = new Coordinator( this );
 	m_coordinator->setAnimationSpeed( Settings::animationSpeed() );
