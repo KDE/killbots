@@ -17,8 +17,8 @@
  *  along with Killbots. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef KILLBOTS_ORCHESTRATOR_H
-#define KILLBOTS_ORCHESTRATOR_H
+#ifndef KILLBOTS_COORDINATOR_H
+#define KILLBOTS_COORDINATOR_H
 
 #include "actions.h"
 #include "sprite.h"
