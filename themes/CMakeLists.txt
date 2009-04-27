@@ -9,6 +9,9 @@ set( theme_files
     mountainadventure.desktop
     mountainadventure.png
     mountainadventure.svg
+    mummy_madness.desktop
+    mummy_madness_preview.png
+    mummy_madness.svg
 )
 
 install( FILES ${theme_files} DESTINATION ${DATA_INSTALL_DIR}/killbots/themes )
