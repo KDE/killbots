@@ -79,7 +79,7 @@ namespace Killbots
 
 		void teleportAllowed( bool allowed );
 		void teleportSafelyAllowed( bool allowed );
-		void sonicScrewdriverAllowed( bool allowed );
+		void vaporizerAllowed( bool allowed );
 		void waitOutRoundAllowed( bool allowed );
 
 	private: // functions

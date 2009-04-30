@@ -88,7 +88,7 @@ Killbots::MainWindow::MainWindow( QWidget * parent )
 	connect( m_engine, SIGNAL(teleportAllowed(bool)),         actionCollection()->action("teleport"),        SLOT(setEnabled(bool)) );
 	connect( m_engine, SIGNAL(teleportAllowed(bool)),         actionCollection()->action("teleport_sip"),    SLOT(setEnabled(bool)) );
 	connect( m_engine, SIGNAL(teleportSafelyAllowed(bool)),   actionCollection()->action("teleport_safely"), SLOT(setEnabled(bool)) );
-	connect( m_engine, SIGNAL(sonicScrewdriverAllowed(bool)), actionCollection()->action("vaporizer"),       SLOT(setEnabled(bool)) );
+	connect( m_engine, SIGNAL(vaporizerAllowed(bool)), actionCollection()->action("vaporizer"),       SLOT(setEnabled(bool)) );
 	connect( m_engine, SIGNAL(waitOutRoundAllowed(bool)),     actionCollection()->action("wait_out_round"),  SLOT(setEnabled(bool)) );
 
 	// Delaying the start of the first game by 50ms to avoid resize events after

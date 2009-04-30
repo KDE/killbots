@@ -125,11 +125,6 @@ void Killbots::Engine::startNewGame()
 	if ( m_round != 0 )
 		 emit showNewGameMessage();
 
-	emit teleportAllowed( true );
-	emit waitOutRoundAllowed( true );
-	emit teleportSafelyAllowed( canSafeTeleport() );
-	emit sonicScrewdriverAllowed( canUseVaporizer() );
-
 	m_heroIsDead = false;
 
 	m_round = 1;
@@ -139,6 +134,11 @@ void Killbots::Engine::startNewGame()
 	m_robotCount = m_rules->enemiesAtGameStart();
 	m_fastbotCount = m_rules->fastEnemiesAtGameStart();
 	m_junkheapCount = m_rules->junkheapsAtGameStart();
+
+	emit teleportAllowed( true );
+	emit waitOutRoundAllowed( true );
+	emit teleportSafelyAllowed( canSafeTeleport() );
+	emit vaporizerAllowed( canUseVaporizer() );
 
 	// Code used to generate theme previews
 	//newRound( "  r\nhjf", false );
@@ -421,7 +421,7 @@ void Killbots::Engine::endGame()
 	emit teleportAllowed( false );
 	emit waitOutRoundAllowed( false );
 	emit teleportSafelyAllowed( false );
-	emit sonicScrewdriverAllowed( false );
+	emit vaporizerAllowed( false );
 	emit gameOver( m_score, m_round );
 }
 
@@ -857,6 +857,6 @@ void Killbots::Engine::updateEnergy( int changeInEnergy )
 
 		emit energyChanged( m_energy );
 		emit teleportSafelyAllowed( canSafeTeleport() );
-		emit sonicScrewdriverAllowed( canUseVaporizer() );
+		emit vaporizerAllowed( canUseVaporizer() );
 	}
 }
