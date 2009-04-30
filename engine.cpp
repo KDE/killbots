@@ -62,6 +62,15 @@ Killbots::Engine::~Engine()
 	delete m_rules;
 }
 
+void Killbots::Engine::setRuleset( const Ruleset * ruleset )
+{
+	if ( ruleset && ruleset != m_rules )
+	{
+		delete m_rules;
+		m_rules = ruleset;
+	}
+}
+
 
 const Killbots::Ruleset * Killbots::Engine::ruleset() const
 {
@@ -110,14 +119,6 @@ bool Killbots::Engine::canUseVaporizer() const
 
 void Killbots::Engine::startNewGame()
 {
-	if ( !m_rules || m_rules->fileName() != Settings::ruleset() )
-	{
-		delete m_rules;
-		m_rules = 0;
-		m_rules = Ruleset::load( Settings::ruleset() );
-	}
-	if ( !m_rules )
-		m_rules = Ruleset::loadDefault();
 	Q_ASSERT( m_rules != 0 );
 
 	// Don't show the new game message on first start.
@@ -129,7 +130,6 @@ void Killbots::Engine::startNewGame()
 	emit teleportSafelyAllowed( canSafeTeleport() );
 	emit sonicScrewdriverAllowed( canUseVaporizer() );
 
-// 	m_newGameRequested = false;
 	m_heroIsDead = false;
 
 	m_round = 1;

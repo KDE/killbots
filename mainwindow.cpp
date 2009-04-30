@@ -205,7 +205,7 @@ void Killbots::MainWindow::createScoreDialog()
 	KGlobal::dirs()->findAllResources ( "ruleset", "*.desktop", KStandardDirs::NoDuplicates, fileList );
 	foreach ( const QString & fileName, fileList )
 	{
-		Ruleset * ruleset = Ruleset::load( fileName );
+		const Ruleset * ruleset = Ruleset::load( fileName );
 		if ( ruleset )
 			m_scoreDialog->addLocalizedConfigGroupName( qMakePair( ruleset->scoreGroupKey(), ruleset->name() ) );
 		delete ruleset;

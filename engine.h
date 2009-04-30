@@ -41,7 +41,9 @@ namespace Killbots
 		explicit Engine( Coordinator * scene, QObject * parent = 0 );
 		virtual ~Engine();
 
+		void setRuleset( const Ruleset * ruleset );
 		const Ruleset * ruleset() const;
+
 		bool gameHasStarted() const;
 		bool isRoundComplete() const;
 		bool isHeroDead() const;
@@ -105,7 +107,7 @@ namespace Killbots
 		QList<Sprite *> m_bots;
 		QList<Sprite *> m_junkheaps;
 
-		Ruleset * m_rules;
+		const Ruleset * m_rules;
 		int m_round;
 		int m_score;
 		int m_energy;

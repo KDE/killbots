@@ -25,9 +25,9 @@
 
 #include <QtCore/QFileInfo>
 
-Killbots::Ruleset * Killbots::Ruleset::load( const QString & fileName )
+const Killbots::Ruleset * Killbots::Ruleset::load( const QString & fileName )
 {
-	Ruleset * result = 0;
+	const Ruleset * result = 0;
 
 	if ( !fileName.isEmpty() )
 	{
@@ -49,7 +49,7 @@ Killbots::Ruleset * Killbots::Ruleset::load( const QString & fileName )
 }
 
 
-Killbots::Ruleset * Killbots::Ruleset::loadDefault()
+const Killbots::Ruleset * Killbots::Ruleset::loadDefault()
 {
 	return load("default.desktop");
 }

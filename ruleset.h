@@ -27,8 +27,8 @@ namespace Killbots {
 	class Ruleset : public RulesetBase
 	{
 	public: // static functions
-		static Ruleset * load( const QString & fileName );
-		static Ruleset * loadDefault();
+		static const Ruleset * load( const QString & fileName );
+		static const Ruleset * loadDefault();
 
 	public: // functions
 		virtual ~Ruleset();

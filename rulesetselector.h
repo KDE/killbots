@@ -56,7 +56,7 @@ namespace Killbots
 		QLabel * m_author;
 		QLabel * m_authorContact;
 		QLabel * m_description;
-		QMap< QString, Ruleset * > m_rulesetMap;
+		QMap< QString, const Ruleset * > m_rulesetMap;
 		RulesetDetailsDialog * m_detailsDialog;
 	};
 }

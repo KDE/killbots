@@ -23,6 +23,7 @@
 #include "numericdisplayitem.h"
 #include "ruleset.h"
 #include "scene.h"
+#include "settings.h"
 
 #include <kgamepopupitem.h>
 
@@ -171,12 +172,20 @@ void Killbots::Coordinator::startNewGame()
 	m_repeatedAction = NoAction;
 	m_queuedAction = NoAction;
 
-	m_engine->startNewGame();
 	const Ruleset * ruleset = m_engine->ruleset();
+	if ( !ruleset || ruleset->fileName() != Settings::ruleset() )
+	{
+		ruleset = Ruleset::load( Settings::ruleset() );
+		if ( !ruleset )
+			ruleset = Ruleset::loadDefault();
+		m_engine->setRuleset( ruleset );
+	}
 
 	m_energyDisplay->setVisible( ruleset->energyEnabled() );
 	m_scene->setGridSize( ruleset->rows(), ruleset->columns() );
 	m_scene->doLayout();
+
+	m_engine->startNewGame();
 
 	startAnimation();
 }

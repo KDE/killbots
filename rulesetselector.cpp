@@ -120,7 +120,7 @@ void Killbots::RulesetSelector::findRulesets()
 	KGlobal::dirs()->findAllResources ( "ruleset", "*.desktop", KStandardDirs::NoDuplicates, fileList );
 	foreach ( const QString & fileName, fileList )
 	{
-		Ruleset * ruleset = Ruleset::load( fileName );
+		const Ruleset * ruleset = Ruleset::load( fileName );
 		if ( ruleset )
 		{
 			QString name = ruleset->name();
@@ -147,7 +147,7 @@ void Killbots::RulesetSelector::findRulesets()
 
 void Killbots::RulesetSelector::selectionChanged( QString rulesetName )
 {
-	Ruleset * ruleset = m_rulesetMap.value( rulesetName );
+	const Ruleset * ruleset = m_rulesetMap.value( rulesetName );
 
 	kcfg_Ruleset->setText( ruleset->fileName() );
 
@@ -172,7 +172,7 @@ void Killbots::RulesetSelector::showDetailsDialog()
 	if ( !m_detailsDialog )
 		m_detailsDialog = new RulesetDetailsDialog( this );
 
-	Ruleset * ruleset = m_rulesetMap.value( m_listWidget->currentItem()->text() );
+	const Ruleset * ruleset = m_rulesetMap.value( m_listWidget->currentItem()->text() );
 	m_detailsDialog->loadRuleset( ruleset );
 	m_detailsDialog->show();
 }
