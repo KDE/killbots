@@ -101,10 +101,10 @@ bool Killbots::Engine::canSafeTeleport() const
 }
 
 
-bool Killbots::Engine::canSonicScrewdriver() const
+bool Killbots::Engine::canUseVaporizer() const
 {
-	return m_rules->sonicScrewdriverEnabled()
-	       && m_energy >= m_rules->costOfSonicScrewdriver();
+	return m_rules->vaporizerEnabled()
+	       && m_energy >= m_rules->costOfVaporizer();
 }
 
 
@@ -127,7 +127,7 @@ void Killbots::Engine::startNewGame()
 	emit teleportAllowed( true );
 	emit waitOutRoundAllowed( true );
 	emit teleportSafelyAllowed( canSafeTeleport() );
-	emit sonicScrewdriverAllowed( canSonicScrewdriver() );
+	emit sonicScrewdriverAllowed( canUseVaporizer() );
 
 // 	m_newGameRequested = false;
 	m_heroIsDead = false;
@@ -315,7 +315,7 @@ bool Killbots::Engine::teleportHeroSafely()
 
 
 // Returns true if any enemies were within range.
-bool Killbots::Engine::sonicScrewdriver()
+bool Killbots::Engine::useVaporizer()
 {
 	refreshSpriteMap();
 	QList<Sprite *> neighbors;
@@ -326,12 +326,12 @@ bool Killbots::Engine::sonicScrewdriver()
 			neighbors << m_spriteMap.value(neighbor);
 	}
 
-	if ( neighbors.size() )
+	if ( !neighbors.isEmpty() )
 	{
 		m_coordinator->beginNewAnimationStage();
 		foreach ( Sprite * sprite, neighbors )
 			destroySprite( sprite );
-		updateEnergy( -m_rules->costOfSonicScrewdriver() );
+		updateEnergy( -m_rules->costOfVaporizer() );
 		return true;
 	}
 	else
@@ -857,6 +857,6 @@ void Killbots::Engine::updateEnergy( int changeInEnergy )
 
 		emit energyChanged( m_energy );
 		emit teleportSafelyAllowed( canSafeTeleport() );
-		emit sonicScrewdriverAllowed( canSonicScrewdriver() );
+		emit sonicScrewdriverAllowed( canUseVaporizer() );
 	}
 }

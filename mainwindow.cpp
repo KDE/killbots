@@ -88,7 +88,7 @@ Killbots::MainWindow::MainWindow( QWidget * parent )
 	connect( m_engine, SIGNAL(teleportAllowed(bool)),         actionCollection()->action("teleport"),        SLOT(setEnabled(bool)) );
 	connect( m_engine, SIGNAL(teleportAllowed(bool)),         actionCollection()->action("teleport_sip"),    SLOT(setEnabled(bool)) );
 	connect( m_engine, SIGNAL(teleportSafelyAllowed(bool)),   actionCollection()->action("teleport_safely"), SLOT(setEnabled(bool)) );
-	connect( m_engine, SIGNAL(sonicScrewdriverAllowed(bool)), actionCollection()->action("screwdriver"),     SLOT(setEnabled(bool)) );
+	connect( m_engine, SIGNAL(sonicScrewdriverAllowed(bool)), actionCollection()->action("vaporizer"),       SLOT(setEnabled(bool)) );
 	connect( m_engine, SIGNAL(waitOutRoundAllowed(bool)),     actionCollection()->action("wait_out_round"),  SLOT(setEnabled(bool)) );
 
 	// Delaying the start of the first game by 50ms to avoid resize events after
@@ -303,10 +303,10 @@ void Killbots::MainWindow::setupActions()
 	                    i18n("Teleport safely if that action is enabled, otherwise teleport randomly")
 	                  );
 	createMappedAction( actionCollection(),
-	                    SonicScrewdriver,
-	                    "screwdriver",
-	                    i18n("Sonic Screwdriver"),
-	                    i18nc("Shortcut for sonicscrewdriver. See http://websvn.kde.org/trunk/KDE/kdegames/killbots/README.translators?view=markup", "F"),
+	                    Vaporizer,
+	                    "vaporizer",
+	                    i18n("Vaporizer"),
+	                    i18nc("Shortcut for vaporizer. See http://websvn.kde.org/trunk/KDE/kdegames/killbots/README.translators?view=markup", "F"),
 	                    Qt::Key_Period,
 	                    i18n("Destroy all enemies in neighboring cells"),
 	                    "edit-bomb"

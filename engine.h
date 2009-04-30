@@ -47,7 +47,7 @@ namespace Killbots
 		bool isHeroDead() const;
 		bool isBoardFull() const;
 		bool canSafeTeleport() const;
-		bool canSonicScrewdriver() const;
+		bool canUseVaporizer() const;
 
 		void startNewGame();
 		void startNewRound( bool incrementRound = true, const QString & layout = QString() );
@@ -55,7 +55,7 @@ namespace Killbots
 		bool moveHero( Killbots::HeroAction direction );
 		bool teleportHero();
 		bool teleportHeroSafely();
-		bool sonicScrewdriver();
+		bool useVaporizer();
 		bool waitOutRound();
 
 		void moveRobots( bool justFastbots = false );

@@ -66,18 +66,18 @@
 			<label>Player can perform safe teleports</label>
 		</entry>
 		<entry name="CostOfSafeTeleport" type="Int">
-			<min>1</min>
+			<min>0</min>
 			<default>1</default>
 			<label>The cost of performing a safe teleport</label>
 		</entry>
-		<entry name="SonicScrewdriverEnabled" type="Bool">
+		<entry name="VaporizerEnabled" type="Bool">
 			<default>false</default>
-			<label>Player can use sonic screwdriver</label>
+			<label>Player can use vaporizer</label>
 		</entry>
-		<entry name="CostOfSonicScrewdriver" type="Int">
-			<min>1</min>
+		<entry name="CostOfVaporizer" type="Int">
+			<min>0</min>
 			<default>1</default>
-			<label>Cost of using sonic screwdriver</label>
+			<label>Cost of using vaporizer</label>
 		</entry>
 		<entry name="PushableJunkheaps" type="Enum">
 			<choices name="JunkheapsThatCanBePushed">

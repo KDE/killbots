@@ -226,9 +226,9 @@ void Killbots::Coordinator::doAction( HeroAction action )
 	{
 		actionSuccessful = m_engine->teleportHero();
 	}
-	else if ( action == SonicScrewdriver && m_engine->canSonicScrewdriver() )
+	else if ( action == Vaporizer && m_engine->canUseVaporizer() )
 	{
-		actionSuccessful = m_engine->sonicScrewdriver();
+		actionSuccessful = m_engine->useVaporizer();
 	}
 	else if ( action == WaitOutRound )
 	{

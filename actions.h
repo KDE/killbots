@@ -38,7 +38,7 @@ namespace Killbots
 		TeleportSafely,
 		TeleportSafelyIfPossible,
 		WaitOutRound,
-		SonicScrewdriver,
+		Vaporizer,
 		NoAction,
 
 		RepeatRight = -( Right + 1 ),
