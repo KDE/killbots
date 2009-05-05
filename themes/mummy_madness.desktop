@@ -1,6 +1,7 @@
 [KGameTheme]
 Name=Mummy Madness
 Name[el]=Παράνοια της μούμιας
+Name[et]=Muumiahullus
 Name[pt]=Loucura das Múmias
 Name[pt_BR]=Loucura das Múmias
 Name[sv]=Mumiegalenskap
@@ -8,6 +9,7 @@ Name[uk]=Божевілля мумій
 Name[zh_TW]=瘋狂木乃伊
 Description=Egyptian style theme with mad mummies.
 Description[el]=Αιγυπτιακό θέμα στυλ με παρανοϊκές μούμιες.
+Description[et]=Egiptuse stiilis teema hullude muumiatega.
 Description[pt]=Tema de estilo Egípcio com múmias loucas.
 Description[pt_BR]=Tema de estilo Egípcio com múmias loucas.
 Description[sv]=Tema i egyptisk stil med galna mumier.
