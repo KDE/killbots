@@ -3,13 +3,13 @@ set( theme_files
     classic.desktop
     classic.png
     classic.svg
-    default.desktop
+    default_old.desktop
     default.png
     default.svg
     mountainadventure.desktop
     mountainadventure.png
     mountainadventure.svg
-    mummy_madness.desktop
+    default.desktop
     mummy_madness_preview.png
     mummy_madness.svg
 )
