@@ -3,9 +3,9 @@ set( theme_files
     classic.desktop
     classic.png
     classic.svg
-    default_old.desktop
-    default.png
-    default.svg
+    robotkill.desktop
+    robotkill.png
+    robotkill.svg
     mountainadventure.desktop
     mountainadventure.png
     mountainadventure.svg
