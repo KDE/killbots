@@ -10,7 +10,7 @@ set( theme_files
     mountainadventure.png
     mountainadventure.svg
     default.desktop
-    mummy_madness_preview.png
+    mummy_madness.png
     mummy_madness.svg
 )
 
