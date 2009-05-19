@@ -2,16 +2,16 @@
 set( theme_files
     classic.desktop
     classic.png
-    classic.svg
+    classic.svgz
     robotkill.desktop
     robotkill.png
-    robotkill.svg
+    robotkill.svgz
     mountainadventure.desktop
     mountainadventure.png
-    mountainadventure.svg
+    mountainadventure.svgz
     default.desktop
     mummy_madness.png
-    mummy_madness.svg
+    mummy_madness.svgz
 )
 
 install( FILES ${theme_files} DESTINATION ${DATA_INSTALL_DIR}/killbots/themes )
