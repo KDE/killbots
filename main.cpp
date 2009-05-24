@@ -28,7 +28,7 @@
 
 int main( int argc, char ** argv )
 {
-	KAboutData about( "killbots", "", ki18n("Killbots"), "1.0.0" );
+	KAboutData about( "killbots", "", ki18n("Killbots"), "1.1.0" );
 	about.setShortDescription( ki18n("A KDE game of killer robots and teleportation.") );
 	about.setLicense( KAboutData::License_GPL_V2 );
 	about.setCopyrightStatement( ki18n("© 2006-2009, Parker Coates") );
