@@ -168,7 +168,7 @@
 
     <sect2 id="teleport">
       <title>Teleport</title>
-      <para>The hero somehow managed to get his hands on a personal teleporter. Unfortunately, when operated without any energy source, it is not very reliable. Activating the teleporter causes the hero to be transported to a randomly selected cell anywhere on the grid. There is no limit to the number of teleports the hero can perform.</para>
+      <para>The hero somehow managed to get his hands on a personal teleporter. Unfortunately, when operated without an energy source, it is not very reliable. Activating the teleporter causes the hero to be transported to a randomly selected cell anywhere on the grid. There is no limit to the number of teleports the hero can perform.</para>
       <para>The destination cell is guaranteed to be unoccupied, but there is a very real chance that it will be adjacent to an angry robot. Due to the risk inherent in teleporting, it should generally be reserved as a last ditch maneuver, when there are no longer any safe moves available.</para>
     </sect2>
 
