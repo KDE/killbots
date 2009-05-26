@@ -1,6 +1,8 @@
 [Desktop Entry]
 Name=Killbots
 Name[gl]=Robots asasinos
+Name[sr]=К‑злоботи
+Name[sr@latin]=K‑zloboti
 Name[x-test]=xxKillbotsxx
 Exec=killbots -caption "%c"
 Icon=killbots
