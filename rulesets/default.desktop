@@ -1,6 +1,8 @@
 [KillbotsRuleset]
 Name=Killbots
 Name[gl]=Robots asasinos
+Name[sr]=К‑злоботи
+Name[sr@latin]=K‑zloboti
 Name[x-test]=xxKillbotsxx
 Author=Parker Coates
 AuthorContact=parker.coates@gmail.com
@@ -13,6 +15,8 @@ Description[gl]=<qt><p>O xogo tipo Killbots por omisión.</p><p>Inclúe unha gre
 Description[nds]=<qt><p>Dat Standard-Killbots-Speel:</p><p>En Middelgroot Speelfeld, seker Teleporteren, gaue Blickkeerls un Misthopens laat sik schuven.</p></qt>
 Description[pt]=<qt><p>O tipo de jogo predefinido do Killbots.</p><p>Inclui uma grelha de tamanho médio, tele-transportes seguros, inimigos rápidos e montes de lixo para empurrar.</p></qt>
 Description[pt_BR]=<qt><p>O tipo de jogo predefinido do Killbots.</p><p>Inclui uma grelha de tamanho médio, tele-transportes seguros, inimigos rápidos e montes de lixo para empurrar.</p></qt>
+Description[sr]=<qt><p>Подразумевани тип игре К‑злобота.</p><p>Укључује средње велико поље, безбедно телепортовање, брзе непријатеље и кршеве који се могу гурати.</p></qt>
+Description[sr@latin]=<qt><p>Podrazumevani tip igre K‑zlobota.</p><p>Uključuje srednje veliko polje, bezbedno teleportovanje, brze neprijatelje i krševe koji se mogu gurati.</p></qt>
 Description[sv]=<qt><p>Killbots standardspeltyp.</p><p>Inkluderar ett medelstort rutnät, säker teleportering, snabba fiender och knuffbara skrothögar.</p></qt>
 Description[uk]=<qt><p>Типовий тип гри Killbots.</p><p>Ігрове поле середніх розмірів, безпечні телепортації, швидкі вороги і придатні до пересування купи брухту.</p></qt>
 Description[x-test]=xx<qt><p>The default Killbots game type.</p><p>Includes a medium size grid, safe teleports, fast enemies and pushable junkheaps.</p></qt>xx

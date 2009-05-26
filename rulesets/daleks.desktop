@@ -1,6 +1,8 @@
 [KillbotsRuleset]
 Name=Daleks
 Name[et]=Dalekid
+Name[sr]=Далеци
+Name[sr@latin]=Daleci
 Name[sv]=Dalek
 Name[x-test]=xxDaleksxx
 Name[zh_TW]=戴立克
@@ -15,6 +17,8 @@ Description[gl]=<qt><p>Unha aproximación ás regras empregadas en Daleks, un xo
 Description[nds]=<qt><p>En Annegern to de Regeln vun "Daleks", en liek Speel för de fröhen Apple-Reekners.</p><p>De Speler kriggt elk Törn een Energieenheit dorto, dor lett sik de Schallschruventrecker mit bruken. All anner besünner Funkschonen sünd utmaakt.</p></qt>
 Description[pt]=<qt><p>Uma aproximação das regras usadas no Daleks, um jogo de 'robots' para os primeiros computadores da Apple.</p><p>É atribuído ao herói um ponto de energia que poderá ser usado para alimentar a chave de parafusos sónica. Todas as outras funcionalidades especiais estão desactivadas.</p></qt>
 Description[pt_BR]=<qt><p>Uma aproximação das regras usadas no Daleks, um jogo de 'robots' para os primeiros computadores da Apple.</p><p>É atribuído ao herói um ponto de energia que poderá ser usado para alimentar a chave de parafusos sónica. Todas as outras funcionalidades especiais estão desactivadas.</p></qt>
+Description[sr]=<qt><p>Правила слична онима из Далека, роботолике игре за ране Еплове рачунаре.</p><p>Јунак добија по јединицу енергије у свакој рунди, која служи као напајање звучног шрафцигера. Све друге посебне могућности су искључене.</p></qt>
+Description[sr@latin]=<qt><p>Pravila slična onima iz Daleka, robotolike igre za rane Appleove računare.</p><p>Junak dobija po jedinicu energije u svakoj rundi, koja služi kao napajanje zvučnog šrafcigera. Sve druge posebne mogućnosti su isključene.</p></qt>
 Description[sv]=<qt><p>En approximation av reglerna som används i Daleks, ett robotliknande spel för tidiga datorer från Apple.</p><p>Hjälten tilldelas en energienhet varje omgång, som kan användas att driva den soniska skruvmejseln. Alla övriga specialfunktioner är avstängda.</p></qt>
 Description[uk]=<qt><p>Наближення до правил, які використовуються у Daleks, схожій на robots грі для ранніх комп’ютерів.</p><p>На початку кожного раунду герой сповнений енергії, отже може використовувати звукову викрутку. Всі інші особливі можливості вимкнено.</p></qt>
 Description[x-test]=xx<qt><p>An approximation of the rules used in Daleks, a robots-like game for early Apple computers.</p><p>The hero is allotted one energy each round that can be used to power the sonic screwdriver. All other special features are disabled.</p></qt>xx
