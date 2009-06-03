@@ -1,5 +1,6 @@
 [KillbotsRuleset]
 Name=Killbots
+Name[de]=Standard
 Name[gl]=Robots asasinos
 Name[sr]=К‑злоботи
 Name[sr@latin]=K‑zloboti
@@ -8,7 +9,7 @@ Author=Parker Coates
 AuthorContact=parker.coates@gmail.com
 Description=<qt><p>The default Killbots game type.</p><p>Includes a medium size grid, safe teleports, fast enemies and pushable junkheaps.</p></qt>
 Description[da]=<qt><p>Standard-spiltypen Killbots.</p><p>Inkluderer mellemstørrelses gitter, sikre teleporteringer, hurtige fjender og skrotbunker der kan skubbes.</p></qt>
-Description[de]=<qt><p>Die Standard-Regeln von Killbots.</p><p>Sie enthalten ein mittelgroßes Spielfeld und unterstützen „Sicheres Teleportieren“, „Schnelle Roboter“ und verschiebbare „Müllhalden“.</p></qt>
+Description[de]=<qt><p>Die Standard-Spielart von Killbots.</p><p>Sie enthält ein mittelgroßes Spielfeld und unterstützt „Sicheres Teleportieren“, „Schnelle Roboter“ und verschiebbare „Müllhalden“.</p></qt>
 Description[el]=<qt><p>Ο προκαθορισμένος τύπος παιχνιδιού Killbots.</p><p>Περιλαμβάνει έναν μεσαίο κάνναβο, ασφαλείς τηλεμεταφορές, γρήγορους εχθρούς και μετακινούμενες στοίβες σκουπιδιών.</p></qt>
 Description[et]=<qt><p>Killbotsi vaikimisi mängutüüp.</p><p>Sisaldab keskmise suurusega ruudustikku, turvalisi teleporte, kiireid vaenlasi ja lükatavaid rämpsukuhilaid.</p></qt>
 Description[ga]=<qt><p>An cineál réamhshocraithe cluiche Killbots.</p><p>Greille mheánmhéide, teileaphort slán, naimhde tapa agus bruscar inbhrúite.</p></qt>
