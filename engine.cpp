@@ -860,3 +860,32 @@ void Killbots::Engine::updateEnergy( int changeInEnergy )
 		emit vaporizerAllowed( canUseVaporizer() );
 	}
 }
+
+
+QString Killbots::Engine::gridToString() const
+{
+	QString string;
+	for ( int r = 0; r < m_rules->rows(); ++r )
+	{
+		for ( int c = 0; c < m_rules->columns(); ++c )
+		{
+			switch ( spriteTypeAt( QPoint( c, r ) ) )
+			{
+			case Robot:
+				string += 'r';
+				break;
+			case Fastbot:
+				string += 'f';
+				break;
+			case Junkheap:
+				string += 'j';
+				break;
+			default:
+				string += ' ';
+				break;
+			}
+		}
+		string += '\n';
+	}
+	return string;
+}

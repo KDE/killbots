@@ -100,6 +100,8 @@ namespace Killbots
 		void updateScore( int changeInScore );
 		void updateEnergy( int changeInEnergy );
 
+		QString gridToString() const;
+
 	private: // data members
 		Coordinator * m_coordinator;
 
