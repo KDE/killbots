@@ -122,6 +122,8 @@ namespace Killbots
 		bool m_waitingOutRound;
 
 		QMultiHash<QPoint, Sprite *> m_spriteMap;
+
+		friend class EngineTest;
 	};
 }
 

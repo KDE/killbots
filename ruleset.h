@@ -22,8 +22,8 @@
 
 #include <rulesetbase.h>
 
-namespace Killbots {
-
+namespace Killbots
+{
 	class Ruleset : public RulesetBase
 	{
 	public: // static functions
@@ -41,7 +41,6 @@ namespace Killbots {
 		QString m_filePath;
 		QByteArray m_scoreGroupKey;
 	};
-
 }
 
 #endif

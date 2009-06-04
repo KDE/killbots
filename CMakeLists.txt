@@ -4,6 +4,7 @@ project( killbots )
 add_subdirectory( icons )
 add_subdirectory( rulesets )
 add_subdirectory( themes )
+add_subdirectory( tests )
 
 ###### Building killbots executable ######
 set( killbots_SRCS
@@ -31,6 +32,3 @@ install( TARGETS killbots ${INSTALL_TARGETS_DEFAULT_ARGS} )
 install( FILES killbots.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
 install( FILES killbotsui.rc DESTINATION ${DATA_INSTALL_DIR}/killbots )
 install( FILES killbots.kcfg DESTINATION ${KCFG_INSTALL_DIR} )
-
-
-
