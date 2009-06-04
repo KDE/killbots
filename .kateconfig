@@ -1,1 +1,4 @@
+kate: space-indent off; keep-extra-spaces on;
 kate: replace-tabs off; replace-tabs-save off;
+kate: remove-trailing-space on; replace-trailing-space-save on;
+kate: encoding utf-8;
