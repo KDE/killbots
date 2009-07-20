@@ -5,6 +5,7 @@ ClassName=Settings
 Singleton=true
 MemberVariables=private
 Mutators=true
+DefaultValueGetters=true
 ItemAccessors=true
 SetUserTexts=true
 GlobalEnums=false

@@ -147,12 +147,6 @@ bool Killbots::Render::loadTheme( const QString & fileName )
 }
 
 
-bool Killbots::Render::loadDefaultTheme()
-{
-	return loadTheme("themes/default.desktop");
-}
-
-
 QPixmap Killbots::Render::renderElement( const QString & elementId, QSize size )
 {
 	QPixmap result;

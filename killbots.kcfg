@@ -44,7 +44,7 @@
 			<whatsthis>Selects the set of game rules to be used in the next game.</whatsthis>
 		</entry>
 		<entry name="Theme" type="String">
-			<default>themes/default.desktop</default>
+			<default>themes/mummymadness.desktop</default>
 			<tooltip>The selected game theme</tooltip>
 			<whatsthis>Selects the theme used to display all in game elements.</whatsthis>
 		</entry>

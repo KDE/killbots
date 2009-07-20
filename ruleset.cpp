@@ -49,12 +49,6 @@ const Killbots::Ruleset * Killbots::Ruleset::load( const QString & fileName )
 }
 
 
-const Killbots::Ruleset * Killbots::Ruleset::loadDefault()
-{
-	return load("default.desktop");
-}
-
-
 Killbots::Ruleset::Ruleset( const QString & filePath )
   : RulesetBase( filePath )
 {

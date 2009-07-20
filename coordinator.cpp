@@ -177,7 +177,10 @@ void Killbots::Coordinator::startNewGame()
 	{
 		ruleset = Ruleset::load( Settings::ruleset() );
 		if ( !ruleset )
-			ruleset = Ruleset::loadDefault();
+		{
+			Settings::setRuleset( Settings::defaultRulesetValue() );
+			ruleset = Ruleset::load( Settings::ruleset() );
+		}
 		m_engine->setRuleset( ruleset );
 	}
 

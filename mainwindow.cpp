@@ -54,8 +54,8 @@ Killbots::MainWindow::MainWindow( QWidget * parent )
 
 	if ( !Render::loadTheme( Settings::theme() ) )
 	{
-		Render::loadDefaultTheme();
-		Settings::setTheme("themes/default.desktop");
+		Settings::setTheme( Settings::defaultThemeValue() );
+		Render::loadTheme( Settings::theme() );
 	}
 
 	m_keyboardActions = new KActionCollection( this, KGlobal::mainComponent() );

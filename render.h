@@ -32,7 +32,6 @@ namespace Killbots
 	namespace Render
 	{
 		bool loadTheme( const QString & fileName );
-		bool loadDefaultTheme();
 		QPixmap renderElement( const QString & elementId, QSize size );
 		QCursor cursorFromAction( int direction );
 		QColor textColor();
