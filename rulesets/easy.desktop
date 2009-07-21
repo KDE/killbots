@@ -1,6 +1,7 @@
 [KillbotsRuleset]
 Name=Easy
 Name[ca]=Fàcil
+Name[cs]=Jednoduché
 Name[da]=Let
 Name[de]=Einfach
 Name[el]=Εύκολο
@@ -19,6 +20,7 @@ Name[mai]=आसान
 Name[nds]=Eenfach
 Name[nl]=Gemakkelijk
 Name[nn]=Lett
+Name[pa]=ਸੌਖੀ
 Name[pt]=Fácil
 Name[pt_BR]=Fácil
 Name[ro]=Ușor
@@ -42,6 +44,7 @@ Description[el]=<qt><p>Μια ευκολότερη έκδοση του τύπο�
 Description[es]=<qt><p>Una versión más fácil del tipo de juego «Killbots».</p><p>Incluye una rejilla de juego más grande llena de montones de chatarra, una cantidad de energía inicial y un tope de incremento de energía.</p></qt>
 Description[et]=<qt><p>Killbotsi lihtsaim mängutüüp.</p><p>Sisaldab suuremat ruudustikku, mis on juba täis rämpsukuhilaid, kus pakutakse kohe alguses energiat ning nende lubatav hulk aina suureneb.</p></qt>
 Description[eu]=<qt><p>"Killbots" joko motaren bertsio errazagoa.</p> <p>Zabor piloekin betetako sareta du joko honek, energiaren gordeleku batekin hasten da eta energia-estalkia handitzen joaten da.</p></qt>
+Description[fr]=<qt><p>Une version plus simple du type de jeu Killbots.</p><p>Cette version inclut une grande grille de jeu remplie d'obstacles, une réserve d'énergie et une limite croissante de cette réserve.</p></qt>
 Description[ga]=<qt><p>Leagan níos éasca den chluiche "Killbots".</p><p>Greille chluiche níos mó agus réamhshocraithe le carnáin bhruscair, taisce de chumhacht ag am tosaithe, agus uasteorainn chumhachta a mhéadaíonn as a chéile.</p></qt>
 Description[gl]=<qt><p>Unha versión máis doada do xogo tipo "Killbots".</p><p>Inclúe unha grella de xogo maior chea de chatarra, unha reserva de enerxía inicial e un nivel de enerxía en aumento.</p></qt>
 Description[it]=<qt><p>Una versione facilitata di "Killbots".</p><p>Comprende una griglia a maglie larghe già popolata di rottami, una dotazione iniziale di energia e un limite crescente per l'energia.</p></qt>
