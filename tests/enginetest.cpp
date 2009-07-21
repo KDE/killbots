@@ -15,7 +15,7 @@ Killbots::EngineTest::EngineTest( QObject * parent )
 	m_coordinator->setAnimationSpeed( 0 );
 
 	m_engine = new Engine( m_coordinator, this );
-	m_engine->setRuleset( Ruleset::loadDefault() );
+	m_engine->setRuleset( Ruleset::load( "default.desktop" ) );
 	m_coordinator->setEngine( m_engine );
 
 	m_scene = new Scene( this );
