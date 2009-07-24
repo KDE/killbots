@@ -19,13 +19,11 @@
 
 #include "render.h"
 
-#include <kgamesvgdocument.h>
 #include <kgametheme.h>
 
 #include <KDE/KDebug>
 #include <KDE/KGlobal>
 #include <KDE/KPixmapCache>
-#include <KDE/KSvgRenderer>
 
 #include <QtCore/QDateTime>
 #include <QtCore/QFileInfo>
@@ -33,7 +31,7 @@
 #include <QtGui/QColor>
 #include <QtGui/QCursor>
 #include <QtGui/QPainter>
-
+#include <QtSvg/QSvgRenderer>
 
 namespace Killbots
 {
@@ -43,16 +41,14 @@ namespace Killbots
 		RenderPrivate()
 		  : m_svgRenderer(),
 		    m_pixmapCache("killbots-cache"),
-		    m_cursors(),
-		    m_hasBeenLoaded( false )
+		    m_cursors()
 		{};
 
-		KSvgRenderer m_svgRenderer;
+		QSvgRenderer m_svgRenderer;
 		KPixmapCache m_pixmapCache;
 		QHash<int,QCursor> m_cursors;
 		QColor m_textColor;
 		qreal m_aspectRatio;
-		bool m_hasBeenLoaded;
 	};
 
 	namespace Render
@@ -100,46 +96,42 @@ bool Killbots::Render::loadTheme( const QString & fileName )
 		// in the cache, or if either of the theme files have been updated
 		// since the cache was created.
 		const bool discardCache = isNotInCache || svgFileIsNewer || desktopFileIsNewer;
+		if ( discardCache )
+		{
+			kDebug() << "Discarding cache.";
+			rp->m_pixmapCache.discard();
+			rp->m_pixmapCache.setTimestamp( QDateTime::currentDateTime().toTime_t() );
+
+			// We store a null pixmap in the cache with the new theme's
+			// file path as the key. This allows us to keep track of the
+			// theme that is stored in the disk cache between runs.
+			rp->m_pixmapCache.insert( newTheme.path(), nullPixmap );
+		}
 
 		// Only bother actually loading the SVG if no SVG has been loaded
 		// yet or if the cache must be discarded.
-		if ( !rp->m_hasBeenLoaded || discardCache )
+		if ( discardCache || !rp->m_svgRenderer.isValid() )
 		{
-			if ( discardCache )
+			if ( rp->m_svgRenderer.load( newTheme.graphics() ) )
 			{
-				kDebug() << "Discarding cache.";
-				rp->m_pixmapCache.discard();
-				rp->m_pixmapCache.setTimestamp( QDateTime::currentDateTime().toTime_t() );
+				// Get the theme's aspect ratio from the .desktop file.
+				const QRectF tileRect = rp->m_svgRenderer.boundsOnElement("cell");
+				rp->m_aspectRatio = tileRect.width() / tileRect.height();
+				rp->m_aspectRatio = qBound( 0.3333, rp->m_aspectRatio, 3.0 );
 
-				// We store a null pixmap in the cache with the new theme's
-				// file path as the key. This allows us to keep track of the
-				// theme that is stored in the disk cache between runs.
-				rp->m_pixmapCache.insert( newTheme.path(), nullPixmap );
+				// Get the theme's text color from the "textcolor" SVG element.
+				rp->m_textColor = renderElement( "textcolor", QSize( 3, 3 ) ).toImage().pixel( 1, 1 );
+
+				// Generate cursors.
+				for ( int i = 0; i <= 8; ++i )
+				{
+					const QPixmap pixmap = renderElement( QString("cursor%1").arg( i ), QSize( 42, 42 ) );
+					if ( !pixmap.isNull() )
+						rp->m_cursors.insert( i, QCursor( pixmap ) );
+				}
 			}
 
-			result = rp->m_hasBeenLoaded = rp->m_svgRenderer.load( newTheme.graphics() );
-
-			// Get the theme's aspect ratio from the .desktop file.
-			const QRectF tileRect = rp->m_svgRenderer.boundsOnElement("cell");
-			rp->m_aspectRatio = tileRect.width() / tileRect.height();
-			rp->m_aspectRatio = qBound( 0.3333, rp->m_aspectRatio, 3.0 );
-
-			// Get the theme's text color. Use the fill color of the "text" SVG element.
-			// If it exists doesn't exist or the fill isn't a valid color, default to black.
-			KGameSvgDocument svg;
-			svg.load( newTheme.graphics() );
-			if ( !svg.elementById("text").isNull() )
-				rp->m_textColor = QColor( svg.styleProperty("fill") );
-			if ( !rp->m_textColor.isValid() )
-				rp->m_textColor = Qt::black;
-
-			// Generate cursors.
-			for ( int i = 0; i <= 8; ++i )
-			{
-				const QPixmap pixmap = renderElement( QString("cursor%1").arg( i ), QSize( 42, 42 ) );
-				if ( !pixmap.isNull() )
-					rp->m_cursors.insert( i, QCursor( pixmap ) );
-			}
+			result = rp->m_svgRenderer.isValid();
 		}
 	}
 
