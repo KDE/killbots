@@ -382,8 +382,8 @@ Preview=example.png
           <listitem><para>The box used to display the current round, score, enemy count and energy.</para></listitem>
         </varlistentry>
         <varlistentry>
-          <term><varname>text</varname></term>
-          <listitem><para>The color used to fill this element is used to for the text in the status boxes.</para></listitem>
+          <term><varname>textcolor</varname></term>
+          <listitem><para>ThThis element should be a rectangle of a single color. Its color is used to for the text in the status boxes.</para></listitem>
         </varlistentry>
         <varlistentry>
           <term><varname>cell</varname></term>
