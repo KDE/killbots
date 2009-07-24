@@ -383,7 +383,7 @@ Preview=example.png
         </varlistentry>
         <varlistentry>
           <term><varname>textcolor</varname></term>
-          <listitem><para>ThThis element should be a rectangle of a single color. Its color is used to for the text in the status boxes.</para></listitem>
+          <listitem><para>This element should be a rectangle of a single color. Its color is used to for the text in the status boxes.</para></listitem>
         </varlistentry>
         <varlistentry>
           <term><varname>cell</varname></term>
