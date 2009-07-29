@@ -117,7 +117,7 @@ bool Killbots::Render::loadTheme( const QString & fileName )
 				// Get the theme's aspect ratio from the .desktop file.
 				const QRectF tileRect = rp->m_svgRenderer.boundsOnElement("cell");
 				rp->m_aspectRatio = tileRect.width() / tileRect.height();
-				rp->m_aspectRatio = qBound( 0.3333, rp->m_aspectRatio, 3.0 );
+				rp->m_aspectRatio = qBound<qreal>( 0.3333, rp->m_aspectRatio, 3.0 );
 
 				// Get the theme's text color from the "textcolor" SVG element.
 				rp->m_textColor = renderElement( "textcolor", QSize( 3, 3 ) ).toImage().pixel( 1, 1 );
