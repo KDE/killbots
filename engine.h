@@ -30,7 +30,6 @@ class QPoint;
 namespace Killbots
 {
 	class Coordinator;
-	class Scene;
 	class Sprite;
 
 	class Engine : public QObject

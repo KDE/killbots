@@ -25,7 +25,6 @@ class KLineEdit;
 #include <QtCore/QMap>
 class QLabel;
 class QListWidget;
-class QTableWidget;
 #include <QtGui/QWidget>
 
 namespace Killbots
