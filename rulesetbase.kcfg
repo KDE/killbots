@@ -132,7 +132,7 @@
 		</entry>
 		<entry name="PointsPerEnergyAboveMax" type="Int">
 			<min>0</min>
-			<default>10</default>
+			<default>0</default>
 			<label>Points awarded for each energy awarded above maximum energy cap</label>
 		</entry>
 	</group>

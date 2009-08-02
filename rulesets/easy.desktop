@@ -81,3 +81,4 @@ WaitKillPointBonus=0
 WaitKillEnergyBonus=1
 SquashKillPointBonus=0
 SquashKillEnergyBonus=1
+PointsPerEnergyAboveMax=5
