@@ -73,24 +73,17 @@ bool Killbots::Render::loadTheme( const QString & fileName )
 		// new theme file.
 		QPixmap nullPixmap;
 		const bool isNotInCache = !rp->m_pixmapCache.find( newTheme.path(), nullPixmap );
-		if ( isNotInCache )
-			kDebug() << "Theme is not already in cache.";
+		kDebug( isNotInCache ) << "Theme is not already in cache.";
 
 		const bool desktopFileIsNewer = desktopFileTimeStamp > cacheTimeStamp;
-		if ( desktopFileIsNewer )
-		{
-			kDebug() << "Desktop file is newer than cache.";
-			kDebug() << "Cache timestamp is" << cacheTimeStamp.toString( Qt::ISODate );
-			kDebug() << "Desktop file timestamp is" << desktopFileTimeStamp.toString( Qt::ISODate );
-		}
+		kDebug( desktopFileIsNewer ) << "Desktop file is newer than cache." << endl
+		                             << "Cache timestamp is" << cacheTimeStamp.toString( Qt::ISODate ) << endl
+		                             << "Desktop file timestamp is" << desktopFileTimeStamp.toString( Qt::ISODate );
 
 		const bool svgFileIsNewer = svgFileTimeStamp > cacheTimeStamp;
-		if ( svgFileIsNewer )
-		{
-			kDebug() << "SVG file is newer than cache.";
-			kDebug() << "Cache timestamp is" << cacheTimeStamp.toString( Qt::ISODate );
-			kDebug() << "SVG file timestamp is" << svgFileTimeStamp.toString( Qt::ISODate );
-		}
+		kDebug( svgFileIsNewer ) << "SVG file is newer than cache." << endl
+		                         << "Cache timestamp is" << cacheTimeStamp.toString( Qt::ISODate ) << endl
+		                         << "SVG file timestamp is" << svgFileTimeStamp.toString( Qt::ISODate );
 
 		// Discard the cache if the loaded theme doesn't match the one already
 		// in the cache, or if either of the theme files have been updated
