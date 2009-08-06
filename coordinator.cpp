@@ -247,9 +247,10 @@ void Killbots::Coordinator::doAction( HeroAction action )
 
 	if ( actionSuccessful )
 	{
-		m_engine->moveRobots();
+		if ( action != Vaporizer )
+			m_engine->moveRobots();
 		m_engine->assessDamage();
-		if ( !m_engine->isRoundComplete() )
+		if ( !m_engine->isRoundComplete() && action != Vaporizer )
 		{
 			m_engine->moveRobots( true );
 			m_engine->assessDamage();
