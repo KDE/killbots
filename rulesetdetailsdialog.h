@@ -35,8 +35,8 @@ namespace Killbots {
 		void loadRuleset( const Ruleset * ruleset );
 
 	private:
-		static const QStringList maskedItems;
-		static const QStringList junkheapEnumText;
+// 		static const QStringList maskedItems;
+// 		static const QStringList junkheapEnumText;
 
 		QMap<QString, QLabel *> m_labels;
 	};

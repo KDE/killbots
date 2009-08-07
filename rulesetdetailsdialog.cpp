@@ -27,13 +27,6 @@
 #include <QtGui/QLabel>
 #include <QtGui/QScrollArea>
 
-const QStringList Killbots::RulesetDetailsDialog::maskedItems = QStringList() << "Name" << "Author" << "AuthorContact" << "Description";
-const QStringList Killbots::RulesetDetailsDialog::junkheapEnumText = QStringList()
-                                                                     << i18nc("Quantity of junkheaps that can be pushed", "None")
-                                                                     << i18nc("Quantity of junkheaps that can be pushed", "One")
-                                                                     << i18nc("Quantity of junkheaps that can be pushed", "Many");
-
-
 Killbots::RulesetDetailsDialog::RulesetDetailsDialog( QWidget * parent )
   : KDialog( parent )
 {
@@ -43,9 +36,16 @@ Killbots::RulesetDetailsDialog::RulesetDetailsDialog( QWidget * parent )
 
 void Killbots::RulesetDetailsDialog::loadRuleset( const Ruleset * ruleset )
 {
+	static QStringList maskedItems = QStringList() << "Name" << "Author" << "AuthorContact" << "Description";
+	static QStringList junkheapEnumText = QStringList()
+                                          << i18nc("Quantity of junkheaps that can be pushed", "None")
+                                          << i18nc("Quantity of junkheaps that can be pushed", "One")
+                                          << i18nc("Quantity of junkheaps that can be pushed", "Many");
+
+
+	// If the dialog hasn't been setup already, do so.
 	if ( m_labels.size() == 0 )
 	{
-//		QScrollArea * scroll = new QScrollArea( this );
 		QWidget * widget = new QWidget();
 		QFormLayout * layout = new QFormLayout( widget );
 
@@ -61,29 +61,25 @@ void Killbots::RulesetDetailsDialog::loadRuleset( const Ruleset * ruleset )
 				layout->addRow( new QLabel( labelText ), valueLabel );
 			}
 		}
-// 		widget->adjustSize();
-// 		scroll->setWidget( widget );
-// 		scroll->setWidgetResizable( true );
-// 		scroll->setAlignment( Qt::AlignHCenter | Qt:: AlignTop );
-// 		scroll->resize( widget->size() );
-// 		setMainWidget( scroll );
+
 		setMainWidget( widget );
 	}
 
-	foreach ( const KConfigSkeletonItem * item, ruleset->items() )
+	QMap<QString,QLabel*>::const_iterator it = m_labels.constBegin();
+	QMap<QString,QLabel*>::const_iterator end = m_labels.constEnd();
+	for ( ; it != end; it++ )
 	{
-		if ( !maskedItems.contains( item->name() ) )
-		{
-			QString valueText;
-			if ( dynamic_cast<const KCoreConfigSkeleton::ItemBool *>( item ) )
-				valueText = item->property().toBool() ? i18n("Yes") : i18n("No");
-			else if ( item->name() == "PushableJunkheaps" )
-				valueText = junkheapEnumText.at( item->property().toInt() );
-			else
-				valueText = item->property().toString();
+		const KConfigSkeletonItem * item = ruleset->findItem( it.key() );
 
-			m_labels.value( item->name() )->setText( valueText );
-		}
+		QString valueText;
+		if ( dynamic_cast<const KCoreConfigSkeleton::ItemBool *>( item ) )
+			valueText = item->property().toBool() ? i18n("Yes") : i18n("No");
+		else if ( it.key() == "PushableJunkheaps" )
+			valueText = junkheapEnumText.at( item->property().toInt() );
+		else
+			valueText = item->property().toString();
+
+		it.value()->setText( valueText );
 	}
 
 	setCaption( i18n("Details of %1 Game Type", ruleset->name() ) );
