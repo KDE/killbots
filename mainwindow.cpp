@@ -106,7 +106,6 @@ void Killbots::MainWindow::configureShortcuts()
 {
 	KShortcutsDialog dialog( KShortcutsEditor::AllActions, KShortcutsEditor::LetterShortcutsAllowed, this );
 	dialog.addCollection( actionCollection(), i18n("General") );
-	dialog.addCollection( m_keyboardActions, i18n("Movement Controls") );
 	dialog.configure();
 }
 
@@ -321,65 +320,64 @@ void Killbots::MainWindow::setupActions()
 	                    "process-stop"
 	                  );
 
-
 	// Keyboard Actions - these are shown in Configure Shortcuts but not in Configure Toolbars
-	createMappedAction( m_keyboardActions,
+	createMappedAction( actionCollection(),
 	                    UpLeft,
 	                    "move_up_left",
 	                    i18n("Move Up and Left"),
 	                    i18nc("Shortcut for move up and left. See http://websvn.kde.org/trunk/KDE/kdegames/killbots/README.translators?view=markup", "Q"),
 	                    Qt::Key_7
 	                  );
-	createMappedAction( m_keyboardActions,
+	createMappedAction( actionCollection(),
 	                    Up,
 	                    "move_up",
 	                    i18n("Move Up"),
 	                    i18nc("Shortcut for move up. See http://websvn.kde.org/trunk/KDE/kdegames/killbots/README.translators?view=markup", "W"),
 	                    Qt::Key_8
 	                  );
-	createMappedAction( m_keyboardActions,
+	createMappedAction( actionCollection(),
 	                    UpRight,
 	                    "move_up_right",
 	                    i18n("Move Up and Right"),
 	                    i18nc("Shortcut for move up and right. See http://websvn.kde.org/trunk/KDE/kdegames/killbots/README.translators?view=markup", "E"),
 	                    Qt::Key_9
 	                  );
-	createMappedAction( m_keyboardActions,
+	createMappedAction( actionCollection(),
 	                    Left,
 	                    "move_left",
 	                    i18n("Move Left"),
 	                    i18nc("Shortcut for move left. See http://websvn.kde.org/trunk/KDE/kdegames/killbots/README.translators?view=markup", "A"),
 	                    Qt::Key_4
 	                  );
-	createMappedAction( m_keyboardActions,
+	createMappedAction( actionCollection(),
 	                    Hold,
 	                    "stand_still",
 	                    i18n("Stand Still"),
 	                    i18nc("Shortcut for stand still. See http://websvn.kde.org/trunk/KDE/kdegames/killbots/README.translators?view=markup", "S"),
 	                    Qt::Key_5
 	                  );
-	createMappedAction( m_keyboardActions,
+	createMappedAction( actionCollection(),
 	                    Right,
 	                    "move_right",
 	                    i18n("Move Right"),
 	                    i18nc("Shortcut for move right. See http://websvn.kde.org/trunk/KDE/kdegames/killbots/README.translators?view=markup", "D"),
 	                    Qt::Key_6
 	                  );
-	createMappedAction( m_keyboardActions,
+	createMappedAction( actionCollection(),
 	                    DownLeft,
 	                    "move_down_left",
 	                    i18n("Move Down and Left"),
 	                    i18nc("Shortcut for move down and left. See http://websvn.kde.org/trunk/KDE/kdegames/killbots/README.translators?view=markup", "Z"),
 	                    Qt::Key_1
 	                    );
-	createMappedAction( m_keyboardActions,
+	createMappedAction( actionCollection(),
 	                    Down,
 	                    "move_down",
 	                    i18n("Move Down"),
 	                    i18nc("Shortcut for move down. See http://websvn.kde.org/trunk/KDE/kdegames/killbots/README.translators?view=markup", "X"),
 	                    Qt::Key_2
 	                  );
-	createMappedAction( m_keyboardActions,
+	createMappedAction( actionCollection(),
 	                    DownRight,
 	                    "move_down_right",
 	                    i18n("Move Down and Right"),
