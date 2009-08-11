@@ -44,13 +44,11 @@ namespace Killbots
 
 	private: // functions
 		void setupActions();
-		KAction * setupMappedAction( KActionCollection * collection, const QString & displayName, const QString & internalName, const QKeySequence & primaryShortcut, const QKeySequence & alternateShortcut, int mapping, const QString & icon );
-		KAction * createMappedAction( KActionCollection * collection, int mapping, const QString & internalName, const QString & displayName, const QString & translatedShortcut, const QKeySequence & alternateShortcut, const QString & toolTip = QString(), const QString & icon = QString() );
+		KAction * createMappedAction( int mapping, const QString & internalName, const QString & displayName, const QString & translatedShortcut, const QKeySequence & alternateShortcut, const QString & toolTip = QString(), const QString & icon = QString() );
 		void createScoreDialog();
 
 	private slots:
 		void showHighscores();
-		void configureShortcuts();
 		void configurePreferences();
 		void onGameOver( int score, int round );
 		void onSettingsChanged();
@@ -62,10 +60,7 @@ namespace Killbots
 		View * m_view;
 		Coordinator * m_coordinator;
 		KScoreDialog * m_scoreDialog;
-
-		KActionCollection * m_keyboardActions;
 		QSignalMapper * m_keyboardMapper;
-
 		bool m_rulesetChanged;
 	};
 
