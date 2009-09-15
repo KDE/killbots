@@ -29,7 +29,7 @@ namespace Killbots
 	class NumericDisplayItem : public QObject, public QGraphicsItem
 	{
 		Q_OBJECT
-
+                Q_INTERFACES(QGraphicsItem)
 	public: // functions
 		explicit NumericDisplayItem( const QString & label = QString(), QGraphicsItem * parent = 0 );
 		virtual ~NumericDisplayItem();
