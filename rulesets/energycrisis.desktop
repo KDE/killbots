@@ -1,6 +1,7 @@
 [KillbotsRuleset]
 Name=Energy Crisis
 Name[es]=Crisis energética
+Name[gl]=Crise enerxética
 Name[nds]=Energiekries
 Name[pt]=Crise Energética
 Name[pt_BR]=Crise de energia
@@ -13,6 +14,7 @@ Author=Parker Coates
 AuthorContact=parker.coates@gmail.com
 Description=The player starts with 30 energy and cannot earn more. How rounds can you survive and how many points can you collect before your energy and luck run out?
 Description[es]=El jugador comienza con 30 unidades de energía y no puede conseguir más. ¿Cuántas rondas puede sobrevivir y cuántos puntos puede obtener antes de quedarse sin energía y sin suerte?
+Description[gl]=O xogador comeza con 30 puntos de enerxía e non pode gañar máis. Cantas rondas es capaz de aguantar e cantos puntos es capaz de conseguir antes de quedares sen enerxía nin sorte?
 Description[nds]=De Speler fangt mit 30 Energieeenheiten an, man he dor kann keen mehr to kriegen. Wo vele Törns kannst Du överleven, un wo vele Pünkt kannst Du insammeln, ehr Di Energie un Glück utgaht?
 Description[pt]=O jogador começa com 30 pontos de energia e não pode ganhar mais. Quantas rondas consegue sobreviver e quantos pontos consegue recolher antes de terminar a sua energia e sorte?
 Description[pt_BR]=O jogador inicia com 30 de energia e não pode ganhar mais. Quantas rodadas você pode sobreviver e quantos pontos você pode coletar antes que sua energia e sorte acabem?
