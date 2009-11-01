@@ -317,6 +317,7 @@ void Killbots::Scene::drawBackground( QPainter * painter, const QRectF & rect )
 	                m_columns * m_cellSize.width(),
 	                m_rows * m_cellSize.height()
 	              );
+	painter->setCompositionMode( QPainter::CompositionMode_SourceOver );
 	painter->drawTiledPixmap( gridArea, Render::renderElement( "cell", m_cellSize ) );
 }
 
