@@ -136,6 +136,12 @@ QPixmap Killbots::Render::renderElement( const QString & elementId, QSize size )
 {
 	QPixmap result;
 
+	if ( size.isEmpty() )
+	{
+		kDebug() << "Cannot render" << elementId << "at zero size.";
+		return result;
+	}
+
 	const QString key = elementId + QString::number( size.width() )
 	                    + 'x' + QString::number( size.height() );
 
