@@ -22,6 +22,7 @@ Description[pt]=O jogador começa com 30 pontos de energia e não pode ganhar ma
 Description[sv]=Spelaren börjar med 30 energienheter och kan inte förtjäna mer. Hur många omgångar kan du överleva och hur många poäng kan du samla in innan energin och turen tar slut?
 Description[uk]=Гравець розпочинає гру з 30 одиницями енергії і не може набрати більшу кількість. Скільки раундів він зможе вижити і скільки очок набере до того, як буде вичерпано його енергію і запас талану?
 Description[x-test]=xxThe player starts with 30 energy and cannot earn more. How many rounds can you survive and how many points can you collect before your energy and luck run out?xx
+Description[zh_TW]=玩家一開始有 30 點能量，但無法再增加。在您的能量與好運用完前，您可以過幾關，又能得幾分呢？
 Rows=16
 Columns=16
 EnemiesAtGameStart=12.0
