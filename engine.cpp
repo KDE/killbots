@@ -352,9 +352,23 @@ void Killbots::Engine::moveRobots( bool justFastbots )
 {
 	m_coordinator->beginNewAnimationStage();
 
-	foreach( Sprite * bot, m_bots )
+	if ( justFastbots )
 	{
-		if ( bot->spriteType() == Fastbot || !justFastbots )
+		refreshSpriteMap();
+		foreach( Sprite * bot, m_bots )
+		{
+			if ( bot->spriteType() == Fastbot )
+			{
+				const QPoint offset( sign( m_hero->gridPos().x() - bot->gridPos().x() ), sign( m_hero->gridPos().y() - bot->gridPos().y() ) );
+				const QPoint target = bot->gridPos() + offset;
+				if ( spriteTypeAt( target ) != Robot || !m_rules->fastEnemiesArePatient() )
+					m_coordinator->slideSprite( bot, target );
+			}
+		}
+	}
+	else
+	{
+		foreach( Sprite * bot, m_bots )
 		{
 			const QPoint offset( sign( m_hero->gridPos().x() - bot->gridPos().x() ), sign( m_hero->gridPos().y() - bot->gridPos().y() ) );
 			m_coordinator->slideSprite( bot, bot->gridPos() + offset );

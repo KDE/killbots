@@ -63,6 +63,7 @@ EnemiesAtGameStart=8.0
 EnemiesAddedEachRound=8.0
 FastEnemiesAtGameStart=0.0
 FastEnemiesAddedEachRound=0.0
+FastEnemiesArePatient=false
 EnergyEnabled=true
 EnergyAtGameStart=1
 EnergyAddedEachRound=1

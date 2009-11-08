@@ -39,6 +39,10 @@
 			<default>2</default>
 			<label>Number of fast enemies added in each new round</label>
 		</entry>
+		<entry name="FastEnemiesArePatient" type="Bool">
+			<default>false</default>
+			<label>Fast enemies will skip their extra turn to avoid collisions with other robots</label>
+		</entry>
 		<entry name="EnergyEnabled" type="Bool">
 			<default>true</default>
 			<label>Player can accumulate energy</label>
