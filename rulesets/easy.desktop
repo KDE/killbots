@@ -1,6 +1,7 @@
 [KillbotsRuleset]
 Name=Easy
 Name[ca]=Fàcil
+Name[ca@valencia]=Fàcil
 Name[cs]=Jednoduché
 Name[da]=Let
 Name[de]=Einfach
@@ -41,6 +42,7 @@ Author=Parker Coates
 AuthorContact=parker.coates@gmail.com
 Description=<qt><p>An easier version of the "Killbots" game type.</p><p>Includes a bigger game grid prepopulated with junkheaps, a starting stash of energy and an increasing energy cap.</p></qt>
 Description[ca]=<qt><p>Un versió més fàcil del tipus de joc "Killbots".</p><p>Inclou una graella de joc més gran amb munts de ferralla pre-disposats, un punt d'energia i càpsules d'increment d'energia.</p></qt>
+Description[ca@valencia]=<qt><p>Un versió més fàcil del tipus de joc "Killbots".</p><p>Inclou una graella de joc més gran amb munts de ferralla pre-disposats, un punt d'energia i càpsules d'increment d'energia.</p></qt>
 Description[da]=<qt><p>En nemmere version af spiltypen "Killbots".</p><p>Inkluderer et større spilgitter klart med skrotbunker, et startlager af energi og et stigende energiloft.</p></qt>
 Description[de]=<qt><p>Eine einfachere Version der „Killbots“-Regeln.</p><p>Sie enthält ein größeres Spielfeld mit vorhandenen „Müllhalden“, vorhandener Energie und eine Steigerung der maximalen Energieeinheiten.</p></qt>
 Description[el]=<qt><p>Μια ευκολότερη έκδοση του τύπου παιχνιδιού "Killbots".</p><p>Περιλαμβάνει ένα μεγαλύτερο κάνναβο στον οποίον υπάρχουν από την αρχή στοίβες σκουπιδιών, μια αρχική ποσότητα ενέργειας και αυξανόμενο όριο ενέργειας.</p></qt>
