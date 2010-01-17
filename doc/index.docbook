@@ -18,7 +18,7 @@
         <firstname>Parker</firstname>
         <surname>Coates</surname>
       </personname>
-      <email>parker.coates@gmail.com</email>
+      <email>parker.coates@kdemail.net</email>
     </author>
 
     <!-- TRANS:ROLES_OF_TRANSLATORS -->
@@ -463,7 +463,7 @@ Preview=example.png
 Name=Killbots
 Name[gl]=Robots asasinos
 Author=Parker Coates
-AuthorContact=parker.coates@gmail.com
+AuthorContact=parker.coates@kdemail.net
 Description=&lt;qt&gt;&lt;p&gt;The default Killbots game type.&lt;/p&gt;&lt;p&gt;Includes a medium size grid, safe teleports, fast enemies and pushable junkheaps.&lt;/p&gt;&lt;/qt&gt;
 Description[gl]=&lt;qt&gt;&lt;p&gt;O xogo tipo Killbots por omisión.&lt;/p&gt;&lt;p&gt;Inclúe unha grella mediana, teleportacións seguras, enemigos rápidos e chatarra que se pode empurrar.&lt;/p&gt;&lt;/qt&gt;
 Rows=16
@@ -626,8 +626,8 @@ SquashKillEnergyBonus=1</programlisting>
   <title>Credits and License</title>
 
   <para>&killbots;</para>
-  <para>Program copyright 2007&ndash;2009 Parker Coates <email>parker.coates@gmail.com</email></para>
-  <para>Documentation Copyright &copy; 2008&ndash;2009 Parker Coates <email>parker.coates@gmail.com</email></para>
+  <para>Program copyright 2007&ndash;2009 Parker Coates <email>parker.coates@kdemail.net</email></para>
+  <para>Documentation Copyright &copy; 2008&ndash;2009 Parker Coates <email>parker.coates@kdemail.net</email></para>
 
   <!-- TRANS:CREDIT_FOR_TRANSLATORS -->
 

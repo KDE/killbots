@@ -67,7 +67,7 @@ Description[zh_CN]=<qt><p>印第安纳侏儒们在浓雾笼罩的山中和鬼魂
 Description[zh_TW]=<qt><p>Indiana Gnomes 在大霧籠罩的山上與鬼及蝙蝠戰鬥。</p>  <p>由 Nicu Buculei 與 Eugene Trounev 設計。</p></qt>
 VersionFormat=0.9
 Author=Parker Coates
-AuthorEmail=parker.coates@gmail.com
+AuthorEmail=parker.coates@kdemail.net
 Type=SVG
 FileName=mountainadventure.svgz
 Preview=mountainadventure.png

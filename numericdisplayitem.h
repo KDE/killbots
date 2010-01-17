@@ -1,5 +1,5 @@
 /*
- *  Copyright 2007-2009  Parker Coates <parker.coates@gmail.com>
+ *  Copyright 2007-2009  Parker Coates <parker.coates@kdemail.net>
  *
  *  This file is part of Killbots.
  *
@@ -29,9 +29,9 @@ namespace Killbots
 	class NumericDisplayItem : public QObject, public QGraphicsItem
 	{
 		Q_OBJECT
-#if QT_VERSION >= 0x040600			
+#if QT_VERSION >= 0x040600
                 Q_INTERFACES(QGraphicsItem)
-#endif		
+#endif
 	public: // functions
 		explicit NumericDisplayItem( const QString & label = QString(), QGraphicsItem * parent = 0 );
 		virtual ~NumericDisplayItem();

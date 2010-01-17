@@ -1,5 +1,5 @@
 /*
- *  Copyright 2006-2009  Parker Coates <parker.coates@gmail.com>
+ *  Copyright 2006-2009  Parker Coates <parker.coates@kdemail.net>
  *
  *  This file is part of Killbots.
  *

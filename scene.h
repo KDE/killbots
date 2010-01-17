@@ -1,5 +1,5 @@
 /*
- *  Copyright 2007-2009  Parker Coates <parker.coates@gmail.com>
+ *  Copyright 2007-2009  Parker Coates <parker.coates@kdemail.net>
  *
  *  This file is part of Killbots.
  *
@@ -29,7 +29,7 @@
 namespace Killbots
 {
 	class NumericDisplayItem;
-	
+
 	class Scene : public QGraphicsScene
 	{
 		Q_OBJECT
