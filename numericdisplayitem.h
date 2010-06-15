@@ -21,17 +21,15 @@
 #define KILLBOTS_NUMERICDISPLAYITEM_H
 
 #include <QtGui/QFont>
-#include <QtGui/QGraphicsItem>
+#include <QtGui/QGraphicsObject>
 
 namespace Killbots
 {
 
-	class NumericDisplayItem : public QObject, public QGraphicsItem
+	class NumericDisplayItem : public QGraphicsObject
 	{
 		Q_OBJECT
-#if QT_VERSION >= 0x040600
-                Q_INTERFACES(QGraphicsItem)
-#endif
+
 	public: // functions
 		explicit NumericDisplayItem( const QString & label = QString(), QGraphicsItem * parent = 0 );
 		virtual ~NumericDisplayItem();
