@@ -36,6 +36,7 @@ namespace Killbots
 		QCursor cursorFromAction( int direction );
 		QColor textColor();
 		qreal aspectRatio();
+		void cleanUp();
 	}
 }
 

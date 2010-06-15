@@ -98,6 +98,7 @@ Killbots::MainWindow::MainWindow( QWidget * parent )
 
 Killbots::MainWindow::~MainWindow()
 {
+	Render::cleanUp();
 }
 
 

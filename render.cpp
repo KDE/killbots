@@ -179,3 +179,10 @@ qreal Killbots::Render::aspectRatio()
 {
 	return rp->m_aspectRatio;
 }
+
+
+void Killbots::Render::cleanUp()
+{
+	rp.destroy();
+}
+
