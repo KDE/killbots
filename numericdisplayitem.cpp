@@ -89,10 +89,10 @@ void Killbots::NumericDisplayItem::paint( QPainter * p, const QStyleOptionGraphi
 
 	p->save();
 
-	p->drawPixmap( boundingRect().topLeft(), Render::renderElement( "status", boundingRect().size().toSize() ) );
+	p->drawPixmap( boundingRect().topLeft(), Renderer::self()->spritePixmap( "status", boundingRect().size().toSize() ) );
 
 	QRectF textRect = boundingRect().adjusted( m_margin, m_margin, -m_margin, -m_margin );
-	p->setPen( Render::textColor() );
+	p->setPen( Renderer::self()->textColor() );
 
 	p->setFont( m_font );
 	p->drawText( textRect, Qt::AlignLeft | Qt::AlignVCenter | Qt::TextSingleLine, m_label );

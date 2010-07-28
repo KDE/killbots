@@ -52,12 +52,6 @@ Killbots::MainWindow::MainWindow( QWidget * parent )
 {
 	setAcceptDrops(false);
 
-	if ( !Render::loadTheme( Settings::theme() ) )
-	{
-		Settings::setTheme( Settings::defaultThemeValue() );
-		Render::loadTheme( Settings::theme() );
-	}
-
 	m_keyboardMapper = new QSignalMapper( this );
 
 	m_coordinator = new Coordinator( this );
@@ -98,7 +92,6 @@ Killbots::MainWindow::MainWindow( QWidget * parent )
 
 Killbots::MainWindow::~MainWindow()
 {
-	Render::cleanUp();
 }
 
 
@@ -143,8 +136,9 @@ void Killbots::MainWindow::configurePreferences()
 
 void Killbots::MainWindow::onSettingsChanged()
 {
-	if ( Render::loadTheme( Settings::theme() ) )
+	if ( Settings::theme() != Renderer::self()->theme() )
 	{
+		Renderer::self()->setTheme( Settings::theme() );
 		m_view->resetCachedContent();
 		m_scene->doLayout();
 	}

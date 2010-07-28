@@ -17,27 +17,38 @@
  *  along with Killbots. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef KILLBOTS_RENDER_H
-#define KILLBOTS_RENDER_H
+#ifndef KILLBOTS_RENDERER_H
+#define KILLBOTS_RENDERER_H
 
-class QColor;
-class QCursor;
-class QPixmap;
-class QSize;
-class QString;
-#include <Qt>
+#include <KGameRenderer>
+
+#include <QtCore/QHash>
+
 
 namespace Killbots
 {
-	namespace Render
+	class Renderer : public KGameRenderer
 	{
-		bool loadTheme( const QString & fileName );
-		QPixmap renderElement( const QString & elementId, QSize size );
+	public:
+		static Renderer * self();
+
+		Renderer();
+
 		QCursor cursorFromAction( int direction );
 		QColor textColor();
 		qreal aspectRatio();
-		void cleanUp();
-	}
+
+	public slots:
+		// NOTE: This function is not actually polymorphic as KGR::setTheme()
+		// isn't a virtual. I'm not sure if there is a better way to do this,
+		// but at least it works for the time being.
+		void setTheme( const QString & theme );
+
+	private:
+		QHash<int,QCursor> m_cursors;
+		QColor m_textColor;
+		qreal m_aspectRatio;
+	};
 }
 
 #endif

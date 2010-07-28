@@ -23,7 +23,7 @@
 #include "render.h"
 #include "settings.h"
 
-#include "kgamepopupitem.h"
+#include <KGamePopupItem>
 
 #include <KDE/KDebug>
 
@@ -178,7 +178,7 @@ void Killbots::Scene::doLayout()
 	const int baseDimension = qMin( size.width(), size.height() ) / 35;
 	const int spacing = qBound( 5, baseDimension, 15 );
 	const int newFontPixelSize = qBound( QFontInfo( QFont() ).pixelSize(), baseDimension, 25 );
-	const qreal aspectRatio = Render::aspectRatio();
+	const qreal aspectRatio = Renderer::self()->aspectRatio();
 
 	QSize displaySize;
 	// If the font size has changed, resize all the displays (visible or not).
@@ -310,7 +310,7 @@ void Killbots::Scene::drawBackground( QPainter * painter, const QRectF & rect )
 	Q_UNUSED( rect )
 
 	QSize sceneSize( qRound( sceneRect().width() ), qRound( sceneRect().height() ) );
-	painter->drawPixmap( sceneRect().topLeft(), Render::renderElement( "background", sceneSize ) );
+	painter->drawPixmap( sceneRect().topLeft(), Renderer::self()->spritePixmap( "background", sceneSize ) );
 
 	QRect gridArea( -m_cellSize.width() / 2,
 	                -m_cellSize.height() / 2,
@@ -318,7 +318,7 @@ void Killbots::Scene::drawBackground( QPainter * painter, const QRectF & rect )
 	                m_rows * m_cellSize.height()
 	              );
 	painter->setCompositionMode( QPainter::CompositionMode_SourceOver );
-	painter->drawTiledPixmap( gridArea, Render::renderElement( "cell", m_cellSize ) );
+	painter->drawTiledPixmap( gridArea, Renderer::self()->spritePixmap( "cell", m_cellSize ) );
 }
 
 
@@ -388,7 +388,7 @@ Killbots::HeroAction Killbots::Scene::getMouseDirection( QPointF cursorPosition 
 			result = static_cast<HeroAction>( direction );
 		}
 
-		views().first()->setCursor( Render::cursorFromAction( result ) );
+		views().first()->setCursor( Renderer::self()->cursorFromAction( result ) );
 	}
 	else
 	{
