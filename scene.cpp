@@ -193,7 +193,7 @@ void Killbots::Scene::doLayout()
 			displaySize = displaySize.expandedTo( display->preferredSize() );
 		}
 		foreach ( NumericDisplayItem * display, m_numericDisplays )
-			display->setSize( displaySize );
+			display->setRenderSize( displaySize );
 	}
 	else
 	{

@@ -20,13 +20,14 @@
 #ifndef KILLBOTS_NUMERICDISPLAYITEM_H
 #define KILLBOTS_NUMERICDISPLAYITEM_H
 
+#include <kgamerenderedpixmapitem.h>
+
 #include <QtGui/QFont>
-#include <QtGui/QGraphicsObject>
 
 namespace Killbots
 {
 
-	class NumericDisplayItem : public QGraphicsObject
+	class NumericDisplayItem : public QObject, public KGameRenderedPixmapItem
 	{
 		Q_OBJECT
 
@@ -40,7 +41,6 @@ namespace Killbots
 		QFont font() const;
 		QSize preferredSize();
 
-		virtual QRectF boundingRect() const;
 		virtual void paint( QPainter * p, const QStyleOptionGraphicsItem * option, QWidget * widget = 0 );
 
 	public slots:
@@ -48,14 +48,12 @@ namespace Killbots
 		void setLabel( const QString & label );
 		void setDigits( int digits );
 		void setFont( const QFont & font );
-		void setSize( QSize size );
 
 	private: // data members
 		QString m_label;
 		int m_value;
 		int m_digits;
 
-		QRectF m_boundingRect;
 		int m_margin;
 
 		QFont m_font;

@@ -26,13 +26,15 @@
 
 
 Killbots::NumericDisplayItem::NumericDisplayItem( const QString & label, QGraphicsItem * parent )
-  : QGraphicsObject( parent ),
+  : QObject(),
+    KGameRenderedPixmapItem( Renderer::self(), "status", parent ),
     m_label( label ),
     m_value( 0 ),
     m_digits( 3 )
 {
+	setShapeMode( QGraphicsPixmapItem::BoundingRectShape );
 	setFont( QFont() );
-	setSize( preferredSize() );
+	setRenderSize( preferredSize() );
 }
 
 
@@ -76,20 +78,11 @@ QSize Killbots::NumericDisplayItem::preferredSize()
 }
 
 
-QRectF Killbots::NumericDisplayItem::boundingRect() const
-{
-	return m_boundingRect;
-}
-
-
 void Killbots::NumericDisplayItem::paint( QPainter * p, const QStyleOptionGraphicsItem * option, QWidget * widget )
 {
-	Q_UNUSED( option )
-	Q_UNUSED( widget )
+	KGameRenderedPixmapItem::paint( p, option, widget );
 
 	p->save();
-
-	p->drawPixmap( boundingRect().topLeft(), Renderer::self()->spritePixmap( "status", boundingRect().size().toSize() ) );
 
 	QRectF textRect = boundingRect().adjusted( m_margin, m_margin, -m_margin, -m_margin );
 	p->setPen( Renderer::self()->textColor() );
@@ -140,14 +133,6 @@ void Killbots::NumericDisplayItem::setFont( const QFont & font )
 	m_boldFont.setBold( true );
 
 	m_margin = int( QFontMetrics( m_boldFont ).height() * 0.6 );
-}
-
-
-void Killbots::NumericDisplayItem::setSize( QSize size )
-{
-	prepareGeometryChange();
-	m_boundingRect = QRectF( QPointF(), size );
-	update();
 }
 
 
