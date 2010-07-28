@@ -22,7 +22,7 @@
 #include "coordinator.h"
 #include "engine.h"
 #include "optionspage.h"
-#include "render.h"
+#include "renderer.h"
 #include "rulesetselector.h"
 #include "scene.h"
 #include "settings.h"

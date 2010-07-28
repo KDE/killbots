@@ -9,7 +9,7 @@ set( enginetest_SRCS
     ../coordinator.cpp
     ../engine.cpp
     ../numericdisplayitem.cpp
-    ../render.cpp
+    ../renderer.cpp
     ../ruleset.cpp
     ../scene.cpp
     ../sprite.cpp

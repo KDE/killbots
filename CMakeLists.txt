@@ -14,7 +14,7 @@ set( killbots_SRCS
     mainwindow.cpp
     numericdisplayitem.cpp
     optionspage.cpp
-    render.cpp
+    renderer.cpp
     ruleset.cpp
     rulesetdetailsdialog.cpp
     rulesetselector.cpp

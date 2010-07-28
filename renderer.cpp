@@ -17,7 +17,7 @@
  *  along with Killbots. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "render.h"
+#include "renderer.h"
 
 #include "settings.h"
 

@@ -19,7 +19,7 @@
 
 #include "sprite.h"
 
-#include "render.h"
+#include "renderer.h"
 
 #include <QtGui/QPainter>
 

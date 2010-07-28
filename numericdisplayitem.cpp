@@ -19,7 +19,7 @@
 
 #include "numericdisplayitem.h"
 
-#include "render.h"
+#include "renderer.h"
 
 #include <QtGui/QFontMetrics>
 #include <QtGui/QPainter>

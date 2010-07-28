@@ -20,7 +20,7 @@
 #include "scene.h"
 
 #include "numericdisplayitem.h"
-#include "render.h"
+#include "renderer.h"
 #include "settings.h"
 
 #include <KGamePopupItem>
