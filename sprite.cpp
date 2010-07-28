@@ -101,14 +101,15 @@ void Killbots::Sprite::advanceGridPosQueue()
 }
 
 
-void Killbots::Sprite::setRenderSize( const QSize & size )
-{
-	KGameRenderedPixmapItem::setRenderSize( size );
-	setOffset( -0.5 * QPointF( size.width(), size.height() ) );
-}
-
-
 int Killbots::Sprite::type() const
 {
 	return Type;
 }
+
+
+void Killbots::Sprite::receivePixmap( const QPixmap & pixmap )
+{
+	KGameRenderedPixmapItem::receivePixmap( pixmap );
+	setOffset( -0.5 * QPointF( pixmap.width(), pixmap.height() ) );
+}
+

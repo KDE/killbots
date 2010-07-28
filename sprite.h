@@ -48,8 +48,6 @@ namespace Killbots
 		SpriteType spriteType() const;
 		void setSpriteType( SpriteType type );
 
-		virtual void setRenderSize( const QSize & size );
-
 		void enqueueGridPos( QPoint position );
 		QPoint currentGridPos() const;
 		QPoint nextGridPos() const;
@@ -57,6 +55,9 @@ namespace Killbots
 		void advanceGridPosQueue();
 
 		virtual int type() const;
+
+	protected:
+		virtual void receivePixmap( const QPixmap & pixmap );
 
 	private: // data members
 		SpriteType m_type;
