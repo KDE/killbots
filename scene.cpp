@@ -77,7 +77,7 @@ Killbots::Sprite * Killbots::Scene::createSprite( SpriteType type, QPoint positi
 {
 	Sprite * sprite = new Sprite();
 	sprite->setSpriteType( type );
-	sprite->setSize( m_cellSize );
+	sprite->setRenderSize( m_cellSize );
 	sprite->enqueueGridPos( position );
 	updateSpritePos( sprite, position );
 	sprite->scale( 0, 0 );
@@ -238,7 +238,7 @@ void Killbots::Scene::doLayout()
 		Sprite * sprite = qgraphicsitem_cast<Sprite *>( item );
 		if ( sprite )
 		{
-			sprite->setSize( m_cellSize );
+			sprite->setRenderSize( m_cellSize );
 			updateSpritePos( sprite, sprite->currentGridPos() );
 		}
 	}

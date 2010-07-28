@@ -25,9 +25,10 @@
 
 
 Killbots::Sprite::Sprite()
-  : QGraphicsPixmapItem()
+  : KGameRenderedPixmapItem( Renderer::self(), QString() )
 {
 	setShapeMode( QGraphicsPixmapItem::BoundingRectShape );
+	setTransformationMode( Qt::FastTransformation );
 }
 
 
@@ -44,7 +45,27 @@ Killbots::SpriteType Killbots::Sprite::spriteType() const
 
 void Killbots::Sprite::setSpriteType( Killbots::SpriteType type )
 {
+	Q_ASSERT( type != NoSprite );
+
 	m_type = type;
+
+	switch ( m_type )
+	{
+	case Hero :
+		setSpriteKey( "hero" );
+		break;
+	case Robot :
+		setSpriteKey( "enemy" );
+		break;
+	case Fastbot :
+		setSpriteKey( "fastenemy" );
+		break;
+	case Junkheap :
+		setSpriteKey( "junkheap" );
+		break;
+	default :
+		break;
+	}
 }
 
 
@@ -80,19 +101,10 @@ void Killbots::Sprite::advanceGridPosQueue()
 }
 
 
-void Killbots::Sprite::setSize( QSize size )
+void Killbots::Sprite::setRenderSize( const QSize & size )
 {
-	static QHash<SpriteType, QString> elementHash;
-	if ( elementHash.isEmpty() )
-	{
-		elementHash.insert( Hero, "hero" );
-		elementHash.insert( Robot, "enemy" );
-		elementHash.insert( Fastbot, "fastenemy" );
-		elementHash.insert( Junkheap, "junkheap" );
-	}
-
+	KGameRenderedPixmapItem::setRenderSize( size );
 	setOffset( -0.5 * QPointF( size.width(), size.height() ) );
-	setPixmap( Renderer::self()->spritePixmap( elementHash.value( m_type ), size ) );
 }
 
 

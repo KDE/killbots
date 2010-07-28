@@ -20,7 +20,7 @@
 #ifndef KILLBOTS_SPRITE_H
 #define KILLBOTS_SPRITE_H
 
-#include <QtGui/QGraphicsPixmapItem>
+#include "kgamerenderedpixmapitem.h"
 
 namespace Killbots
 {
@@ -33,10 +33,11 @@ namespace Killbots
 		Fastbot
 	};
 
-	class Sprite : public QGraphicsPixmapItem
+	class Sprite : public KGameRenderedPixmapItem
 	{
 	public: // types
-		enum {
+		enum
+		{
 			Type = UserType + 1
 		};
 
@@ -47,13 +48,13 @@ namespace Killbots
 		SpriteType spriteType() const;
 		void setSpriteType( SpriteType type );
 
+		virtual void setRenderSize( const QSize & size );
+
 		void enqueueGridPos( QPoint position );
 		QPoint currentGridPos() const;
 		QPoint nextGridPos() const;
 		QPoint gridPos() const;
 		void advanceGridPosQueue();
-
-		void setSize( QSize size );
 
 		virtual int type() const;
 
