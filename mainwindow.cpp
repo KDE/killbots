@@ -84,6 +84,9 @@ Killbots::MainWindow::MainWindow( QWidget * parent )
 	connect( m_engine, SIGNAL(vaporizerAllowed(bool)), actionCollection()->action("vaporizer"),       SLOT(setEnabled(bool)) );
 	connect( m_engine, SIGNAL(waitOutRoundAllowed(bool)),     actionCollection()->action("wait_out_round"),  SLOT(setEnabled(bool)) );
 
+	connect( Renderer::self(), SIGNAL(themeChanged(QString)), m_scene, SLOT(doLayout()) );
+	connect( Renderer::self(), SIGNAL(themeChanged(QString)), m_view, SLOT(invalidateBackground()) );
+
 	// Delaying the start of the first game by 50ms to avoid resize events after
 	// the game has been started. Delaying by 0ms doesn't seem to be enough.
 	QTimer::singleShot( 50, m_coordinator, SLOT(requestNewGame()) );
@@ -136,12 +139,7 @@ void Killbots::MainWindow::configurePreferences()
 
 void Killbots::MainWindow::onSettingsChanged()
 {
-	if ( Settings::theme() != Renderer::self()->theme() )
-	{
-		Renderer::self()->setTheme( Settings::theme() );
-		m_view->resetCachedContent();
-		m_scene->doLayout();
-	}
+	Renderer::self()->setTheme( Settings::theme() );
 
 	m_coordinator->setAnimationSpeed( Settings::animationSpeed() );
 

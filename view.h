@@ -33,6 +33,9 @@ namespace Killbots
 		explicit View( QGraphicsScene * scene, QWidget * parent = 0 );
 		virtual ~View();
 
+	public slots:
+		void invalidateBackground();
+
 	signals:
 		void sizeChanged( QSize newSize );
 
