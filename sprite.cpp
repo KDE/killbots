@@ -25,7 +25,7 @@
 
 
 Killbots::Sprite::Sprite()
-  : KGameRenderedPixmapItem( Renderer::self(), QString() )
+  : KGameRenderedItem( Renderer::self(), QString() )
 {
 	setShapeMode( QGraphicsPixmapItem::BoundingRectShape );
 	setTransformationMode( Qt::FastTransformation );
@@ -109,7 +109,7 @@ int Killbots::Sprite::type() const
 
 void Killbots::Sprite::receivePixmap( const QPixmap & pixmap )
 {
-	KGameRenderedPixmapItem::receivePixmap( pixmap );
+	KGameRenderedItem::receivePixmap( pixmap );
 	setOffset( -0.5 * QPointF( pixmap.width(), pixmap.height() ) );
 }
 

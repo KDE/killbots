@@ -20,7 +20,7 @@
 #ifndef KILLBOTS_SPRITE_H
 #define KILLBOTS_SPRITE_H
 
-#include "kgamerenderedpixmapitem.h"
+#include <KGameRenderedItem>
 
 namespace Killbots
 {
@@ -33,7 +33,7 @@ namespace Killbots
 		Fastbot
 	};
 
-	class Sprite : public KGameRenderedPixmapItem
+	class Sprite : public KGameRenderedItem
 	{
 	public: // types
 		enum

@@ -27,7 +27,7 @@
 
 Killbots::NumericDisplayItem::NumericDisplayItem( const QString & label, QGraphicsItem * parent )
   : QObject(),
-    KGameRenderedPixmapItem( Renderer::self(), "status", parent ),
+    KGameRenderedItem( Renderer::self(), "status", parent ),
     m_label( label ),
     m_value( 0 ),
     m_digits( 3 )
@@ -80,7 +80,7 @@ QSize Killbots::NumericDisplayItem::preferredSize()
 
 void Killbots::NumericDisplayItem::paint( QPainter * p, const QStyleOptionGraphicsItem * option, QWidget * widget )
 {
-	KGameRenderedPixmapItem::paint( p, option, widget );
+	KGameRenderedItem::paint( p, option, widget );
 
 	p->save();
 

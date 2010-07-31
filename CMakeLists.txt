@@ -8,7 +8,6 @@ add_subdirectory( tests )
 
 ###### Building killbots executable ######
 set( killbots_SRCS
-    kgamerenderedpixmapitem.cpp
     main.cpp
     coordinator.cpp
     engine.cpp

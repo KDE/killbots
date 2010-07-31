@@ -20,14 +20,14 @@
 #ifndef KILLBOTS_NUMERICDISPLAYITEM_H
 #define KILLBOTS_NUMERICDISPLAYITEM_H
 
-#include <kgamerenderedpixmapitem.h>
+#include <KGameRenderedItem>
 
 #include <QtGui/QFont>
 
 namespace Killbots
 {
 
-	class NumericDisplayItem : public QObject, public KGameRenderedPixmapItem
+	class NumericDisplayItem : public QObject, public KGameRenderedItem
 	{
 		Q_OBJECT
 
