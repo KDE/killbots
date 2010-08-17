@@ -52,39 +52,35 @@ Killbots::MainWindow::MainWindow( QWidget * parent )
 {
 	setAcceptDrops(false);
 
-	m_keyboardMapper = new QSignalMapper( this );
-
 	m_coordinator = new Coordinator( this );
 	m_coordinator->setAnimationSpeed( Settings::animationSpeed() );
 
 	m_engine = new Engine( m_coordinator, this );
 	m_coordinator->setEngine( m_engine );
+	connect( m_engine, SIGNAL(gameOver(int,int)), this, SLOT(onGameOver(int,int)) );
 
 	m_scene = new Scene( this );
 	m_coordinator->setScene( m_scene );
+	connect( m_scene, SIGNAL(clicked(int)), m_coordinator, SLOT(requestAction(int)) );
+	connect( Renderer::self(), SIGNAL(themeChanged(QString)), m_scene, SLOT(doLayout()) );
 
 	m_view = new View( m_scene, this );
 	m_view->setMinimumSize( 400, 280 );
 	m_view->setWhatsThis( i18n("This is the main game area used to interact with Killbots. It shows the current state of the game grid and allows one to control the hero using the mouse. It also displays certain statistics about the game in progress.") );
 	setCentralWidget( m_view );
-
-	setupActions();
-
-	setupGUI( Save | Create | ToolBar | Keys );
-
 	connect( m_view, SIGNAL(sizeChanged(QSize)), m_scene, SLOT(doLayout()) );
 
-	connect( m_scene, SIGNAL(clicked(int)), m_coordinator, SLOT(requestAction(int)) );
+	m_keyboardMapper = new QSignalMapper( this );
+	connect( m_keyboardMapper, SIGNAL(mapped(int)), m_coordinator, SLOT(requestAction(int)) );
 
-	connect( m_engine, SIGNAL(gameOver(int,int)), this, SLOT(onGameOver(int,int)) );
+	setupActions();
+	connect( m_engine, SIGNAL(teleportAllowed(bool)),       actionCollection()->action("teleport"),        SLOT(setEnabled(bool)) );
+	connect( m_engine, SIGNAL(teleportAllowed(bool)),       actionCollection()->action("teleport_sip"),    SLOT(setEnabled(bool)) );
+	connect( m_engine, SIGNAL(teleportSafelyAllowed(bool)), actionCollection()->action("teleport_safely"), SLOT(setEnabled(bool)) );
+	connect( m_engine, SIGNAL(vaporizerAllowed(bool)),      actionCollection()->action("vaporizer"),       SLOT(setEnabled(bool)) );
+	connect( m_engine, SIGNAL(waitOutRoundAllowed(bool)),   actionCollection()->action("wait_out_round"),  SLOT(setEnabled(bool)) );
 
-	connect( m_engine, SIGNAL(teleportAllowed(bool)),         actionCollection()->action("teleport"),        SLOT(setEnabled(bool)) );
-	connect( m_engine, SIGNAL(teleportAllowed(bool)),         actionCollection()->action("teleport_sip"),    SLOT(setEnabled(bool)) );
-	connect( m_engine, SIGNAL(teleportSafelyAllowed(bool)),   actionCollection()->action("teleport_safely"), SLOT(setEnabled(bool)) );
-	connect( m_engine, SIGNAL(vaporizerAllowed(bool)), actionCollection()->action("vaporizer"),       SLOT(setEnabled(bool)) );
-	connect( m_engine, SIGNAL(waitOutRoundAllowed(bool)),     actionCollection()->action("wait_out_round"),  SLOT(setEnabled(bool)) );
-
-	connect( Renderer::self(), SIGNAL(themeChanged(QString)), m_scene, SLOT(doLayout()) );
+	setupGUI( Save | Create | ToolBar | Keys );
 
 	// Delaying the start of the first game by 50ms to avoid resize events after
 	// the game has been started. Delaying by 0ms doesn't seem to be enough.
@@ -348,8 +344,6 @@ void Killbots::MainWindow::setupActions()
 	                    i18nc("Shortcut for move down and right. See http://websvn.kde.org/trunk/KDE/kdegames/killbots/README.translators?view=markup", "C"),
 	                    Qt::Key_3
 	                  );
-
-	connect( m_keyboardMapper, SIGNAL(mapped(int)), m_coordinator, SLOT(requestAction(int)) );
 }
 
 #include "moc_mainwindow.cpp"
