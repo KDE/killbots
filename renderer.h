@@ -1,5 +1,5 @@
 /*
- *  Copyright 2007-2009  Parker Coates <parker.coates@kdemail.net>
+ *  Copyright 2007-2010  Parker Coates <parker.coates@kdemail.net>
  *
  *  This file is part of Killbots.
  *
@@ -38,16 +38,9 @@ namespace Killbots
 		QColor textColor();
 		qreal aspectRatio();
 
-	public slots:
-		// NOTE: This function is not actually polymorphic as KGR::setTheme()
-		// isn't a virtual. I'm not sure if there is a better way to do this,
-		// but at least it works for the time being.
-		void setTheme( const QString & theme );
-
 	private:
-		QHash<int,QCursor> m_cursors;
 		QColor m_textColor;
-		qreal m_aspectRatio;
+		QString m_cachedTheme;
 	};
 }
 

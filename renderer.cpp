@@ -1,5 +1,5 @@
 /*
- *  Copyright 2007-2009  Parker Coates <parker.coates@kdemail.net>
+ *  Copyright 2007-2010  Parker Coates <parker.coates@kdemail.net>
  *
  *  This file is part of Killbots.
  *
@@ -38,8 +38,7 @@ Killbots::Renderer * Killbots::Renderer::self()
 
 
 Killbots::Renderer::Renderer()
-  : KGameRenderer( Settings::defaultThemeValue() ),
-    m_aspectRatio( 0 )
+  : KGameRenderer( Settings::defaultThemeValue() )
 {
 	setTheme( Settings::theme() );
 }
@@ -47,46 +46,25 @@ Killbots::Renderer::Renderer()
 
 QCursor Killbots::Renderer::cursorFromAction( int direction )
 {
-	if ( m_cursors.isEmpty() )
-	{
-		for ( int i = 0; i <= 8; ++i )
-		{
-			const QPixmap pixmap = spritePixmap( QString("cursor%1").arg( i ), QSize( 42, 42 ) );
-			if ( !pixmap.isNull() )
-				m_cursors.insert( i, QCursor( pixmap ) );
-		}
-	}
-
-	return m_cursors.value( direction, Qt::ArrowCursor );
+	QString element = QString("cursor%1").arg( direction );
+	QPixmap pixmap = spritePixmap( element, QSize( 42, 42 ) );
+	return QCursor( pixmap );
 }
 
 
 QColor Killbots::Renderer::textColor()
 {
-	if ( !m_textColor.isValid() )
+	if ( m_cachedTheme != theme() )
+	{
 		m_textColor = spritePixmap( "textcolor", QSize( 3, 3 ) ).toImage().pixel( 1, 1 );
-
+		m_cachedTheme = theme();
+	}
 	return m_textColor;
 }
 
 
 qreal Killbots::Renderer::aspectRatio()
 {
-	if ( !m_aspectRatio )
-	{
-		const QRectF tileRect = boundsOnSprite("cell");
-		m_aspectRatio = qBound<qreal>( 0.3333, tileRect.width() / tileRect.height(), 3.0 );
-	}
-
-	return m_aspectRatio;
-}
-
-
-void Killbots::Renderer::setTheme( const QString & theme )
-{
-	m_aspectRatio = 0;
-	m_textColor = QColor();
-	m_cursors.clear();
-
-	KGameRenderer::setTheme( theme );
+	const QRectF tileRect = boundsOnSprite("cell");
+	return qBound<qreal>( 0.3333, tileRect.width() / tileRect.height(), 3.0 );
 }
