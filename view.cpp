@@ -43,12 +43,6 @@ Killbots::View::~View()
 }
 
 
-void Killbots::View::invalidateBackground()
-{
-	resetCachedContent();
-}
-
-
 void Killbots::View::resizeEvent( QResizeEvent * event )
 {
 	QGraphicsView::resizeEvent( event );

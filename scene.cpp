@@ -301,24 +301,31 @@ void Killbots::Scene::doLayout()
 		setSceneRect( QRectF( sceneRectXPos, sceneRectYPos, size.width(), size.height() ) );
 	}
 
-	update();
-}
-
-
-void Killbots::Scene::drawBackground( QPainter * painter, const QRectF & rect )
-{
-	Q_UNUSED( rect )
-
-	QSize sceneSize( qRound( sceneRect().width() ), qRound( sceneRect().height() ) );
-	painter->drawPixmap( sceneRect().topLeft(), Renderer::self()->spritePixmap( "background", sceneSize ) );
-
-	QRect gridArea( -m_cellSize.width() / 2,
-	                -m_cellSize.height() / 2,
+	// Update the scene background
+	QPainter p;
+	QRect gridRect( -sceneRect().x() - m_cellSize.width() / 2,
+	                -sceneRect().y() - m_cellSize.height() / 2,
 	                m_columns * m_cellSize.width(),
 	                m_rows * m_cellSize.height()
 	              );
-	painter->setCompositionMode( QPainter::CompositionMode_SourceOver );
-	painter->drawTiledPixmap( gridArea, Renderer::self()->spritePixmap( "cell", m_cellSize ) );
+
+	QPixmap unrotated = Renderer::self()->spritePixmap( "background", size );
+	p.begin( &unrotated );
+	p.drawTiledPixmap( gridRect, Renderer::self()->spritePixmap( "cell", m_cellSize ) );
+	p.end();
+
+	// The background brush begins painting at 0,0 but our sceneRect doesn't
+	// start at 0,0 so we have to "rotate" the pixmap so that it looks right
+	// when tiled.
+	QPixmap background( size );
+	background.fill( Qt::transparent );
+	p.begin( &background );
+	p.drawTiledPixmap( background.rect(), unrotated, -sceneRect().topLeft().toPoint() );
+	p.end();
+
+	setBackgroundBrush( background );
+
+	update();
 }
 
 

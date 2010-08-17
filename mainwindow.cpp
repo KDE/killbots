@@ -85,7 +85,6 @@ Killbots::MainWindow::MainWindow( QWidget * parent )
 	connect( m_engine, SIGNAL(waitOutRoundAllowed(bool)),     actionCollection()->action("wait_out_round"),  SLOT(setEnabled(bool)) );
 
 	connect( Renderer::self(), SIGNAL(themeChanged(QString)), m_scene, SLOT(doLayout()) );
-	connect( Renderer::self(), SIGNAL(themeChanged(QString)), m_view, SLOT(invalidateBackground()) );
 
 	// Delaying the start of the first game by 50ms to avoid resize events after
 	// the game has been started. Delaying by 0ms doesn't seem to be enough.

@@ -57,7 +57,6 @@ namespace Killbots
 		void clicked( int action );
 
 	protected: // functions
-		virtual void drawBackground( QPainter * painter, const QRectF & rect );
 		virtual void mouseMoveEvent( QGraphicsSceneMouseEvent * mouseEvent );
 		virtual void mouseReleaseEvent( QGraphicsSceneMouseEvent * mouseEvent );
 
