@@ -39,7 +39,7 @@ int main( int argc, char ** argv )
 
 	KApplication app;
 
-	KGlobal::locale()->insertCatalog("libkdegames");
+	KGlobal::locale()->insertCatalog( QLatin1String( "libkdegames" ));
 	KGlobal::dirs()->addResourceType("ruleset", "data", about.appName() + "/rulesets/");
 
 	Killbots::MainWindow * mainWindow = new Killbots::MainWindow;

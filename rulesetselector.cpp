@@ -43,7 +43,7 @@ Killbots::RulesetSelector::RulesetSelector( QWidget * parent )
 {
 	// Create a hidden KLineEdit to use the automatic KConfigXT connection
 	kcfg_Ruleset = new KLineEdit();
-	kcfg_Ruleset->setObjectName( "kcfg_Ruleset" );
+	kcfg_Ruleset->setObjectName( QLatin1String( "kcfg_Ruleset" ) );
 	kcfg_Ruleset->hide();
 
 	m_listWidget = new QListWidget();
