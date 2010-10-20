@@ -29,6 +29,6 @@ target_link_libraries( killbots ${KDE4_KDEUI_LIBS} kdegames ${QT_QTXML_LIBRARY})
 
 ###### Installing Files ######
 install( TARGETS killbots ${INSTALL_TARGETS_DEFAULT_ARGS} )
-install( FILES killbots.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
+install( PROGRAMS killbots.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
 install( FILES killbotsui.rc DESTINATION ${DATA_INSTALL_DIR}/killbots )
 install( FILES killbots.kcfg DESTINATION ${KCFG_INSTALL_DIR} )
