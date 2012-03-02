@@ -1,5 +1,5 @@
 /*
- *  Copyright 2006-2009  Parker Coates <parker.coates@kdemail.net>
+ *  Copyright 2006-2009  Parker Coates <coates@kde.org>
  *
  *  This file is part of Killbots.
  *
@@ -32,7 +32,7 @@ int main( int argc, char ** argv )
 	about.setShortDescription( ki18n("A KDE game of killer robots and teleportation.") );
 	about.setLicense( KAboutData::License_GPL_V2 );
 	about.setCopyrightStatement( ki18n("© 2006-2009, Parker Coates") );
-	about.addAuthor( ki18n("Parker Coates"), ki18n("Developer"), "parker.coates@kdemail.net" );
+	about.addAuthor( ki18n("Parker Coates"), ki18n("Developer"), "coates@kde.org" );
 	about.addCredit( ki18n("Mark Rae"), ki18n("Author of Gnome Robots. Invented safe teleports, pushing junkheaps and fast robots."), "", "http://live.gnome.org/Robots" );
 
 	KCmdLineArgs::init(argc, argv, &about);
