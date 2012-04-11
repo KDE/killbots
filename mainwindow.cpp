@@ -28,7 +28,8 @@
 #include "settings.h"
 #include "view.h"
 
-#include <kgamethemeselector.h>
+#include <KgThemeProvider>
+#include <KgThemeSelector>
 #include <highscore/kscoredialog.h>
 #include <kstandardgameaction.h>
 
@@ -62,7 +63,7 @@ Killbots::MainWindow::MainWindow( QWidget * parent )
 	m_scene = new Scene( this );
 	m_coordinator->setScene( m_scene );
 	connect( m_scene, SIGNAL(clicked(int)), m_coordinator, SLOT(requestAction(int)) );
-	connect( Renderer::self(), SIGNAL(themeChanged(QString)), m_scene, SLOT(doLayout()) );
+	connect( Renderer::self()->themeProvider(), SIGNAL(currentThemeChanged(const KgTheme*)), m_scene, SLOT(doLayout()) );
 
 	m_view = new View( m_scene, this );
 	m_view->setMinimumSize( 400, 280 );
@@ -114,7 +115,7 @@ void Killbots::MainWindow::configurePreferences()
 		                       "games-config-custom",
 		                       i18n("Select a game type")
 		                     );
-		configDialog->addPage( new KGameThemeSelector( this, Settings::self(), KGameThemeSelector::NewStuffDisableDownload ),
+		configDialog->addPage( new KgThemeSelector(Renderer::self()->themeProvider()),
 		                       i18n("Appearance"),
 		                       "games-config-theme",
 		                       i18n("Select a graphical theme")
@@ -134,8 +135,6 @@ void Killbots::MainWindow::configurePreferences()
 
 void Killbots::MainWindow::onSettingsChanged()
 {
-	Renderer::self()->setTheme( Settings::theme() );
-
 	m_coordinator->setAnimationSpeed( Settings::animationSpeed() );
 
 	if ( m_engine->ruleset()->fileName() != Settings::ruleset() )

@@ -40,7 +40,7 @@ namespace Killbots
 
 	private:
 		QColor m_textColor;
-		QString m_cachedTheme;
+		QByteArray m_cachedTheme;
 	};
 }
 

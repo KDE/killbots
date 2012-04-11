@@ -21,12 +21,23 @@
 
 #include "settings.h"
 
+#include <KgTheme>
+#include <KgThemeProvider>
 #include <KGameRenderer>
 
 #include <KDE/KGlobal>
 
 #include <QtGui/QCursor>
 
+static KgThemeProvider* provider()
+{
+	KgThemeProvider* prov = new KgThemeProvider;
+	prov->discoverThemes(
+		"appdata", QLatin1String("themes"), //theme file location
+		QLatin1String("robotkill")          //default theme file name
+	);
+	return prov;
+}
 
 K_GLOBAL_STATIC( Killbots::Renderer, r )
 
@@ -38,9 +49,8 @@ Killbots::Renderer * Killbots::Renderer::self()
 
 
 Killbots::Renderer::Renderer()
-  : KGameRenderer( Settings::defaultThemeValue() )
+  : KGameRenderer( provider() )
 {
-	setTheme( Settings::theme() );
 }
 
 
@@ -54,10 +64,10 @@ QCursor Killbots::Renderer::cursorFromAction( int direction )
 
 QColor Killbots::Renderer::textColor()
 {
-	if ( m_cachedTheme != theme() )
+	if ( m_cachedTheme != theme()->identifier() )
 	{
 		m_textColor = spritePixmap( "textcolor", QSize( 3, 3 ) ).toImage().pixel( 1, 1 );
-		m_cachedTheme = theme();
+		m_cachedTheme = theme()->identifier();
 	}
 	return m_textColor;
 }
