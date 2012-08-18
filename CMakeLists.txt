@@ -16,6 +16,7 @@ add_subdirectory( icons )
 add_subdirectory( rulesets )
 add_subdirectory( themes )
 add_subdirectory( tests )
+add_subdirectory( doc )
 
 ###### Building killbots executable ######
 set( killbots_SRCS
