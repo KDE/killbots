@@ -1,6 +1,10 @@
 [KGameTheme]
 Name=Mummy Madness
+Name[uk]=Божевілля мумій
+Name[x-test]=xxMummy Madnessxx
 Description=Egyptian style theme with mad mummies.
+Description[uk]=Тема у єгипетському стилі, зі скаженими муміями
+Description[x-test]=xxEgyptian style theme with mad mummies.xx
 VersionFormat=0.3
 Author=Sean Wilson
 AuthorEmail=suseux@gmail.com

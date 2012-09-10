@@ -1,5 +1,7 @@
 [Desktop Entry]
 Name=Killbots
+Name[uk]=Killbots
+Name[x-test]=xxKillbotsxx
 Exec=killbots -caption "%c"
 Icon=killbots
 Type=Application

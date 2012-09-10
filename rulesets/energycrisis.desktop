@@ -1,8 +1,12 @@
 [KillbotsRuleset]
 Name=Energy Crisis
+Name[uk]=Енергетична криза
+Name[x-test]=xxEnergy Crisisxx
 Author=Parker Coates
 AuthorContact=parker.coates@kdemail.net
 Description=The player starts with 30 energy and cannot earn more. How many rounds can you survive and how many points can you collect before your energy and luck run out?
+Description[uk]=Гравець розпочинає гру з 30 одиницями енергії і не може набрати більшу кількість. Скільки раундів він зможе вижити і скільки очок набере до того, як буде вичерпано його енергію і запас талану?
+Description[x-test]=xxThe player starts with 30 energy and cannot earn more. How many rounds can you survive and how many points can you collect before your energy and luck run out?xx
 Rows=16
 Columns=16
 EnemiesAtGameStart=12.0

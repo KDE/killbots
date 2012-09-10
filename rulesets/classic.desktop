@@ -1,8 +1,12 @@
 [KillbotsRuleset]
 Name=Classic
+Name[uk]=Класична
+Name[x-test]=xxClassicxx
 Author=Parker Coates
 AuthorContact=parker.coates@kdemail.net
 Description=<qt><p>The rules used in the original BSD command line version of <tt>robots</tt>.</p><p>Nothing fancy, just the basic game elements: no fastbots, no safe teleports, no pushing junkheaps, and a huge game grid.</p><p>Due to its larger width, it is recommended that you use a theme with narrower tiles to better fit your screen.</p></qt>
+Description[uk]=<qt><p>Набір правил, що використовувався у оригінальній версії для командного рядка під BSD гри <tt>robots</tt>.</p><p>Нічого зайвого, лише базові елементи гри: без швидкоботів, без безпечних телепортів, без штовхання куп брухту і велике ігрове поле.</p><p>Через більшу ширину поля рекомендуємо використовувати тему з вужчими плитками, яка краще пасує до розмірів вашого екрана.</p></qt>
+Description[x-test]=xx<qt><p>The rules used in the original BSD command line version of <tt>robots</tt>.</p><p>Nothing fancy, just the basic game elements: no fastbots, no safe teleports, no pushing junkheaps, and a huge game grid.</p><p>Due to its larger width, it is recommended that you use a theme with narrower tiles to better fit your screen.</p></qt>xx
 Rows=22
 Columns=59
 EnemiesAtGameStart=10.0

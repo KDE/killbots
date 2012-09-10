@@ -1,6 +1,10 @@
 [KGameTheme]
 Name=Classic
+Name[uk]=Класична
+Name[x-test]=xxClassicxx
 Description=A theme for those who miss the console version
+Description[uk]=Тема для тих, хто сумує за консольною версією
+Description[x-test]=xxA theme for those who miss the console versionxx
 VersionFormat=0.9
 Author=Parker Coates
 AuthorEmail=parker.coates@kdemail.net

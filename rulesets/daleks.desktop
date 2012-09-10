@@ -1,8 +1,12 @@
 [KillbotsRuleset]
 Name=Daleks
+Name[uk]=Daleks
+Name[x-test]=xxDaleksxx
 Author=Parker Coates
 AuthorContact=parker.coates@kdemail.net
 Description=<qt><p>An approximation of the rules used in Daleks, a robots-like game for early Apple computers.</p><p>The hero is allotted one energy each round that can be used to power the sonic screwdriver. All other special features are disabled.</p></qt>
+Description[uk]=<qt><p>Наближення до правил, які використовуються у Daleks, схожій на robots грі для ранніх комп’ютерів.</p><p>На початку кожного раунду герой сповнений енергії, отже може використовувати звукову викрутку. Всі інші особливі можливості вимкнено.</p></qt>
+Description[x-test]=xx<qt><p>An approximation of the rules used in Daleks, a robots-like game for early Apple computers.</p><p>The hero is allotted one energy each round that can be used to power the sonic screwdriver. All other special features are disabled.</p></qt>xx
 Rows=20
 Columns=20
 EnemiesAtGameStart=8.0

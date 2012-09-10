@@ -1,8 +1,12 @@
 [KillbotsRuleset]
 Name=Killbots
+Name[uk]=Killbots
+Name[x-test]=xxKillbotsxx
 Author=Parker Coates
 AuthorContact=parker.coates@kdemail.net
 Description=<qt><p>The default Killbots game type.</p><p>Includes a medium size grid, safe teleports, fast enemies and pushable junkheaps.</p></qt>
+Description[uk]=<qt><p>Типовий тип гри Killbots.</p><p>Ігрове поле середніх розмірів, безпечні телепортації, швидкі вороги і придатні до пересування купи брухту.</p></qt>
+Description[x-test]=xx<qt><p>The default Killbots game type.</p><p>Includes a medium size grid, safe teleports, fast enemies and pushable junkheaps.</p></qt>xx
 Rows=16
 Columns=16
 EnemiesAtGameStart=8.0

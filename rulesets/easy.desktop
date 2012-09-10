@@ -1,8 +1,12 @@
 [KillbotsRuleset]
 Name=Easy
+Name[uk]=Легкий
+Name[x-test]=xxEasyxx
 Author=Parker Coates
 AuthorContact=parker.coates@kdemail.net
 Description=<qt><p>An easier version of the "Killbots" game type.</p><p>Includes a bigger game grid prepopulated with junkheaps, a starting stash of energy and an increasing energy cap.</p></qt>
+Description[uk]=<qt><p>Полегшена версія типу гри «Killbots».</p><p>Більше ігрове поле з купами брухту, початковий заряд енергії і збільшення запасу енергії.</p></qt>
+Description[x-test]=xx<qt><p>An easier version of the "Killbots" game type.</p><p>Includes a bigger game grid prepopulated with junkheaps, a starting stash of energy and an increasing energy cap.</p></qt>xx
 Rows=20
 Columns=20
 EnemiesAtGameStart=6.0

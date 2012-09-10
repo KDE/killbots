@@ -1,6 +1,10 @@
 [KGameTheme]
 Name=Robot Kill
+Name[uk]=Вбивство роботів
+Name[x-test]=xxRobot Killxx
 Description=The default Killbots theme.
+Description[uk]=Типова тема Killbots.
+Description[x-test]=xxThe default Killbots theme.xx
 VersionFormat=0.9
 Author=Eugene Trounev
 AuthorEmail=eugene.trounev@gmail.com
