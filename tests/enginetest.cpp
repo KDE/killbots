@@ -9,7 +9,8 @@
 Killbots::EngineTest::EngineTest( QObject * parent )
   : QObject( parent )
 {
-	KGlobal::dirs()->addResourceType("ruleset", "data", "killbots/rulesets/");
+	KGlobal::dirs()->addResourceDir("ruleset", KDESRCDIR "/../rulesets/");
+	KGlobal::dirs()->addResourceDir("appdata", KDESRCDIR "/../");
 
 	m_coordinator = new Coordinator( this );
 	m_coordinator->setAnimationSpeed( 0 );
