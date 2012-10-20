@@ -7,7 +7,7 @@
   <!ENTITY % English "INCLUDE">
 ]>
 
-<book lang="&language;">
+<book id="killbots" lang="&language;">
 
 <bookinfo>
   <title>The &killbots; Handbook</title>
