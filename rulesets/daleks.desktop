@@ -1,7 +1,6 @@
 [KillbotsRuleset]
 Name=Daleks
 Name[ast]=Daleks
-Name[bs]=Daleks
 Name[ca]=Daleks
 Name[ca@valencia]=Daleks
 Name[da]=Daleks
@@ -43,7 +42,6 @@ Name[zh_TW]=戴立克
 Author=Parker Coates
 AuthorContact=parker.coates@kdemail.net
 Description=<qt><p>An approximation of the rules used in Daleks, a robots-like game for early Apple computers.</p><p>The hero is allotted one energy each round that can be used to power the sonic screwdriver. All other special features are disabled.</p></qt>
-Description[bs]=<qt> <p> usklađivanje pravila korišćena u Daleksu, robote-kao igra za rane Apple računare. </ p> Junaku se dodjeljuje jedan energija svaki krug koja se može koristiti za napajanje sonik drajvera. Sve ostale posebne značajke su onemogućene. </ P> </ qt>
 Description[ca]=<qt><p>Una aproximació a les regles usades a Daleks, un joc semblant al robots per antics ordinadors Apple.</p><p>L'heroi s'atribueix una energia que cada ronda es pot utilitzar per alimentar el tornavís sònic. Totes les altres característiques estan desactivades.</p></qt>
 Description[ca@valencia]=<qt><p>Una aproximació a les regles usades a Daleks, un joc paregut al robots per antics ordinadors Apple.</p><p>L'heroi s'atribueix una energia que cada ronda es pot utilitzar per alimentar el tornavís sònic. Totes les altres característiques estan desactivades.</p></qt>
 Description[da]=<qt><p>En tilnærmelse af reglerne, brugt i Daleks, et robots-lignende spil til tidlige Apple-computere.</p><p>Helten tildeles én energi hver runde, der kan bruges til lydskruetrækkeren. Alle andre specielle funktioner er deaktiverede. </p></qt>
