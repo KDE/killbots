@@ -1,6 +1,7 @@
 [KGameTheme]
 Name=Mountain Adventure
 Name[ast]=Aventura de montaña
+Name[bs]=Planinska avantura
 Name[ca]=Aventura de la muntanya
 Name[ca@valencia]=Aventura de la muntanya
 Name[cs]=Horské dobrodružství
@@ -44,6 +45,7 @@ Name[zh_CN]=山中冒险
 Name[zh_TW]=山中冒險
 Description=<qt><p>Indiana Gnomes battles ghosts and bats on a misty mountainside.</p><p>Sprites by Nicu Buculei. Background by Eugene Trounev.</p></qt>
 Description[ast]=<qt><p>Indiana Gnomes llucha contra pantasmes y esperteyos nuna lladera de la montaña borrinosa.</p><p>Muñecos de Nicu Buculei. Fondu d'Eugene Trounev.</p></qt>
+Description[bs]=<qt><p>Indiana Gnomes bitke duhova i šišmiša na misterioznij planini.</p><p>Duhovi po Nicu Buculei. Pozadina od Eugene Trounev.</p></qt>
 Description[ca]=<qt><p>Indiana Gnomes lluita contra fantasmes i ratpenats en un costat de la muntanya bromosa.</p><p>Sprites de Nicu Buculei. Fons de pantalla d'Eugene Trounev.</p></qt>
 Description[ca@valencia]=<qt><p>Indiana Gnomes lluita contra fantasmes i ratpenats en un costat de la muntanya bromosa.</p><p>Sprites de Nicu Buculei. Fons de pantalla d'Eugene Trounev.</p></qt>
 Description[da]=<qt><p>Indiana Gnomes kæmper mod spøgelser og flagermus på en tåget bjergside.</p><p>Figurer af Nicu Buculei. Baggrund af Eugene Trounev.</p></qt>

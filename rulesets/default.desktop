@@ -1,6 +1,7 @@
 [KillbotsRuleset]
 Name=Killbots
 Name[ast]=Killbots
+Name[bs]=Ubij botove
 Name[ca]=Killbots
 Name[ca@valencia]=Killbots
 Name[cs]=Killbots
@@ -48,6 +49,7 @@ Name[zh_TW]=Killbots
 Author=Parker Coates
 AuthorContact=parker.coates@kdemail.net
 Description=<qt><p>The default Killbots game type.</p><p>Includes a medium size grid, safe teleports, fast enemies and pushable junkheaps.</p></qt>
+Description[bs]=<qt> <p> podrazumijevani tip igre Kilbots. </ p> Sadrži rešetke srednje veličine, sigurne teleporte, brze neprijatelje i guranje hrpi. </ p> </ qt>
 Description[ca]=<qt><p>El tipus de joc de Killbots per omissió.</p><p>Inclou una graella de mida mitjana, teletransports de seguretat, enemics ràpids i munt de ferralla que es poden empènyer.</p></qt>
 Description[ca@valencia]=<qt><p>El tipus de joc de Killbots per omissió.</p><p>Inclou una graella de mida mitjana, teletransports de seguretat, enemics ràpids i munt de ferralla que es poden empènyer.</p></qt>
 Description[da]=<qt><p>Standard-spiltypen Killbots.</p><p>Inkluderer mellemstørrelses gitter, sikre teleporteringer, hurtige fjender og skrotbunker der kan skubbes.</p></qt>

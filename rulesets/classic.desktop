@@ -2,6 +2,7 @@
 Name=Classic
 Name[ast]=Clásicu
 Name[be]=Класічны
+Name[bs]=Klasično
 Name[ca]=Clàssic
 Name[ca@valencia]=Clàssic
 Name[cs]=Klasický
@@ -58,6 +59,7 @@ Name[zh_TW]=古典
 Author=Parker Coates
 AuthorContact=parker.coates@kdemail.net
 Description=<qt><p>The rules used in the original BSD command line version of <tt>robots</tt>.</p><p>Nothing fancy, just the basic game elements: no fastbots, no safe teleports, no pushing junkheaps, and a huge game grid.</p><p>Due to its larger width, it is recommended that you use a theme with narrower tiles to better fit your screen.</p></qt>
+Description[bs]=<qt> <p> pravila korišćena u izvornoj BSD komandnoj liniji verzija <tt> robota </ tt> </ p> Ništa fancy, samo osnovni elementi igre. bez brzih botova, bez sigurnih teleporta, bez guranja hrpi, i ogromna rešetkasta igra. </ p> Zbog svoje veće širine, preporučuje se da koristite temu s užim pločicama kako bi bolje odgovarao vašem ekranu. </ p> </ qt>
 Description[ca]=<qt><p>Les regles usades a la versió original de línia d'ordres del BSD de <tt>robots</tt>. Res de luxe, només els elements bàsics del joc. Sense robots ràpids. Sense tele-transport. Sense empènyer munts de ferralla.</p><p>Una graella de 59 per 22 que s'inicia amb 10 robots, 5 més s'afegeixen a cada ronda, 5 punts per cada robot destruït, 1 punt de bonificació per cada robot destruït mentre esperes que acabi la ronda.</p><p>Degut a la seva major amplada, es recomana que utilitzis un tema més estret amb rajoles per ajustar-lo millor a la pantalla.</p></qt>
 Description[ca@valencia]=<qt><p>Les regles usades a la versió original de línia d'ordes del BSD de <tt>robots</tt>. Res de luxe, només els elements bàsics del joc. Sense robots ràpids. Sense tele-transport. Sense empènyer munts de ferralla.</p><p>Una graella de 59 per 22 que s'inicia amb 10 robots, 5 més s'afigen a cada ronda, 5 punts per cada robot destruït, 1 punt de bonificació per cada robot destruït mentre esperes que acabe la ronda.</p><p>Degut a la seua major amplada, es recomana que utilitzes un tema més estret amb rajoles per ajustar-lo millor a la pantalla.</p></qt>
 Description[da]=<qt><p>Reglerne benyttet i den oprindelige BSD kommandolinje-version af <tt>robots</tt>. Intet fancy - kun de basale spilelementer. Ingen hurtigrobotter, sikker teleportering eller skubbende skrotbunker men et stort cellegitter. På grund af den større bredde anbefales det at benytte et tema med smallere felter for at passe bedre til skærmen.</p></qt>
