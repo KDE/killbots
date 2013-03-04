@@ -516,8 +516,6 @@ bool Killbots::Engine::cellIsValid( const QPoint & cell ) const
 
 bool Killbots::Engine::moveIsValid( const QPoint & cell, HeroAction direction ) const
 {
-	const QPoint cellBehindCell = cell + offsetFromDirection( direction );
-
 	// The short version
 	return ( cellIsValid( cell )
 	         && ( spriteTypeAt( cell ) == NoSprite
