@@ -17,6 +17,7 @@ namespace Killbots
 
 	public:
 		EngineTest( QObject * parent = 0 );
+		~EngineTest();
 
 	private slots:
 		void testValidCells_data();

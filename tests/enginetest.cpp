@@ -1,5 +1,7 @@
 #include "enginetest.h"
 
+#include "renderer.h"
+
 #include <KDebug>
 #include <KGlobal>
 #include <KStandardDirs>
@@ -21,6 +23,11 @@ Killbots::EngineTest::EngineTest( QObject * parent )
 
 	m_scene = new Scene( this );
 	m_coordinator->setScene( m_scene );
+}
+
+Killbots::EngineTest::~EngineTest()
+{
+	Killbots::Renderer::cleanup();
 }
 
 void Killbots::EngineTest::testValidCells_data()
