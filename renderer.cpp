@@ -39,14 +39,20 @@ static KgThemeProvider* provider()
 	return prov;
 }
 
-K_GLOBAL_STATIC( Killbots::Renderer, r )
-
+static Killbots::Renderer *r = 0;
 
 Killbots::Renderer * Killbots::Renderer::self()
 {
+	if (!r)
+		r = new Killbots::Renderer();
 	return r;
 }
 
+void Killbots::Renderer::cleanup()
+{
+	delete r;
+	r = 0;
+}
 
 Killbots::Renderer::Renderer()
   : KGameRenderer( provider() )

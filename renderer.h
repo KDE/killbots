@@ -31,6 +31,7 @@ namespace Killbots
 	{
 	public:
 		static Renderer * self();
+		static void cleanup();
 
 		Renderer();
 
