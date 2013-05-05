@@ -31,7 +31,7 @@
 
   <legalnotice>&FDLNotice;</legalnotice>
 
-  <date>2009-07-28</date>
+  <date>2013-05-05</date>
   <releaseinfo>1.1.0</releaseinfo>
 
   <abstract>
@@ -208,19 +208,20 @@
     <para>The player has the option of using either the keyboard, the mouse or both to control the hero.</para>
     <sect2 id="keyboard-movement">
       <title id="keyboard-movement-title">Keyboard Movement Controls</title>
-      <para>There are nine different movement actions: left, right, up, down, the four diagonals, and stand still. Each of these actions can be assigned to two different keyboard keys. By default these nine actions are assigned to the nine number keys of the numeric keypad and to a 3 by 3 block of letters at the left end of a QWERTY keyboard. Of course, users using a different keyboard layout or one lacking a numeric keypad can modify these key assignments using the <link linkend="configure-shortcuts">Configure Shortcuts dialog</link>.</para>
-      <para>Each of the special movement commands (such as teleport) can also be issued from the keyboard. See <link linkend="move-menu" endterm="move-menu-title"/>.</para>
+      <para>There are nine different movement actions: left, right, up, down, the four diagonals, and stand still. Each of these actions can be assigned to two different keyboard keys. By default these nine actions are assigned to the nine number keys of the numeric keypad and to a 3 by 3 block of letters at the left end of a QWERTY keyboard. Of course, users using a different keyboard layout or one lacking a numeric keypad can modify these key assignments using the shortcuts configuration dialog.</para>
+      <para>Each of the special movement commands (such as teleport) can also be issued from the keyboard. See <link linkend="move-menu">Move</link>.</para>
     </sect2>
     <sect2 id="mouse-movement">
       <title id="mouse-movement-title">Mouse Movement Controls</title>
       <para>The mouse (or any other pointing device) can be used to navigate in a more natural, intuitive way. As the pointer moves over the main game area, the cursor will change to indicate the direction of the pointer relative to the hero. For example, moving the pointer to the space above the hero will change the cursor to an up arrow. If the pointer is placed immediately over the hero, the cursor changes to indicate no movement.</para>
-      <para>A single left-click will cause the hero to step in the indicated direction (provided such a step is permitted). For convenience, one can assign additional actions to the right and middle mouse buttons in the <link linkend="configure-killbots">Configure &killbots; dialog</link>. These actions include those found in the <link linkend="move-menu" endterm="move-menu-title"/>, as well as additional option: Repeated Step. Performing a repeated step causes the hero to move in the indicated direction for several consecutive turns until an obstruction is reached or continued movement would be unsafe. One can also halt a repeated step by clicking again while the move is in progress.</para>
+      <para>A single left-click will cause the hero to step in the indicated direction (provided such a step is permitted). For convenience, one can assign additional actions to the right and middle mouse buttons in the <link linkend="configure-killbots">Configure &killbots; dialog</link>. These actions include those found in the <link linkend="move-menu">Move</link>, as well as additional option: Repeated Step. Performing a repeated step causes the hero to move in the indicated direction for several consecutive turns until an obstruction is reached or continued movement would be unsafe. One can also halt a repeated step by clicking again while the move is in progress.</para>
       <para></para>
     </sect2>
   </sect1>
 
   <sect1 id="game-menu">
-    <title>The <guimenu>Game</guimenu> Menu</title>
+    <title>Menu Items</title>
+
     <variablelist>
       <varlistentry>
         <term><menuchoice>
@@ -246,15 +247,10 @@
         </menuchoice></term>
         <listitem><para><action>Quits &killbots;.</action></para></listitem>
       </varlistentry>
-    </variablelist>
-  </sect1>
 
-  <sect1 id="move-menu">
-    <title id="move-menu-title">The <guimenu>Move</guimenu> Menu</title>
-    <variablelist>
-      <varlistentry>
+      <varlistentry id="move-menu">
         <term><menuchoice>
-          <shortcut><keycap>R</keycap></shortcut>
+          <shortcut><keycap>-</keycap></shortcut>
           <guimenu>Move</guimenu>
           <guimenuitem>Teleport</guimenuitem>
         </menuchoice></term>
@@ -262,7 +258,7 @@
       </varlistentry>
       <varlistentry>
         <term><menuchoice>
-          <shortcut><keycap>T</keycap></shortcut>
+          <shortcut><keycap>+</keycap></shortcut>
           <guimenu>Move</guimenu>
           <guimenuitem>Teleport Safely</guimenuitem>
         </menuchoice></term>
@@ -278,7 +274,7 @@
       </varlistentry>
       <varlistentry>
         <term><menuchoice>
-          <shortcut><keycap>F</keycap></shortcut>
+          <shortcut><keycap>.</keycap></shortcut>
           <guimenu>Move</guimenu>
           <guimenuitem>Vaporizer</guimenuitem>
         </menuchoice></term>
@@ -286,39 +282,13 @@
       </varlistentry>
       <varlistentry>
         <term><menuchoice>
-          <shortcut><keycap>Y</keycap></shortcut>
+          <shortcut><keycap>*</keycap></shortcut>
           <guimenu>Move</guimenu>
           <guimenuitem>Wait Out Round</guimenuitem>
         </menuchoice></term>
         <listitem><para><action>Causes the hero to freeze in place until the end of the round.</action> See <link linkend="wait-out-round" endterm="special-actions-title"/>.</para></listitem>
       </varlistentry>
-    </variablelist>
-  </sect1>
 
-  <sect1 id="settings-menu">
-    <title>The <guimenu>Settings</guimenu> Menu</title>
-    <variablelist>
-      <varlistentry>
-        <term><menuchoice>
-          <guimenu>Settings</guimenu>
-          <guimenuitem>Show Toolbar</guimenuitem>
-        </menuchoice></term>
-        <listitem><para><action>Shows or hides the main application toolbar.</action></para></listitem>
-      </varlistentry>
-      <varlistentry id="configure-shortcuts">
-        <term><menuchoice>
-          <guimenu>Settings</guimenu>
-          <guimenuitem>Configure Shortcuts...</guimenuitem>
-        </menuchoice></term>
-        <listitem><para><action>Displays the standard &kde; Configure Shortcuts dialog.</action> This allows one to redefine any or all of &killbots;'s keyboard shortcuts, including the movement controls.</para></listitem>
-      </varlistentry>
-      <varlistentry>
-        <term><menuchoice>
-          <guimenu>Settings</guimenu>
-          <guimenuitem>Configure Toolbars...</guimenuitem>
-        </menuchoice></term>
-        <listitem><para><action>Displays the standard &kde; Configure Toolbars dialog.</action> This allows one to choose which actions are shown on the &killbots; toolbar.</para></listitem>
-      </varlistentry>
       <varlistentry id="configure-killbots">
         <term><menuchoice>
           <guimenu>Settings</guimenu>
@@ -327,11 +297,14 @@
         <listitem><para><action>Displays the &killbots; configuration dialog</action>, where one can adjust gameplay parameters, choose a different set of game rules, or change the game theme.</para></listitem>
       </varlistentry>
     </variablelist>
-  </sect1>
 
-  <sect1 id="help-menu">
-    <title>The <guimenu>Help</guimenu> Menu</title>
-    &help.menu.documentation;
+<para>
+Additionally &killbots; has the common &kde; <guimenu>Settings</guimenu> and <guimenu>Help</guimenu>
+menu items, for more information read the sections about the <ulink url="help:/fundamentals/ui.html#menus-settings"
+>Settings Menu</ulink> and <ulink url="help:/fundamentals/ui.html#menus-help">Help Menu</ulink>
+of the &kde; Fundamentals.
+</para>
+
   </sect1>
 
 </chapter>
