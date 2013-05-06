@@ -32,7 +32,7 @@
   <legalnotice>&FDLNotice;</legalnotice>
 
   <date>2013-05-05</date>
-  <releaseinfo>1.1.0</releaseinfo>
+  <releaseinfo>1.1.0 (&kde; 4.11)</releaseinfo>
 
   <abstract>
     <para>&killbots; is a &kde; port of the classic BSD console game <command>robots</command>.</para>
