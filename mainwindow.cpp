@@ -42,7 +42,11 @@
 #include <KDE/KShortcutsDialog>
 #include <KDE/KStandardAction>
 #include <KDE/KStandardDirs>
+#include <KGlobal>
+#include <KShortcut>
+#include <KIcon>
 
+#include <QDebug>
 #include <QtCore/QSignalMapper>
 #include <QtCore/QTimer>
 
@@ -123,7 +127,7 @@ void Killbots::MainWindow::configurePreferences()
 		                     );
 
 		configDialog->setMaximumSize( 800, 600 );
-		configDialog->setInitialSize( QSize( 600, 450 ) );
+		//PORT QT5 configDialog->setInitialSize( QSize( 600, 450 ) );
 
 		// Update the sprite style if it has changed
 		connect( configDialog, SIGNAL(settingsChanged(QString)), this, SLOT(onSettingsChanged()) );
@@ -140,7 +144,7 @@ void Killbots::MainWindow::onSettingsChanged()
 
 	if ( m_engine->ruleset()->fileName() != Settings::ruleset() )
 	{
-		kDebug() << "Detected a changed in ruleset. From" << m_engine->ruleset()->fileName() << "to" << Settings::ruleset();
+		qDebug() << "Detected a changed in ruleset. From" << m_engine->ruleset()->fileName() << "to" << Settings::ruleset();
 
 		// We don't act on the changed ruleset here because the config dialog
 		// is still visible. We want the game in progress to be visible when

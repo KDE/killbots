@@ -27,6 +27,7 @@
 #include <KDE/KLineEdit>
 #include <KDE/KLocalizedString>
 #include <KDE/KStandardDirs>
+#include <KGlobal>
 
 #include <QtGui/QGroupBox>
 #include <QtGui/QLabel>

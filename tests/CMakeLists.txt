@@ -14,10 +14,12 @@ set( enginetest_SRCS
     ../scene.cpp
     ../sprite.cpp
 )
-kde4_add_kcfg_files( enginetest_SRCS ../settings.kcfgc ../rulesetbase.kcfgc )
-kde4_add_unit_test( enginetest ${enginetest_SRCS} )
+kconfig_add_kcfg_files( enginetest_SRCS ../settings.kcfgc ../rulesetbase.kcfgc )
+add_executable( enginetest ${enginetest_SRCS} )
+add_test(enginetest enginetest)
+ecm_mark_as_test(enginetest)
 target_link_libraries( enginetest
-    ${KDE4_KDECORE_LIBS}
-    ${QT_QTTEST_LIBRARY}
-    kdegames
+    KF5::KDELibs4Support
+    Qt5::Test
+    KF5KDEGames
 )

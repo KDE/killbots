@@ -23,7 +23,7 @@
 class KAction;
 class KActionCollection;
 class KScoreDialog;
-#include <KDE/KXmlGuiWindow>
+#include <KXmlGuiWindow>
 
 class QSignalMapper;
 

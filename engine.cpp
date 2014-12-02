@@ -172,7 +172,7 @@ void Killbots::Engine::startNewRound( bool incrementRound, const QString & layou
 	if ( layout.isEmpty() )
 	{
 		// Place the hero in the centre of the board.
-		const QPoint centre = QPoint( qRound( m_rules->columns() / 2 ), qRound( m_rules->rows() / 2 ) );
+		const QPoint centre = QPoint( qRound( (float)(m_rules->columns() / 2) ), qRound( (float)(m_rules->rows() / 2) ) );
 		m_hero = m_coordinator->createSprite( Hero, centre );
 
 		// Create and randomly place junkheaps.
