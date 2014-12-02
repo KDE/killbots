@@ -55,3 +55,4 @@ Type=Application
 X-DocPath=killbots/index.html
 Terminal=false
 Categories=Qt;KDE;Game;StrategyGame;
+X-DBUS-ServiceName=org.kde.killbots

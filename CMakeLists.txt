@@ -64,6 +64,6 @@ target_link_libraries( killbots  KF5KDEGames Qt5::Xml KF5::XmlGui Qt5::Widgets K
 
 ###### Installing Files ######
 install( TARGETS killbots ${INSTALL_TARGETS_DEFAULT_ARGS} )
-install( PROGRAMS killbots.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
-install( FILES killbotsui.rc DESTINATION ${DATA_INSTALL_DIR}/killbots )
+install( PROGRAMS org.kde.killbots.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
+install( FILES killbotsui.rc DESTINATION ${KXMLGUI_INSTALL_DIR}/killbots )
 install( FILES killbots.kcfg DESTINATION ${KCFG_INSTALL_DIR} )
