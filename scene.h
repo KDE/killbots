@@ -23,7 +23,7 @@
 #include "actions.h"
 #include "sprite.h"
 
-#include <QtGui/QGraphicsScene>
+#include <QGraphicsScene>
 
 
 namespace Killbots

@@ -22,11 +22,11 @@
 #include <KDE/KComboBox>
 #include <KDE/KLocalizedString>
 
-#include <QtGui/QCheckBox>
-#include <QtGui/QFormLayout>
-#include <QtGui/QGridLayout>
-#include <QtGui/QLabel>
-#include <QtGui/QSlider>
+#include <QCheckBox>
+#include <QFormLayout>
+#include <QGridLayout>
+#include <QLabel>
+#include <QSlider>
 
 Killbots::OptionsPage::OptionsPage( QWidget * parent )
   : QWidget( parent )

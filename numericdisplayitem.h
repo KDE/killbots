@@ -22,7 +22,7 @@
 
 #include <KGameRenderedItem>
 
-#include <QtGui/QFont>
+#include <QFont>
 
 namespace Killbots
 {

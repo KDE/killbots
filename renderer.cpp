@@ -27,7 +27,7 @@
 
 #include <KDE/KGlobal>
 
-#include <QtGui/QCursor>
+#include <QCursor>
 
 static KgThemeProvider* provider()
 {

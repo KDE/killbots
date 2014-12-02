@@ -266,7 +266,7 @@ class KLineEdit;
 #include <QtCore/QMap>
 class QLabel;
 class QListWidget;
-#include <QtGui/QWidget>
+#include <QWidget>
 
 namespace Killbots
 {
@@ -283,11 +283,11 @@ namespace Killbots
 #include <KDE/KLocalizedString>
 #include <KDE/KStandardDirs>
 
-#include <QtGui/QGroupBox>
-#include <QtGui/QLabel>
-#include <QtGui/QLayout>
-#include <QtGui/QListWidget>
-#include <QtGui/QScrollArea>
+#include <QGroupBox>
+#include <QLabel>
+#include <QLayout>
+#include <QListWidget>
+#include <QScrollArea>
 -------------------------------------------------------------------------------
 
 

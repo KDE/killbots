@@ -27,9 +27,9 @@
 
 #include <KDE/KDebug>
 
-#include <QtGui/QPainter>
-#include <QtGui/QGraphicsSceneMouseEvent>
-#include <QtGui/QGraphicsView>
+#include <QPainter>
+#include <QGraphicsSceneMouseEvent>
+#include <QGraphicsView>
 
 #include <cmath>
 

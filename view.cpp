@@ -19,7 +19,7 @@
 
 #include "view.h"
 
-#include <QtGui/QResizeEvent>
+#include <QResizeEvent>
 
 
 Killbots::View::View( QGraphicsScene * scene, QWidget * parent )

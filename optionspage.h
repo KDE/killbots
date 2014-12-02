@@ -24,7 +24,7 @@ class KComboBox;
 
 class QCheckBox;
 class QSlider;
-#include <QtGui/QWidget>
+#include <QWidget>
 
 namespace Killbots
 {

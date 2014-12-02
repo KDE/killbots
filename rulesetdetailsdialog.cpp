@@ -23,9 +23,9 @@
 
 #include <KDE/KLocale>
 
-#include <QtGui/QFormLayout>
-#include <QtGui/QLabel>
-#include <QtGui/QScrollArea>
+#include <QFormLayout>
+#include <QLabel>
+#include <QScrollArea>
 
 Killbots::RulesetDetailsDialog::RulesetDetailsDialog( QWidget * parent )
   : KDialog( parent )

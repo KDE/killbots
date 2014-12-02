@@ -37,7 +37,8 @@ add_definitions(-DTRANSLATION_DOMAIN="killbots")
 add_subdirectory( icons )
 add_subdirectory( rulesets )
 add_subdirectory( themes )
-add_subdirectory( tests )
+#Reactivate
+#add_subdirectory( tests )
 add_subdirectory( doc )
 
 ###### Building killbots executable ######

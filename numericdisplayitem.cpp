@@ -21,8 +21,8 @@
 
 #include "renderer.h"
 
-#include <QtGui/QFontMetrics>
-#include <QtGui/QPainter>
+#include <QFontMetrics>
+#include <QPainter>
 
 
 Killbots::NumericDisplayItem::NumericDisplayItem( const QString & label, QGraphicsItem * parent )

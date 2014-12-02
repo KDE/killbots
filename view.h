@@ -20,7 +20,7 @@
 #ifndef KILLBOTS_VIEW_H
 #define KILLBOTS_VIEW_H
 
-#include <QtGui/QGraphicsView>
+#include <QGraphicsView>
 class QResizeEvent;
 
 namespace Killbots

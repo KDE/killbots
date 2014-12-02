@@ -21,7 +21,7 @@
 
 #include "renderer.h"
 
-#include <QtGui/QPainter>
+#include <QPainter>
 
 
 Killbots::Sprite::Sprite()

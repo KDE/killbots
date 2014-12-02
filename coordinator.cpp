@@ -30,7 +30,7 @@
 #include <KDE/KDebug>
 #include <KDE/KLocalizedString>
 
-#include <QtGui/QGraphicsView>
+#include <QGraphicsView>
 
 #include <cmath>
 

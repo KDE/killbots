@@ -29,13 +29,13 @@
 #include <KDE/KStandardDirs>
 #include <KGlobal>
 
-#include <QtGui/QGroupBox>
-#include <QtGui/QLabel>
-#include <QtGui/QLayout>
-#include <QtGui/QListWidget>
-#include <QtGui/QPushButton>
-#include <QtGui/QScrollArea>
-#include <QtGui/QTableWidget>
+#include <QGroupBox>
+#include <QLabel>
+#include <QLayout>
+#include <QListWidget>
+#include <QPushButton>
+#include <QScrollArea>
+#include <QTableWidget>
 
 Killbots::RulesetSelector::RulesetSelector( QWidget * parent )
   : QWidget( parent ),
