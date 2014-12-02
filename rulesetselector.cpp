@@ -96,8 +96,8 @@ Killbots::RulesetSelector::RulesetSelector( QWidget * parent )
 	layout->addWidget( m_listWidget );
 	layout->addWidget( groupBox, 10 );
 
-	connect( m_listWidget, SIGNAL(currentTextChanged(QString)), this, SLOT(selectionChanged(QString)) );
-	connect( detailsButton, SIGNAL(clicked()), this, SLOT(showDetailsDialog()) );
+	connect(m_listWidget, &QListWidget::currentTextChanged, this, &RulesetSelector::selectionChanged);
+	connect(detailsButton, &QPushButton::clicked, this, &RulesetSelector::showDetailsDialog);
 
 	findRulesets();
 }

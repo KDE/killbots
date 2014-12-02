@@ -85,8 +85,8 @@ Killbots::Coordinator::Coordinator( QObject * parent )
     m_queuedAction( NoAction )
 {
 	m_timeLine.setCurveShape( QTimeLine::EaseInOutCurve );
-	connect( &m_timeLine, SIGNAL(valueChanged(qreal)), this, SLOT(animate(qreal)) );
-	connect( &m_timeLine, SIGNAL(finished()), this, SLOT(nextAnimationStage()) );
+	connect(&m_timeLine, &QTimeLine::valueChanged, this, &Coordinator::animate);
+	connect(&m_timeLine, &QTimeLine::finished, this, &Coordinator::nextAnimationStage);
 }
 
 
@@ -99,15 +99,15 @@ void Killbots::Coordinator::setEngine( Engine * engine )
 {
 	m_engine = engine;
 
-	connect( m_engine, SIGNAL(roundChanged(int)), this, SLOT(updateRound(int)) );
-	connect( m_engine, SIGNAL(scoreChanged(int)), this, SLOT(updateScore(int)) );
-	connect( m_engine, SIGNAL(enemyCountChanged(int)), this, SLOT(updateEnemyCount(int)) );
-	connect( m_engine, SIGNAL(energyChanged(int)), this, SLOT(updateEnergy(int)) );
+	connect(m_engine, &Engine::roundChanged, this, &Coordinator::updateRound);
+	connect(m_engine, &Engine::scoreChanged, this, &Coordinator::updateScore);
+	connect(m_engine, &Engine::enemyCountChanged, this, &Coordinator::updateEnemyCount);
+	connect(m_engine, &Engine::energyChanged, this, &Coordinator::updateEnergy);
 
-	connect( m_engine, SIGNAL(showNewGameMessage()), this, SLOT(showNewGameMessage()) );
-	connect( m_engine, SIGNAL(showRoundCompleteMessage()), this, SLOT(showRoundCompleteMessage()) );
-	connect( m_engine, SIGNAL(showBoardFullMessage()), this, SLOT(showBoardFullMessage()) );
-	connect( m_engine, SIGNAL(showGameOverMessage()), this, SLOT(showGameOverMessage()) );
+	connect(m_engine, &Engine::showNewGameMessage, this, &Coordinator::showNewGameMessage);
+	connect(m_engine, &Engine::showRoundCompleteMessage, this, &Coordinator::showRoundCompleteMessage);
+	connect(m_engine, &Engine::showBoardFullMessage, this, &Coordinator::showBoardFullMessage);
+	connect(m_engine, &Engine::showGameOverMessage, this, &Coordinator::showGameOverMessage);
 }
 
 
@@ -145,7 +145,7 @@ void Killbots::Coordinator::setScene( Scene * scene )
 	m_queuedPopup->setHideOnMouseClick( true );
 	m_scene->addItem( m_queuedPopup );
 
-	connect( m_queuedPopup, SIGNAL(hidden()), this, SLOT(nextAnimationStage()) );
+	connect(m_queuedPopup, &KGamePopupItem::hidden, this, &Coordinator::nextAnimationStage);
 }
 
 
