@@ -33,7 +33,7 @@
 #include <highscore/kscoredialog.h>
 #include <kstandardgameaction.h>
 
-#include <KAction>
+#include <QAction>
 #include <KActionCollection>
 #include <KApplication>
 #include <KConfigDialog>
@@ -223,7 +223,7 @@ void Killbots::MainWindow::showHighscores()
 }
 
 
-KAction * Killbots::MainWindow::createMappedAction( int mapping,
+QAction * Killbots::MainWindow::createMappedAction( int mapping,
                                                     const QString & internalName,
                                                     const QString & displayName,
                                                     const QString & translatedShortcut,
@@ -232,11 +232,12 @@ KAction * Killbots::MainWindow::createMappedAction( int mapping,
                                                     const QString & icon
                                                   )
 {
-	KAction * action = new KAction( displayName, actionCollection() );
+	QAction * action = new QAction( displayName, actionCollection() );
 	action->setObjectName( internalName );
-	action->setShortcut( KShortcut( QKeySequence( translatedShortcut ), alternateShortcut ) );
-	if ( !helpText.isEmpty() )
-		action->setHelpText( helpText );
+	action->setShortcuts( QList<QKeySequence>() << QKeySequence( translatedShortcut )<<alternateShortcut );
+//PORT QT5
+	//if ( !helpText.isEmpty() )
+		//action->setHelpText( helpText );
 	if ( !icon.isEmpty() )
 		action->setIcon( KIcon( icon ) );
 

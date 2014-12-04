@@ -20,7 +20,7 @@
 #ifndef KILLBOTS_MAINWINDOW_H
 #define KILLBOTS_MAINWINDOW_H
 
-class KAction;
+class QAction;
 class KActionCollection;
 class KScoreDialog;
 #include <KXmlGuiWindow>
@@ -44,7 +44,7 @@ namespace Killbots
 
 	private: // functions
 		void setupActions();
-		KAction * createMappedAction( int mapping, const QString & internalName, const QString & displayName, const QString & translatedShortcut, const QKeySequence & alternateShortcut, const QString & toolTip = QString(), const QString & icon = QString() );
+		QAction * createMappedAction( int mapping, const QString & internalName, const QString & displayName, const QString & translatedShortcut, const QKeySequence & alternateShortcut, const QString & toolTip = QString(), const QString & icon = QString() );
 		void createScoreDialog();
 
 	private slots:
