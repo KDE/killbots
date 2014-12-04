@@ -23,7 +23,7 @@
 #include "settings.h"
 #include "sprite.h"
 
-#include <KDebug>
+#include <QDebug>
 #include <KRandom>
 
 uint qHash( const QPoint & point )
@@ -538,20 +538,20 @@ bool Killbots::Engine::moveIsValid( const QPoint & cell, HeroAction direction ) 
 				if ( !canPushJunkheap( m_spriteMap.value( cell ), direction ) )
 				{
 					result = false;
-					kDebug() << "Move is invalid. Cannot push junkheap.";
+					//qDebug() << "Move is invalid. Cannot push junkheap.";
 				}
 			}
 			else
 			{
 				result = false;
-				kDebug() << "Move is invalid. Cell is occupied by an unpushable object.";
+				//qDebug() << "Move is invalid. Cell is occupied by an unpushable object.";
 			}
 		}
 	}
 	else
 	{
 		result = false;
-		kDebug() << "Move is invalid. Cell is lies outside grid.";
+		//qDebug() << "Move is invalid. Cell is lies outside grid.";
 	}
 
 	return result;

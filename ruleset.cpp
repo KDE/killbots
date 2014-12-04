@@ -20,7 +20,7 @@
 #include "ruleset.h"
 
 #include <KConfigGroup>
-#include <KDebug>
+#include <QDebug>
 #include <KStandardDirs>
 
 #include <QtCore/QFileInfo>
@@ -41,8 +41,8 @@ const Killbots::Ruleset * Killbots::Ruleset::load( const QString & fileName )
 				result = new Ruleset( filePath );
 		}
 	}
-
-	kDebug( !result ) << "Failed to load " << fileName;
+        if (!result)
+	   qDebug() << "Failed to load " << fileName;
 
 	return result;
 }

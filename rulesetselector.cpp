@@ -23,7 +23,7 @@
 #include "rulesetdetailsdialog.h"
 #include "settings.h"
 
-#include <KDebug>
+#include <QDebug>
 #include <KLineEdit>
 #include <KLocalizedString>
 #include <KStandardDirs>
