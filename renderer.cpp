@@ -25,8 +25,6 @@
 #include <KgThemeProvider>
 #include <KGameRenderer>
 
-#include <KGlobal>
-
 #include <QCursor>
 
 static KgThemeProvider* provider()

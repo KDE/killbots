@@ -21,7 +21,7 @@
 
 #include "ruleset.h"
 
-#include <KLocale>
+#include <KLocalizedString>
 
 #include <QFormLayout>
 #include <QLabel>
