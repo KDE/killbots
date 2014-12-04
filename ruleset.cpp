@@ -19,9 +19,9 @@
 
 #include "ruleset.h"
 
-#include <KDE/KConfigGroup>
-#include <KDE/KDebug>
-#include <KDE/KStandardDirs>
+#include <KConfigGroup>
+#include <KDebug>
+#include <KStandardDirs>
 
 #include <QtCore/QFileInfo>
 

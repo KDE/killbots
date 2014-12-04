@@ -23,10 +23,10 @@
 #include "rulesetdetailsdialog.h"
 #include "settings.h"
 
-#include <KDE/KDebug>
-#include <KDE/KLineEdit>
-#include <KDE/KLocalizedString>
-#include <KDE/KStandardDirs>
+#include <KDebug>
+#include <KLineEdit>
+#include <KLocalizedString>
+#include <KStandardDirs>
 #include <KGlobal>
 
 #include <QGroupBox>

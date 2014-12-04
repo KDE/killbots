@@ -20,7 +20,7 @@
 #ifndef KILLBOTS_RULESETDETAILSDIALOG_H
 #define KILLBOTS_RULESETDETAILSDIALOG_H
 
-#include <KDE/KDialog>
+#include <KDialog>
 
 #include <QtCore/QMap>
 class QLabel;

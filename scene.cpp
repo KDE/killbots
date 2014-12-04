@@ -25,7 +25,7 @@
 
 #include <KGamePopupItem>
 
-#include <KDE/KDebug>
+#include <KDebug>
 
 #include <QPainter>
 #include <QGraphicsSceneMouseEvent>

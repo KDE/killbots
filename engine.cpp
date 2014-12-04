@@ -23,8 +23,8 @@
 #include "settings.h"
 #include "sprite.h"
 
-#include <KDE/KDebug>
-#include <KDE/KRandom>
+#include <KDebug>
+#include <KRandom>
 
 uint qHash( const QPoint & point )
 {

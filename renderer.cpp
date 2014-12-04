@@ -25,7 +25,7 @@
 #include <KgThemeProvider>
 #include <KGameRenderer>
 
-#include <KDE/KGlobal>
+#include <KGlobal>
 
 #include <QCursor>
 

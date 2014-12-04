@@ -27,8 +27,8 @@
 
 #include <kgamepopupitem.h>
 
-#include <KDE/KDebug>
-#include <KDE/KLocalizedString>
+#include <KDebug>
+#include <KLocalizedString>
 
 #include <QGraphicsView>
 

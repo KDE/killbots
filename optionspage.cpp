@@ -19,8 +19,8 @@
 
 #include "optionspage.h"
 
-#include <KDE/KComboBox>
-#include <KDE/KLocalizedString>
+#include <KComboBox>
+#include <KLocalizedString>
 
 #include <QCheckBox>
 #include <QFormLayout>

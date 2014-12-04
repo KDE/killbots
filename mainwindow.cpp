@@ -33,15 +33,15 @@
 #include <highscore/kscoredialog.h>
 #include <kstandardgameaction.h>
 
-#include <KDE/KAction>
-#include <KDE/KActionCollection>
-#include <KDE/KApplication>
-#include <KDE/KConfigDialog>
-#include <KDE/KLocalizedString>
-#include <KDE/KMessageBox>
-#include <KDE/KShortcutsDialog>
-#include <KDE/KStandardAction>
-#include <KDE/KStandardDirs>
+#include <KAction>
+#include <KActionCollection>
+#include <KApplication>
+#include <KConfigDialog>
+#include <KLocalizedString>
+#include <KMessageBox>
+#include <KShortcutsDialog>
+#include <KStandardAction>
+#include <KStandardDirs>
 #include <KGlobal>
 #include <KShortcut>
 #include <KIcon>
