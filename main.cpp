@@ -25,9 +25,15 @@
 #include <KLocalizedString>
 #include <KStandardDirs>
 #include <KGlobal>
+#include <kdelibs4configmigrator.h>
 
 int main( int argc, char ** argv )
 {
+    Kdelibs4ConfigMigrator migrate(QLatin1String("killbots"));
+    migrate.setConfigFiles(QStringList() << QLatin1String("killbotsrc"));
+    migrate.setUiFiles(QStringList() << QLatin1String("killbotsui.rc"));
+    migrate.migrate();
+
 	K4AboutData about( "killbots", "", ki18n("Killbots"), "1.1.0" );
 	about.setShortDescription( ki18n("A KDE game of killer robots and teleportation.") );
 	about.setLicense( K4AboutData::License_GPL_V2 );
