@@ -44,7 +44,7 @@
 #include <KStandardDirs>
 #include <KGlobal>
 #include <KShortcut>
-#include <KIcon>
+#include <QIcon>
 
 #include <QDebug>
 #include <QtCore/QSignalMapper>
@@ -239,7 +239,7 @@ QAction * Killbots::MainWindow::createMappedAction( int mapping,
 	//if ( !helpText.isEmpty() )
 		//action->setHelpText( helpText );
 	if ( !icon.isEmpty() )
-		action->setIcon( KIcon( icon ) );
+		action->setIcon( QIcon::fromTheme( icon ) );
 
 	connect( action, SIGNAL(triggered()), m_keyboardMapper, SLOT(map()) );
 	m_keyboardMapper->setMapping( action, mapping );
