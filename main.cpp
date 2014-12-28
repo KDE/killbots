@@ -19,13 +19,16 @@
 
 #include "mainwindow.h"
 
-#include <k4aboutdata.h>
-#include <KApplication>
-#include <KCmdLineArgs>
+
+
+
 #include <KLocalizedString>
 #include <KStandardDirs>
 #include <KGlobal>
 #include <kdelibs4configmigrator.h>
+#include <QApplication>
+#include <KAboutData>
+#include <QCommandLineParser>
 
 int main( int argc, char ** argv )
 {
@@ -34,18 +37,24 @@ int main( int argc, char ** argv )
     migrate.setUiFiles(QStringList() << QLatin1String("killbotsui.rc"));
     migrate.migrate();
 
-	K4AboutData about( "killbots", "", ki18n("Killbots"), "1.1.0" );
-	about.setShortDescription( ki18n("A KDE game of killer robots and teleportation.") );
-	about.setLicense( K4AboutData::License_GPL_V2 );
-	about.setCopyrightStatement( ki18n("© 2006-2009, Parker Coates") );
-	about.addAuthor( ki18n("Parker Coates"), ki18n("Developer"), "coates@kde.org" );
-	about.addCredit( ki18n("Mark Rae"), ki18n("Author of Gnome Robots. Invented safe teleports, pushing junkheaps and fast robots."), "", "http://live.gnome.org/Robots" );
+	KAboutData about( "killbots", i18n("Killbots"), "1.1.0" );
+	about.setShortDescription( i18n("A KDE game of killer robots and teleportation.") );
+	about.setLicense( KAboutLicense::GPL_V2 );
+	about.setCopyrightStatement( i18n("© 2006-2009, Parker Coates") );
+	about.addAuthor( i18n("Parker Coates"), i18n("Developer"), "coates@kde.org" );
+	about.addCredit( i18n("Mark Rae"), i18n("Author of Gnome Robots. Invented safe teleports, pushing junkheaps and fast robots."), "", "http://live.gnome.org/Robots" );
 
-	KCmdLineArgs::init(argc, argv, &about);
+    QApplication app(argc, argv);
+    QCommandLineParser parser;
+    KAboutData::setApplicationData(about);
+    parser.addVersionOption();
+    parser.addHelpOption();
+    about.setupCommandLine(&parser);
+    parser.process(app);
+    about.processCommandLine(&parser);
 
-	KApplication app;
 
-	KGlobal::dirs()->addResourceType("ruleset", "data", about.appName() + "/rulesets/");
+	KGlobal::dirs()->addResourceType("ruleset", "data", "killbots/rulesets/");
 
 	Killbots::MainWindow * mainWindow = new Killbots::MainWindow;
 	mainWindow->show();
