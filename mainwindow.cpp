@@ -234,7 +234,7 @@ QAction * Killbots::MainWindow::createMappedAction( int mapping,
 {
 	QAction * action = new QAction( displayName, actionCollection() );
 	action->setObjectName( internalName );
-	action->setShortcuts( QList<QKeySequence>() << QKeySequence( translatedShortcut )<<alternateShortcut );
+    actionCollection()->setDefaultShortcuts(action, QList<QKeySequence>() << QKeySequence( translatedShortcut )<<alternateShortcut );
 //PORT QT5
 	//if ( !helpText.isEmpty() )
 		//action->setHelpText( helpText );
