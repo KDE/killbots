@@ -234,10 +234,11 @@ QAction * Killbots::MainWindow::createMappedAction( int mapping,
 {
 	QAction * action = new QAction( displayName, actionCollection() );
 	action->setObjectName( internalName );
-    actionCollection()->setDefaultShortcuts(action, QList<QKeySequence>() << QKeySequence( translatedShortcut )<<alternateShortcut );
-//PORT QT5
-	//if ( !helpText.isEmpty() )
-		//action->setHelpText( helpText );
+        actionCollection()->setDefaultShortcuts(action, QList<QKeySequence>() << QKeySequence( translatedShortcut )<<alternateShortcut );
+        if (!helpText.isEmpty()) {
+            action->setWhatsThis(helpText);
+            action->setToolTip(helpText);
+        }
 	if ( !icon.isEmpty() )
 		action->setIcon( QIcon::fromTheme( icon ) );
 
