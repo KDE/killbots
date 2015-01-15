@@ -29,6 +29,7 @@
 #include <QApplication>
 #include <KAboutData>
 #include <QCommandLineParser>
+#include <KDBusService>
 
 int main( int argc, char ** argv )
 {
@@ -52,6 +53,8 @@ int main( int argc, char ** argv )
     about.setupCommandLine(&parser);
     parser.process(app);
     about.processCommandLine(&parser);
+
+    KDBusService service;
 
 
 	KGlobal::dirs()->addResourceType("ruleset", "data", "killbots/rulesets/");
