@@ -20,7 +20,7 @@
 #ifndef KILLBOTS_RULESETDETAILSDIALOG_H
 #define KILLBOTS_RULESETDETAILSDIALOG_H
 
-#include <KDialog>
+#include <QDialog>
 
 #include <QtCore/QMap>
 class QLabel;
@@ -28,7 +28,7 @@ class QLabel;
 namespace Killbots {
 	class Ruleset;
 
-	class RulesetDetailsDialog : public KDialog
+	class RulesetDetailsDialog : public QDialog
 	{
 	public:
 		RulesetDetailsDialog( QWidget * parent = 0 );
@@ -39,6 +39,7 @@ namespace Killbots {
 // 		static const QStringList junkheapEnumText;
 
 		QMap<QString, QLabel *> m_labels;
+                QWidget *mMainWidget;
 	};
 
 }

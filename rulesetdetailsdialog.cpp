@@ -26,11 +26,23 @@
 #include <QFormLayout>
 #include <QLabel>
 #include <QScrollArea>
+#include <KConfigGroup>
+#include <QDialogButtonBox>
+#include <QPushButton>
+#include <QVBoxLayout>
 
 Killbots::RulesetDetailsDialog::RulesetDetailsDialog( QWidget * parent )
-  : KDialog( parent )
+  : QDialog( parent )
 {
-	setButtons( KDialog::Close );
+	QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Close);
+	mMainWidget = new QWidget(this);
+	QVBoxLayout *mainLayout = new QVBoxLayout;
+	setLayout(mainLayout);
+	mainLayout->addWidget(mMainWidget);
+	connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
+	connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
+	//PORTING SCRIPT: WARNING mainLayout->addWidget(buttonBox) must be last item in layout. Please move it.
+	mainLayout->addWidget(buttonBox);
 }
 
 
@@ -46,8 +58,7 @@ void Killbots::RulesetDetailsDialog::loadRuleset( const Ruleset * ruleset )
 	// If the dialog hasn't been setup already, do so.
 	if ( m_labels.size() == 0 )
 	{
-		QWidget * widget = new QWidget();
-		QFormLayout * layout = new QFormLayout( widget );
+		QFormLayout * layout = new QFormLayout( mMainWidget );
 
 		foreach ( const KConfigSkeletonItem * item, ruleset->items() )
 		{
@@ -62,7 +73,6 @@ void Killbots::RulesetDetailsDialog::loadRuleset( const Ruleset * ruleset )
 			}
 		}
 
-		setMainWidget( widget );
 	}
 
 	QMap<QString,QLabel*>::const_iterator it = m_labels.constBegin();
@@ -82,7 +92,7 @@ void Killbots::RulesetDetailsDialog::loadRuleset( const Ruleset * ruleset )
 		it.value()->setText( valueText );
 	}
 
-	setCaption( i18n("Details of %1 Game Type", ruleset->name() ) );
+	setWindowTitle( i18n("Details of %1 Game Type", ruleset->name() ) );
 }
 
 
