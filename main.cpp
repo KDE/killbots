@@ -33,6 +33,8 @@
 
 int main( int argc, char ** argv )
 {
+    QApplication app(argc, argv);
+
     Kdelibs4ConfigMigrator migrate(QLatin1String("killbots"));
     migrate.setConfigFiles(QStringList() << QLatin1String("killbotsrc"));
     migrate.setUiFiles(QStringList() << QLatin1String("killbotsui.rc"));
@@ -45,7 +47,6 @@ int main( int argc, char ** argv )
 	about.addAuthor( i18n("Parker Coates"), i18n("Developer"), "coates@kde.org" );
 	about.addCredit( i18n("Mark Rae"), i18n("Author of Gnome Robots. Invented safe teleports, pushing junkheaps and fast robots."), "", "http://live.gnome.org/Robots" );
 
-    QApplication app(argc, argv);
     QCommandLineParser parser;
     KAboutData::setApplicationData(about);
     parser.addVersionOption();
