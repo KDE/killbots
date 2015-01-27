@@ -254,7 +254,7 @@ void Killbots::MainWindow::setupActions()
 {
 	KStandardGameAction::gameNew( m_coordinator, SLOT(requestNewGame()), actionCollection() );
 	KStandardGameAction::highscores( this, SLOT(showHighscores()), actionCollection() );
-	KStandardGameAction::quit( kapp, SLOT(quit()), actionCollection() );
+    KStandardGameAction::quit( qApp, SLOT(quit()), actionCollection() );
 	KStandardAction::preferences( this, SLOT(configurePreferences()), actionCollection() );
 
 	createMappedAction( TeleportSafely,
