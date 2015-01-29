@@ -39,8 +39,8 @@ Killbots::RulesetDetailsDialog::RulesetDetailsDialog( QWidget * parent )
 	QVBoxLayout *mainLayout = new QVBoxLayout;
 	setLayout(mainLayout);
 	mainLayout->addWidget(mMainWidget);
-	connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
-	connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
+	connect(buttonBox, &QDialogButtonBox::accepted, this, &RulesetDetailsDialog::accept);
+	connect(buttonBox, &QDialogButtonBox::rejected, this, &RulesetDetailsDialog::reject);
 	//PORTING SCRIPT: WARNING mainLayout->addWidget(buttonBox) must be last item in layout. Please move it.
 	mainLayout->addWidget(buttonBox);
 }
