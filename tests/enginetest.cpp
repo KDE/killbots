@@ -263,6 +263,6 @@ void Killbots::EngineTest::testMoveIsSafe()
 }
 
 
-QTEST_KDEMAIN( Killbots::EngineTest, GUI )
+QTEST_MAIN( Killbots::EngineTest )
 
 #include "enginetest.moc"
