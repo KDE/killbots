@@ -35,7 +35,7 @@ int main(int argc, char **argv)
     migrate.setUiFiles(QStringList() << QLatin1String("killbotsui.rc"));
     migrate.migrate();
 
-    KAboutData about("killbots", i18n("Killbots"), "1.1.0");
+    KAboutData about("killbots", i18n("Killbots"), "1.2.0");
     about.setShortDescription(i18n("A KDE game of killer robots and teleportation."));
     about.setLicense(KAboutLicense::GPL_V2);
     about.setCopyrightStatement(i18n("© 2006-2009, Parker Coates"));
