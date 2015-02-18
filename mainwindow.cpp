@@ -35,15 +35,11 @@
 
 #include <QAction>
 #include <KActionCollection>
-#include <KApplication>
 #include <KConfigDialog>
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <KShortcutsDialog>
 #include <KStandardAction>
-#include <KStandardDirs>
-#include <KGlobal>
-#include <KShortcut>
 #include <QIcon>
 
 #include <QDebug>
@@ -182,9 +178,14 @@ void Killbots::MainWindow::createScoreDialog()
 	m_scoreDialog = new KScoreDialog( KScoreDialog::Name, this );
 	m_scoreDialog->addField( KScoreDialog::Level, i18n("Round"), "round" );
 	m_scoreDialog->setModal( false );
-
-	QStringList fileList;
-	KGlobal::dirs()->findAllResources ( "ruleset", "*.desktop", KStandardDirs::NoDuplicates, fileList );
+        QStringList fileList;
+        const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, "killbots/ruleset", QStandardPaths::LocateDirectory);
+        Q_FOREACH (const QString& dir, dirs) {
+            const QStringList fileNames = QDir(dir).entryList(QStringList() << QStringLiteral("*.desktop"));
+            Q_FOREACH (const QString& file, fileNames) {
+                fileList.append(dir + '/' + file);
+            }
+        }
 	foreach ( const QString & fileName, fileList )
 	{
 		const Ruleset * ruleset = Ruleset::load( fileName );

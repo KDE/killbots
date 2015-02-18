@@ -23,8 +23,6 @@
 
 
 #include <KLocalizedString>
-#include <KStandardDirs>
-#include <KGlobal>
 #include <kdelibs4configmigrator.h>
 #include <QApplication>
 #include <KAboutData>
@@ -56,9 +54,6 @@ int main( int argc, char ** argv )
     about.processCommandLine(&parser);
 
     KDBusService service;
-
-
-	KGlobal::dirs()->addResourceType("ruleset", "data", "killbots/rulesets/");
 
 	Killbots::MainWindow * mainWindow = new Killbots::MainWindow;
 	mainWindow->show();

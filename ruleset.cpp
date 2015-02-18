@@ -21,17 +21,16 @@
 
 #include <KConfigGroup>
 #include <QDebug>
-#include <KStandardDirs>
+
 
 #include <QtCore/QFileInfo>
 
 const Killbots::Ruleset * Killbots::Ruleset::load( const QString & fileName )
 {
 	const Ruleset * result = 0;
-
 	if ( !fileName.isEmpty() )
 	{
-		QString filePath = KStandardDirs::locate( "ruleset", fileName );
+                QString filePath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, "killbots/rulesets/" + fileName);
 		if ( !filePath.isEmpty() )
 		{
 			// Our only check for validity is that we can open the file as a config

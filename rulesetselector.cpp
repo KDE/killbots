@@ -26,9 +26,8 @@
 #include <QDebug>
 #include <KLineEdit>
 #include <KLocalizedString>
-#include <KStandardDirs>
-#include <KGlobal>
 
+#include <QDir>
 #include <QGroupBox>
 #include <QLabel>
 #include <QLayout>
@@ -118,7 +117,14 @@ void Killbots::RulesetSelector::findRulesets()
 	m_listWidget->setSortingEnabled( true );
 
 	QStringList fileList;
-	KGlobal::dirs()->findAllResources ( "ruleset", "*.desktop", KStandardDirs::NoDuplicates, fileList );
+        const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, "killbots/rulesets/", QStandardPaths::LocateDirectory);
+        Q_FOREACH (const QString&  dir, dirs) {
+            const QStringList fileNames = QDir(dir).entryList(QStringList() << QStringLiteral("*.desktop"));
+            Q_FOREACH (const QString& file, fileNames) {
+                fileList.append(dir + '/' + file);
+                qDebug()<<" fileList :"<<fileList;
+            }
+        }
 	foreach ( const QString & fileName, fileList )
 	{
 		const Ruleset * ruleset = Ruleset::load( fileName );
