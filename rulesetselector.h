@@ -29,35 +29,35 @@ class QListWidget;
 
 namespace Killbots
 {
-	class Ruleset;
-	class RulesetDetailsDialog;
+class Ruleset;
+class RulesetDetailsDialog;
 
-	class RulesetSelector : public QWidget
-	{
-		Q_OBJECT
+class RulesetSelector : public QWidget
+{
+    Q_OBJECT
 
-	public: // functions
-		explicit RulesetSelector( QWidget * parent = 0 );
-		virtual ~RulesetSelector();
+public: // functions
+    explicit RulesetSelector(QWidget *parent = 0);
+    virtual ~RulesetSelector();
 
-	public: // data members
-		KLineEdit * kcfg_Ruleset;
+public: // data members
+    KLineEdit *kcfg_Ruleset;
 
-	private: // functions
-		void findRulesets();
+private: // functions
+    void findRulesets();
 
-	private slots:
-		void selectionChanged( QString rulesetName );
-		void showDetailsDialog();
+private slots:
+    void selectionChanged(QString rulesetName);
+    void showDetailsDialog();
 
-	private: // data members
-		QListWidget * m_listWidget;
-		QLabel * m_author;
-		QLabel * m_authorContact;
-		QLabel * m_description;
-		QMap< QString, const Ruleset * > m_rulesetMap;
-		RulesetDetailsDialog * m_detailsDialog;
-	};
+private: // data members
+    QListWidget *m_listWidget;
+    QLabel *m_author;
+    QLabel *m_authorContact;
+    QLabel *m_description;
+    QMap< QString, const Ruleset * > m_rulesetMap;
+    RulesetDetailsDialog *m_detailsDialog;
+};
 }
 
 #endif

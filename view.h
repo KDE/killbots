@@ -25,20 +25,20 @@ class QResizeEvent;
 
 namespace Killbots
 {
-	class View : public QGraphicsView
-	{
-		Q_OBJECT
+class View : public QGraphicsView
+{
+    Q_OBJECT
 
-	public: // functions
-		explicit View( QGraphicsScene * scene, QWidget * parent = 0 );
-		virtual ~View();
+public: // functions
+    explicit View(QGraphicsScene *scene, QWidget *parent = 0);
+    virtual ~View();
 
-	signals:
-		void sizeChanged( QSize newSize );
+signals:
+    void sizeChanged(QSize newSize);
 
-	protected: // functions
-		virtual void resizeEvent( QResizeEvent * event );
-	};
+protected: // functions
+    virtual void resizeEvent(QResizeEvent *event);
+};
 }
 
 #endif

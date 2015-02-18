@@ -25,55 +25,54 @@
 
 #include <QGraphicsScene>
 
-
 namespace Killbots
 {
-	class NumericDisplayItem;
+class NumericDisplayItem;
 
-	class Scene : public QGraphicsScene
-	{
-		Q_OBJECT
+class Scene : public QGraphicsScene
+{
+    Q_OBJECT
 
-	public: // functions
-		explicit Scene( QObject * parent = 0 );
-		virtual ~Scene();
+public: // functions
+    explicit Scene(QObject *parent = 0);
+    virtual ~Scene();
 
-		void addNumericDisplay( NumericDisplayItem * displayItem );
-		void setGridSize( int rows, int columns );
-		void forgetHero();
+    void addNumericDisplay(NumericDisplayItem *displayItem);
+    void setGridSize(int rows, int columns);
+    void forgetHero();
 
-		Sprite * createSprite( SpriteType type, QPoint position );
-		void animateSprites( const QList<Sprite *> & newSprites,
-		                     const QList<Sprite *> & slidingSprites,
-		                     const QList<Sprite *> & teleportingSprites,
-		                     const QList<Sprite *> & destroyedSprites,
-		                     qreal value
-		                   ) const;
+    Sprite *createSprite(SpriteType type, QPoint position);
+    void animateSprites(const QList<Sprite *> &newSprites,
+                        const QList<Sprite *> &slidingSprites,
+                        const QList<Sprite *> &teleportingSprites,
+                        const QList<Sprite *> &destroyedSprites,
+                        qreal value
+                       ) const;
 
-	public slots:
-		void doLayout();
+public slots:
+    void doLayout();
 
-	signals:
-		void clicked( int action );
+signals:
+    void clicked(int action);
 
-	protected: // functions
-		virtual void mouseMoveEvent( QGraphicsSceneMouseEvent * mouseEvent );
-		virtual void mouseReleaseEvent( QGraphicsSceneMouseEvent * mouseEvent );
+protected: // functions
+    virtual void mouseMoveEvent(QGraphicsSceneMouseEvent *mouseEvent);
+    virtual void mouseReleaseEvent(QGraphicsSceneMouseEvent *mouseEvent);
 
-	private: // functions
-		HeroAction getMouseDirection( QPointF cursorPosition ) const;
-		bool popupAtPosition( QPointF position ) const;
-		void updateSpritePos( Sprite * sprite, QPoint gridPosition ) const;
+private: // functions
+    HeroAction getMouseDirection(QPointF cursorPosition) const;
+    bool popupAtPosition(QPointF position) const;
+    void updateSpritePos(Sprite *sprite, QPoint gridPosition) const;
 
-	private: // data members
-		Sprite * m_hero;
+private: // data members
+    Sprite *m_hero;
 
-		QList<NumericDisplayItem *> m_numericDisplays;
+    QList<NumericDisplayItem *> m_numericDisplays;
 
-		QSize m_cellSize;
-		int m_rows;
-		int m_columns;
-	};
+    QSize m_cellSize;
+    int m_rows;
+    int m_columns;
+};
 }
 
 #endif

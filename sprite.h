@@ -24,45 +24,43 @@
 
 namespace Killbots
 {
-	enum SpriteType
-	{
-		NoSprite,
-		Junkheap,
-		Hero,
-		Robot,
-		Fastbot
-	};
+enum SpriteType {
+    NoSprite,
+    Junkheap,
+    Hero,
+    Robot,
+    Fastbot
+};
 
-	class Sprite : public KGameRenderedItem
-	{
-	public: // types
-		enum
-		{
-			Type = UserType + 1
-		};
+class Sprite : public KGameRenderedItem
+{
+public: // types
+    enum {
+        Type = UserType + 1
+    };
 
-	public: // functions
-		explicit Sprite();
-		virtual ~Sprite();
+public: // functions
+    explicit Sprite();
+    virtual ~Sprite();
 
-		SpriteType spriteType() const;
-		void setSpriteType( SpriteType type );
+    SpriteType spriteType() const;
+    void setSpriteType(SpriteType type);
 
-		void enqueueGridPos( QPoint position );
-		QPoint currentGridPos() const;
-		QPoint nextGridPos() const;
-		QPoint gridPos() const;
-		void advanceGridPosQueue();
+    void enqueueGridPos(QPoint position);
+    QPoint currentGridPos() const;
+    QPoint nextGridPos() const;
+    QPoint gridPos() const;
+    void advanceGridPosQueue();
 
-		virtual int type() const;
+    virtual int type() const;
 
-	protected:
-		virtual void receivePixmap( const QPixmap & pixmap );
+protected:
+    virtual void receivePixmap(const QPixmap &pixmap);
 
-	private: // data members
-		SpriteType m_type;
-		QList<QPoint> m_gridPositions;
-	};
+private: // data members
+    SpriteType m_type;
+    QList<QPoint> m_gridPositions;
+};
 }
 
 #endif

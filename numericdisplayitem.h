@@ -27,38 +27,38 @@
 namespace Killbots
 {
 
-	class NumericDisplayItem : public QObject, public KGameRenderedItem
-	{
-		Q_OBJECT
+class NumericDisplayItem : public QObject, public KGameRenderedItem
+{
+    Q_OBJECT
 
-	public: // functions
-		explicit NumericDisplayItem( const QString & label = QString(), QGraphicsItem * parent = 0 );
-		virtual ~NumericDisplayItem();
+public: // functions
+    explicit NumericDisplayItem(const QString &label = QString(), QGraphicsItem *parent = 0);
+    virtual ~NumericDisplayItem();
 
-		int value() const;
-		QString label() const;
-		int digits() const;
-		QFont font() const;
-		QSize preferredSize();
+    int value() const;
+    QString label() const;
+    int digits() const;
+    QFont font() const;
+    QSize preferredSize();
 
-		virtual void paint( QPainter * p, const QStyleOptionGraphicsItem * option, QWidget * widget = 0 );
+    virtual void paint(QPainter *p, const QStyleOptionGraphicsItem *option, QWidget *widget = 0);
 
-	public slots:
-		void setValue( int value );
-		void setLabel( const QString & label );
-		void setDigits( int digits );
-		void setFont( const QFont & font );
+public slots:
+    void setValue(int value);
+    void setLabel(const QString &label);
+    void setDigits(int digits);
+    void setFont(const QFont &font);
 
-	private: // data members
-		QString m_label;
-		int m_value;
-		int m_digits;
+private: // data members
+    QString m_label;
+    int m_value;
+    int m_digits;
 
-		int m_margin;
+    int m_margin;
 
-		QFont m_font;
-		QFont m_boldFont;
-	};
+    QFont m_font;
+    QFont m_boldFont;
+};
 }
 
 #endif

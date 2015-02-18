@@ -25,22 +25,23 @@
 #include <QtCore/QMap>
 class QLabel;
 
-namespace Killbots {
-	class Ruleset;
+namespace Killbots
+{
+class Ruleset;
 
-	class RulesetDetailsDialog : public QDialog
-	{
-	public:
-		RulesetDetailsDialog( QWidget * parent = 0 );
-		void loadRuleset( const Ruleset * ruleset );
+class RulesetDetailsDialog : public QDialog
+{
+public:
+    RulesetDetailsDialog(QWidget *parent = 0);
+    void loadRuleset(const Ruleset *ruleset);
 
-	private:
-// 		static const QStringList maskedItems;
-// 		static const QStringList junkheapEnumText;
+private:
+//      static const QStringList maskedItems;
+//      static const QStringList junkheapEnumText;
 
-		QMap<QString, QLabel *> m_labels;
-                QWidget *mMainWidget;
-	};
+    QMap<QString, QLabel *> m_labels;
+    QWidget *mMainWidget;
+};
 
 }
 

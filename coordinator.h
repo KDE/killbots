@@ -28,84 +28,83 @@ class KGamePopupItem;
 #include <QtCore/QObject>
 #include <QtCore/QTimeLine>
 
-
 namespace Killbots
 {
-	class Scene;
-	class Engine;
-	class NumericDisplayItem;
+class Scene;
+class Engine;
+class NumericDisplayItem;
 
-	class Coordinator : public QObject
-	{
-		Q_OBJECT
+class Coordinator : public QObject
+{
+    Q_OBJECT
 
-	public: // functions
-		explicit Coordinator( QObject * parent = 0 );
-		virtual ~Coordinator();
+public: // functions
+    explicit Coordinator(QObject *parent = 0);
+    virtual ~Coordinator();
 
-		void setEngine( Engine * engine );
-		void setScene( Scene * scene );
+    void setEngine(Engine *engine);
+    void setScene(Scene *scene);
 
-		void setAnimationSpeed( int speed );
+    void setAnimationSpeed(int speed);
 
-		void beginNewAnimationStage();
-		Sprite * createSprite( SpriteType type, QPoint position );
-		void slideSprite( Sprite * sprite, QPoint position );
-		void teleportSprite( Sprite * sprite, QPoint position );
-		void destroySprite( Sprite * sprite );
+    void beginNewAnimationStage();
+    Sprite *createSprite(SpriteType type, QPoint position);
+    void slideSprite(Sprite *sprite, QPoint position);
+    void teleportSprite(Sprite *sprite, QPoint position);
+    void destroySprite(Sprite *sprite);
 
-	public slots:
-		void requestNewGame();
-		void requestAction( int action );
+public slots:
+    void requestNewGame();
+    void requestAction(int action);
 
-	private: // types
-		struct AnimationStage;
+private: // types
+    struct AnimationStage;
 
-	private: // functions
-		void startNewGame();
-		void doAction( HeroAction action );
-		void startAnimation();
-		void startAnimationStage();
-		void animationDone();
+private: // functions
+    void startNewGame();
+    void doAction(HeroAction action);
+    void startAnimation();
+    void startAnimationStage();
+    void animationDone();
 
-		void showUnqueuedMessage( const QString & message, int timeOut = 3000 );
-		void showQueuedMessage( const QString & message );
+    void showUnqueuedMessage(const QString &message, int timeOut = 3000);
+    void showQueuedMessage(const QString &message);
 
-	private slots:
-		void nextAnimationStage();
-		void animate( qreal value );
+private slots:
+    void nextAnimationStage();
+    void animate(qreal value);
 
-		void updateRound( int round );
-		void updateScore( int score );
-		void updateEnemyCount( int enemyCount );
-		void updateEnergy( int energy );
+    void updateRound(int round);
+    void updateScore(int score);
+    void updateEnemyCount(int enemyCount);
+    void updateEnergy(int energy);
 
-		void showNewGameMessage();
-		void showRoundCompleteMessage();
-		void showBoardFullMessage();
-		void showGameOverMessage();
+    void showNewGameMessage();
+    void showRoundCompleteMessage();
+    void showBoardFullMessage();
+    void showGameOverMessage();
 
-	private: // data members
-		Engine * m_engine;
-		Scene * m_scene;
+private: // data members
+    Engine *m_engine;
+    Scene *m_scene;
 
-		NumericDisplayItem * m_roundDisplay;
-		NumericDisplayItem * m_scoreDisplay;
-		NumericDisplayItem * m_enemyCountDisplay;
-		NumericDisplayItem * m_energyDisplay;
+    NumericDisplayItem *m_roundDisplay;
+    NumericDisplayItem *m_scoreDisplay;
+    NumericDisplayItem *m_enemyCountDisplay;
+    NumericDisplayItem *m_energyDisplay;
 
-		KGamePopupItem * m_unqueuedPopup;
-		KGamePopupItem * m_queuedPopup;
+    KGamePopupItem *m_unqueuedPopup;
+    KGamePopupItem *m_queuedPopup;
 
-		QTimeLine m_timeLine;
+    QTimeLine m_timeLine;
 
-		QList<AnimationStage> m_stages;
+    QList<AnimationStage> m_stages;
 
-		bool m_busyAnimating;
-		bool m_newGameRequested;
-		HeroAction m_repeatedAction;
-		HeroAction m_queuedAction;
-	};
+    bool m_busyAnimating;
+    bool m_newGameRequested;
+    HeroAction m_repeatedAction;
+    HeroAction m_queuedAction;
+};
 }
 
 #endif

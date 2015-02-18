@@ -27,58 +27,55 @@
 
 #include <QCursor>
 
-static KgThemeProvider* provider()
+static KgThemeProvider *provider()
 {
-	KgThemeProvider* prov = new KgThemeProvider;
-	prov->discoverThemes(
-		"appdata", QLatin1String("themes"), //theme file location
-		QLatin1String("robotkill")          //default theme file name
-	);
-	return prov;
+    KgThemeProvider *prov = new KgThemeProvider;
+    prov->discoverThemes(
+        "appdata", QLatin1String("themes"), //theme file location
+        QLatin1String("robotkill")          //default theme file name
+    );
+    return prov;
 }
 
 static Killbots::Renderer *r = 0;
 
-Killbots::Renderer * Killbots::Renderer::self()
+Killbots::Renderer *Killbots::Renderer::self()
 {
-	if (!r)
-		r = new Killbots::Renderer();
-	return r;
+    if (!r) {
+        r = new Killbots::Renderer();
+    }
+    return r;
 }
 
 void Killbots::Renderer::cleanup()
 {
-	delete r;
-	r = 0;
+    delete r;
+    r = 0;
 }
 
 Killbots::Renderer::Renderer()
-  : KGameRenderer( provider() )
+    : KGameRenderer(provider())
 {
 }
 
-
-QCursor Killbots::Renderer::cursorFromAction( int direction )
+QCursor Killbots::Renderer::cursorFromAction(int direction)
 {
-	QString element = QString("cursor%1").arg( direction );
-	QPixmap pixmap = spritePixmap( element, QSize( 42, 42 ) );
-	return QCursor( pixmap );
+    QString element = QString("cursor%1").arg(direction);
+    QPixmap pixmap = spritePixmap(element, QSize(42, 42));
+    return QCursor(pixmap);
 }
-
 
 QColor Killbots::Renderer::textColor()
 {
-	if ( m_cachedTheme != theme()->identifier() )
-	{
-		m_textColor = spritePixmap( "textcolor", QSize( 3, 3 ) ).toImage().pixel( 1, 1 );
-		m_cachedTheme = theme()->identifier();
-	}
-	return m_textColor;
+    if (m_cachedTheme != theme()->identifier()) {
+        m_textColor = spritePixmap("textcolor", QSize(3, 3)).toImage().pixel(1, 1);
+        m_cachedTheme = theme()->identifier();
+    }
+    return m_textColor;
 }
-
 
 qreal Killbots::Renderer::aspectRatio()
 {
-	const QRectF tileRect = boundsOnSprite("cell");
-	return qBound<qreal>( 0.3333, tileRect.width() / tileRect.height(), 3.0 );
+    const QRectF tileRect = boundsOnSprite("cell");
+    return qBound<qreal>(0.3333, tileRect.width() / tileRect.height(), 3.0);
 }

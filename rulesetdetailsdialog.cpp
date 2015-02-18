@@ -31,69 +31,62 @@
 #include <QPushButton>
 #include <QVBoxLayout>
 
-Killbots::RulesetDetailsDialog::RulesetDetailsDialog( QWidget * parent )
-  : QDialog( parent )
+Killbots::RulesetDetailsDialog::RulesetDetailsDialog(QWidget *parent)
+    : QDialog(parent)
 {
-	QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Close);
-	mMainWidget = new QWidget(this);
-	QVBoxLayout *mainLayout = new QVBoxLayout;
-	setLayout(mainLayout);
-	mainLayout->addWidget(mMainWidget);
-	connect(buttonBox, &QDialogButtonBox::accepted, this, &RulesetDetailsDialog::accept);
-	connect(buttonBox, &QDialogButtonBox::rejected, this, &RulesetDetailsDialog::reject);
-	//PORTING SCRIPT: WARNING mainLayout->addWidget(buttonBox) must be last item in layout. Please move it.
-	mainLayout->addWidget(buttonBox);
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Close);
+    mMainWidget = new QWidget(this);
+    QVBoxLayout *mainLayout = new QVBoxLayout;
+    setLayout(mainLayout);
+    mainLayout->addWidget(mMainWidget);
+    connect(buttonBox, &QDialogButtonBox::accepted, this, &RulesetDetailsDialog::accept);
+    connect(buttonBox, &QDialogButtonBox::rejected, this, &RulesetDetailsDialog::reject);
+    //PORTING SCRIPT: WARNING mainLayout->addWidget(buttonBox) must be last item in layout. Please move it.
+    mainLayout->addWidget(buttonBox);
 }
 
-
-void Killbots::RulesetDetailsDialog::loadRuleset( const Ruleset * ruleset )
+void Killbots::RulesetDetailsDialog::loadRuleset(const Ruleset *ruleset)
 {
-	static QStringList maskedItems = QStringList() << "Name" << "Author" << "AuthorContact" << "Description";
-	static QStringList junkheapEnumText = QStringList()
+    static QStringList maskedItems = QStringList() << "Name" << "Author" << "AuthorContact" << "Description";
+    static QStringList junkheapEnumText = QStringList()
                                           << i18nc("Quantity of junkheaps that can be pushed", "None")
                                           << i18nc("Quantity of junkheaps that can be pushed", "One")
                                           << i18nc("Quantity of junkheaps that can be pushed", "Many");
 
+    // If the dialog hasn't been setup already, do so.
+    if (m_labels.size() == 0) {
+        QFormLayout *layout = new QFormLayout(mMainWidget);
 
-	// If the dialog hasn't been setup already, do so.
-	if ( m_labels.size() == 0 )
-	{
-		QFormLayout * layout = new QFormLayout( mMainWidget );
+        foreach (const KConfigSkeletonItem *item, ruleset->items()) {
+            if (!maskedItems.contains(item->name())) {
+                QString labelText = item->label().isEmpty() ? item->name() : item->label();
+                labelText = i18nc("%1 is a pretranslated string that we're turning into a label", "%1:", labelText);
 
-		foreach ( const KConfigSkeletonItem * item, ruleset->items() )
-		{
-			if ( !maskedItems.contains( item->name() ) )
-			{
-				QString labelText = item->label().isEmpty() ? item->name() : item->label();
-				labelText = i18nc( "%1 is a pretranslated string that we're turning into a label", "%1:", labelText );
+                QLabel *valueLabel = new QLabel();
+                m_labels[ item->name() ] = valueLabel;
+                layout->addRow(new QLabel(labelText), valueLabel);
+            }
+        }
 
-				QLabel * valueLabel = new QLabel();
-				m_labels[ item->name() ] = valueLabel;
-				layout->addRow( new QLabel( labelText ), valueLabel );
-			}
-		}
+    }
 
-	}
+    QMap<QString, QLabel *>::const_iterator it = m_labels.constBegin();
+    QMap<QString, QLabel *>::const_iterator end = m_labels.constEnd();
+    for (; it != end; it++) {
+        const KConfigSkeletonItem *item = ruleset->findItem(it.key());
 
-	QMap<QString,QLabel*>::const_iterator it = m_labels.constBegin();
-	QMap<QString,QLabel*>::const_iterator end = m_labels.constEnd();
-	for ( ; it != end; it++ )
-	{
-		const KConfigSkeletonItem * item = ruleset->findItem( it.key() );
+        QString valueText;
+        if (dynamic_cast<const KCoreConfigSkeleton::ItemBool *>(item)) {
+            valueText = item->property().toBool() ? i18n("Yes") : i18n("No");
+        } else if (it.key() == "PushableJunkheaps") {
+            valueText = junkheapEnumText.at(item->property().toInt());
+        } else {
+            valueText = item->property().toString();
+        }
 
-		QString valueText;
-		if ( dynamic_cast<const KCoreConfigSkeleton::ItemBool *>( item ) )
-			valueText = item->property().toBool() ? i18n("Yes") : i18n("No");
-		else if ( it.key() == "PushableJunkheaps" )
-			valueText = junkheapEnumText.at( item->property().toInt() );
-		else
-			valueText = item->property().toString();
+        it.value()->setText(valueText);
+    }
 
-		it.value()->setText( valueText );
-	}
-
-	setWindowTitle( i18n("Details of %1 Game Type", ruleset->name() ) );
+    setWindowTitle(i18n("Details of %1 Game Type", ruleset->name()));
 }
-
-
 

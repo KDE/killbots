@@ -24,22 +24,22 @@
 
 namespace Killbots
 {
-	class Ruleset : public RulesetBase
-	{
-	public: // static functions
-		static const Ruleset * load( const QString & fileName );
+class Ruleset : public RulesetBase
+{
+public: // static functions
+    static const Ruleset *load(const QString &fileName);
 
-	public: // functions
-		virtual ~Ruleset();
-		QString filePath() const;
-		QString fileName() const;
-		QByteArray scoreGroupKey() const;
+public: // functions
+    virtual ~Ruleset();
+    QString filePath() const;
+    QString fileName() const;
+    QByteArray scoreGroupKey() const;
 
-	private: // functions
-		Ruleset( const QString & filePath ); // hidden
-		QString m_filePath;
-		QByteArray m_scoreGroupKey;
-	};
+private: // functions
+    Ruleset(const QString &filePath);    // hidden
+    QString m_filePath;
+    QByteArray m_scoreGroupKey;
+};
 }
 
 #endif

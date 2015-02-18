@@ -11,32 +11,32 @@
 
 namespace Killbots
 {
-	class EngineTest : public QObject
-	{
-		Q_OBJECT
+class EngineTest : public QObject
+{
+    Q_OBJECT
 
-	public:
-		EngineTest( QObject * parent = 0 );
-		~EngineTest();
+public:
+    EngineTest(QObject *parent = 0);
+    ~EngineTest();
 
-	private slots:
-		void testValidCells_data();
-		void testValidCells();
+private slots:
+    void testValidCells_data();
+    void testValidCells();
 
-		void testRandomEmptyCell_data();
-		void testRandomEmptyCell();
+    void testRandomEmptyCell_data();
+    void testRandomEmptyCell();
 
-		void testMoveIsValid_data();
-		void testMoveIsValid();
+    void testMoveIsValid_data();
+    void testMoveIsValid();
 
-		void testMoveIsSafe_data();
-		void testMoveIsSafe();
+    void testMoveIsSafe_data();
+    void testMoveIsSafe();
 
-	private:
-		Coordinator * m_coordinator;
-		Engine * m_engine;
-		Scene * m_scene;
-	};
+private:
+    Coordinator *m_coordinator;
+    Engine *m_engine;
+    Scene *m_scene;
+};
 }
 #endif
 

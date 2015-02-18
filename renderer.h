@@ -24,25 +24,24 @@
 
 #include <QtCore/QHash>
 
-
 namespace Killbots
 {
-	class Renderer : public KGameRenderer
-	{
-	public:
-		static Renderer * self();
-		static void cleanup();
+class Renderer : public KGameRenderer
+{
+public:
+    static Renderer *self();
+    static void cleanup();
 
-		Renderer();
+    Renderer();
 
-		QCursor cursorFromAction( int direction );
-		QColor textColor();
-		qreal aspectRatio();
+    QCursor cursorFromAction(int direction);
+    QColor textColor();
+    qreal aspectRatio();
 
-	private:
-		QColor m_textColor;
-		QByteArray m_cachedTheme;
-	};
+private:
+    QColor m_textColor;
+    QByteArray m_cachedTheme;
+};
 }
 
 #endif

@@ -29,40 +29,40 @@ class QSignalMapper;
 
 namespace Killbots
 {
-	class Engine;
-	class Coordinator;
-	class Scene;
-	class View;
+class Engine;
+class Coordinator;
+class Scene;
+class View;
 
-	class MainWindow : public KXmlGuiWindow
-	{
-		Q_OBJECT
+class MainWindow : public KXmlGuiWindow
+{
+    Q_OBJECT
 
-	public: // functions
-		explicit MainWindow( QWidget * parent = 0 );
-		virtual ~MainWindow();
+public: // functions
+    explicit MainWindow(QWidget *parent = 0);
+    virtual ~MainWindow();
 
-	private: // functions
-		void setupActions();
-		QAction * createMappedAction( int mapping, const QString & internalName, const QString & displayName, const QString & translatedShortcut, const QKeySequence & alternateShortcut, const QString & toolTip = QString(), const QString & icon = QString() );
-		void createScoreDialog();
+private: // functions
+    void setupActions();
+    QAction *createMappedAction(int mapping, const QString &internalName, const QString &displayName, const QString &translatedShortcut, const QKeySequence &alternateShortcut, const QString &toolTip = QString(), const QString &icon = QString());
+    void createScoreDialog();
 
-	private slots:
-		void showHighscores();
-		void configurePreferences();
-		void onGameOver( int score, int round );
-		void onSettingsChanged();
-		void onConfigDialogClosed();
+private slots:
+    void showHighscores();
+    void configurePreferences();
+    void onGameOver(int score, int round);
+    void onSettingsChanged();
+    void onConfigDialogClosed();
 
-	private : // data members
-		Scene * m_scene;
-		Engine * m_engine;
-		View * m_view;
-		Coordinator * m_coordinator;
-		KScoreDialog * m_scoreDialog;
-		QSignalMapper * m_keyboardMapper;
-		bool m_rulesetChanged;
-	};
+private : // data members
+    Scene *m_scene;
+    Engine *m_engine;
+    View *m_view;
+    Coordinator *m_coordinator;
+    KScoreDialog *m_scoreDialog;
+    QSignalMapper *m_keyboardMapper;
+    bool m_rulesetChanged;
+};
 
 }
 

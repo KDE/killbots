@@ -28,20 +28,20 @@ class QSlider;
 
 namespace Killbots
 {
-	class OptionsPage : public QWidget
-	{
-		Q_OBJECT
+class OptionsPage : public QWidget
+{
+    Q_OBJECT
 
-	public: // functions
-		explicit OptionsPage( QWidget * parent = 0 );
-		virtual ~OptionsPage();
+public: // functions
+    explicit OptionsPage(QWidget *parent = 0);
+    virtual ~OptionsPage();
 
-	public: // data members
-		QCheckBox * kcfg_PreventUnsafeMoves;
-		KComboBox * kcfg_MiddleClickAction;
-		KComboBox * kcfg_RightClickAction;
-		QSlider * kcfg_AnimationSpeed;
-	};
+public: // data members
+    QCheckBox *kcfg_PreventUnsafeMoves;
+    KComboBox *kcfg_MiddleClickAction;
+    KComboBox *kcfg_RightClickAction;
+    QSlider *kcfg_AnimationSpeed;
+};
 }
 
 #endif

@@ -23,93 +23,82 @@
 
 #include <QPainter>
 
-
 Killbots::Sprite::Sprite()
-  : KGameRenderedItem( Renderer::self(), QString() )
+    : KGameRenderedItem(Renderer::self(), QString())
 {
-	setShapeMode( QGraphicsPixmapItem::BoundingRectShape );
-	setTransformationMode( Qt::FastTransformation );
+    setShapeMode(QGraphicsPixmapItem::BoundingRectShape);
+    setTransformationMode(Qt::FastTransformation);
 }
-
 
 Killbots::Sprite::~Sprite()
 {
 }
 
-
 Killbots::SpriteType Killbots::Sprite::spriteType() const
 {
-	return m_type;
+    return m_type;
 }
 
-
-void Killbots::Sprite::setSpriteType( Killbots::SpriteType type )
+void Killbots::Sprite::setSpriteType(Killbots::SpriteType type)
 {
-	Q_ASSERT( type != NoSprite );
+    Q_ASSERT(type != NoSprite);
 
-	m_type = type;
+    m_type = type;
 
-	switch ( m_type )
-	{
-	case Hero :
-		setSpriteKey( "hero" );
-		break;
-	case Robot :
-		setSpriteKey( "enemy" );
-		break;
-	case Fastbot :
-		setSpriteKey( "fastenemy" );
-		break;
-	case Junkheap :
-		setSpriteKey( "junkheap" );
-		break;
-	default :
-		break;
-	}
+    switch (m_type) {
+    case Hero :
+        setSpriteKey("hero");
+        break;
+    case Robot :
+        setSpriteKey("enemy");
+        break;
+    case Fastbot :
+        setSpriteKey("fastenemy");
+        break;
+    case Junkheap :
+        setSpriteKey("junkheap");
+        break;
+    default :
+        break;
+    }
 }
 
-
-void Killbots::Sprite::enqueueGridPos( QPoint position )
+void Killbots::Sprite::enqueueGridPos(QPoint position)
 {
-	m_gridPositions << position;
+    m_gridPositions << position;
 }
-
 
 QPoint Killbots::Sprite::currentGridPos() const
 {
-	return m_gridPositions.first();
+    return m_gridPositions.first();
 }
-
 
 QPoint Killbots::Sprite::nextGridPos() const
 {
-	Q_ASSERT( m_gridPositions.size() > 1 );
-	return m_gridPositions.at( 1 );
+    Q_ASSERT(m_gridPositions.size() > 1);
+    return m_gridPositions.at(1);
 }
-
 
 QPoint Killbots::Sprite::gridPos() const
 {
-	return m_gridPositions.last();
+    return m_gridPositions.last();
 }
-
 
 void Killbots::Sprite::advanceGridPosQueue()
 {
-	if ( m_gridPositions.size() > 1 )
-		m_gridPositions.removeFirst();
+    if (m_gridPositions.size() > 1) {
+        m_gridPositions.removeFirst();
+    }
 }
-
 
 int Killbots::Sprite::type() const
 {
-	return Type;
+    return Type;
 }
 
-
-void Killbots::Sprite::receivePixmap( const QPixmap & pixmap )
+void Killbots::Sprite::receivePixmap(const QPixmap &pixmap)
 {
-	KGameRenderedItem::receivePixmap( pixmap );
-	setOffset( -0.5 * QPointF( pixmap.width(), pixmap.height() ) );
+    KGameRenderedItem::receivePixmap(pixmap);
+    setOffset(-0.5 * QPointF(pixmap.width(), pixmap.height()));
 }
 
