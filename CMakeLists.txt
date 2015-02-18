@@ -19,8 +19,9 @@ find_package(KF5 REQUIRED COMPONENTS
     IconThemes 
     XmlGui
     KIO
+    Completion
     NotifyConfig
-    KDELibs4Support)
+    )
     
 find_package(KF5KDEGames 4.9.0 REQUIRED)
 
@@ -58,9 +59,9 @@ set( killbots_SRCS
     view.cpp
 )
 kconfig_add_kcfg_files( killbots_SRCS settings.kcfgc rulesetbase.kcfgc )
-kde4_add_app_icon( killbots_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/icons/hi*-apps-killbots.png")
+#kde4_add_app_icon( killbots_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/icons/hi*-apps-killbots.png")
 add_executable( killbots ${killbots_SRCS} )
-target_link_libraries( killbots  KF5KDEGames Qt5::Xml KF5::XmlGui Qt5::Widgets KF5::KDELibs4Support KF5::DBusAddons)
+target_link_libraries( killbots  KF5KDEGames Qt5::Xml KF5::XmlGui Qt5::Widgets KF5::DBusAddons KF5::Completion KF5::I18n)
 
 ###### Installing Files ######
 install( TARGETS killbots ${INSTALL_TARGETS_DEFAULT_ARGS} )
