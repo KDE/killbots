@@ -52,6 +52,8 @@ int main(int argc, char **argv)
 
     KDBusService service;
 
+    app.setWindowIcon(QIcon::fromTheme(QLatin1String("killbots")));
+
     Killbots::MainWindow *mainWindow = new Killbots::MainWindow;
     mainWindow->show();
 
