@@ -41,7 +41,6 @@ Killbots::RulesetDetailsDialog::RulesetDetailsDialog(QWidget *parent)
     mainLayout->addWidget(mMainWidget);
     connect(buttonBox, &QDialogButtonBox::accepted, this, &RulesetDetailsDialog::accept);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &RulesetDetailsDialog::reject);
-    //PORTING SCRIPT: WARNING mainLayout->addWidget(buttonBox) must be last item in layout. Please move it.
     mainLayout->addWidget(buttonBox);
 }
 

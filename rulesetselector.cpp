@@ -114,31 +114,26 @@ void Killbots::RulesetSelector::findRulesets()
     m_listWidget->clear();
     m_listWidget->setSortingEnabled(true);
 
-    QStringList fileList;
     const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, "killbots/rulesets/", QStandardPaths::LocateDirectory);
     Q_FOREACH (const QString  &dir, dirs) {
         const QStringList fileNames = QDir(dir).entryList(QStringList() << QStringLiteral("*.desktop"));
         Q_FOREACH (const QString &file, fileNames) {
-            fileList.append(dir + '/' + file);
-            qDebug() << " fileList :" << fileList;
-        }
-    }
-    foreach (const QString &fileName, fileList) {
-        const Ruleset *ruleset = Ruleset::load(fileName);
-        if (ruleset) {
-            QString name = ruleset->name();
-            while (m_rulesetMap.contains(name)) {
-                name += '_';
-            }
+            const Ruleset *ruleset = Ruleset::load(file);
+            if (ruleset) {
+                QString name = ruleset->name();
+                while (m_rulesetMap.contains(name)) {
+                    name += '_';
+                }
 
-            m_rulesetMap.insert(name, ruleset);
+                m_rulesetMap.insert(name, ruleset);
 
-            QListWidgetItem *item = new QListWidgetItem(name, m_listWidget);
-            if (fileName == Settings::ruleset()) {
-                m_listWidget->setCurrentItem(item);
+                QListWidgetItem *item = new QListWidgetItem(name, m_listWidget);
+                if (file == Settings::ruleset()) {
+                    m_listWidget->setCurrentItem(item);
+                }
+            } else {
+                delete ruleset;
             }
-        } else {
-            delete ruleset;
         }
     }
 
