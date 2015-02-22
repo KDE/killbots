@@ -120,11 +120,9 @@ void Killbots::MainWindow::configurePreferences()
                              );
 
         configDialog->setMaximumSize(800, 600);
-        //PORT QT5 configDialog->setInitialSize( QSize( 600, 450 ) );
 
         // Update the sprite style if it has changed
         connect(configDialog, SIGNAL(settingsChanged(QString)), this, SLOT(onSettingsChanged()));
-        connect(configDialog, SIGNAL(finished()), this, SLOT(onConfigDialogClosed()));
 
         configDialog->show();
     }
@@ -144,6 +142,7 @@ void Killbots::MainWindow::onSettingsChanged()
         // dialog is closed. See onConfigDialogClosed below.
         m_rulesetChanged = true;
     }
+    onConfigDialogClosed();
 }
 
 void Killbots::MainWindow::onConfigDialogClosed()
