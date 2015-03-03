@@ -14,4 +14,4 @@ set( theme_files
     robotkill.svgz
 )
 
-install( FILES ${theme_files} DESTINATION ${DATA_INSTALL_DIR}/killbots/themes )
+install( FILES ${theme_files} DESTINATION ${KDE_INSTALL_DATADIR}/killbots/themes )

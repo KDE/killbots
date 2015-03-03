@@ -7,4 +7,4 @@ set( ruleset_files
     energycrisis.desktop
 )
 
-install( FILES ${ruleset_files} DESTINATION ${DATA_INSTALL_DIR}/killbots/rulesets )
+install( FILES ${ruleset_files} DESTINATION ${KDE_INSTALL_DATADIR}/killbots/rulesets )
