@@ -1,2 +1,2 @@
 ###### Installing Icons ######
-ecm_install_icons(ICONS hi128-apps-killbots.png  hi16-apps-killbots.png  hi22-apps-killbots.png  hi32-apps-killbots.png  hi48-apps-killbots.png  hi64-apps-killbots.png DESTINATION ${KDE_INSTALL_ICONDIR} )
+ecm_install_icons(ICONS 128-apps-killbots.png  16-apps-killbots.png  22-apps-killbots.png  32-apps-killbots.png  48-apps-killbots.png  64-apps-killbots.png DESTINATION ${KDE_INSTALL_ICONDIR} THEME hicolor )
