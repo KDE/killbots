@@ -28,12 +28,12 @@
 
 int main(int argc, char **argv)
 {
-    QApplication app(argc, argv);
-
     Kdelibs4ConfigMigrator migrate(QLatin1String("killbots"));
     migrate.setConfigFiles(QStringList() << QLatin1String("killbotsrc"));
     migrate.setUiFiles(QStringList() << QLatin1String("killbotsui.rc"));
     migrate.migrate();
+
+    QApplication app(argc, argv);
 
     KAboutData about("killbots", i18n("Killbots"), "1.2.0");
     about.setShortDescription(i18n("A KDE game of killer robots and teleportation."));
