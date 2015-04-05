@@ -217,14 +217,14 @@ QAction *Killbots::MainWindow::createMappedAction(int mapping,
         const QString &internalName,
         const QString &displayName,
         const QString &translatedShortcut,
-        const QKeySequence &alternateShortcut,
+        const int alternateShortcut,
         const QString &helpText,
         const QString &icon
                                                  )
 {
     QAction *action = new QAction(displayName, actionCollection());
     action->setObjectName(internalName);
-    actionCollection()->setDefaultShortcuts(action, QList<QKeySequence>() << QKeySequence(translatedShortcut) << alternateShortcut);
+    actionCollection()->setDefaultShortcuts(action, QList<QKeySequence>() << QKeySequence(translatedShortcut) << QKeySequence(alternateShortcut) << QKeySequence(alternateShortcut + Qt::KeypadModifier));
     if (!helpText.isEmpty()) {
         action->setWhatsThis(helpText);
         action->setToolTip(helpText);

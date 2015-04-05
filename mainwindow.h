@@ -44,7 +44,7 @@ public: // functions
 
 private: // functions
     void setupActions();
-    QAction *createMappedAction(int mapping, const QString &internalName, const QString &displayName, const QString &translatedShortcut, const QKeySequence &alternateShortcut, const QString &toolTip = QString(), const QString &icon = QString());
+    QAction *createMappedAction(int mapping, const QString &internalName, const QString &displayName, const QString &translatedShortcut, const int alternateShortcut, const QString &toolTip = QString(), const QString &icon = QString());
     void createScoreDialog();
 
 private slots:
