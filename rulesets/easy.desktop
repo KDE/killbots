@@ -1,5 +1,6 @@
 [KillbotsRuleset]
 Name=Easy
+Name[ast]=Fácil
 Name[bs]=Lagano
 Name[ca]=Fàcil
 Name[ca@valencia]=Fàcil
@@ -50,6 +51,7 @@ Name[zh_TW]=容易
 Author=Parker Coates
 AuthorContact=parker.coates@kdemail.net
 Description=<qt><p>An easier version of the "Killbots" game type.</p><p>Includes a bigger game grid prepopulated with junkheaps, a starting stash of energy and an increasing energy cap.</p></qt>
+Description[ast]=<qt><p>Una versión más fácil de la triba de xuegu "Killbots"</p> <p>Inclúi un rexáu de xuegu más grande y pobláu con montones de basoria, un alixu d'enerxía inicial y un llímite d'enerxía que crez.</p></qt>
 Description[bs]=<qt><p>Lakša verzija "Ubij botove" tipa igre.</p><p>Sadrži veću mogućnost igre na mreži, počevši od zalihe energije i povećanja energije.</p></qt>
 Description[ca]=<qt><p>Un versió més fàcil del tipus de joc «Killbots».</p><p>Inclou una graella de joc més gran amb munts de ferralla pre-disposats, un punt d'energia i càpsules d'increment d'energia.</p></qt>
 Description[ca@valencia]=<qt><p>Un versió més fàcil del tipus de joc «Killbots».</p><p>Inclou una graella de joc més gran amb munts de ferralla pre-disposats, un punt d'energia i càpsules d'increment d'energia.</p></qt>

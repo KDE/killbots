@@ -1,5 +1,6 @@
 [KGameTheme]
 Name=Mummy Madness
+Name[ast]=La llocura de la momia
 Name[bs]=Ludilo mumija
 Name[ca]=Bogeria de les mòmies
 Name[ca@valencia]=Bogeria de les mòmies
@@ -42,6 +43,7 @@ Name[x-test]=xxMummy Madnessxx
 Name[zh_CN]=疯狂木乃伊
 Name[zh_TW]=瘋狂木乃伊
 Description=Egyptian style theme with mad mummies.
+Description[ast]=Tema d'estilu exipciu con momies lloques.
 Description[bs]=Tema u Egipatskom stilu sa poludjelim mumijama.
 Description[ca]=Tema d'estil egipci amb mòmies boges.
 Description[ca@valencia]=Tema d'estil egipci amb mòmies boges.
