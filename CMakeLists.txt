@@ -34,7 +34,6 @@ include(KDECMakeSettings)
 include(ECMAddTests)
 
 add_definitions(-DQT_USE_FAST_CONCATENATION -DQT_USE_FAST_OPERATOR_PLUS)
-add_definitions(-DTRANSLATION_DOMAIN="killbots")
 ###### Switching to Subdirectories ######
 add_subdirectory( icons )
 add_subdirectory( rulesets )
