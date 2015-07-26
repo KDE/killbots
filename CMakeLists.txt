@@ -22,6 +22,7 @@ find_package(KF5 REQUIRED COMPONENTS
     Completion
     NotifyConfig
     DocTools
+    DBusAddons
     )
     
 find_package(KF5KDEGames 4.9.0 REQUIRED)
