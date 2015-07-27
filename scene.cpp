@@ -73,7 +73,7 @@ Killbots::Sprite *Killbots::Scene::createSprite(SpriteType type, QPoint position
     sprite->setRenderSize(m_cellSize);
     sprite->enqueueGridPos(position);
     updateSpritePos(sprite, position);
-    sprite->scale(0, 0);
+    sprite->setTransform(QTransform::fromScale(0, 0), true);
     // A bit of a hack, but we use the sprite type for stacking order.
     sprite->setZValue(type);
 
@@ -100,7 +100,7 @@ void Killbots::Scene::animateSprites(const QList<Sprite *> &newSprites,
     } else if (value < 1.0) {
         foreach (Sprite *sprite, newSprites) {
             sprite->resetTransform();
-            sprite->scale(value, value);
+            sprite->setTransform(QTransform::fromScale(value, value), true);
         }
 
         foreach (Sprite *sprite, slidingSprites) {
@@ -121,13 +121,13 @@ void Killbots::Scene::animateSprites(const QList<Sprite *> &newSprites,
 
         foreach (Sprite *sprite, teleportingSprites) {
             sprite->resetTransform();
-            sprite->scale(scaleFactor, scaleFactor);
+            sprite->setTransform(QTransform::fromScale(scaleFactor, scaleFactor), true);
         }
 
         foreach (Sprite *sprite, destroyedSprites) {
             sprite->resetTransform();
-            sprite->scale(1 - value, 1 - value);
-            sprite->rotate(value * 180);
+            sprite->setTransform(QTransform::fromScale(1 - value, 1 - value), true);
+            sprite->setTransform(QTransform().rotate(value * 180), true);
         }
     } else {
         foreach (Sprite *sprite, newSprites + slidingSprites + teleportingSprites) {
