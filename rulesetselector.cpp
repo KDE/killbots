@@ -43,7 +43,7 @@ Killbots::RulesetSelector::RulesetSelector(QWidget *parent)
 {
     // Create a hidden KLineEdit to use the automatic KConfigXT connection
     kcfg_Ruleset = new KLineEdit();
-    kcfg_Ruleset->setObjectName(QLatin1String("kcfg_Ruleset"));
+    kcfg_Ruleset->setObjectName(QStringLiteral("kcfg_Ruleset"));
     kcfg_Ruleset->hide();
 
     m_listWidget = new QListWidget();
@@ -114,7 +114,7 @@ void Killbots::RulesetSelector::findRulesets()
     m_listWidget->clear();
     m_listWidget->setSortingEnabled(true);
 
-    const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, "killbots/rulesets/", QStandardPaths::LocateDirectory);
+    const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("killbots/rulesets/"), QStandardPaths::LocateDirectory);
     Q_FOREACH (const QString  &dir, dirs) {
         const QStringList fileNames = QDir(dir).entryList(QStringList() << QStringLiteral("*.desktop"));
         Q_FOREACH (const QString &file, fileNames) {
@@ -154,9 +154,9 @@ void Killbots::RulesetSelector::selectionChanged(QString rulesetName)
     if (ruleset->authorContact().contains(' ')) {
         m_authorContact->setText(ruleset->authorContact());
     } else if (ruleset->authorContact().contains('@')) {
-        m_authorContact->setText(QString("<qt><a href=\"mailto:%1\">%1</a></qt>").arg(ruleset->authorContact()));
+        m_authorContact->setText(QStringLiteral("<qt><a href=\"mailto:%1\">%1</a></qt>").arg(ruleset->authorContact()));
     } else if (ruleset->authorContact().contains('.')) {
-        m_authorContact->setText(QString("<qt><a href=\"http://%1\">%1</a></qt>").arg(ruleset->authorContact()));
+        m_authorContact->setText(QStringLiteral("<qt><a href=\"http://%1\">%1</a></qt>").arg(ruleset->authorContact()));
     } else {
         m_authorContact->setText(ruleset->authorContact());
     }

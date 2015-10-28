@@ -41,15 +41,15 @@ Killbots::OptionsPage::OptionsPage(QWidget *parent)
     clickActionList << i18n("Wait Out Round");
 
     kcfg_MiddleClickAction = new KComboBox();
-    kcfg_MiddleClickAction->setObjectName(QLatin1String("kcfg_MiddleClickAction"));
+    kcfg_MiddleClickAction->setObjectName(QStringLiteral("kcfg_MiddleClickAction"));
     kcfg_MiddleClickAction->addItems(clickActionList);
 
     kcfg_RightClickAction = new KComboBox();
-    kcfg_RightClickAction->setObjectName(QLatin1String("kcfg_RightClickAction"));
+    kcfg_RightClickAction->setObjectName(QStringLiteral("kcfg_RightClickAction"));
     kcfg_RightClickAction->addItems(clickActionList);
 
     kcfg_AnimationSpeed = new QSlider(Qt::Horizontal);
-    kcfg_AnimationSpeed->setObjectName(QLatin1String("kcfg_AnimationSpeed"));
+    kcfg_AnimationSpeed->setObjectName(QStringLiteral("kcfg_AnimationSpeed"));
     kcfg_AnimationSpeed->setSingleStep(1);
     kcfg_AnimationSpeed->setMinimumWidth(200);
     QLabel *slowLabel = new QLabel(i18n("Slow"));
@@ -71,7 +71,7 @@ Killbots::OptionsPage::OptionsPage(QWidget *parent)
     speedLabel->setBuddy(kcfg_AnimationSpeed);
 
     kcfg_PreventUnsafeMoves = new QCheckBox(i18n("Prevent &unsafe moves"));
-    kcfg_PreventUnsafeMoves->setObjectName(QLatin1String("kcfg_PreventUnsafeMoves"));
+    kcfg_PreventUnsafeMoves->setObjectName(QStringLiteral("kcfg_PreventUnsafeMoves"));
 
     QFormLayout *formLayout = new QFormLayout(this);
     formLayout->setMargin(0);

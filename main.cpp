@@ -30,19 +30,19 @@ int main(int argc, char **argv)
 {
     QApplication app(argc, argv);
 
-    Kdelibs4ConfigMigrator migrate(QLatin1String("killbots"));
-    migrate.setConfigFiles(QStringList() << QLatin1String("killbotsrc"));
-    migrate.setUiFiles(QStringList() << QLatin1String("killbotsui.rc"));
+    Kdelibs4ConfigMigrator migrate(QStringLiteral("killbots"));
+    migrate.setConfigFiles(QStringList() << QStringLiteral("killbotsrc"));
+    migrate.setUiFiles(QStringList() << QStringLiteral("killbotsui.rc"));
     migrate.migrate();
 
     KLocalizedString::setApplicationDomain("killbots");
 
-    KAboutData about("killbots", i18n("Killbots"), "1.2.0");
+    KAboutData about(QStringLiteral("killbots"), i18n("Killbots"), QStringLiteral("1.2.0"));
     about.setShortDescription(i18n("A KDE game of killer robots and teleportation."));
     about.setLicense(KAboutLicense::GPL_V2);
     about.setCopyrightStatement(i18n("© 2006-2009, Parker Coates"));
-    about.addAuthor(i18n("Parker Coates"), i18n("Developer"), "coates@kde.org");
-    about.addCredit(i18n("Mark Rae"), i18n("Author of Gnome Robots. Invented safe teleports, pushing junkheaps and fast robots."), "", "http://live.gnome.org/Robots");
+    about.addAuthor(i18n("Parker Coates"), i18n("Developer"), QStringLiteral("coates@kde.org"));
+    about.addCredit(i18n("Mark Rae"), i18n("Author of Gnome Robots. Invented safe teleports, pushing junkheaps and fast robots."), QLatin1String(""), QStringLiteral("http://live.gnome.org/Robots"));
 
     QCommandLineParser parser;
     KAboutData::setApplicationData(about);
@@ -54,7 +54,7 @@ int main(int argc, char **argv)
 
     KDBusService service;
 
-    app.setWindowIcon(QIcon::fromTheme(QLatin1String("killbots")));
+    app.setWindowIcon(QIcon::fromTheme(QStringLiteral("killbots")));
 
     Killbots::MainWindow *mainWindow = new Killbots::MainWindow;
     mainWindow->show();

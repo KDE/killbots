@@ -26,7 +26,7 @@
 
 Killbots::NumericDisplayItem::NumericDisplayItem(const QString &label, QGraphicsItem *parent)
     : QObject(),
-      KGameRenderedItem(Renderer::self(), "status", parent),
+      KGameRenderedItem(Renderer::self(), QStringLiteral("status"), parent),
       m_label(label),
       m_value(0),
       m_digits(3)

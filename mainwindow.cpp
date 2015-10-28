@@ -58,34 +58,34 @@ Killbots::MainWindow::MainWindow(QWidget *parent)
 
     m_engine = new Engine(m_coordinator, this);
     m_coordinator->setEngine(m_engine);
-    connect(m_engine, SIGNAL(gameOver(int,int)), this, SLOT(onGameOver(int,int)));
+    connect(m_engine, &Engine::gameOver, this, &MainWindow::onGameOver);
 
     m_scene = new Scene(this);
     m_coordinator->setScene(m_scene);
-    connect(m_scene, SIGNAL(clicked(int)), m_coordinator, SLOT(requestAction(int)));
-    connect(Renderer::self()->themeProvider(), SIGNAL(currentThemeChanged(const KgTheme*)), m_scene, SLOT(doLayout()));
+    connect(m_scene, &Scene::clicked, m_coordinator, &Coordinator::requestAction);
+    connect(Renderer::self()->themeProvider(), &KgThemeProvider::currentThemeChanged, m_scene, &Scene::doLayout);
 
     m_view = new View(m_scene, this);
     m_view->setMinimumSize(400, 280);
     m_view->setWhatsThis(i18n("This is the main game area used to interact with Killbots. It shows the current state of the game grid and allows one to control the hero using the mouse. It also displays certain statistics about the game in progress."));
     setCentralWidget(m_view);
-    connect(m_view, SIGNAL(sizeChanged(QSize)), m_scene, SLOT(doLayout()));
+    connect(m_view, &View::sizeChanged, m_scene, &Scene::doLayout);
 
     m_keyboardMapper = new QSignalMapper(this);
     connect(m_keyboardMapper, SIGNAL(mapped(int)), m_coordinator, SLOT(requestAction(int)));
 
     setupActions();
-    connect(m_engine, SIGNAL(teleportAllowed(bool)),       actionCollection()->action("teleport"),        SLOT(setEnabled(bool)));
-    connect(m_engine, SIGNAL(teleportAllowed(bool)),       actionCollection()->action("teleport_sip"),    SLOT(setEnabled(bool)));
-    connect(m_engine, SIGNAL(teleportSafelyAllowed(bool)), actionCollection()->action("teleport_safely"), SLOT(setEnabled(bool)));
-    connect(m_engine, SIGNAL(vaporizerAllowed(bool)),      actionCollection()->action("vaporizer"),       SLOT(setEnabled(bool)));
-    connect(m_engine, SIGNAL(waitOutRoundAllowed(bool)),   actionCollection()->action("wait_out_round"),  SLOT(setEnabled(bool)));
+    connect(m_engine, &Engine::teleportAllowed,       actionCollection()->action(QStringLiteral("teleport")),        &QAction::setEnabled);
+    connect(m_engine, &Engine::teleportAllowed,       actionCollection()->action(QStringLiteral("teleport_sip")),    &QAction::setEnabled);
+    connect(m_engine, &Engine::teleportSafelyAllowed, actionCollection()->action(QStringLiteral("teleport_safely")), &QAction::setEnabled);
+    connect(m_engine, &Engine::vaporizerAllowed,      actionCollection()->action(QStringLiteral("vaporizer")),       &QAction::setEnabled);
+    connect(m_engine, &Engine::waitOutRoundAllowed,   actionCollection()->action(QStringLiteral("wait_out_round")),  &QAction::setEnabled);
 
     setupGUI(Save | Create | ToolBar | Keys);
 
     // Delaying the start of the first game by 50ms to avoid resize events after
     // the game has been started. Delaying by 0ms doesn't seem to be enough.
-    QTimer::singleShot(50, m_coordinator, SLOT(requestNewGame()));
+    QTimer::singleShot(50, m_coordinator, &Coordinator::requestNewGame);
 }
 
 Killbots::MainWindow::~MainWindow()
@@ -98,31 +98,31 @@ void Killbots::MainWindow::configurePreferences()
     // An instance of the dialog could be already created and could be cached,
     // in which case we want to display the cached dialog instead of creating
     // another one
-    if (!KConfigDialog::showDialog("configurePreferencesDialog")) {
+    if (!KConfigDialog::showDialog(QStringLiteral("configurePreferencesDialog"))) {
         // Creating a dialog because KConfigDialog didn't find an instance of it
-        KConfigDialog *configDialog = new KConfigDialog(this, "configurePreferencesDialog", Settings::self());
+        KConfigDialog *configDialog = new KConfigDialog(this, QStringLiteral("configurePreferencesDialog"), Settings::self());
 
         // Creating setting pages and adding them to the dialog
         configDialog->addPage(new OptionsPage(this),
                               i18n("General"),
-                              "configure",
+                              QStringLiteral("configure"),
                               i18n("Configure general settings")
                              );
         configDialog->addPage(new RulesetSelector(this),
                               i18n("Game Type"),
-                              "games-config-custom",
+                              QStringLiteral("games-config-custom"),
                               i18n("Select a game type")
                              );
         configDialog->addPage(new KgThemeSelector(Renderer::self()->themeProvider()),
                               i18n("Appearance"),
-                              "games-config-theme",
+                              QStringLiteral("games-config-theme"),
                               i18n("Select a graphical theme")
                              );
 
         configDialog->setMaximumSize(800, 600);
 
         // Update the sprite style if it has changed
-        connect(configDialog, SIGNAL(settingsChanged(QString)), this, SLOT(onSettingsChanged()));
+        connect(configDialog, &KConfigDialog::settingsChanged, this, &MainWindow::onSettingsChanged);
 
         configDialog->show();
     }
@@ -166,10 +166,10 @@ void Killbots::MainWindow::onConfigDialogClosed()
 void Killbots::MainWindow::createScoreDialog()
 {
     m_scoreDialog = new KScoreDialog(KScoreDialog::Name, this);
-    m_scoreDialog->addField(KScoreDialog::Level, i18n("Round"), "round");
+    m_scoreDialog->addField(KScoreDialog::Level, i18n("Round"), QStringLiteral("round"));
     m_scoreDialog->setModal(false);
     QStringList fileList;
-    const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, "killbots/ruleset", QStandardPaths::LocateDirectory);
+    const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("killbots/ruleset"), QStandardPaths::LocateDirectory);
     Q_FOREACH (const QString &dir, dirs) {
         const QStringList fileNames = QDir(dir).entryList(QStringList() << QStringLiteral("*.desktop"));
         Q_FOREACH (const QString &file, fileNames) {
@@ -199,7 +199,7 @@ void Killbots::MainWindow::onGameOver(int score, int round)
         scoreEntry[ KScoreDialog::Level ].setNum(round);
 
         if (m_scoreDialog->addScore(scoreEntry)) {
-            QTimer::singleShot(1000, this, SLOT(showHighscores()));
+            QTimer::singleShot(1000, this, &MainWindow::showHighscores);
         }
     }
 }
@@ -248,94 +248,94 @@ void Killbots::MainWindow::setupActions()
     KStandardAction::preferences(this, SLOT(configurePreferences()), actionCollection());
 
     createMappedAction(TeleportSafely,
-                       "teleport_safely",
+                       QStringLiteral("teleport_safely"),
                        i18n("Teleport Safely"),
                        i18nc("Shortcut for teleport safely. See http://websvn.kde.org/trunk/KDE/kdegames/killbots/README.translators?view=markup", "T"),
                        Qt::Key_Plus,
                        i18n("Teleport to a safe location"),
-                       "games-solve"
+                       QStringLiteral("games-solve")
                       );
     createMappedAction(Teleport,
-                       "teleport",
+                       QStringLiteral("teleport"),
                        i18n("Teleport"),
                        i18nc("Shortcut for teleport. See http://websvn.kde.org/trunk/KDE/kdegames/killbots/README.translators?view=markup", "R"),
                        Qt::Key_Minus,
                        i18n("Teleport to a random location"),
-                       "roll"
+                       QStringLiteral("roll")
                       );
     createMappedAction(TeleportSafelyIfPossible,
-                       "teleport_sip",
+                       QStringLiteral("teleport_sip"),
                        i18n("Teleport, Safely If Possible"),
                        i18nc("Shortcut for teleport safely if possible. See http://websvn.kde.org/trunk/KDE/kdegames/killbots/README.translators?view=markup", "Space"),
                        Qt::Key_0,
                        i18n("Teleport safely if that action is enabled, otherwise teleport randomly")
                       );
     createMappedAction(Vaporizer,
-                       "vaporizer",
+                       QStringLiteral("vaporizer"),
                        i18n("Vaporizer"),
                        i18nc("Shortcut for vaporizer. See http://websvn.kde.org/trunk/KDE/kdegames/killbots/README.translators?view=markup", "F"),
                        Qt::Key_Period,
                        i18n("Destroy all enemies in neighboring cells"),
-                       "edit-bomb"
+                       QStringLiteral("edit-bomb")
                       );
     createMappedAction(WaitOutRound,
-                       "wait_out_round",
+                       QStringLiteral("wait_out_round"),
                        i18n("Wait Out Round"),
                        i18nc("Shortcut for wait out round. See http://websvn.kde.org/trunk/KDE/kdegames/killbots/README.translators?view=markup", "V"),
                        Qt::Key_Asterisk,
                        i18n("Risk remaining in place until the end of the round for bonuses"),
-                       "process-stop"
+                       QStringLiteral("process-stop")
                       );
     createMappedAction(UpLeft,
-                       "move_up_left",
+                       QStringLiteral("move_up_left"),
                        i18n("Move Up and Left"),
                        i18nc("Shortcut for move up and left. See http://websvn.kde.org/trunk/KDE/kdegames/killbots/README.translators?view=markup", "Q"),
                        Qt::Key_7
                       );
     createMappedAction(Up,
-                       "move_up",
+                       QStringLiteral("move_up"),
                        i18n("Move Up"),
                        i18nc("Shortcut for move up. See http://websvn.kde.org/trunk/KDE/kdegames/killbots/README.translators?view=markup", "W"),
                        Qt::Key_8
                       );
     createMappedAction(UpRight,
-                       "move_up_right",
+                       QStringLiteral("move_up_right"),
                        i18n("Move Up and Right"),
                        i18nc("Shortcut for move up and right. See http://websvn.kde.org/trunk/KDE/kdegames/killbots/README.translators?view=markup", "E"),
                        Qt::Key_9
                       );
     createMappedAction(Left,
-                       "move_left",
+                       QStringLiteral("move_left"),
                        i18n("Move Left"),
                        i18nc("Shortcut for move left. See http://websvn.kde.org/trunk/KDE/kdegames/killbots/README.translators?view=markup", "A"),
                        Qt::Key_4
                       );
     createMappedAction(Hold,
-                       "stand_still",
+                       QStringLiteral("stand_still"),
                        i18n("Stand Still"),
                        i18nc("Shortcut for stand still. See http://websvn.kde.org/trunk/KDE/kdegames/killbots/README.translators?view=markup", "S"),
                        Qt::Key_5
                       );
     createMappedAction(Right,
-                       "move_right",
+                       QStringLiteral("move_right"),
                        i18n("Move Right"),
                        i18nc("Shortcut for move right. See http://websvn.kde.org/trunk/KDE/kdegames/killbots/README.translators?view=markup", "D"),
                        Qt::Key_6
                       );
     createMappedAction(DownLeft,
-                       "move_down_left",
+                       QStringLiteral("move_down_left"),
                        i18n("Move Down and Left"),
                        i18nc("Shortcut for move down and left. See http://websvn.kde.org/trunk/KDE/kdegames/killbots/README.translators?view=markup", "Z"),
                        Qt::Key_1
                       );
     createMappedAction(Down,
-                       "move_down",
+                       QStringLiteral("move_down"),
                        i18n("Move Down"),
                        i18nc("Shortcut for move down. See http://websvn.kde.org/trunk/KDE/kdegames/killbots/README.translators?view=markup", "X"),
                        Qt::Key_2
                       );
     createMappedAction(DownRight,
-                       "move_down_right",
+                       QStringLiteral("move_down_right"),
                        i18n("Move Down and Right"),
                        i18nc("Shortcut for move down and right. See http://websvn.kde.org/trunk/KDE/kdegames/killbots/README.translators?view=markup", "C"),
                        Qt::Key_3

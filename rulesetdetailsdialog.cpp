@@ -46,7 +46,7 @@ Killbots::RulesetDetailsDialog::RulesetDetailsDialog(QWidget *parent)
 
 void Killbots::RulesetDetailsDialog::loadRuleset(const Ruleset *ruleset)
 {
-    static QStringList maskedItems = QStringList() << "Name" << "Author" << "AuthorContact" << "Description";
+    static QStringList maskedItems = QStringList() << QStringLiteral("Name") << QStringLiteral("Author") << QStringLiteral("AuthorContact") << QStringLiteral("Description");
     static QStringList junkheapEnumText = QStringList()
                                           << i18nc("Quantity of junkheaps that can be pushed", "None")
                                           << i18nc("Quantity of junkheaps that can be pushed", "One")
@@ -77,7 +77,7 @@ void Killbots::RulesetDetailsDialog::loadRuleset(const Ruleset *ruleset)
         QString valueText;
         if (dynamic_cast<const KCoreConfigSkeleton::ItemBool *>(item)) {
             valueText = item->property().toBool() ? i18n("Yes") : i18n("No");
-        } else if (it.key() == "PushableJunkheaps") {
+        } else if (it.key() == QLatin1String("PushableJunkheaps")) {
             valueText = junkheapEnumText.at(item->property().toInt());
         } else {
             valueText = item->property().toString();

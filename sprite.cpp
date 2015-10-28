@@ -47,16 +47,16 @@ void Killbots::Sprite::setSpriteType(Killbots::SpriteType type)
 
     switch (m_type) {
     case Hero :
-        setSpriteKey("hero");
+        setSpriteKey(QStringLiteral("hero"));
         break;
     case Robot :
-        setSpriteKey("enemy");
+        setSpriteKey(QStringLiteral("enemy"));
         break;
     case Fastbot :
-        setSpriteKey("fastenemy");
+        setSpriteKey(QStringLiteral("fastenemy"));
         break;
     case Junkheap :
-        setSpriteKey("junkheap");
+        setSpriteKey(QStringLiteral("junkheap"));
         break;
     default :
         break;

@@ -276,9 +276,9 @@ void Killbots::Scene::doLayout()
                    m_rows * m_cellSize.height()
                   );
 
-    QPixmap unrotated = Renderer::self()->spritePixmap("background", size);
+    QPixmap unrotated = Renderer::self()->spritePixmap(QStringLiteral("background"), size);
     p.begin(&unrotated);
-    p.drawTiledPixmap(gridRect, Renderer::self()->spritePixmap("cell", m_cellSize));
+    p.drawTiledPixmap(gridRect, Renderer::self()->spritePixmap(QStringLiteral("cell"), m_cellSize));
     p.end();
 
     // The background brush begins painting at 0,0 but our sceneRect doesn't
