@@ -23,8 +23,8 @@
 #include "actions.h"
 #include "ruleset.h"
 
-#include <QtCore/QObject>
-#include <QtCore/QHash>
+#include <QObject>
+#include <QHash>
 class QPoint;
 
 namespace Killbots

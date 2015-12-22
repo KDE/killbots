@@ -7,7 +7,7 @@
 
 #include "qtest.h"
 
-#include <QtCore/QObject>
+#include <QObject>
 
 namespace Killbots
 {

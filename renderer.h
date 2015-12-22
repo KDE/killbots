@@ -22,7 +22,7 @@
 
 #include <KGameRenderer>
 
-#include <QtCore/QHash>
+#include <QHash>
 
 namespace Killbots
 {

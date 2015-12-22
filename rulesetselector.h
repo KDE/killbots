@@ -22,7 +22,7 @@
 
 class KLineEdit;
 
-#include <QtCore/QMap>
+#include <QMap>
 class QLabel;
 class QListWidget;
 #include <QWidget>

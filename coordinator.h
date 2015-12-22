@@ -25,8 +25,8 @@
 
 class KGamePopupItem;
 
-#include <QtCore/QObject>
-#include <QtCore/QTimeLine>
+#include <QObject>
+#include <QTimeLine>
 
 namespace Killbots
 {

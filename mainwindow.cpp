@@ -43,8 +43,8 @@
 #include <QIcon>
 
 #include <QDebug>
-#include <QtCore/QSignalMapper>
-#include <QtCore/QTimer>
+#include <QSignalMapper>
+#include <QTimer>
 
 Killbots::MainWindow::MainWindow(QWidget *parent)
     : KXmlGuiWindow(parent),

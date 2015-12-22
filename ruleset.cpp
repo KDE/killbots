@@ -22,7 +22,7 @@
 #include <KConfigGroup>
 #include <QDebug>
 
-#include <QtCore/QFileInfo>
+#include <QFileInfo>
 
 const Killbots::Ruleset *Killbots::Ruleset::load(const QString &fileName)
 {

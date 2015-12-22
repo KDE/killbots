@@ -22,7 +22,7 @@
 
 #include <QDialog>
 
-#include <QtCore/QMap>
+#include <QMap>
 class QLabel;
 
 namespace Killbots
