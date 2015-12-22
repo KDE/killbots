@@ -36,7 +36,7 @@ public: // functions
     QByteArray scoreGroupKey() const;
 
 private: // functions
-    Ruleset(const QString &filePath);    // hidden
+    explicit Ruleset(const QString &filePath);    // hidden
     QString m_filePath;
     QByteArray m_scoreGroupKey;
 };
