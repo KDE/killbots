@@ -250,7 +250,7 @@ void Killbots::MainWindow::setupActions()
     createMappedAction(TeleportSafely,
                        QStringLiteral("teleport_safely"),
                        i18n("Teleport Safely"),
-                       i18nc("Shortcut for teleport safely. See http://websvn.kde.org/trunk/KDE/kdegames/killbots/README.translators?view=markup", "T"),
+                       i18nc("Shortcut for teleport safely. See https://quickgit.kde.org/?p=killbots.git&a=blob&f=README.translators&o=plain", "T"),
                        Qt::Key_Plus,
                        i18n("Teleport to a safe location"),
                        QStringLiteral("games-solve")
@@ -258,7 +258,7 @@ void Killbots::MainWindow::setupActions()
     createMappedAction(Teleport,
                        QStringLiteral("teleport"),
                        i18n("Teleport"),
-                       i18nc("Shortcut for teleport. See http://websvn.kde.org/trunk/KDE/kdegames/killbots/README.translators?view=markup", "R"),
+                       i18nc("Shortcut for teleport. See https://quickgit.kde.org/?p=killbots.git&a=blob&f=README.translators&o=plain", "R"),
                        Qt::Key_Minus,
                        i18n("Teleport to a random location"),
                        QStringLiteral("roll")
@@ -266,14 +266,14 @@ void Killbots::MainWindow::setupActions()
     createMappedAction(TeleportSafelyIfPossible,
                        QStringLiteral("teleport_sip"),
                        i18n("Teleport, Safely If Possible"),
-                       i18nc("Shortcut for teleport safely if possible. See http://websvn.kde.org/trunk/KDE/kdegames/killbots/README.translators?view=markup", "Space"),
+                       i18nc("Shortcut for teleport safely if possible. See https://quickgit.kde.org/?p=killbots.git&a=blob&f=README.translators&o=plain", "Space"),
                        Qt::Key_0,
                        i18n("Teleport safely if that action is enabled, otherwise teleport randomly")
                       );
     createMappedAction(Vaporizer,
                        QStringLiteral("vaporizer"),
                        i18n("Vaporizer"),
-                       i18nc("Shortcut for vaporizer. See http://websvn.kde.org/trunk/KDE/kdegames/killbots/README.translators?view=markup", "F"),
+                       i18nc("Shortcut for vaporizer. See https://quickgit.kde.org/?p=killbots.git&a=blob&f=README.translators&o=plain", "F"),
                        Qt::Key_Period,
                        i18n("Destroy all enemies in neighboring cells"),
                        QStringLiteral("edit-bomb")
@@ -281,7 +281,7 @@ void Killbots::MainWindow::setupActions()
     createMappedAction(WaitOutRound,
                        QStringLiteral("wait_out_round"),
                        i18n("Wait Out Round"),
-                       i18nc("Shortcut for wait out round. See http://websvn.kde.org/trunk/KDE/kdegames/killbots/README.translators?view=markup", "V"),
+                       i18nc("Shortcut for wait out round. See https://quickgit.kde.org/?p=killbots.git&a=blob&f=README.translators&o=plain", "V"),
                        Qt::Key_Asterisk,
                        i18n("Risk remaining in place until the end of the round for bonuses"),
                        QStringLiteral("process-stop")
@@ -289,55 +289,55 @@ void Killbots::MainWindow::setupActions()
     createMappedAction(UpLeft,
                        QStringLiteral("move_up_left"),
                        i18n("Move Up and Left"),
-                       i18nc("Shortcut for move up and left. See http://websvn.kde.org/trunk/KDE/kdegames/killbots/README.translators?view=markup", "Q"),
+                       i18nc("Shortcut for move up and left. https://quickgit.kde.org/?p=killbots.git&a=blob&f=README.translators&o=plain", "Q"),
                        Qt::Key_7
                       );
     createMappedAction(Up,
                        QStringLiteral("move_up"),
                        i18n("Move Up"),
-                       i18nc("Shortcut for move up. See http://websvn.kde.org/trunk/KDE/kdegames/killbots/README.translators?view=markup", "W"),
+                       i18nc("Shortcut for move up. See https://quickgit.kde.org/?p=killbots.git&a=blob&f=README.translators&o=plain", "W"),
                        Qt::Key_8
                       );
     createMappedAction(UpRight,
                        QStringLiteral("move_up_right"),
                        i18n("Move Up and Right"),
-                       i18nc("Shortcut for move up and right. See http://websvn.kde.org/trunk/KDE/kdegames/killbots/README.translators?view=markup", "E"),
+                       i18nc("Shortcut for move up and right. https://quickgit.kde.org/?p=killbots.git&a=blob&f=README.translators&o=plain", "E"),
                        Qt::Key_9
                       );
     createMappedAction(Left,
                        QStringLiteral("move_left"),
                        i18n("Move Left"),
-                       i18nc("Shortcut for move left. See http://websvn.kde.org/trunk/KDE/kdegames/killbots/README.translators?view=markup", "A"),
+                       i18nc("Shortcut for move left. See https://quickgit.kde.org/?p=killbots.git&a=blob&f=README.translators&o=plain", "A"),
                        Qt::Key_4
                       );
     createMappedAction(Hold,
                        QStringLiteral("stand_still"),
                        i18n("Stand Still"),
-                       i18nc("Shortcut for stand still. See http://websvn.kde.org/trunk/KDE/kdegames/killbots/README.translators?view=markup", "S"),
+                       i18nc("Shortcut for stand still. See https://quickgit.kde.org/?p=killbots.git&a=blob&f=README.translators&o=plain", "S"),
                        Qt::Key_5
                       );
     createMappedAction(Right,
                        QStringLiteral("move_right"),
                        i18n("Move Right"),
-                       i18nc("Shortcut for move right. See http://websvn.kde.org/trunk/KDE/kdegames/killbots/README.translators?view=markup", "D"),
+                       i18nc("Shortcut for move right. See https://quickgit.kde.org/?p=killbots.git&a=blob&f=README.translators&o=plain", "D"),
                        Qt::Key_6
                       );
     createMappedAction(DownLeft,
                        QStringLiteral("move_down_left"),
                        i18n("Move Down and Left"),
-                       i18nc("Shortcut for move down and left. See http://websvn.kde.org/trunk/KDE/kdegames/killbots/README.translators?view=markup", "Z"),
+                       i18nc("Shortcut for move down and left. See https://quickgit.kde.org/?p=killbots.git&a=blob&f=README.translators&o=plain", "Z"),
                        Qt::Key_1
                       );
     createMappedAction(Down,
                        QStringLiteral("move_down"),
                        i18n("Move Down"),
-                       i18nc("Shortcut for move down. See http://websvn.kde.org/trunk/KDE/kdegames/killbots/README.translators?view=markup", "X"),
+                       i18nc("Shortcut for move down. See https://quickgit.kde.org/?p=killbots.git&a=blob&f=README.translators&o=plain", "X"),
                        Qt::Key_2
                       );
     createMappedAction(DownRight,
                        QStringLiteral("move_down_right"),
                        i18n("Move Down and Right"),
-                       i18nc("Shortcut for move down and right. See http://websvn.kde.org/trunk/KDE/kdegames/killbots/README.translators?view=markup", "C"),
+                       i18nc("Shortcut for move down and right. https://quickgit.kde.org/?p=killbots.git&a=blob&f=README.translators&o=plain", "C"),
                        Qt::Key_3
                       );
 }
