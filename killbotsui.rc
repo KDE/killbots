@@ -4,8 +4,7 @@
      xmlns="http://www.kde.org/standards/kxmlgui/1.0"
      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
      xsi:schemaLocation="http://www.kde.org/standards/kxmlgui/1.0
-                         http://www.kde.org/standards/kxmlgui/1.0/kxmlgui.xsd"
->
+                         http://www.kde.org/standards/kxmlgui/1.0/kxmlgui.xsd">
 
 	<MenuBar>
 		<Menu name="moveMenu">
@@ -21,13 +20,13 @@
 	<ToolBar name="mainToolBar">
 		<text>Main Toolbar</text>
 		<Action name="game_new"/>
-		<Separator />
+		<Separator/>
 		<Action name="game_highscores"/>
-		<Separator />
+		<Separator/>
 		<Action name="teleport"/>
 		<Action name="teleport_safely"/>
 		<Action name="wait_out_round"/>
-		<Separator />
+		<Separator/>
 		<Action name="options_configure"/>
 	</ToolBar>
 
