@@ -39,8 +39,8 @@ inline int sign(int num)
 Killbots::Engine::Engine(Killbots::Coordinator *scene, QObject *parent)
     : QObject(parent),
       m_coordinator(scene),
-      m_hero(0),
-      m_rules(0),
+      m_hero(nullptr),
+      m_rules(nullptr),
       m_round(0),
       m_score(0),
       m_energy(0),

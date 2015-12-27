@@ -48,7 +48,7 @@
 
 Killbots::MainWindow::MainWindow(QWidget *parent)
     : KXmlGuiWindow(parent),
-      m_scoreDialog(0),
+      m_scoreDialog(nullptr),
       m_rulesetChanged(false)
 {
     setAcceptDrops(false);

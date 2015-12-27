@@ -35,7 +35,7 @@
 
 Killbots::Scene::Scene(QObject *parent)
     : QGraphicsScene(parent),
-      m_hero(0),
+      m_hero(nullptr),
       m_rows(0),
       m_columns(0)
 {

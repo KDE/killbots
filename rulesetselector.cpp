@@ -39,7 +39,7 @@
 Killbots::RulesetSelector::RulesetSelector(QWidget *parent)
     : QWidget(parent),
       m_rulesetMap(),
-      m_detailsDialog(0)
+      m_detailsDialog(nullptr)
 {
     // Create a hidden KLineEdit to use the automatic KConfigXT connection
     kcfg_Ruleset = new KLineEdit();
