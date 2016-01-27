@@ -23,6 +23,7 @@
 #include <kdelibs4configmigrator.h>
 #include <QApplication>
 #include <KAboutData>
+#include <KCrash>
 #include <QCommandLineParser>
 #include <KDBusService>
 
@@ -47,6 +48,7 @@ int main(int argc, char **argv)
 
     QCommandLineParser parser;
     KAboutData::setApplicationData(about);
+    KCrash::initialize();
     parser.addVersionOption();
     parser.addHelpOption();
     about.setupCommandLine(&parser);
