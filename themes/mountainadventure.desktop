@@ -45,13 +45,13 @@ Name[uk]=Пригоди в горах
 Name[x-test]=xxMountain Adventurexx
 Name[zh_CN]=山中冒险
 Name[zh_TW]=山中冒險
-Description=<qt><p>Indiana Gnomes battles ghosts and bats on a misty mountainside.</p><p>Sprites by Nicu Buculei. Background by Eugene Trounev.</p></qt>
+Description=Indiana Gnomes battles ghosts and bats on a misty mountainside.
 Description[ast]=<qt><p>Indiana Gnomes llucha contra pantasmes y esperteyos nuna lladera de la montaña borrinosa.</p><p>Muñecos de Nicu Buculei. Fondu d'Eugene Trounev.</p></qt>
 Description[bs]=<qt><p>Indiana Gnomes bitke duhova i šišmiša na misterioznij planini.</p><p>Duhovi po Nicu Buculei. Pozadina od Eugene Trounev.</p></qt>
 Description[ca]=<qt><p>Indiana Gnomes lluita contra fantasmes i ratpenats en un costat de la muntanya bromosa.</p><p>Sprites de Nicu Buculei. Fons de pantalla d'Eugene Trounev.</p></qt>
 Description[ca@valencia]=<qt><p>Indiana Gnomes lluita contra fantasmes i ratpenats en un costat de la muntanya bromosa.</p><p>Sprites de Nicu Buculei. Fons de pantalla d'Eugene Trounev.</p></qt>
 Description[da]=<qt><p>Indiana Gnomes kæmper mod spøgelser og flagermus på en tåget bjergside.</p><p>Figurer af Nicu Buculei. Baggrund af Eugene Trounev.</p></qt>
-Description[de]=<qt><p>Indiana Gnomes kämpft gegen Geister und Fledermäuse in einer nebligen Bergwand.</p><p>Die Animationen stammen von Nicu Buculei und der Hintergrund von Eugene Trounev.</p></qt>
+Description[de]=Indiana Gnomes kämpft gegen Geister und Fledermäuse in einer nebligen Bergwand.
 Description[el]=<qt><p>O Indiana Gnomes πολεμά φαντάσματα και νυχτερίδες σε μια ομιχλώδη πλαγιά βουνού.</ p><p>Γραφικά από Nicu Buculei. Φόντο από Eugene Trounev.</p></qt>
 Description[en_GB]=<qt><p>Indiana Gnomes battles ghosts and bats on a misty mountainside.</p><p>Sprites by Nicu Buculei. Background by Eugene Trounev.</p></qt>
 Description[es]=<qt><p>Indiana Gnomes lucha contra fantasmas y murciélagos en una ladera de la montaña neblinosa.</p><p>Personajes de Nicu Buculei. Fondo de Eugene Trounev.</p></qt>
@@ -88,7 +88,7 @@ Description[x-test]=xx<qt><p>Indiana Gnomes battles ghosts and bats on a misty m
 Description[zh_CN]=<qt><p>印第安纳侏儒们在浓雾笼罩的山中和鬼魂与蝙蝠作战。</p><p>由 Nicu Buculei 设计，背景由 Eugene Trounev 提供。</p></qt>
 Description[zh_TW]=<qt><p>Indiana Gnomes 在大霧籠罩的山上與鬼及蝙蝠戰鬥。</p>  <p>由 Nicu Buculei 與 Eugene Trounev 設計。</p></qt>
 VersionFormat=0.9
-Author=Parker Coates
+Author=Parker Coates, Nicu Buculei (Sprites), Eugene Trounev (Background)
 AuthorEmail=parker.coates@kdemail.net
 Type=SVG
 FileName=mountainadventure.svgz
