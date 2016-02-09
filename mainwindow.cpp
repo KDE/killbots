@@ -173,7 +173,7 @@ void Killbots::MainWindow::createScoreDialog()
     Q_FOREACH (const QString &dir, dirs) {
         const QStringList fileNames = QDir(dir).entryList(QStringList() << QStringLiteral("*.desktop"));
         Q_FOREACH (const QString &file, fileNames) {
-            fileList.append(dir + '/' + file);
+            fileList.append(dir + QLatin1Char('/') + file);
         }
     }
     foreach (const QString &fileName, fileList) {

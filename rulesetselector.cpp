@@ -122,7 +122,7 @@ void Killbots::RulesetSelector::findRulesets()
             if (ruleset) {
                 QString name = ruleset->name();
                 while (m_rulesetMap.contains(name)) {
-                    name += '_';
+                    name += QLatin1Char('_');
                 }
 
                 m_rulesetMap.insert(name, ruleset);
@@ -151,11 +151,11 @@ void Killbots::RulesetSelector::selectionChanged(QString rulesetName)
     kcfg_Ruleset->setText(ruleset->fileName());
 
     m_author->setText(ruleset->author());
-    if (ruleset->authorContact().contains(' ')) {
+    if (ruleset->authorContact().contains(QLatin1Char(' '))) {
         m_authorContact->setText(ruleset->authorContact());
-    } else if (ruleset->authorContact().contains('@')) {
+    } else if (ruleset->authorContact().contains(QLatin1Char('@'))) {
         m_authorContact->setText(QStringLiteral("<qt><a href=\"mailto:%1\">%1</a></qt>").arg(ruleset->authorContact()));
-    } else if (ruleset->authorContact().contains('.')) {
+    } else if (ruleset->authorContact().contains(QLatin1Char('.'))) {
         m_authorContact->setText(QStringLiteral("<qt><a href=\"http://%1\">%1</a></qt>").arg(ruleset->authorContact()));
     } else {
         m_authorContact->setText(ruleset->authorContact());

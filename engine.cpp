@@ -181,19 +181,19 @@ void Killbots::Engine::startNewRound(bool incrementRound, const QString &layout)
             m_spriteMap.insert(point, m_bots.last());
         }
     } else {
-        const QStringList rows = layout.split('\n');
+        const QStringList rows = layout.split(QLatin1Char('\n'));
         for (int r = 0; r < rows.size(); ++r) {
             for (int c = 0; c < rows.at(r).size(); ++c) {
                 const QChar ch = rows.at(r).at(c);
                 const QPoint point(c, r);
 
-                if (ch == 'h' && m_hero == 0) {
+                if (ch == QLatin1Char('h') && m_hero == 0) {
                     m_hero = m_coordinator->createSprite(Hero, point);
-                } else if (ch == 'r') {
+		} else if (ch == QLatin1Char('r')) {
                     m_bots << m_coordinator->createSprite(Robot, point);
-                } else if (ch == 'f') {
+		} else if (ch == QLatin1Char('f')) {
                     m_bots << m_coordinator->createSprite(Fastbot, point);
-                } else if (ch == 'j') {
+		} else if (ch == QLatin1Char('j')) {
                     m_junkheaps << m_coordinator->createSprite(Junkheap, point);
                 }
             }
@@ -802,20 +802,20 @@ QString Killbots::Engine::gridToString() const
         for (int c = 0; c < m_rules->columns(); ++c) {
             switch (spriteTypeAt(QPoint(c, r))) {
             case Robot:
-                string += 'r';
+                string += QLatin1Char('r');
                 break;
             case Fastbot:
-                string += 'f';
+                string += QLatin1Char('f');
                 break;
             case Junkheap:
-                string += 'j';
+		string += QLatin1Char('j');
                 break;
             default:
-                string += ' ';
+		string += QLatin1Char(' ');
                 break;
             }
         }
-        string += '\n';
+                string += QLatin1Char('\n');
     }
     return string;
 }

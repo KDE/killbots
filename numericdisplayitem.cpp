@@ -63,7 +63,7 @@ QFont Killbots::NumericDisplayItem::font() const
 QSize Killbots::NumericDisplayItem::preferredSize()
 {
     QSize labelSize = QFontMetrics(m_font).boundingRect(m_label).size();
-    QSize digitsSize = QFontMetrics(m_boldFont).boundingRect(QString(m_digits + 1, '8')).size();
+    QSize digitsSize = QFontMetrics(m_boldFont).boundingRect(QString(m_digits + 1, QLatin1Char('8'))).size();
 
     return QSize(labelSize.width() + digitsSize.width() + 2 * m_margin,
                  qMax(labelSize.height(), digitsSize.height()) + 2 * m_margin
