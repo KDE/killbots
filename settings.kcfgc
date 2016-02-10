@@ -11,3 +11,4 @@ SetUserTexts=true
 GlobalEnums=false
 UseEnumTypes=true
 ForceStringFilename=false
+TranslationSystem=kde
