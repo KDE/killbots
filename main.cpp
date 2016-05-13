@@ -38,7 +38,7 @@ int main(int argc, char **argv)
 
     KLocalizedString::setApplicationDomain("killbots");
 
-    KAboutData about(QStringLiteral("killbots"), i18n("Killbots"), QStringLiteral("1.2.0"));
+    KAboutData about(QStringLiteral("killbots"), i18n("Killbots"), QStringLiteral("1.2.1"));
     about.setShortDescription(i18n("A KDE game of killer robots and teleportation."));
     about.setLicense(KAboutLicense::GPL_V2);
     about.setCopyrightStatement(i18n("© 2006-2009, Parker Coates"));
