@@ -210,7 +210,8 @@ void Killbots::MainWindow::showHighscores()
         createScoreDialog();
     }
 
-    m_scoreDialog->setConfigGroup(qMakePair(m_engine->ruleset()->scoreGroupKey(), m_engine->ruleset()->name()));
+    // TODO: Find out why this line breaks adding high scores.
+    //m_scoreDialog->setConfigGroup(qMakePair(m_engine->ruleset()->scoreGroupKey(), m_engine->ruleset()->name()));
     m_scoreDialog->exec();
 }
 
