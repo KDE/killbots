@@ -416,7 +416,7 @@ Preview=example.png
 
     <sect2>
       <title>Installing Custom Themes</title>
-      <para>In order for &killbots; to detect and use a new theme, the files must be moved to an appropriate directory. To install the theme for only the current user, copy the desktop, preview and SVG files to <filename>$<varname>KDEHOME</varname>/share/apps/killbots/themes</filename>. To make the theme available system wide, move the files to <filename><command>`kde-config --prefix`</command>/share/apps/killbots/themes</filename>. Note that this will likely require administrative privileges.</para>
+      <para>In order for &killbots; to detect and use a new theme, the files must be moved to an appropriate directory. To install the theme for only the current user, copy the desktop, preview and SVG files to <filename>killbots/themes</filename> in the local folder in <userinput><command>qtpaths</command> <option>--paths GenericDataLocation </option></userinput>. To make the theme available system wide, move the files to <filename>killbots/themes</filename>in the system folder in <userinput><command>qtpaths</command> <option>--paths GenericDataLocation </option></userinput>. Note that this will likely require administrative privileges.</para>
     </sect2>
   </sect1>
 
@@ -586,7 +586,7 @@ SquashKillEnergyBonus=1</programlisting>
 
     <sect2>
       <title>Installing Custom Game Types</title>
-      <para>In order for &killbots; to detect and use a new game type, the ruleset file must be moved to an appropriate directory. To install the game type for only the current user, copy the file to <filename>$<varname>KDEHOME</varname>/share/apps/killbots/rulesets</filename>. To make the game type available system wide, move the file to <filename><command>`kde-config --prefix`</command>/share/apps/killbots/rulesets</filename>. Note that this will likely require administrative privileges.</para>
+      <para>In order for &killbots; to detect and use a new game type, the ruleset file must be moved to an appropriate directory. To install the game type for only the current user, copy the file to <filename>killbots/rulesets</filename> in the local folder in <userinput><command>qtpaths</command> <option>--paths GenericDataLocation </option></userinput>. To make the game type available system wide, move the file to <filename>killbots/rulesets</filename> in the system folder in <userinput><command>qtpaths</command> <option>--paths GenericDataLocation </option></userinput>. Note that this will likely require administrative privileges.</para>
     </sect2>
 
   </sect1>
