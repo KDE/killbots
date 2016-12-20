@@ -1,6 +1,5 @@
 [KGameTheme]
 Name=Classic
-Name[ast]=Clásicu
 Name[be]=Класічны
 Name[bs]=Klasično
 Name[ca]=Clàssic
@@ -58,7 +57,6 @@ Name[x-test]=xxClassicxx
 Name[zh_CN]=经典
 Name[zh_TW]=古典
 Description=A theme for those who miss the console version
-Description[ast]=Un tema p'aquellos que prefieran versión de consola
 Description[bs]=Tema za one kojima nedostaje konzolna vezija
 Description[ca]=Un tema pels que troben a faltar la versió de consola
 Description[ca@valencia]=Un tema pels que troben a faltar la versió de consola

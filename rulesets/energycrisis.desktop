@@ -1,6 +1,5 @@
 [KillbotsRuleset]
 Name=Energy Crisis
-Name[ast]=Crisis d'enerxía
 Name[bs]=Energetska kriza
 Name[ca]=Crisi energètica
 Name[ca@valencia]=Crisi energètica
@@ -45,7 +44,6 @@ Name[zh_TW]=能量危機
 Author=Parker Coates
 AuthorContact=parker.coates@kdemail.net
 Description=The player starts with 30 energy and cannot earn more. How many rounds can you survive and how many points can you collect before your energy and luck run out?
-Description[ast]=El xugador entama con 30 d'enerxía y nun pue ganar más. ¿Cuántes rondes pues sobrevivir y cuántos puntos pues consiguir enantes de quedate ensin la to enerxía y suerte?
 Description[bs]=Igrač započinje sa 30 energije i ne može zaraditi više. Koliko rundi možete preživjeti i koliko bodova možete sakupiti prije nego vas vaša energija i sreća napuste?
 Description[ca]=El jugador comença amb 30 d'energia i no en pot guanyar més. Quantes rondes podeu sobreviure i quants punts podeu aconseguir abans que la vostra energia i la vostra sort surtin corrent?
 Description[ca@valencia]=El jugador comença amb 30 d'energia i no en pot guanyar més. Quantes rondes podeu sobreviure i quants punts podeu aconseguir abans que la vostra energia i la vostra sort isquen corrent?
