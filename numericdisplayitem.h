@@ -41,7 +41,7 @@ public: // functions
     QFont font() const;
     QSize preferredSize();
 
-    virtual void paint(QPainter *p, const QStyleOptionGraphicsItem *option, QWidget *widget = 0);
+    void paint(QPainter *p, const QStyleOptionGraphicsItem *option, QWidget *widget = 0) Q_DECL_OVERRIDE;
 
 public slots:
     void setValue(int value);

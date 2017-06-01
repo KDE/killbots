@@ -52,10 +52,10 @@ public: // functions
     QPoint gridPos() const;
     void advanceGridPosQueue();
 
-    virtual int type() const;
+    int type() const Q_DECL_OVERRIDE;
 
 protected:
-    virtual void receivePixmap(const QPixmap &pixmap);
+    void receivePixmap(const QPixmap &pixmap) Q_DECL_OVERRIDE;
 
 private: // data members
     SpriteType m_type;

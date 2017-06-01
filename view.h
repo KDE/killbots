@@ -37,7 +37,7 @@ signals:
     void sizeChanged(QSize newSize);
 
 protected: // functions
-    virtual void resizeEvent(QResizeEvent *event);
+    void resizeEvent(QResizeEvent *event) Q_DECL_OVERRIDE;
 };
 }
 

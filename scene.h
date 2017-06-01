@@ -56,8 +56,8 @@ signals:
     void clicked(int action);
 
 protected: // functions
-    virtual void mouseMoveEvent(QGraphicsSceneMouseEvent *mouseEvent);
-    virtual void mouseReleaseEvent(QGraphicsSceneMouseEvent *mouseEvent);
+    void mouseMoveEvent(QGraphicsSceneMouseEvent *mouseEvent) Q_DECL_OVERRIDE;
+    void mouseReleaseEvent(QGraphicsSceneMouseEvent *mouseEvent) Q_DECL_OVERRIDE;
 
 private: // functions
     HeroAction getMouseDirection(QPointF cursorPosition) const;
