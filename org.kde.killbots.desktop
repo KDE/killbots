@@ -104,6 +104,7 @@ Comment[sv]=Ett spel för KDE med mördarrobotar och teleportering.
 Comment[tr]=KDE için öldürücü robotlar ve ışınlanma oyunu.
 Comment[uk]=Гра KDE із роботами-вбивцями та телепортацією.
 Comment[x-test]=xxA KDE game of killer robots and teleportation.xx
+Comment[zh_CN]=KDE 小游戏，边传送边杀掉机器人。
 Comment[zh_TW]=KDE 的小遊戲，殺掉機器人並傳送。
 Exec=killbots -qwindowtitle %c
 Icon=killbots
