@@ -49,8 +49,6 @@ int main(int argc, char **argv)
     QCommandLineParser parser;
     KAboutData::setApplicationData(about);
     KCrash::initialize();
-    parser.addVersionOption();
-    parser.addHelpOption();
     about.setupCommandLine(&parser);
     parser.process(app);
     about.processCommandLine(&parser);
