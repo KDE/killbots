@@ -66,6 +66,7 @@ set(killbots_SRCS
     sprite.cpp
     view.cpp
 )
+qt5_add_resources(killbots_SRCS killbots.qrc)
 
 kconfig_add_kcfg_files( killbots_SRCS settings.kcfgc rulesetbase.kcfgc )
 file(GLOB ICONS_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/icons/*-apps-killbots.png")
@@ -85,7 +86,6 @@ target_link_libraries(killbots
 ###### Installing Files ######
 install(TARGETS killbots ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 install(PROGRAMS org.kde.killbots.desktop DESTINATION ${KDE_INSTALL_APPDIR})
-install(FILES killbotsui.rc DESTINATION ${KDE_INSTALL_KXMLGUI5DIR}/killbots)
 install(FILES killbots.kcfg DESTINATION ${KDE_INSTALL_KCFGDIR})
 
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
