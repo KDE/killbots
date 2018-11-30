@@ -318,7 +318,7 @@ void Killbots::Coordinator::nextAnimationStage()
     if (m_timeLine.state() != QTimeLine::Running && !m_queuedPopup->isVisible()) {
         m_stages.removeFirst();
 
-        if (m_stages.size()) {
+        if (!m_stages.isEmpty()) {
             startAnimationStage();
         } else {
             animationDone();
