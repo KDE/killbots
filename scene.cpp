@@ -63,7 +63,7 @@ void Killbots::Scene::setGridSize(int rows, int columns)
 
 void Killbots::Scene::forgetHero()
 {
-    m_hero = 0;
+    m_hero = nullptr;
 }
 
 Killbots::Sprite *Killbots::Scene::createSprite(SpriteType type, QPoint position)
@@ -370,7 +370,7 @@ Killbots::HeroAction Killbots::Scene::getMouseDirection(QPointF cursorPosition) 
 bool Killbots::Scene::popupAtPosition(QPointF position) const
 {
     foreach (QGraphicsItem *item, items(position)) {
-        if (dynamic_cast<KGamePopupItem *>(item) != 0) {
+        if (dynamic_cast<KGamePopupItem *>(item) != nullptr) {
             return true;
         }
     }

@@ -32,8 +32,8 @@ class NumericDisplayItem : public QObject, public KGameRenderedItem
     Q_OBJECT
 
 public: // functions
-    explicit NumericDisplayItem(const QString &label = QString(), QGraphicsItem *parent = 0);
-    virtual ~NumericDisplayItem();
+    explicit NumericDisplayItem(const QString &label = QString(), QGraphicsItem *parent = nullptr);
+    ~NumericDisplayItem() override;
 
     int value() const;
     QString label() const;
@@ -41,9 +41,9 @@ public: // functions
     QFont font() const;
     QSize preferredSize();
 
-    void paint(QPainter *p, const QStyleOptionGraphicsItem *option, QWidget *widget = 0) Q_DECL_OVERRIDE;
+    void paint(QPainter *p, const QStyleOptionGraphicsItem *option, QWidget *widget = nullptr) override;
 
-public slots:
+public Q_SLOTS:
     void setValue(int value);
     void setLabel(const QString &label);
     void setDigits(int digits);

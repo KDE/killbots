@@ -34,8 +34,8 @@ class Scene : public QGraphicsScene
     Q_OBJECT
 
 public: // functions
-    explicit Scene(QObject *parent = 0);
-    virtual ~Scene();
+    explicit Scene(QObject *parent = nullptr);
+    ~Scene() override;
 
     void addNumericDisplay(NumericDisplayItem *displayItem);
     void setGridSize(int rows, int columns);
@@ -49,15 +49,15 @@ public: // functions
                         qreal value
                        ) const;
 
-public slots:
+public Q_SLOTS:
     void doLayout();
 
-signals:
+Q_SIGNALS:
     void clicked(int action);
 
 protected: // functions
-    void mouseMoveEvent(QGraphicsSceneMouseEvent *mouseEvent) Q_DECL_OVERRIDE;
-    void mouseReleaseEvent(QGraphicsSceneMouseEvent *mouseEvent) Q_DECL_OVERRIDE;
+    void mouseMoveEvent(QGraphicsSceneMouseEvent *mouseEvent) override;
+    void mouseReleaseEvent(QGraphicsSceneMouseEvent *mouseEvent) override;
 
 private: // functions
     HeroAction getMouseDirection(QPointF cursorPosition) const;

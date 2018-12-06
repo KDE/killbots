@@ -16,10 +16,10 @@ class EngineTest : public QObject
     Q_OBJECT
 
 public:
-    EngineTest(QObject *parent = 0);
+    EngineTest(QObject *parent = nullptr);
     ~EngineTest();
 
-private slots:
+private Q_SLOTS:
     void testValidCells_data();
     void testValidCells();
 

@@ -41,7 +41,7 @@ public: // types
 
 public: // functions
     explicit Sprite();
-    virtual ~Sprite();
+    virtual ~Sprite() override;
 
     SpriteType spriteType() const;
     void setSpriteType(SpriteType type);
@@ -52,10 +52,10 @@ public: // functions
     QPoint gridPos() const;
     void advanceGridPosQueue();
 
-    int type() const Q_DECL_OVERRIDE;
+    int type() const override;
 
 protected:
-    void receivePixmap(const QPixmap &pixmap) Q_DECL_OVERRIDE;
+    void receivePixmap(const QPixmap &pixmap) override;
 
 private: // data members
     SpriteType m_type;

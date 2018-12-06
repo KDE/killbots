@@ -30,14 +30,14 @@ class View : public QGraphicsView
     Q_OBJECT
 
 public: // functions
-    explicit View(QGraphicsScene *scene, QWidget *parent = 0);
-    virtual ~View();
+    explicit View(QGraphicsScene *scene, QWidget *parent = nullptr);
+    ~View() override;
 
-signals:
+Q_SIGNALS:
     void sizeChanged(QSize newSize);
 
 protected: // functions
-    void resizeEvent(QResizeEvent *event) Q_DECL_OVERRIDE;
+    void resizeEvent(QResizeEvent *event) override;
 };
 }
 

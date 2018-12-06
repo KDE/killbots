@@ -37,7 +37,7 @@ static KgThemeProvider *provider()
     return prov;
 }
 
-static Killbots::Renderer *r = 0;
+static Killbots::Renderer *r = nullptr;
 
 Killbots::Renderer *Killbots::Renderer::self()
 {
@@ -50,7 +50,7 @@ Killbots::Renderer *Killbots::Renderer::self()
 void Killbots::Renderer::cleanup()
 {
     delete r;
-    r = 0;
+    r = nullptr;
 }
 
 Killbots::Renderer::Renderer()

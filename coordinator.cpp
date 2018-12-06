@@ -40,7 +40,7 @@ struct Killbots::Coordinator::AnimationStage {
           newScore(-1),
           newEnemyCount(-1),
           newEnergy(-1)
-    {};
+    {}
 
     bool isEmpty() const
     {
@@ -53,7 +53,7 @@ struct Killbots::Coordinator::AnimationStage {
                && newScore == -1
                && newEnemyCount == -1
                && newEnergy == -1;
-    };
+    }
 
     QList<Sprite *> spritesToCreate;
     QList<Sprite *> spritesToSlide;

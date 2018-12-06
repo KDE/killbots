@@ -107,7 +107,7 @@ bool Killbots::Engine::canUseVaporizer() const
 
 void Killbots::Engine::startNewGame()
 {
-    Q_ASSERT(m_rules != 0);
+    Q_ASSERT(m_rules != nullptr);
 
     // Don't show the new game message on first start.
     if (m_round != 0) {
@@ -187,7 +187,7 @@ void Killbots::Engine::startNewRound(bool incrementRound, const QString &layout)
                 const QChar ch = rows.at(r).at(c);
                 const QPoint point(c, r);
 
-                if (ch == QLatin1Char('h') && m_hero == 0) {
+                if (ch == QLatin1Char('h') && m_hero == nullptr) {
                     m_hero = m_coordinator->createSprite(Hero, point);
 		} else if (ch == QLatin1Char('r')) {
                     m_bots << m_coordinator->createSprite(Robot, point);
@@ -714,7 +714,7 @@ void Killbots::Engine::cleanUpRound()
     if (m_hero) {
         destroySprite(m_hero);
     }
-    m_hero = 0;
+    m_hero = nullptr;
 
     foreach (Sprite *bot, m_bots) {
         destroySprite(bot, false);

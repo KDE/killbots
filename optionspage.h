@@ -33,7 +33,7 @@ class OptionsPage : public QWidget
     Q_OBJECT
 
 public: // functions
-    explicit OptionsPage(QWidget *parent = 0);
+    explicit OptionsPage(QWidget *parent = nullptr);
     virtual ~OptionsPage();
 
 public: // data members

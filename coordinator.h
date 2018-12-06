@@ -39,7 +39,7 @@ class Coordinator : public QObject
     Q_OBJECT
 
 public: // functions
-    explicit Coordinator(QObject *parent = 0);
+    explicit Coordinator(QObject *parent = nullptr);
     virtual ~Coordinator();
 
     void setEngine(Engine *engine);
@@ -53,7 +53,7 @@ public: // functions
     void teleportSprite(Sprite *sprite, QPoint position);
     void destroySprite(Sprite *sprite);
 
-public slots:
+public Q_SLOTS:
     void requestNewGame();
     void requestAction(int action);
 
@@ -70,7 +70,7 @@ private: // functions
     void showUnqueuedMessage(const QString &message, int timeOut = 3000);
     void showQueuedMessage(const QString &message);
 
-private slots:
+private Q_SLOTS:
     void nextAnimationStage();
     void animate(qreal value);
 

@@ -37,7 +37,7 @@ class Engine : public QObject
     Q_OBJECT
 
 public: // functions
-    explicit Engine(Coordinator *scene, QObject *parent = 0);
+    explicit Engine(Coordinator *scene, QObject *parent = nullptr);
     virtual ~Engine();
 
     void setRuleset(const Ruleset *ruleset);
@@ -64,7 +64,7 @@ public: // functions
     void resetBotCounts();
     void endGame();
 
-signals:
+Q_SIGNALS:
     void roundChanged(int round);
     void scoreChanged(int score);
     void enemyCountChanged(int enemyCount);

@@ -26,7 +26,7 @@
 
 const Killbots::Ruleset *Killbots::Ruleset::load(const QString &fileName)
 {
-    const Ruleset *result = 0;
+    const Ruleset *result = nullptr;
     if (!fileName.isEmpty()) {
         QString filePath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("killbots/rulesets/") + fileName);
         if (!filePath.isEmpty()) {

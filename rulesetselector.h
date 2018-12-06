@@ -37,7 +37,7 @@ class RulesetSelector : public QWidget
     Q_OBJECT
 
 public: // functions
-    explicit RulesetSelector(QWidget *parent = 0);
+    explicit RulesetSelector(QWidget *parent = nullptr);
     virtual ~RulesetSelector();
 
 public: // data members
@@ -46,7 +46,7 @@ public: // data members
 private: // functions
     void findRulesets();
 
-private slots:
+private Q_SLOTS:
     void selectionChanged(QString rulesetName);
     void showDetailsDialog();
 

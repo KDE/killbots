@@ -39,7 +39,7 @@ class MainWindow : public KXmlGuiWindow
     Q_OBJECT
 
 public: // functions
-    explicit MainWindow(QWidget *parent = 0);
+    explicit MainWindow(QWidget *parent = nullptr);
     virtual ~MainWindow();
 
 private: // functions
@@ -47,7 +47,7 @@ private: // functions
     QAction *createMappedAction(int mapping, const QString &internalName, const QString &displayName, const QString &translatedShortcut, const int alternateShortcut, const QString &toolTip = QString(), const QString &icon = QString());
     void createScoreDialog();
 
-private slots:
+private Q_SLOTS:
     void showHighscores();
     void configurePreferences();
     void onGameOver(int score, int round);

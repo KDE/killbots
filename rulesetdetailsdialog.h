@@ -32,7 +32,7 @@ class Ruleset;
 class RulesetDetailsDialog : public QDialog
 {
 public:
-    explicit RulesetDetailsDialog(QWidget *parent = 0);
+    explicit RulesetDetailsDialog(QWidget *parent = nullptr);
     void loadRuleset(const Ruleset *ruleset);
 
 private:

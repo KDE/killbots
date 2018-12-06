@@ -80,7 +80,7 @@ Killbots::OptionsPage::OptionsPage(QWidget *parent)
     formLayout->addItem(new QSpacerItem(0, 16, QSizePolicy::Minimum, QSizePolicy::Fixed));
     formLayout->addRow(speedLabel, speedLayout);
     formLayout->addItem(new QSpacerItem(0, 16, QSizePolicy::Minimum, QSizePolicy::Fixed));
-    formLayout->addRow(0, kcfg_PreventUnsafeMoves);
+    formLayout->addRow(nullptr, kcfg_PreventUnsafeMoves);
 }
 
 Killbots::OptionsPage::~OptionsPage()

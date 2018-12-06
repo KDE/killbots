@@ -177,7 +177,7 @@ namespace Killbots
     private: // functions
         void findRulesets();
 
-    private slots:
+    private Q_SLOTS:
         void selectionChanged( QString rulesetName );
 
     private: // data members
@@ -223,16 +223,16 @@ Define destructors even if they're empty.
 Class definitions should be layed out in the following order.
   public: // types
   public: // functions
-  public slots:
+  public Q_SLOTS:
   public: // data members
-  signals:
+  Q_SIGNALS:
   protected: // types
   protected: // functions
-  protected slots:
+  protected Q_SLOTS:
   protected: // data members
   private: // types
   private: // functions
-  private slots:
+  private Q_SLOTS:
   private: // data members
 
 
