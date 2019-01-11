@@ -76,6 +76,7 @@ target_link_libraries(killbots
 ###### Installing Files ######
 install(TARGETS killbots ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 install(PROGRAMS org.kde.killbots.desktop DESTINATION ${KDE_INSTALL_APPDIR})
+install(FILES org.kde.killbots.appdata.xml DESTINATION  ${KDE_INSTALL_METAINFODIR})
 install(FILES killbots.kcfg DESTINATION ${KDE_INSTALL_KCFGDIR})
 
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)

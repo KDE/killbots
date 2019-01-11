@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop">
+    <id>org.kde.killbots</id>
+    <name>Killbots</name>
+    <summary>Outsmart the killer robots to win</summary>
+    <description><p>How will you get away from the killer robots bent on destruction? Figure it out in this simple, entertaining game. You may be outnumbered by an endless stream of robots, but with your intelligence and handy teleportation device you can defeat them. Outsmart all of the killer robots to win and live to tell the tale!</p></description>
+    <project_license>GPL-2.0+ and GFDL-1.3</project_license>
+    <metadata_license>CC0-1.0</metadata_license>
+    <url type="homepage">http://games.kde.org/</url>
+    <screenshots>
+      <screenshot type="default">
+        <image type="source">https://www.kde.org/images/screenshots/killbots.png</image>
+      </screenshot>
+    </screenshots>
+    <content_rating type="oars-1.1" />
+</component>
