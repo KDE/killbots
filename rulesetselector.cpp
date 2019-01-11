@@ -144,7 +144,7 @@ void Killbots::RulesetSelector::findRulesets()
     m_listWidget->setMaximumHeight(itemHeight * m_listWidget->count() + verticalMargin);
 }
 
-void Killbots::RulesetSelector::selectionChanged(QString rulesetName)
+void Killbots::RulesetSelector::selectionChanged(const QString &rulesetName)
 {
     const Ruleset *ruleset = m_rulesetMap.value(rulesetName);
 

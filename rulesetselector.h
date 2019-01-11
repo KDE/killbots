@@ -47,7 +47,7 @@ private: // functions
     void findRulesets();
 
 private Q_SLOTS:
-    void selectionChanged(QString rulesetName);
+    void selectionChanged(const QString &rulesetName);
     void showDetailsDialog();
 
 private: // data members
