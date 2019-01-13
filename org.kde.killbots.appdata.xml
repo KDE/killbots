@@ -1,16 +1,39 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <component type="desktop">
-    <id>org.kde.killbots</id>
-    <name>Killbots</name>
-    <summary>Outsmart the killer robots to win</summary>
-    <description><p>How will you get away from the killer robots bent on destruction? Figure it out in this simple, entertaining game. You may be outnumbered by an endless stream of robots, but with your intelligence and handy teleportation device you can defeat them. Outsmart all of the killer robots to win and live to tell the tale!</p></description>
-    <project_license>GPL-2.0+ and GFDL-1.3</project_license>
-    <metadata_license>CC0-1.0</metadata_license>
-    <url type="homepage">http://games.kde.org/</url>
-    <screenshots>
-      <screenshot type="default">
-        <image type="source">https://www.kde.org/images/screenshots/killbots.png</image>
-      </screenshot>
-    </screenshots>
-    <content_rating type="oars-1.1" />
+  <id>org.kde.killbots</id>
+  <name>Killbots</name>
+  <name xml:lang="ca">Killbots</name>
+  <name xml:lang="es">Killbots</name>
+  <name xml:lang="nl">Killbots</name>
+  <name xml:lang="pt">Killbots</name>
+  <name xml:lang="sv">Killbots</name>
+  <name xml:lang="uk">Killbots</name>
+  <name xml:lang="x-test">xxKillbotsxx</name>
+  <summary>Outsmart the killer robots to win</summary>
+  <summary xml:lang="ca">Supera amb intel·ligència als robots assassins per guanyar</summary>
+  <summary xml:lang="es">Sea más astuto que los robots asesinos para ganar</summary>
+  <summary xml:lang="nl">Wees slimmer dan de killer-robots om te winnen</summary>
+  <summary xml:lang="pt">Seja mais esperto que os robots assassinos para ganhar</summary>
+  <summary xml:lang="sv">Överlista mördarrobotar för att vinna</summary>
+  <summary xml:lang="uk">Обдуріть роботів-вбивць, щоб виграти</summary>
+  <summary xml:lang="x-test">xxOutsmart the killer robots to winxx</summary>
+  <description>
+    <p>How will you get away from the killer robots bent on destruction? Figure it out in this simple, entertaining game. You may be outnumbered by an endless stream of robots, but with your intelligence and handy teleportation device you can defeat them. Outsmart all of the killer robots to win and live to tell the tale!</p>
+    <p xml:lang="ca">Com aconseguiràs escapar dels robots assassins propensos a la destrucció? Imagina-ho amb aquest joc senzill i entretingut. Estaràs superat en nombre per una munió sense fi de robots, però amb la teva intel·ligència i amb un dispositiu pràctic de teletransport els podràs guanyar. Supera amb intel·ligència als robots assassins per guanyar i viure per explicar la proesa.</p>
+    <p xml:lang="es">¿Cómo escaparía de los robots asesinos y propensos a la destrucción? Resuélvalo en este juego sencillo y entretenido. Puede verse desbordado por una oleada interminable de robots, aunque puede vencerlos con su inteligencia y un práctico dispositivo de teletransporte. ¡Sea más astuto que los robots asesinos para ganar y sobrevivir para poder contarlo!</p>
+    <p xml:lang="nl">Hoe weet u de killer-robots, gericht op vernietiging, te ontwijken? Zoek het uit in dit eenvoudige, onderhoudende spel. U kunt overweldigd worden door een eindeloze stroom robots, maar met uw intelligentie en handig apparaat voor teleporteren kunt u ze verslaan. Wees slimmer dan alle killer-robots om te winnen en leef om het te vertellen!</p>
+    <p xml:lang="pt">Como é que se poderá escapar dos robots assassinos focados na destruição? Descubra neste jogo simples e de entretenimento. Poderá ser sobrecarregado com uma sequência infinita de robots, mas com a sua inteligência e um dispositivo de tele-transporte útil, podê-los-á derrotar. Seja mais esperto que os robots assassinos para ganhar e sobreviver para contar a história!</p>
+    <p xml:lang="sv">Hur kommer du undan från mördarrobotarna inriktade på förintelse? Räkna ut det i det här enkla, underhållande spelet. Du kan vara övermannad av ett ändlös flöde av robotar, men med din intelligens och praktiska teleporteringsenhet kan du besegra dem. Överlista alla mördarrobotarna för att vinna och överleva så att du kan berätta om det.</p>
+    <p xml:lang="uk">Як втекти від роботів-вбивць, єдиною метою яких є руйнування? Спробуйте впоратися із цим завданням у нашій простій, але захопливій грі. Хай роботів дуже багато, але за допомогою вашого інтелекту та зручного пристрою для телепортування ви можете їх перемогти. Обдуріть вбивць, щоб виграти гру, і живіть далі, щоб розповісти світові вашу історію!</p>
+    <p xml:lang="x-test">xxHow will you get away from the killer robots bent on destruction? Figure it out in this simple, entertaining game. You may be outnumbered by an endless stream of robots, but with your intelligence and handy teleportation device you can defeat them. Outsmart all of the killer robots to win and live to tell the tale!xx</p>
+  </description>
+  <project_license>GPL-2.0+ and GFDL-1.3</project_license>
+  <metadata_license>CC0-1.0</metadata_license>
+  <url type="homepage">http://games.kde.org/</url>
+  <screenshots>
+    <screenshot type="default">
+      <image type="source">https://www.kde.org/images/screenshots/killbots.png</image>
+    </screenshot>
+  </screenshots>
+  <content_rating type="oars-1.1"/>
 </component>
