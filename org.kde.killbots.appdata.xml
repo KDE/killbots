@@ -3,7 +3,9 @@
   <id>org.kde.killbots</id>
   <name>Killbots</name>
   <name xml:lang="ca">Killbots</name>
+  <name xml:lang="ca-valencia">Killbots</name>
   <name xml:lang="es">Killbots</name>
+  <name xml:lang="fr">Killbots</name>
   <name xml:lang="nl">Killbots</name>
   <name xml:lang="pt">Killbots</name>
   <name xml:lang="sv">Killbots</name>
@@ -11,6 +13,7 @@
   <name xml:lang="x-test">xxKillbotsxx</name>
   <summary>Outsmart the killer robots to win</summary>
   <summary xml:lang="ca">Supera amb intel·ligència als robots assassins per guanyar</summary>
+  <summary xml:lang="ca-valencia">Supera amb intel·ligència als robots assassins per guanyar</summary>
   <summary xml:lang="es">Sea más astuto que los robots asesinos para ganar</summary>
   <summary xml:lang="nl">Wees slimmer dan de killer-robots om te winnen</summary>
   <summary xml:lang="pt">Seja mais esperto que os robots assassinos para ganhar</summary>
@@ -20,6 +23,7 @@
   <description>
     <p>How will you get away from the killer robots bent on destruction? Figure it out in this simple, entertaining game. You may be outnumbered by an endless stream of robots, but with your intelligence and handy teleportation device you can defeat them. Outsmart all of the killer robots to win and live to tell the tale!</p>
     <p xml:lang="ca">Com aconseguiràs escapar dels robots assassins propensos a la destrucció? Imagina-ho amb aquest joc senzill i entretingut. Estaràs superat en nombre per una munió sense fi de robots, però amb la teva intel·ligència i amb un dispositiu pràctic de teletransport els podràs guanyar. Supera amb intel·ligència als robots assassins per guanyar i viure per explicar la proesa.</p>
+    <p xml:lang="ca-valencia">Com aconseguiràs escapar dels robots assassins propensos a la destrucció? Imagina-ho amb aquest joc senzill i entretingut. Estaràs superat en nombre per una munió sense fi de robots, però amb la teva intel·ligència i amb un dispositiu pràctic de teletransport els podràs guanyar. Supera amb intel·ligència als robots assassins per guanyar i viure per explicar la proesa.</p>
     <p xml:lang="es">¿Cómo escaparía de los robots asesinos y propensos a la destrucción? Resuélvalo en este juego sencillo y entretenido. Puede verse desbordado por una oleada interminable de robots, aunque puede vencerlos con su inteligencia y un práctico dispositivo de teletransporte. ¡Sea más astuto que los robots asesinos para ganar y sobrevivir para poder contarlo!</p>
     <p xml:lang="nl">Hoe weet u de killer-robots, gericht op vernietiging, te ontwijken? Zoek het uit in dit eenvoudige, onderhoudende spel. U kunt overweldigd worden door een eindeloze stroom robots, maar met uw intelligentie en handig apparaat voor teleporteren kunt u ze verslaan. Wees slimmer dan alle killer-robots om te winnen en leef om het te vertellen!</p>
     <p xml:lang="pt">Como é que se poderá escapar dos robots assassinos focados na destruição? Descubra neste jogo simples e de entretenimento. Poderá ser sobrecarregado com uma sequência infinita de robots, mas com a sua inteligência e um dispositivo de tele-transporte útil, podê-los-á derrotar. Seja mais esperto que os robots assassinos para ganhar e sobreviver para contar a história!</p>
