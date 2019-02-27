@@ -60,7 +60,7 @@ Killbots::OptionsPage::OptionsPage(QWidget *parent)
     instantLabel->setAlignment(Qt::AlignRight);
 
     QGridLayout *speedLayout = new QGridLayout();
-    speedLayout->setMargin(0);
+    speedLayout->setContentsMargins(0, 0, 0, 0);
     speedLayout->setSpacing(0);
     speedLayout->addWidget(kcfg_AnimationSpeed, 0, 0, 1, 3);
     speedLayout->addWidget(slowLabel, 1, 0);
@@ -74,7 +74,7 @@ Killbots::OptionsPage::OptionsPage(QWidget *parent)
     kcfg_PreventUnsafeMoves->setObjectName(QStringLiteral("kcfg_PreventUnsafeMoves"));
 
     QFormLayout *formLayout = new QFormLayout(this);
-    formLayout->setMargin(0);
+    formLayout->setContentsMargins(0, 0, 0, 0);
     formLayout->addRow(i18n("&Middle-click action:"), kcfg_MiddleClickAction);
     formLayout->addRow(i18n("&Right-click action:"), kcfg_RightClickAction);
     formLayout->addItem(new QSpacerItem(0, 16, QSizePolicy::Minimum, QSizePolicy::Fixed));

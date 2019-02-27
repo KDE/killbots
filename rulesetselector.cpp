@@ -90,7 +90,7 @@ Killbots::RulesetSelector::RulesetSelector(QWidget *parent)
     boxLayout->setRowStretch(5, 10);
 
     QVBoxLayout *layout = new QVBoxLayout(this);
-    layout->setMargin(0);
+    layout->setContentsMargins(0, 0, 0, 0);
     layout->addWidget(kcfg_Ruleset);
     layout->addWidget(m_listWidget);
     layout->addWidget(groupBox, 10);
