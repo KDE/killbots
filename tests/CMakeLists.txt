@@ -16,7 +16,7 @@ set( enginetest_SRCS
 )
 kconfig_add_kcfg_files( enginetest_SRCS ../settings.kcfgc ../rulesetbase.kcfgc )
 add_executable( enginetest ${enginetest_SRCS} )
-add_test(enginetest enginetest)
+add_test(NAME enginetest COMMAND enginetest)
 ecm_mark_as_test(enginetest)
 target_link_libraries( enginetest
     KF5::KDELibs4Support
