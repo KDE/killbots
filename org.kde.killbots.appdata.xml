@@ -55,7 +55,7 @@
   <url type="homepage">http://games.kde.org/</url>
   <screenshots>
     <screenshot type="default">
-      <image type="source">http://kde.org/applications/games/org.kde.killbots</image>
+      <image type="source">https://cdn.kde.org/screenshots/killbots/killbots.png</image>
     </screenshot>
   </screenshots>
 </component>
