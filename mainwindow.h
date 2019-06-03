@@ -21,7 +21,6 @@
 #define KILLBOTS_MAINWINDOW_H
 
 class QAction;
-class KActionCollection;
 class KScoreDialog;
 #include <KXmlGuiWindow>
 
