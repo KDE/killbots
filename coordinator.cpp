@@ -27,7 +27,6 @@
 
 #include <kgamepopupitem.h>
 
-#include <QDebug>
 #include <KLocalizedString>
 
 #include <QGraphicsView>

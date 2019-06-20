@@ -21,7 +21,6 @@
 
 #include "renderer.h"
 
-#include <QPainter>
 
 Killbots::Sprite::Sprite()
     : KGameRenderedItem(Renderer::self(), QString())

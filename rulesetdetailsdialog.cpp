@@ -25,8 +25,6 @@
 
 #include <QFormLayout>
 #include <QLabel>
-#include <QScrollArea>
-#include <KConfigGroup>
 #include <QDialogButtonBox>
 #include <QPushButton>
 #include <QVBoxLayout>

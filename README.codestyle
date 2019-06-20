@@ -283,11 +283,8 @@ namespace Killbots
 #include <KDE/KLocalizedString>
 #include <KDE/KStandardDirs>
 
-#include <QGroupBox>
 #include <QLabel>
-#include <QLayout>
 #include <QListWidget>
-#include <QScrollArea>
 -------------------------------------------------------------------------------
 
 

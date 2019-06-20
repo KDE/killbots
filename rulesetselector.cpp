@@ -23,18 +23,16 @@
 #include "rulesetdetailsdialog.h"
 #include "settings.h"
 
-#include <QDebug>
 #include <KLineEdit>
 #include <KLocalizedString>
 
 #include <QDir>
 #include <QGroupBox>
 #include <QLabel>
-#include <QLayout>
 #include <QListWidget>
 #include <QPushButton>
-#include <QScrollArea>
-#include <QTableWidget>
+#include <QGridLayout>
+#include <QVBoxLayout>
 
 Killbots::RulesetSelector::RulesetSelector(QWidget *parent)
     : QWidget(parent),

@@ -2,7 +2,6 @@
 
 #include "renderer.h"
 
-#include <QDebug>
 #include <KGlobal>
 #include <KStandardDirs>
 
