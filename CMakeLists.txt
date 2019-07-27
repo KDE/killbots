@@ -1,6 +1,13 @@
-project( killbots )
-
 cmake_minimum_required (VERSION 3.5 FATAL_ERROR)
+
+# KDE Application Version, managed by release script
+set(KDE_APPLICATIONS_VERSION_MAJOR "19")
+set(KDE_APPLICATIONS_VERSION_MINOR "11")
+set(KDE_APPLICATIONS_VERSION_MICRO "70")
+set(KDE_APPLICATIONS_VERSION "${KDE_APPLICATIONS_VERSION_MAJOR}.${KDE_APPLICATIONS_VERSION_MINOR}.${KDE_APPLICATIONS_VERSION_MICRO}")
+
+project(killbots VERSION ${KDE_APPLICATIONS_VERSION})
+
 set (QT_MIN_VERSION "5.7.0")
 set (KF5_MIN_VERSION "5.30.0")
 
@@ -31,6 +38,7 @@ include(KDEInstallDirs)
 include(KDEFrameworkCompilerSettings NO_POLICY_SCOPE)
 include(KDECMakeSettings)
 include(ECMAddTests)
+include(ECMSetupVersion)
 
 ###### Switching to Subdirectories ######
 add_subdirectory(icons)
@@ -57,6 +65,8 @@ set(killbots_SRCS
     view.cpp
 )
 qt5_add_resources(killbots_SRCS killbots.qrc)
+
+ecm_setup_version(${KDE_APPLICATIONS_VERSION} VARIABLE_PREFIX KILLBOTS VERSION_HEADER killbots_version.h)
 
 kconfig_add_kcfg_files( killbots_SRCS settings.kcfgc rulesetbase.kcfgc )
 file(GLOB ICONS_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/icons/*-apps-killbots.png")
