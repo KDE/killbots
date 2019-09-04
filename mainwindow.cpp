@@ -43,7 +43,6 @@
 #include <QIcon>
 
 #include <QDebug>
-#include <QSignalMapper>
 #include <QTimer>
 
 Killbots::MainWindow::MainWindow(QWidget *parent)
@@ -70,9 +69,6 @@ Killbots::MainWindow::MainWindow(QWidget *parent)
     m_view->setWhatsThis(i18n("This is the main game area used to interact with Killbots. It shows the current state of the game grid and allows one to control the hero using the mouse. It also displays certain statistics about the game in progress."));
     setCentralWidget(m_view);
     connect(m_view, &View::sizeChanged, m_scene, &Scene::doLayout);
-
-    m_keyboardMapper = new QSignalMapper(this);
-    connect(m_keyboardMapper, SIGNAL(mapped(int)), m_coordinator, SLOT(requestAction(int)));
 
     setupActions();
     connect(m_engine, &Engine::teleportAllowed,       actionCollection()->action(QStringLiteral("teleport")),        &QAction::setEnabled);
@@ -235,8 +231,7 @@ QAction *Killbots::MainWindow::createMappedAction(int mapping,
         action->setIcon(QIcon::fromTheme(icon));
     }
 
-    connect(action, SIGNAL(triggered()), m_keyboardMapper, SLOT(map()));
-    m_keyboardMapper->setMapping(action, mapping);
+    connect(action, &QAction::triggered, this, [this, mapping] { m_coordinator->requestAction(mapping); });
     actionCollection()->addAction(internalName, action);
 
     return action;

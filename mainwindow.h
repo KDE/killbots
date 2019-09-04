@@ -24,8 +24,6 @@ class QAction;
 class KScoreDialog;
 #include <KXmlGuiWindow>
 
-class QSignalMapper;
-
 namespace Killbots
 {
 class Engine;
@@ -59,7 +57,6 @@ private : // data members
     View *m_view;
     Coordinator *m_coordinator;
     KScoreDialog *m_scoreDialog;
-    QSignalMapper *m_keyboardMapper;
     bool m_rulesetChanged;
 };
 
