@@ -40,6 +40,10 @@ include(KDECMakeSettings)
 include(ECMAddTests)
 include(ECMSetupVersion)
 
+if (EXISTS "${CMAKE_SOURCE_DIR}/.git")
+   add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x060000)
+endif()
+
 ###### Switching to Subdirectories ######
 add_subdirectory(icons)
 add_subdirectory(rulesets)

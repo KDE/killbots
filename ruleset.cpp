@@ -28,7 +28,7 @@ const Killbots::Ruleset *Killbots::Ruleset::load(const QString &fileName)
 {
     const Ruleset *result = nullptr;
     if (!fileName.isEmpty()) {
-        QString filePath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("killbots/rulesets/") + fileName);
+        QString filePath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("killbots/rulesets/") + fileName);
         if (!filePath.isEmpty()) {
             // Our only check for validity is that we can open the file as a config
             // file and that it contains a group named "KillbotsRuleset".
