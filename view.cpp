@@ -42,7 +42,7 @@ Killbots::View::View(QGraphicsScene *scene, QWidget *parent)
 
     // Including QGraphicsView::DontAdjustForAntialiasing here sometimes caused
     // painting traces in certain situations like pushing junkheaps.
-    setOptimizationFlags(QGraphicsView::DontClipPainter | QGraphicsView::DontSavePainterState);
+    setOptimizationFlags( QGraphicsView::DontSavePainterState);
 }
 
 Killbots::View::~View()
