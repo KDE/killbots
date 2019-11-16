@@ -154,7 +154,7 @@ void Killbots::RulesetSelector::selectionChanged(const QString &rulesetName)
     } else if (ruleset->authorContact().contains(QLatin1Char('@'))) {
         m_authorContact->setText(QStringLiteral("<qt><a href=\"mailto:%1\">%1</a></qt>").arg(ruleset->authorContact()));
     } else if (ruleset->authorContact().contains(QLatin1Char('.'))) {
-        m_authorContact->setText(QStringLiteral("<qt><a href=\"http://%1\">%1</a></qt>").arg(ruleset->authorContact()));
+        m_authorContact->setText(QStringLiteral("<qt><a href=\"https://%1\">%1</a></qt>").arg(ruleset->authorContact()));
     } else {
         m_authorContact->setText(ruleset->authorContact());
     }
