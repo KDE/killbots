@@ -25,7 +25,7 @@
 
 #include <KGamePopupItem>
 
-#include <QDebug>
+#include "killbots_debug.h"
 
 #include <QPainter>
 #include <QGraphicsSceneMouseEvent>
@@ -150,7 +150,7 @@ void Killbots::Scene::doLayout()
         return;
     }
 
-    //qDebug() << "Laying out scene at" << size;
+    //qCDebug(KILLBOTS_LOG) << "Laying out scene at" << size;
 
     // Make certain layout properties proportional to the scene height,
     // but clamp them between reasonable values. There's probably room for more

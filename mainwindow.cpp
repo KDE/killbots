@@ -42,7 +42,7 @@
 #include <KStandardAction>
 #include <QIcon>
 
-#include <QDebug>
+#include "killbots_debug.h"
 #include <QTimer>
 
 Killbots::MainWindow::MainWindow(QWidget *parent)
@@ -129,7 +129,7 @@ void Killbots::MainWindow::onSettingsChanged()
     m_coordinator->setAnimationSpeed(Settings::animationSpeed());
 
     if (m_engine->ruleset()->fileName() != Settings::ruleset()) {
-        qDebug() << "Detected a changed in ruleset. From" << m_engine->ruleset()->fileName() << "to" << Settings::ruleset();
+        qCDebug(KILLBOTS_LOG) << "Detected a changed in ruleset. From" << m_engine->ruleset()->fileName() << "to" << Settings::ruleset();
 
         // We don't act on the changed ruleset here because the config dialog
         // is still visible. We want the game in progress to be visible when

@@ -20,7 +20,7 @@
 #include "ruleset.h"
 
 #include <KConfigGroup>
-#include <QDebug>
+#include "killbots_debug.h"
 
 #include <QFileInfo>
 
@@ -39,7 +39,7 @@ const Killbots::Ruleset *Killbots::Ruleset::load(const QString &fileName)
         }
     }
     if (!result) {
-        qDebug() << "Failed to load " << fileName;
+        qCDebug(KILLBOTS_LOG) << "Failed to load " << fileName;
     }
 
     return result;

@@ -39,7 +39,7 @@ include(KDEFrameworkCompilerSettings NO_POLICY_SCOPE)
 include(KDECMakeSettings)
 include(ECMAddTests)
 include(ECMSetupVersion)
-
+include(ECMQtDeclareLoggingCategory)
 if (EXISTS "${CMAKE_SOURCE_DIR}/.git")
    add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x060000)
    add_definitions(-DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x060000)
@@ -69,6 +69,7 @@ set(killbots_SRCS
     sprite.cpp
     view.cpp
 )
+ecm_qt_declare_logging_category(killbots_SRCS HEADER killbots_debug.h IDENTIFIER KILLBOTS_LOG CATEGORY_NAME org.kde.kdegames.killbots)
 qt5_add_resources(killbots_SRCS killbots.qrc)
 
 ecm_setup_version(${RELEASE_SERVICE_VERSION} VARIABLE_PREFIX KILLBOTS VERSION_HEADER killbots_version.h)
@@ -93,5 +94,5 @@ install(TARGETS killbots ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 install(PROGRAMS org.kde.killbots.desktop DESTINATION ${KDE_INSTALL_APPDIR})
 install(FILES org.kde.killbots.appdata.xml DESTINATION  ${KDE_INSTALL_METAINFODIR})
 install(FILES killbots.kcfg DESTINATION ${KDE_INSTALL_KCFGDIR})
-
+install( FILES killbots.categories DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR} )
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
