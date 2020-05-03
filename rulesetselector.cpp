@@ -45,19 +45,19 @@ Killbots::RulesetSelector::RulesetSelector(QWidget *parent)
     kcfg_Ruleset->hide();
 
     m_listWidget = new QListWidget();
-    m_listWidget->setWhatsThis(i18n("A list of the Killbots rulesets installed on this computer."));
+    m_listWidget->setWhatsThis(i18nc("@info:whatsthis", "A list of the Killbots rulesets installed on this computer."));
 
-    QGroupBox *groupBox = new QGroupBox(i18n("Game Type Details"));
-    groupBox->setWhatsThis(i18n("Lists information on the currently selected game type."));
+    QGroupBox *groupBox = new QGroupBox(i18nc("title:group", "Game Type Details"));
+    groupBox->setWhatsThis(i18nc("@info:whatsthis", "Lists information on the currently selected game type."));
 
-    QLabel *authorLabel = new QLabel(i18n("Author:"));
+    QLabel *authorLabel = new QLabel(i18nc("@label", "Author:"));
     authorLabel->setAlignment(Qt::AlignRight | Qt::AlignTop);
 
     m_author = new QLabel();
     m_author->setAlignment(Qt::AlignLeft | Qt::AlignTop);
     m_author->setWordWrap(true);
 
-    QLabel *contactLabel = new QLabel(i18n("Contact:"));
+    QLabel *contactLabel = new QLabel(i18nc("@label", "Contact:"));
     contactLabel->setAlignment(Qt::AlignRight | Qt::AlignTop);
 
     m_authorContact = new QLabel();
@@ -65,16 +65,16 @@ Killbots::RulesetSelector::RulesetSelector(QWidget *parent)
     m_authorContact->setWordWrap(true);
     m_authorContact->setOpenExternalLinks(true);
 
-    QLabel *descriptionLabel = new QLabel(i18n("Description:"));
+    QLabel *descriptionLabel = new QLabel(i18nc("@label", "Description:"));
     descriptionLabel->setAlignment(Qt::AlignRight | Qt::AlignTop);
 
     m_description = new QLabel();
     m_description->setAlignment(Qt::AlignLeft | Qt::AlignTop);
     m_description->setWordWrap(true);
 
-    QPushButton *detailsButton = new QPushButton(i18n("Details..."));
-    detailsButton->setToolTip(i18n("Show the detailed parameters of the selected game type"));
-    detailsButton->setWhatsThis(i18n("Opens a dialog listing the values of all internal parameters for the selected game type."));
+    QPushButton *detailsButton = new QPushButton(i18nc("@action:button", "Details..."));
+    detailsButton->setToolTip(i18nc("@info:tooltip", "Show the detailed parameters of the selected game type"));
+    detailsButton->setWhatsThis(i18nc("@info:whatsthisp", "Opens a dialog listing the values of all internal parameters for the selected game type."));
 
     QGridLayout *boxLayout = new QGridLayout(groupBox);
     boxLayout->addWidget(authorLabel, 1, 0);

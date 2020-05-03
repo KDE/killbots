@@ -45,10 +45,11 @@ Killbots::RulesetDetailsDialog::RulesetDetailsDialog(QWidget *parent)
 void Killbots::RulesetDetailsDialog::loadRuleset(const Ruleset *ruleset)
 {
     static QStringList maskedItems = QStringList() << QStringLiteral("Name") << QStringLiteral("Author") << QStringLiteral("AuthorContact") << QStringLiteral("Description");
-    static QStringList junkheapEnumText = QStringList()
-                                          << i18nc("Quantity of junkheaps that can be pushed", "None")
-                                          << i18nc("Quantity of junkheaps that can be pushed", "One")
-                                          << i18nc("Quantity of junkheaps that can be pushed", "Many");
+    const QStringList junkheapEnumText {
+	i18nc("@item Quantity of junkheaps that can be pushed", "None"),
+        i18nc("@item Quantity of junkheaps that can be pushed", "One"),
+        i18nc("@item Quantity of junkheaps that can be pushed", "Many"),
+    };
 
     // If the dialog hasn't been setup already, do so.
     if (m_labels.size() == 0) {
@@ -75,7 +76,7 @@ void Killbots::RulesetDetailsDialog::loadRuleset(const Ruleset *ruleset)
 
         QString valueText;
         if (dynamic_cast<const KCoreConfigSkeleton::ItemBool *>(item)) {
-            valueText = item->property().toBool() ? i18n("Yes") : i18n("No");
+            valueText = item->property().toBool() ? i18nc("@item", "Yes") : i18nc("@item", "No");
         } else if (it.key() == QLatin1String("PushableJunkheaps")) {
             valueText = junkheapEnumText.at(item->property().toInt());
         } else {
@@ -85,6 +86,6 @@ void Killbots::RulesetDetailsDialog::loadRuleset(const Ruleset *ruleset)
         it.value()->setText(valueText);
     }
 
-    setWindowTitle(i18n("Details of %1 Game Type", ruleset->name()));
+    setWindowTitle(i18nc("@title:window", "Details of %1 Game Type", ruleset->name()));
 }
 

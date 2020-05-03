@@ -8,7 +8,7 @@
 
 	<MenuBar>
 		<Menu name="moveMenu">
-			<text>Move</text>
+			<text context="@title:menu">Move</text>
 			<Action name="teleport"/>
 			<Action name="teleport_safely"/>
 			<Action name="teleport_sip"/>

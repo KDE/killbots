@@ -109,22 +109,22 @@ void Killbots::Coordinator::setScene(Scene *scene)
     m_scene = scene;
 
     m_roundDisplay = new NumericDisplayItem;
-    m_roundDisplay->setLabel(i18n("Round:"));
+    m_roundDisplay->setLabel(i18nc("@label", "Round:"));
     m_roundDisplay->setDigits(2);
     m_scene->addNumericDisplay(m_roundDisplay);
 
     m_scoreDisplay = new NumericDisplayItem;
-    m_scoreDisplay->setLabel(i18n("Score:"));
+    m_scoreDisplay->setLabel(i18nc("@label", "Score:"));
     m_scoreDisplay->setDigits(5);
     m_scene->addNumericDisplay(m_scoreDisplay);
 
     m_enemyCountDisplay = new NumericDisplayItem;
-    m_enemyCountDisplay->setLabel(i18n("Enemies:"));
+    m_enemyCountDisplay->setLabel(i18nc("@label", "Enemies:"));
     m_enemyCountDisplay->setDigits(3);
     m_scene->addNumericDisplay(m_enemyCountDisplay);
 
     m_energyDisplay = new NumericDisplayItem;
-    m_energyDisplay->setLabel(i18n("Energy:"));
+    m_energyDisplay->setLabel(i18nc("@label", "Energy:"));
     m_energyDisplay->setDigits(2);
     m_scene->addNumericDisplay(m_energyDisplay);
 
@@ -413,22 +413,22 @@ void Killbots::Coordinator::showUnqueuedMessage(const QString &message, int time
 
 void Killbots::Coordinator::showRoundCompleteMessage()
 {
-    m_stages.last().message = i18n("Round complete.");
+    m_stages.last().message = i18nc("@info", "Round complete.");
 }
 
 void Killbots::Coordinator::showBoardFullMessage()
 {
-    m_stages.last().message = i18n("Board is full.\nResetting enemy counts.");
+    m_stages.last().message = i18nc("@info", "Board is full.\nResetting enemy counts.");
 }
 
 void Killbots::Coordinator::showNewGameMessage()
 {
-    showUnqueuedMessage(i18n("New game."));
+    showUnqueuedMessage(i18nc("@info", "New game."));
 }
 
 void Killbots::Coordinator::showGameOverMessage()
 {
-    showUnqueuedMessage(i18n("Game over."), 15000);
+    showUnqueuedMessage(i18nc("@info", "Game over."), 15000);
 }
 
 #include "moc_coordinator.cpp"
