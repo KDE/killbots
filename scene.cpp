@@ -324,17 +324,17 @@ void Killbots::Scene::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
         }
 
         if (userAction == Settings::Step) {
-            emit clicked(actionFromPosition);
+            Q_EMIT clicked(actionFromPosition);
         } else if (userAction == Settings::RepeatedStep) {
-            emit clicked(-actionFromPosition - 1);
+            Q_EMIT clicked(-actionFromPosition - 1);
         } else if (userAction == Settings::Teleport) {
-            emit clicked(Teleport);
+            Q_EMIT clicked(Teleport);
         } else if (userAction == Settings::TeleportSafely) {
-            emit clicked(TeleportSafely);
+            Q_EMIT clicked(TeleportSafely);
         } else if (userAction == Settings::TeleportSafelyIfPossible) {
-            emit clicked(TeleportSafelyIfPossible);
+            Q_EMIT clicked(TeleportSafelyIfPossible);
         } else if (userAction == Settings::WaitOutRound) {
-            emit clicked(WaitOutRound);
+            Q_EMIT clicked(WaitOutRound);
         }
     }
 

@@ -52,7 +52,7 @@ Killbots::View::~View()
 void Killbots::View::resizeEvent(QResizeEvent *event)
 {
     QGraphicsView::resizeEvent(event);
-    emit sizeChanged(event->size());
+    Q_EMIT sizeChanged(event->size());
 }
 
 #include "moc_view.cpp"

@@ -43,6 +43,7 @@ include(ECMQtDeclareLoggingCategory)
 
 add_definitions(
     -DQT_NO_FOREACH
+    -DQT_NO_KEYWORDS
 )
 
 ###### Switching to Subdirectories ######

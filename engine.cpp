@@ -113,7 +113,7 @@ void Killbots::Engine::startNewGame()
 
     // Don't show the new game message on first start.
     if (m_round != 0) {
-        emit showNewGameMessage();
+        Q_EMIT showNewGameMessage();
     }
 
     m_heroIsDead = false;
@@ -126,10 +126,10 @@ void Killbots::Engine::startNewGame()
     m_fastbotCount = m_rules->fastEnemiesAtGameStart();
     m_junkheapCount = m_rules->junkheapsAtGameStart();
 
-    emit teleportAllowed(true);
-    emit waitOutRoundAllowed(true);
-    emit teleportSafelyAllowed(canSafeTeleport());
-    emit vaporizerAllowed(canUseVaporizer());
+    Q_EMIT teleportAllowed(true);
+    Q_EMIT waitOutRoundAllowed(true);
+    Q_EMIT teleportSafelyAllowed(canSafeTeleport());
+    Q_EMIT vaporizerAllowed(canUseVaporizer());
 
     // Code used to generate theme previews
     //newRound( "  r\nhjf", false );
@@ -202,10 +202,10 @@ void Killbots::Engine::startNewRound(bool incrementRound, const QString &layout)
         }
     }
 
-    emit roundChanged(m_round);
-    emit scoreChanged(m_score);
-    emit enemyCountChanged(m_bots.size());
-    emit energyChanged(m_energy);
+    Q_EMIT roundChanged(m_round);
+    Q_EMIT scoreChanged(m_score);
+    Q_EMIT enemyCountChanged(m_bots.size());
+    Q_EMIT energyChanged(m_energy);
 
     refreshSpriteMap();
 }
@@ -367,14 +367,14 @@ void Killbots::Engine::assessDamage()
 
     if (isRoundComplete()) {
         m_coordinator->beginNewAnimationStage();
-        emit showRoundCompleteMessage();
+        Q_EMIT showRoundCompleteMessage();
     }
 }
 
 void Killbots::Engine::resetBotCounts()
 {
     m_coordinator->beginNewAnimationStage();
-    emit showBoardFullMessage();
+    Q_EMIT showBoardFullMessage();
 
     m_maxEnergy = m_rules->maxEnergyAtGameStart();
     m_robotCount = m_rules->enemiesAtGameStart();
@@ -387,12 +387,12 @@ void Killbots::Engine::resetBotCounts()
 
 void Killbots::Engine::endGame()
 {
-    emit showGameOverMessage();
-    emit teleportAllowed(false);
-    emit waitOutRoundAllowed(false);
-    emit teleportSafelyAllowed(false);
-    emit vaporizerAllowed(false);
-    emit gameOver(m_score, m_round);
+    Q_EMIT showGameOverMessage();
+    Q_EMIT teleportAllowed(false);
+    Q_EMIT waitOutRoundAllowed(false);
+    Q_EMIT teleportSafelyAllowed(false);
+    Q_EMIT vaporizerAllowed(false);
+    Q_EMIT gameOver(m_score, m_round);
 }
 
 // The hero action functions and the assessDamage functions must know the
@@ -755,7 +755,7 @@ void Killbots::Engine::destroySprite(Sprite *sprite, bool calculatePoints)
             }
         }
         m_bots.removeOne(sprite);
-        emit enemyCountChanged(m_bots.size());
+        Q_EMIT enemyCountChanged(m_bots.size());
     } else if (type == Junkheap) {
         m_junkheaps.removeOne(sprite);
     }
@@ -782,7 +782,7 @@ void Killbots::Engine::updateScore(int changeInScore)
 {
     if (changeInScore != 0) {
         m_score = m_score + changeInScore;
-        emit scoreChanged(m_score);
+        Q_EMIT scoreChanged(m_score);
     }
 }
 
@@ -798,9 +798,9 @@ void Killbots::Engine::updateEnergy(int changeInEnergy)
             m_energy = m_energy + changeInEnergy;
         }
 
-        emit energyChanged(m_energy);
-        emit teleportSafelyAllowed(canSafeTeleport());
-        emit vaporizerAllowed(canUseVaporizer());
+        Q_EMIT energyChanged(m_energy);
+        Q_EMIT teleportSafelyAllowed(canSafeTeleport());
+        Q_EMIT vaporizerAllowed(canUseVaporizer());
     }
 }
 
