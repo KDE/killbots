@@ -166,13 +166,13 @@ void Killbots::MainWindow::createScoreDialog()
     m_scoreDialog->setModal(false);
     QStringList fileList;
     const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("killbots/ruleset"), QStandardPaths::LocateDirectory);
-    Q_FOREACH (const QString &dir, dirs) {
+    for (const QString &dir : dirs) {
         const QStringList fileNames = QDir(dir).entryList(QStringList() << QStringLiteral("*.desktop"));
-        Q_FOREACH (const QString &file, fileNames) {
+        for (const QString &file : fileNames) {
             fileList.append(dir + QLatin1Char('/') + file);
         }
     }
-    foreach (const QString &fileName, fileList) {
+    for (const QString &fileName : qAsConst(fileList)) {
         const Ruleset *ruleset = Ruleset::load(fileName);
         if (ruleset) {
             m_scoreDialog->addLocalizedConfigGroupName(qMakePair(ruleset->scoreGroupKey(), ruleset->name()));

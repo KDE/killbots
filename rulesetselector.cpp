@@ -113,9 +113,9 @@ void Killbots::RulesetSelector::findRulesets()
     m_listWidget->setSortingEnabled(true);
 
     const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("killbots/rulesets/"), QStandardPaths::LocateDirectory);
-    Q_FOREACH (const QString  &dir, dirs) {
+    for (const QString &dir : dirs) {
         const QStringList fileNames = QDir(dir).entryList(QStringList() << QStringLiteral("*.desktop"));
-        Q_FOREACH (const QString &file, fileNames) {
+        for (const QString &file : fileNames) {
             const Ruleset *ruleset = Ruleset::load(file);
             if (ruleset) {
                 QString name = ruleset->name();

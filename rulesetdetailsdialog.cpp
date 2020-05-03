@@ -54,7 +54,8 @@ void Killbots::RulesetDetailsDialog::loadRuleset(const Ruleset *ruleset)
     if (m_labels.size() == 0) {
         QFormLayout *layout = new QFormLayout(mMainWidget);
 
-        foreach (const KConfigSkeletonItem *item, ruleset->items()) {
+        const auto items = ruleset->items();
+        for (const KConfigSkeletonItem *item : items) {
             if (!maskedItems.contains(item->name())) {
                 QString labelText = item->label().isEmpty() ? item->name() : item->label();
                 labelText = i18nc("%1 is a pretranslated string that we're turning into a label", "%1:", labelText);

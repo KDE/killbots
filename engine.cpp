@@ -26,6 +26,8 @@
 #include "killbots_debug.h"
 #include <KRandom>
 
+#include <array>
+
 uint qHash(const QPoint &point)
 {
     return qHash(point.x() * 1000 + point.y());
@@ -296,7 +298,7 @@ bool Killbots::Engine::useVaporizer()
 
     if (!neighbors.isEmpty()) {
         m_coordinator->beginNewAnimationStage();
-        foreach (Sprite *sprite, neighbors) {
+        for (Sprite *sprite : qAsConst(neighbors)) {
             destroySprite(sprite);
         }
         updateEnergy(-m_rules->costOfVaporizer());
@@ -318,7 +320,7 @@ void Killbots::Engine::moveRobots(bool justFastbots)
 
     if (justFastbots) {
         refreshSpriteMap();
-        foreach (Sprite *bot, m_bots) {
+        for (Sprite *bot : qAsConst(m_bots)) {
             if (bot->spriteType() == Fastbot) {
                 const QPoint offset(sign(m_hero->gridPos().x() - bot->gridPos().x()), sign(m_hero->gridPos().y() - bot->gridPos().y()));
                 const QPoint target = bot->gridPos() + offset;
@@ -328,7 +330,7 @@ void Killbots::Engine::moveRobots(bool justFastbots)
             }
         }
     } else {
-        foreach (Sprite *bot, m_bots) {
+        for (Sprite *bot : qAsConst(m_bots)) {
             const QPoint offset(sign(m_hero->gridPos().x() - bot->gridPos().x()), sign(m_hero->gridPos().y() - bot->gridPos().y()));
             m_coordinator->slideSprite(bot, bot->gridPos() + offset);
         }
@@ -346,7 +348,8 @@ void Killbots::Engine::assessDamage()
     }
 
     // Check junkheaps for dead robots
-    foreach (Sprite *junkheap, m_junkheaps) {
+    const auto junkheaps = m_junkheaps;
+    for (Sprite *junkheap : junkheaps) {
         destroyAllCollidingBots(junkheap, !m_heroIsDead);
     }
 
@@ -398,10 +401,10 @@ void Killbots::Engine::endGame()
 void Killbots::Engine::refreshSpriteMap()
 {
     m_spriteMap.clear();
-    foreach (Sprite *bot, m_bots) {
+    for (Sprite *bot : qAsConst(m_bots)) {
         m_spriteMap.insert(bot->gridPos(), bot);
     }
-    foreach (Sprite *junkheap, m_junkheaps) {
+    for (Sprite *junkheap : qAsConst(m_junkheaps)) {
         m_spriteMap.insert(junkheap->gridPos(), junkheap);
     }
 }
@@ -640,19 +643,20 @@ bool Killbots::Engine::moveIsSafe(const QPoint &cell, HeroAction direction) cons
             // If we're examining an vertical or horizontal neighbour, things are more complicated...
             else {
                 // Assemble a list of the cells behind the neighbour.
-                QList<QPoint> cellsBehindNeighbor;
-                cellsBehindNeighbor << neighborsNeighbor;
+                const std::array<QPoint, 3> cellsBehindNeighbor {
+		    neighborsNeighbor,
                 // Add neighboursNeighbour's anticlockwise neighbour.
                 // ( i + 2 ) % 8 is the direction a quarter turn anticlockwise from i.
-                cellsBehindNeighbor << neighborsNeighbor + offsetFromDirection((i + 2) % 8);
+		    neighborsNeighbor + offsetFromDirection((i + 2) % 8),
                 // Add neighboursNeighbour's clockwise neighbour.
                 // ( i + 6 ) % 8 is the direction a quarter turn clockwise from i.
-                cellsBehindNeighbor << neighborsNeighbor + offsetFromDirection((i + 6) % 8);
+		    neighborsNeighbor + offsetFromDirection((i + 6) % 8),
+		};
 
                 // Then we just count the number of fastbots and robots in the list of cells.
                 int fastbotsFound = 0;
                 int robotsFound = 0;
-                foreach (const QPoint &cell, cellsBehindNeighbor) {
+                for (const QPoint &cell : cellsBehindNeighbor) {
                     if (spriteTypeAt(cell) == Fastbot) {
                         ++fastbotsFound;
                     } else if (spriteTypeAt(cell) == Robot) {
@@ -716,14 +720,18 @@ void Killbots::Engine::cleanUpRound()
     }
     m_hero = nullptr;
 
-    foreach (Sprite *bot, m_bots) {
+    const auto bots = m_bots;
+    for (Sprite *bot : bots) {
         destroySprite(bot, false);
     }
+    Q_ASSERT(m_bots.isEmpty());
     m_bots.clear();
 
-    foreach (Sprite *junkheap, m_junkheaps) {
+    const auto junkheaps = m_junkheaps;
+    for (Sprite *junkheap : junkheaps) {
         destroySprite(junkheap);
     }
+    Q_ASSERT(m_junkheaps.isEmpty());
     m_junkheaps.clear();
 
     m_spriteMap.clear();
@@ -759,7 +767,8 @@ bool Killbots::Engine::destroyAllCollidingBots(const Sprite *sprite, bool calcul
 {
     bool result = false;
 
-    foreach (Sprite *robot, m_spriteMap.values(sprite->gridPos())) {
+    const auto robotsAtPos = m_spriteMap.values(sprite->gridPos());
+    for (Sprite *robot : robotsAtPos) {
         if (robot != sprite && (robot->spriteType() == Robot || robot->spriteType() == Fastbot)) {
             destroySprite(robot, calculatePoints);
             result = true;

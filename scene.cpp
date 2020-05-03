@@ -98,12 +98,12 @@ void Killbots::Scene::animateSprites(const QList<Sprite *> &newSprites,
     if (value == 0.0) {
         halfDone = false;
     } else if (value < 1.0) {
-        foreach (Sprite *sprite, newSprites) {
+        for (Sprite *sprite : newSprites) {
             sprite->resetTransform();
             sprite->setTransform(QTransform::fromScale(value, value), true);
         }
 
-        foreach (Sprite *sprite, slidingSprites) {
+        for (Sprite *sprite : slidingSprites) {
             QPointF posInGridCoordinates = value * QPointF(sprite->nextGridPos() - sprite->currentGridPos()) + sprite->currentGridPos();
             sprite->setPos(QPointF(posInGridCoordinates.x() * m_cellSize.width(), posInGridCoordinates.y() * m_cellSize.height()));
         }
@@ -114,26 +114,28 @@ void Killbots::Scene::animateSprites(const QList<Sprite *> &newSprites,
 
         if (!halfDone && value >= 0.5) {
             halfDone = true;
-            foreach (Sprite *sprite, teleportingSprites) {
+            for (Sprite *sprite : teleportingSprites) {
                 updateSpritePos(sprite, sprite->nextGridPos());
             }
         }
 
-        foreach (Sprite *sprite, teleportingSprites) {
+        for (Sprite *sprite : teleportingSprites) {
             sprite->resetTransform();
             sprite->setTransform(QTransform::fromScale(scaleFactor, scaleFactor), true);
         }
 
-        foreach (Sprite *sprite, destroyedSprites) {
+        for (Sprite *sprite : destroyedSprites) {
             sprite->resetTransform();
             sprite->setTransform(QTransform::fromScale(1 - value, 1 - value), true);
             sprite->setTransform(QTransform().rotate(value * 180), true);
         }
     } else {
-        foreach (Sprite *sprite, newSprites + slidingSprites + teleportingSprites) {
-            sprite->resetTransform();
-            sprite->advanceGridPosQueue();
-            updateSpritePos(sprite, sprite->currentGridPos());
+        for (auto& sprites : {newSprites, slidingSprites, teleportingSprites}) {
+            for (Sprite *sprite : sprites) {
+                sprite->resetTransform();
+                sprite->advanceGridPosQueue();
+                updateSpritePos(sprite, sprite->currentGridPos());
+            }
         }
 
         qDeleteAll(destroyedSprites);
@@ -166,11 +168,11 @@ void Killbots::Scene::doLayout()
         QFont font;
         font.setPixelSize(newFontPixelSize);
 
-        foreach (NumericDisplayItem *display, m_numericDisplays) {
+        for (NumericDisplayItem *display : qAsConst(m_numericDisplays)) {
             display->setFont(font);
             displaySize = displaySize.expandedTo(display->preferredSize());
         }
-        foreach (NumericDisplayItem *display, m_numericDisplays) {
+        for (NumericDisplayItem *display : qAsConst(m_numericDisplays)) {
             display->setRenderSize(displaySize);
         }
     } else {
@@ -179,7 +181,7 @@ void Killbots::Scene::doLayout()
 
     // The rest of the function deals only with a list of visible displays.
     QList<NumericDisplayItem *> visibleDisplays;
-    foreach (NumericDisplayItem *display, m_numericDisplays) {
+    for (NumericDisplayItem *display : qAsConst(m_numericDisplays)) {
         if (display->isVisible()) {
             visibleDisplays << display;
         }
@@ -210,7 +212,8 @@ void Killbots::Scene::doLayout()
     const qreal newCellWidth = displaysOnTop ? cellWidthTop : cellWidthSide;
     m_cellSize = QSize(qRound(newCellWidth), qRound(newCellWidth / aspectRatio));
 
-    foreach (QGraphicsItem *item, items()) {
+    const auto items = this->items();
+    for (QGraphicsItem *item : items) {
         Sprite *sprite = qgraphicsitem_cast<Sprite *>(item);
         if (sprite) {
             sprite->setRenderSize(m_cellSize);
@@ -229,7 +232,7 @@ void Killbots::Scene::doLayout()
         const qreal displayYPos = (sceneRectYPos - (displaySize.height() + m_cellSize.height() / 2.0)) / 2;
 
         int xPos = sceneRectXPos + (size.width() - widthOfDisplaysOnTop) / 2.0;
-        foreach (NumericDisplayItem *display, visibleDisplays) {
+        for (NumericDisplayItem *display : qAsConst(visibleDisplays)) {
             display->setPos(xPos, displayYPos);
             xPos += displaySize.width() + spacing;
         }
@@ -260,7 +263,7 @@ void Killbots::Scene::doLayout()
         }
 
         int yPos = -m_cellSize.height() / 2;
-        foreach (NumericDisplayItem *display, visibleDisplays) {
+        for (NumericDisplayItem *display : qAsConst(visibleDisplays)) {
             display->setPos(displayXPos, yPos);
             yPos += displaySize.height() + spacing;
         }
@@ -369,7 +372,8 @@ Killbots::HeroAction Killbots::Scene::getMouseDirection(QPointF cursorPosition) 
 
 bool Killbots::Scene::popupAtPosition(QPointF position) const
 {
-    foreach (QGraphicsItem *item, items(position)) {
+    const auto itemsAtPos = items(position);
+    for (QGraphicsItem *item : itemsAtPos) {
         if (dynamic_cast<KGamePopupItem *>(item) != nullptr) {
             return true;
         }

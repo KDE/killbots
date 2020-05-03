@@ -41,6 +41,9 @@ include(ECMAddTests)
 include(ECMSetupVersion)
 include(ECMQtDeclareLoggingCategory)
 
+add_definitions(
+    -DQT_NO_FOREACH
+)
 
 ###### Switching to Subdirectories ######
 add_subdirectory(icons)
