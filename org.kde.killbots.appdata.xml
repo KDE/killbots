@@ -78,12 +78,17 @@
   </description>
   <project_license>GPL-2.0+ and GFDL-1.3</project_license>
   <metadata_license>CC0-1.0</metadata_license>
-  <url type="homepage">http://games.kde.org/</url>
+  <url type="homepage">https://games.kde.org/</url>
+  <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=killbots</url>
   <screenshots>
     <screenshot type="default">
       <image type="source">https://cdn.kde.org/screenshots/killbots/killbots.png</image>
     </screenshot>
   </screenshots>
+  <provides>
+    <binary>killbots</binary>
+  </provides>
+  <launchable type="desktop-id">org.kde.killbots.desktop</launchable>
   <releases>
     <release version="20.04.0" date="2020-04-23"/>
     <release version="19.12.3" date="2020-03-05"/>
