@@ -23,6 +23,7 @@
   <name xml:lang="sk">Killbots</name>
   <name xml:lang="sv">Killbots</name>
   <name xml:lang="uk">Killbots</name>
+  <name xml:lang="x-test">xxKillbotsxx</name>
   <name xml:lang="zh-CN">Killbots</name>
   <name xml:lang="zh-TW">Killbots</name>
   <summary>Outsmart the killer robots to win</summary>
@@ -46,6 +47,7 @@
   <summary xml:lang="sk">Prekonajte zabijacích robotov, aby ste vyhrali</summary>
   <summary xml:lang="sv">Överlista mördarrobotar för att vinna</summary>
   <summary xml:lang="uk">Обдуріть роботів-вбивць, щоб виграти</summary>
+  <summary xml:lang="x-test">xxOutsmart the killer robots to winxx</summary>
   <summary xml:lang="zh-CN">在智斗中胜过杀手机器人来获取胜利</summary>
   <description>
     <p>How will you get away from the killer robots bent on destruction? Figure it out in this simple, entertaining game. You may be outnumbered by an endless stream of robots, but with your intelligence and handy teleportation device you can defeat them. Outsmart all of the killer robots to win and live to tell the tale!</p>
@@ -68,6 +70,7 @@
     <p xml:lang="sk">Ako sa dostanete preč od robotov zabijakov určených na ničenie? Zistite to v tejto jednoduchej zábavnej hre. Možno vás prevyšuje nekonečný prúd robotov, ale pomocou svojej inteligencie a praktického teleportačného zariadenia ich môžete poraziť. Prekonajte všetky zabijácke roboty, aby ste zvíťazili, žili a rozprávali váš príbeh!</p>
     <p xml:lang="sv">Hur kommer du undan från mördarrobotarna inriktade på förintelse? Räkna ut det i det här enkla, underhållande spelet. Du kan vara övermannad av ett ändlös flöde av robotar, men med din intelligens och praktiska teleporteringsenhet kan du besegra dem. Överlista alla mördarrobotarna för att vinna och överleva så att du kan berätta om det.</p>
     <p xml:lang="uk">Як втекти від роботів-вбивць, єдиною метою яких є руйнування? Спробуйте впоратися із цим завданням у нашій простій, але захопливій грі. Хай роботів дуже багато, але за допомогою вашого інтелекту та зручного пристрою для телепортування ви можете їх перемогти. Обдуріть вбивць, щоб виграти гру, і живіть далі, щоб розповісти світові вашу історію!</p>
+    <p xml:lang="x-test">xxHow will you get away from the killer robots bent on destruction? Figure it out in this simple, entertaining game. You may be outnumbered by an endless stream of robots, but with your intelligence and handy teleportation device you can defeat them. Outsmart all of the killer robots to win and live to tell the tale!xx</p>
     <p xml:lang="zh-CN">如何从专事毁灭的杀手机器人手中逃脱？在这个简单有趣的游戏中找出来。这无尽的机器人流可能从数量上胜过你，但是依靠你的智慧和好用的传送设备你可以打败它们。以智慧胜过所有杀手机器人来获取胜利，活下来讲述你的故事！</p>
   </description>
   <project_license>GPL-2.0+ and GFDL-1.3</project_license>
