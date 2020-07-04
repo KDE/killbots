@@ -24,7 +24,8 @@
 #include "sprite.h"
 
 #include "killbots_debug.h"
-#include <KRandom>
+
+#include <QRandomGenerator>
 
 #include <array>
 
@@ -250,7 +251,8 @@ bool Killbots::Engine::teleportHeroSafely()
     refreshSpriteMap();
 
     // Choose a random cell...
-    const QPoint startPoint = QPoint(KRandom::random() % m_rules->columns(), KRandom::random() % m_rules->rows());
+    const QPoint startPoint = QPoint(QRandomGenerator::global()->bounded(m_rules->columns()),
+                                     QRandomGenerator::global()->bounded(m_rules->rows()));
     QPoint point = startPoint;
 
     // ...and step through all the cells on the board looking for a safe cell.
@@ -452,7 +454,8 @@ QPoint Killbots::Engine::randomEmptyCell() const
 {
     QPoint point;
     do {
-        point = QPoint(KRandom::random() % m_rules->columns(), KRandom::random() % m_rules->rows());
+        point = QPoint(QRandomGenerator::global()->bounded(m_rules->columns()),
+                       QRandomGenerator::global()->bounded(m_rules->rows()));
     } while (spriteTypeAt(point) != NoSprite || point == m_hero->gridPos());
     return point;
 }
