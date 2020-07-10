@@ -21,7 +21,7 @@
 #include "killbots_version.h"
 
 #include <KLocalizedString>
-#include <kdelibs4configmigrator.h>
+#include <Kdelibs4ConfigMigrator>
 #include <QApplication>
 #include <KAboutData>
 #include <KCrash>

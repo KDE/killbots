@@ -25,7 +25,7 @@
 #include "scene.h"
 #include "settings.h"
 
-#include <kgamepopupitem.h>
+#include <KGamePopupItem>
 
 #include <KLocalizedString>
 

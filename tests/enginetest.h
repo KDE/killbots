@@ -5,7 +5,7 @@
 #include "engine.h"
 #include "scene.h"
 
-#include "qtest.h"
+#include <QTest>
 
 #include <QObject>
 
