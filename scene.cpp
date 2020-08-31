@@ -319,7 +319,7 @@ void Killbots::Scene::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
             }
         } else if (event->button() == Qt::RightButton) {
             userAction = Settings::rightClickAction();
-        } else if (event->button() == Qt::MidButton) {
+        } else if (event->button() == Qt::MiddleButton) {
             userAction = Settings::middleClickAction();
         }
 
