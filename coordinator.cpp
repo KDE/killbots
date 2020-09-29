@@ -80,7 +80,7 @@ Killbots::Coordinator::Coordinator(QObject *parent)
       m_newGameRequested(false),
       m_queuedAction(NoAction)
 {
-    m_timeLine.setCurveShape(QTimeLine::EaseInOutCurve);
+    m_timeLine.setEasingCurve(QEasingCurve::InOutSine);
     connect(&m_timeLine, &QTimeLine::valueChanged, this, &Coordinator::animate);
     connect(&m_timeLine, &QTimeLine::finished, this, &Coordinator::nextAnimationStage);
 }
