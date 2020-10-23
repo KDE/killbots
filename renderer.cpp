@@ -23,7 +23,6 @@
 
 #include <KgTheme>
 #include <KgThemeProvider>
-#include <KGameRenderer>
 
 #include <QCursor>
 

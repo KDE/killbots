@@ -5,7 +5,6 @@
 #include <KGlobal>
 #include <KStandardDirs>
 
-#include <QTest>
 
 Killbots::EngineTest::EngineTest(QObject *parent)
     : QObject(parent)
