@@ -222,7 +222,7 @@ QAction *Killbots::MainWindow::createMappedAction(int mapping,
 {
     QAction *action = new QAction(displayName, actionCollection());
     action->setObjectName(internalName);
-    actionCollection()->setDefaultShortcuts(action, QList<QKeySequence>() << QKeySequence(translatedShortcut) << QKeySequence(alternateShortcut) << QKeySequence(alternateShortcut + Qt::KeypadModifier));
+    actionCollection()->setDefaultShortcuts(action, QList<QKeySequence>() << QKeySequence(translatedShortcut) << QKeySequence(alternateShortcut) << QKeySequence(alternateShortcut | Qt::KeypadModifier));
     if (!helpText.isEmpty()) {
         action->setWhatsThis(helpText);
         action->setToolTip(helpText);
