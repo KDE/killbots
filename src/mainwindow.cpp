@@ -228,10 +228,10 @@ QAction *Killbots::MainWindow::createMappedAction(int mapping,
 
 void Killbots::MainWindow::setupActions()
 {
-    KStandardGameAction::gameNew(m_coordinator, SLOT(requestNewGame()), actionCollection());
-    KStandardGameAction::highscores(this, SLOT(showHighscores()), actionCollection());
-    KStandardGameAction::quit(qApp, SLOT(quit()), actionCollection());
-    KStandardAction::preferences(this, SLOT(configurePreferences()), actionCollection());
+    KStandardGameAction::gameNew(m_coordinator, &Coordinator::requestNewGame, actionCollection());
+    KStandardGameAction::highscores(this, &MainWindow::showHighscores, actionCollection());
+    KStandardGameAction::quit(qApp, &QCoreApplication::quit, actionCollection());
+    KStandardAction::preferences(this, &MainWindow::configurePreferences, actionCollection());
 
     createMappedAction(TeleportSafely,
                        QStringLiteral("teleport_safely"),
