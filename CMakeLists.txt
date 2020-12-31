@@ -8,14 +8,14 @@ set(RELEASE_SERVICE_VERSION "${RELEASE_SERVICE_VERSION_MAJOR}.${RELEASE_SERVICE_
 
 project(killbots VERSION ${RELEASE_SERVICE_VERSION})
 
-set (QT_MIN_VERSION "5.10.0")
-set (KF5_MIN_VERSION "5.30.0")
+set (QT_MIN_VERSION "5.12.0")
+set (KF_MIN_VERSION "5.68.0")
 
-find_package(ECM ${KF5_MIN_VERSION} REQUIRED CONFIG)
+find_package(ECM ${KF_MIN_VERSION} REQUIRED CONFIG)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH})
 
 find_package(Qt5 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Widgets)
-find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
+find_package(KF5 ${KF_MIN_VERSION} REQUIRED COMPONENTS
     CoreAddons
     Config
     Crash
@@ -70,7 +70,13 @@ set(killbots_SRCS
     sprite.cpp
     view.cpp
 )
-ecm_qt_declare_logging_category(killbots_SRCS HEADER killbots_debug.h IDENTIFIER KILLBOTS_LOG CATEGORY_NAME org.kde.kdegames.killbots)
+ecm_qt_declare_logging_category(killbots_SRCS
+    HEADER killbots_debug.h
+    IDENTIFIER KILLBOTS_LOG
+    CATEGORY_NAME org.kde.kdegames.killbots
+    DESCRIPTION "Killbots"
+    EXPORT KILLBOTS
+)
 qt5_add_resources(killbots_SRCS killbots.qrc)
 
 ecm_setup_version(${RELEASE_SERVICE_VERSION} VARIABLE_PREFIX KILLBOTS VERSION_HEADER killbots_version.h)
@@ -95,5 +101,11 @@ install(TARGETS killbots ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 install(PROGRAMS org.kde.killbots.desktop DESTINATION ${KDE_INSTALL_APPDIR})
 install(FILES org.kde.killbots.appdata.xml DESTINATION  ${KDE_INSTALL_METAINFODIR})
 install(FILES killbots.kcfg DESTINATION ${KDE_INSTALL_KCFGDIR})
-install( FILES killbots.categories DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR} )
+
+ecm_qt_install_logging_categories(
+    EXPORT KILLBOTS
+    FILE killbots.categories
+    DESTINATION "${KDE_INSTALL_LOGGINGCATEGORIESDIR}"
+)
+
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
