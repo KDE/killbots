@@ -12,6 +12,7 @@ set(killbots_SRCS
     scene.cpp
     sprite.cpp
     view.cpp
+    killbots.qrc
 )
 
 ecm_qt_declare_logging_category(killbots_SRCS
@@ -21,8 +22,6 @@ ecm_qt_declare_logging_category(killbots_SRCS
     DESCRIPTION "Killbots"
     EXPORT KILLBOTS
 )
-
-qt5_add_resources(killbots_SRCS killbots.qrc)
 
 ecm_setup_version(${RELEASE_SERVICE_VERSION}
     VARIABLE_PREFIX KILLBOTS
