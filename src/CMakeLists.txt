@@ -1,4 +1,11 @@
-set(killbots_SRCS
+ecm_setup_version(${RELEASE_SERVICE_VERSION}
+    VARIABLE_PREFIX KILLBOTS
+    VERSION_HEADER killbots_version.h
+)
+
+add_executable(killbots)
+
+target_sources(killbots PRIVATE
     main.cpp
     coordinator.cpp
     engine.cpp
@@ -12,10 +19,11 @@ set(killbots_SRCS
     scene.cpp
     sprite.cpp
     view.cpp
+
     killbots.qrc
 )
 
-ecm_qt_declare_logging_category(killbots_SRCS
+ecm_qt_declare_logging_category(killbots
     HEADER killbots_debug.h
     IDENTIFIER KILLBOTS_LOG
     CATEGORY_NAME org.kde.kdegames.killbots
@@ -23,24 +31,18 @@ ecm_qt_declare_logging_category(killbots_SRCS
     EXPORT KILLBOTS
 )
 
-ecm_setup_version(${RELEASE_SERVICE_VERSION}
-    VARIABLE_PREFIX KILLBOTS
-    VERSION_HEADER killbots_version.h
-)
-
-kconfig_add_kcfg_files(killbots_SRCS settings.kcfgc rulesetbase.kcfgc)
+kconfig_add_kcfg_files(killbots settings.kcfgc rulesetbase.kcfgc)
 
 file(GLOB ICONS_SRCS "${CMAKE_SOURCE_DIR}/icons/*-apps-killbots.png")
-ecm_add_app_icon(killbots_SRCS ICONS ${ICONS_SRCS})
+ecm_add_app_icon(killbots ICONS ${ICONS_SRCS})
 
-add_executable(killbots ${killbots_SRCS})
 target_link_libraries(killbots
+    KF5KDEGames
     KF5::XmlGui
     KF5::DBusAddons
     KF5::Completion
     KF5::Crash
     KF5::I18n
-    KF5KDEGames
     Qt5::Widgets
     Qt5::Xml
 )

@@ -1,10 +1,13 @@
 set( EXECUTABLE_OUTPUT_PATH ${CMAKE_CURRENT_BINARY_DIR} )
-include_directories(
-    ${CMAKE_CURRENT_SOURCE_DIR}/..
-    ${CMAKE_CURRENT_BINARY_DIR}/..
+
+add_executable(enginetest)
+target_include_directories(enginetest
+    PRIVATE
+        ${CMAKE_CURRENT_SOURCE_DIR}/..
+        ${CMAKE_CURRENT_BINARY_DIR}/..
 )
 
-set( enginetest_SRCS
+target_source(enginetest PRIVATE
     enginetest.cpp
     ../coordinator.cpp
     ../engine.cpp
@@ -14,12 +17,14 @@ set( enginetest_SRCS
     ../scene.cpp
     ../sprite.cpp
 )
-kconfig_add_kcfg_files( enginetest_SRCS ../settings.kcfgc ../rulesetbase.kcfgc )
-add_executable( enginetest ${enginetest_SRCS} )
-add_test(NAME enginetest COMMAND enginetest)
-ecm_mark_as_test(enginetest)
-target_link_libraries( enginetest
+
+kconfig_add_kcfg_files(enginetest ../settings.kcfgc ../rulesetbase.kcfgc)
+
+target_link_libraries(enginetest
+    KF5KDEGames
     KF5::KDELibs4Support
     Qt5::Test
-    KF5KDEGames
 )
+
+add_test(NAME enginetest COMMAND enginetest)
+ecm_mark_as_test(enginetest)
