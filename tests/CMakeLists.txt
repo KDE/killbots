@@ -23,7 +23,7 @@ kconfig_add_kcfg_files(enginetest ../settings.kcfgc ../rulesetbase.kcfgc)
 target_link_libraries(enginetest
     KF5KDEGames
     KF5::KDELibs4Support
-    Qt5::Test
+    Qt::Test
 )
 
 add_test(NAME enginetest COMMAND enginetest)

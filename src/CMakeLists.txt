@@ -43,8 +43,8 @@ target_link_libraries(killbots
     KF5::Completion
     KF5::Crash
     KF5::I18n
-    Qt5::Widgets
-    Qt5::Xml
+    Qt::Widgets
+    Qt::Xml
 )
 
 install(TARGETS killbots ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
