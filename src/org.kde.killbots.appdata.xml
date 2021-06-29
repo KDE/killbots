@@ -7,6 +7,7 @@
   <name xml:lang="cs">Killbots</name>
   <name xml:lang="da">Killbots</name>
   <name xml:lang="de">Killbots</name>
+  <name xml:lang="el">Killbots</name>
   <name xml:lang="en-GB">Killbots</name>
   <name xml:lang="es">Killbots</name>
   <name xml:lang="et">Killbots</name>
@@ -35,6 +36,7 @@
   <summary xml:lang="ca-valencia">Supera amb intel·ligència als robots assassins per a guanyar</summary>
   <summary xml:lang="cs">Přechytračte ostatní roboty</summary>
   <summary xml:lang="de">Killermaschinen überlisten, um zu gewinnen</summary>
+  <summary xml:lang="el">Γίνετε εξυπνότεροι από τα ρομπότ-δολοφόνους για να κερδίσετε</summary>
   <summary xml:lang="en-GB">Outsmart the killer robots to win</summary>
   <summary xml:lang="es">Sea más astuto que los robots asesinos para ganar</summary>
   <summary xml:lang="et">Võitmiseks on tarvis tapjarobotid üle kavaldada</summary>
@@ -61,6 +63,7 @@
     <p xml:lang="ca">Com aconseguiràs escapar dels robots assassins propensos a la destrucció? Imagina-ho amb aquest joc senzill i entretingut. Estaràs superat en nombre per una munió sense fi de robots, però amb la teva intel·ligència i amb un dispositiu pràctic de teletransport els podràs guanyar. Supera amb intel·ligència als robots assassins per a guanyar i viure per a explicar la proesa.</p>
     <p xml:lang="ca-valencia">Com aconseguiràs escapar dels robots assassins propensos a la destrucció? Imagina-ho amb aquest joc senzill i entretingut. Estaràs superat en nombre per una munió sense fi de robots, però amb la teva intel·ligència i amb un dispositiu pràctic de teletransport els podràs guanyar. Supera amb intel·ligència als robots assassins per a guanyar i viure per a explicar la proesa.</p>
     <p xml:lang="de">Wie wollen Sie den Killerrobotern entkommen, die auf Zerstörung aus sind? Natürlich in diesem einfachen, unterhaltsamen Spiel. Sie sind vielleicht in der Unterzahl gegen eine endlose Anzahl von Robotern, aber mit Ihrer Intelligenz und Ihrem praktischen Teleportationsgerät können Sie sie besiegen. Überlisten Sie alle Killerroboter, um zu gewinnen und zu überleben. </p>
+    <p xml:lang="el">Πώς θα ξεφύγεις από τα ρομπότ δολοφόνους που φέρνουν την καταστροφή; Ανακάλύψέ το με αυτό το απλό, διασκεδαστικό παιχνίδι. Μπορεί να σε κατακλύσει μια ατελείωτη ροή από ρομπότ, αλλά με τη νοημοσύνη σου και τη συσκευή τηλεμεταφοράς μπορεί να τα νικήσεις. Γίνετε εξυπνότεροι από τα ρομπότ δολοφόνους και επιβιώστε για να διηγηθείτε πώς τα καταφέρατε!</p>
     <p xml:lang="en-GB">How will you get away from the killer robots bent on destruction? Figure it out in this simple, entertaining game. You may be outnumbered by an endless stream of robots, but with your intelligence and handy teleportation device you can defeat them. Outsmart all of the killer robots to win and live to tell the tale!</p>
     <p xml:lang="es">¿Cómo escaparía de los robots asesinos y propensos a la destrucción? Resuélvalo en este juego sencillo y entretenido. Puede verse desbordado por una oleada interminable de robots, aunque puede vencerlos con su inteligencia y un práctico dispositivo de teletransporte. ¡Sea más astuto que los robots asesinos para ganar y sobrevivir para poder contarlo!</p>
     <p xml:lang="et">Kuidas pääseda tapjarobotite eest, kes on saadetud just sind hävitama? Selles selle köitva mängu sisu peitubki. Lõputu robotite voog jätab sind alati vähemusse, kuid nutikuse ja mugava teleportatsiooniseadme abil on võimalik neist siiski jagu saada. Kavalda tapjarobotid üle ja jää ellu, kuni võid oma võidulugu kogu maailmale pajatada!</p>
