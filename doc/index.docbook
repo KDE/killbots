@@ -28,11 +28,11 @@
 
   <legalnotice>&FDLNotice;</legalnotice>
 
-  <date>2016-05-09</date>
-  <releaseinfo>1.2.0 (Applications 16.04)</releaseinfo>
+  <date>2021-07-05</date>
+  <releaseinfo>KDE Gear 21.04</releaseinfo>
 
   <abstract>
-    <para>&killbots; is a &kde; port of the classic BSD console game <command>robots</command>.</para>
+    <para>&killbots; is a &kde; port of the classic &BSD; console game <command>robots</command>.</para>
   </abstract>
 
   <keywordset>
@@ -72,12 +72,12 @@
 
   <note>
     <title>Note:</title>
-    <para>This documentation frequently refers to <quote>robots</quote>, <quote>junkheaps</quote>, etc., but &killbots; is fully themeable. That means the game sprites you see while playing might not match the futuristic themed ones described here. The game play and strategies, however, will remain the same, even if your hero is a carrot being chased through a garden patch by ravenous rabbits.</para>
+    <para>This documentation frequently refers to <quote>robots</quote>, <quote>junkheaps</quote>, &etc;, but &killbots; is fully themeable. That means the game sprites you see while playing might not match the futuristic themed ones described here. The game play and strategies, however, will remain the same, even if your hero is a carrot being chased through a garden patch by ravenous rabbits.</para>
   </note>
 
   <note>
     <title>Note:</title>
-    <para>&killbots; supports multiple game types which control the game parameters and determine which game features are included. This documentation attempts to be generic and not specific to any one game type. Check the description and details of your current game type in the Configure &killbots; dialog for more detailed information on game mechanics with respect to grid size, rounds, scoring, energy, etc.</para>
+    <para>&killbots; supports multiple game types which control the game parameters and determine which game features are included. This documentation attempts to be generic and not specific to any one game type. Check the description and details of your current game type in the <guilabel>Configure - &killbots;</guilabel> dialog for more detailed information on game mechanics with respect to grid size, rounds, scoring, energy, &etc;</para>
   </note>
 
 </chapter>
@@ -110,7 +110,7 @@
         <varlistentry>
           <term><firstterm>Robot</firstterm> <inlinemediaobject><imageobject><imagedata fileref="enemy.png" format="PNG"/></imageobject></inlinemediaobject></term>
           <listitem>
-            <para>Robots are mechanical thugs desiring only to crush the hero with their metallic girth. They have never heard of the "Three Laws of Robotics" and would probably crush anyone who tried to explain them.</para>
+            <para>Robots are mechanical thugs desiring only to crush the hero with their metallic girth. They have never heard of the <quote>Three Laws of Robotics</quote> and would probably crush anyone who tried to explain them.</para>
             <para>Each robot will take a single step toward the hero on every turn. If the robot is above the hero, it will step down. If the robot is to the left of the hero, it will step right. If the robot is below and right of the hero, it will step diagonally, up and left. Should a robot manage to reach the hero's cell, the hero will be killed and the game will end.</para>
           </listitem>
         </varlistentry>
@@ -211,7 +211,7 @@
     <sect2 id="mouse-movement">
       <title id="mouse-movement-title">Mouse Movement Controls</title>
       <para>The mouse (or any other pointing device) can be used to navigate in a more natural, intuitive way. As the pointer moves over the main game area, the cursor will change to indicate the direction of the pointer relative to the hero. For example, moving the pointer to the space above the hero will change the cursor to an up arrow. If the pointer is placed immediately over the hero, the cursor changes to indicate no movement.</para>
-      <para>A single left-click will cause the hero to step in the indicated direction (provided such a step is permitted). For convenience, one can assign additional actions to the right and middle mouse buttons in the <link linkend="configure-killbots">Configure &killbots; dialog</link>. These actions include those found in the <link linkend="move-menu">Move</link> menu, as well as additional option: Repeated Step. Performing a repeated step causes the hero to move in the indicated direction for several consecutive turns until an obstruction is reached or continued movement would be unsafe. One can also halt a repeated step by clicking again while the move is in progress.</para>
+      <para>A single left-click will cause the hero to step in the indicated direction (provided such a step is permitted). For convenience, one can assign additional actions to the right and middle mouse buttons in the <link linkend="configure-killbots">Configure - &killbots; dialog</link>. These actions include those found in the <link linkend="move-menu">Move</link> menu, as well as additional option: <guimenuitem>Repeated Step</guimenuitem> performing a repeated step causes the hero to move in the indicated direction for several consecutive turns until an obstruction is reached or continued movement would be unsafe. One can also halt a repeated step by clicking again while the move is in progress.</para>
       <para></para>
     </sect2>
   </sect1>
@@ -263,9 +263,9 @@
       </varlistentry>
       <varlistentry>
         <term><menuchoice>
-          <shortcut><keycap>Space</keycap></shortcut>
+          <shortcut>&Space;</shortcut>
           <guimenu>Move</guimenu>
-          <guimenuitem>Teleport, Safely If Possible</guimenuitem>
+          <guimenuitem>Teleport (Safely if Possible)</guimenuitem>
         </menuchoice></term>
         <listitem><para>A convenience action. <action>Teleports the hero safely if there is enough energy available, otherwise just teleports randomly.</action></para></listitem>
       </varlistentry>
@@ -317,7 +317,7 @@ of the &kde; Fundamentals.
 
     <sect2>
       <title>The Desktop File</title>
-      <para>The desktop file follows standard <filename>INI</filename> syntax. The key-value pairs store information about the theme and point to the other files included in the theme. The following example is taken from the default theme.</para>
+      <para>The desktop file follows standard <acronym>INI</acronym> syntax. The key-value pairs store information about the theme and point to the other files included in the theme. The following example is taken from the default theme.</para>
       <example>
         <title>An Example Theme Desktop File</title>
         <programlisting>
@@ -331,17 +331,17 @@ FileName=example.svg
 Preview=example.png
         </programlisting>
       </example>
-      <para>The first four parameters contain metadata about the theme and are straight forward enough. For &killbots; themes, the <varname>Type</varname> parameter should always be set to <literal>SVG</literal>. The final two parameters contain the file names of the two other theme files. While it's not strictly necessary, it is highly recommended that, for consistency's sake, all three files share the same base file name.</para>
+      <para>The first four parameters contain metadata about the theme and are straight forward enough. For &killbots; themes, the <varname>Type</varname> parameter should always be set to &SVG;. The final two parameters contain the file names of the two other theme files. While it's not strictly necessary, it is highly recommended that, for consistency's sake, all three files share the same base file name.</para>
     </sect2>
 
     <sect2>
       <title>The Preview File</title>
-      <para>The preview file is simply a <filename>PNG</filename> file containing a preview of the theme. The preview image should be 240 by 140 pixels and match layout of the default theme's preview as closely as possible, as this makes it easier to compare themes in the theme selector.</para>
+      <para>The preview file is simply a <acronym>PNG</acronym> file containing a preview of the theme. The preview image should be 240 by 140 pixels and match layout of the default theme's preview as closely as possible, as this makes it easier to compare themes in the theme selector.</para>
     </sect2>
 
     <sect2>
-      <title>The <acronym>SVG</acronym> File</title>
-      <para>The <acronym>SVG</acronym> file is a scalable vector graphics image that contains the actual graphical elements used to make up the theme. The file may be either in uncompressed <filename>.svg</filename> or compressed <filename>.svgz</filename> format. Each game element is identified by a unique id in the <acronym>SVG</acronym> file.  When creating a new theme, it is generally easiest to start with an existing theme and replace the elements one by one until the theme is complete. The <acronym>SVG</acronym> file <emphasis>must</emphasis> contain the following elements.</para>
+      <title>The &SVG; File</title>
+      <para>The &SVG; file is a scalable vector graphics image that contains the actual graphical elements used to make up the theme. The file may be either in uncompressed <literal role="extension">.svg</literal> or compressed <literal role="extension">.svgz</literal> format. Each game element is identified by a unique id in the &SVG; file.  When creating a new theme, it is generally easiest to start with an existing theme and replace the elements one by one until the theme is complete. The &SVG; file <emphasis>must</emphasis> contain the following elements.</para>
       <variablelist>
         <varlistentry>
           <term><varname>background</varname></term>
@@ -416,7 +416,7 @@ Preview=example.png
 
     <sect2>
       <title>Installing Custom Themes</title>
-      <para>In order for &killbots; to detect and use a new theme, the files must be moved to an appropriate directory. To install the theme for only the current user, copy the desktop, preview and SVG files to <filename>killbots/themes</filename> in the local folder in <userinput><command>qtpaths</command> <option>--paths GenericDataLocation </option></userinput>. To make the theme available system wide, move the files to <filename>killbots/themes</filename>in the system folder in <userinput><command>qtpaths</command> <option>--paths GenericDataLocation </option></userinput>. Note that this will likely require administrative privileges.</para>
+      <para>In order for &killbots; to detect and use a new theme, the files must be moved to an appropriate directory. To install the theme for only the current user, copy the desktop, preview and &SVG; files to <filename class="directory">killbots/themes</filename> in the local folder in <userinput><command>qtpaths</command> <option>--paths GenericDataLocation </option></userinput>. To make the theme available system wide, move the files to <filename class="directory">killbots/themes</filename> in the system folder (from the previous command, possibly <filename class="directory">/usr/share</filename> or similar). Note that this will likely require administrative privileges.</para>
     </sect2>
   </sect1>
 
@@ -467,11 +467,11 @@ SquashKillEnergyBonus=1</programlisting>
       <variablelist>
         <varlistentry>
           <term><varname>Name</varname></term>
-          <listitem><para>the name of the ruleset as it will appear in the ruleset selector and the high score dialog.</para></listitem>
+          <listitem><para>The name of the ruleset as it will appear in the ruleset selector and the high score dialog.</para></listitem>
         </varlistentry>
         <varlistentry>
           <term><varname>Author</varname></term>
-          <listitem><para>The creator of the ruleset</para></listitem>
+          <listitem><para>The creator of the ruleset.</para></listitem>
         </varlistentry>
         <varlistentry>
           <term><varname>AuthorContact</varname></term>
@@ -543,7 +543,7 @@ SquashKillEnergyBonus=1</programlisting>
         </varlistentry>
         <varlistentry>
           <term><varname>PushableJunkheaps</varname></term>
-          <listitem><para>The number of junkheaps that can be moved with a single push. Possible values are <quote><constant>None</constant></quote>, <quote><constant>One</constant></quote> and <quote><constant>Many</constant></quote></para></listitem>
+          <listitem><para>The number of junkheaps that can be moved with a single push. Possible values are <quote><constant>None</constant></quote>, <quote><constant>One</constant></quote> and <quote><constant>Many</constant></quote>.</para></listitem>
         </varlistentry>
         <varlistentry>
           <term><varname>SquaskKillsEnabled</varname></term>
@@ -586,7 +586,8 @@ SquashKillEnergyBonus=1</programlisting>
 
     <sect2>
       <title>Installing Custom Game Types</title>
-      <para>In order for &killbots; to detect and use a new game type, the ruleset file must be moved to an appropriate directory. To install the game type for only the current user, copy the file to <filename>killbots/rulesets</filename> in the local folder in <userinput><command>qtpaths</command> <option>--paths GenericDataLocation </option></userinput>. To make the game type available system wide, move the file to <filename>killbots/rulesets</filename> in the system folder in <userinput><command>qtpaths</command> <option>--paths GenericDataLocation </option></userinput>. Note that this will likely require administrative privileges.</para>
+
+      <para>In order for &killbots; to detect and use a new game type, the ruleset file must be moved to an appropriate directory. To install the game type for only the current user, copy the file to <filename class="directory">killbots/rulesets</filename> in the local folder in <userinput><command>qtpaths</command> <option>--paths GenericDataLocation </option></userinput>. To make the game type available system wide, move the file to <filename class="directory">killbots/rulesets</filename> in the system folder (from the previous command, possibly <filename class="directory">/usr/share</filename> or similar). Note that this will likely require administrative privileges.</para>
     </sect2>
 
   </sect1>
