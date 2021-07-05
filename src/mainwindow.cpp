@@ -251,7 +251,7 @@ void Killbots::MainWindow::setupActions()
                       );
     createMappedAction(TeleportSafelyIfPossible,
                        QStringLiteral("teleport_sip"),
-                       i18nc("@action", "Teleport (Safely If Possible)"),
+                       i18nc("@action", "Teleport (Safely if Possible)"),
                        i18nc("Shortcut for teleport safely if possible. See https://quickgit.kde.org/?p=killbots.git&a=blob&f=README.translators&o=plain", "Space"),
                        Qt::Key_0,
                        i18nc("@info:tooltip", "Teleport safely if that action is enabled, otherwise teleport randomly")

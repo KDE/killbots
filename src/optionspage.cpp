@@ -26,7 +26,7 @@ Killbots::OptionsPage::OptionsPage(QWidget *parent)
         i18nc("@action", "Repeated Step"),
         i18nc("@action", "Teleport"),
         i18nc("@action", "Teleport Safely"),
-        i18nc("@action", "Teleport (Safely If Possible)"),
+        i18nc("@action", "Teleport (Safely if Possible)"),
         i18nc("@action", "Wait Out Round"),
     };
 
