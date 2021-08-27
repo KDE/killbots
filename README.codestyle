@@ -82,9 +82,9 @@ Examples:
 void Killbots::Engine::refreshSpriteMap()
 {
     m_spriteMap.clear();
-    for (Sprite * bot : qAsConst(m_bots))
+    for (Sprite * bot : std::as_const(m_bots))
         m_spriteMap.insert( bot->gridPos(), bot );
-    for (Sprite * junkheap : qAsConst(m_junkheaps))
+    for (Sprite * junkheap : std::as_const(m_junkheaps))
         m_spriteMap.insert( junkheap->gridPos(), junkheap );
 }
 -------------------------------------------------------------------------------

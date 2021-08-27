@@ -161,7 +161,7 @@ void Killbots::MainWindow::createScoreDialog()
             fileList.append(dir + QLatin1Char('/') + file);
         }
     }
-    for (const QString &fileName : qAsConst(fileList)) {
+    for (const QString &fileName : std::as_const(fileList)) {
         const Ruleset *ruleset = Ruleset::load(fileName);
         if (ruleset) {
             m_scoreDialog->addLocalizedConfigGroupName(qMakePair(ruleset->scoreGroupKey(), ruleset->name()));

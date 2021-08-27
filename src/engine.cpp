@@ -289,7 +289,7 @@ bool Killbots::Engine::useVaporizer()
 
     if (!neighbors.isEmpty()) {
         m_coordinator->beginNewAnimationStage();
-        for (Sprite *sprite : qAsConst(neighbors)) {
+        for (Sprite *sprite : std::as_const(neighbors)) {
             destroySprite(sprite);
         }
         updateEnergy(-m_rules->costOfVaporizer());
@@ -311,7 +311,7 @@ void Killbots::Engine::moveRobots(bool justFastbots)
 
     if (justFastbots) {
         refreshSpriteMap();
-        for (Sprite *bot : qAsConst(m_bots)) {
+        for (Sprite *bot : std::as_const(m_bots)) {
             if (bot->spriteType() == Fastbot) {
                 const QPoint offset(sign(m_hero->gridPos().x() - bot->gridPos().x()), sign(m_hero->gridPos().y() - bot->gridPos().y()));
                 const QPoint target = bot->gridPos() + offset;
@@ -321,7 +321,7 @@ void Killbots::Engine::moveRobots(bool justFastbots)
             }
         }
     } else {
-        for (Sprite *bot : qAsConst(m_bots)) {
+        for (Sprite *bot : std::as_const(m_bots)) {
             const QPoint offset(sign(m_hero->gridPos().x() - bot->gridPos().x()), sign(m_hero->gridPos().y() - bot->gridPos().y()));
             m_coordinator->slideSprite(bot, bot->gridPos() + offset);
         }
@@ -392,10 +392,10 @@ void Killbots::Engine::endGame()
 void Killbots::Engine::refreshSpriteMap()
 {
     m_spriteMap.clear();
-    for (Sprite *bot : qAsConst(m_bots)) {
+    for (Sprite *bot : std::as_const(m_bots)) {
         m_spriteMap.insert(bot->gridPos(), bot);
     }
-    for (Sprite *junkheap : qAsConst(m_junkheaps)) {
+    for (Sprite *junkheap : std::as_const(m_junkheaps)) {
         m_spriteMap.insert(junkheap->gridPos(), junkheap);
     }
 }

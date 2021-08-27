@@ -157,11 +157,11 @@ void Killbots::Scene::doLayout()
         QFont font;
         font.setPixelSize(newFontPixelSize);
 
-        for (NumericDisplayItem *display : qAsConst(m_numericDisplays)) {
+        for (NumericDisplayItem *display : std::as_const(m_numericDisplays)) {
             display->setFont(font);
             displaySize = displaySize.expandedTo(display->preferredSize());
         }
-        for (NumericDisplayItem *display : qAsConst(m_numericDisplays)) {
+        for (NumericDisplayItem *display : std::as_const(m_numericDisplays)) {
             display->setRenderSize(displaySize);
         }
     } else {
@@ -170,7 +170,7 @@ void Killbots::Scene::doLayout()
 
     // The rest of the function deals only with a list of visible displays.
     QList<NumericDisplayItem *> visibleDisplays;
-    for (NumericDisplayItem *display : qAsConst(m_numericDisplays)) {
+    for (NumericDisplayItem *display : std::as_const(m_numericDisplays)) {
         if (display->isVisible()) {
             visibleDisplays << display;
         }
@@ -221,7 +221,7 @@ void Killbots::Scene::doLayout()
         const qreal displayYPos = (sceneRectYPos - (displaySize.height() + m_cellSize.height() / 2.0)) / 2;
 
         int xPos = sceneRectXPos + (size.width() - widthOfDisplaysOnTop) / 2.0;
-        for (NumericDisplayItem *display : qAsConst(visibleDisplays)) {
+        for (NumericDisplayItem *display : std::as_const(visibleDisplays)) {
             display->setPos(xPos, displayYPos);
             xPos += displaySize.width() + spacing;
         }
@@ -252,7 +252,7 @@ void Killbots::Scene::doLayout()
         }
 
         int yPos = -m_cellSize.height() / 2;
-        for (NumericDisplayItem *display : qAsConst(visibleDisplays)) {
+        for (NumericDisplayItem *display : std::as_const(visibleDisplays)) {
             display->setPos(displayXPos, yPos);
             yPos += displaySize.height() + spacing;
         }
