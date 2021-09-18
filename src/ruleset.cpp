@@ -35,7 +35,7 @@ const Killbots::Ruleset *Killbots::Ruleset::load(const QString &fileName)
 }
 
 Killbots::Ruleset::Ruleset(const QString &filePath)
-    : RulesetBase(filePath)
+    : RulesetBase(KSharedConfig::openConfig(filePath))
 {
     m_filePath = filePath;
     QString untranslatedName = KConfigGroup(config(), "KillbotsRuleset").readEntryUntranslated("Name");
