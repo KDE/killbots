@@ -27,7 +27,7 @@ class Engine : public QObject
 
 public: // functions
     explicit Engine(Coordinator *scene, QObject *parent = nullptr);
-    virtual ~Engine();
+    ~Engine() override;
 
     void setRuleset(const Ruleset *ruleset);
     const Ruleset *ruleset() const;

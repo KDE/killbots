@@ -27,7 +27,7 @@ class RulesetSelector : public QWidget
 
 public: // functions
     explicit RulesetSelector(QWidget *parent = nullptr);
-    virtual ~RulesetSelector();
+    ~RulesetSelector() override;
 
 public: // data members
     KLineEdit *kcfg_Ruleset;

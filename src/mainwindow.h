@@ -26,7 +26,7 @@ class MainWindow : public KXmlGuiWindow
 
 public: // functions
     explicit MainWindow(QWidget *parent = nullptr);
-    virtual ~MainWindow();
+    ~MainWindow() override;
 
 private: // functions
     void setupActions();

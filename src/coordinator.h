@@ -29,7 +29,7 @@ class Coordinator : public QObject
 
 public: // functions
     explicit Coordinator(QObject *parent = nullptr);
-    virtual ~Coordinator();
+    ~Coordinator() override;
 
     void setEngine(Engine *engine);
     void setScene(Scene *scene);

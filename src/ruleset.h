@@ -19,7 +19,7 @@ public: // static functions
     static const Ruleset *load(const QString &fileName);
 
 public: // functions
-    virtual ~Ruleset();
+    ~Ruleset() override;
     QString filePath() const;
     QString fileName() const;
     QByteArray scoreGroupKey() const;

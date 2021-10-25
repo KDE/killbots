@@ -23,7 +23,7 @@ class OptionsPage : public QWidget
 
 public: // functions
     explicit OptionsPage(QWidget *parent = nullptr);
-    virtual ~OptionsPage();
+    ~OptionsPage() override;
 
 public: // data members
     QCheckBox *kcfg_PreventUnsafeMoves;
