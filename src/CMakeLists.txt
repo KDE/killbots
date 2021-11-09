@@ -6,19 +6,32 @@ ecm_setup_version(${RELEASE_SERVICE_VERSION}
 add_executable(killbots)
 
 target_sources(killbots PRIVATE
-    main.cpp
+    actions.h
     coordinator.cpp
+    coordinator.h
     engine.cpp
+    engine.h
+    main.cpp
     mainwindow.cpp
+    mainwindow.h
     numericdisplayitem.cpp
+    numericdisplayitem.h
     optionspage.cpp
+    optionspage.h
     renderer.cpp
+    renderer.h
     ruleset.cpp
     rulesetdetailsdialog.cpp
+    rulesetdetailsdialog.h
+    ruleset.h
     rulesetselector.cpp
+    rulesetselector.h
     scene.cpp
+    scene.h
     sprite.cpp
+    sprite.h
     view.cpp
+    view.h
 
     killbots.qrc
 )
