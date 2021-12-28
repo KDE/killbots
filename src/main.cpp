@@ -10,7 +10,9 @@
 #include "killbots_version.h"
 
 #include <KLocalizedString>
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 #include <Kdelibs4ConfigMigrator>
+#endif
 #include <QApplication>
 #include <KAboutData>
 #include <KCrash>
@@ -20,14 +22,16 @@
 int main(int argc, char **argv)
 {
     // Fixes blurry icons with fractional scaling
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     QGuiApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
-
+#endif
 	QApplication app(argc, argv);
-
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     Kdelibs4ConfigMigrator migrate(QStringLiteral("killbots"));
     migrate.setConfigFiles(QStringList() << QStringLiteral("killbotsrc"));
     migrate.setUiFiles(QStringList() << QStringLiteral("killbotsui.rc"));
     migrate.migrate();
+#endif
 
     KLocalizedString::setApplicationDomain("killbots");
 
