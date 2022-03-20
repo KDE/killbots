@@ -51,6 +51,7 @@ ecm_add_app_icon(killbots ICONS ${ICONS_SRCS})
 
 target_link_libraries(killbots
     KF5KDEGames
+    KF5::CoreAddons
     KF5::XmlGui
     KF5::DBusAddons
     KF5::Completion
