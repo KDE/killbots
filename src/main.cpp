@@ -41,7 +41,7 @@ int main(int argc, char **argv)
     about.setCopyrightStatement(i18n("© 2006-2009, Parker Coates"));
     about.addAuthor(i18n("Parker Coates"), i18n("Developer"), QStringLiteral("coates@kde.org"));
     about.addCredit(i18n("Mark Rae"), i18n("Author of Gnome Robots. Invented safe teleports, pushing junkheaps and fast robots."), QLatin1String(""), QStringLiteral("https://wiki.gnome.org/Apps/Robots"));
-    about.setHomepage(QStringLiteral("https://www.kde.org/applications/games/killbots/"));
+    about.setHomepage(QStringLiteral("https://apps.kde.org/killbots"));
 
     QCommandLineParser parser;
     KAboutData::setApplicationData(about);
