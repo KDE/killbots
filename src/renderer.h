@@ -11,7 +11,6 @@
 
 #include <KGameRenderer>
 
-#include <QHash>
 
 namespace Killbots
 {

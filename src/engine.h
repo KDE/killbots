@@ -13,7 +13,6 @@
 #include "ruleset.h"
 
 #include <QObject>
-#include <QHash>
 class QPoint;
 
 namespace Killbots
