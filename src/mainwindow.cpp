@@ -29,10 +29,12 @@
 #include <KMessageBox>
 #include <KShortcutsDialog>
 #include <KStandardAction>
+
+#include <QDir>
 #include <QIcon>
+#include <QTimer>
 
 #include "killbots_debug.h"
-#include <QTimer>
 
 Killbots::MainWindow::MainWindow(QWidget *parent)
     : KXmlGuiWindow(parent),
