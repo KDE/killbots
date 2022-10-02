@@ -1,0 +1,864 @@
+# translation of killbots_gui.po to Polish
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Franciszek Janowski <nobange@poczta.onet.pl>, 2009.
+# Maciej Wikło <maciej.wiklo@wp.pl>, 2009, 2010.
+# Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>, 2014, 2015, 2019, 2021.
+msgid ""
+msgstr ""
+"Project-Id-Version: killbots_gui\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-30 00:41+0000\n"
+"PO-Revision-Date: 2021-07-11 08:31+0200\n"
+"Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
+"Language-Team: Polish <kde-i18n-doc@kde.org>\n"
+"Language: pl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 20.12.1\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Franciszek Janowski, Maciej Wikło, Łukasz Wojniłowicz"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr ""
+"nobange@poczta.onet.pl, maciej.wiklo@wp.pl, lukasz.wojnilowicz@gmail.com"
+
+#: coordinator.cpp:101
+#, kde-format
+msgctxt "@label"
+msgid "Round:"
+msgstr "Runda:"
+
+#: coordinator.cpp:106
+#, kde-format
+msgctxt "@label"
+msgid "Score:"
+msgstr "Wynik:"
+
+#: coordinator.cpp:111
+#, kde-format
+msgctxt "@label"
+msgid "Enemies:"
+msgstr "Wrogowie:"
+
+#: coordinator.cpp:116
+#, kde-format
+msgctxt "@label"
+msgid "Energy:"
+msgstr "Energia:"
+
+#: coordinator.cpp:405
+#, kde-format
+msgctxt "@info"
+msgid "Round complete."
+msgstr "Runda ukończona."
+
+#: coordinator.cpp:410
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Board is full.\n"
+"Resetting enemy counts."
+msgstr ""
+"Plansza jest pełna.\n"
+"Zerowanie liczby wrogów."
+
+#: coordinator.cpp:415
+#, kde-format
+msgctxt "@info"
+msgid "New game."
+msgstr "Nowa gra."
+
+#: coordinator.cpp:420
+#, kde-format
+msgctxt "@info"
+msgid "Game over."
+msgstr "Koniec gry."
+
+#. i18n: ectx: tooltip, entry (MiddleClickAction), group (General)
+#: killbots.kcfg:19
+#, kde-format
+msgid "The action performed on a middle-click"
+msgstr "Działanie wykonywane po naciśnięciu środkowego przycisku myszy"
+
+#. i18n: ectx: whatsthis, entry (MiddleClickAction), group (General)
+#: killbots.kcfg:20
+#, kde-format
+msgid ""
+"Selects the action performed when middle-clicking on the main game area. If "
+"a middle mouse button is not available, this action can be performed by "
+"left- and right-clicking simultaneously or by left-clicking while holding "
+"the control key."
+msgstr ""
+"Wybiera działanie, które zostanie wykonane po naciśnięciu środkowego "
+"przycisku myszy w głównym obszarze gry. Jeśli mysz nie posiada tego "
+"przycisku, działanie  to może zostać wywołana przez naciśnięcie jednocześnie "
+"lewego i prawego przycisku myszy przy wciśniętym klawiszu control."
+
+#. i18n: ectx: tooltip, entry (RightClickAction), group (General)
+#: killbots.kcfg:25
+#, kde-format
+msgid "The action performed on a right-click"
+msgstr "Działanie wykonywane po naciśnięciu prawego przycisku myszy"
+
+#. i18n: ectx: whatsthis, entry (RightClickAction), group (General)
+#: killbots.kcfg:26
+#, kde-format
+msgid "Selects the action performed when right-clicking on the main game area."
+msgstr ""
+"Wybiera działanie, która zostanie wykonane po naciśnięciu prawego przycisku "
+"myszy w głównym obszarze gry."
+
+#. i18n: ectx: tooltip, entry (AnimationSpeed), group (General)
+#: killbots.kcfg:32
+#, kde-format
+msgid "The speed used to display animations"
+msgstr "Szybkość wyświetlania animacji"
+
+#. i18n: ectx: whatsthis, entry (AnimationSpeed), group (General)
+#: killbots.kcfg:33
+#, kde-format
+msgid "Adjusts the speed at which the in game animations are displayed."
+msgstr "Dostosowuje szybkość wyświetlania animacji w grze."
+
+#. i18n: ectx: tooltip, entry (PreventUnsafeMoves), group (General)
+#: killbots.kcfg:37
+#, kde-format
+msgid "Prevent the player from making fatal moves"
+msgstr "Uniemożliwia graczowi wykonywanie fatalnych ruchów"
+
+#. i18n: ectx: whatsthis, entry (PreventUnsafeMoves), group (General)
+#: killbots.kcfg:38
+#, kde-format
+msgid ""
+"If checked, the game will ignore any move that would result in the immediate "
+"death of the hero (other than random teleports and waiting out the round)."
+msgstr ""
+"Jeśli zaznaczone, gra zignoruje każdy ruch, który prowadziłby do "
+"natychmiastowej śmierci bohatera (oprócz losowej teleportacji i przeczekania "
+"rundy)."
+
+#. i18n: ectx: tooltip, entry (Ruleset), group (General)
+#: killbots.kcfg:42
+#, kde-format
+msgid "The selected set of game rules"
+msgstr "Wybrany zestaw zasad gry"
+
+#. i18n: ectx: whatsthis, entry (Ruleset), group (General)
+#: killbots.kcfg:43
+#, kde-format
+msgid "Selects the set of game rules to be used in the next game."
+msgstr "Wybiera zestaw zasad, który zostanie użyty w następnej grze."
+
+#. i18n: ectx: Menu (moveMenu)
+#: killbotsui.rc:11
+#, kde-format
+msgctxt "@title:menu"
+msgid "Move"
+msgstr "Ruch"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: killbotsui.rc:21
+#, kde-format
+msgid "Main Toolbar"
+msgstr "Główny pasek narzędzi"
+
+#: main.cpp:38
+#, kde-format
+msgid "Killbots"
+msgstr "Killbots"
+
+#: main.cpp:39
+#, kde-format
+msgid "A KDE game of killer robots and teleportation."
+msgstr "Gra dla KDE z robotami-zabójcami i teleportacją."
+
+#: main.cpp:41
+#, kde-format
+msgid "© 2006-2009, Parker Coates"
+msgstr "© 2006-2009, Parker Coates"
+
+#: main.cpp:42
+#, kde-format
+msgid "Parker Coates"
+msgstr "Parker Coates"
+
+#: main.cpp:42
+#, kde-format
+msgid "Developer"
+msgstr "Programista"
+
+#: main.cpp:43
+#, kde-format
+msgid "Mark Rae"
+msgstr "Mark Rae"
+
+#: main.cpp:43
+#, kde-format
+msgid ""
+"Author of Gnome Robots. Invented safe teleports, pushing junkheaps and fast "
+"robots."
+msgstr ""
+"Autor Gnome Robots. Wynalazł bezpieczną teleportację, pchanie stert złomu i "
+"szybkie roboty."
+
+#: mainwindow.cpp:60
+#, kde-format
+msgid ""
+"This is the main game area used to interact with Killbots. It shows the "
+"current state of the game grid and allows one to control the hero using the "
+"mouse. It also displays certain statistics about the game in progress."
+msgstr ""
+"To jest główny obszar gry, używany do interakcji z Killbots. Pokazuje obecny "
+"stan gry i pozwala na sterowanie bohaterem przy pomocy myszy. Wyświetla "
+"również statystyki bieżącej gry."
+
+#: mainwindow.cpp:94
+#, kde-format
+msgctxt "@title"
+msgid "General"
+msgstr "Ogólne"
+
+#: mainwindow.cpp:96
+#, kde-format
+msgctxt "@info"
+msgid "Configure general settings"
+msgstr "Ustawienia ogólne"
+
+#: mainwindow.cpp:99
+#, kde-format
+msgctxt "@title"
+msgid "Game Type"
+msgstr "Rodzaj gry"
+
+#: mainwindow.cpp:101
+#, kde-format
+msgctxt "@info"
+msgid "Select a game type"
+msgstr "Wybierz rodzaj gry"
+
+#: mainwindow.cpp:104
+#, kde-format
+msgctxt "@title"
+msgid "Appearance"
+msgstr "Wygląd"
+
+#: mainwindow.cpp:106
+#, kde-format
+msgctxt "@info"
+msgid "Select a graphical theme"
+msgstr "Wybierz wygląd grafiki"
+
+#: mainwindow.cpp:140
+#, kde-format
+msgid ""
+"A new game type has been selected, but there is already a game in progress."
+msgstr "Nowy rodzaj gry został wybrany, ale gra jest w toku."
+
+#: mainwindow.cpp:141
+#, kde-format
+msgctxt "@title:window"
+msgid "Game Type Changed"
+msgstr "Zmieniono rodzaj gry"
+
+#: mainwindow.cpp:142
+#, kde-format
+msgctxt "@action:button"
+msgid "Continue Current Game"
+msgstr "Kontynuuj bieżącą grę"
+
+#: mainwindow.cpp:143
+#, kde-format
+msgctxt "@action:button"
+msgid "Start a New Game"
+msgstr "Rozpocznij nową grę"
+
+#: mainwindow.cpp:156
+#, kde-format
+msgctxt "@title:column round of the game"
+msgid "Round"
+msgstr "Runda"
+
+#: mainwindow.cpp:240 optionspage.cpp:28
+#, kde-format
+msgctxt "@action"
+msgid "Teleport Safely"
+msgstr "Bezpieczna teleportacja"
+
+#: mainwindow.cpp:241
+#, kde-format
+msgctxt ""
+"Shortcut for teleport safely. See https://quickgit.kde.org/?p=killbots."
+"git&a=blob&f=README.translators&o=plain"
+msgid "T"
+msgstr "T"
+
+#: mainwindow.cpp:243
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Teleport to a safe location"
+msgstr "Teleportuj się do bezpiecznego miejsca"
+
+#: mainwindow.cpp:248 optionspage.cpp:27
+#, kde-format
+msgctxt "@action"
+msgid "Teleport"
+msgstr "Teleportacja"
+
+#: mainwindow.cpp:249
+#, kde-format
+msgctxt ""
+"Shortcut for teleport. See https://quickgit.kde.org/?p=killbots."
+"git&a=blob&f=README.translators&o=plain"
+msgid "R"
+msgstr "R"
+
+#: mainwindow.cpp:251
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Teleport to a random location"
+msgstr "Teleportacja do losowego miejsca"
+
+#: mainwindow.cpp:256 optionspage.cpp:29
+#, kde-format
+msgctxt "@action"
+msgid "Teleport (Safely if Possible)"
+msgstr "Teleportacja (bezpieczna, jeśli możliwe)"
+
+#: mainwindow.cpp:257
+#, kde-format
+msgctxt ""
+"Shortcut for teleport safely if possible. See https://quickgit.kde.org/?"
+"p=killbots.git&a=blob&f=README.translators&o=plain"
+msgid "Space"
+msgstr "Spacja"
+
+#: mainwindow.cpp:259
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Teleport safely if that action is enabled, otherwise teleport randomly"
+msgstr ""
+"Bezpieczna teleportacja, jeśli jest włączona, w przeciwnym wypadku "
+"teleportacja w losowe miejsce"
+
+#: mainwindow.cpp:263
+#, kde-format
+msgctxt "@action"
+msgid "Vaporizer"
+msgstr "Ulatniacz"
+
+#: mainwindow.cpp:264
+#, kde-format
+msgctxt ""
+"Shortcut for vaporizer. See https://quickgit.kde.org/?p=killbots."
+"git&a=blob&f=README.translators&o=plain"
+msgid "F"
+msgstr "F"
+
+#: mainwindow.cpp:266
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Destroy all enemies in neighboring cells"
+msgstr "Zniszcz wszystkich wrogów w sąsiednich komórkach"
+
+#: mainwindow.cpp:271 optionspage.cpp:30
+#, kde-format
+msgctxt "@action"
+msgid "Wait Out Round"
+msgstr "Przeczekaj rundę"
+
+#: mainwindow.cpp:272
+#, kde-format
+msgctxt ""
+"Shortcut for wait out round. See https://quickgit.kde.org/?p=killbots."
+"git&a=blob&f=README.translators&o=plain"
+msgid "V"
+msgstr "V"
+
+#: mainwindow.cpp:274
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Risk remaining in place until the end of the round for bonuses"
+msgstr "Ryzykuj pozostanie w miejscu do końca rundy w celu uzyskania bonusów"
+
+#: mainwindow.cpp:279
+#, kde-format
+msgctxt "@action"
+msgid "Move Up and Left"
+msgstr "Ruch w górę na lewo"
+
+#: mainwindow.cpp:280
+#, kde-format
+msgctxt ""
+"Shortcut for move up and left. https://quickgit.kde.org/?p=killbots."
+"git&a=blob&f=README.translators&o=plain"
+msgid "Q"
+msgstr "Q"
+
+#: mainwindow.cpp:285
+#, kde-format
+msgctxt "@action"
+msgid "Move Up"
+msgstr "Przesuń w górę"
+
+#: mainwindow.cpp:286
+#, kde-format
+msgctxt ""
+"Shortcut for move up. See https://quickgit.kde.org/?p=killbots."
+"git&a=blob&f=README.translators&o=plain"
+msgid "W"
+msgstr "W"
+
+#: mainwindow.cpp:291
+#, kde-format
+msgctxt "@action"
+msgid "Move Up and Right"
+msgstr "Ruch w górę na prawo"
+
+#: mainwindow.cpp:292
+#, kde-format
+msgctxt ""
+"Shortcut for move up and right. https://quickgit.kde.org/?p=killbots."
+"git&a=blob&f=README.translators&o=plain"
+msgid "E"
+msgstr "E"
+
+#: mainwindow.cpp:297
+#, kde-format
+msgctxt "@action"
+msgid "Move Left"
+msgstr "Przesuń w lewo"
+
+#: mainwindow.cpp:298
+#, kde-format
+msgctxt ""
+"Shortcut for move left. See https://quickgit.kde.org/?p=killbots."
+"git&a=blob&f=README.translators&o=plain"
+msgid "A"
+msgstr "A"
+
+#: mainwindow.cpp:303
+#, kde-format
+msgctxt "@action"
+msgid "Stand Still"
+msgstr "Nie ruszaj się"
+
+#: mainwindow.cpp:304
+#, kde-format
+msgctxt ""
+"Shortcut for stand still. See https://quickgit.kde.org/?p=killbots."
+"git&a=blob&f=README.translators&o=plain"
+msgid "S"
+msgstr "S"
+
+#: mainwindow.cpp:309
+#, kde-format
+msgctxt "@action"
+msgid "Move Right"
+msgstr "Przesuń w prawo"
+
+#: mainwindow.cpp:310
+#, kde-format
+msgctxt ""
+"Shortcut for move right. See https://quickgit.kde.org/?p=killbots."
+"git&a=blob&f=README.translators&o=plain"
+msgid "D"
+msgstr "D"
+
+#: mainwindow.cpp:315
+#, kde-format
+msgctxt "@action"
+msgid "Move Down and Left"
+msgstr "Ruch w dół na lewo"
+
+#: mainwindow.cpp:316
+#, kde-format
+msgctxt ""
+"Shortcut for move down and left. See https://quickgit.kde.org/?p=killbots."
+"git&a=blob&f=README.translators&o=plain"
+msgid "Z"
+msgstr "Z"
+
+#: mainwindow.cpp:321
+#, kde-format
+msgctxt "@action"
+msgid "Move Down"
+msgstr "Przesuń w dół"
+
+#: mainwindow.cpp:322
+#, kde-format
+msgctxt ""
+"Shortcut for move down. See https://quickgit.kde.org/?p=killbots."
+"git&a=blob&f=README.translators&o=plain"
+msgid "X"
+msgstr "X"
+
+#: mainwindow.cpp:327
+#, kde-format
+msgctxt "@action"
+msgid "Move Down and Right"
+msgstr "Ruch w dół na prawo"
+
+#: mainwindow.cpp:328
+#, kde-format
+msgctxt ""
+"Shortcut for move down and right. https://quickgit.kde.org/?p=killbots."
+"git&a=blob&f=README.translators&o=plain"
+msgid "C"
+msgstr "C"
+
+#: optionspage.cpp:24
+#, kde-format
+msgctxt "@item:inlistbox No action on click"
+msgid "Nothing"
+msgstr "Nic"
+
+#: optionspage.cpp:25
+#, kde-format
+msgctxt "@action"
+msgid "Step"
+msgstr "Krok"
+
+#: optionspage.cpp:26
+#, kde-format
+msgctxt "@action"
+msgid "Repeated Step"
+msgstr "Powtórzony krok"
+
+#: optionspage.cpp:45
+#, kde-format
+msgctxt "@item:inrange"
+msgid "Slow"
+msgstr "Wolno"
+
+#: optionspage.cpp:47
+#, kde-format
+msgctxt "@item:inrange"
+msgid "Fast"
+msgstr "Szybko"
+
+#: optionspage.cpp:49
+#, kde-format
+msgctxt "@item:inrange"
+msgid "Instant"
+msgstr "Natychmiastowo"
+
+#: optionspage.cpp:60
+#, kde-format
+msgctxt "@label:slider"
+msgid "Animation &speed:"
+msgstr "&Szybkość animacji:"
+
+#: optionspage.cpp:63
+#, kde-format
+msgctxt "@option:check"
+msgid "Prevent &unsafe moves"
+msgstr "Zapobiegaj niebezpiecznym r&uchom"
+
+#: optionspage.cpp:68
+#, kde-format
+msgctxt "@label:listbox"
+msgid "&Middle-click action:"
+msgstr "Działanie środkowego przycisku &myszy:"
+
+#: optionspage.cpp:69
+#, kde-format
+msgctxt "@label:listbox"
+msgid "&Right-click action:"
+msgstr "Działanie p&rawego przycisku myszy:"
+
+#. i18n: ectx: label, entry (Rows), group (KillbotsRuleset)
+#: rulesetbase.kcfg:19
+#, kde-format
+msgid "Number of rows in game grid"
+msgstr "Liczba wierszy w siatce gry"
+
+#. i18n: ectx: label, entry (Columns), group (KillbotsRuleset)
+#: rulesetbase.kcfg:24
+#, kde-format
+msgid "Number of columns in game grid"
+msgstr "Liczba kolumn w siatce gry"
+
+#. i18n: ectx: label, entry (EnemiesAtGameStart), group (KillbotsRuleset)
+#: rulesetbase.kcfg:28
+#, kde-format
+msgid "Number of regular enemies in first round"
+msgstr "Liczba stałych wrogów w pierwszej rundzie"
+
+#. i18n: ectx: label, entry (EnemiesAddedEachRound), group (KillbotsRuleset)
+#: rulesetbase.kcfg:32
+#, kde-format
+msgid "Number of regular enemies added in each new round"
+msgstr "Liczba dodatkowych stałych wrogów w każdej nowej rundzie"
+
+#. i18n: ectx: label, entry (FastEnemiesAtGameStart), group (KillbotsRuleset)
+#: rulesetbase.kcfg:36
+#, kde-format
+msgid "Number of fast enemies in first round"
+msgstr "Liczba szybkich wrogów w pierwszej rundzie"
+
+#. i18n: ectx: label, entry (FastEnemiesAddedEachRound), group (KillbotsRuleset)
+#: rulesetbase.kcfg:40
+#, kde-format
+msgid "Number of fast enemies added in each new round"
+msgstr "Liczba dodatkowych szybkich wrogów w każdej nowej rundzie"
+
+#. i18n: ectx: label, entry (FastEnemiesArePatient), group (KillbotsRuleset)
+#: rulesetbase.kcfg:44
+#, kde-format
+msgid ""
+"Fast enemies will skip their extra turn to avoid collisions with other robots"
+msgstr ""
+"Szybcy wrogowie pominą ich dodatkową kolejkę, by uniknąć kolizji z innymi "
+"robotami"
+
+#. i18n: ectx: label, entry (EnergyEnabled), group (KillbotsRuleset)
+#: rulesetbase.kcfg:48
+#, kde-format
+msgid "Player can accumulate energy"
+msgstr "Gracz może zbierać energię"
+
+#. i18n: ectx: label, entry (EnergyAtGameStart), group (KillbotsRuleset)
+#: rulesetbase.kcfg:53
+#, kde-format
+msgid "Energy at start of first round"
+msgstr "Początkowa energia w pierwszej rundzie"
+
+#. i18n: ectx: label, entry (EnergyAddedEachRound), group (KillbotsRuleset)
+#: rulesetbase.kcfg:57
+#, kde-format
+msgid "Energy awarded for completing a round"
+msgstr "Energia dodawana za ukończenie rundy"
+
+#. i18n: ectx: label, entry (MaxEnergyAtGameStart), group (KillbotsRuleset)
+#: rulesetbase.kcfg:62
+#, kde-format
+msgid "Maximum energy cap in first round"
+msgstr "Maksymalny limit energii w pierwszej rundzie"
+
+#. i18n: ectx: label, entry (MaxEnergyAddedEachRound), group (KillbotsRuleset)
+#: rulesetbase.kcfg:66
+#, kde-format
+msgid "Increase in maximum energy cap for each new round"
+msgstr "Wzrost maksymalnego limitu energii w każdej nowej rundzie"
+
+#. i18n: ectx: label, entry (SafeTeleportEnabled), group (KillbotsRuleset)
+#: rulesetbase.kcfg:70
+#, kde-format
+msgid "Player can perform safe teleports"
+msgstr "Gracz może bezpiecznie się teleportować"
+
+#. i18n: ectx: label, entry (CostOfSafeTeleport), group (KillbotsRuleset)
+#: rulesetbase.kcfg:75
+#, kde-format
+msgid "The cost of performing a safe teleport"
+msgstr "Koszt bezpiecznej teleportacji"
+
+#. i18n: ectx: label, entry (VaporizerEnabled), group (KillbotsRuleset)
+#: rulesetbase.kcfg:79
+#, kde-format
+msgid "Player can use vaporizer"
+msgstr "Gracz może używać znikania"
+
+#. i18n: ectx: label, entry (CostOfVaporizer), group (KillbotsRuleset)
+#: rulesetbase.kcfg:84
+#, kde-format
+msgid "Cost of using vaporizer"
+msgstr "Koszt użycia znikania"
+
+#. i18n: ectx: label, entry (PushableJunkheaps), group (KillbotsRuleset)
+#: rulesetbase.kcfg:93
+#, kde-format
+msgid "Number of junkheaps that can be pushed at once"
+msgstr "Liczba stert złomu, które mogą być popchnięte jednocześnie"
+
+#. i18n: ectx: label, entry (SquaskKillsEnabled), group (KillbotsRuleset)
+#: rulesetbase.kcfg:97
+#, kde-format
+msgid "Player can destroy enemies with a pushed junkheap"
+msgstr "Gracz może niszczyć wrogów popchniętą stertą złomu"
+
+#. i18n: ectx: label, entry (JunkheapsAtGameStart), group (KillbotsRuleset)
+#: rulesetbase.kcfg:101
+#, kde-format
+msgid "Junkheaps placed on grid at start of first round"
+msgstr "Sterty złomu początkowo umieszczone na siatce w pierwszej rundzie"
+
+#. i18n: ectx: label, entry (JunkheapsAddedEachRound), group (KillbotsRuleset)
+#: rulesetbase.kcfg:105
+#, kde-format
+msgid "Junkheaps added to the grid for each new round"
+msgstr "Dodatkowe sterty złomu na siatce w każdej nowej rundzie"
+
+#. i18n: ectx: label, entry (PointsPerEnemyKilled), group (KillbotsRuleset)
+#: rulesetbase.kcfg:110
+#, kde-format
+msgid "Points awarded for each regular enemy destroyed"
+msgstr "Punkty dodane za zniszczenie każdego stałego wroga"
+
+#. i18n: ectx: label, entry (PointsPerFastEnemyKilled), group (KillbotsRuleset)
+#: rulesetbase.kcfg:115
+#, kde-format
+msgid "Points awarded for each fast enemy destroyed"
+msgstr "Punkty dodane za zniszczenie każdego szybkiego wroga"
+
+#. i18n: ectx: label, entry (WaitKillPointBonus), group (KillbotsRuleset)
+#: rulesetbase.kcfg:120
+#, kde-format
+msgid "Points awarded for each enemy destroyed while waiting out the round"
+msgstr "Punkty dodane za zniszczenie każdego wroga podczas oczekiwania"
+
+#. i18n: ectx: label, entry (WaitKillEnergyBonus), group (KillbotsRuleset)
+#: rulesetbase.kcfg:125
+#, kde-format
+msgid "Energy awarded for each enemy destroyed while waiting out the round"
+msgstr "Energia dodana za zniszczenie każdego wroga podczas oczekiwania"
+
+#. i18n: ectx: label, entry (SquashKillPointBonus), group (KillbotsRuleset)
+#: rulesetbase.kcfg:130
+#, kde-format
+msgid "Points awarded for each enemy destroyed with a pushed junkheap"
+msgstr ""
+"Punkty dodane za zniszczenie każdego wroga za pomocą popchniętej sterty złomu"
+
+#. i18n: ectx: label, entry (SquashKillEnergyBonus), group (KillbotsRuleset)
+#: rulesetbase.kcfg:135
+#, kde-format
+msgid "Energy awarded for each enemy destroyed with a pushed junkheap"
+msgstr ""
+"Energia dodana za zniszczenie każdego wroga za pomocą popchniętej sterty "
+"złomu"
+
+#. i18n: ectx: label, entry (PointsPerEnergyAboveMax), group (KillbotsRuleset)
+#: rulesetbase.kcfg:140
+#, kde-format
+msgid "Points awarded for each energy awarded above maximum energy cap"
+msgstr ""
+"Punkty dodane za zdobycie energii przekraczającej maksymalny limit energii"
+
+#: rulesetdetailsdialog.cpp:38
+#, kde-format
+msgctxt "@item Quantity of junkheaps that can be pushed"
+msgid "None"
+msgstr "Brak"
+
+#: rulesetdetailsdialog.cpp:39
+#, kde-format
+msgctxt "@item Quantity of junkheaps that can be pushed"
+msgid "One"
+msgstr "Jeden"
+
+#: rulesetdetailsdialog.cpp:40
+#, kde-format
+msgctxt "@item Quantity of junkheaps that can be pushed"
+msgid "Many"
+msgstr "Wiele"
+
+#: rulesetdetailsdialog.cpp:51
+#, kde-format
+msgctxt "%1 is a pretranslated string that we're turning into a label"
+msgid "%1:"
+msgstr "%1:"
+
+#: rulesetdetailsdialog.cpp:68
+#, kde-format
+msgctxt "@item"
+msgid "Yes"
+msgstr "Tak"
+
+#: rulesetdetailsdialog.cpp:68
+#, kde-format
+msgctxt "@item"
+msgid "No"
+msgstr "Nie"
+
+#: rulesetdetailsdialog.cpp:78
+#, kde-format
+msgctxt "@title:window"
+msgid "Details of %1 Game Type"
+msgstr "Szczegóły rodzaju gry %1"
+
+#: rulesetselector.cpp:37
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "A list of the Killbots rulesets installed on this computer."
+msgstr "Lista zestawów zasad Killbots wgranych na tym komputerze."
+
+#: rulesetselector.cpp:39
+#, kde-format
+msgctxt "title:group"
+msgid "Game Type Details"
+msgstr "Szczegóły rodzaju gry"
+
+#: rulesetselector.cpp:40
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Lists information on the currently selected game type."
+msgstr "Wypisz szczegóły na temat obecnie wybranego rodzaj gry."
+
+#: rulesetselector.cpp:42
+#, kde-format
+msgctxt "@label"
+msgid "Author:"
+msgstr "Autor:"
+
+#: rulesetselector.cpp:49
+#, kde-format
+msgctxt "@label"
+msgid "Contact:"
+msgstr "Kontakt:"
+
+#: rulesetselector.cpp:57
+#, kde-format
+msgctxt "@label"
+msgid "Description:"
+msgstr "Opis:"
+
+#: rulesetselector.cpp:64
+#, kde-format
+msgctxt "@action:button"
+msgid "Details..."
+msgstr "Szczegóły..."
+
+#: rulesetselector.cpp:65
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Show the detailed parameters of the selected game type"
+msgstr "Pokaż szczegółowe parametry wybranego rodzaju gry"
+
+#: rulesetselector.cpp:66
+#, kde-format
+msgctxt "@info:whatsthisp"
+msgid ""
+"Opens a dialog listing the values of all internal parameters for the "
+"selected game type."
+msgstr ""
+"Otwiera okno dialogowe zawierające listę wartości wszystkich wewnętrznych "
+"parametrów wybranego rodzaju gry."
+
+#~ msgid "Teleport, Safely If Possible"
+#~ msgstr "Teleportacja, bezpieczna jeśli możliwe"
+
+#~ msgid "The selected game theme"
+#~ msgstr "Wybrany motyw gry"
+
+#~ msgid "Selects the theme used to display all in game elements."
+#~ msgstr "Wybiera motyw dla wszystkich elementów gry."
+
+#~ msgid "Movement Controls"
+#~ msgstr "Poruszanie się"
+
+#~ msgid "Rules"
+#~ msgstr "Zasady"
+
+#~ msgid "Theme"
+#~ msgstr "Motyw"

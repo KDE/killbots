@@ -1,0 +1,1298 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Dutch "INCLUDE">
+]>
+
+<book id="killbots" lang="&language;">
+
+<bookinfo>
+  <title
+>Het handboek van &killbots;</title>
+
+  <authorgroup>
+    <author
+><personname
+> <firstname
+>Parker</firstname
+> <surname
+>Coates</surname
+> </personname
+> <email
+>parker.coates@kdemail.net</email
+> </author>
+
+    &Freek.de.Kruijf;&Ronald.Stroethoff; 
+  </authorgroup>
+
+  <copyright>
+    <year
+>2008&ndash;2009</year>
+    <holder
+>Parker Coates</holder>
+  </copyright>
+
+  <legalnotice
+>&FDLNotice;</legalnotice>
+
+  <date
+>2021-07-05</date>
+  <releaseinfo
+>KDE Gear 21.04</releaseinfo>
+
+  <abstract>
+    <para
+>&killbots; is een &kde;-port van het klassieke &BSD;-consolespel <command
+>robots</command
+>.</para>
+  </abstract>
+
+  <keywordset>
+    <keyword
+>KDE</keyword>
+    <keyword
+>kdegames</keyword>
+    <keyword
+>spel</keyword>
+    <keyword
+>Killbots</keyword>
+    <keyword
+>Strategie</keyword>
+    <keyword
+>Eén speler</keyword>
+    <keyword
+>Enkele speler</keyword>
+    <keyword
+>robots</keyword>
+    <keyword
+>robot</keyword>
+    <keyword
+>fastbot</keyword>
+    <keyword
+>junkheap</keyword>
+    <keyword
+>teleport</keyword>
+    <keyword
+>verdampen</keyword>
+    <keyword
+>verdamper</keyword>
+    <keyword
+>energie</keyword>
+  </keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+  <title
+>Inleiding</title>
+
+  <note>
+    <title
+>Speltype:</title>
+    <para
+>Strategie</para>
+  </note>
+
+  <note>
+    <title
+>Aantal spelers:</title>
+    <para
+>Één</para>
+  </note>
+
+  <para
+>&killbots; is een eenvoudig spel waarin u probeert killer-robots te ontwijken. Wie de robots heeft gemaakt en waarom ze zijn geprogrammeerd om te vernietigen, niemand die het weet. Alles wat bekend is, is dat de robots talrijk zijn en dat hun enige doel is u te vernietigen. Maar gelukkig voor u, hun schepper had meer aandacht voor kwantiteit dan voor kwaliteit met als resultaat dat de robots niet erg intelligent zijn. Uw superieure humor en een geweldig teleport-station zijn uw enige wapens tegen de nooit eindigende stroom van hersenloze automaten.</para>
+
+  <note>
+    <title
+>Notitie:</title>
+    <para
+>Dit document refereert vaak aan <quote
+>robots</quote
+>, <quote
+>schroothopen</quote
+>, &etc;, maar &killbots; is volledig van een een ander thema te voorzien. Dat betekent dat de game-sprites die u ziet misschien niet overeenkomen met de hier beschreven futuristische thema´s. De manier van spelen en de strategieën, blijven echter hetzelfde, zelfs als uw held een wortel is die in een tuin wordt opgejaagd door vraatzuchtige konijnen.</para>
+  </note>
+
+  <note>
+    <title
+>Notitie:</title>
+    <para
+>&killbots; ondersteund meerdere speltypes die de spel-parameters en de aanwezigheid van spel-onderdelen bepalen. Deze documentatie probeert zo algemeen mogelijk te zijn en niet specifiek voor een speltype te zijn. Controleer de omschrijving en details van uw geselecteerde speltype in de dialoog <guilabel
+>Configureren - &killbots;</guilabel
+> voor meer gedetailleerde informatie over de werking van het spel wat betreft speelveld formaat, rondes, scores, energie, &etc;.</para>
+  </note>
+
+</chapter>
+
+<chapter id="howto">
+  <title id="howto-title"
+>Hoe te spelen</title>
+
+  <sect1 id="gameplay-basics">
+    <title
+>Basis van het spel</title>
+
+    <note>
+      <title
+>Doel:</title>
+      <para
+>U verzamelt een steeds hogere score door meerdere rondes met vijanden te overleven.</para>
+    </note>
+
+    <para
+><screenshot
+><mediaobject>
+      <imageobject
+><imagedata fileref="grid.png" format="PNG"/></imageobject>
+      <textobject
+><phrase
+>Schermafbeelding van het spelraster</phrase
+></textobject>
+    </mediaobject
+></screenshot
+></para>
+
+    <para
+>&killbots; is een spel dat u om de beurt speelt, gespeeld op een rechthoekig <firstterm
+>raster</firstterm
+>. Het gespeelde speltype bepaalt het aantal <firstterm
+>vakjes</firstterm
+> in elke rij en kolom van speelveld. In elk vakje kan een van de volgende items aanwezig zijn: <variablelist>
+        <varlistentry>
+          <term
+><firstterm
+>Held</firstterm
+> <inlinemediaobject
+><imageobject
+><imagedata fileref="hero.png" format="PNG"/></imageobject
+></inlinemediaobject
+></term>
+          <listitem>
+            <para
+>De held is de ongelukkige ziel die vastzit in een kamer met een handvol killer-robots. Als speler is het uw taak om te zorgen dat hij zo lang mogelijk in leven blijft.</para>
+            <para
+>Bij het begin van elke <firstterm
+>beurt</firstterm
+>, kan de held een van de volgende drie soorten acties uitvoeren: hij kan blijven waar hij is, hij kan zich verplaatsen naar een niet bezet naastgelegen vakje of hij kan een speciale actie uitvoeren. Lees <link linkend="movement-controls" endterm="movement-controls-title"
+></link
+> en <link linkend="special-actions" endterm="special-actions-title"
+></link
+>.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><firstterm
+>Robot</firstterm
+> <inlinemediaobject
+><imageobject
+><imagedata fileref="enemy.png" format="PNG"/></imageobject
+></inlinemediaobject
+></term>
+          <listitem>
+            <para
+>Robots zijn mechanische monsters met als enige wens het verpletteren van de held met hun metalen blad. Ze hebben nog nooit gehoord van de <quote
+>Drie wetten van de robotica</quote
+> en zullen waarschijnlijk iedereen verpletteren die het hun probeerde uit te leggen.</para>
+            <para
+>Bij elke beurt maakt elke robot een enkele stap in de richting van de held. Als de robot boven de held is, dan stapt hij omlaag. Als de robot links van de held is, dan stapt hij naar rechts. Als de robot rechtsonder de held is, dan stapt hij diagonaal, omhoog en links. Als een robot het lukt om de cel van de held te bereiken, dan is de held dood en is het spel over.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><firstterm
+>Fastbot</firstterm
+> <inlinemediaobject
+><imageobject
+><imagedata fileref="fastenemy.png" format="PNG"/></imageobject
+></inlinemediaobject
+></term>
+          <listitem>
+            <para
+>Fastbots zijn een veel snellere versie van de standaard robot. Voor elke beweging die de held maakt, maken zij twee stappen. Gelukkig, gaat hun verbeterde mobiliteit niet gepaard met een verbeterde intelligentie: Ze zijn vaak alleen succesvol in het zichzelf twee keer zo snel vernietigen dan hun langzamere broeders.</para>
+            <para
+>Niet alle speltypen hebben fastbots.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><firstterm
+>Junkheap</firstterm
+> <inlinemediaobject
+><imageobject
+><imagedata fileref="junkheap.png" format="PNG"/></imageobject
+></inlinemediaobject
+></term>
+          <listitem>
+            <para
+>Als twee of meer robots botsen, dan zijn ze kapot en het resulterende puin geeft een schroothoop. Vijanden negeren op hun weg blind alle schroothopen en raken ook kapot als ze erop botsen. U zult schroothopen erg waarderen, omdat ze kunnen dienen als barricades tussen de held en zijn tegenstanders.</para>
+            <para id="pushing-junkheaps"
+>In sommige speltypes kan de held schroothopen over het speelveld <firstterm
+>duwen</firstterm
+>. De held kan dan schroothopen gebruiken om <quote
+>bunkers</quote
+> te bouwen die vanuit meerdere zijden bescherming bieden. Schroothopen kunt u zelfs in sommige speltypes offensief gebruiken. Het duwen van een schroothoop bovenop een vijand verpletterd deze en levert zelfs een bonus op.</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+    </para>
+  </sect1>
+
+  <sect1 id="rounds-scoring-energy">
+    <title
+>Rondes, scores en energie</title>
+
+    <para
+><screenshot
+><mediaobject>
+      <imageobject
+><imagedata fileref="status.png" format="PNG"/></imageobject>
+      <textobject
+><phrase
+>De statusindicators in het spel</phrase
+></textobject>
+    </mediaobject
+></screenshot
+></para>
+
+    <sect2>
+      <title
+>Rondes</title>
+      <para
+>Gameplay in &killbots; is verdeelt in <firstterm
+>rondes</firstterm
+>. Elke ronde begint met de held in het midden van het raster en vijanden willekeurig rondom hem geplaatst. De ronde eindigt als alle vijanden vernietigt zijn. Na het einde van elke ronde vergroot het aantal vijanden. Het toegevoegde aantal en type vijand is afhankelijk van het speltype.</para>
+      <para
+>Het raster zal zich steeds verder vullen met vijanden totdat een van de volgende twee dingen gebeuren: vijanden bezetten meer dan 50 procent van de cellen of een veilige teleport is geprobeerd, maar er zijn geen veilige cellen meer in het raster. Als een van deze twee voorkomt, dan zal de huidige ronde worden afgebroken en de hoeveelheid vijanden worden teruggezet naar dat van de eerste ronde.</para>
+    </sect2>
+
+    <sect2>
+      <title
+>Waardering</title>
+      <para
+>Er is niet zoiets als winnen in &killbots;; de held probeert zo lang mogelijk te overleven, maar de deprimerende werkelijkheid is dat, aan het einde, zijn geluk opraakt. Daarom is het doel in &killbots; het verzamelen van de hoogst mogelijke <firstterm
+>score</firstterm
+> voordat het onvermijdbare gebeurt. De tien hoogste scores (met de bereikte ronde) zijn verzamelt in het dialoogvenster voor de hoogste scores.</para>
+      <para
+>U krijgt punten voor het vernietigen van vijanden. Fastbots zijn meestal meer waard dan standaard robots. Bonus punten krijgt u ook voor het vernietigen van vijanden door het <link linkend="pushing-junkheaps"
+>duwen van een schroothoop</link
+> of door <link linkend="wait-out-round"
+>ronde uitwachten</link
+>.</para>
+    </sect2>
+
+    <sect2 id="energy">
+      <title
+>Energie</title>
+      <para
+>Naast punten, kan de held verder in het spel ook <firstterm
+>energie</firstterm
+> verzamelen. Met energie kan de held een <link linkend="teleport-safely"
+>veilig teleportatie </link
+> uitvoeren en/of de <link linkend="vaporizer"
+>Verdamper</link
+> gebruiken. Afhankelijk van het speltype, kunt u energie verdienen voor verschillende redenen zoals een ronde voltooien, <link linkend="pushing-junkheaps"
+>een schroothoop duwen</link
+> of vijanden vernietigen tijdens <link linkend="wait-out-round"
+>ronde uitwachten</link
+>.</para>
+      <para
+>De hoeveelheid energie die de held kan bewaren heeft per speltype een ander maximum. In sommige speltypes gaat het maximum na iedere voltooide spelronde omhoog. De energie statusbalk is alleen zichtbaar als in het geselecteerde speltype energie en veilige teleports mogelijk zijn.</para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="special-actions">
+    <title id="special-actions-title"
+>Speciale acties</title>
+    <para
+>Naast het eenvoudig van cel naar cel bewegen, kan de held nog vier speciale acties uitvoeren.</para>
+
+    <sect2 id="teleport">
+      <title
+>Teleporteren</title>
+      <para
+>De held heeft op de een of andere manier een persoonlijke teleporter in bezit gekregen. Helaas, bij gebruik zonder een energiebron is het niet erg betrouwbaar. De teleport activeren zorgt ervoor dat de held verplaatsen naar een willekeurig gekozen cel ergens op het raster. Er is geen beperking aan het aantal teleports dat de held kan uitvoeren.</para>
+      <para
+>De doelcel is gegarandeerd onbezet, maar er is wel levensechte kans dat het grenst aan een boze robot. Vanwege de inherente risico van teleporteren, kan u dit beter bewaren voor een laatste manoeuvre, wanneer er geen veilige beweging meer mogelijk is.</para>
+    </sect2>
+
+    <sect2 id="teleport-safely">
+      <title
+>Veilig teleporteren</title>
+      <para
+>De teleporter heeft een tweede werkingsmode waarmee de held kan transporteren naar een willekeurige maar veilige cel. Voor veilig teleporteren is <link linkend="energy"
+>energie</link
+> nodig, en energie is altijd tekort. De mogelijkheid om op belangrijke momenten veilig te teleporteren zal de held natuurlijk veel langer laten leven.</para>
+      <para
+>Niet in alle speltypes zijn veilige teleports toegestaan en de hoeveelheid nodige energie voor een veilige teleport varieert tussen speltypes. </para>
+    </sect2>
+
+    <sect2 id="vaporizer">
+      <title
+>De verdamper gebruiken</title>
+      <para
+>Bij de derde manier van teleport gebruik, teleporteert de held helemaal niet. Deze ietwat ongewone bedrijfsmodus teleporteert alle robots in de cellen grenzend aan die van de held. Niemand weet precies waar de robots naar toe gaan, maar het lijkt ver genoeg weg dat ze de held niet meer lastig vallen. Omdat de robots in rook opgaan zonder een schroothoop achter te laten, heeft deze modus de bijnaam <quote
+>verdamper</quote
+> gekregen en vijanden die door verdampen zijn opgeruimd worden voor de scores beschouwt als dood.</para>
+      <para
+>Net zoals bij veilig teleporteren, is ook bij de verdamper <link linkend="energy"
+>energie</link
+> nodig. Niet bij alle speltypes is een verdamper aanwezig en de hoeveelheid nodige energie voor een verdamper varieert tussen speltypes.</para>
+    </sect2>
+
+    <sect2 id="wait-out-round">
+      <title
+>Ronde uitwachten</title>
+      <para
+>Het kan een keer gebeuren dat het raster zodanig is dat alle robots vernietigt kunnen worden zonder dat held zich hoeft te bewegen. In dat geval heeft u de keus om de ronde uit te wachten.</para>
+      <example>
+        <title
+>Een gelegenheid om de ronde uit te wachten</title>
+        <para
+><screenshot
+><mediaobject>
+          <imageobject
+><imagedata fileref="waitoutround.png" format="PNG"/></imageobject>
+        </mediaobject
+></screenshot
+></para>
+      </example>
+      <para
+>Een ronde uitwachten zal de held op zijn plaats laten bevriezen terwijl de vijanden doorgaan met hun normale bewegingen. Dit zal doorgaan totdat een van de volgende twee dingen gebeuren: De vijanden vernietigen zichzelf en de spelronde eindigt, of een vijand lukt het om de held te bereiken en het spel eindigt. Nadat het bevel tot een ronde afwachten is gegeven, kunt u het niet meer afbreken, wees daarom er zeker van dat de held echt veilig is.</para>
+      <para
+>Waarom zou iemand een actie ondernemen die de mogelijkheid wegneemt om van gedachten te veranderen? Wel, het geeft een beetje fleur en drama aan het einde van een speelronde, maar nog belangrijker, u krijgt een bonus voor elke tijdens ronde afwachten vernietigde vijand. De grootte en soort (punten of energie) bonus is afhankelijk van het speltype.</para>
+    </sect2>
+  </sect1>
+
+</chapter>
+
+<chapter id="interface-overview">
+  <title
+>Overzicht van het interface</title>
+
+  <sect1 id="movement-controls">
+    <title id="movement-controls-title"
+>Besturing</title>
+    <para
+>De speler kan naar keuze het toetsenbord, de muis of beide gebruiken om de held te besturen.</para>
+    <sect2 id="keyboard-movement">
+      <title id="keyboard-movement-title"
+>Toetsenbord besturing</title>
+      <para
+>Er zijn wat beweging betreft negen verschillende acties: links, rechts, omhoog, omlaag, de vier diagonalen, en stilstaan. Elk van deze acties kunt u aan twee verschillende toetsen koppelen. Standaard zijn deze negen acties gekoppeld aan de negen numerieke toetsen rechts en aan een 3 bij 3 blok letters aan de linkerkant van een QWERTY toetsenbord. Gebruikers van een ander toetsenbord indeling of die geen numerieke toetsen hebben kunnen natuurlijk deze sneltoetsen wijzigingen in het dialoog voor sneltoets instellingen.</para>
+      <para
+>Elk van de commando´s voor speciale bewegingen (zoals teleport) kunt ook via het toetsenbord uitvoeren. Zie <link linkend="move-menu"
+>Verplaatsen</link
+>.</para>
+    </sect2>
+    <sect2 id="mouse-movement">
+      <title id="mouse-movement-title"
+>Muis besturing</title>
+      <para
+>De muis (of een ander aanwijsapparaat) kunt u gebruiken om in een meer natuurlijke, intuïtieve manier te besturen. Als de muis over het hoofdvenster beweegt, zal de cursor van vorm veranderen om de richting van de muis ten opzichte van de held aan te geven. Bijvoorbeeld, de muis boven de held is geplaatst zal de cursor veranderen in een pijl omhoog. Als de muis bovenop de held is geplaatst, dan verandert de cursor om geen beweging aan te geven.</para>
+      <para
+>Een enkele klik met de &LMB; zal de held in de opgeven richting laten stappen (als een stap in die richting is toegestaan). Om het handiger te maken kunt u extra acties aan de &RMB; en de &MMB; koppelen in het dialoog <link linkend="configure-killbots"
+>Configureren - &killbots;</link
+>. Deze acties gelden ook voor die in het menu <link linkend="move-menu"
+>Verplaatsen</link
+>, maar heeft ook een extra mogelijkheid: <guimenuitem
+>Herhaalde stap</guimenuitem
+>. Een herhaalde stap uitvoeren zorgt ervoor dat de held in meerdere beurten achterelkaar in de opgegeven richting zich verplaatst totdat een versperring is bereikt of een verdere beweging onveilig is. U kunt een herhaalde stap stoppen door opnieuw te klikken als de beweging nog bezig is.</para>
+      <para
+></para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="game-menu">
+    <title
+>Menu-items</title>
+
+    <variablelist>
+      <varlistentry>
+        <term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Spel</guimenu
+> <guimenuitem
+>Nieuw</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+><action
+>Start een nieuw spel, het huidige spel afbrekend.</action
+></para
+></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>H</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Spel</guimenu
+> <guimenuitem
+>Topscores tonen</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+><action
+>Toont een dialoog met de hoogste scores.</action
+></para
+></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Spel</guimenu
+> <guimenuitem
+>Afsluiten</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+><action
+>Beëindigt &killbots;.</action
+></para
+></listitem>
+      </varlistentry>
+
+      <varlistentry id="move-menu">
+        <term
+><menuchoice
+><shortcut
+><keycap
+>R</keycap
+></shortcut
+> <guimenu
+>Zet</guimenu
+> <guimenuitem
+>Teleport</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+><action
+>Teleporteert de held naar een willekeurige lege cel ergens in het speelveld.</action
+> Zie <link linkend="teleport" endterm="special-actions-title"
+></link
+>.</para
+></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term
+><menuchoice
+><shortcut
+><keycap
+>T</keycap
+></shortcut
+> <guimenu
+>Zet</guimenu
+> <guimenuitem
+>Teleport veilig</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+><action
+>Teleporteert de held naar een willekeurige lege cel dat tijdens die beurt gegarandeerd veilig is voor aanvallen.</action
+> Zie <link linkend="teleport-safely" endterm="special-actions-title"
+></link
+>.</para
+></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term
+><menuchoice
+><shortcut
+>&Space;</shortcut
+> <guimenu
+>Verplaatsen</guimenu
+> <guimenuitem
+>Teleporteren (veilig indien mogelijk)</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+>Een handige actie. <action
+>Teleporteert de held veilig als er genoeg energie beschikbaar is, anders werkt de teleport willekeurig.</action
+></para
+></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term
+><menuchoice
+><shortcut
+><keycap
+>F</keycap
+></shortcut
+> <guimenu
+>Zet</guimenu
+> <guimenuitem
+>Verdamper</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+><action
+>Vernietigt alle robots in de cellen die grenzen aan de held</action
+>. Zie <link linkend="vaporizer" endterm="special-actions-title"
+></link
+>.</para
+></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term
+><menuchoice
+><shortcut
+><keycap
+>V</keycap
+></shortcut
+> <guimenu
+>Zet</guimenu
+> <guimenuitem
+>Ronde uitwachten</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+><action
+>Veroorzaakt dat de held op zijn plaats bevriest tot het einde van de speelronde.</action
+> Zie <link linkend="wait-out-round" endterm="special-actions-title"
+></link
+>.</para
+></listitem>
+      </varlistentry>
+
+      <varlistentry id="configure-killbots">
+        <term
+><menuchoice
+><guimenu
+>Instellingen</guimenu
+> <guimenuitem
+>&killbots; instellen...</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+><action
+>Toont het configuratiedialoog van &killbots;</action
+>, waar u de spel-parameters kan aanpassen, een andere set spelregels kiezen, of het thema van het spel kan wijzigen.</para
+></listitem>
+      </varlistentry>
+    </variablelist>
+
+<para
+>Bovendien heeft &killbots; de gezamenlijke menu-items van &kde; <guimenu
+>Instellingen</guimenu
+> en <guimenu
+>Help</guimenu
+>, voor meer informatie lees de secties over de <ulink url="help:/fundamentals/menus.html#menus-settings"
+>Menu-instellingen</ulink
+> en <ulink url="help:/fundamentals/menus.html#menus-help"
+>Menu Help</ulink
+> van &kde;-fundamentals. </para>
+
+  </sect1>
+
+</chapter>
+
+
+<chapter id="developers">
+  <title
+>Gids voor ontwikkelaars van &killbots;</title>
+  <para
+>Geïnteresseerde personen kunnen &killbots; op twee manieren aanpassen : thema´s en regelsets.</para>
+
+  <sect1 id="creating-themes">
+    <title
+>Het creëren van eigen thema´s voor &killbots;</title>
+    <para
+>Zoals bij de meeste andere &kde;-spellen, bestaat een thema voor &killbots; uit drie bestanden.</para>
+
+    <sect2>
+      <title
+>Het Desktop-bestand</title>
+      <para
+>Het desktop-bestand volgt de standaard <acronym
+>INI</acronym
+>-syntax. De trefwoord-paren slaan informatie op over het thema en wijzen naar andere bestanden die bij het thema horen. Het volgende voorbeeld komt van het standaard thema.</para>
+      <example>
+        <title
+>Een thema desktop bestand als voorbeeld</title>
+        <programlisting
+>[KGameTheme]
+Name=Voorbeeld Thema
+Description=een voorbeeld thema gebruikt om de creatie van een thema demonstreren. Deze heeft piraten.
+Author=Mr. Artist
+AuthorEmail=mrartist@example.com
+Type=SVG
+FileName=example.svg
+Preview=example.png
+        </programlisting>
+      </example>
+      <para
+>De eerste vier parameters zijn metadata over het thema en spreken voor zich. Voor &killbots; thema´s, moet de <varname
+>Type</varname
+> parameter ingesteld zijn op &SVG;. De laatste twee parameters zijn de bestandsnamen van de andere twee thema-bestanden. Alhoewel het niet echt noodzakelijk is, is het toch verstandig om consistent te blijven en al de drie bestanden dezelfde bestandsnaam te geven.</para>
+    </sect2>
+
+    <sect2>
+      <title
+>Het voorbeeld bestand</title>
+      <para
+>Het voorbeeld-bestand is eenvoudig een <acronym
+>PNG</acronym
+>-bestand dat een voorbeeld geeft van het thema. Het voorbeeld moet 240 bij 140 pixels zijn en zo goed mogelijk overeenkomstig de layout de voorbeeld standaard thema, omdat dit het makkelijker maakt om de thema´s te vergelijken in de thema-selector.</para>
+    </sect2>
+
+    <sect2>
+      <title
+>Het &SVG;-bestand</title>
+      <para
+>Het &SVG;-bestand is een schaalbare grafische vector afbeelding waarin de eigenlijke grafische elementen zitten waarmee het thema is getekend. Het bestand mag zowel het niet gecomprimeerde <literal role="extension"
+>.svg</literal
+> of het wel gecomprimeerde <literal role="extension"
+>.svgz</literal
+> formaat zijn. Elk spel element heeft als identificatie een unieke ID in het &SVG;-bestand. Bij het creëren van een nieuw thema is het meestal makkelijker om te beginnen met een bestaand thema en de elementen stuk voor stuk te vervangen totdat het thema compleet is. Het &SVG;-bestand <emphasis
+>moet</emphasis
+> de volgende elementen hebben.</para>
+      <variablelist>
+        <varlistentry>
+          <term
+><varname
+>achtergrond</varname
+></term>
+          <listitem
+><para
+>De achter het raster getoonde afbeelding in het speelveld.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>status</varname
+></term>
+          <listitem
+><para
+>Het vak in gebruik voor het tonen van de score in deze ronde, aantal vijanden en energie.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>tekstkleur</varname
+></term>
+          <listitem
+><para
+>Dit element moet een rechthoek met een enkele kleur zijn. De kleur is in gebruik voor de tekst in de statusvakken.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cel</varname
+></term>
+          <listitem
+><para
+>Een individuele cel in het raster. </para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>held</varname
+></term>
+          <listitem
+><para
+>Het karakter bestuurt door de speler.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>vijand</varname
+></term>
+          <listitem
+><para
+>De standaard vijand.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>fastenemy</varname
+></term>
+          <listitem
+><para
+>De snellere vijand.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>junkheap</varname
+></term>
+          <listitem
+><para
+>De overblijfselen van een botsing tussen vijanden.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor0</varname
+></term>
+          <listitem
+><para
+>De cursor voor de beweging naar rechts.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor1</varname
+></term>
+          <listitem
+><para
+>De cursor voor de beweging rechtsboven.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor2</varname
+></term>
+          <listitem
+><para
+>De cursor voor de beweging omhoog.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor3</varname
+></term>
+          <listitem
+><para
+>De cursor voor de beweging linksboven.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor4</varname
+></term>
+          <listitem
+><para
+>De cursor voor de beweging naar links.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor5</varname
+></term>
+          <listitem
+><para
+>De cursor voor de beweging linksonder.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor6</varname
+></term>
+          <listitem
+><para
+>De cursor voor de beweging omlaag.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor7</varname
+></term>
+          <listitem
+><para
+>De cursor voor de beweging rechtsonder.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor8</varname
+></term>
+          <listitem
+><para
+>De cursor voor op de plaats blijven.</para
+></listitem>
+        </varlistentry>
+      </variablelist>
+    </sect2>
+
+    <sect2>
+      <title
+>Installeren van eigen thema´s</title>
+      <para
+>Om &killbots; een nieuw thema te laten vinden en gebruiken, moeten de bestanden in een geschikte map zijn geplaatst. Als het thema alleen voor de huidige gebruiker beschikbaar hoeft te zijn, kopieert u de desktop, voorbeeld en &SVG;-bestanden naar het lokale bestand <filename class="directory"
+>killbots/themes</filename
+> in <userinput
+><command
+>qtpaths</command
+> <option
+>--paths GenericDataLocation </option
+></userinput
+>. Om het thema systeembreed beschikbaar te laten zijn, verplaatst u de bestanden naar <filename class="directory"
+>killbots/themes</filename
+> in de systeemmap (uit het vorige commando, mogelijk <filename class="directory"
+>/usr/share</filename
+> of zoiets). Merk op dat hiervoor waarschijnlijk administratieve beheerdersrechten nodig zijn.</para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="creating-rulesets">
+    <title
+>Het creëren van eigen speltypes</title>
+
+    <sect2>
+      <title
+>Het Desktop-bestand met regelsets</title>
+      <para
+>Het creëren van nieuwe speltypes is erg makkelijk bij &killbots;, speciaal als u begint met een bestaand regelset. Regelsets zijn opgeslagen als enkelvoudige desktop-bestand waarin de parameters en metadata als eenvoudige trefwoord-paren zijn opgeslagen.</para>
+      <example>
+        <title
+>Het standaard speltype in &killbots;</title>
+        <programlisting width="80"
+>[KillbotsRuleset]
+Name=Killbots
+Name[gl]=Robots asasinos
+Author=Parker Coates
+AuthorContact=parker.coates@kdemail.net
+Description=&lt;qt&gt;&lt;p&gt;The default Killbots game type.&lt;/p&gt;&lt;p&gt;Includes a medium size grid, safe teleports, fast enemies and pushable junkheaps.&lt;/p&gt;&lt;/qt&gt;
+Description[nl]=&lt;qt&gt;&lt;p&gt;De standaard Killbots speltype.&lt;/p&gt;&lt;p&gt;heeft een middelgroot speelveld, veilige teleports, snelle robots en duwbare schroothopen.&lt;/p&gt;&lt;/qt&gt;
+Rows=16
+Columns=16
+EnemiesAtGameStart=8.0
+EnemiesAddedEachRound=4.0
+FastEnemiesAtGameStart=-2.0
+FastEnemiesAddedEachRound=2.0
+EnergyEnabled=true
+EnergyAtGameStart=0
+EnergyAddedEachRound=0
+MaxEnergyAtGameStart=12.0
+MaxEnergyAddedEachRound=0.0
+SafeTeleportEnabled=true
+CostOfSafeTeleport=1
+VaporizerEnabled=false
+CostOfVaporizer=0
+PushableJunkheaps=Many
+SquaskKillsEnabled=true
+JunkheapsAtGameStart=0.0
+JunkheapsAddedEachRound=0.0
+PointsPerEnemyKilled=5
+PointsPerFastEnemyKilled=10
+WaitKillPointBonus=0
+WaitKillEnergyBonus=1
+SquashKillPointBonus=0
+SquashKillEnergyBonus=1</programlisting>
+      </example>
+      <para
+>Merk op dat u alle tekst parameters in Amerikaans Engels moet opgeven. Zoals in het voorbeeld hierboven te zien, kunt u vertalingen aan het desktop-bestand toevoegen door het trefwoord te herhalen waarbij u de vertaalcode in rechte haakjes toevoegt. Merk ook op dat u rich text aan het veld <varname
+>Description</varname
+> kan toevoegen door de waarde tussen &lt;qt&gt; tags te zetten.</para>
+      <para
+>Een regelset moet alle volgende parameters hebben.</para>
+      <variablelist>
+        <varlistentry>
+          <term
+><varname
+>Naam</varname
+></term>
+          <listitem
+><para
+>De naam van de regelset zoals het zal verschijnen in de regelset-selector en het dialoog met de hoogste scores.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>Auteur</varname
+></term>
+          <listitem
+><para
+>De ontwerper van de regelset.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>AuthorContact</varname
+></term>
+          <listitem
+><para
+>De contact informatie van de ontwerper. Dit is meestal een email adres.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>Beschrijving</varname
+></term>
+          <listitem
+><para
+>Een beschrijving van de regelset. Dit moet een redelijke indruk van het speltype geven, maar het is niet nodig om van elke parameter de waarde te geven omdat deze details zichtbaar zijn in dialoogvenster voor details.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>Rijen</varname
+></term>
+          <listitem
+><para
+>Het aantal rijen in het spelraster.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>Kolommen</varname
+></term>
+          <listitem
+><para
+>Aantal aantal kolommen in het spelraster.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>EnemiesAtGameStart</varname
+></term>
+          <listitem
+><para
+>Het aantal reguliere vijanden in het raster bij het begin van de eerste ronde.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>EnemiesAddedEachRound</varname
+></term>
+          <listitem
+><para
+>Het aantal bij elke speelronde aan het speelveld toegevoegde normale vijanden.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>FastEnemiesAtGameStart</varname
+></term>
+          <listitem
+><para
+>Het aantal snelle vijanden in het speelveld bij het begin van de eerste ronde.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>FastEnemiesAddedEachRound</varname
+></term>
+          <listitem
+><para
+>Het aantal bij elke speelronde aan het speelveld toegevoegde snelle vijanden.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>EnergyEnabled</varname
+></term>
+          <listitem
+><para
+>Indien ingesteld op <quote
+><constant
+>vals</constant
+></quote
+> dan kan de held energie verzamelen of gebruiken.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>EnergyAtGameStart</varname
+></term>
+          <listitem
+><para
+>De hoeveelheid energie dat de held heeft bij het begin van de eerste ronde.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>EnergyAddedEachRound</varname
+></term>
+          <listitem
+><para
+>De hoeveelheid energie dat de held meer krijgt bij elke speelronde.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>MaxEnergyAtGameStart</varname
+></term>
+          <listitem
+><para
+>Het energie-maximum van de held bij het begin van de eerste ronde.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>MaxEnergyAddedEachRound</varname
+></term>
+          <listitem
+><para
+>De verandering van het energie-maximum van de held bij elke speelronde.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>SafeTeleportEnabled</varname
+></term>
+          <listitem
+><para
+>Indien ingesteld op <quote
+><constant
+>vals</constant
+></quote
+> dan is veilig teleporteren uitgeschakeld.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>CostOfSafeTeleport</varname
+></term>
+          <listitem
+><para
+>De hoeveelheid energie gebruikt door veilig teleporteren.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>VaporizerEnabled</varname
+></term>
+          <listitem
+><para
+>Indien ingesteld op <quote
+><constant
+>vals</constant
+></quote
+> dan is de verdamper uitgeschakeld.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>CostOfVaporizer</varname
+></term>
+          <listitem
+><para
+>De hoeveelheid energie gebruikt door de verdamper.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>PushableJunkheaps</varname
+></term>
+          <listitem
+><para
+>Het aantal schroothopen dat u met een enkele duw kunt verplaatsen. Mogelijke waarden zijn values are <quote
+><constant
+>None</constant
+></quote
+>, <quote
+><constant
+>One</constant
+></quote
+> en <quote
+><constant
+>Many</constant
+></quote
+>.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>SquaskKillsEnabled</varname
+></term>
+          <listitem
+><para
+>Indien waar, dan kan de held vijanden verpletteren door schroothopen tegen hun aan te duwen.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>JunkheapsAtGameStart</varname
+></term>
+          <listitem
+><para
+>Het aantal geplaatste schroothopen in het speelveld bij het begin van de eerste ronde.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>JunkheapsAddedEachRound</varname
+></term>
+          <listitem
+><para
+>Het aantal bij elke speelronde aan het speelveld toegevoegde schroothopen.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>PointsPerEnemyKilled</varname
+></term>
+          <listitem
+><para
+>Toegekende punten voor elke reguliere vernietigde vijand.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>PointsPerFastEnemyKilled</varname
+></term>
+          <listitem
+><para
+>Toegekende punten voor elke vernietigde snelle vijand.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>WaitKillPointBonus</varname
+></term>
+          <listitem
+><para
+>Toegekende punten voor elke vernietigde vijand bij het afwachten van een ronde.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>WaitKillEnergyBonus</varname
+></term>
+          <listitem
+><para
+>Toegekende energie voor elke vernietigde vijand bij het afwachten van een ronde.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>SquashKillPointBonus</varname
+></term>
+          <listitem
+><para
+>Toegekende punten voor elke vernietigde vijand door een geduwde schroothoop.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>SquashKillEnergyBonus</varname
+></term>
+          <listitem
+><para
+>Toegekende energie voor elke vernietigde vijand door een geduwde schroothoop.</para
+></listitem>
+        </varlistentry>
+      </variablelist>
+    </sect2>
+
+    <sect2>
+      <title
+>Installeren van eigen speltypes</title>
+
+      <para
+>Om het mogelijk te maken dat &killbots; een nieuw speltype kan detecteren en gebruiken, moet u het regelset-bestand naar een geschikte map verplaatsen. Om het speltype alleen voor de huidige speler beschikbaar te maken, kopieert u het bestand naar <filename class="directory"
+>killbots/rulesets</filename
+> in de lokale map <userinput
+><command
+>qtpaths</command
+> <option
+>--paths GenericDataLocation </option
+></userinput
+>. Om het speltype systeembreed beschikbaar te maken, verplaatst u het bestand naar <filename
+> class="directory"killbots/rulesets</filename
+> in de systeemmap (uit het vorige commando, mogelijk <filename class="directory"
+>/usr/share</filename
+> of zoiets). Merk op dat dit waarschijnlijk administratieve rechten vereist.</para>
+    </sect2>
+
+  </sect1>
+</chapter>
+
+<chapter id="credits">
+  <title
+>Dankbetuiging en licentie</title>
+
+  <para
+>&killbots;</para>
+  <para
+>Programma copyright 2007&ndash;2009 Parker Coates <email
+>parker.coates@kdemail.net</email
+></para>
+  <para
+>Documentatie Copyright &copy; 2008&ndash;2009 Parker Coates <email
+>parker.coates@kdemail.net</email
+></para>
+
+  &meld.fouten;&vertaling.freek;&vertaling.ronald; &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+
+</book>
+
+<!--
+Local Variables:
+mode: xml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+vim:tabstop=2:shiftwidth=2:expandtab
+kate: space-indent on; indent-width 2; tab-width 2; indent-mode none;
+-->

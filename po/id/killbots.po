@@ -1,0 +1,922 @@
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the killbots package.
+# Wantoyo <wantoyek@gmail.com>, 2019, 2020, 2021, 2022.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: killbots\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-30 00:41+0000\n"
+"PO-Revision-Date: 2022-08-19 20:36+0700\n"
+"Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
+"Language-Team: https://t.me/Localizations_KDE_Indonesia\n"
+"Language: id\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 21.12.3\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Wantoyo"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "wantoyek@gmail.com"
+
+#: coordinator.cpp:101
+#, fuzzy, kde-format
+#| msgid "Round:"
+msgctxt "@label"
+msgid "Round:"
+msgstr "Ronde:"
+
+#: coordinator.cpp:106
+#, fuzzy, kde-format
+#| msgid "Score:"
+msgctxt "@label"
+msgid "Score:"
+msgstr "Skor:"
+
+#: coordinator.cpp:111
+#, fuzzy, kde-format
+#| msgid "Enemies:"
+msgctxt "@label"
+msgid "Enemies:"
+msgstr "Musuh:"
+
+#: coordinator.cpp:116
+#, fuzzy, kde-format
+#| msgid "Energy:"
+msgctxt "@label"
+msgid "Energy:"
+msgstr "Energi:"
+
+#: coordinator.cpp:405
+#, fuzzy, kde-format
+#| msgid "Round complete."
+msgctxt "@info"
+msgid "Round complete."
+msgstr "Ronde selesai."
+
+#: coordinator.cpp:410
+#, fuzzy, kde-format
+#| msgid ""
+#| "Board is full.\n"
+#| "Resetting enemy counts."
+msgctxt "@info"
+msgid ""
+"Board is full.\n"
+"Resetting enemy counts."
+msgstr ""
+"Papan telah penuh.\n"
+"Mengeset ulang hitungan musuh."
+
+#: coordinator.cpp:415
+#, fuzzy, kde-format
+#| msgid "New game."
+msgctxt "@info"
+msgid "New game."
+msgstr "Permainan baru."
+
+#: coordinator.cpp:420
+#, fuzzy, kde-format
+#| msgid "Game over."
+msgctxt "@info"
+msgid "Game over."
+msgstr "Permainan berakhir."
+
+#. i18n: ectx: tooltip, entry (MiddleClickAction), group (General)
+#: killbots.kcfg:19
+#, kde-format
+msgid "The action performed on a middle-click"
+msgstr "Aksi dilakukan saat klik-tengah"
+
+#. i18n: ectx: whatsthis, entry (MiddleClickAction), group (General)
+#: killbots.kcfg:20
+#, kde-format
+msgid ""
+"Selects the action performed when middle-clicking on the main game area. If "
+"a middle mouse button is not available, this action can be performed by "
+"left- and right-clicking simultaneously or by left-clicking while holding "
+"the control key."
+msgstr ""
+"Memilih aksi yang dilakukan ketika mengeklik tengah pada area permainan "
+"utama. Jika tombol tengah mouse tidak tersedia, tindakan ini dapat dilakukan "
+"dengan mengeklik kiri dan kanan secara bersamaan atau dengan mengeklik kiri "
+"sambil menahan tombol kontrol."
+
+#. i18n: ectx: tooltip, entry (RightClickAction), group (General)
+#: killbots.kcfg:25
+#, kde-format
+msgid "The action performed on a right-click"
+msgstr "Aksi dilakukan saat klik-kanan"
+
+#. i18n: ectx: whatsthis, entry (RightClickAction), group (General)
+#: killbots.kcfg:26
+#, kde-format
+msgid "Selects the action performed when right-clicking on the main game area."
+msgstr "Pilih aksi yang dilakukan saat mengklik kanan area permainan utama."
+
+#. i18n: ectx: tooltip, entry (AnimationSpeed), group (General)
+#: killbots.kcfg:32
+#, kde-format
+msgid "The speed used to display animations"
+msgstr "Kecepatan yang digunakan untuk mendisplaikan animasi"
+
+#. i18n: ectx: whatsthis, entry (AnimationSpeed), group (General)
+#: killbots.kcfg:33
+#, kde-format
+msgid "Adjusts the speed at which the in game animations are displayed."
+msgstr "Sesuaikan kecepatannya animasi permainan yang akan didisplaikan."
+
+#. i18n: ectx: tooltip, entry (PreventUnsafeMoves), group (General)
+#: killbots.kcfg:37
+#, kde-format
+msgid "Prevent the player from making fatal moves"
+msgstr "Cegah pemain melakukan pindahan fatal"
+
+#. i18n: ectx: whatsthis, entry (PreventUnsafeMoves), group (General)
+#: killbots.kcfg:38
+#, kde-format
+msgid ""
+"If checked, the game will ignore any move that would result in the immediate "
+"death of the hero (other than random teleports and waiting out the round)."
+msgstr ""
+"Jika dicentang, permainan akan mengabaikan pindah apa pun yang akan "
+"mengakibatkan kematian langsung pahlawan (selain dari teleport acak dan "
+"menunggu ronde)."
+
+#. i18n: ectx: tooltip, entry (Ruleset), group (General)
+#: killbots.kcfg:42
+#, kde-format
+msgid "The selected set of game rules"
+msgstr "Set yang dipilih pada peraturan permainan"
+
+#. i18n: ectx: whatsthis, entry (Ruleset), group (General)
+#: killbots.kcfg:43
+#, kde-format
+msgid "Selects the set of game rules to be used in the next game."
+msgstr ""
+"Memilih setnya peraturan permainan yang akan digunakan dalam permainan "
+"selanjutnya."
+
+#. i18n: ectx: Menu (moveMenu)
+#: killbotsui.rc:11
+#, fuzzy, kde-format
+#| msgid "Move"
+msgctxt "@title:menu"
+msgid "Move"
+msgstr "Pindah"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: killbotsui.rc:21
+#, kde-format
+msgid "Main Toolbar"
+msgstr "Bilah Alat Utama"
+
+#: main.cpp:38
+#, kde-format
+msgid "Killbots"
+msgstr "Killbots"
+
+#: main.cpp:39
+#, kde-format
+msgid "A KDE game of killer robots and teleportation."
+msgstr "Sebuah permainan KDE si robot-robot teleportasi dan pembunuh."
+
+#: main.cpp:41
+#, kde-format
+msgid "© 2006-2009, Parker Coates"
+msgstr "© 2006-2009, Parker Coates"
+
+#: main.cpp:42
+#, kde-format
+msgid "Parker Coates"
+msgstr "Parker Coates"
+
+#: main.cpp:42
+#, kde-format
+msgid "Developer"
+msgstr "Pengembang"
+
+#: main.cpp:43
+#, kde-format
+msgid "Mark Rae"
+msgstr "Mark Rae"
+
+#: main.cpp:43
+#, kde-format
+msgid ""
+"Author of Gnome Robots. Invented safe teleports, pushing junkheaps and fast "
+"robots."
+msgstr ""
+"Penulis Gnome Robots. Menciptakan teleportasi yang aman, pendorongan "
+"rongsokan dan robot-robot cepat."
+
+#: mainwindow.cpp:60
+#, kde-format
+msgid ""
+"This is the main game area used to interact with Killbots. It shows the "
+"current state of the game grid and allows one to control the hero using the "
+"mouse. It also displays certain statistics about the game in progress."
+msgstr ""
+"Ini adalah area permainan utama yang digunakan untuk berinteraksi dengan "
+"Killbots. Ini menampilkan kondisi kisi permainan saat ini dan memungkinkan "
+"seseorang untuk mengendalikan pahlawan menggunakan mouse. Ini juga "
+"menampilkan statistik tertentu tentang permainan yang sedang berlangsung."
+
+#: mainwindow.cpp:94
+#, fuzzy, kde-format
+#| msgid "General"
+msgctxt "@title"
+msgid "General"
+msgstr "Umum"
+
+#: mainwindow.cpp:96
+#, fuzzy, kde-format
+#| msgid "Configure general settings"
+msgctxt "@info"
+msgid "Configure general settings"
+msgstr "Konfigurasikan pengaturan umum"
+
+#: mainwindow.cpp:99
+#, fuzzy, kde-format
+#| msgid "Game Type"
+msgctxt "@title"
+msgid "Game Type"
+msgstr "Tipe Permainan"
+
+#: mainwindow.cpp:101
+#, fuzzy, kde-format
+#| msgid "Select a game type"
+msgctxt "@info"
+msgid "Select a game type"
+msgstr "Pilih tipe permainan"
+
+#: mainwindow.cpp:104
+#, fuzzy, kde-format
+#| msgid "Appearance"
+msgctxt "@title"
+msgid "Appearance"
+msgstr "Penampilan"
+
+#: mainwindow.cpp:106
+#, fuzzy, kde-format
+#| msgid "Select a graphical theme"
+msgctxt "@info"
+msgid "Select a graphical theme"
+msgstr "Pilih tema grafikal"
+
+#: mainwindow.cpp:140
+#, kde-format
+msgid ""
+"A new game type has been selected, but there is already a game in progress."
+msgstr ""
+"Jenis permainan baru telah dipilih, tetapi sudah ada permainan yang sedang "
+"berlangsung."
+
+#: mainwindow.cpp:141
+#, fuzzy, kde-format
+#| msgid "Game Type Changed"
+msgctxt "@title:window"
+msgid "Game Type Changed"
+msgstr "Tipe Permainan Diubah"
+
+#: mainwindow.cpp:142
+#, fuzzy, kde-format
+#| msgid "Continue Current Game"
+msgctxt "@action:button"
+msgid "Continue Current Game"
+msgstr "Teruskan Permainan Saat Ini"
+
+#: mainwindow.cpp:143
+#, fuzzy, kde-format
+#| msgid "Start a New Game"
+msgctxt "@action:button"
+msgid "Start a New Game"
+msgstr "Mulai Permainan Baru"
+
+#: mainwindow.cpp:156
+#, fuzzy, kde-format
+#| msgid "Round"
+msgctxt "@title:column round of the game"
+msgid "Round"
+msgstr "Ronde"
+
+#: mainwindow.cpp:240 optionspage.cpp:28
+#, fuzzy, kde-format
+#| msgid "Teleport Safely"
+msgctxt "@action"
+msgid "Teleport Safely"
+msgstr "Teleportasikan Secara Aman"
+
+#: mainwindow.cpp:241
+#, kde-format
+msgctxt ""
+"Shortcut for teleport safely. See https://quickgit.kde.org/?p=killbots."
+"git&a=blob&f=README.translators&o=plain"
+msgid "T"
+msgstr "T"
+
+#: mainwindow.cpp:243
+#, fuzzy, kde-format
+#| msgid "Teleport to a safe location"
+msgctxt "@info:tooltip"
+msgid "Teleport to a safe location"
+msgstr "Teleportasikan ke lokasi yang aman"
+
+#: mainwindow.cpp:248 optionspage.cpp:27
+#, fuzzy, kde-format
+#| msgid "Teleport"
+msgctxt "@action"
+msgid "Teleport"
+msgstr "Teleportasikan"
+
+#: mainwindow.cpp:249
+#, kde-format
+msgctxt ""
+"Shortcut for teleport. See https://quickgit.kde.org/?p=killbots."
+"git&a=blob&f=README.translators&o=plain"
+msgid "R"
+msgstr "R"
+
+#: mainwindow.cpp:251
+#, fuzzy, kde-format
+#| msgid "Teleport to a random location"
+msgctxt "@info:tooltip"
+msgid "Teleport to a random location"
+msgstr "Teleportasikan ke lokasi secara acak (random)"
+
+#: mainwindow.cpp:256 optionspage.cpp:29
+#, fuzzy, kde-format
+#| msgid "Teleport (Safely If Possible)"
+msgctxt "@action"
+msgid "Teleport (Safely if Possible)"
+msgstr "Teleportasikan (Secara Aman Jika Memungkinkan)"
+
+#: mainwindow.cpp:257
+#, kde-format
+msgctxt ""
+"Shortcut for teleport safely if possible. See https://quickgit.kde.org/?"
+"p=killbots.git&a=blob&f=README.translators&o=plain"
+msgid "Space"
+msgstr "Spasi"
+
+#: mainwindow.cpp:259
+#, fuzzy, kde-format
+#| msgid ""
+#| "Teleport safely if that action is enabled, otherwise teleport randomly"
+msgctxt "@info:tooltip"
+msgid "Teleport safely if that action is enabled, otherwise teleport randomly"
+msgstr ""
+"Teleportasikan secara aman jika aksi tersebut telah difungsikan, selain itu "
+"teleportasikan secara acak"
+
+#: mainwindow.cpp:263
+#, fuzzy, kde-format
+#| msgid "Vaporizer"
+msgctxt "@action"
+msgid "Vaporizer"
+msgstr "Vaporizer"
+
+#: mainwindow.cpp:264
+#, kde-format
+msgctxt ""
+"Shortcut for vaporizer. See https://quickgit.kde.org/?p=killbots."
+"git&a=blob&f=README.translators&o=plain"
+msgid "F"
+msgstr "F"
+
+#: mainwindow.cpp:266
+#, fuzzy, kde-format
+#| msgid "Destroy all enemies in neighboring cells"
+msgctxt "@info:tooltip"
+msgid "Destroy all enemies in neighboring cells"
+msgstr "Ledakkan semua musuh dalam sel yang berdekatan sampai bertubrukan"
+
+#: mainwindow.cpp:271 optionspage.cpp:30
+#, fuzzy, kde-format
+#| msgid "Wait Out Round"
+msgctxt "@action"
+msgid "Wait Out Round"
+msgstr "Tunggu Ronde"
+
+#: mainwindow.cpp:272
+#, kde-format
+msgctxt ""
+"Shortcut for wait out round. See https://quickgit.kde.org/?p=killbots."
+"git&a=blob&f=README.translators&o=plain"
+msgid "V"
+msgstr "V"
+
+#: mainwindow.cpp:274
+#, fuzzy, kde-format
+#| msgid "Risk remaining in place until the end of the round for bonuses"
+msgctxt "@info:tooltip"
+msgid "Risk remaining in place until the end of the round for bonuses"
+msgstr "Risiko tetap ada sampai akhir ronde untuk bonus"
+
+#: mainwindow.cpp:279
+#, fuzzy, kde-format
+#| msgid "Move Up and Left"
+msgctxt "@action"
+msgid "Move Up and Left"
+msgstr "Gerakkan Naik dan Kiri"
+
+#: mainwindow.cpp:280
+#, kde-format
+msgctxt ""
+"Shortcut for move up and left. https://quickgit.kde.org/?p=killbots."
+"git&a=blob&f=README.translators&o=plain"
+msgid "Q"
+msgstr "Q"
+
+#: mainwindow.cpp:285
+#, fuzzy, kde-format
+#| msgid "Move Up"
+msgctxt "@action"
+msgid "Move Up"
+msgstr "Gerakkan Naik"
+
+#: mainwindow.cpp:286
+#, kde-format
+msgctxt ""
+"Shortcut for move up. See https://quickgit.kde.org/?p=killbots."
+"git&a=blob&f=README.translators&o=plain"
+msgid "W"
+msgstr "W"
+
+#: mainwindow.cpp:291
+#, fuzzy, kde-format
+#| msgid "Move Up and Right"
+msgctxt "@action"
+msgid "Move Up and Right"
+msgstr "Gerakkan Naik dan Kanan"
+
+#: mainwindow.cpp:292
+#, kde-format
+msgctxt ""
+"Shortcut for move up and right. https://quickgit.kde.org/?p=killbots."
+"git&a=blob&f=README.translators&o=plain"
+msgid "E"
+msgstr "E"
+
+#: mainwindow.cpp:297
+#, fuzzy, kde-format
+#| msgid "Move Left"
+msgctxt "@action"
+msgid "Move Left"
+msgstr "Pindah Kiri"
+
+#: mainwindow.cpp:298
+#, kde-format
+msgctxt ""
+"Shortcut for move left. See https://quickgit.kde.org/?p=killbots."
+"git&a=blob&f=README.translators&o=plain"
+msgid "A"
+msgstr "A"
+
+#: mainwindow.cpp:303
+#, fuzzy, kde-format
+#| msgid "Stand Still"
+msgctxt "@action"
+msgid "Stand Still"
+msgstr "Diam"
+
+#: mainwindow.cpp:304
+#, kde-format
+msgctxt ""
+"Shortcut for stand still. See https://quickgit.kde.org/?p=killbots."
+"git&a=blob&f=README.translators&o=plain"
+msgid "S"
+msgstr "S"
+
+#: mainwindow.cpp:309
+#, fuzzy, kde-format
+#| msgid "Move Right"
+msgctxt "@action"
+msgid "Move Right"
+msgstr "Pindah Kanan"
+
+#: mainwindow.cpp:310
+#, kde-format
+msgctxt ""
+"Shortcut for move right. See https://quickgit.kde.org/?p=killbots."
+"git&a=blob&f=README.translators&o=plain"
+msgid "D"
+msgstr "D"
+
+#: mainwindow.cpp:315
+#, fuzzy, kde-format
+#| msgid "Move Down and Left"
+msgctxt "@action"
+msgid "Move Down and Left"
+msgstr "Gerakkan Turun dan Kiri"
+
+#: mainwindow.cpp:316
+#, kde-format
+msgctxt ""
+"Shortcut for move down and left. See https://quickgit.kde.org/?p=killbots."
+"git&a=blob&f=README.translators&o=plain"
+msgid "Z"
+msgstr "Z"
+
+#: mainwindow.cpp:321
+#, fuzzy, kde-format
+#| msgid "Move Down"
+msgctxt "@action"
+msgid "Move Down"
+msgstr "Gerakkan Turun"
+
+#: mainwindow.cpp:322
+#, kde-format
+msgctxt ""
+"Shortcut for move down. See https://quickgit.kde.org/?p=killbots."
+"git&a=blob&f=README.translators&o=plain"
+msgid "X"
+msgstr "X"
+
+#: mainwindow.cpp:327
+#, fuzzy, kde-format
+#| msgid "Move Down and Right"
+msgctxt "@action"
+msgid "Move Down and Right"
+msgstr "Gerakkan Turun dan Kanan"
+
+#: mainwindow.cpp:328
+#, kde-format
+msgctxt ""
+"Shortcut for move down and right. https://quickgit.kde.org/?p=killbots."
+"git&a=blob&f=README.translators&o=plain"
+msgid "C"
+msgstr "C"
+
+#: optionspage.cpp:24
+#, fuzzy, kde-format
+#| msgid "Nothing"
+msgctxt "@item:inlistbox No action on click"
+msgid "Nothing"
+msgstr "Tidak ada apa-apa"
+
+#: optionspage.cpp:25
+#, fuzzy, kde-format
+#| msgid "Step"
+msgctxt "@action"
+msgid "Step"
+msgstr "Langkah"
+
+#: optionspage.cpp:26
+#, fuzzy, kde-format
+#| msgid "Repeated Step"
+msgctxt "@action"
+msgid "Repeated Step"
+msgstr "Langkah Diulangi"
+
+#: optionspage.cpp:45
+#, fuzzy, kde-format
+#| msgid "Slow"
+msgctxt "@item:inrange"
+msgid "Slow"
+msgstr "Lambat"
+
+#: optionspage.cpp:47
+#, fuzzy, kde-format
+#| msgid "Fast"
+msgctxt "@item:inrange"
+msgid "Fast"
+msgstr "Cepat"
+
+#: optionspage.cpp:49
+#, fuzzy, kde-format
+#| msgid "Instant"
+msgctxt "@item:inrange"
+msgid "Instant"
+msgstr "Instan"
+
+#: optionspage.cpp:60
+#, fuzzy, kde-format
+#| msgid "Animation &speed:"
+msgctxt "@label:slider"
+msgid "Animation &speed:"
+msgstr "Ke&cepatan animasi:"
+
+#: optionspage.cpp:63
+#, fuzzy, kde-format
+#| msgid "Prevent &unsafe moves"
+msgctxt "@option:check"
+msgid "Prevent &unsafe moves"
+msgstr "Cegah pindahan tak a&man"
+
+#: optionspage.cpp:68
+#, fuzzy, kde-format
+#| msgid "&Middle-click action:"
+msgctxt "@label:listbox"
+msgid "&Middle-click action:"
+msgstr "Aksi klik-&tengah:"
+
+#: optionspage.cpp:69
+#, fuzzy, kde-format
+#| msgid "&Right-click action:"
+msgctxt "@label:listbox"
+msgid "&Right-click action:"
+msgstr "Aksi klik-&kanan:"
+
+#. i18n: ectx: label, entry (Rows), group (KillbotsRuleset)
+#: rulesetbase.kcfg:19
+#, kde-format
+msgid "Number of rows in game grid"
+msgstr "Jumlah baris dalam kisi permainan"
+
+#. i18n: ectx: label, entry (Columns), group (KillbotsRuleset)
+#: rulesetbase.kcfg:24
+#, kde-format
+msgid "Number of columns in game grid"
+msgstr "Jumlah kolom dalam kisi permainan"
+
+#. i18n: ectx: label, entry (EnemiesAtGameStart), group (KillbotsRuleset)
+#: rulesetbase.kcfg:28
+#, kde-format
+msgid "Number of regular enemies in first round"
+msgstr "Jumlah musuh reguler dalam ronde pertama"
+
+#. i18n: ectx: label, entry (EnemiesAddedEachRound), group (KillbotsRuleset)
+#: rulesetbase.kcfg:32
+#, kde-format
+msgid "Number of regular enemies added in each new round"
+msgstr "Jumlah musuh reguler yang ditambahkan dalam tiap ronde baru"
+
+#. i18n: ectx: label, entry (FastEnemiesAtGameStart), group (KillbotsRuleset)
+#: rulesetbase.kcfg:36
+#, kde-format
+msgid "Number of fast enemies in first round"
+msgstr "Jumlah musuh cepat dalam ronde pertama"
+
+#. i18n: ectx: label, entry (FastEnemiesAddedEachRound), group (KillbotsRuleset)
+#: rulesetbase.kcfg:40
+#, kde-format
+msgid "Number of fast enemies added in each new round"
+msgstr "Jumlah musuh cepat yang ditambahkan tiap ronde baru"
+
+#. i18n: ectx: label, entry (FastEnemiesArePatient), group (KillbotsRuleset)
+#: rulesetbase.kcfg:44
+#, kde-format
+msgid ""
+"Fast enemies will skip their extra turn to avoid collisions with other robots"
+msgstr ""
+"Musuh yang cepat akan melewatkan giliran ekstra mereka untuk menghindari "
+"tabrakan dengan robot lain"
+
+#. i18n: ectx: label, entry (EnergyEnabled), group (KillbotsRuleset)
+#: rulesetbase.kcfg:48
+#, kde-format
+msgid "Player can accumulate energy"
+msgstr "Pemain bisa mengumpulkan energi"
+
+#. i18n: ectx: label, entry (EnergyAtGameStart), group (KillbotsRuleset)
+#: rulesetbase.kcfg:53
+#, kde-format
+msgid "Energy at start of first round"
+msgstr "Energi di saat mulai ronde pertama kali"
+
+#. i18n: ectx: label, entry (EnergyAddedEachRound), group (KillbotsRuleset)
+#: rulesetbase.kcfg:57
+#, kde-format
+msgid "Energy awarded for completing a round"
+msgstr "Energi diberikan untuk menyelesaikan ronde"
+
+#. i18n: ectx: label, entry (MaxEnergyAtGameStart), group (KillbotsRuleset)
+#: rulesetbase.kcfg:62
+#, kde-format
+msgid "Maximum energy cap in first round"
+msgstr "Maksimum kap energi dalam ronde pertama"
+
+#. i18n: ectx: label, entry (MaxEnergyAddedEachRound), group (KillbotsRuleset)
+#: rulesetbase.kcfg:66
+#, kde-format
+msgid "Increase in maximum energy cap for each new round"
+msgstr "Tambahi maksimum kap energi untuk tiap ronde baru"
+
+#. i18n: ectx: label, entry (SafeTeleportEnabled), group (KillbotsRuleset)
+#: rulesetbase.kcfg:70
+#, kde-format
+msgid "Player can perform safe teleports"
+msgstr "Pemain bisa melakukan teleportasi aman"
+
+#. i18n: ectx: label, entry (CostOfSafeTeleport), group (KillbotsRuleset)
+#: rulesetbase.kcfg:75
+#, kde-format
+msgid "The cost of performing a safe teleport"
+msgstr "Kerugian melakukan teleportasi yang aman"
+
+#. i18n: ectx: label, entry (VaporizerEnabled), group (KillbotsRuleset)
+#: rulesetbase.kcfg:79
+#, kde-format
+msgid "Player can use vaporizer"
+msgstr "Pemain bisa menggunakan vaporizer"
+
+#. i18n: ectx: label, entry (CostOfVaporizer), group (KillbotsRuleset)
+#: rulesetbase.kcfg:84
+#, kde-format
+msgid "Cost of using vaporizer"
+msgstr "Kerugian menggunakan vaporizer"
+
+#. i18n: ectx: label, entry (PushableJunkheaps), group (KillbotsRuleset)
+#: rulesetbase.kcfg:93
+#, kde-format
+msgid "Number of junkheaps that can be pushed at once"
+msgstr "Jumlah rongsokan yang bisa didorong"
+
+#. i18n: ectx: label, entry (SquaskKillsEnabled), group (KillbotsRuleset)
+#: rulesetbase.kcfg:97
+#, kde-format
+msgid "Player can destroy enemies with a pushed junkheap"
+msgstr "Pemain bisa menghancurkan musuh pakai rongsokan yang didorong"
+
+#. i18n: ectx: label, entry (JunkheapsAtGameStart), group (KillbotsRuleset)
+#: rulesetbase.kcfg:101
+#, kde-format
+msgid "Junkheaps placed on grid at start of first round"
+msgstr "Rongsokan ditempatkan pada kisi di awal ronde pertama"
+
+#. i18n: ectx: label, entry (JunkheapsAddedEachRound), group (KillbotsRuleset)
+#: rulesetbase.kcfg:105
+#, kde-format
+msgid "Junkheaps added to the grid for each new round"
+msgstr "Rongsokan ditambahkan ke kisi untuk tiap ronde baru"
+
+#. i18n: ectx: label, entry (PointsPerEnemyKilled), group (KillbotsRuleset)
+#: rulesetbase.kcfg:110
+#, kde-format
+msgid "Points awarded for each regular enemy destroyed"
+msgstr "Poin yang diberikan untuk setiap musuh reguler yang dihancurkan"
+
+#. i18n: ectx: label, entry (PointsPerFastEnemyKilled), group (KillbotsRuleset)
+#: rulesetbase.kcfg:115
+#, kde-format
+msgid "Points awarded for each fast enemy destroyed"
+msgstr "Poin yang diberikan untuk setiap musuh pertama yang dihancurkan"
+
+#. i18n: ectx: label, entry (WaitKillPointBonus), group (KillbotsRuleset)
+#: rulesetbase.kcfg:120
+#, kde-format
+msgid "Points awarded for each enemy destroyed while waiting out the round"
+msgstr ""
+"Poin yang diberikan untuk setiap musuh yang dihancurkan saat menunggu ronde"
+
+#. i18n: ectx: label, entry (WaitKillEnergyBonus), group (KillbotsRuleset)
+#: rulesetbase.kcfg:125
+#, kde-format
+msgid "Energy awarded for each enemy destroyed while waiting out the round"
+msgstr ""
+"Energi yang diberikan untuk setiap musuh yang dihancurkan saat menunggu ronde"
+
+#. i18n: ectx: label, entry (SquashKillPointBonus), group (KillbotsRuleset)
+#: rulesetbase.kcfg:130
+#, kde-format
+msgid "Points awarded for each enemy destroyed with a pushed junkheap"
+msgstr ""
+"Poin yang diberikan untuk setiap musuh yang dihancurkan pakai rongsokan yang "
+"didorong"
+
+#. i18n: ectx: label, entry (SquashKillEnergyBonus), group (KillbotsRuleset)
+#: rulesetbase.kcfg:135
+#, kde-format
+msgid "Energy awarded for each enemy destroyed with a pushed junkheap"
+msgstr ""
+"Energi yang diberikan untuk setiap musuh yang dihancurkan pakai rongsokan "
+"yang didorong"
+
+#. i18n: ectx: label, entry (PointsPerEnergyAboveMax), group (KillbotsRuleset)
+#: rulesetbase.kcfg:140
+#, kde-format
+msgid "Points awarded for each energy awarded above maximum energy cap"
+msgstr ""
+"Poin yang diberikan untuk setiap energi yang diberikan di atas maksimum kap "
+"energi"
+
+#: rulesetdetailsdialog.cpp:38
+#, fuzzy, kde-format
+#| msgctxt "Quantity of junkheaps that can be pushed"
+#| msgid "None"
+msgctxt "@item Quantity of junkheaps that can be pushed"
+msgid "None"
+msgstr "Nihil"
+
+#: rulesetdetailsdialog.cpp:39
+#, fuzzy, kde-format
+#| msgctxt "Quantity of junkheaps that can be pushed"
+#| msgid "One"
+msgctxt "@item Quantity of junkheaps that can be pushed"
+msgid "One"
+msgstr "Satu"
+
+#: rulesetdetailsdialog.cpp:40
+#, fuzzy, kde-format
+#| msgctxt "Quantity of junkheaps that can be pushed"
+#| msgid "Many"
+msgctxt "@item Quantity of junkheaps that can be pushed"
+msgid "Many"
+msgstr "Banyak"
+
+#: rulesetdetailsdialog.cpp:51
+#, kde-format
+msgctxt "%1 is a pretranslated string that we're turning into a label"
+msgid "%1:"
+msgstr "%1:"
+
+#: rulesetdetailsdialog.cpp:68
+#, fuzzy, kde-format
+#| msgid "Yes"
+msgctxt "@item"
+msgid "Yes"
+msgstr "Ya"
+
+#: rulesetdetailsdialog.cpp:68
+#, fuzzy, kde-format
+#| msgid "No"
+msgctxt "@item"
+msgid "No"
+msgstr "Tidak"
+
+#: rulesetdetailsdialog.cpp:78
+#, fuzzy, kde-format
+#| msgid "Details of %1 Game Type"
+msgctxt "@title:window"
+msgid "Details of %1 Game Type"
+msgstr "Perinciannya Tipe Permainan %1"
+
+#: rulesetselector.cpp:37
+#, fuzzy, kde-format
+#| msgid "A list of the Killbots rulesets installed on this computer."
+msgctxt "@info:whatsthis"
+msgid "A list of the Killbots rulesets installed on this computer."
+msgstr "Sebuah daftar set-peraturan Killbots yang terinstal pada komputer ini."
+
+#: rulesetselector.cpp:39
+#, fuzzy, kde-format
+#| msgid "Game Type Details"
+msgctxt "title:group"
+msgid "Game Type Details"
+msgstr "Perincian Tipe Permainan"
+
+#: rulesetselector.cpp:40
+#, fuzzy, kde-format
+#| msgid "Lists information on the currently selected game type."
+msgctxt "@info:whatsthis"
+msgid "Lists information on the currently selected game type."
+msgstr "Daftar informasi pada tipe permainan yang dipilih saat ini."
+
+#: rulesetselector.cpp:42
+#, fuzzy, kde-format
+#| msgid "Author:"
+msgctxt "@label"
+msgid "Author:"
+msgstr "Penulis:"
+
+#: rulesetselector.cpp:49
+#, fuzzy, kde-format
+#| msgid "Contact:"
+msgctxt "@label"
+msgid "Contact:"
+msgstr "Kontak:"
+
+#: rulesetselector.cpp:57
+#, fuzzy, kde-format
+#| msgid "Description:"
+msgctxt "@label"
+msgid "Description:"
+msgstr "Deskripsi:"
+
+#: rulesetselector.cpp:64
+#, fuzzy, kde-format
+#| msgid "Details..."
+msgctxt "@action:button"
+msgid "Details..."
+msgstr "Perincian..."
+
+#: rulesetselector.cpp:65
+#, fuzzy, kde-format
+#| msgid "Show the detailed parameters of the selected game type"
+msgctxt "@info:tooltip"
+msgid "Show the detailed parameters of the selected game type"
+msgstr "Tampilkan parameter terperinci dari tipe permainan yang dipilih"
+
+#: rulesetselector.cpp:66
+#, fuzzy, kde-format
+#| msgid ""
+#| "Opens a dialog listing the values of all internal parameters for the "
+#| "selected game type."
+msgctxt "@info:whatsthisp"
+msgid ""
+"Opens a dialog listing the values of all internal parameters for the "
+"selected game type."
+msgstr ""
+"Membukakan sebuah dialog berdaftar nilai-nilai semua parameter internal "
+"untuk tipe permainan yang dipilih."
+
+#~ msgid "Teleport, Safely If Possible"
+#~ msgstr "Teleportasikan Secara Aman Jika Memungkinkan"

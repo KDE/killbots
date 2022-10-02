@@ -1,0 +1,973 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Viesturs Zariņš <viesturs.zarins@mii.lu.lv>, 2009.
+# Einars Sprugis <einars8@gmail.com>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: killbots\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-30 00:41+0000\n"
+"PO-Revision-Date: 2012-06-29 22:22+0300\n"
+"Last-Translator: Einars Sprugis <einars8@gmail.com>\n"
+"Language-Team: Latvian <locale@laka.lv>\n"
+"Language: lv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.4\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
+"2);\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Einārs Sprūģis"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "einars8@gmail.com"
+
+#: coordinator.cpp:101
+#, fuzzy, kde-format
+#| msgid "Round:"
+msgctxt "@label"
+msgid "Round:"
+msgstr "Kārta:"
+
+#: coordinator.cpp:106
+#, fuzzy, kde-format
+#| msgid "Score:"
+msgctxt "@label"
+msgid "Score:"
+msgstr "Rezultāts:"
+
+#: coordinator.cpp:111
+#, fuzzy, kde-format
+#| msgid "Enemies:"
+msgctxt "@label"
+msgid "Enemies:"
+msgstr "Pretinieki:"
+
+#: coordinator.cpp:116
+#, fuzzy, kde-format
+#| msgid "Energy:"
+msgctxt "@label"
+msgid "Energy:"
+msgstr "Enerģija:"
+
+#: coordinator.cpp:405
+#, fuzzy, kde-format
+#| msgid "Round complete."
+msgctxt "@info"
+msgid "Round complete."
+msgstr "Kārta pabeigta."
+
+#: coordinator.cpp:410
+#, fuzzy, kde-format
+#| msgid ""
+#| "Board is full.\n"
+#| "Resetting enemy counts."
+msgctxt "@info"
+msgid ""
+"Board is full.\n"
+"Resetting enemy counts."
+msgstr ""
+"Laukums ir pilns.\n"
+"Atstata pretinieku skaitu."
+
+#: coordinator.cpp:415
+#, fuzzy, kde-format
+#| msgid "New game."
+msgctxt "@info"
+msgid "New game."
+msgstr "Jauna spēle."
+
+#: coordinator.cpp:420
+#, fuzzy, kde-format
+#| msgid "Game over."
+msgctxt "@info"
+msgid "Game over."
+msgstr "Spēles beigas."
+
+#. i18n: ectx: tooltip, entry (MiddleClickAction), group (General)
+#: killbots.kcfg:19
+#, kde-format
+msgid "The action performed on a middle-click"
+msgstr "Darbība, kas tiek izpildīta pēc vidējā klikšķa"
+
+#. i18n: ectx: whatsthis, entry (MiddleClickAction), group (General)
+#: killbots.kcfg:20
+#, kde-format
+msgid ""
+"Selects the action performed when middle-clicking on the main game area. If "
+"a middle mouse button is not available, this action can be performed by "
+"left- and right-clicking simultaneously or by left-clicking while holding "
+"the control key."
+msgstr ""
+"Izvēlas izpildāmo darbību, kad tiek izpildīts vidējais klikšķis galvenajā "
+"spēles laukumā. Ja peles vidējā poga nav pieejama, darbība var tikt "
+"izpildīta, vienlaicīgi izdarot kreiso un labo klikšķi vai arī izdarot kreiso "
+"klikšķi, turot nospiestu 'control' taustiņu."
+
+#. i18n: ectx: tooltip, entry (RightClickAction), group (General)
+#: killbots.kcfg:25
+#, kde-format
+msgid "The action performed on a right-click"
+msgstr "Darbība, kas tiek izpildīta pēc labā klikšķa"
+
+#. i18n: ectx: whatsthis, entry (RightClickAction), group (General)
+#: killbots.kcfg:26
+#, kde-format
+msgid "Selects the action performed when right-clicking on the main game area."
+msgstr ""
+"Izvēlas izpildāmo darbību, kad tiek izpildīts labais klikšķis galvenajā "
+"spēles laukumā."
+
+#. i18n: ectx: tooltip, entry (AnimationSpeed), group (General)
+#: killbots.kcfg:32
+#, kde-format
+msgid "The speed used to display animations"
+msgstr "Ātrums, kādā rādīt animācijas"
+
+#. i18n: ectx: whatsthis, entry (AnimationSpeed), group (General)
+#: killbots.kcfg:33
+#, kde-format
+msgid "Adjusts the speed at which the in game animations are displayed."
+msgstr "Regulē ātrumu, kādā tiek parādītas spēlē esošās animācijas."
+
+#. i18n: ectx: tooltip, entry (PreventUnsafeMoves), group (General)
+#: killbots.kcfg:37
+#, kde-format
+msgid "Prevent the player from making fatal moves"
+msgstr "Neļaut spēlētājam veikt nāvējošus gājienus"
+
+#. i18n: ectx: whatsthis, entry (PreventUnsafeMoves), group (General)
+#: killbots.kcfg:38
+#, kde-format
+msgid ""
+"If checked, the game will ignore any move that would result in the immediate "
+"death of the hero (other than random teleports and waiting out the round)."
+msgstr ""
+"Ja atzīmēts, spēle ignorēs jebkuru gājienu (izņemot nejaušas teleportācijas "
+"un kārtas beigu gaidīšanu), kura rezultāts būtu tūlītēja varoņa nāve."
+
+#. i18n: ectx: tooltip, entry (Ruleset), group (General)
+#: killbots.kcfg:42
+#, kde-format
+msgid "The selected set of game rules"
+msgstr "Izvēlētais spēles noteikumu komplekts"
+
+#. i18n: ectx: whatsthis, entry (Ruleset), group (General)
+#: killbots.kcfg:43
+#, kde-format
+msgid "Selects the set of game rules to be used in the next game."
+msgstr "Izvēlas spēles noteikumu komplektu, ko izmantot nākamajā spēlē."
+
+#. i18n: ectx: Menu (moveMenu)
+#: killbotsui.rc:11
+#, fuzzy, kde-format
+#| msgid "Move"
+msgctxt "@title:menu"
+msgid "Move"
+msgstr "Gājiens"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: killbotsui.rc:21
+#, kde-format
+msgid "Main Toolbar"
+msgstr "Galvenā rīkjosla"
+
+#: main.cpp:38
+#, kde-format
+msgid "Killbots"
+msgstr "Killbots"
+
+#: main.cpp:39
+#, kde-format
+msgid "A KDE game of killer robots and teleportation."
+msgstr "KDE spēle ar robotiem slepkavām un teleportāciju."
+
+#: main.cpp:41
+#, kde-format
+msgid "© 2006-2009, Parker Coates"
+msgstr "© 2006-2009, Parker Coates"
+
+#: main.cpp:42
+#, kde-format
+msgid "Parker Coates"
+msgstr "Parker Coates"
+
+#: main.cpp:42
+#, kde-format
+msgid "Developer"
+msgstr "Izstrādātājs"
+
+#: main.cpp:43
+#, kde-format
+msgid "Mark Rae"
+msgstr "Mark Rae"
+
+#: main.cpp:43
+#, kde-format
+msgid ""
+"Author of Gnome Robots. Invented safe teleports, pushing junkheaps and fast "
+"robots."
+msgstr ""
+"Gnome Robots autors. Ieviesa drošo teleportāciju, lūžņu kaudžu grūšanu un "
+"ātros robotus."
+
+#: mainwindow.cpp:60
+#, kde-format
+msgid ""
+"This is the main game area used to interact with Killbots. It shows the "
+"current state of the game grid and allows one to control the hero using the "
+"mouse. It also displays certain statistics about the game in progress."
+msgstr ""
+"Šis ir galvenais spēles laukums. Tas rāda pašreizējo spēles režģa stāvokli "
+"un ļauj vadīt varoni, izmantojot peli. Laukumā arī tiek attēloti noteikti "
+"statistikas dati par norisošo spēli."
+
+#: mainwindow.cpp:94
+#, fuzzy, kde-format
+#| msgid "General"
+msgctxt "@title"
+msgid "General"
+msgstr "Pamata"
+
+#: mainwindow.cpp:96
+#, fuzzy, kde-format
+#| msgid "Configure general settings"
+msgctxt "@info"
+msgid "Configure general settings"
+msgstr "Konfigurēt vispārīgos iestatījumus"
+
+#: mainwindow.cpp:99
+#, fuzzy, kde-format
+#| msgid "Game Type"
+msgctxt "@title"
+msgid "Game Type"
+msgstr "Spēles tips"
+
+#: mainwindow.cpp:101
+#, fuzzy, kde-format
+#| msgid "Select a game type"
+msgctxt "@info"
+msgid "Select a game type"
+msgstr "Izvēlies spēles tipu"
+
+#: mainwindow.cpp:104
+#, fuzzy, kde-format
+#| msgid "Appearance"
+msgctxt "@title"
+msgid "Appearance"
+msgstr "Izskats"
+
+#: mainwindow.cpp:106
+#, fuzzy, kde-format
+#| msgid "Select a graphical theme"
+msgctxt "@info"
+msgid "Select a graphical theme"
+msgstr "Izvēlies grafisko tēmu"
+
+#: mainwindow.cpp:140
+#, kde-format
+msgid ""
+"A new game type has been selected, but there is already a game in progress."
+msgstr "Tika izvēlēts jauns spēles tips, bet spēle jau ir sākusies."
+
+#: mainwindow.cpp:141
+#, fuzzy, kde-format
+#| msgid "Game Type Changed"
+msgctxt "@title:window"
+msgid "Game Type Changed"
+msgstr "Spēles tips mainīts"
+
+#: mainwindow.cpp:142
+#, fuzzy, kde-format
+#| msgid "Continue Current Game"
+msgctxt "@action:button"
+msgid "Continue Current Game"
+msgstr "Turpināt pašreizējo spēli"
+
+#: mainwindow.cpp:143
+#, fuzzy, kde-format
+#| msgid "Start a New Game"
+msgctxt "@action:button"
+msgid "Start a New Game"
+msgstr "Sākt jaunu spēli"
+
+#: mainwindow.cpp:156
+#, fuzzy, kde-format
+#| msgid "Round"
+msgctxt "@title:column round of the game"
+msgid "Round"
+msgstr "Kārta"
+
+#: mainwindow.cpp:240 optionspage.cpp:28
+#, fuzzy, kde-format
+#| msgid "Teleport Safely"
+msgctxt "@action"
+msgid "Teleport Safely"
+msgstr "Droša teleportācija"
+
+#: mainwindow.cpp:241
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "Shortcut for teleport safely. See http://websvn.kde.org/trunk/KDE/"
+#| "kdegames/killbots/README.translators?view=markup"
+#| msgid "T"
+msgctxt ""
+"Shortcut for teleport safely. See https://quickgit.kde.org/?p=killbots."
+"git&a=blob&f=README.translators&o=plain"
+msgid "T"
+msgstr "T"
+
+#: mainwindow.cpp:243
+#, fuzzy, kde-format
+#| msgid "Teleport to a safe location"
+msgctxt "@info:tooltip"
+msgid "Teleport to a safe location"
+msgstr "Teleportēties uz drošu vietu"
+
+#: mainwindow.cpp:248 optionspage.cpp:27
+#, fuzzy, kde-format
+#| msgid "Teleport"
+msgctxt "@action"
+msgid "Teleport"
+msgstr "Teleportācija"
+
+#: mainwindow.cpp:249
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "Shortcut for teleport. See http://websvn.kde.org/trunk/KDE/kdegames/"
+#| "killbots/README.translators?view=markup"
+#| msgid "R"
+msgctxt ""
+"Shortcut for teleport. See https://quickgit.kde.org/?p=killbots."
+"git&a=blob&f=README.translators&o=plain"
+msgid "R"
+msgstr "R"
+
+#: mainwindow.cpp:251
+#, fuzzy, kde-format
+#| msgid "Teleport to a random location"
+msgctxt "@info:tooltip"
+msgid "Teleport to a random location"
+msgstr "Teleportēties uz nejaušu vietu"
+
+#: mainwindow.cpp:256 optionspage.cpp:29
+#, fuzzy, kde-format
+#| msgid "Teleport (Safely If Possible)"
+msgctxt "@action"
+msgid "Teleport (Safely if Possible)"
+msgstr "Teleportācija (droša, ja iespējams)"
+
+#: mainwindow.cpp:257
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "Shortcut for teleport safely if possible. See http://websvn.kde.org/trunk/"
+#| "KDE/kdegames/killbots/README.translators?view=markup"
+#| msgid "Space"
+msgctxt ""
+"Shortcut for teleport safely if possible. See https://quickgit.kde.org/?"
+"p=killbots.git&a=blob&f=README.translators&o=plain"
+msgid "Space"
+msgstr "Atstarpe"
+
+#: mainwindow.cpp:259
+#, fuzzy, kde-format
+#| msgid ""
+#| "Teleport safely if that action is enabled, otherwise teleport randomly"
+msgctxt "@info:tooltip"
+msgid "Teleport safely if that action is enabled, otherwise teleport randomly"
+msgstr ""
+"Teleportēties droši, ja šī darbība ir ieslēgta, pretējā gadījumā "
+"teleportēties nejauši"
+
+#: mainwindow.cpp:263
+#, fuzzy, kde-format
+#| msgid "Vaporizer"
+msgctxt "@action"
+msgid "Vaporizer"
+msgstr "Iztvaicētājs"
+
+#: mainwindow.cpp:264
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "Shortcut for vaporizer. See http://websvn.kde.org/trunk/KDE/kdegames/"
+#| "killbots/README.translators?view=markup"
+#| msgid "F"
+msgctxt ""
+"Shortcut for vaporizer. See https://quickgit.kde.org/?p=killbots."
+"git&a=blob&f=README.translators&o=plain"
+msgid "F"
+msgstr "F"
+
+#: mainwindow.cpp:266
+#, fuzzy, kde-format
+#| msgid "Destroy all enemies in neighboring cells"
+msgctxt "@info:tooltip"
+msgid "Destroy all enemies in neighboring cells"
+msgstr "Iznīcināt visus pretiniekus pieguļošajās šūnās"
+
+#: mainwindow.cpp:271 optionspage.cpp:30
+#, fuzzy, kde-format
+#| msgid "Wait Out Round"
+msgctxt "@action"
+msgid "Wait Out Round"
+msgstr "Gaidīt kārtas beigas"
+
+#: mainwindow.cpp:272
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "Shortcut for wait out round. See http://websvn.kde.org/trunk/KDE/kdegames/"
+#| "killbots/README.translators?view=markup"
+#| msgid "V"
+msgctxt ""
+"Shortcut for wait out round. See https://quickgit.kde.org/?p=killbots."
+"git&a=blob&f=README.translators&o=plain"
+msgid "V"
+msgstr "V"
+
+#: mainwindow.cpp:274
+#, fuzzy, kde-format
+#| msgid "Risk remaining in place until the end of the round for bonuses"
+msgctxt "@info:tooltip"
+msgid "Risk remaining in place until the end of the round for bonuses"
+msgstr "Riskēt palikt uz vietas līdz kārtas beigām (bonusiem)"
+
+#: mainwindow.cpp:279
+#, fuzzy, kde-format
+#| msgid "Move Up and Left"
+msgctxt "@action"
+msgid "Move Up and Left"
+msgstr "Pārvietot augšup un pa kreisi"
+
+#: mainwindow.cpp:280
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "Shortcut for move up and left. See http://websvn.kde.org/trunk/KDE/"
+#| "kdegames/killbots/README.translators?view=markup"
+#| msgid "Q"
+msgctxt ""
+"Shortcut for move up and left. https://quickgit.kde.org/?p=killbots."
+"git&a=blob&f=README.translators&o=plain"
+msgid "Q"
+msgstr "Q"
+
+#: mainwindow.cpp:285
+#, fuzzy, kde-format
+#| msgid "Move Up"
+msgctxt "@action"
+msgid "Move Up"
+msgstr "Pārvietot augšup"
+
+#: mainwindow.cpp:286
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "Shortcut for move up. See http://websvn.kde.org/trunk/KDE/kdegames/"
+#| "killbots/README.translators?view=markup"
+#| msgid "W"
+msgctxt ""
+"Shortcut for move up. See https://quickgit.kde.org/?p=killbots."
+"git&a=blob&f=README.translators&o=plain"
+msgid "W"
+msgstr "W"
+
+#: mainwindow.cpp:291
+#, fuzzy, kde-format
+#| msgid "Move Up and Right"
+msgctxt "@action"
+msgid "Move Up and Right"
+msgstr "Pārvietot augšup un pa labi"
+
+#: mainwindow.cpp:292
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "Shortcut for move up and right. See http://websvn.kde.org/trunk/KDE/"
+#| "kdegames/killbots/README.translators?view=markup"
+#| msgid "E"
+msgctxt ""
+"Shortcut for move up and right. https://quickgit.kde.org/?p=killbots."
+"git&a=blob&f=README.translators&o=plain"
+msgid "E"
+msgstr "E"
+
+#: mainwindow.cpp:297
+#, fuzzy, kde-format
+#| msgid "Move Left"
+msgctxt "@action"
+msgid "Move Left"
+msgstr "Pārvietot pa kreisi"
+
+#: mainwindow.cpp:298
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "Shortcut for move left. See http://websvn.kde.org/trunk/KDE/kdegames/"
+#| "killbots/README.translators?view=markup"
+#| msgid "A"
+msgctxt ""
+"Shortcut for move left. See https://quickgit.kde.org/?p=killbots."
+"git&a=blob&f=README.translators&o=plain"
+msgid "A"
+msgstr "A"
+
+#: mainwindow.cpp:303
+#, fuzzy, kde-format
+#| msgid "Stand Still"
+msgctxt "@action"
+msgid "Stand Still"
+msgstr "Stāvēt uz vietas"
+
+#: mainwindow.cpp:304
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "Shortcut for stand still. See http://websvn.kde.org/trunk/KDE/kdegames/"
+#| "killbots/README.translators?view=markup"
+#| msgid "S"
+msgctxt ""
+"Shortcut for stand still. See https://quickgit.kde.org/?p=killbots."
+"git&a=blob&f=README.translators&o=plain"
+msgid "S"
+msgstr "S"
+
+#: mainwindow.cpp:309
+#, fuzzy, kde-format
+#| msgid "Move Right"
+msgctxt "@action"
+msgid "Move Right"
+msgstr "Pārvietot pa labi"
+
+#: mainwindow.cpp:310
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "Shortcut for move right. See http://websvn.kde.org/trunk/KDE/kdegames/"
+#| "killbots/README.translators?view=markup"
+#| msgid "D"
+msgctxt ""
+"Shortcut for move right. See https://quickgit.kde.org/?p=killbots."
+"git&a=blob&f=README.translators&o=plain"
+msgid "D"
+msgstr "D"
+
+#: mainwindow.cpp:315
+#, fuzzy, kde-format
+#| msgid "Move Down and Left"
+msgctxt "@action"
+msgid "Move Down and Left"
+msgstr "Pārvietot lejup un pa kreisi"
+
+#: mainwindow.cpp:316
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "Shortcut for move down and left. See http://websvn.kde.org/trunk/KDE/"
+#| "kdegames/killbots/README.translators?view=markup"
+#| msgid "Z"
+msgctxt ""
+"Shortcut for move down and left. See https://quickgit.kde.org/?p=killbots."
+"git&a=blob&f=README.translators&o=plain"
+msgid "Z"
+msgstr "Z"
+
+#: mainwindow.cpp:321
+#, fuzzy, kde-format
+#| msgid "Move Down"
+msgctxt "@action"
+msgid "Move Down"
+msgstr "Pārvietot lejup"
+
+#: mainwindow.cpp:322
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "Shortcut for move down. See http://websvn.kde.org/trunk/KDE/kdegames/"
+#| "killbots/README.translators?view=markup"
+#| msgid "X"
+msgctxt ""
+"Shortcut for move down. See https://quickgit.kde.org/?p=killbots."
+"git&a=blob&f=README.translators&o=plain"
+msgid "X"
+msgstr "X"
+
+#: mainwindow.cpp:327
+#, fuzzy, kde-format
+#| msgid "Move Down and Right"
+msgctxt "@action"
+msgid "Move Down and Right"
+msgstr "Pārvietot lejup un pa labi"
+
+#: mainwindow.cpp:328
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "Shortcut for move down and right. See http://websvn.kde.org/trunk/KDE/"
+#| "kdegames/killbots/README.translators?view=markup"
+#| msgid "C"
+msgctxt ""
+"Shortcut for move down and right. https://quickgit.kde.org/?p=killbots."
+"git&a=blob&f=README.translators&o=plain"
+msgid "C"
+msgstr "C"
+
+#: optionspage.cpp:24
+#, fuzzy, kde-format
+#| msgid "Nothing"
+msgctxt "@item:inlistbox No action on click"
+msgid "Nothing"
+msgstr "Nekas"
+
+#: optionspage.cpp:25
+#, fuzzy, kde-format
+#| msgid "Step"
+msgctxt "@action"
+msgid "Step"
+msgstr "Solis"
+
+#: optionspage.cpp:26
+#, fuzzy, kde-format
+#| msgid "Repeated Step"
+msgctxt "@action"
+msgid "Repeated Step"
+msgstr "Atkārtots solis"
+
+#: optionspage.cpp:45
+#, fuzzy, kde-format
+#| msgid "Slow"
+msgctxt "@item:inrange"
+msgid "Slow"
+msgstr "Lēni"
+
+#: optionspage.cpp:47
+#, fuzzy, kde-format
+#| msgid "Fast"
+msgctxt "@item:inrange"
+msgid "Fast"
+msgstr "Ātri"
+
+#: optionspage.cpp:49
+#, fuzzy, kde-format
+#| msgid "Instant"
+msgctxt "@item:inrange"
+msgid "Instant"
+msgstr "Momentāni"
+
+#: optionspage.cpp:60
+#, fuzzy, kde-format
+#| msgid "Animation &speed:"
+msgctxt "@label:slider"
+msgid "Animation &speed:"
+msgstr "Animācijas ātrum&s:"
+
+#: optionspage.cpp:63
+#, fuzzy, kde-format
+#| msgid "Prevent &unsafe moves"
+msgctxt "@option:check"
+msgid "Prevent &unsafe moves"
+msgstr "Neļa&ut nedrošus gājienus"
+
+#: optionspage.cpp:68
+#, fuzzy, kde-format
+#| msgid "&Middle-click action:"
+msgctxt "@label:listbox"
+msgid "&Middle-click action:"
+msgstr "&Vidējā klikšķa darbība:"
+
+#: optionspage.cpp:69
+#, fuzzy, kde-format
+#| msgid "&Right-click action:"
+msgctxt "@label:listbox"
+msgid "&Right-click action:"
+msgstr "&Labā klikšķa darbība:"
+
+#. i18n: ectx: label, entry (Rows), group (KillbotsRuleset)
+#: rulesetbase.kcfg:19
+#, kde-format
+msgid "Number of rows in game grid"
+msgstr "Rindu skaits spēles laukumā"
+
+#. i18n: ectx: label, entry (Columns), group (KillbotsRuleset)
+#: rulesetbase.kcfg:24
+#, kde-format
+msgid "Number of columns in game grid"
+msgstr "Kolonnu skaits spēles laukumā"
+
+#. i18n: ectx: label, entry (EnemiesAtGameStart), group (KillbotsRuleset)
+#: rulesetbase.kcfg:28
+#, kde-format
+msgid "Number of regular enemies in first round"
+msgstr "Parasto pretinieku skaits pirmajā kārtā"
+
+#. i18n: ectx: label, entry (EnemiesAddedEachRound), group (KillbotsRuleset)
+#: rulesetbase.kcfg:32
+#, kde-format
+msgid "Number of regular enemies added in each new round"
+msgstr "Parasto pretinieku skaits, ko pievienot katrā jaunā kārtā"
+
+#. i18n: ectx: label, entry (FastEnemiesAtGameStart), group (KillbotsRuleset)
+#: rulesetbase.kcfg:36
+#, kde-format
+msgid "Number of fast enemies in first round"
+msgstr "Ātro pretinieku skaits pirmajā kārtā"
+
+#. i18n: ectx: label, entry (FastEnemiesAddedEachRound), group (KillbotsRuleset)
+#: rulesetbase.kcfg:40
+#, kde-format
+msgid "Number of fast enemies added in each new round"
+msgstr "Ātro pretinieku skaits, ko pievienot katrā jaunā kārtā"
+
+#. i18n: ectx: label, entry (FastEnemiesArePatient), group (KillbotsRuleset)
+#: rulesetbase.kcfg:44
+#, kde-format
+msgid ""
+"Fast enemies will skip their extra turn to avoid collisions with other robots"
+msgstr ""
+"Ātrie pretinieki izlaidīs to papildu gājienu, lai izvairītos no sadursmēm ar "
+"citiem robotiem"
+
+#. i18n: ectx: label, entry (EnergyEnabled), group (KillbotsRuleset)
+#: rulesetbase.kcfg:48
+#, kde-format
+msgid "Player can accumulate energy"
+msgstr "Spēlētājs var uzkrāt enerģiju"
+
+#. i18n: ectx: label, entry (EnergyAtGameStart), group (KillbotsRuleset)
+#: rulesetbase.kcfg:53
+#, kde-format
+msgid "Energy at start of first round"
+msgstr "Enerģija pirmās kārtas sākumā"
+
+#. i18n: ectx: label, entry (EnergyAddedEachRound), group (KillbotsRuleset)
+#: rulesetbase.kcfg:57
+#, kde-format
+msgid "Energy awarded for completing a round"
+msgstr "Enerģija, kas piešķirta par kārtas pabeigšanu"
+
+#. i18n: ectx: label, entry (MaxEnergyAtGameStart), group (KillbotsRuleset)
+#: rulesetbase.kcfg:62
+#, kde-format
+msgid "Maximum energy cap in first round"
+msgstr "Maksimālās enerģijas ierobežojums pirmajā kārtā"
+
+#. i18n: ectx: label, entry (MaxEnergyAddedEachRound), group (KillbotsRuleset)
+#: rulesetbase.kcfg:66
+#, kde-format
+msgid "Increase in maximum energy cap for each new round"
+msgstr "Palielināt maksimālās enerģijas ierobežojumu katrai jaunai kārtai"
+
+#. i18n: ectx: label, entry (SafeTeleportEnabled), group (KillbotsRuleset)
+#: rulesetbase.kcfg:70
+#, kde-format
+msgid "Player can perform safe teleports"
+msgstr "Spēlētājs var veikt drošas teleportācijas"
+
+#. i18n: ectx: label, entry (CostOfSafeTeleport), group (KillbotsRuleset)
+#: rulesetbase.kcfg:75
+#, kde-format
+msgid "The cost of performing a safe teleport"
+msgstr "Maksa par drošas teleportācijas izpildi"
+
+#. i18n: ectx: label, entry (VaporizerEnabled), group (KillbotsRuleset)
+#: rulesetbase.kcfg:79
+#, kde-format
+msgid "Player can use vaporizer"
+msgstr "Spēlētājs var izmantot iztvaicētāju"
+
+#. i18n: ectx: label, entry (CostOfVaporizer), group (KillbotsRuleset)
+#: rulesetbase.kcfg:84
+#, kde-format
+msgid "Cost of using vaporizer"
+msgstr "Iztvaicētāja izmantošanas maksa"
+
+#. i18n: ectx: label, entry (PushableJunkheaps), group (KillbotsRuleset)
+#: rulesetbase.kcfg:93
+#, kde-format
+msgid "Number of junkheaps that can be pushed at once"
+msgstr "Lūžņu kaudžu skaits, ko var grūzt vienlaikus"
+
+#. i18n: ectx: label, entry (SquaskKillsEnabled), group (KillbotsRuleset)
+#: rulesetbase.kcfg:97
+#, kde-format
+msgid "Player can destroy enemies with a pushed junkheap"
+msgstr "Spēlētājs var iznīcināt pretiniekus ar uzgrūztām lūžņu kaudzēm"
+
+#. i18n: ectx: label, entry (JunkheapsAtGameStart), group (KillbotsRuleset)
+#: rulesetbase.kcfg:101
+#, kde-format
+msgid "Junkheaps placed on grid at start of first round"
+msgstr "Pirmās kārtas sākumā uz laukuma izvietotās lūžņu kaudzes"
+
+#. i18n: ectx: label, entry (JunkheapsAddedEachRound), group (KillbotsRuleset)
+#: rulesetbase.kcfg:105
+#, kde-format
+msgid "Junkheaps added to the grid for each new round"
+msgstr "Katrā jaunā kārtā laukumam pievienotās lūžņu kaudzes"
+
+#. i18n: ectx: label, entry (PointsPerEnemyKilled), group (KillbotsRuleset)
+#: rulesetbase.kcfg:110
+#, kde-format
+msgid "Points awarded for each regular enemy destroyed"
+msgstr "Piešķirtie punkti par katru iznīcināto parasto pretinieku"
+
+#. i18n: ectx: label, entry (PointsPerFastEnemyKilled), group (KillbotsRuleset)
+#: rulesetbase.kcfg:115
+#, kde-format
+msgid "Points awarded for each fast enemy destroyed"
+msgstr "Piešķirtie punkti par katru iznīcināto ātro pretinieku"
+
+#. i18n: ectx: label, entry (WaitKillPointBonus), group (KillbotsRuleset)
+#: rulesetbase.kcfg:120
+#, kde-format
+msgid "Points awarded for each enemy destroyed while waiting out the round"
+msgstr ""
+"Piešķirtie punkti par katru iznīcināto pretinieku, gaidot kārtas beigas"
+
+#. i18n: ectx: label, entry (WaitKillEnergyBonus), group (KillbotsRuleset)
+#: rulesetbase.kcfg:125
+#, kde-format
+msgid "Energy awarded for each enemy destroyed while waiting out the round"
+msgstr ""
+"Piešķirtā enerģija par katru iznīcināto pretinieku, gaidot kārtas beigas"
+
+#. i18n: ectx: label, entry (SquashKillPointBonus), group (KillbotsRuleset)
+#: rulesetbase.kcfg:130
+#, kde-format
+msgid "Points awarded for each enemy destroyed with a pushed junkheap"
+msgstr ""
+"Piešķirtie punkti par katru ar uzgrūzto lūžņu kaudzi iznīcināto pretinieku"
+
+#. i18n: ectx: label, entry (SquashKillEnergyBonus), group (KillbotsRuleset)
+#: rulesetbase.kcfg:135
+#, kde-format
+msgid "Energy awarded for each enemy destroyed with a pushed junkheap"
+msgstr ""
+"Piešķirtā enerģija par katru ar uzgrūzto lūžņu kaudzi iznīcināto pretinieku"
+
+#. i18n: ectx: label, entry (PointsPerEnergyAboveMax), group (KillbotsRuleset)
+#: rulesetbase.kcfg:140
+#, kde-format
+msgid "Points awarded for each energy awarded above maximum energy cap"
+msgstr ""
+"Piešķirtie punkti par katru enerģijas apbalvojumu virs maksimālās enerģijas "
+"ierobežojuma"
+
+#: rulesetdetailsdialog.cpp:38
+#, fuzzy, kde-format
+#| msgctxt "Quantity of junkheaps that can be pushed"
+#| msgid "None"
+msgctxt "@item Quantity of junkheaps that can be pushed"
+msgid "None"
+msgstr "Neviena"
+
+#: rulesetdetailsdialog.cpp:39
+#, fuzzy, kde-format
+#| msgctxt "Quantity of junkheaps that can be pushed"
+#| msgid "One"
+msgctxt "@item Quantity of junkheaps that can be pushed"
+msgid "One"
+msgstr "Viena"
+
+#: rulesetdetailsdialog.cpp:40
+#, fuzzy, kde-format
+#| msgctxt "Quantity of junkheaps that can be pushed"
+#| msgid "Many"
+msgctxt "@item Quantity of junkheaps that can be pushed"
+msgid "Many"
+msgstr "Daudzas"
+
+#: rulesetdetailsdialog.cpp:51
+#, kde-format
+msgctxt "%1 is a pretranslated string that we're turning into a label"
+msgid "%1:"
+msgstr "%1:"
+
+#: rulesetdetailsdialog.cpp:68
+#, fuzzy, kde-format
+#| msgid "Yes"
+msgctxt "@item"
+msgid "Yes"
+msgstr "Jā"
+
+#: rulesetdetailsdialog.cpp:68
+#, fuzzy, kde-format
+#| msgid "No"
+msgctxt "@item"
+msgid "No"
+msgstr "Nē"
+
+#: rulesetdetailsdialog.cpp:78
+#, fuzzy, kde-format
+#| msgid "Details of %1 Game Type"
+msgctxt "@title:window"
+msgid "Details of %1 Game Type"
+msgstr "Detaļas par %1 spēles tipu"
+
+#: rulesetselector.cpp:37
+#, fuzzy, kde-format
+#| msgid "A list of the Killbots rulesets installed on this computer."
+msgctxt "@info:whatsthis"
+msgid "A list of the Killbots rulesets installed on this computer."
+msgstr "Šajā datorā instalēto Killbots noteikumu komplektu saraksts."
+
+#: rulesetselector.cpp:39
+#, fuzzy, kde-format
+#| msgid "Game Type Details"
+msgctxt "title:group"
+msgid "Game Type Details"
+msgstr "Spēles tipa detaļas"
+
+#: rulesetselector.cpp:40
+#, fuzzy, kde-format
+#| msgid "Lists information on the currently selected game type."
+msgctxt "@info:whatsthis"
+msgid "Lists information on the currently selected game type."
+msgstr "Parāda informāciju par pašreiz izvēlēto spēles tipu."
+
+#: rulesetselector.cpp:42
+#, fuzzy, kde-format
+#| msgid "Author:"
+msgctxt "@label"
+msgid "Author:"
+msgstr "Autors:"
+
+#: rulesetselector.cpp:49
+#, fuzzy, kde-format
+#| msgid "Contact:"
+msgctxt "@label"
+msgid "Contact:"
+msgstr "Kontakts:"
+
+#: rulesetselector.cpp:57
+#, fuzzy, kde-format
+#| msgid "Description:"
+msgctxt "@label"
+msgid "Description:"
+msgstr "Apraksts:"
+
+#: rulesetselector.cpp:64
+#, fuzzy, kde-format
+#| msgid "Details..."
+msgctxt "@action:button"
+msgid "Details..."
+msgstr "Detaļas..."
+
+#: rulesetselector.cpp:65
+#, fuzzy, kde-format
+#| msgid "Show the detailed parameters of the selected game type"
+msgctxt "@info:tooltip"
+msgid "Show the detailed parameters of the selected game type"
+msgstr "Parādīt detalizētus izvēlētā spēles tipa parametrus"
+
+#: rulesetselector.cpp:66
+#, fuzzy, kde-format
+#| msgid ""
+#| "Opens a dialog listing the values of all internal parameters for the "
+#| "selected game type."
+msgctxt "@info:whatsthisp"
+msgid ""
+"Opens a dialog listing the values of all internal parameters for the "
+"selected game type."
+msgstr ""
+"Atver dialoglogu ar visām izvēlētā spēles tipa iekšējo parametru vērtībām."
+
+#~ msgid "Teleport, Safely If Possible"
+#~ msgstr "Teleportācija, droša, ja iespējams"

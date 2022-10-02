@@ -1,0 +1,848 @@
+# Translation for killbots.po to Euskara/Basque (eu).
+# Copyright (C) 2020-2021, This file is copyright:
+# This file is distributed under the same license as the killbots package.
+# KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>.
+#
+# Translators:
+# @Krr4m4rr0 <birazabal@gmail.com>, 2020.
+# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2021.
+msgid ""
+msgstr ""
+"Project-Id-Version: killbots\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-30 00:41+0000\n"
+"PO-Revision-Date: 2021-07-17 19:58+0200\n"
+"Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
+"Language-Team: Basque <kde-i18n-eu@kde.org>\n"
+"Language: eu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 21.04.3\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Krr4m4rr0"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "birazabal@gmail.com"
+
+#: coordinator.cpp:101
+#, kde-format
+msgctxt "@label"
+msgid "Round:"
+msgstr "Erronda:"
+
+#: coordinator.cpp:106
+#, kde-format
+msgctxt "@label"
+msgid "Score:"
+msgstr "Markagailua:"
+
+#: coordinator.cpp:111
+#, kde-format
+msgctxt "@label"
+msgid "Enemies:"
+msgstr "Etsaiak:"
+
+#: coordinator.cpp:116
+#, kde-format
+msgctxt "@label"
+msgid "Energy:"
+msgstr "Energia:"
+
+#: coordinator.cpp:405
+#, kde-format
+msgctxt "@info"
+msgid "Round complete."
+msgstr "Erronda amaituta."
+
+#: coordinator.cpp:410
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Board is full.\n"
+"Resetting enemy counts."
+msgstr "Taula beteta dago. Etsaien kontaketa berrabiarazten."
+
+#: coordinator.cpp:415
+#, kde-format
+msgctxt "@info"
+msgid "New game."
+msgstr "Joko berria"
+
+#: coordinator.cpp:420
+#, kde-format
+msgctxt "@info"
+msgid "Game over."
+msgstr "Game over"
+
+#. i18n: ectx: tooltip, entry (MiddleClickAction), group (General)
+#: killbots.kcfg:19
+#, kde-format
+msgid "The action performed on a middle-click"
+msgstr "Erdiko botoia klikatzean egin beharreko ekintza:"
+
+#. i18n: ectx: whatsthis, entry (MiddleClickAction), group (General)
+#: killbots.kcfg:20
+#, kde-format
+msgid ""
+"Selects the action performed when middle-clicking on the main game area. If "
+"a middle mouse button is not available, this action can be performed by "
+"left- and right-clicking simultaneously or by left-clicking while holding "
+"the control key."
+msgstr ""
+"Joko nagusiaren eremuan erdiko botoiaz klik egitean egin beharreko ekintza "
+"hautatzen du. Erdiko botoirik ez badago erabilgarri, ekintza hau eskuin eta "
+"ezker botoiak batera sakatuta edo eta eskuin botoia eta control tekla batera "
+"sakatuta egin daiteke. "
+
+#. i18n: ectx: tooltip, entry (RightClickAction), group (General)
+#: killbots.kcfg:25
+#, kde-format
+msgid "The action performed on a right-click"
+msgstr "Eskuin botoian klik egitean egin beharreko ekintza"
+
+#. i18n: ectx: whatsthis, entry (RightClickAction), group (General)
+#: killbots.kcfg:26
+#, kde-format
+msgid "Selects the action performed when right-clicking on the main game area."
+msgstr ""
+"Joko nagusiaren eremuan eskuin botoiean klik egitean egin beharreko ekintza "
+"hautatzen du."
+
+#. i18n: ectx: tooltip, entry (AnimationSpeed), group (General)
+#: killbots.kcfg:32
+#, kde-format
+msgid "The speed used to display animations"
+msgstr "Animazioak bistaratzeko erabiliko den abiadura."
+
+#. i18n: ectx: whatsthis, entry (AnimationSpeed), group (General)
+#: killbots.kcfg:33
+#, kde-format
+msgid "Adjusts the speed at which the in game animations are displayed."
+msgstr "Jokoan bistaratzen diren animazioen abiadura zehazten du."
+
+#. i18n: ectx: tooltip, entry (PreventUnsafeMoves), group (General)
+#: killbots.kcfg:37
+#, kde-format
+msgid "Prevent the player from making fatal moves"
+msgstr "Jokalaria mugimendu hilgarriak egitetik prebenitzen du"
+
+#. i18n: ectx: whatsthis, entry (PreventUnsafeMoves), group (General)
+#: killbots.kcfg:38
+#, kde-format
+msgid ""
+"If checked, the game will ignore any move that would result in the immediate "
+"death of the hero (other than random teleports and waiting out the round)."
+msgstr ""
+"Hautatuta badago, jokoak momentuan uneko heroiaren heriotza eragingo duten "
+"mugimenduak ez ditu kontuan izango.(ausazko telegarraioa eta txandaren zain "
+"daudenen egiten direnak izan ezik)"
+
+#. i18n: ectx: tooltip, entry (Ruleset), group (General)
+#: killbots.kcfg:42
+#, kde-format
+msgid "The selected set of game rules"
+msgstr "Hautatutako joko arau multzoa."
+
+#. i18n: ectx: whatsthis, entry (Ruleset), group (General)
+#: killbots.kcfg:43
+#, kde-format
+msgid "Selects the set of game rules to be used in the next game."
+msgstr "Hurrengo jokoan erabiliko den arau multzoa hautatzen du."
+
+#. i18n: ectx: Menu (moveMenu)
+#: killbotsui.rc:11
+#, kde-format
+msgctxt "@title:menu"
+msgid "Move"
+msgstr "Mugitu"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: killbotsui.rc:21
+#, kde-format
+msgid "Main Toolbar"
+msgstr "Erreminta kutxa nagusia"
+
+#: main.cpp:38
+#, kde-format
+msgid "Killbots"
+msgstr "Killbots"
+
+#: main.cpp:39
+#, kde-format
+msgid "A KDE game of killer robots and teleportation."
+msgstr "Telegarraio eta robot hiltzaileen inguruko KDE-rako jokoa."
+
+#: main.cpp:41
+#, kde-format
+msgid "© 2006-2009, Parker Coates"
+msgstr "© 2006-2009, Parker Coates"
+
+#: main.cpp:42
+#, kde-format
+msgid "Parker Coates"
+msgstr "Parker Coates"
+
+#: main.cpp:42
+#, kde-format
+msgid "Developer"
+msgstr "Garatzailea"
+
+#: main.cpp:43
+#, kde-format
+msgid "Mark Rae"
+msgstr "Mark Rae"
+
+#: main.cpp:43
+#, kde-format
+msgid ""
+"Author of Gnome Robots. Invented safe teleports, pushing junkheaps and fast "
+"robots."
+msgstr ""
+"Gnome Robots-en egilea. Teleataka seguru, errobot azkar eta zabor-en "
+"asmatzailea."
+
+#: mainwindow.cpp:60
+#, kde-format
+msgid ""
+"This is the main game area used to interact with Killbots. It shows the "
+"current state of the game grid and allows one to control the hero using the "
+"mouse. It also displays certain statistics about the game in progress."
+msgstr ""
+"Hau da Killbots-ekin elkarreraginean aritzeko erabiltzen den eremu nagusia . "
+"Jokoaren saretaren uneko egoera erakusten du eta sagua erabilita heroia "
+"kontrolatzea ahalbideratzen du. Horrez gain uneko jokoaren inguruko hainbat "
+"estatistika ere bistaratzen ditu."
+
+#: mainwindow.cpp:94
+#, kde-format
+msgctxt "@title"
+msgid "General"
+msgstr "Orokorra"
+
+#: mainwindow.cpp:96
+#, kde-format
+msgctxt "@info"
+msgid "Configure general settings"
+msgstr "Ezarpen orokorrak konfiguratu"
+
+#: mainwindow.cpp:99
+#, kde-format
+msgctxt "@title"
+msgid "Game Type"
+msgstr "Joko Mota"
+
+#: mainwindow.cpp:101
+#, kde-format
+msgctxt "@info"
+msgid "Select a game type"
+msgstr "Hautatu joko mota"
+
+#: mainwindow.cpp:104
+#, kde-format
+msgctxt "@title"
+msgid "Appearance"
+msgstr "Itxura"
+
+#: mainwindow.cpp:106
+#, kde-format
+msgctxt "@info"
+msgid "Select a graphical theme"
+msgstr "Hautatu gai grafiko bat"
+
+#: mainwindow.cpp:140
+#, kde-format
+msgid ""
+"A new game type has been selected, but there is already a game in progress."
+msgstr "Joko mota berri bat hautatu da baina oraindik joko bat martxan dago. "
+
+#: mainwindow.cpp:141
+#, kde-format
+msgctxt "@title:window"
+msgid "Game Type Changed"
+msgstr "Joko mota aldatu da."
+
+#: mainwindow.cpp:142
+#, kde-format
+msgctxt "@action:button"
+msgid "Continue Current Game"
+msgstr "Uneko Jokoarekin Jarraitu"
+
+#: mainwindow.cpp:143
+#, kde-format
+msgctxt "@action:button"
+msgid "Start a New Game"
+msgstr "Joko berria  hasi"
+
+#: mainwindow.cpp:156
+#, kde-format
+msgctxt "@title:column round of the game"
+msgid "Round"
+msgstr "Erronda"
+
+#: mainwindow.cpp:240 optionspage.cpp:28
+#, kde-format
+msgctxt "@action"
+msgid "Teleport Safely"
+msgstr "Modu seguruan telegarraiatu"
+
+#: mainwindow.cpp:241
+#, kde-format
+msgctxt ""
+"Shortcut for teleport safely. See https://quickgit.kde.org/?p=killbots."
+"git&a=blob&f=README.translators&o=plain"
+msgid "T"
+msgstr "T"
+
+#: mainwindow.cpp:243
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Teleport to a safe location"
+msgstr "Kokapen seguru batera telegarraiatu"
+
+#: mainwindow.cpp:248 optionspage.cpp:27
+#, kde-format
+msgctxt "@action"
+msgid "Teleport"
+msgstr "Telegarraioa"
+
+#: mainwindow.cpp:249
+#, kde-format
+msgctxt ""
+"Shortcut for teleport. See https://quickgit.kde.org/?p=killbots."
+"git&a=blob&f=README.translators&o=plain"
+msgid "R"
+msgstr "R"
+
+#: mainwindow.cpp:251
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Teleport to a random location"
+msgstr "Telegarraiatu ausazko kokapen batera"
+
+#: mainwindow.cpp:256 optionspage.cpp:29
+#, kde-format
+msgctxt "@action"
+msgid "Teleport (Safely if Possible)"
+msgstr "Telegarraiatu (Arriskurik gabe aukera bada)"
+
+#: mainwindow.cpp:257
+#, kde-format
+msgctxt ""
+"Shortcut for teleport safely if possible. See https://quickgit.kde.org/?"
+"p=killbots.git&a=blob&f=README.translators&o=plain"
+msgid "Space"
+msgstr "Zuriunea"
+
+#: mainwindow.cpp:259
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Teleport safely if that action is enabled, otherwise teleport randomly"
+msgstr ""
+"Ekintza hori gaitua baldin badago, telegarraioa segurua da bestela, ausaz "
+"egingo da."
+
+#: mainwindow.cpp:263
+#, kde-format
+msgctxt "@action"
+msgid "Vaporizer"
+msgstr "Lainoztagailua"
+
+#: mainwindow.cpp:264
+#, kde-format
+msgctxt ""
+"Shortcut for vaporizer. See https://quickgit.kde.org/?p=killbots."
+"git&a=blob&f=README.translators&o=plain"
+msgid "F"
+msgstr "F"
+
+#: mainwindow.cpp:266
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Destroy all enemies in neighboring cells"
+msgstr "Inguruko gelaxketan dauden etsai guztiak suntsitu"
+
+#: mainwindow.cpp:271 optionspage.cpp:30
+#, kde-format
+msgctxt "@action"
+msgid "Wait Out Round"
+msgstr "Errondari itxaron"
+
+#: mainwindow.cpp:272
+#, kde-format
+msgctxt ""
+"Shortcut for wait out round. See https://quickgit.kde.org/?p=killbots."
+"git&a=blob&f=README.translators&o=plain"
+msgid "V"
+msgstr "V"
+
+#: mainwindow.cpp:274
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Risk remaining in place until the end of the round for bonuses"
+msgstr "Bonus-en erronda amaitu arteko gainerako arriskua kokapenean."
+
+#: mainwindow.cpp:279
+#, kde-format
+msgctxt "@action"
+msgid "Move Up and Left"
+msgstr "Gora eta ezkerrera mugitu"
+
+#: mainwindow.cpp:280
+#, kde-format
+msgctxt ""
+"Shortcut for move up and left. https://quickgit.kde.org/?p=killbots."
+"git&a=blob&f=README.translators&o=plain"
+msgid "Q"
+msgstr "Q"
+
+#: mainwindow.cpp:285
+#, kde-format
+msgctxt "@action"
+msgid "Move Up"
+msgstr "Gora mugitu"
+
+#: mainwindow.cpp:286
+#, kde-format
+msgctxt ""
+"Shortcut for move up. See https://quickgit.kde.org/?p=killbots."
+"git&a=blob&f=README.translators&o=plain"
+msgid "W"
+msgstr "W"
+
+#: mainwindow.cpp:291
+#, kde-format
+msgctxt "@action"
+msgid "Move Up and Right"
+msgstr "Gora eta eskuinera mugitu"
+
+#: mainwindow.cpp:292
+#, kde-format
+msgctxt ""
+"Shortcut for move up and right. https://quickgit.kde.org/?p=killbots."
+"git&a=blob&f=README.translators&o=plain"
+msgid "E"
+msgstr "E"
+
+#: mainwindow.cpp:297
+#, kde-format
+msgctxt "@action"
+msgid "Move Left"
+msgstr "Ezkerrera mugitu"
+
+#: mainwindow.cpp:298
+#, kde-format
+msgctxt ""
+"Shortcut for move left. See https://quickgit.kde.org/?p=killbots."
+"git&a=blob&f=README.translators&o=plain"
+msgid "A"
+msgstr "A"
+
+#: mainwindow.cpp:303
+#, kde-format
+msgctxt "@action"
+msgid "Stand Still"
+msgstr "Geldi egon"
+
+#: mainwindow.cpp:304
+#, kde-format
+msgctxt ""
+"Shortcut for stand still. See https://quickgit.kde.org/?p=killbots."
+"git&a=blob&f=README.translators&o=plain"
+msgid "S"
+msgstr "S"
+
+#: mainwindow.cpp:309
+#, kde-format
+msgctxt "@action"
+msgid "Move Right"
+msgstr "Eskuinera mugitu"
+
+#: mainwindow.cpp:310
+#, kde-format
+msgctxt ""
+"Shortcut for move right. See https://quickgit.kde.org/?p=killbots."
+"git&a=blob&f=README.translators&o=plain"
+msgid "D"
+msgstr "D"
+
+#: mainwindow.cpp:315
+#, kde-format
+msgctxt "@action"
+msgid "Move Down and Left"
+msgstr "Behera eta ezkerrera mugitu"
+
+#: mainwindow.cpp:316
+#, kde-format
+msgctxt ""
+"Shortcut for move down and left. See https://quickgit.kde.org/?p=killbots."
+"git&a=blob&f=README.translators&o=plain"
+msgid "Z"
+msgstr "Z"
+
+#: mainwindow.cpp:321
+#, kde-format
+msgctxt "@action"
+msgid "Move Down"
+msgstr "Behera mugitu"
+
+#: mainwindow.cpp:322
+#, kde-format
+msgctxt ""
+"Shortcut for move down. See https://quickgit.kde.org/?p=killbots."
+"git&a=blob&f=README.translators&o=plain"
+msgid "X"
+msgstr "X"
+
+#: mainwindow.cpp:327
+#, kde-format
+msgctxt "@action"
+msgid "Move Down and Right"
+msgstr "Behera eta eskuinera mugitu"
+
+#: mainwindow.cpp:328
+#, kde-format
+msgctxt ""
+"Shortcut for move down and right. https://quickgit.kde.org/?p=killbots."
+"git&a=blob&f=README.translators&o=plain"
+msgid "C"
+msgstr "C"
+
+#: optionspage.cpp:24
+#, kde-format
+msgctxt "@item:inlistbox No action on click"
+msgid "Nothing"
+msgstr "Ezer ez"
+
+#: optionspage.cpp:25
+#, kde-format
+msgctxt "@action"
+msgid "Step"
+msgstr "Urratsa"
+
+#: optionspage.cpp:26
+#, kde-format
+msgctxt "@action"
+msgid "Repeated Step"
+msgstr "Errepikatutako urratsa"
+
+#: optionspage.cpp:45
+#, kde-format
+msgctxt "@item:inrange"
+msgid "Slow"
+msgstr "Motel"
+
+#: optionspage.cpp:47
+#, kde-format
+msgctxt "@item:inrange"
+msgid "Fast"
+msgstr "Azkar"
+
+#: optionspage.cpp:49
+#, kde-format
+msgctxt "@item:inrange"
+msgid "Instant"
+msgstr "Bat-bateko"
+
+#: optionspage.cpp:60
+#, kde-format
+msgctxt "@label:slider"
+msgid "Animation &speed:"
+msgstr "Animazioen &abiadura:"
+
+#: optionspage.cpp:63
+#, kde-format
+msgctxt "@option:check"
+msgid "Prevent &unsafe moves"
+msgstr "Prebenitu mugimendu &ez-seguruak"
+
+#: optionspage.cpp:68
+#, kde-format
+msgctxt "@label:listbox"
+msgid "&Middle-click action:"
+msgstr "&Erdiko-botoiaren ekintza:"
+
+#: optionspage.cpp:69
+#, kde-format
+msgctxt "@label:listbox"
+msgid "&Right-click action:"
+msgstr "&Eskuin-botoiaren ekintza:"
+
+#. i18n: ectx: label, entry (Rows), group (KillbotsRuleset)
+#: rulesetbase.kcfg:19
+#, kde-format
+msgid "Number of rows in game grid"
+msgstr "Joko saretako gelaxka kopurua"
+
+#. i18n: ectx: label, entry (Columns), group (KillbotsRuleset)
+#: rulesetbase.kcfg:24
+#, kde-format
+msgid "Number of columns in game grid"
+msgstr "Joko saretako zutabe kopurua"
+
+#. i18n: ectx: label, entry (EnemiesAtGameStart), group (KillbotsRuleset)
+#: rulesetbase.kcfg:28
+#, kde-format
+msgid "Number of regular enemies in first round"
+msgstr "Lehen errondako etsai erregular kopurua"
+
+#. i18n: ectx: label, entry (EnemiesAddedEachRound), group (KillbotsRuleset)
+#: rulesetbase.kcfg:32
+#, kde-format
+msgid "Number of regular enemies added in each new round"
+msgstr "Erronda berri bakoitzean gehituko den etsai erregular kopurua"
+
+#. i18n: ectx: label, entry (FastEnemiesAtGameStart), group (KillbotsRuleset)
+#: rulesetbase.kcfg:36
+#, kde-format
+msgid "Number of fast enemies in first round"
+msgstr "Lehen errondako etsai azkar kopurua"
+
+#. i18n: ectx: label, entry (FastEnemiesAddedEachRound), group (KillbotsRuleset)
+#: rulesetbase.kcfg:40
+#, kde-format
+msgid "Number of fast enemies added in each new round"
+msgstr "Erronda berri bakoitzean gehituko den etsai azkar kopurua"
+
+#. i18n: ectx: label, entry (FastEnemiesArePatient), group (KillbotsRuleset)
+#: rulesetbase.kcfg:44
+#, kde-format
+msgid ""
+"Fast enemies will skip their extra turn to avoid collisions with other robots"
+msgstr ""
+"Etsai azkarrek duten aparteko txanda ez dute baliatuko honela beste "
+"errobotekin talka ekiditeko"
+
+#. i18n: ectx: label, entry (EnergyEnabled), group (KillbotsRuleset)
+#: rulesetbase.kcfg:48
+#, kde-format
+msgid "Player can accumulate energy"
+msgstr "Jokalariak energia metatu dezake"
+
+#. i18n: ectx: label, entry (EnergyAtGameStart), group (KillbotsRuleset)
+#: rulesetbase.kcfg:53
+#, kde-format
+msgid "Energy at start of first round"
+msgstr "Energia lehen errondaren hasieran"
+
+#. i18n: ectx: label, entry (EnergyAddedEachRound), group (KillbotsRuleset)
+#: rulesetbase.kcfg:57
+#, kde-format
+msgid "Energy awarded for completing a round"
+msgstr "Erronda osatzeagatik irabazitako energia"
+
+#. i18n: ectx: label, entry (MaxEnergyAtGameStart), group (KillbotsRuleset)
+#: rulesetbase.kcfg:62
+#, kde-format
+msgid "Maximum energy cap in first round"
+msgstr "Lehen errondako gehienezko energia kapsula kopurua"
+
+#. i18n: ectx: label, entry (MaxEnergyAddedEachRound), group (KillbotsRuleset)
+#: rulesetbase.kcfg:66
+#, kde-format
+msgid "Increase in maximum energy cap for each new round"
+msgstr "Erronda berri bakoitzeko gehienezko energia kapsula kopurua handitu"
+
+#. i18n: ectx: label, entry (SafeTeleportEnabled), group (KillbotsRuleset)
+#: rulesetbase.kcfg:70
+#, kde-format
+msgid "Player can perform safe teleports"
+msgstr "Jokalariak telegarraio seguruak burutu ditzake"
+
+#. i18n: ectx: label, entry (CostOfSafeTeleport), group (KillbotsRuleset)
+#: rulesetbase.kcfg:75
+#, kde-format
+msgid "The cost of performing a safe teleport"
+msgstr "Telegarraio segurua burutzearen kostua"
+
+#. i18n: ectx: label, entry (VaporizerEnabled), group (KillbotsRuleset)
+#: rulesetbase.kcfg:79
+#, kde-format
+msgid "Player can use vaporizer"
+msgstr "Jokalariak lainoztagailua erabil dezake"
+
+#. i18n: ectx: label, entry (CostOfVaporizer), group (KillbotsRuleset)
+#: rulesetbase.kcfg:84
+#, kde-format
+msgid "Cost of using vaporizer"
+msgstr "Lainoztagailua erabiltzearen kostua"
+
+#. i18n: ectx: label, entry (PushableJunkheaps), group (KillbotsRuleset)
+#: rulesetbase.kcfg:93
+#, kde-format
+msgid "Number of junkheaps that can be pushed at once"
+msgstr "Batera bultzatu daitezkeen zabor kopurua"
+
+#. i18n: ectx: label, entry (SquaskKillsEnabled), group (KillbotsRuleset)
+#: rulesetbase.kcfg:97
+#, kde-format
+msgid "Player can destroy enemies with a pushed junkheap"
+msgstr "Jokalariak etsaiak suntsitu ditzake bultzatutako zaborrekin."
+
+#. i18n: ectx: label, entry (JunkheapsAtGameStart), group (KillbotsRuleset)
+#: rulesetbase.kcfg:101
+#, kde-format
+msgid "Junkheaps placed on grid at start of first round"
+msgstr "Lehen errondaren hasieran saretan kokatutako zaborrak."
+
+#. i18n: ectx: label, entry (JunkheapsAddedEachRound), group (KillbotsRuleset)
+#: rulesetbase.kcfg:105
+#, kde-format
+msgid "Junkheaps added to the grid for each new round"
+msgstr "Saretara gehitutako zabor kopurua erronda berri bakoitzeko"
+
+#. i18n: ectx: label, entry (PointsPerEnemyKilled), group (KillbotsRuleset)
+#: rulesetbase.kcfg:110
+#, kde-format
+msgid "Points awarded for each regular enemy destroyed"
+msgstr "Suntsitutako etsai erregular bakoitzagatik irabazitako puntuak"
+
+#. i18n: ectx: label, entry (PointsPerFastEnemyKilled), group (KillbotsRuleset)
+#: rulesetbase.kcfg:115
+#, kde-format
+msgid "Points awarded for each fast enemy destroyed"
+msgstr "Suntsitutako etsai azkar bakoitzagatik irabazitako puntuak"
+
+#. i18n: ectx: label, entry (WaitKillPointBonus), group (KillbotsRuleset)
+#: rulesetbase.kcfg:120
+#, kde-format
+msgid "Points awarded for each enemy destroyed while waiting out the round"
+msgstr ""
+"Errondaren zain dagoen bitartean suntsitutako etsai bakoitzagatik "
+"irabazitako puntuak"
+
+#. i18n: ectx: label, entry (WaitKillEnergyBonus), group (KillbotsRuleset)
+#: rulesetbase.kcfg:125
+#, kde-format
+msgid "Energy awarded for each enemy destroyed while waiting out the round"
+msgstr ""
+"Errondaren zain dagoen bitartean suntsitutako etsai bakoitzak emandako "
+"energia"
+
+#. i18n: ectx: label, entry (SquashKillPointBonus), group (KillbotsRuleset)
+#: rulesetbase.kcfg:130
+#, kde-format
+msgid "Points awarded for each enemy destroyed with a pushed junkheap"
+msgstr ""
+"Bultzatutako zabor batekin suntsitutako etsai bakoitzak esleitutako puntuak"
+
+#. i18n: ectx: label, entry (SquashKillEnergyBonus), group (KillbotsRuleset)
+#: rulesetbase.kcfg:135
+#, kde-format
+msgid "Energy awarded for each enemy destroyed with a pushed junkheap"
+msgstr ""
+" Bultzatutako zabor  batekin suntsitutako etsai bakoitzak esleitutako energia"
+
+#. i18n: ectx: label, entry (PointsPerEnergyAboveMax), group (KillbotsRuleset)
+#: rulesetbase.kcfg:140
+#, kde-format
+msgid "Points awarded for each energy awarded above maximum energy cap"
+msgstr ""
+"Energia-kapsula maximoaren gainetik lortutako energia bakoitzagatik "
+"irabazitako puntuak"
+
+#: rulesetdetailsdialog.cpp:38
+#, kde-format
+msgctxt "@item Quantity of junkheaps that can be pushed"
+msgid "None"
+msgstr "bat ere ez"
+
+#: rulesetdetailsdialog.cpp:39
+#, kde-format
+msgctxt "@item Quantity of junkheaps that can be pushed"
+msgid "One"
+msgstr "Bat"
+
+#: rulesetdetailsdialog.cpp:40
+#, kde-format
+msgctxt "@item Quantity of junkheaps that can be pushed"
+msgid "Many"
+msgstr "Hainbat"
+
+#: rulesetdetailsdialog.cpp:51
+#, kde-format
+msgctxt "%1 is a pretranslated string that we're turning into a label"
+msgid "%1:"
+msgstr "%1:"
+
+#: rulesetdetailsdialog.cpp:68
+#, kde-format
+msgctxt "@item"
+msgid "Yes"
+msgstr "Bai"
+
+#: rulesetdetailsdialog.cpp:68
+#, kde-format
+msgctxt "@item"
+msgid "No"
+msgstr "Ez"
+
+#: rulesetdetailsdialog.cpp:78
+#, kde-format
+msgctxt "@title:window"
+msgid "Details of %1 Game Type"
+msgstr "%1 Joko Motaren Xehetasunak"
+
+#: rulesetselector.cpp:37
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "A list of the Killbots rulesets installed on this computer."
+msgstr "Ordenagailu honetan instalatutako Killbot-en arauen zerrenda."
+
+#: rulesetselector.cpp:39
+#, kde-format
+msgctxt "title:group"
+msgid "Game Type Details"
+msgstr "Joko Motaren Xehetasunak"
+
+#: rulesetselector.cpp:40
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Lists information on the currently selected game type."
+msgstr "Unean hautautako jokoaren informazioa zerrendatzen du."
+
+#: rulesetselector.cpp:42
+#, kde-format
+msgctxt "@label"
+msgid "Author:"
+msgstr "Egilea:"
+
+#: rulesetselector.cpp:49
+#, kde-format
+msgctxt "@label"
+msgid "Contact:"
+msgstr "Kontaktua:"
+
+#: rulesetselector.cpp:57
+#, kde-format
+msgctxt "@label"
+msgid "Description:"
+msgstr "Deskribapena;"
+
+#: rulesetselector.cpp:64
+#, kde-format
+msgctxt "@action:button"
+msgid "Details..."
+msgstr "Xehetasunak..."
+
+#: rulesetselector.cpp:65
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Show the detailed parameters of the selected game type"
+msgstr "Erakutsi aukeratutako joko-motaren parametro zehatzak"
+
+#: rulesetselector.cpp:66
+#, kde-format
+msgctxt "@info:whatsthisp"
+msgid ""
+"Opens a dialog listing the values of all internal parameters for the "
+"selected game type."
+msgstr ""
+"Barne parametro guztien balioak zerrendatuz leiho bat irekitzen "
+"duaukeratutako joko motarentzat."

@@ -1,0 +1,1316 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Italian "INCLUDE">
+]>
+
+<book id="killbots" lang="&language;">
+
+<bookinfo>
+  <title
+>Manuale di &killbots;</title>
+
+  <authorgroup>
+    <author
+><personname
+> <firstname
+>Parker</firstname
+> <surname
+>Coates</surname
+> </personname
+> <email
+>parker.coates@kdemail.net</email
+> </author>
+
+    <othercredit role="translator"
+><firstname
+>Valter</firstname
+><surname
+>Mura</surname
+><affiliation
+><address
+><email
+>valtermura@gmail.com</email
+></address
+></affiliation
+><contrib
+>Traduzione della documentazione</contrib
+></othercredit
+> 
+  </authorgroup>
+
+  <copyright>
+    <year
+>2008&ndash;2009</year>
+    <holder
+>Parker Coates</holder>
+  </copyright>
+
+  <legalnotice
+>&FDLNotice;</legalnotice>
+
+  <date
+>2021-07-05</date>
+  <releaseinfo
+>KDE Gear 21.04</releaseinfo>
+
+  <abstract>
+    <para
+>&killbots; è la versione &kde; del classico gioco per console &BSD; <command
+>robots</command
+>.</para>
+  </abstract>
+
+  <keywordset>
+    <keyword
+>KDE</keyword>
+    <keyword
+>kdegames</keyword>
+    <keyword
+>gioco</keyword>
+    <keyword
+>Killbots</keyword>
+    <keyword
+>Strategia</keyword>
+    <keyword
+>Un giocatore</keyword>
+    <keyword
+>Giocatore singolo</keyword>
+    <keyword
+>robot</keyword>
+    <keyword
+>robot</keyword>
+    <keyword
+>robot veloci</keyword>
+    <keyword
+>rottami</keyword>
+    <keyword
+>teletrasporto</keyword>
+    <keyword
+>vaporizzare</keyword>
+    <keyword
+>vaporizzatore</keyword>
+    <keyword
+>energia</keyword>
+  </keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+  <title
+>Introduzione</title>
+
+  <note>
+    <title
+>Tipo di gioco:</title>
+    <para
+>Strategia</para>
+  </note>
+
+  <note>
+    <title
+>Numero di giocatori:</title>
+    <para
+>Uno</para>
+  </note>
+
+  <para
+>&killbots; è un semplice gioco per evitare robot killer. Nessuno sa chi creò i robot e perché essi siano programmati per distruggere. Tutto quello che si sa è che i robot sono numerosi e il loro unico obiettivo è distruggerti.Fortunatamente per te, il loro creatore si è concentrato nella quantità piuttosto che nella qualità, e questo ha fatto sì che i robot siano assai scarsi in intelligenza. La tua intelligenza superiore e un fantasioso dispositivo di teletrasporto sono le tue uniche armi contro il flusso infinito di automi decerebrati.</para>
+
+  <note>
+    <title
+>Nota:</title>
+    <para
+>Questa documentazione si riferisce spesso a <quote
+>robot</quote
+>, <quote
+>rottami</quote
+>, e via discorrendo, ma &killbots; è completamente personalizzabile nei temi. Ciò significa che i personaggi che vedi durante il gioco potrebbero non coincidere con i temi futuristici descritti qui. Il gioco e le strategie, comunque, rimangono gli stessi anche se il tuo eroe è una carota inseguita da famelici conigli in un pezzetto di giardino.</para>
+  </note>
+
+  <note>
+    <title
+>Nota:</title>
+    <para
+>&killbots; supporta tipi di gioco multipli che controllano i parametri del gioco e determinano quali caratteristiche sono incluse. Questa documentazione cerca di essere generica e non specifica di un singolo tipo di gioco. Controlla la descrizione del tuo tipo di gioco corrente nella finestra di dialogo <guilabel
+>Configura - &killbots;</guilabel
+> per avere maggiori informazioni sui meccanismi del gioco in relazione alla dimensione della griglia, turni, punteggio, energia, &etc;</para>
+  </note>
+
+</chapter>
+
+<chapter id="howto">
+  <title id="howto-title"
+>Come giocare</title>
+
+  <sect1 id="gameplay-basics">
+    <title
+>Elementi basilari di gioco</title>
+
+    <note>
+      <title
+>Obiettivo:</title>
+      <para
+>Sopravvivere a successivi turni di nemici accumulando punteggio.</para>
+    </note>
+
+    <para
+><screenshot
+><mediaobject>
+      <imageobject
+><imagedata fileref="grid.png" format="PNG"/></imageobject>
+      <textobject
+><phrase
+>Schermata della griglia di gioco</phrase
+></textobject>
+    </mediaobject
+></screenshot
+></para>
+
+    <para
+>&killbots; è un gioco basato su turni, che si svolge su una <firstterm
+>griglia</firstterm
+> rettangolare. Il numero delle <firstterm
+>celle</firstterm
+> in ciascuna riga e colonna, all'interno della griglia, è determinata dal tipo di gioco usato. Ciascuna cella può contenere uno dei seguenti: <variablelist>
+        <varlistentry>
+          <term
+><firstterm
+>Eroe</firstterm
+> <inlinemediaobject
+><imageobject
+><imagedata fileref="hero.png" format="PNG"/></imageobject
+></inlinemediaobject
+></term>
+          <listitem>
+            <para
+>L'eroe è la sfortunata creatura gettata in una stanza in mezzo a un branco di robot killer. Come giocatore, il tuo compito è assicurare che egli rimanga vivo il più a lungo possibile.</para>
+            <para
+>All'inizio di ciascun <firstterm
+>turno</firstterm
+>, l'eroe può eseguire tre tipi di azioni: stare fermo nel punto in cui si trova, spostarsi in una cella adiacente vuota o eseguire un'azione speciale. Vedi <link linkend="movement-controls" endterm="movement-controls-title"
+></link
+> e <link linkend="special-actions" endterm="special-actions-title"
+></link
+>.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><firstterm
+>Robot</firstterm
+> <inlinemediaobject
+><imageobject
+><imagedata fileref="enemy.png" format="PNG"/></imageobject
+></inlinemediaobject
+></term>
+          <listitem>
+            <para
+>I robot sono criminali meccanici che desiderano solamente fare a pezzi l'eroe con le loro pinze metalliche. Non hanno mai sentito parlare delle <quote
+>Tre Leggi della Robotica</quote
+> e distruggerebbero probabilmente chiunque tentasse loro di spiegarle.</para>
+            <para
+>Ciascun robot avanza di un singolo passo per turno verso l'eroe. Se il robot si trova sopra l'eroe, esso si sposterà in basso; se si trova alla sua sinistra, si sposterà a destra; se si trova in basso a destra, si sposterà diagonalmente in alto a sinistra. Se un robot dovesse raggiungere la cella dell'eroe, quest'ultimo verrebbe ucciso e la partita terminata.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><firstterm
+>Robot veloci</firstterm
+> <inlinemediaobject
+><imageobject
+><imagedata fileref="fastenemy.png" format="PNG"/></imageobject
+></inlinemediaobject
+></term>
+          <listitem>
+            <para
+>I robot veloci sono una versione molto più rapida dei robot ordinari. Per ciascuna mossa dell'eroe essi compiono due passi. Fortunatamente, la loro rapidità non va di pari passo con l'intelligenza: essi spesso si autodistruggono due volte più rapidamente dei loro fratelli più lenti.</para>
+            <para
+>Non tutti i tipi di gioco includono robot veloci.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><firstterm
+>Rottami</firstterm
+> <inlinemediaobject
+><imageobject
+><imagedata fileref="junkheap.png" format="PNG"/></imageobject
+></inlinemediaobject
+></term>
+          <listitem>
+            <para
+>Quando due o più nemici si scontrano, essi si distruggono e producono dei rottami. I nemici ignorano totalmente qualsiasi rottame sul loro cammino e vengono distrutti non appena vi entrano in collisione. Ti renderai conto che i rottami sono estremamente utili, dato che possono essere usati come barricate tra l'eroe e i suoi attaccanti.</para>
+            <para id="pushing-junkheaps"
+>Alcuni schemi di gioco consentono all'eroe di <firstterm
+>spingere</firstterm
+> i rottami nella griglia. L'eroe può utilizzarli per costruire <quote
+>bunker</quote
+> di protezione su più lati. I rottami possono essere anche usati per attaccare in alcuni tipi di gioco. La spinta di un rottame su un nemico lo distrugge e produce un bonus.</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+    </para>
+  </sect1>
+
+  <sect1 id="rounds-scoring-energy">
+    <title
+>Turni, punteggio ed energia</title>
+
+    <para
+><screenshot
+><mediaobject>
+      <imageobject
+><imagedata fileref="status.png" format="PNG"/></imageobject>
+      <textobject
+><phrase
+>Gli indicatori di stato della partita</phrase
+></textobject>
+    </mediaobject
+></screenshot
+></para>
+
+    <sect2>
+      <title
+>Turni</title>
+      <para
+>La partita in &killbots; si divide in <firstterm
+>turni</firstterm
+>. Ciascun turno inizia con l'eroe nel mezzo della griglia e i nemici posizionati a caso intorno a lui. Il turno finisce quando tutti i nemici sono stati distrutti. Ogni qualvolta che un turno è completato, il numero di nemici aumenta. Il numero e il tipo di nemici aggiunti dipende dal tipo di gioco.</para>
+      <para
+>La griglia continuerà a riempirsi di nemici fino a quando accadono due cose: i nemici occupano più del 50 per cento delle celle oppure viene tentato un teletrasporto sicuro ma non vi sono celle sicure nella griglia. A questo punto il turno corrente viene abbandonato, il numero dei nemici riportato a quello usato nel primo turno.</para>
+    </sect2>
+
+    <sect2>
+      <title
+>Punteggio</title>
+      <para
+>Non esiste veramente la vittoria in &killbots;; l'eroe tenta di sopravvivere il più a lungo possibile, la deprimente realtà è che, alla fine, la sua fortuna sparirà. L'obiettivo in &killbots;, dunque, è accumulare il <firstterm
+>punteggio</firstterm
+> più alto possibile prima che accada l'inevitabile. I dieci punteggi più alti (insieme con il turno raggiunto) sono registrati nella finestra dei punteggi più alti.</para>
+      <para
+>I punti sono la ricompensa per la distruzione dei nemici. I robot veloci valgono in genere di più dei robot normali. Punti bonus possono essere guadagnati anche per i nemici distrutti durante lo <link linkend="pushing-junkheaps"
+>spostamento di rottami</link
+> o <link linkend="wait-out-round"
+>l'attesa di fine turno</link
+>.</para>
+    </sect2>
+
+    <sect2 id="energy">
+      <title
+>Energia</title>
+      <para
+>In aggiunta ai punti, l'eroe può anche recuperare <firstterm
+>energia</firstterm
+> durante l'avanzamento della partita. L'energia permette all'eroe di eseguire <link linkend="teleport-safely"
+>teletrasporti sicuri</link
+> insieme con, o in alternativa, l'uso del <link linkend="vaporizer"
+>vaporizzatore</link
+>. A seconda del tipo di gioco, l'energia può essere attribuita per svariati motivi, incluso il completamento di un turno, <link linkend="pushing-junkheaps"
+>la spinta di un rottame</link
+> o la distruzione di nemici durante <link linkend="wait-out-round"
+>l'attesa di fine turno</link
+>.</para>
+      <para
+>L'ammontare di energia che l'eroe può immagazzinare dipende dalla quantità massima determinata dal tipo di gioco. In alcuni tipi di gioco il massimo incrementa al completamento del turno. Il livello di energia è visibile solo se lo schema di gioco al momento utilizzato include energia e teletrasporti sicuri.</para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="special-actions">
+    <title id="special-actions-title"
+>Azioni speciali</title>
+    <para
+>In aggiunta al semplice spostamento da cella a cella, l'eroe ha a disposizione quattro azioni speciali.</para>
+
+    <sect2 id="teleport">
+      <title
+>Teletrasporto</title>
+      <para
+>L'eroe è riuscito in qualche modo a mettere le mani su un teletrasportatore personale. Sfortunatamente, se utilizzato senza una fonte di energia, esso non è molto affidabile. L'attivazione del teletrasporto fa sì che l'eroe venga trasportato in una cella selezionata a caso in qualsiasi punto della griglia. Non vi sono limiti al numero di teletrasporti che l'eroe può eseguire.</para>
+      <para
+>La cella di destinazione è sempre inoccupata, ma esiste la reale possibilità che essa sia adiacente a un robot infuriato. A causa del rischio inerente al teletrasporto, quest'ultimo dovrebbe essere riservato come ultima alternativa, quando non vi sono più mosse sicure disponibili.</para>
+    </sect2>
+
+    <sect2 id="teleport-safely">
+      <title
+>Telestrasporto sicuro</title>
+      <para
+>Il teletrasportatore ha, in genere, una modalità operativa secondaria che trasporterà l'eroe su una cella selezionata casuale ma sicura. Il teletrasporto sicuro richiede però <link linkend="energy"
+>energia</link
+>, e questa in genere è scarsa. Ovviamente, l'abilità di teletrasportarsi in modo sicuro nei momenti chiave può estendere enormemente l'aspettativa di vita dell'eroe.</para>
+      <para
+>Non tutti i tipi di gioco consentono il teletrasporto sicuro e la quantità di energia necessaria al teletrasporto varia da tipo a tipo.</para>
+    </sect2>
+
+    <sect2 id="vaporizer">
+      <title
+>Usare il vaporizzatore</title>
+      <para
+>Il terzo uso del dispositivo di teletrasporto non trasporta in realtà l'eroe in alcun modo. Questa modalità operativa, in qualche modo inusuale, teletrasporta tutti i robot delle celle adiacenti all'eroe. Nessuno sa dove sono trasportati esattamente i robot, ma sembra sufficientemente lontano affinché non possano disturbare di nuovo l'eroe. Dato che i robot spariscono nell'aria senza lasciare rottami, questa modalità è chiamata <quote
+>vaporizzatore</quote
+> e i nemici eliminati tramite vaporizzazione sono considerati uccisi ai fini del punteggio.</para>
+      <para
+>Come il teletrasporto sicuro, l'uso del vaporizzatore richiede <link linkend="energy"
+>energia</link
+>. Non tutti i tipi di gioco includono il vaporizzatore e la quantità di energia richiesta per utilizzarlo varia tra i tipi di partita.</para>
+    </sect2>
+
+    <sect2 id="wait-out-round">
+      <title
+>Attesa di fine turno</title>
+      <para
+>Può capitare ogni tanto che la griglia sia disposta in modo tale che tutti i robot possano essere distrutti senza che l'eroe debba muoversi. In tale situazione esiste l'opzione di attesa di fine turno.</para>
+      <example>
+        <title
+>Opportunità di attendere la fine del turno</title>
+        <para
+><screenshot
+><mediaobject>
+          <imageobject
+><imagedata fileref="waitoutround.png" format="PNG"/></imageobject>
+        </mediaobject
+></screenshot
+></para>
+      </example>
+      <para
+>Attendere la fine del turno significa che l'eroe blocca la sua posizione in un punto mentre i suoi nemici continuano il loro movimento regolare. Esso continua fino a che accade una delle due cose: i nemici distruggono se stessi e il turno finisce, o un nemico riesce a raggiungere l'eroe e la partita finisce. Una volta che l'attesa di fine turno è iniziata non può essere annullata, per cui bisogna essere certi che l'eroe sia realmente al sicuro.</para>
+      <para
+>Perché, dunque, una persona dovrebbe intraprendere un'azione che elimina l'opportunità di cambiare idea? Be', aggiunge un po' di colore e dramma alla fine di un turno ma, cosa più importante, esiste un bonus di ricompensa per ciascun nemico distrutto durante l'attesa della fine del turno. La dimensione e il tipo (punti o energia) del bonus è determinato dal tipo di gioco.</para>
+    </sect2>
+  </sect1>
+
+</chapter>
+
+<chapter id="interface-overview">
+  <title
+>Panoramica dell'interfaccia</title>
+
+  <sect1 id="movement-controls">
+    <title id="movement-controls-title"
+>Controlli di movimento</title>
+    <para
+>Per controllare il proprio eroe, il giocatore può scegliere di usare la tastiera, il mouse o entrambi.</para>
+    <sect2 id="keyboard-movement">
+      <title id="keyboard-movement-title"
+>Controlli di movimento tramite tastiera</title>
+      <para
+>Esistono nove differenti azioni di spostamento: sinistra, destra, alto, basso, le quattro diagonali e lo stare fermo. Ciascuna di queste azioni può essere assegnata a due diversi tasti della tastiera. Per impostazione predefinita queste nove azioni sono assegnate ai nove tasti del tastierino numerico e un blocco di lettere tre per tre sulla sinistra di una tastiera di tipo QWERTY. Ovviamente, gli utenti che intendono utilizzare una diversa disposizione, o a cui manca il tastierino numerico, possono modificare le assegnazioni utilizzando la finestra di configurazione.</para>
+      <para
+>Anche ciascuno dei comandi speciali di spostamento (tipo il teletrasporto) può essere eseguito dalla tastiera. Vedi <link linkend="move-menu"
+>Sposta</link
+>.</para>
+    </sect2>
+    <sect2 id="mouse-movement">
+      <title id="mouse-movement-title"
+>Controlli di spostamento tramite mouse</title>
+      <para
+>Il mouse (o qualsiasi altro dispositivo di puntamento) può essere utilizzato per navigare in modo più naturale e intuitivo. Quando il puntatore si sposta nell'area di gioco principale il cursore cambia aspetto per indicare la direzione del puntatore in relazione all'eroe. Ad esempio, lo spostamento del puntatore nello spazio sopra l'eroe modificherà il cursore in una freccia verso l'alto. Se il puntatore è posizionato immediatamente sopra l'eroe, il cursore non indica alcuna direzione.</para>
+      <para
+>Un clic col tasto sinistro del mouse farà sì che l'eroe si sposti di un passo nella direzione indicata (sempre che lo spostamento sia consentito). Per comodità, si possono assegnare azioni aggiuntive ai tasti centrale e destro nella <link linkend="configure-killbots"
+>finestra di dialogo Configura - &killbots;</link
+>. Queste azioni includono quelle che si trovano in <link linkend="move-menu"
+>Sposta</link
+>, così come l'opzione aggiuntiva: <guimenuitem
+>Passo ripetuto</guimenuitem
+>. L'esecuzione di un passo ripetuto permette all'eroe di spostarsi nella direzione indicata per vari turni consecutivi fino a quando non raggiunga un blocco o lo spostamento continuato sia pericoloso. Il passo ripetuto può essere anche bloccato facendo di nuovo clic durante lo svolgimento dello spostamento.</para>
+      <para
+></para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="game-menu">
+    <title
+>Elementi del menu</title>
+
+    <variablelist>
+      <varlistentry>
+        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Partita</guimenu
+> <guimenuitem
+>Nuova</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+><action
+>Inizia una nuova partita, eliminando qualsiasi partita correntemente in esecuzione.</action
+></para
+></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>H</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Partita</guimenu
+> <guimenuitem
+>Mostra classifica</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+><action
+>Mostra la finestra di dialogo della classifica, contenente i punteggi precedenti.</action
+></para
+></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Partita</guimenu
+> <guimenuitem
+>Esci</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+><action
+>Esce da &killbots;.</action
+></para
+></listitem>
+      </varlistentry>
+
+      <varlistentry id="move-menu">
+        <term
+><menuchoice
+><shortcut
+><keycap
+>R</keycap
+></shortcut
+> <guimenu
+>Sposta</guimenu
+> <guimenuitem
+>Teletrasporto</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+><action
+>Teletrasporta l'eroe in una cella casuale e vuota qualsiasi, all'interno del campo di gioco.</action
+> Vedi <link linkend="teleport" endterm="special-actions-title"
+></link
+>.</para
+></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term
+><menuchoice
+><shortcut
+><keycap
+>T</keycap
+></shortcut
+> <guimenu
+>Sposta</guimenu
+> <guimenuitem
+>Teletrasporto sicuro</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+><action
+>Teletrasporta l'eroe in una cella casuale e vuota, protetta da attacchi per quel turno.</action
+> Vedi <link linkend="teleport-safely" endterm="special-actions-title"
+></link
+>.</para
+></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term
+><menuchoice
+><shortcut
+>&Space;</shortcut
+> <guimenu
+>Sposta</guimenu
+> <guimenuitem
+>Teletrasporto sicuro, se possibile</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+>Azione comoda. <action
+>Teletrasporta l'eroe in modo sicuro se è presente sufficiente energia, in caso contrario lo trasporta in modo casuale.</action
+></para
+></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term
+><menuchoice
+><shortcut
+><keycap
+>F</keycap
+></shortcut
+> <guimenu
+>Sposta</guimenu
+> <guimenuitem
+>Vaporizzatore</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+><action
+>Distrugge tutti i robot nelle celle limitrofe all'eroe</action
+>. Vedi <link linkend="vaporizer" endterm="special-actions-title"
+></link
+>.</para
+></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term
+><menuchoice
+><shortcut
+><keycap
+>V</keycap
+></shortcut
+> <guimenu
+>Sposta</guimenu
+> <guimenuitem
+>Attesa di fine turno</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+><action
+>Blocca l'eroe in un punto fino alla fine del turno.</action
+> Vedi <link linkend="wait-out-round" endterm="special-actions-title"
+></link
+>.</para
+></listitem>
+      </varlistentry>
+
+      <varlistentry id="configure-killbots">
+        <term
+><menuchoice
+><guimenu
+>Impostazioni</guimenu
+> <guimenuitem
+>Configura &killbots;...</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+><action
+>Mostra la finestra di configurazione di &killbots;</action
+>, in cui si possono regolare i parametri di gioco, scegliere un gruppo diverso di schema di gioco o modificare il tema.</para
+></listitem>
+      </varlistentry>
+    </variablelist>
+
+<para
+>In aggiunta, &killbots; contiene gli elementi di menu <guimenu
+>Impostazioni</guimenu
+> e <guimenu
+>Aiuto</guimenu
+>, comuni di &kde;, per ulteriori informazioni leggi le sezioni relative al <ulink url="help:/fundamentals/menus.html#menus-settings"
+>menu Impostazioni</ulink
+> e <ulink url="help:/fundamentals/menus.html#menus-help"
+>menu Aiuto</ulink
+> dei Fondamentali di &kde;. </para>
+
+  </sect1>
+
+</chapter>
+
+
+<chapter id="developers">
+  <title
+>Guida dello sviluppatore di &killbots;</title>
+  <para
+>Gli utenti possono personalizzare individualmente &killbots; in due modi principali: i temi e gli schemi di gioco.</para>
+
+  <sect1 id="creating-themes">
+    <title
+>Creazione di temi di &killbots; personalizzati</title>
+    <para
+>Come la maggior parte degli altri giochi di &kde;, un tema di &killbots; consiste di tre file.</para>
+
+    <sect2>
+      <title
+>Il file desktop</title>
+      <para
+>Il file desktop segue la sintassi standard <acronym
+>INI</acronym
+>. Le coppie di valori chiave memorizzano l'informazione sul tema e puntano agli altri file inclusi nel tema. Il seguente esempio è preso dal tema predefinito.</para>
+      <example>
+        <title
+>Esempio di file desktop di tema</title>
+        <programlisting
+>[KGameTheme]
+Name=Tema di esempio
+Description=Tema d'esempio usato per dimostrare la creazione di un tema. Questo simula pirati.
+Author=Sig. Artista
+AuthorEmail=mrartista@esempio.com
+Type=SVG
+FileName=esempio.svg
+Preview=esempio.png
+        </programlisting>
+      </example>
+      <para
+>Il primo parametro contiene i metadati sul tema ed è chiaro abbastanza. Per i temi di &killbots;, il parametro <varname
+>Type</varname
+> deve essere sempre impostato a &SVG;. I due parametri finali contengono i nomi dei file degli altri due file dei temi. Anche se non strettamente necessario, è altamente raccomandato che, per ragioni di coerenza, tutti e tre i file condividano lo stesso nome del file di base.</para>
+    </sect2>
+
+    <sect2>
+      <title
+>Il file Anteprima</title>
+      <para
+>Il file di anteprima è un semplice file <acronym
+>PNG</acronym
+> contenente un'anteprima del tema. L'immagine di anteprima deve essere 240 per 140 pixel e dovrebbe assomigliare il più possibile nella disposizione al tema predefinito, poiché ciò facilita il confronto dei temi nel selettore dei temi.</para>
+    </sect2>
+
+    <sect2>
+      <title
+>Il file &SVG;</title>
+      <para
+>Il file &SVG; è un'immagine di grafica vettoriale scalabile che contiene i reali elementi grafici usati per creare il tema. Il file può essere in formato sia non compresso <literal role="extension"
+>.svg</literal
+>, sia compresso <literal role="extension"
+>.svgz</literal
+>. Ciascun elemento del gioco è identificato in modo univoco nel file &SVG;. Quando si crea un nuovo tema, è generalmente più semplice partire da un tema esistente e sostituire gli elementi uno per uno fino a quando il tema è completato. Il file &SVG; <emphasis
+>deve</emphasis
+> contenere i seguenti elementi.</para>
+      <variablelist>
+        <varlistentry>
+          <term
+><varname
+>background</varname
+></term>
+          <listitem
+><para
+>L'immagine mostrata dietro la griglia nell'area di gioco principale.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>status</varname
+></term>
+          <listitem
+><para
+>L'area usata per visualizzare il turno corrente, il punteggio, il conteggio dei nemici e l'energia.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>textcolor</varname
+></term>
+          <listitem
+><para
+>Questo elemento deve essere un rettangolo di un singolo colore. Il suo colore è usato per il testo nelle aree di stato.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cell</varname
+></term>
+          <listitem
+><para
+>Una cella singola della griglia.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>hero</varname
+></term>
+          <listitem
+><para
+>Il personaggio controllato dal giocatore.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>enemy</varname
+></term>
+          <listitem
+><para
+>Il nemico base.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>fastenemy</varname
+></term>
+          <listitem
+><para
+>Il nemico più veloce.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>junkheap</varname
+></term>
+          <listitem
+><para
+>I resti di una collisione tra nemici.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor0</varname
+></term>
+          <listitem
+><para
+>Puntatore che indica lo spostamento verso destra.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor1</varname
+></term>
+          <listitem
+><para
+>Puntatore che indica lo spostamento diagonale in alto a destra.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor2</varname
+></term>
+          <listitem
+><para
+>Puntatore che indica lo spostamento verso l'alto.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor3</varname
+></term>
+          <listitem
+><para
+>Puntatore che indica lo spostamento diagonale in alto a sinistra.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor4</varname
+></term>
+          <listitem
+><para
+>Puntatore che indica lo spostamento verso sinistra.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor5</varname
+></term>
+          <listitem
+><para
+>Puntatore che indica lo spostamento diagonale in basso a sinistra.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor6</varname
+></term>
+          <listitem
+><para
+>Puntatore che indica lo spostamento verso il basso.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor7</varname
+></term>
+          <listitem
+><para
+>Puntatore che indica lo spostamento in basso a destra.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor8</varname
+></term>
+          <listitem
+><para
+>Puntatore che indica lo stazionamento.</para
+></listitem>
+        </varlistentry>
+      </variablelist>
+    </sect2>
+
+    <sect2>
+      <title
+>Installazione di temi personalizzati</title>
+      <para
+>Affinché &killbots; rilevi e utilizzi un nuovo tema, i file devono essere spostati nella cartella corretta. Per installare il tema solo per l'utente corrente, copia i file desktop, anteprima e &SVG; in <filename class="directory"
+>killbots/themes</filename
+> nella cartella locale in <userinput
+><command
+>qtpaths</command
+> <option
+>--paths GenericDataLocation </option
+></userinput
+>. Affinché il tema sia condiviso da tutti, sposta i file in <filename class="directory"
+>killbots/themes</filename
+> nella cartella di sistema (dal comando precedente verosimilmente <filename class="directory"
+>/usr/share</filename
+> o simile). Nota che questa operazione richiederà probabilmente privilegi di amministrazione.</para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="creating-rulesets">
+    <title
+>Creazione di tipi di gioco personalizzati</title>
+
+    <sect2>
+      <title
+>Il file desktop dello schema di gioco</title>
+      <para
+>La creazione di nuovi tipi di gioco è incredibilmente semplice in &killbots;, specialmente se si parte da un file di schema preesistente. Gli schemi di gioco sono memorizzati in un singolo file desktop, mentre i parametri e i metadati sono memorizzati come coppie di valori chiave semplici.</para>
+      <example>
+        <title
+>Il tipo di gioco predefinito di &killbots;</title>
+        <programlisting width="80"
+>[KillbotsRuleset]
+Name=Killbots
+Name[it]=Killbots
+Author=Parker Coates
+AuthorContact=parker.coates@kdemail.net
+Description=&lt;qt&gt;&lt;p&gt;The default Killbots game type.&lt;/p&gt;&lt;p&gt;Includes a medium size grid, safe teleports, fast enemies and pushable junkheaps.&lt;/p&gt;&lt;/qt&gt;
+Description[it]=&lt;qt&gt;&lt;p&gt;Tipo di gioco predefinito di Killbots.&lt;/p&gt;&lt;p&gt;Include una griglia media, teletrasporti sicuri, nemici rapidi e rottami spostabili.&lt;/p&gt;&lt;/qt&gt;
+Rows=16
+Columns=16
+EnemiesAtGameStart=8.0
+EnemiesAddedEachRound=4.0
+FastEnemiesAtGameStart=-2.0
+FastEnemiesAddedEachRound=2.0
+EnergyEnabled=true
+EnergyAtGameStart=0
+EnergyAddedEachRound=0
+MaxEnergyAtGameStart=12.0
+MaxEnergyAddedEachRound=0.0
+SafeTeleportEnabled=true
+CostOfSafeTeleport=1
+VaporizerEnabled=false
+CostOfVaporizer=0
+PushableJunkheaps=Many
+SquaskKillsEnabled=true
+JunkheapsAtGameStart=0.0
+JunkheapsAddedEachRound=0.0
+PointsPerEnemyKilled=5
+PointsPerFastEnemyKilled=10
+WaitKillPointBonus=0
+WaitKillEnergyBonus=1
+SquashKillPointBonus=0
+SquashKillEnergyBonus=1</programlisting>
+      </example>
+      <para
+>Nota che tutti i parametri di testo devono essere inseriti in Inglese (Stati Uniti). Come mostrato nell'esempio sopra, le traduzioni possono essere aggiunte al file desktop ripetendo e aggiungendo il codice della lingua tra parentesi quadre. Nota anche che può essere inserito testo formattato nel campo <varname
+>Description</varname
+> racchiudendo il valore in tag &lt;qt&gt;.</para>
+      <para
+>Un file di schema di gioco deve contenere tutti i parametri seguenti.</para>
+      <variablelist>
+        <varlistentry>
+          <term
+><varname
+>Name</varname
+></term>
+          <listitem
+><para
+>Il nome dello schema di gioco che apparirà nel selettore degli schemi e nella finestra della classifica.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>Author</varname
+></term>
+          <listitem
+><para
+>Il creatore dello schema di gioco.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>AuthorContact</varname
+></term>
+          <listitem
+><para
+>Le informazioni di contatto dell'autore. È in genere un indirizzo di posta elettronica.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>Description</varname
+></term>
+          <listitem
+><para
+>Una descrizione dello schema di gioco. Questa offre una buona panoramica del tipo di gioco, ma non ha bisogno di elencare il valore di ciascun parametro, dato che questa informazione può essere visualizzata nella finestra di dialogo Dettagli.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>Rows</varname
+></term>
+          <listitem
+><para
+>Il numero di righe nella griglia di gioco.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>Columns</varname
+></term>
+          <listitem
+><para
+>Il numero di colonne nella griglia di gioco.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>EnemiesAtGameStart</varname
+></term>
+          <listitem
+><para
+>Il numero di nemici regolari aggiunti alla griglia all'inizio del primo turno.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>EnemiesAddedEachRound</varname
+></term>
+          <listitem
+><para
+>Il numero di nemici regolari supplementari aggiunti alla griglia all'inizio di ciascun turno.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>FastEnemiesAtGameStart</varname
+></term>
+          <listitem
+><para
+>Il numero di nemici veloci aggiunti alla griglia all'inizio del primo turno.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>FastEnemiesAddedEachRound</varname
+></term>
+          <listitem
+><para
+>Il numero di nemici veloci supplementari aggiunti alla griglia all'inizio di ciascun turno.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>EnergyEnabled</varname
+></term>
+          <listitem
+><para
+>Se impostata su <quote
+><constant
+>falso</constant
+></quote
+> l'eroe sarà abilitato a guadagnare o spendere energia.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>EnergyAtGameStart</varname
+></term>
+          <listitem
+><para
+>La quantità di energia assegnata all'eroe all'inizio del primo turno.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>EnergyAddedEachRound</varname
+></term>
+          <listitem
+><para
+>La quantità di energia assegnata all'eroe all'inizio di ciascun turno.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>MaxEnergyAtGameStart</varname
+></term>
+          <listitem
+><para
+>La capacità massima di energia dell'eroe all'inizio del primo turno.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>MaxEnergyAddedEachRound</varname
+></term>
+          <listitem
+><para
+>La modifica della capacità massima di energia all'inizio di ciascun turno.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>SafeTeleportEnabled</varname
+></term>
+          <listitem
+><para
+>Se impostato su <quote
+><constant
+>falso</constant
+></quote
+> l'azione di teletrasporto sicuro sarà disattivata.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>CostOfSafeTeleport</varname
+></term>
+          <listitem
+><para
+>La quantità di energia consumata per il teletrasporto sicuro.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>VaporizerEnabled</varname
+></term>
+          <listitem
+><para
+>Se impostato su <quote
+><constant
+>falso</constant
+></quote
+> l'azione del vaporizzatore sarà disattivata.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>CostOfVaporizer</varname
+></term>
+          <listitem
+><para
+>La quantità di energia consumata per l'uso del vaporizzatore.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>PushableJunkheaps</varname
+></term>
+          <listitem
+><para
+>Il numero di rottami che possono essere spostati con una singola spinta. I valori possibili sono <quote
+><constant
+>Nessuno</constant
+></quote
+>, <quote
+><constant
+>Uno</constant
+></quote
+> e <quote
+><constant
+>Molti</constant
+></quote
+>.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>SquaskKillsEnabled</varname
+></term>
+          <listitem
+><para
+>Se vero, l'eroe può distruggere i nemici spingendo loro sopra i rottami.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>JunkheapsAtGameStart</varname
+></term>
+          <listitem
+><para
+>Il numero di rottami posizionati sulla griglia all'inizio del primo turno.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>JunkheapsAddedEachRound</varname
+></term>
+          <listitem
+><para
+>Il numero di rottami aggiuntivi posizionati sulla griglia all'inizio di ciascun turno.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>PointsPerEnemyKilled</varname
+></term>
+          <listitem
+><para
+>Il numero di punti assegnati per la distruzione di un nemico regolare.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>PointsPerFastEnemyKilled</varname
+></term>
+          <listitem
+><para
+>Il numero di punti assegnati per la distruzione di un nemico veloce.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>WaitKillPointBonus</varname
+></term>
+          <listitem
+><para
+>Il numero di punti bonus assegnati per la distruzione di un nemico durante l'attesa di fine turno.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>WaitKillEnergyBonus</varname
+></term>
+          <listitem
+><para
+>Il numero di unità di energia bonus assegnate per la distruzione di un nemico durante l'attesa di fine turno.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>SquashKillPointBonus</varname
+></term>
+          <listitem
+><para
+>Il numero di punti bonus assegnati per la distruzione di un nemico con un rottame.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>SquashKillEnergyBonus</varname
+></term>
+          <listitem
+><para
+>Il numero di unità di energia bonus assegnati per la distruzione di un nemico con un rottame.</para
+></listitem>
+        </varlistentry>
+      </variablelist>
+    </sect2>
+
+    <sect2>
+      <title
+>Installazione di tipi di gioco personalizzati</title>
+
+      <para
+>Affinché &killbots; rilevi e utilizzi un nuovo tipo di gioco, il file dello schema di gioco deve essere spostato nella cartella corretta. Per installare il tipo di gioco solo per l'utente corrente, copia il file in <filename class="directory"
+>killbots/rulesets</filename
+> nella cartella locale in <userinput
+><command
+>qtpaths</command
+> <option
+>--paths GenericDataLocation </option
+></userinput
+>. Per condividere il tipo di gioco con tutti gli utenti, sposta il file in <filename class="directory"
+>killbots/rulesets</filename
+> nella cartella di sistema (dal comando precedente verosimilmente <filename class="directory"
+>/usr/share</filename
+> o simile). Nota che saranno richiesti probabilmente privilegi di amministrazione.</para>
+    </sect2>
+
+  </sect1>
+</chapter>
+
+<chapter id="credits">
+  <title
+>Riconoscimenti e licenza</title>
+
+  <para
+>&killbots;</para>
+  <para
+>Copyright del programma 2007&ndash;2009 Parker Coates <email
+>parker.coates@kdemail.net</email
+></para>
+  <para
+>Copyright della documentazione &copy; 2008&ndash;2009 Parker Coates <email
+>parker.coates@kdemail.net</email
+></para>
+
+  <para
+>Valter Mura <email
+>valtermura@gmail.com</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+
+</book>
+
+<!--
+Local Variables:
+mode: xml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+vim:tabstop=2:shiftwidth=2:expandtab
+kate: space-indent on; indent-width 2; tab-width 2; indent-mode none;
+-->

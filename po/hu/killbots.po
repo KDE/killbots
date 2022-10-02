@@ -1,0 +1,971 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Tamas Szanto <taszanto@gmail.com>, 2009.
+# Balázs Úr <urbalazs@gmail.com>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: KDE 4.3\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-30 00:41+0000\n"
+"PO-Revision-Date: 2012-06-12 19:36+0200\n"
+"Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
+"Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
+"Language: hu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 1.4\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Szántó Tamás"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "taszanto@gmail.com"
+
+#: coordinator.cpp:101
+#, fuzzy, kde-format
+#| msgid "Round:"
+msgctxt "@label"
+msgid "Round:"
+msgstr "Kör:"
+
+#: coordinator.cpp:106
+#, fuzzy, kde-format
+#| msgid "Score:"
+msgctxt "@label"
+msgid "Score:"
+msgstr "Pontszám:"
+
+#: coordinator.cpp:111
+#, fuzzy, kde-format
+#| msgid "Enemies:"
+msgctxt "@label"
+msgid "Enemies:"
+msgstr "Ellenség:"
+
+#: coordinator.cpp:116
+#, fuzzy, kde-format
+#| msgid "Energy:"
+msgctxt "@label"
+msgid "Energy:"
+msgstr "Energia:"
+
+#: coordinator.cpp:405
+#, fuzzy, kde-format
+#| msgid "Round complete."
+msgctxt "@info"
+msgid "Round complete."
+msgstr "Vége a körnek."
+
+#: coordinator.cpp:410
+#, fuzzy, kde-format
+#| msgid ""
+#| "Board is full.\n"
+#| "Resetting enemy counts."
+msgctxt "@info"
+msgid ""
+"Board is full.\n"
+"Resetting enemy counts."
+msgstr ""
+"A tábla megtelt.\n"
+"Az ellenségszámláló lenullázódik."
+
+#: coordinator.cpp:415
+#, fuzzy, kde-format
+#| msgid "New game."
+msgctxt "@info"
+msgid "New game."
+msgstr "Új játék."
+
+#: coordinator.cpp:420
+#, fuzzy, kde-format
+#| msgid "Game over."
+msgctxt "@info"
+msgid "Game over."
+msgstr "Vége a játéknak."
+
+#. i18n: ectx: tooltip, entry (MiddleClickAction), group (General)
+#: killbots.kcfg:19
+#, kde-format
+msgid "The action performed on a middle-click"
+msgstr "A középső egérgombhoz rendelt művelet"
+
+#. i18n: ectx: whatsthis, entry (MiddleClickAction), group (General)
+#: killbots.kcfg:20
+#, kde-format
+msgid ""
+"Selects the action performed when middle-clicking on the main game area. If "
+"a middle mouse button is not available, this action can be performed by "
+"left- and right-clicking simultaneously or by left-clicking while holding "
+"the control key."
+msgstr ""
+"Kiválasztja, mi történjen, ha a fő játékterületen kattint a játékos a "
+"középső egérgombbal. Ha nincs középső egérgomb, helyette a két egérgombbal "
+"egyszerre történő kattintás vagy a Ctrl + bal kattintás használható."
+
+#. i18n: ectx: tooltip, entry (RightClickAction), group (General)
+#: killbots.kcfg:25
+#, kde-format
+msgid "The action performed on a right-click"
+msgstr "A jobb egérgombhoz rendelt művelet"
+
+#. i18n: ectx: whatsthis, entry (RightClickAction), group (General)
+#: killbots.kcfg:26
+#, kde-format
+msgid "Selects the action performed when right-clicking on the main game area."
+msgstr ""
+"Kiválasztja, mi történjen, ha a fő játékterületen kattint a játékos a jobb "
+"egérgombbal."
+
+#. i18n: ectx: tooltip, entry (AnimationSpeed), group (General)
+#: killbots.kcfg:32
+#, kde-format
+msgid "The speed used to display animations"
+msgstr "Az animációk sebessége"
+
+#. i18n: ectx: whatsthis, entry (AnimationSpeed), group (General)
+#: killbots.kcfg:33
+#, kde-format
+msgid "Adjusts the speed at which the in game animations are displayed."
+msgstr "Beállítja a játékon belüli animációk sebességét."
+
+#. i18n: ectx: tooltip, entry (PreventUnsafeMoves), group (General)
+#: killbots.kcfg:37
+#, kde-format
+msgid "Prevent the player from making fatal moves"
+msgstr "A végzetes lépések letiltása"
+
+#. i18n: ectx: whatsthis, entry (PreventUnsafeMoves), group (General)
+#: killbots.kcfg:38
+#, kde-format
+msgid ""
+"If checked, the game will ignore any move that would result in the immediate "
+"death of the hero (other than random teleports and waiting out the round)."
+msgstr ""
+"Ha be van jelölve, a gép nem enged olyan lépést, amely a biztos halálhoz "
+"vezet (kivéve a véletlen teleportálást és a kör végéig tartó várakozást)."
+
+#. i18n: ectx: tooltip, entry (Ruleset), group (General)
+#: killbots.kcfg:42
+#, kde-format
+msgid "The selected set of game rules"
+msgstr "A választott szabálycsoport"
+
+#. i18n: ectx: whatsthis, entry (Ruleset), group (General)
+#: killbots.kcfg:43
+#, kde-format
+msgid "Selects the set of game rules to be used in the next game."
+msgstr ""
+"Kijelöli, melyik játékszabálycsoport legyen érvényes a következő játékban."
+
+#. i18n: ectx: Menu (moveMenu)
+#: killbotsui.rc:11
+#, fuzzy, kde-format
+#| msgid "Move"
+msgctxt "@title:menu"
+msgid "Move"
+msgstr "Lépés"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: killbotsui.rc:21
+#, kde-format
+msgid "Main Toolbar"
+msgstr "Alap eszköztár"
+
+#: main.cpp:38
+#, kde-format
+msgid "Killbots"
+msgstr "Killbots"
+
+#: main.cpp:39
+#, kde-format
+msgid "A KDE game of killer robots and teleportation."
+msgstr "Támadnak a gyilkos robotok!"
+
+#: main.cpp:41
+#, kde-format
+msgid "© 2006-2009, Parker Coates"
+msgstr "(c) Parker Coates, 2006-2009."
+
+#: main.cpp:42
+#, kde-format
+msgid "Parker Coates"
+msgstr "Parker Coates"
+
+#: main.cpp:42
+#, kde-format
+msgid "Developer"
+msgstr "Fejlesztő"
+
+#: main.cpp:43
+#, kde-format
+msgid "Mark Rae"
+msgstr "Mark Rae"
+
+#: main.cpp:43
+#, kde-format
+msgid ""
+"Author of Gnome Robots. Invented safe teleports, pushing junkheaps and fast "
+"robots."
+msgstr ""
+"A Gnome Robots játék szerzője, az ő ötlete a biztonságos teleportálás, a "
+"roncskupacok eltolhatósága és a gyorsan mozgó robotok."
+
+#: mainwindow.cpp:60
+#, kde-format
+msgid ""
+"This is the main game area used to interact with Killbots. It shows the "
+"current state of the game grid and allows one to control the hero using the "
+"mouse. It also displays certain statistics about the game in progress."
+msgstr ""
+"Ez a fő játékterület a Killbots játékban. Rácsban mutatja a játék állapotát, "
+"és lehetővé teszi a főhős irányítását egérrel. Továbbá statisztikai adatokat "
+"közöl a ják menetéről."
+
+#: mainwindow.cpp:94
+#, fuzzy, kde-format
+#| msgid "General"
+msgctxt "@title"
+msgid "General"
+msgstr "Általános"
+
+#: mainwindow.cpp:96
+#, fuzzy, kde-format
+#| msgid "Configure general settings"
+msgctxt "@info"
+msgid "Configure general settings"
+msgstr "Általános beállítások"
+
+#: mainwindow.cpp:99
+#, fuzzy, kde-format
+#| msgid "Game Type"
+msgctxt "@title"
+msgid "Game Type"
+msgstr "Játéktípus"
+
+#: mainwindow.cpp:101
+#, fuzzy, kde-format
+#| msgid "Select a game type"
+msgctxt "@info"
+msgid "Select a game type"
+msgstr "Válasszon ki egy játéktípust"
+
+#: mainwindow.cpp:104
+#, fuzzy, kde-format
+#| msgid "Appearance"
+msgctxt "@title"
+msgid "Appearance"
+msgstr "Megjelenés"
+
+#: mainwindow.cpp:106
+#, fuzzy, kde-format
+#| msgid "Select a graphical theme"
+msgctxt "@info"
+msgid "Select a graphical theme"
+msgstr "Válasszon ki egy témát"
+
+#: mainwindow.cpp:140
+#, kde-format
+msgid ""
+"A new game type has been selected, but there is already a game in progress."
+msgstr "Új játéktípust választott ki, de éppen folyik egy játék."
+
+#: mainwindow.cpp:141
+#, fuzzy, kde-format
+#| msgid "Game Type Changed"
+msgctxt "@title:window"
+msgid "Game Type Changed"
+msgstr "Megváltozott a játéktípus"
+
+#: mainwindow.cpp:142
+#, fuzzy, kde-format
+#| msgid "Continue Current Game"
+msgctxt "@action:button"
+msgid "Continue Current Game"
+msgstr "Folytatás"
+
+#: mainwindow.cpp:143
+#, fuzzy, kde-format
+#| msgid "Start a New Game"
+msgctxt "@action:button"
+msgid "Start a New Game"
+msgstr "Új játék"
+
+#: mainwindow.cpp:156
+#, fuzzy, kde-format
+#| msgid "Round"
+msgctxt "@title:column round of the game"
+msgid "Round"
+msgstr "Kör"
+
+#: mainwindow.cpp:240 optionspage.cpp:28
+#, fuzzy, kde-format
+#| msgid "Teleport Safely"
+msgctxt "@action"
+msgid "Teleport Safely"
+msgstr "Biztonságos teleportálás"
+
+#: mainwindow.cpp:241
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "Shortcut for teleport safely. See http://websvn.kde.org/trunk/KDE/"
+#| "kdegames/killbots/README.translators?view=markup"
+#| msgid "T"
+msgctxt ""
+"Shortcut for teleport safely. See https://quickgit.kde.org/?p=killbots."
+"git&a=blob&f=README.translators&o=plain"
+msgid "T"
+msgstr "T"
+
+#: mainwindow.cpp:243
+#, fuzzy, kde-format
+#| msgid "Teleport to a safe location"
+msgctxt "@info:tooltip"
+msgid "Teleport to a safe location"
+msgstr "Teleportálás biztonságosan"
+
+#: mainwindow.cpp:248 optionspage.cpp:27
+#, fuzzy, kde-format
+#| msgid "Teleport"
+msgctxt "@action"
+msgid "Teleport"
+msgstr "Teleportálás"
+
+#: mainwindow.cpp:249
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "Shortcut for teleport. See http://websvn.kde.org/trunk/KDE/kdegames/"
+#| "killbots/README.translators?view=markup"
+#| msgid "R"
+msgctxt ""
+"Shortcut for teleport. See https://quickgit.kde.org/?p=killbots."
+"git&a=blob&f=README.translators&o=plain"
+msgid "R"
+msgstr "R"
+
+#: mainwindow.cpp:251
+#, fuzzy, kde-format
+#| msgid "Teleport to a random location"
+msgctxt "@info:tooltip"
+msgid "Teleport to a random location"
+msgstr "Teleportálás véletlenszerű helyre"
+
+#: mainwindow.cpp:256 optionspage.cpp:29
+#, fuzzy, kde-format
+#| msgid "Teleport (Safely If Possible)"
+msgctxt "@action"
+msgid "Teleport (Safely if Possible)"
+msgstr "Teleportálás (biztonságosan, ha lehetséges)"
+
+#: mainwindow.cpp:257
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "Shortcut for teleport safely if possible. See http://websvn.kde.org/trunk/"
+#| "KDE/kdegames/killbots/README.translators?view=markup"
+#| msgid "Space"
+msgctxt ""
+"Shortcut for teleport safely if possible. See https://quickgit.kde.org/?"
+"p=killbots.git&a=blob&f=README.translators&o=plain"
+msgid "Space"
+msgstr "Szóköz"
+
+#: mainwindow.cpp:259
+#, fuzzy, kde-format
+#| msgid ""
+#| "Teleport safely if that action is enabled, otherwise teleport randomly"
+msgctxt "@info:tooltip"
+msgid "Teleport safely if that action is enabled, otherwise teleport randomly"
+msgstr "Biztonságos teleportálás (ha nincs enegedélyezve, akkor véletlenszerű)"
+
+#: mainwindow.cpp:263
+#, fuzzy, kde-format
+#| msgid "Vaporizer"
+msgctxt "@action"
+msgid "Vaporizer"
+msgstr "Megsemmisítő"
+
+#: mainwindow.cpp:264
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "Shortcut for vaporizer. See http://websvn.kde.org/trunk/KDE/kdegames/"
+#| "killbots/README.translators?view=markup"
+#| msgid "F"
+msgctxt ""
+"Shortcut for vaporizer. See https://quickgit.kde.org/?p=killbots."
+"git&a=blob&f=README.translators&o=plain"
+msgid "F"
+msgstr "F"
+
+#: mainwindow.cpp:266
+#, fuzzy, kde-format
+#| msgid "Destroy all enemies in neighboring cells"
+msgctxt "@info:tooltip"
+msgid "Destroy all enemies in neighboring cells"
+msgstr "Megsemmisíti a szomszédos cellában levő ellenségeket"
+
+#: mainwindow.cpp:271 optionspage.cpp:30
+#, fuzzy, kde-format
+#| msgid "Wait Out Round"
+msgctxt "@action"
+msgid "Wait Out Round"
+msgstr "Tovább, nem lépek"
+
+#: mainwindow.cpp:272
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "Shortcut for wait out round. See http://websvn.kde.org/trunk/KDE/kdegames/"
+#| "killbots/README.translators?view=markup"
+#| msgid "V"
+msgctxt ""
+"Shortcut for wait out round. See https://quickgit.kde.org/?p=killbots."
+"git&a=blob&f=README.translators&o=plain"
+msgid "V"
+msgstr "V"
+
+#: mainwindow.cpp:274
+#, fuzzy, kde-format
+#| msgid "Risk remaining in place until the end of the round for bonuses"
+msgctxt "@info:tooltip"
+msgid "Risk remaining in place until the end of the round for bonuses"
+msgstr "Egyhelyben maradás a kör végéig (jutalompontokat ér)"
+
+#: mainwindow.cpp:279
+#, fuzzy, kde-format
+#| msgid "Move Up and Left"
+msgctxt "@action"
+msgid "Move Up and Left"
+msgstr "Balra fel"
+
+#: mainwindow.cpp:280
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "Shortcut for move up and left. See http://websvn.kde.org/trunk/KDE/"
+#| "kdegames/killbots/README.translators?view=markup"
+#| msgid "Q"
+msgctxt ""
+"Shortcut for move up and left. https://quickgit.kde.org/?p=killbots."
+"git&a=blob&f=README.translators&o=plain"
+msgid "Q"
+msgstr "Q"
+
+#: mainwindow.cpp:285
+#, fuzzy, kde-format
+#| msgid "Move Up"
+msgctxt "@action"
+msgid "Move Up"
+msgstr "Fel"
+
+#: mainwindow.cpp:286
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "Shortcut for move up. See http://websvn.kde.org/trunk/KDE/kdegames/"
+#| "killbots/README.translators?view=markup"
+#| msgid "W"
+msgctxt ""
+"Shortcut for move up. See https://quickgit.kde.org/?p=killbots."
+"git&a=blob&f=README.translators&o=plain"
+msgid "W"
+msgstr "W"
+
+#: mainwindow.cpp:291
+#, fuzzy, kde-format
+#| msgid "Move Up and Right"
+msgctxt "@action"
+msgid "Move Up and Right"
+msgstr "Jobbra fel"
+
+#: mainwindow.cpp:292
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "Shortcut for move up and right. See http://websvn.kde.org/trunk/KDE/"
+#| "kdegames/killbots/README.translators?view=markup"
+#| msgid "E"
+msgctxt ""
+"Shortcut for move up and right. https://quickgit.kde.org/?p=killbots."
+"git&a=blob&f=README.translators&o=plain"
+msgid "E"
+msgstr "E"
+
+#: mainwindow.cpp:297
+#, fuzzy, kde-format
+#| msgid "Move Left"
+msgctxt "@action"
+msgid "Move Left"
+msgstr "Balra"
+
+#: mainwindow.cpp:298
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "Shortcut for move left. See http://websvn.kde.org/trunk/KDE/kdegames/"
+#| "killbots/README.translators?view=markup"
+#| msgid "A"
+msgctxt ""
+"Shortcut for move left. See https://quickgit.kde.org/?p=killbots."
+"git&a=blob&f=README.translators&o=plain"
+msgid "A"
+msgstr "A"
+
+#: mainwindow.cpp:303
+#, fuzzy, kde-format
+#| msgid "Stand Still"
+msgctxt "@action"
+msgid "Stand Still"
+msgstr "Egyhelyben"
+
+#: mainwindow.cpp:304
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "Shortcut for stand still. See http://websvn.kde.org/trunk/KDE/kdegames/"
+#| "killbots/README.translators?view=markup"
+#| msgid "S"
+msgctxt ""
+"Shortcut for stand still. See https://quickgit.kde.org/?p=killbots."
+"git&a=blob&f=README.translators&o=plain"
+msgid "S"
+msgstr "S"
+
+#: mainwindow.cpp:309
+#, fuzzy, kde-format
+#| msgid "Move Right"
+msgctxt "@action"
+msgid "Move Right"
+msgstr "Jobbra"
+
+#: mainwindow.cpp:310
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "Shortcut for move right. See http://websvn.kde.org/trunk/KDE/kdegames/"
+#| "killbots/README.translators?view=markup"
+#| msgid "D"
+msgctxt ""
+"Shortcut for move right. See https://quickgit.kde.org/?p=killbots."
+"git&a=blob&f=README.translators&o=plain"
+msgid "D"
+msgstr "D"
+
+#: mainwindow.cpp:315
+#, fuzzy, kde-format
+#| msgid "Move Down and Left"
+msgctxt "@action"
+msgid "Move Down and Left"
+msgstr "Balra le"
+
+#: mainwindow.cpp:316
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "Shortcut for move down and left. See http://websvn.kde.org/trunk/KDE/"
+#| "kdegames/killbots/README.translators?view=markup"
+#| msgid "Z"
+msgctxt ""
+"Shortcut for move down and left. See https://quickgit.kde.org/?p=killbots."
+"git&a=blob&f=README.translators&o=plain"
+msgid "Z"
+msgstr "Z"
+
+#: mainwindow.cpp:321
+#, fuzzy, kde-format
+#| msgid "Move Down"
+msgctxt "@action"
+msgid "Move Down"
+msgstr "Le"
+
+#: mainwindow.cpp:322
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "Shortcut for move down. See http://websvn.kde.org/trunk/KDE/kdegames/"
+#| "killbots/README.translators?view=markup"
+#| msgid "X"
+msgctxt ""
+"Shortcut for move down. See https://quickgit.kde.org/?p=killbots."
+"git&a=blob&f=README.translators&o=plain"
+msgid "X"
+msgstr "X"
+
+#: mainwindow.cpp:327
+#, fuzzy, kde-format
+#| msgid "Move Down and Right"
+msgctxt "@action"
+msgid "Move Down and Right"
+msgstr "Jobbra le"
+
+#: mainwindow.cpp:328
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "Shortcut for move down and right. See http://websvn.kde.org/trunk/KDE/"
+#| "kdegames/killbots/README.translators?view=markup"
+#| msgid "C"
+msgctxt ""
+"Shortcut for move down and right. https://quickgit.kde.org/?p=killbots."
+"git&a=blob&f=README.translators&o=plain"
+msgid "C"
+msgstr "C"
+
+#: optionspage.cpp:24
+#, fuzzy, kde-format
+#| msgid "Nothing"
+msgctxt "@item:inlistbox No action on click"
+msgid "Nothing"
+msgstr "Semmi"
+
+#: optionspage.cpp:25
+#, fuzzy, kde-format
+#| msgid "Step"
+msgctxt "@action"
+msgid "Step"
+msgstr "Lépés"
+
+#: optionspage.cpp:26
+#, fuzzy, kde-format
+#| msgid "Repeated Step"
+msgctxt "@action"
+msgid "Repeated Step"
+msgstr "Megismételt lépés"
+
+#: optionspage.cpp:45
+#, fuzzy, kde-format
+#| msgid "Slow"
+msgctxt "@item:inrange"
+msgid "Slow"
+msgstr "Lassú"
+
+#: optionspage.cpp:47
+#, fuzzy, kde-format
+#| msgid "Fast"
+msgctxt "@item:inrange"
+msgid "Fast"
+msgstr "Gyors"
+
+#: optionspage.cpp:49
+#, fuzzy, kde-format
+#| msgid "Instant"
+msgctxt "@item:inrange"
+msgid "Instant"
+msgstr "Azonnali"
+
+#: optionspage.cpp:60
+#, fuzzy, kde-format
+#| msgid "Animation &speed:"
+msgctxt "@label:slider"
+msgid "Animation &speed:"
+msgstr "Az animációk &sebessége:"
+
+#: optionspage.cpp:63
+#, fuzzy, kde-format
+#| msgid "Prevent &unsafe moves"
+msgctxt "@option:check"
+msgid "Prevent &unsafe moves"
+msgstr "A nem biztonságos lépések meg&akadályozása"
+
+#: optionspage.cpp:68
+#, fuzzy, kde-format
+#| msgid "&Middle-click action:"
+msgctxt "@label:listbox"
+msgid "&Middle-click action:"
+msgstr "Művelet a &középső egérgombra:"
+
+#: optionspage.cpp:69
+#, fuzzy, kde-format
+#| msgid "&Right-click action:"
+msgctxt "@label:listbox"
+msgid "&Right-click action:"
+msgstr "Művelet a &jobb egérgombra:"
+
+#. i18n: ectx: label, entry (Rows), group (KillbotsRuleset)
+#: rulesetbase.kcfg:19
+#, kde-format
+msgid "Number of rows in game grid"
+msgstr "A játékrács sorainak száma"
+
+#. i18n: ectx: label, entry (Columns), group (KillbotsRuleset)
+#: rulesetbase.kcfg:24
+#, kde-format
+msgid "Number of columns in game grid"
+msgstr "A játékrács oszlopainak száma"
+
+#. i18n: ectx: label, entry (EnemiesAtGameStart), group (KillbotsRuleset)
+#: rulesetbase.kcfg:28
+#, kde-format
+msgid "Number of regular enemies in first round"
+msgstr "A normál ellenségek száma az első körben"
+
+#. i18n: ectx: label, entry (EnemiesAddedEachRound), group (KillbotsRuleset)
+#: rulesetbase.kcfg:32
+#, kde-format
+msgid "Number of regular enemies added in each new round"
+msgstr "További normál ellenségek körönként"
+
+#. i18n: ectx: label, entry (FastEnemiesAtGameStart), group (KillbotsRuleset)
+#: rulesetbase.kcfg:36
+#, kde-format
+msgid "Number of fast enemies in first round"
+msgstr "A gyors ellenségek száma az első körben"
+
+#. i18n: ectx: label, entry (FastEnemiesAddedEachRound), group (KillbotsRuleset)
+#: rulesetbase.kcfg:40
+#, kde-format
+msgid "Number of fast enemies added in each new round"
+msgstr "További gyors ellenségek körönként"
+
+#. i18n: ectx: label, entry (FastEnemiesArePatient), group (KillbotsRuleset)
+#: rulesetbase.kcfg:44
+#, kde-format
+msgid ""
+"Fast enemies will skip their extra turn to avoid collisions with other robots"
+msgstr ""
+"A gyors ellenségek kihagyják az extra lépést a többi robottal való ütközések "
+"elkerülése érdekében"
+
+#. i18n: ectx: label, entry (EnergyEnabled), group (KillbotsRuleset)
+#: rulesetbase.kcfg:48
+#, kde-format
+msgid "Player can accumulate energy"
+msgstr "Az energia gyűjthető"
+
+#. i18n: ectx: label, entry (EnergyAtGameStart), group (KillbotsRuleset)
+#: rulesetbase.kcfg:53
+#, kde-format
+msgid "Energy at start of first round"
+msgstr "Kezdőenergia"
+
+#. i18n: ectx: label, entry (EnergyAddedEachRound), group (KillbotsRuleset)
+#: rulesetbase.kcfg:57
+#, kde-format
+msgid "Energy awarded for completing a round"
+msgstr "Energiajutalom sikeresen befejezett kör után"
+
+#. i18n: ectx: label, entry (MaxEnergyAtGameStart), group (KillbotsRuleset)
+#: rulesetbase.kcfg:62
+#, kde-format
+msgid "Maximum energy cap in first round"
+msgstr "Maximális energia az első körben"
+
+#. i18n: ectx: label, entry (MaxEnergyAddedEachRound), group (KillbotsRuleset)
+#: rulesetbase.kcfg:66
+#, kde-format
+msgid "Increase in maximum energy cap for each new round"
+msgstr "A maximális energia ennyivel nő körönként"
+
+#. i18n: ectx: label, entry (SafeTeleportEnabled), group (KillbotsRuleset)
+#: rulesetbase.kcfg:70
+#, kde-format
+msgid "Player can perform safe teleports"
+msgstr "Biztonságos teleportálás lehetséges"
+
+#. i18n: ectx: label, entry (CostOfSafeTeleport), group (KillbotsRuleset)
+#: rulesetbase.kcfg:75
+#, kde-format
+msgid "The cost of performing a safe teleport"
+msgstr "A biztonságos teleportálás költsége"
+
+#. i18n: ectx: label, entry (VaporizerEnabled), group (KillbotsRuleset)
+#: rulesetbase.kcfg:79
+#, kde-format
+msgid "Player can use vaporizer"
+msgstr "Megsemmisítők"
+
+#. i18n: ectx: label, entry (CostOfVaporizer), group (KillbotsRuleset)
+#: rulesetbase.kcfg:84
+#, kde-format
+msgid "Cost of using vaporizer"
+msgstr "A megsemmisítő használatának költsége"
+
+#. i18n: ectx: label, entry (PushableJunkheaps), group (KillbotsRuleset)
+#: rulesetbase.kcfg:93
+#, kde-format
+msgid "Number of junkheaps that can be pushed at once"
+msgstr "Az egyszerre eltolható hulladékkupacok száma"
+
+#. i18n: ectx: label, entry (SquaskKillsEnabled), group (KillbotsRuleset)
+#: rulesetbase.kcfg:97
+#, kde-format
+msgid "Player can destroy enemies with a pushed junkheap"
+msgstr "Az ellenségek megölhetők hulladékkupac eltolásával"
+
+#. i18n: ectx: label, entry (JunkheapsAtGameStart), group (KillbotsRuleset)
+#: rulesetbase.kcfg:101
+#, kde-format
+msgid "Junkheaps placed on grid at start of first round"
+msgstr "A hulladékkupacok száma kezdetben"
+
+#. i18n: ectx: label, entry (JunkheapsAddedEachRound), group (KillbotsRuleset)
+#: rulesetbase.kcfg:105
+#, kde-format
+msgid "Junkheaps added to the grid for each new round"
+msgstr "További hulladékkupacok körönként"
+
+#. i18n: ectx: label, entry (PointsPerEnemyKilled), group (KillbotsRuleset)
+#: rulesetbase.kcfg:110
+#, kde-format
+msgid "Points awarded for each regular enemy destroyed"
+msgstr "A jutalom normál ellenség megöléséért"
+
+#. i18n: ectx: label, entry (PointsPerFastEnemyKilled), group (KillbotsRuleset)
+#: rulesetbase.kcfg:115
+#, kde-format
+msgid "Points awarded for each fast enemy destroyed"
+msgstr "A jutalom gyors ellenség megöléséért"
+
+#. i18n: ectx: label, entry (WaitKillPointBonus), group (KillbotsRuleset)
+#: rulesetbase.kcfg:120
+#, kde-format
+msgid "Points awarded for each enemy destroyed while waiting out the round"
+msgstr "A jutalom kivárt körben megölt ellenségekért"
+
+#. i18n: ectx: label, entry (WaitKillEnergyBonus), group (KillbotsRuleset)
+#: rulesetbase.kcfg:125
+#, kde-format
+msgid "Energy awarded for each enemy destroyed while waiting out the round"
+msgstr "Energiajutalom kivárt körben megölt ellenségekért"
+
+#. i18n: ectx: label, entry (SquashKillPointBonus), group (KillbotsRuleset)
+#: rulesetbase.kcfg:130
+#, kde-format
+msgid "Points awarded for each enemy destroyed with a pushed junkheap"
+msgstr "Jutalompont hulladékkupac eltolásával megölt ellenségekért"
+
+#. i18n: ectx: label, entry (SquashKillEnergyBonus), group (KillbotsRuleset)
+#: rulesetbase.kcfg:135
+#, kde-format
+msgid "Energy awarded for each enemy destroyed with a pushed junkheap"
+msgstr "Jutalomenergia hulladékkupac eltolásával megölt ellenségekért"
+
+#. i18n: ectx: label, entry (PointsPerEnergyAboveMax), group (KillbotsRuleset)
+#: rulesetbase.kcfg:140
+#, kde-format
+msgid "Points awarded for each energy awarded above maximum energy cap"
+msgstr "Jutalompont a maximális energián felüli energiáért"
+
+#: rulesetdetailsdialog.cpp:38
+#, fuzzy, kde-format
+#| msgctxt "Quantity of junkheaps that can be pushed"
+#| msgid "None"
+msgctxt "@item Quantity of junkheaps that can be pushed"
+msgid "None"
+msgstr "Nincs"
+
+#: rulesetdetailsdialog.cpp:39
+#, fuzzy, kde-format
+#| msgctxt "Quantity of junkheaps that can be pushed"
+#| msgid "One"
+msgctxt "@item Quantity of junkheaps that can be pushed"
+msgid "One"
+msgstr "Egy"
+
+#: rulesetdetailsdialog.cpp:40
+#, fuzzy, kde-format
+#| msgctxt "Quantity of junkheaps that can be pushed"
+#| msgid "Many"
+msgctxt "@item Quantity of junkheaps that can be pushed"
+msgid "Many"
+msgstr "Sok"
+
+#: rulesetdetailsdialog.cpp:51
+#, kde-format
+msgctxt "%1 is a pretranslated string that we're turning into a label"
+msgid "%1:"
+msgstr "%1:"
+
+#: rulesetdetailsdialog.cpp:68
+#, fuzzy, kde-format
+#| msgid "Yes"
+msgctxt "@item"
+msgid "Yes"
+msgstr "Igen"
+
+#: rulesetdetailsdialog.cpp:68
+#, fuzzy, kde-format
+#| msgid "No"
+msgctxt "@item"
+msgid "No"
+msgstr "Nem"
+
+#: rulesetdetailsdialog.cpp:78
+#, fuzzy, kde-format
+#| msgid "Details of %1 Game Type"
+msgctxt "@title:window"
+msgid "Details of %1 Game Type"
+msgstr "Részletek: %1"
+
+#: rulesetselector.cpp:37
+#, fuzzy, kde-format
+#| msgid "A list of the Killbots rulesets installed on this computer."
+msgctxt "@info:whatsthis"
+msgid "A list of the Killbots rulesets installed on this computer."
+msgstr "A telepített Killbots-szabálycsoportok listája."
+
+#: rulesetselector.cpp:39
+#, fuzzy, kde-format
+#| msgid "Game Type Details"
+msgctxt "title:group"
+msgid "Game Type Details"
+msgstr "Részletes szabályok"
+
+#: rulesetselector.cpp:40
+#, fuzzy, kde-format
+#| msgid "Lists information on the currently selected game type."
+msgctxt "@info:whatsthis"
+msgid "Lists information on the currently selected game type."
+msgstr "A kiválasztott játéktípus szabályait tartalmazza."
+
+#: rulesetselector.cpp:42
+#, fuzzy, kde-format
+#| msgid "Author:"
+msgctxt "@label"
+msgid "Author:"
+msgstr "Szerző:"
+
+#: rulesetselector.cpp:49
+#, fuzzy, kde-format
+#| msgid "Contact:"
+msgctxt "@label"
+msgid "Contact:"
+msgstr "Elérhetőség:"
+
+#: rulesetselector.cpp:57
+#, fuzzy, kde-format
+#| msgid "Description:"
+msgctxt "@label"
+msgid "Description:"
+msgstr "Leírás:"
+
+#: rulesetselector.cpp:64
+#, fuzzy, kde-format
+#| msgid "Details..."
+msgctxt "@action:button"
+msgid "Details..."
+msgstr "Részletek..."
+
+#: rulesetselector.cpp:65
+#, fuzzy, kde-format
+#| msgid "Show the detailed parameters of the selected game type"
+msgctxt "@info:tooltip"
+msgid "Show the detailed parameters of the selected game type"
+msgstr "Megjeleníti a kijelölt játéktípus részletes jellemzőit"
+
+#: rulesetselector.cpp:66
+#, fuzzy, kde-format
+#| msgid ""
+#| "Opens a dialog listing the values of all internal parameters for the "
+#| "selected game type."
+msgctxt "@info:whatsthisp"
+msgid ""
+"Opens a dialog listing the values of all internal parameters for the "
+"selected game type."
+msgstr ""
+"Megnyit egy párbeszédablakot, ahol megjelennek a kijelölt játéktípus belső "
+"paraméterei."
+
+#~ msgid "Teleport, Safely If Possible"
+#~ msgstr "Teleportálás (biztonságosan, ha lehetséges)"
+
+#~ msgid "The selected game theme"
+#~ msgstr "A kijelölt téma"
+
+#~ msgid "Selects the theme used to display all in game elements."
+#~ msgstr "A játék grafikai megjelenését meghatározó téma."

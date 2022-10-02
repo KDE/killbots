@@ -1,0 +1,1530 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % German "INCLUDE">
+]>
+
+<book id="killbots" lang="&language;">
+
+<bookinfo>
+  <title
+>Das Handbuch zu &killbots;</title>
+
+  <authorgroup>
+    <author
+><personname
+><firstname
+>Parker</firstname
+><surname
+>Coates</surname
+></personname
+><email
+>parker.coates@kdemail.net</email
+> </author>
+
+    <othercredit role="translator"
+><firstname
+>Johannes</firstname
+><surname
+>Obermayr</surname
+><affiliation
+><address
+><email
+>johannesobermayr@gmx.de</email
+></address
+></affiliation
+><contrib
+>Übersetzung</contrib
+></othercredit
+> 
+  </authorgroup>
+
+  <copyright>
+    <year
+>2008&ndash;2009</year>
+    <holder
+>Parker Coates</holder>
+  </copyright>
+
+  <legalnotice
+>&FDLNotice;</legalnotice>
+
+  <date
+>2021-07-05</date>
+  <releaseinfo
+>KDE Gear 21.04</releaseinfo>
+
+  <abstract>
+    <para
+>&killbots; ist eine Portierung des klassischen &BSD;-Konsolenspiels <command
+>robots</command
+> für &kde;.</para>
+  </abstract>
+
+  <keywordset>
+    <keyword
+>KDE</keyword>
+    <keyword
+>KDE-Spiele</keyword>
+    <keyword
+>Spiel</keyword>
+    <keyword
+>Killbots</keyword>
+    <keyword
+>Strategie</keyword>
+    <keyword
+>Ein Spieler</keyword>
+    <keyword
+>Einzelspieler</keyword>
+    <keyword
+>Roboter</keyword>
+    <keyword
+>Roboter</keyword>
+    <keyword
+>schneller Roboter</keyword>
+    <keyword
+>Müllhalde</keyword>
+    <keyword
+>Teleportieren</keyword>
+    <keyword
+>Zerstäuben</keyword>
+    <keyword
+>Zerstäuber</keyword>
+    <keyword
+>Energie</keyword>
+  </keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+  <title
+>Einleitung</title>
+
+  <note>
+    <title
+>Spielart:</title>
+    <para
+>Strategie</para>
+  </note>
+
+  <note>
+    <title
+>Anzahl der Spieler:</title>
+    <para
+>Einer</para>
+  </note>
+
+  <para
+>&killbots; ist ein einfaches Spiel, in dem man Killermaschinen entkommen muss. Wer die <emphasis
+>Roboter</emphasis
+> erschuf und warum diese zum Zerstören programmiert wurden ist niemandem bekannt. Alles was über sie bekannt ist, ist ihr zahlreiches Vorkommen und das einzige Ziel, den <emphasis
+>Helden</emphasis
+> zu töten. Hilfreich ist, dass der Erschaffer mehr Wert auf die zahlenmäßige Stärke und nicht auf die Intelligenz legte. Die geistige Überlegenheit des Spielers und die Möglichkeit des <emphasis
+>Teleportierens</emphasis
+> sind die einzigen Waffen gegen den immerwährenden Angriff der sinnlosen Automaten.</para>
+
+  <note>
+    <title
+>Anmerkung:</title>
+    <para
+>Alle Bezeichnungen in diesem Handbuch beziehen sich u. a. auf <emphasis
+>Roboter, Müllhalden,</emphasis
+> &etc;. Jedoch können für &killbots; abweichende Designs erstellt werden und somit die angezeigten Animationen von den beschriebenen abweichen. Die Spielweise und -strategie bleibt jedoch immer gleich (auch wenn der <emphasis
+>Held</emphasis
+> eine von Hasen gejagte Karotte ist).</para>
+  </note>
+
+  <note>
+    <title
+>Anmerkung:</title>
+    <para
+>&killbots; unterstützt mehrere Spielarten zur Kontrolle der Spiel-Parameter und der enthaltenen Spiel-Funktionen. Dieses Handbuch versucht allgemein und nicht spezifisch für bestimmte Spielarten zu sein. Für weitere Informationen über den aktuellen Regelsatz sollten immer dessen Information und <guibutton
+>Beschreibung ...</guibutton
+> in <guilabel
+>Einrichten - &killbots;</guilabel
+> für die Informationen über die <emphasis
+>Spielfeldgröße, Runden, Punkte, Energie, ...</emphasis
+> verwendet werden.</para>
+  </note>
+
+</chapter>
+
+<chapter id="howto">
+  <title id="howto-title"
+>Spielanleitung</title>
+
+  <sect1 id="gameplay-basics">
+    <title
+>Grundlagen des Spieles</title>
+
+    <note>
+      <title
+>Spielziel:</title>
+      <para
+>Die Gegner in den aufeinanderfolgenden Runden überleben und dabei Punkte für einen Bestwert sammeln. </para>
+    </note>
+
+    <para
+><screenshot
+><mediaobject>
+      <imageobject
+><imagedata fileref="grid.png" format="PNG"/></imageobject>
+      <textobject
+><phrase
+>Bildschirmfoto des Spielfeldes</phrase
+></textobject>
+    </mediaobject
+></screenshot
+></para>
+
+    <para
+>&killbots; ist ein rundenbasiertes Spiel, das auf einem rechteckigen <emphasis
+>Gitter</emphasis
+> gespielt wird. Die Anzahl der <emphasis
+>Zellen</emphasis
+> in jeder Zeile und Spalte des <emphasis
+>Gitters</emphasis
+> wird durch die verwendete Spielart bestimmt. Jede <emphasis
+>Zelle</emphasis
+> kann Folgendes enthalten: <variablelist>
+        <varlistentry>
+          <term
+><firstterm
+>Held</firstterm
+> <inlinemediaobject
+><imageobject
+><imagedata fileref="hero.png" format="PNG"/></imageobject
+></inlinemediaobject
+></term>
+          <listitem>
+            <para
+>Der <emphasis
+>Held</emphasis
+> ist die unglückliche Seele, die in einem Raum mit einer Menge von Killermaschinen steckt. Die Aufgabe des Spielers ist es sicherzustellen, dass er solange wie möglich am Leben bleibt.</para>
+            <para
+>Am Anfang jeden <emphasis
+>Zuges</emphasis
+> kann der <emphasis
+>Held</emphasis
+> eine der drei Aktionen ausführen: Er kann stehen bleiben, sich in eine angrenzende unbesetzte Zelle bewegen oder einen Spezialzug ausführen. Weitere Informationen hierzu können dem Abschnitt <link linkend="movement-controls" endterm="movement-controls-title"
+></link
+> und <link linkend="special-actions" endterm="special-actions-title"
+></link
+> entnommen werden.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><firstterm
+>Roboter</firstterm
+> <inlinemediaobject
+><imageobject
+><imagedata fileref="enemy.png" format="PNG"/></imageobject
+></inlinemediaobject
+></term>
+          <listitem>
+            <para
+>Die <emphasis
+>Roboter</emphasis
+> sind die mechanischen Gegenspieler mit dem Wunsch, den <emphasis
+>Helden</emphasis
+> mit ihrem metallenen Mantel zu zermalmen. Sie haben noch nie etwas von den <quote
+>Drei Regeln der Roboter</quote
+> gehört und würden wahrscheinlich jeden zermalmen, der versucht ihnen diese zu erklären.</para>
+            <para
+>Jeder <emphasis
+>Roboter</emphasis
+> bewegt sich in jedem Zug um einen Schritt auf den <emphasis
+>Helden</emphasis
+> zu. Falls der <emphasis
+>Roboter</emphasis
+> über dem <emphasis
+>Helden</emphasis
+> ist, bewegt er sich um einen Schritt nach unten. Ist der <emphasis
+>Roboter</emphasis
+> links vom <emphasis
+>Helden</emphasis
+>, bewegt er sich um einen Schritt nach rechts. Ist der <emphasis
+>Roboter</emphasis
+> rechts-unterhalb vom <emphasis
+>Helden</emphasis
+>, bewegt er sich schräg um einen Schritt nach links-oben. Sollte es einem <emphasis
+>Roboter</emphasis
+> gelingen, die <emphasis
+>Zelle</emphasis
+> des <emphasis
+>Helden</emphasis
+> zu erreichen, wird der <emphasis
+>Held</emphasis
+> getötet und das Spiel ist zu Ende.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><firstterm
+>Schneller Roboter</firstterm
+> <inlinemediaobject
+><imageobject
+><imagedata fileref="fastenemy.png" format="PNG"/></imageobject
+></inlinemediaobject
+></term>
+          <listitem>
+            <para
+><emphasis
+>Schnelle Roboter</emphasis
+> sind eine Weiterentwicklung der <emphasis
+>Roboter</emphasis
+>. Mit jeder Bewegung des <emphasis
+>Helden</emphasis
+> bewegen sie sich zwei Felder weiter. Mit ihrer gesteigerten Geschwindigkeit erhielten sie jedoch keine höhere Intelligenz - sie zerstören sich oftmals genauso schnell wie ihr Vorgängermodell.</para>
+            <para
+>Nicht alle Spielarten enthalten <emphasis
+>schnelle Roboter</emphasis
+>.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><firstterm
+>Müllhalde</firstterm
+> <inlinemediaobject
+><imageobject
+><imagedata fileref="junkheap.png" format="PNG"/></imageobject
+></inlinemediaobject
+></term>
+          <listitem>
+            <para
+>Beim Zusammenprall zweier oder mehrerer Roboter werden diese zerstört und produzieren eine <emphasis
+>Müllhalde</emphasis
+>. Die Gegner können die <emphasis
+>Müllhalden</emphasis
+> auf ihrem Weg nicht erkennen und werden beim Zusammenprall mit diesen zerstört. Die <emphasis
+>Müllhalden</emphasis
+> sind extrem wertvoll, da sie Sperren zwischen dem <emphasis
+>Helden</emphasis
+> und seinen Angreifern bieten.</para>
+            <para id="pushing-junkheaps"
+>Manche Spielarten ermöglichen es dem <emphasis
+>Helden</emphasis
+> die <emphasis
+>Müllhalden</emphasis
+> innerhalb des Gitters zu <emphasis
+>schieben</emphasis
+>. Dadurch wird der Bau von schützenden <emphasis
+>Bunkern</emphasis
+> möglich. In manchen Spielarten können die <emphasis
+>Müllhalden</emphasis
+> zum Angriff verwendet werden, indem sie auf einen Gegner <emphasis
+>geschoben</emphasis
+> werden und diesen <emphasis
+>erdrücken</emphasis
+>. Meist erhält man hierfür sogar zusätzliche Punkte oder Energie.</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+    </para>
+  </sect1>
+
+  <sect1 id="rounds-scoring-energy">
+    <title
+>Runde, Punkte und Energie</title>
+
+    <para
+><screenshot
+><mediaobject>
+      <imageobject
+><imagedata fileref="status.png" format="PNG"/></imageobject>
+      <textobject
+><phrase
+>Die Statusanzeige</phrase
+></textobject>
+    </mediaobject
+></screenshot
+></para>
+
+    <sect2>
+      <title
+>Runde</title>
+      <para
+>Der Spielablauf in &killbots; ist in <emphasis
+>Runden</emphasis
+> unterteilt. Jede Runde beginnt mit dem <emphasis
+>Helden</emphasis
+> in der Mitte des Spielfeldes und zufällig platzierten Gegnern um ihn herum. Die Runde endet wenn alle Gegner zerstört sind. Mit Beginn einer neuen Runde erhöht sich die Anzahl der Gegner um der Spielart festgelegten Werte (Art und Anzahl).</para>
+      <para
+>Das Spielfeld füllt sich mit Gegnern bis einer der folgenden Fälle eintritt: Die Gegner belegen mehr als 50 Prozent der Zellen oder ein <emphasis
+>Sicheres Teleportieren</emphasis
+> soll durchgeführt werden, ist aber mangels sicherer Zellen nicht möglich. Sobald einer dieser Fälle eintritt wird die Runde abgebrochen und die Anzahl der Gegner geht auf den Wert der ersten Runde zurück.</para>
+    </sect2>
+
+    <sect2>
+      <title
+>Punkte</title>
+      <para
+>In &killbots; kann man nicht gewinnen. Vielmehr versucht der <emphasis
+>Held</emphasis
+> zu überleben bis ihn sein Glück verlässt. Daher ist das Spielziel in &killbots; die meisten <emphasis
+>Punkte</emphasis
+> bis zum Eintritt des Unvermeidbaren zu erreichen. Die zehn höchsten Punktestände werden zusammen mit der erreichten Runde in der Bestenliste aufgeführt.</para>
+      <para
+>Punkte erhält man für das Zerstören der Gegner. Für <emphasis
+>Schnelle Roboter</emphasis
+> gibt es meist mehr als für reguläre <emphasis
+>Roboter</emphasis
+>. Zusätzliche Punkte kann es möglicherweise für das <link linkend="pushing-junkheaps"
+>Zerstören der Gegner mit einer Müllhalde</link
+> oder während dem <link linkend="wait-out-round"
+>Aussitzen</link
+> geben.</para>
+    </sect2>
+
+    <sect2 id="energy">
+      <title
+>Energie</title>
+      <para
+>Zusätzlich zu den Punkten kann <emphasis
+>Energie</emphasis
+> gesammelt werden. Diese ermöglicht <link linkend="teleport-safely"
+>Sicheres Teleportieren</link
+> und/oder <link linkend="vaporizer"
+>Zerstäuben</link
+>. Abhängig von der gewählten Spielart kann die Energie für verschiedene Aktionen gewährt werden (z. B. für <link linkend="pushing-junkheaps"
+>Verschieben einer Müllhalde</link
+> oder zerstören der Gegner während dem <link linkend="wait-out-round"
+>Aussitzen</link
+>).</para>
+      <para
+>Die maximale Energie ist durch die Spielart festgelegt und erhöht sich in machen Spielarten mit den erfolgreich beendeten Runden. Die Engerieanzeige erscheint nur, wenn die aktuelle Spielart <emphasis
+>Energie</emphasis
+> und <emphasis
+>Sicheres Teleportieren</emphasis
+> unterstützt.</para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="special-actions">
+    <title id="special-actions-title"
+>Spezialzüge</title>
+    <para
+>Zusätzlich zu den einfachen Bewegungen von Zelle zu Zelle können bis zu vier <emphasis
+>Spezialzüge</emphasis
+> durchgeführt werden.</para>
+
+    <sect2 id="teleport">
+      <title
+>Teleportieren</title>
+      <para
+>Auf wunderbare Art und Weise schafft der <emphasis
+>Held</emphasis
+> seine Hände auf einen persönlichen <emphasis
+>Teleporter</emphasis
+> zu bekommen. Leider ist dieser ohne Energieverbrauch nicht sehr zuverlässig. Das aktivieren des <emphasis
+>Teleporters</emphasis
+> befördert den Helden zu einer zufällig gewählten Zelle auf dem Spielfeld. Für die Anzahl des <emphasis
+>Teleportierens</emphasis
+> gibt es keine Begrenzung.</para>
+      <para
+>Die neue Zelle ist garantiert <emphasis
+>unbesetzt</emphasis
+>, jedoch besteht die Möglichkeit, dass diese von einem Roboter leicht zu erreichen ist. Durch diese Unsicherheit sollte das <emphasis
+>Teleportieren</emphasis
+> nur als letztes Mittel für das Entkommen der Roboter gewählt werden, wenn kein <emphasis
+>Sicheres Teleportieren</emphasis
+> mehr möglich ist.</para>
+    </sect2>
+
+    <sect2 id="teleport-safely">
+      <title
+>Sicher teleportieren</title>
+      <para
+>Der Teleporter bietet noch einen zweiten Modus, mit dem der Held zu einer zufällig gewählten aber sicheren Zelle befördert wird. <emphasis
+>Sicheres Teleportieren</emphasis
+> benötigt mangelnde <link linkend="energy"
+>Energie</link
+>. Natürlich kann die Fähigkeit des <emphasis
+>Sicheren Teleportierens</emphasis
+> die Lebensdauer des <emphasis
+>Helden</emphasis
+> erheblich verlängern.</para>
+      <para
+>Nicht alle Spielarten ermöglichen <emphasis
+>Sicheres Teleportieren</emphasis
+> und die aufzuwendende <emphasis
+>Energie</emphasis
+> unterscheidet sich zwischen den Spielarten.</para>
+    </sect2>
+
+    <sect2 id="vaporizer">
+      <title
+>Zerstäuber</title>
+      <para
+>Die dritte Verwendung des Teleportier-Geräts befördert den Helden nicht. Dieser etwas ungewöhnliche Betriebsmodus befördert die Roboter in den angrenzenden Zellen um den Helden herum. Niemand weiß genau, wohin sie befördert werden, aber es scheint weit genug entfernt zu sein, dass sie den Helden nicht mehr <emphasis
+>belästigen</emphasis
+>. Da sich die Roboter <emphasis
+>in dünne Luft auflösen</emphasis
+> und keine <emphasis
+>Müllhalde zurück lassen</emphasis
+>, wird dieser Modus als „Zerstäuber“ bezeichnet und die durch das <emphasis
+>Zerstäuben</emphasis
+> entfernten Gegner als getötet gewertet.</para>
+      <para
+>Genauso wie <emphasis
+>Sicheres Teleportieren</emphasis
+> benötigt das Verwenden des <emphasis
+>Zerstäubers</emphasis
+> <link linkend="energy"
+>Energie</link
+>. Nicht alle Spielarten unterstützen den <emphasis
+>Zerstäuber</emphasis
+> und die benötigte Energie unterscheidet sich zwischen in den Spielarten.</para>
+    </sect2>
+
+    <sect2 id="wait-out-round">
+      <title
+>Aussitzen</title>
+      <para
+>Möglicherweise gelangt man im Laufe einer Runde an einen Punkt, zu dem alle Roboter zerstört werden können, ohne dass sich der Held weiterhin bewegen muss. In einer solchen Situation kann man die Runde einfach <emphasis
+>Aussitzen</emphasis
+>.</para>
+      <example>
+        <title
+>Eine Möglichkeit zum <emphasis
+>Aussitzen</emphasis
+></title>
+        <para
+><screenshot
+><mediaobject>
+          <imageobject
+><imagedata fileref="waitoutround.png" format="PNG"/></imageobject>
+        </mediaobject
+></screenshot
+></para>
+      </example>
+      <para
+>Beim <emphasis
+>Aussitzen</emphasis
+> bleibt der <emphasis
+>Held</emphasis
+> für den Rest der Runde an Ort und Stelle stehen, während die Gegner weiterhin ihre regulären Bewegungen durchführen. Dies geschieht so lange bis eine der beiden Möglichkeiten eintritt: Die Gegner zerstören sich selbst und die Runde ist beendet oder ein Gegner zerstört den <emphasis
+>Helden</emphasis
+> und das Spiel endet. Sobald das <emphasis
+>Aussitzen</emphasis
+> gewählt wurde kann es nicht mehr rückgängig gemacht werden und sollte daher nur gewählt werden, wenn sich der Held an einer sicheren Stelle befindet.</para>
+      <para
+>Warum würde jemand eine Aktion wählen, mit der die Möglichkeit zur Meinungsänderung genommen wird? Es fügt ein bisschen Schnörkel und Dramatik zum Ende einer Runde hinzu, bietet jedoch auch Zusätzliches für jede Zerstörung eines Gegners während dem <emphasis
+>Aussitzen</emphasis
+>. Die Zusätze (<emphasis
+>Punkte</emphasis
+> oder <emphasis
+>Energie</emphasis
+>) werden durch die Spielart festgelegt.</para>
+    </sect2>
+  </sect1>
+
+</chapter>
+
+<chapter id="interface-overview">
+  <title
+>Die Benutzeroberfläche</title>
+
+  <sect1 id="movement-controls">
+    <title id="movement-controls-title"
+>Ausführung der Bewegungen</title>
+    <para
+>Die Bewegungen können mit der Tastatur, der Maus oder beidem zusammen durchgeführt werden.</para>
+    <sect2 id="keyboard-movement">
+      <title id="keyboard-movement-title"
+>Bewegungen mit der Tastatur</title>
+      <para
+>Die Bewegungen können in neun verschiedene Richtungen erfolgen: links, rechts, oben, unten, diagonal (4x) und stehen bleiben. Jede dieser Aktionen kann zwei Tasten auf der Tastatur zugeordnet werden. Standardmäßig sind diese neun Aktionen den neun Ziffern vom Ziffernblock und den Tasten um <keycap
+>S</keycap
+> (<keycap
+>QWE</keycap
+>, <keycap
+>ASD</keycap
+> und <keycap
+>YXC</keycap
+>) zugeordnet. Diese Tastenzuweisungen können im Dialog „Kurzbefehle festlegen“ geändert werden.</para>
+      <para
+>Jeder Spezialzug (z. B. <emphasis
+>Teleportieren</emphasis
+>) kann auch mit der Tastatur ausgeführt werden. Weitere Informationen hierzu können dem Abschnitt <link linkend="move-menu"
+>Zug</link
+> entnommen werden.</para>
+    </sect2>
+    <sect2 id="mouse-movement">
+      <title id="mouse-movement-title"
+>Bewegungen mit der Maus</title>
+      <para
+>Die Maus (oder ein ähnliches Eingabegerät) kann für eine unbefangene und unmittelbare Steuerung verwendet werden. Sobald sich der Mauszeiger über dem Spielfeld befindet, ändert er sich und es zeigt - ausgehend vom <emphasis
+>Helden</emphasis
+> - ein Pfeil in die Richtung des Mauszeigers. Befindet sich zum Beispiel der Mauszeiger oberhalb des <emphasis
+>Helden</emphasis
+>, so zeigt der Pfeil nach oben. Befindet sich der Mauszeiger über dem <emphasis
+>Helden</emphasis
+>, so wird <emphasis
+>Stehenbleiben</emphasis
+> signalisiert.</para>
+      <para
+>Mit einer einfachen Betätigung der linken Maustaste bewegt sich der <emphasis
+>Held</emphasis
+> in die entsprechende Richtung (sofern diese Bewegung erlaubt ist). Zur Erweiterung der bequemen Steuerung können zusätzliche Aktionen der linken und rechten Maustaste im Dialog <link linkend="configure-killbots"
+>Einrichten - &killbots; einrichten</link
+> zugeordnet werden. Es ist die Auswahl der im Menü <link linkend="move-menu"
+>Zug</link
+> enthaltenen, sowie zusätzlich <guimenuitem
+>Bewegung wiederholen</guimenuitem
+> möglich. Dies bewirkt, dass sich der <emphasis
+>Held</emphasis
+> solange in die entsprechende Richtung bewegt, bis er auf ein Hindernis trifft oder eine weitere Bewegung in diese Richtung zum Tod führen würde. Die Aktion kann angehalten werden, indem die Maustaste nochmals gedrückt wird.</para>
+      <para
+></para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="game-menu">
+    <title
+>Menüeinträge</title>
+
+    <variablelist>
+      <varlistentry>
+        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+></shortcut
+><guimenu
+>Spiel</guimenu
+><guimenuitem
+>Neu</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+><action
+>Hiermit wird ein neues Spiel gestartet. Aktuell laufende Spiele werden verworfen.</action
+></para
+></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>H</keycap
+></keycombo
+></shortcut
+><guimenu
+>Spiel</guimenu
+><guimenuitem
+>Bestenliste anzeigen</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+><action
+>Hiermit wird die Bestenliste mit den bisher erreichten Höchstpunkten angezeigt.</action
+></para
+></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+></shortcut
+><guimenu
+>Spiel</guimenu
+><guimenuitem
+>Beenden</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+><action
+>Hiermit wird &killbots; beendet.</action
+></para
+></listitem>
+      </varlistentry>
+
+      <varlistentry id="move-menu">
+        <term
+><menuchoice
+><shortcut
+><keycap
+>R</keycap
+></shortcut
+><guimenu
+>Zug</guimenu
+><guimenuitem
+>Teleportieren</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+>Hiermit wird der <emphasis
+>Held</emphasis
+> in eine leere zufällig gewählte Zelle <emphasis
+>teleportiert</emphasis
+>. Weitere Informationen hierzu können dem Abschnitt <link linkend="teleport" endterm="special-actions-title"
+></link
+> entnommen werden.</para
+></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term
+><menuchoice
+><shortcut
+><keycap
+>T</keycap
+></shortcut
+><guimenu
+>Zug</guimenu
+><guimenuitem
+>Sicher Teleportieren</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+>Hiermit wird der <emphasis
+>Held</emphasis
+> in eine leere und für diesen Spielzug sichere Zelle <emphasis
+>teleportiert</emphasis
+>. Weitere Informationen hierzu können dem Abschnitt <link linkend="teleport-safely" endterm="special-actions-title"
+></link
+> entnommen werden.</para
+></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term
+><menuchoice
+><shortcut
+>&Space;</shortcut
+><guimenu
+>Zug</guimenu
+><guimenuitem
+>Sicher Teleportieren (falls möglich)</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+>Soweit genügend <emphasis
+>Energie</emphasis
+> zur Verfügung steht wird <emphasis
+>Sicheres Teleportieren</emphasis
+> ansonsten <emphasis
+>Teleportieren</emphasis
+> durchgeführt.</para
+></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term
+><menuchoice
+><shortcut
+><keycap
+>F</keycap
+></shortcut
+><guimenu
+>Zug</guimenu
+><guimenuitem
+>Zerstäuber</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+>Zerstört alle Roboter in den anliegenden Zellen um den helden. Weitere Informationen hierzu können dem Abschnitt <link linkend="vaporizer" endterm="special-actions-title"
+></link
+> entnommen werden.</para
+></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term
+><menuchoice
+><shortcut
+><keycap
+>V</keycap
+></shortcut
+><guimenu
+>Zug</guimenu
+><guimenuitem
+>Aussetzen</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+>Der <emphasis
+>Held</emphasis
+> bleibt bis zum Ende der Runde an Ort und Stelle stehen. Weitere Informationen hierzu können dem Abschnitt <link linkend="wait-out-round" endterm="special-actions-title"
+></link
+> entnommen werden.</para
+></listitem>
+      </varlistentry>
+
+      <varlistentry id="configure-killbots">
+        <term
+><menuchoice
+><guimenu
+>Einstellungen</guimenu
+><guimenuitem
+>&killbots; einrichten ...</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+>Hiermit wird der Einrichtungsdialog von &killbots; zum Einstellen der Spielparameter, Regelsätze und des Spieldesigns aufgerufen.</para
+></listitem>
+      </varlistentry>
+    </variablelist>
+
+<para
+>Zusätzlich hat &killbots; die bekannten &kde;-Einträge im Menü <guimenu
+>Einstellungen</guimenu
+> und <guimenu
+>Hilfe</guimenu
+>, weitere Informationen dazu finden Sie in den Abschnitten über die Menüs <ulink url="help:/fundamentals/menus.html#menus-settings"
+>Einstellungen</ulink
+> und <ulink url="help:/fundamentals/menus.html#menus-help"
+>Hilfe</ulink
+> der &kde;-Grundlagen. </para>
+
+  </sect1>
+
+</chapter>
+
+
+<chapter id="developers">
+  <title
+>Entwicklerhandbuch zu &killbots;</title>
+  <para
+>Interessierte Spieler können eigene Designs und Regeln für &killbots; erstellen.</para>
+
+  <sect1 id="creating-themes">
+    <title
+>Designs für &killbots; erstellen</title>
+    <para
+>Wie die meisten anderen &kde;-Spiele bestehen die Designs von &killbots; aus drei Dateien.</para>
+
+    <sect2>
+      <title
+>Die Datei <filename
+>.desktop</filename
+></title>
+      <para
+>Die <filename
+>.desktop</filename
+>-Datei folgt der <acronym
+>INI</acronym
+>-Syntax. In ihr werden die Informationen zum Design und die Verweise auf die dazu gehörenden Dateien gespeichert. Das folgende Beispiel stammt vom standardmäßigen Design.</para>
+      <example>
+        <title
+>Ein Beispiel für eine <filename
+>.desktop</filename
+>-Datei</title>
+        <programlisting
+>[KGameTheme]
+Name=Beispiel für ein Design
+Description=Ein Beispiel für ein Designs mit Piraten.
+Author=Der Verfasser
+AuthorEmail=verfasser@beispiel.de
+Type=SVG
+FileName=beispiel.svg
+Preview=beispiel.png
+        </programlisting>
+      </example>
+      <para
+>Die ersten vier Parameter enthalten die Metadaten zum Design und sind selbsterklärend. Bei Designs für &killbots; sollte der Parameter <varname
+>Type</varname
+> immer auf &SVG; gesetzt werden. Die beiden letzten Parameter enthalten die Dateinamen der beiden anderen Dateien für das Design. Es ist nicht unbedingt notwendig allen Dateien den gleichen Basisnamen zuzuordnen und ist somit nur aus Gründen der Einheitlichkeit empfehlenswert.</para>
+    </sect2>
+
+    <sect2>
+      <title
+>Die <filename
+>.png</filename
+>-Datei</title>
+      <para
+>Die <acronym
+>PNG</acronym
+>-Datei enthält die Vorschau des Designs. Sie sollte eine Größe von 240 x 140 Pixel haben und der Vorschau des standardmäßigen Designs entsprechen, damit die Designs im Auswahldialog leichter verglichen werden können.</para>
+    </sect2>
+
+    <sect2>
+      <title
+>Die &SVG;-Datei</title>
+      <para
+>Die &SVG;-Datei ist eine skalierbare Vektorgrafik mit den grafischen Elementen für das Design und kann entweder im unkomprimierten <literal role="extension"
+>.svg</literal
+>- oder komprimierten <literal role="extension"
+>.svgz</literal
+>-Format verwendet werden. Jedes Element wird durch ein einzigartige Identifikationsnummer in der &SVG;-Datei bestimmt. Beim Erstellen eines neuen Designs ist es der einfachste Weg die Elemente eines bestehenden Designs nacheinander auszutauschen bis das neue Design fertig gestellt ist. Die &SVG;-Datei <emphasis
+>muss</emphasis
+> die folgenden Elemente enthalten: </para>
+      <variablelist>
+        <varlistentry>
+          <term
+><varname
+>background</varname
+></term>
+          <listitem
+><para
+>Das hinter dem Spielfeld angezeigte Bild.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>status</varname
+></term>
+          <listitem
+><para
+>Der Kasten für die Anzeige der Runde, Punkte, Gegneranzahl und Energie.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>textcolor</varname
+></term>
+          <listitem
+><para
+>Dieses Element sollte ein einfarbiges Rechteck sein und wird für den Text in der Statusanzeige verwendet.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cell</varname
+></term>
+          <listitem
+><para
+>Eine einzelne Zelle des Spielfeldes.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>hero</varname
+></term>
+          <listitem
+><para
+>Die vom Spieler kontrollierte Figur.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>enemy</varname
+></term>
+          <listitem
+><para
+>Die Figur für den <emphasis
+>einfachen</emphasis
+> Gegner.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>fastenemy</varname
+></term>
+          <listitem
+><para
+>Die Figur für den <emphasis
+>schnellen</emphasis
+> Gegner.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>junkheap</varname
+></term>
+          <listitem
+><para
+>Die Figur für die Reste zerstörter Gegner (= <emphasis
+>Müllhalde</emphasis
+>).</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor0</varname
+></term>
+          <listitem
+><para
+>Der Cursor für die Bewegung nach rechts.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor1</varname
+></term>
+          <listitem
+><para
+>Der Cursor für die schräge Bewegung nach rechts-oben.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor2</varname
+></term>
+          <listitem
+><para
+>Der Cursor für die Bewegung nach oben.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor3</varname
+></term>
+          <listitem
+><para
+>Der Cursor für die schräge Bewegung nach links-oben.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor4</varname
+></term>
+          <listitem
+><para
+>Der Cursor für die Bewegung nach links.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor5</varname
+></term>
+          <listitem
+><para
+>Der Cursor für die schräge Bewegung nach links-unten.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor6</varname
+></term>
+          <listitem
+><para
+>Der Cursor für die Bewegung nach unten.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor7</varname
+></term>
+          <listitem
+><para
+>Der Cursor für die schräge Bewegung nach rechts-unten.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor8</varname
+></term>
+          <listitem
+><para
+>Der Cursor für das Stehenbleiben.</para
+></listitem>
+        </varlistentry>
+      </variablelist>
+    </sect2>
+
+    <sect2>
+      <title
+>Designs installieren</title>
+      <para
+>Damit &killbots; neue Designs erkennen und verwenden kann, müssen sich die Dateien in einem geeigneten Ordner befinden. Um das Design nur einem bestimmten Benutzer zugänglich zu machen, müssen die <filename
+>.desktop</filename
+>-, <filename
+>.png</filename
+>- und <filename
+>.svg</filename
+>-Datei in den lokalen Ordner <filename class="directory"
+>killbots/themes</filename
+>  in  <userinput
+><command
+>qtpaths</command
+> <option
+>--paths GenericDataLocation </option
+></userinput
+> installiert werden. Für die Bereitstellung für alle Benutzer des Systems müssen die Dateien in den Systemordner <filename class="directory"
+>killbots/themes</filename
+> aus dem vorherigen Befehl wie zum Beispiel <filename class="directory"
+>/usr/share</filename
+> oder ähnlich installiert werden. Dazu sind Rechte als Systemverwalters notwendig.</para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="creating-rulesets">
+    <title
+>Eigene Spielarten erstellen</title>
+
+    <sect2>
+      <title
+>Die <filename
+>.desktop</filename
+>-Datei der Regelsätze</title>
+      <para
+>Das Erstellen neuer Spielarten für &killbots; ist extrem einfach (besonders auf Grundlage bereits bestehender). Die Parameter und Metadaten der Regelsätze werden als einfache Schlüsselwerte in einer <filename
+>.desktop</filename
+>-Datei niedergeschrieben.</para>
+      <example>
+        <title
+>Die standardmäßigen Spielarten von &killbots;</title>
+        <programlisting width="80"
+>[KillbotsRuleset]
+Name=Killbots
+Name[de]=Standard
+Author=Parker Coates
+AuthorContact=parker.coates@kdemail.net
+Description=&lt;qt&gt;&lt;p&gt;The default Killbots game type.&lt;/p&gt;&lt;p&gt;Includes a medium size grid, safe teleports, fast enemies and pushable junkheaps.&lt;/p&gt;&lt;/qt&gt;
+Description[de]=&lt;qt&gt;&lt;p&gt;Die Standard-Spielart von Killbots.&lt;/p&gt;&lt;p&gt;Sie enthält ein mittelgroßes Spielfeld und unterstützt „Sicheres Teleportieren“, „Schnelle Roboter“ und verschiebbare „Müllhalden“.&lt;/p&gt;&lt;/qt&gt;
+Rows=16
+Columns=16
+EnemiesAtGameStart=8.0
+EnemiesAddedEachRound=4.0
+FastEnemiesAtGameStart=-2.0
+FastEnemiesAddedEachRound=2.0
+EnergyEnabled=true
+EnergyAtGameStart=0
+EnergyAddedEachRound=0
+MaxEnergyAtGameStart=12.0
+MaxEnergyAddedEachRound=0.0
+SafeTeleportEnabled=true
+CostOfSafeTeleport=1
+VaporizerEnabled=false
+CostOfVaporizer=0
+PushableJunkheaps=Many
+SquaskKillsEnabled=true
+JunkheapsAtGameStart=0.0
+JunkheapsAddedEachRound=0.0
+PointsPerEnemyKilled=5
+PointsPerFastEnemyKilled=10
+WaitKillPointBonus=0
+WaitKillEnergyBonus=1
+SquashKillPointBonus=0
+SquashKillEnergyBonus=1</programlisting>
+      </example>
+      <para
+>Alle Text-Parameter sollten in amerikanischen Englisch verfasst sein. Wie das obige Beispiel zeigt, können die Übersetzungen mittels eckigen Klammern (<varname
+>[de]</varname
+> für Deutsch) eingefügt werden. Weiterhin kann der Klartext im Feld <varname
+>Description</varname
+> innerhalb von <varname
+>&lt;qt&gt; ... &lt;/qt&gt;</varname
+> eingegeben werden.</para>
+      <para
+>Die Datei eines Regelsatzes sollte die folgenden Parameter enthalten:</para>
+      <variablelist>
+        <varlistentry>
+          <term
+><varname
+>Name</varname
+></term>
+          <listitem
+><para
+>Der Name des Regelsatzes - wie er im Auswahldialog und der Bestenliste erscheint.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>Author</varname
+></term>
+          <listitem
+><para
+>Der Verfasser des Regelsatzes.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>AuthorContact</varname
+></term>
+          <listitem
+><para
+>Die Kontaktinformationen zum Verfasser (meist E-Mail-Adresse).</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>Description</varname
+></term>
+          <listitem
+><para
+>Eine Beschreibung des Regelsatzes. Sie soll eine kurze Übersicht über die Spielart enthalten aber keine Auflistung der Parameter, die in <guibutton
+>Beschreibung ...</guibutton
+> enthalten sind.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>Rows</varname
+></term>
+          <listitem
+><para
+>Die Anzahl der Zeilen des Spielfeldes.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>Columns</varname
+></term>
+          <listitem
+><para
+>Die Anzahl der Spalten des Spielfeldes.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>EnemiesAtGameStart</varname
+></term>
+          <listitem
+><para
+>Die Anzahl der regulären Gegner (Roboter) zu Beginn der ersten Runde.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>EnemiesAddedEachRound</varname
+></term>
+          <listitem
+><para
+>Die Anzahl der zusätzlichen regulären Gegner (Roboter) zu Beginn einer neuen Runde.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>FastEnemiesAtGameStart</varname
+></term>
+          <listitem
+><para
+>Die Anzahl der schnellen Gegner (schnelle Roboter) zu Beginn der ersten Runde.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>FastEnemiesAddedEachRound</varname
+></term>
+          <listitem
+><para
+>Die Anzahl der zusätzlichen schnellen Gegner (schnelle Roboter) zu Beginn einer neuen Runde.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>EnergyEnabled</varname
+></term>
+          <listitem
+><para
+>Wird hier der Wert <userinput
+>false</userinput
+> gesetzt, kann der Held Energie <emphasis
+>gewinnen</emphasis
+> oder <emphasis
+>verbrauchen</emphasis
+>.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>EnergyAtGameStart</varname
+></term>
+          <listitem
+><para
+>Die zur Verfügung stehende Energie am Anfang der ersten Runde.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>EnergyAddedEachRound</varname
+></term>
+          <listitem
+><para
+>Die zusätzliche Energie zu Beginn einer neuen Runde.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>MaxEnergyAtGameStart</varname
+></term>
+          <listitem
+><para
+>Die maximale Energie zu Beginn der ersten Runde.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>MaxEnergyAddedEachRound</varname
+></term>
+          <listitem
+><para
+>Die Veränderung der maximalen Energie zu Beginn einer neuen Runde.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>SafeTeleportEnabled</varname
+></term>
+          <listitem
+><para
+>Wird hier der Wert <userinput
+>false</userinput
+> gesetzt, ist <emphasis
+>Sicheres Teleportieren</emphasis
+> nicht verfügbar.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>CostOfSafeTeleport</varname
+></term>
+          <listitem
+><para
+>Der Energieverbrauch für <emphasis
+>Sicheres Teleportieren.</emphasis
+></para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>VaporizerEnabled</varname
+></term>
+          <listitem
+><para
+>Wird hier der Wert <userinput
+>false</userinput
+> gesetzt, ist der <emphasis
+>Zerstäuber</emphasis
+> nicht verfügbar.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>CostOfVaporizer</varname
+></term>
+          <listitem
+><para
+>Der Energieverbrauch für den <emphasis
+>Zerstäuber.</emphasis
+></para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>PushableJunkheaps</varname
+></term>
+          <listitem
+><para
+>Die Anzahl der maximal verschiebbaren <emphasis
+>Müllhalden</emphasis
+>. Möglich sind <userinput
+>None</userinput
+> (keine), <userinput
+>One</userinput
+> (eine) und <userinput
+>Many</userinput
+> (beliebig).</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>SquaskKillsEnabled</varname
+></term>
+          <listitem
+><para
+>Bei Aktivierung können die <emphasis
+>Müllhalden</emphasis
+> auf die Gegner geschoben werden und diese damit „erdrücken“.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>JunkheapsAtGameStart</varname
+></term>
+          <listitem
+><para
+>Die Anzahl der <emphasis
+>Müllhalden</emphasis
+> zu Beginn der ersten Runde.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>JunkheapsAddedEachRound</varname
+></term>
+          <listitem
+><para
+>Die Anzahl der zusätzlichen <emphasis
+>Müllhalden</emphasis
+> zu Beginn einer neuen Runde.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>PointsPerEnemyKilled</varname
+></term>
+          <listitem
+><para
+>Die Punkte für die Zerstörung eines regulären Gegners (Roboter).</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>PointsPerFastEnemyKilled</varname
+></term>
+          <listitem
+><para
+>Die Punkte für die Zerstörung eines schnellen Gegners (schneller Roboter).</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>WaitKillPointBonus</varname
+></term>
+          <listitem
+><para
+>Die zusätzlichen Punkte für die Zerstörung von Gegnern während dem <emphasis
+>Aussitzen.</emphasis
+></para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>WaitKillEnergyBonus</varname
+></term>
+          <listitem
+><para
+>Die zusätzliche Energie für die Zerstörung von Gegnern während dem <emphasis
+>Aussitzen.</emphasis
+></para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>SquashKillPointBonus</varname
+></term>
+          <listitem
+><para
+>Die zusätzlichen Punkte für die Zerstörung eines Gegners durch „Erdrücken“ mit einer <emphasis
+>Müllhalde.</emphasis
+></para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>SquashKillEnergyBonus</varname
+></term>
+          <listitem
+><para
+>Die zusätzliche Energie für die Zerstörung eines Gegners durch „Erdrücken“ mit einer <emphasis
+>Müllhalde.</emphasis
+></para
+></listitem>
+        </varlistentry>
+      </variablelist>
+    </sect2>
+
+    <sect2>
+      <title
+>Eigene Spielarten installieren</title>
+
+      <para
+>Damit &killbots; neue Spielarten erkennen und verwenden kann müssen sich die Regelsatz-Dateien in einem geeigneten Ordner befinden. Um die Spielarten nur einem bestimmten Benutzer zugänglich zu machen, muss die Datei in den lokalen Ordner <filename class="directory"
+>killbots/rulesets</filename
+> in <userinput
+><command
+>qtpaths</command
+> <option
+>--paths GenericDataLocation </option
+></userinput
+> installiert werden. Für die Bereitstellung für alle Benutzer des Systems müssen die Dateien in <filename class="directory"
+>killbots/rulesets</filename
+> im Systemordner aus dem vorherigen Befehl wie zum Beispiel <filename class="directory"
+>/usr/share</filename
+> oder ähnlich installiert werden. Dazu sind Rechte als Systemverwalters notwendig.</para>
+    </sect2>
+
+  </sect1>
+</chapter>
+
+<chapter id="credits">
+  <title
+>Danksagungen und Lizenz</title>
+
+  <para
+>&killbots;</para>
+  <para
+>Programm © 2007 &ndash; 2009, Parker Coates <email
+>parker.coates@kdemail.net</email
+></para>
+  <para
+>Dokumentation © 2008 &ndash; 2009, Parker Coates <email
+>parker.coates@kdemail.net</email
+></para>
+
+  <para
+>Übersetzung: Johannes Obermayr <email
+>johannesobermayr@gmx.de</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+
+</book>
+
+<!--
+Local Variables:
+mode: xml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+vim:tabstop=2:shiftwidth=2:expandtab
+kate: space-indent on; indent-width 2; tab-width 2; indent-mode none;
+-->

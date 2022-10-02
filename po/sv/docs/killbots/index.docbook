@@ -1,0 +1,1314 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Swedish "INCLUDE">
+]>
+
+<book id="killbots" lang="&language;">
+
+<bookinfo>
+  <title
+>Handbok &killbots;</title>
+
+  <authorgroup>
+    <author
+><personname
+> <firstname
+>Parker</firstname
+> <surname
+>Coates</surname
+> </personname
+> <email
+>parker.coates@kdemail.net</email
+> </author>
+
+    <othercredit role="translator"
+> <firstname
+>Stefan</firstname
+> <surname
+>Asserhäll</surname
+> <affiliation
+><address
+><email
+>stefan.asserhall@bredband.net</email
+></address
+></affiliation
+> <contrib
+>Översättare</contrib
+></othercredit
+> 
+  </authorgroup>
+
+  <copyright>
+    <year
+>2008&ndash;2009</year>
+    <holder
+>Parker Coates</holder>
+  </copyright>
+
+  <legalnotice
+>&FDLNotice;</legalnotice>
+
+  <date
+>2021-07-05</date>
+  <releaseinfo
+>KDE Gear 21.04</releaseinfo>
+
+  <abstract>
+    <para
+>&killbots; är en &kde;-version av det klassiska terminalspelet <command
+>robots</command
+> i &BSD;.</para>
+  </abstract>
+
+  <keywordset>
+    <keyword
+>KDE</keyword>
+    <keyword
+>kdegames</keyword>
+    <keyword
+>spel</keyword>
+    <keyword
+>Killbots</keyword>
+    <keyword
+>Strategi</keyword>
+    <keyword
+>En spelare</keyword>
+    <keyword
+>Ensam spelare</keyword>
+    <keyword
+>robotar</keyword>
+    <keyword
+>robot</keyword>
+    <keyword
+>snabbot</keyword>
+    <keyword
+>KDE</keyword>
+    <keyword
+>teleportera</keyword>
+    <keyword
+>upplösa</keyword>
+    <keyword
+>upplösninspistol</keyword>
+    <keyword
+>energi</keyword>
+  </keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+  <title
+>Inledning</title>
+
+  <note>
+    <title
+>Speltyp:</title>
+    <para
+>Strategi</para>
+  </note>
+
+  <note>
+    <title
+>Antal spelare:</title>
+    <para
+>En</para>
+  </note>
+
+  <para
+>&killbots; är ett enkelt spel om att undkomma mördarrobotar. Vem som skapade robotarna och varför de har programmerats att förstöra, är det ingen som vet. Allt som är känt är att robotarna är talrika och deras enda målsättning är att förgöra dig. Tursamt nog för dig, har deras skapare fokuserat på kvantitet istället för kvalitet, med resultatet att robotarna är synnerligen ointelligenta. Ditt överlägsna förstånd och en avancerad teleportationsapparat är dina enda vapen mot den aldrig sinande strömmen av själlösa automater.</para>
+
+  <note>
+    <title
+>Anteckningar:</title>
+    <para
+>Dokumentationen hänvisar ofta till <quote
+>robotar</quote
+>, <quote
+>skrothögar</quote
+>, etc., men &killbots; tema kan anpassas fullständigt. Det betyder att spelets figurer som du ser när du spelar inte måste motsvara de futuristiska som beskrivs här. Spelet och strategin förblir dock likadana, även om hjälten är en morot som jagas genom ett trädgårdsland av omättliga kaniner.</para>
+  </note>
+
+  <note>
+    <title
+>Anteckningar:</title>
+    <para
+>&killbots; stöder flera speltyper som styr spelparametrarna och avgör vilka spelfunktioner som ingår. Den här dokumentationen försöker vara generell, och inte specifik för en viss speltyp. Kontrollera beskrivningen av nuvarande speltyp i dialogrutan <guilabel
+>Anpassa &killbots;</guilabel
+>, för mer detaljerad information om spelmekaniken med avseende på rutnätets storlek, omgångar, poängsättning, energi, etc.</para>
+  </note>
+
+</chapter>
+
+<chapter id="howto">
+  <title id="howto-title"
+>Hur man spelar</title>
+
+  <sect1 id="gameplay-basics">
+    <title
+>Spelets grunder</title>
+
+    <note>
+      <title
+>Syfte:</title>
+      <para
+>Överlev på varandra följande omgångar med fiender medan poäng samlas in.</para>
+    </note>
+
+    <para
+><screenshot
+><mediaobject>
+      <imageobject
+><imagedata fileref="grid.png" format="PNG"/></imageobject>
+      <textobject
+><phrase
+>Skärmbild av spelplanen</phrase
+></textobject>
+    </mediaobject
+></screenshot
+></para>
+
+    <para
+>&killbots; är ett omgångsbaserat spel, som spelas på ett rektangulärt <firstterm
+>rutnät</firstterm
+> av celler. Antal <firstterm
+>celler</firstterm
+> i varje rad och kolumn i rutnätet bestäms av vilken speltyp som används. Varje cell kan innehålla en av följande: <variablelist>
+        <varlistentry>
+          <term
+><firstterm
+>Hjälte</firstterm
+> <inlinemediaobject
+><imageobject
+><imagedata fileref="hero.png" format="PNG"/></imageobject
+></inlinemediaobject
+></term>
+          <listitem>
+            <para
+>Hjälten är den stackare som är fast i ett rum med en massa mördarrobotar. Som spelare, är det din uppgift att se till att han överlever så länge som möjligt.</para>
+            <para
+>I början av varje <firstterm
+>omgång</firstterm
+> kan hjälten utföra en av tre olika saker: han kan stanna där han är, han kan gå till en tom intilliggande cell, eller han kan utföra en specialåtgärd. Se <link linkend="movement-controls" endterm="movement-controls-title"
+></link
+> eller <link linkend="special-actions" endterm="special-actions-title"
+></link
+>.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><firstterm
+>Robot</firstterm
+> <inlinemediaobject
+><imageobject
+><imagedata fileref="enemy.png" format="PNG"/></imageobject
+></inlinemediaobject
+></term>
+          <listitem>
+            <para
+>Robotar är mekaniska gangstrar vars enda önskan är att krossa dig med sin kroppshydda av metall. De har aldrig hört talas om <quote
+>Robotikens tre lagar</quote
+>, och skulle troligtvis krossa var och en som försökte förklara dem.</para>
+            <para
+>Varje robot tar ett steg mot hjälten vid varje omgång. Om roboten är ovanför hjälten går den neråt. Om roboten är till vänster om hjälten, går den åt höger. Om roboten är nedanför och till höger om hjälten, går den diagonalt uppåt åt vänster. Skulle roboten lyckas hamna på samma cell som hjälten, dödas hjälten och spelet tar slut.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><firstterm
+>Snabbot</firstterm
+> <inlinemediaobject
+><imageobject
+><imagedata fileref="fastenemy.png" format="PNG"/></imageobject
+></inlinemediaobject
+></term>
+          <listitem>
+            <para
+>En snabbot är en mycket snabbare version av den vanliga roboten. För varje steg som hjälten tar, tar de två steg. Som tur är kombinerades inte deras ökade rörlighet med ökad intelligens: de lyckas ofta bara förstöra sig själv dubbelt så snabbt som sina långsammare bröder.</para>
+            <para
+>Snabbotar ingår inte i alla speltyper.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><firstterm
+>Skrothög</firstterm
+> <inlinemediaobject
+><imageobject
+><imagedata fileref="junkheap.png" format="PNG"/></imageobject
+></inlinemediaobject
+></term>
+          <listitem>
+            <para
+>När två eller flera robotar kolliderar, förstörs de, och spillrorna som skapas bildar en skrothög. Fiender ignorerar blint alla skrothögar i deras väg, och förstörs när de kraschar mot dem. Du kommer att märka att skrothögar är ytterst värdefulla, eftersom de kan fungera som barrikader mellan hjälten och hans angripare.</para>
+            <para id="pushing-junkheaps"
+>Vissa speltyper tillåter att hjälten <firstterm
+>knuffar</firstterm
+> omkring skrothögar på rutnätet. Hjälten kan då använda skrothögarna för att skapa &quot;bunkrar&quot; som ger skydd på flera sidor. Skrothögar kan till och med användas offensivt i vissa speltyper. Att knuffa en skrothög över en fiende krossar den och kan till och med ge ett bonus.</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+    </para>
+  </sect1>
+
+  <sect1 id="rounds-scoring-energy">
+    <title
+>Omgångar, poäng och energi</title>
+
+    <para
+><screenshot
+><mediaobject>
+      <imageobject
+><imagedata fileref="status.png" format="PNG"/></imageobject>
+      <textobject
+><phrase
+>Statusindikering inne i spelet</phrase
+></textobject>
+    </mediaobject
+></screenshot
+></para>
+
+    <sect2>
+      <title
+>Omgångar</title>
+      <para
+>Spelet i &killbots; är uppdelat i <firstterm
+>omgångar</firstterm
+>. Varje omgång börjar med hjälten i mitten av rutnätet och med fiender slumpmässigt utplacerade runt omkring honom. Omgången slutar när alla fiender har förstörts. Allteftersom varje omgång avslutas, ökar antal fiender. Antal och typ av fiender som läggs till beror på speltypen.</para>
+      <para
+>Rutnätet fortsätter att fyllas med fiender till en av två saker inträffar: fiender upptar mer än 50 procent av cellerna, eller en säker teleportering försöker göras, men några säkra celler finns inte i rutnätet. Vid något av dessa tillfällen överges den pågående omgången, och fiendeantalet återställs till det som användes i den första omgången.</para>
+    </sect2>
+
+    <sect2>
+      <title
+>Poäng</title>
+      <para
+>Det finns i själva verket inget sätt att vinna &killbots;: hjälten försöker överleva så länge som möjligt, men den deprimerande verkligheten är att hans tur till sist kommer att ta slut. Därför är målet med &killbots; att samla så många <firstterm
+>poäng</firstterm
+> som möjligt innan det oundvikliga inträffar. De tio högsta poängen (tillsammans med uppnådd omgång) lagras i dialogrutan med poängtoppen.</para>
+      <para
+>Poäng tilldelas när fienders förstörs. Snabbotar är oftast värda mer än vanliga robotar. Bonuspoäng kan också tilldelas för fiender som förstörs vid <link linkend="wait-out-round"
+>väntan på omgångens slut</link
+>.</para>
+    </sect2>
+
+    <sect2 id="energy">
+      <title
+>Energi</title>
+      <para
+>Förutom poäng kan hjälten också samla <firstterm
+>energi</firstterm
+> under spelets gång. Energi låter hjälten utföra <link linkend="teleport-safely"
+>säker teleportering</link
+>. Beroende på speltypen kan energi erhållas av diverse orsaker, inklusive att avsluta en omgång, <link linkend="pushing-junkheaps"
+>knuffa en skrothög</link
+> eller förstöra fiender vid <link linkend="wait-out-round"
+>väntan på omgångens slut</link
+>.</para>
+      <para
+>Mängden energi som hjälten kan lagra begränsas till ett maximum bestämt av speltypen. Visningen av energistatus är bara synlig om den aktuella speltypen inkluderar energi och säker teleportering.</para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="special-actions">
+    <title id="special-actions-title"
+>Specialåtgärder</title>
+    <para
+>Förutom enkel förflyttning från cell till cell, har hjälten upp till fyra specialåtgärder till sitt förfogande.</para>
+
+    <sect2 id="teleport">
+      <title
+>Teleportera</title>
+      <para
+>Hjälten har på något sätt lyckats lägga beslag på en personlig teleporteringsutrustning. Tyvärr är den inte särskilt tillförlitlig när den används utan energikälla. Att aktivera teleportering gör att hjälten transporteras till en slumpmässigt vald cell var som helst på rutnätet. Det finns ingen gräns för antal teleporteringar som hjälten kan utföra.</para>
+      <para
+>Målcellen är garanterad att vara tom, men det finns en verklig möjlighet att den är intill en arg robot. På grund av den inneboende risken med teleportering, bör det normalt reserveras som en sista utväg, när det inte längre finns några säkra förflyttningar tillgängliga.</para>
+    </sect2>
+
+    <sect2 id="teleport-safely">
+      <title
+>Teleportera säkert</title>
+      <para
+>Teleportering har ett alternativt arbetssätt som transporterar hjälten till en slumpmässigt vald, men säker, cell. Säker teleportering kräver dock <link linkend="energy"
+>energi</link
+>, och energi är det oftast ont om. Uppenbarligen kan möjligheten att utföra säker teleportering vid kritiska tillfällen utöka hjältens livslängd.</para>
+      <para
+>Alla speltyper tillåter inte säker teleportering, och energimängden som krävs för att utföra säker teleportering varierar mellan speltyper.</para>
+    </sect2>
+
+    <sect2 id="vaporizer">
+      <title
+>Använda upplösningspistolen</title>
+      <para
+>Den tredje användningen av teleporteringsutrustningen teleporterar i själva verket inte hjälten alls. Detta något ovanliga arbetssätt teleporterar alla robotar i celler intill hjälten. Ingen vet exakt vart robotarna teleporteras, men det verkar vara nog långt bort så att de inte stör hjälten igen. Eftersom robotarna försvinner genom att lösas upp utan att lämna någon skrothög, har arbetssättet fått smeknamnet <quote
+>upplösningspistol</quote
+>, och fiender som avlägsnas via upplösning anses vara dödade vid poängräkningen.</para>
+      <para
+>Liksom att teleportera säkert, kräver användning av upplösningspistolen <link linkend="energy"
+>energi</link
+>. Alla speltyper inkluderar inte upplösningspistolen, och energimängden som krävs för att använda den varierar mellan speltyper.</para>
+    </sect2>
+
+    <sect2 id="wait-out-round">
+      <title
+>Vänta till omgångens slut</title>
+      <para
+>En tid kan komma då rutnätet är utlagt så att alla robotar kan förstöras utan att hjälten alls behöver röra sig. I en sådan situation har du valet att vänta till omgångens slut.</para>
+      <example>
+        <title
+>Ett tillfälle att vänta till omgångens slut</title>
+        <para
+><screenshot
+><mediaobject>
+          <imageobject
+><imagedata fileref="waitoutround.png" format="PNG"/></imageobject>
+        </mediaobject
+></screenshot
+></para>
+      </example>
+      <para
+>Att vänta till omgångens slut gör att hjälten fryser på plats medan fienderna fortsätter sina vanliga rörelser. Det fortsätter till en av två saker inträffar: fienderna förstör sig själva och omgången slutar, eller en fiende lyckas nå hjälten och spelet slutar. När kommandot att vänta till omgångens slut har givits, kan det inte avbrytas, så man måste verkligen vara säker på att hjälten är helt säker.</para>
+      <para
+>Varför skulle man göra något som tar bort möjligheten att ändra sig? Jo, det ger en viss elegans och dramatik i slutet av en omgång, men viktigare är att en bonus erhålles för varje fiende som förstörs vid väntan på omgångens slut. Bonusens storlek och typ (poäng eller energi) bestäms av speltypen.</para>
+    </sect2>
+  </sect1>
+
+</chapter>
+
+<chapter id="interface-overview">
+  <title
+>Översikt av gränssnittet</title>
+
+  <sect1 id="movement-controls">
+    <title id="movement-controls-title"
+>Styrning av förflyttning</title>
+    <para
+>Spelaren har möjlighet att antingen använda tangentbordet, musen eller båda för att styra hjälten.</para>
+    <sect2 id="keyboard-movement">
+      <title id="keyboard-movement-title"
+>Styrning av förflyttning via tangentbordet</title>
+      <para
+>Det finns nio olika förflyttningsåtgärder: vänster, höger, upp, ner, de fyra diagonalerna och att stå still. Var och en av dessa åtgärder kan tilldelas till två olika tangenter på tangentbordet. Normalt tilldelas de nio åtgärderna till de nio nummertangenterna på det numeriska tangentbordet och en 3 gånger 3 ruta med bokstäver längst till vänster på ett QWERTY-tangentbord. Naturligtvis kan användare som har en annan tangentbordslayout eller en som saknar numeriskt tangentbord ändra de tilldelade tangenterna med dialogrutan för genvägar.</para>
+      <para
+>Vart och ett av de särskilda förflyttningskommandona (som att teleportera), kan också ges från tangentbordet. Se <link linkend="move-menu"
+>Flytta</link
+>.</para>
+    </sect2>
+    <sect2 id="mouse-movement">
+      <title id="mouse-movement-title"
+>Styrning av förflyttning via musen</title>
+      <para
+>Musen (eller ett annat pekdon) kan användas för att navigera på ett mer naturligt och intuitivt sätt. När pekaren rör sig över spelets huvudområde, ändras markören för att ange pekarens relativa riktning i förhållande till hjälten. Genom att till exempel flytta pekaren till utrymmet ovanför hjälten ändrar markören till en uppåtpil. Om pekaren placeras omedelbart över hjälten, ändras markören för att ange ingen förflyttning.</para>
+      <para
+>Ett enstaka vänsterklick gör att hjälten går i angiven riktning (under förutsättning att ett sådant steg är tillåtet). Av bekvämlighetsskäl kan man tilldela ytterligare åtgärder till musens högerknapp och mittenknapp i <link linkend="configure-killbots"
+>Dialogrutan för att anpassa &killbots;</link
+>. Åtgärderna omfattar de som finns i <link linkend="move-menu"
+>Flytta</link
+>, samt ett ytterligare alternativ: <guimenuitem
+>Upprepade steg</guimenuitem
+>. Att utföra upprepade steg gör att hjälten går i angiven riktning under flera omgångar i följd, till ett hinder nås eller fortsatt rörelse skulle vara farlig. Man kan också stanna upprepade steg genom att klicka igen medan rörelsen pågår.</para>
+      <para
+></para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="game-menu">
+    <title
+>Menyalternativ</title>
+
+    <variablelist>
+      <varlistentry>
+        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Spel</guimenu
+> <guimenuitem
+>Ny</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+><action
+>Startar ett nytt spel, och avbryter ett eventuellt spel som nu pågår.</action
+></para
+></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>H</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Spel</guimenu
+> <guimenuitem
+>Visa bästa resultat</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+><action
+>Visar dialogrutan med bästa resultat, som innehåller tidigare resultat.</action
+></para
+></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Spel</guimenu
+> <guimenuitem
+>Avsluta</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+><action
+>Avslutar &killbots;.</action
+></para
+></listitem>
+      </varlistentry>
+
+      <varlistentry id="move-menu">
+        <term
+><menuchoice
+><shortcut
+><keycap
+>R</keycap
+></shortcut
+> <guimenu
+>Flytta</guimenu
+> <guimenuitem
+>Teleportera</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+><action
+>Teleporterar hjälten till en slumpmässig, tom cell var som helst på spelfältet.</action
+> Se <link linkend="teleport" endterm="special-actions-title"
+></link
+>.</para
+></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term
+><menuchoice
+><shortcut
+><keycap
+>T</keycap
+></shortcut
+> <guimenu
+>Flytta</guimenu
+> <guimenuitem
+>Teleportera säkert</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+><action
+>Teleporterar hjälten till en slumpmässig, tom cell som garanteras vara säker från anfall denna omgången.</action
+> Se <link linkend="teleport-safely" endterm="special-actions-title"
+></link
+>.</para
+></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term
+><menuchoice
+><shortcut
+><keycap
+>Mellanslag</keycap
+></shortcut
+> <guimenu
+>Flytta</guimenu
+> <guimenuitem
+>Teleportera (säkert om möjligt)</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+>Ett bekvämlighetsalternativ. <action
+>Teleporterar hjälten säkert om tillräckligt med energi är tillgängligt, teleporterar annars bara slumpmässigt.</action
+></para
+></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term
+><menuchoice
+><shortcut
+><keycap
+>F</keycap
+></shortcut
+> <guimenu
+>Flytta</guimenu
+> <guimenuitem
+>Upplösningspistol</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+><action
+>Förstör alla robotar i celler intill hjälten</action
+>. Se <link linkend="vaporizer" endterm="special-actions-title"
+></link
+>.</para
+></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term
+><menuchoice
+><shortcut
+><keycap
+>V</keycap
+></shortcut
+> <guimenu
+>Flytta</guimenu
+> <guimenuitem
+>Vänta till omgångens slut</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+><action
+>Gör att hjälten blir orörlig på sin plats till omgången är slut.</action
+> Se <link linkend="wait-out-round" endterm="special-actions-title"
+></link
+>.</para
+></listitem>
+      </varlistentry>
+
+      <varlistentry id="configure-killbots">
+        <term
+><menuchoice
+><guimenu
+>Inställningar</guimenu
+> <guimenuitem
+>Anpassa &killbots;...</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+><action
+>Visar &killbots; inställningsdialogruta</action
+>, där man kan justera spelparametrar, välja en annan uppsättning spelregler, eller ändra spelets tema.</para
+></listitem>
+      </varlistentry>
+    </variablelist>
+
+<para
+>Dessutom har &killbots; de vanliga menyalternativen <guimenu
+>Inställningar</guimenu
+> och <guimenu
+>Hjälp</guimenu
+> i &kde;. För mer information, läs avsnitten  <ulink url="help:/fundamentals/menus.html#menus-settings"
+>Menyn Inställningar</ulink
+> och <ulink url="help:/fundamentals/menus.html#menus-help"
+>Menyn Hjälp</ulink
+> i &kde;:s Grunder. </para>
+
+  </sect1>
+
+</chapter>
+
+
+<chapter id="developers">
+  <title
+>Utvecklingsguide till &killbots;</title>
+  <para
+>Intresserade personer kan anpassa &killbots; på två huvudsakliga sätt: teman och regeluppsättningar.</para>
+
+  <sect1 id="creating-themes">
+    <title
+>Skapa egna teman</title>
+    <para
+>Som för de flesta andra spel i KDE, består ett tema i &killbots; av tre filer.</para>
+
+    <sect2>
+      <title
+>Skrivbordsfilen</title>
+      <para
+>Skrivbordsfilen följer den vanliga <acronym
+>INI</acronym
+>-syntaxen, och används för att lagra information om temat och för att peka på andra filer. Det följande är ett exempel på ett tema.</para>
+      <example>
+        <title
+>Ett exempel på temaskrivbordsfil</title>
+        <programlisting
+>[KGameTheme]
+Name=Example Theme
+Name[sv]=Exempeltema
+Description=An example theme used to demonstrate theme creation. This one features pirates.
+Description[sv]=Ett exempeltema använt för att demonstrera hur teman skapas. Det här innehåller pirater.
+Author=Mr. Artist
+AuthorEmail=mrartist@example.com
+Type=SVG
+FileName=exempel.svg
+Preview=exempel.png
+        </programlisting>
+      </example>
+      <para
+>De fyra första parametrarna innehåller metadata om temat och är rättframma nog. För teman i &killbots; ska parametern <varname
+>Type</varname
+> alltid vara inställd till &SVG;. De sista två parametrarna innehåller filnamn på de andra två temafilerna. Även om det inte är helt nödvändigt, rekommenderas att alla tre filer delar samma basnamn, för att vara konsekvent.</para>
+    </sect2>
+
+    <sect2>
+      <title
+>Förhandsgranskningsfilen</title>
+      <para
+>Förhandsgranskningsfilen är helt enkelt en <acronym
+>PNG</acronym
+>-fil som innehåller en förhandsgranskning av temat. Förhandsgranskningen ska vara 240 gånger 140 bildpunkter och motsvara standardtemats layout så nära som möjligt, eftersom det gör det enklare att jämföra teman i temaväljaren.</para>
+    </sect2>
+
+    <sect2>
+      <title
+>&SVG;-filen</title>
+      <para
+>&SVG;-filen är en bild i skalbar vektorgrafik som innehåller själva de grafiska element som används för att skapa temat. Filen kan antingen ha okomprimerat <literal role="extension"
+>.svg</literal
+> eller komprimerat <literal role="extension"
+>.svgz</literal
+> format. Varje spelelement identifieras av en unik identifierare i &SVG;-filen. När ett nytt tema skapas, är det i allmänhet enklast att starta med ett befintligt tema och ersätta elementen ett i taget till temat är fullständigt. &SVG;-filen <emphasis
+>måste</emphasis
+> innehålla följande element.</para>
+      <variablelist>
+        <varlistentry>
+          <term
+><varname
+>background</varname
+></term>
+          <listitem
+><para
+>Bilden som visas bakom rutnätet i spelets huvudområde.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>status</varname
+></term>
+          <listitem
+><para
+>Rutan som används för att visa aktuell omgång, poäng, antal fiender och energi.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>textcolor</varname
+></term>
+          <listitem
+><para
+>Elementet ska vara en rektangel med en enda färg. Dess färg används för texten i statusrutorna.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cell</varname
+></term>
+          <listitem
+><para
+>En individuell cell i rutnätet.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>hero</varname
+></term>
+          <listitem
+><para
+>Personen som styrs av spelaren.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>enemy</varname
+></term>
+          <listitem
+><para
+>Den vanliga fienden.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>fastenemy</varname
+></term>
+          <listitem
+><para
+>Den snabbare fienden.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>junkheap</varname
+></term>
+          <listitem
+><para
+>Återstoden av en kollision mellan fiender.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor0</varname
+></term>
+          <listitem
+><para
+>En markör som anger förflyttning åt höger.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor1</varname
+></term>
+          <listitem
+><para
+>En markör som anger diagonal förflyttning uppåt och åt höger.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor2</varname
+></term>
+          <listitem
+><para
+>En markör som anger förflyttning uppåt.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor3</varname
+></term>
+          <listitem
+><para
+>En markör som anger diagonal förflyttning uppåt och åt vänster.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor4</varname
+></term>
+          <listitem
+><para
+>En markör som anger förflyttning åt vänster.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor5</varname
+></term>
+          <listitem
+><para
+>En markör som anger diagonal förflyttning neråt och åt vänster.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor6</varname
+></term>
+          <listitem
+><para
+>En markör som anger förflyttning neråt.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor7</varname
+></term>
+          <listitem
+><para
+>En markör som anger diagonal förflyttning neråt och åt höger.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor8</varname
+></term>
+          <listitem
+><para
+>En markör som anger att förbli stillastående.</para
+></listitem>
+        </varlistentry>
+      </variablelist>
+    </sect2>
+
+    <sect2>
+      <title
+>Installera egna teman</title>
+      <para
+>För att &killbots; ska detektera och använda ett nytt tema måste filerna flyttas till en lämplig katalog. För att bara installera temat för nuvarande användare, kopiera skrivbordsfilen, förhandsgranskningen och &SVG;-filen till <filename class="directory"
+>killbots/themes</filename
+> i den lokala katalogen <userinput
+><command
+>qtpaths</command
+> <option
+>--paths GenericDataLocation </option
+></userinput
+>. För att göra regeluppsättningen tillgänglig i hela systemet, flytta filen till <filename class="directory"
+>killbots/themes</filename
+> i systemkatalogen (från föregående kommando, möjligtvis <filename class="directory"
+>/usr/share</filename
+> eller liknande). Observera att det troligen kräver administratörsrättigheter.</para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="creating-rulesets">
+    <title
+>Skapa egna speltyper</title>
+
+    <sect2>
+      <title
+>Skrivbordsfilen</title>
+      <para
+>Att skapa nya speltyper för &killbots; är otroligt enkelt, särskilt när man utgår från en befintlig regeluppsättning. Regeluppsättningar lagras som en enda skrivbordsfil där parametrar och metadata anges som enkla par av nyckel och värde.</para>
+      <example>
+        <title
+>&killbots; standardspeltyp</title>
+        <programlisting width="80"
+>[KillbotsRuleset]
+Name=Killbots
+Name[gl]=Robots asasinos
+Author=Parker Coates
+AuthorContact=parker.coates@kdemail.net
+Description=&lt;qt&gt;&lt;p&gt;The default Killbots game type.&lt;/p&gt;&lt;p&gt;Includes a medium size grid, safe teleports, fast enemies and pushable junkheaps.&lt;/p&gt;&lt;/qt&gt;
+Description[sv]=&lt;qt&gt;&lt;p&gt;&killbots; standardspeltyp.&lt;/p&gt;&lt;p&gt;Inkluderar ett medelstort rutnät, säker teleportering, snabba fiender och skrothögar som går att knuffa.&lt;/p&gt;&lt;/qt&gt;
+Rows=16
+Columns=16
+EnemiesAtGameStart=8.0
+EnemiesAddedEachRound=4.0
+FastEnemiesAtGameStart=-2.0
+FastEnemiesAddedEachRound=2.0
+EnergyEnabled=true
+EnergyAtGameStart=0
+EnergyAddedEachRound=0
+MaxEnergyAtGameStart=12.0
+MaxEnergyAddedEachRound=0.0
+SafeTeleportEnabled=true
+CostOfSafeTeleport=1
+VaporizerEnabled=false
+CostOfVaporizer=0
+PushableJunkheaps=Many
+SquaskKillsEnabled=true
+JunkheapsAtGameStart=0.0
+JunkheapsAddedEachRound=0.0
+PointsPerEnemyKilled=5
+PointsPerFastEnemyKilled=10
+WaitKillPointBonus=0
+WaitKillEnergyBonus=1
+SquashKillPointBonus=0
+SquashKillEnergyBonus=1</programlisting>
+      </example>
+      <para
+>Observera att alla textparametrar ska skrivas in på amerikansk engelska. Som visas i exemplet ovan, kan översättningar läggas till i skrivbordsfilen genom att upprepa nyckeln och lägga till språkkoden mellan hakparenteser. Observera också att rik text kan anges i fältet <varname
+>Description</varname
+> genom att omsluta värdet med taggar &lt;qt&gt;.</para>
+      <para
+>En regeĺuppsättningsfil ska innehålla alla följande parametrar.</para>
+      <variablelist>
+        <varlistentry>
+          <term
+><varname
+>Name</varname
+></term>
+          <listitem
+><para
+>Regeluppsättningens namn, som det kommer att synas i väljaren av regeluppsättningar och dialogrutan med poängtoppen.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>Author</varname
+></term>
+          <listitem
+><para
+>Regeluppsättningens skapare.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>AuthorContact</varname
+></term>
+          <listitem
+><para
+>Skaparens kontaktinformation. Det är oftast en e-postadress.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>Description</varname
+></term>
+          <listitem
+><para
+>En beskrivning av regeluppsättningen. Den bör ge en rimlig översikt av speltypen, men den behöver inte ange värdet av varje parameter, eftersom den informationen går att se i dialogrutan Detaljinformation.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>Rows</varname
+></term>
+          <listitem
+><para
+>Antal rader i spelets rutnät.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>Columns</varname
+></term>
+          <listitem
+><para
+>Antal kolumner i spelets rutnät.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>EnemiesAtGameStart</varname
+></term>
+          <listitem
+><para
+>Antal vanliga fiender som läggs till på rutnätet vid den första omgångens start.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>EnemiesAddedEachRound</varname
+></term>
+          <listitem
+><para
+>Antal ytterligare vanliga fiender som läggs till på rutnätet vid början av varje omgång.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>FastEnemiesAtGameStart</varname
+></term>
+          <listitem
+><para
+>Antal snabba fiender som läggs till på rutnätet vid den första omgångens start.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>FastEnemiesAddedEachRound</varname
+></term>
+          <listitem
+><para
+>Antal ytterligare snabba fiender som läggs till på rutnätet vid början av varje omgång.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>EnergyEnabled</varname
+></term>
+          <listitem
+><para
+>Om inställd till <quote
+><constant
+>false</constant
+></quote
+> kommer hjälten att kunna tjäna eller använda energi.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>EnergyAtGameStart</varname
+></term>
+          <listitem
+><para
+>Energimängden som hjälten erhåller vid den första omgångens start.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>EnergyAddedEachRound</varname
+></term>
+          <listitem
+><para
+>Energimängden som hjälten erhåller vid början av varje omgång.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>MaxEnergyAtGameStart</varname
+></term>
+          <listitem
+><para
+>Hjältens maximala energikapacitet vid den första omgångens start.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>MaxEnergyAddedEachRound</varname
+></term>
+          <listitem
+><para
+>Ändringen av maximal energikapacitet vid början av varje omgång.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>SafeTeleportEnabled</varname
+></term>
+          <listitem
+><para
+>Om inställd till <quote
+><constant
+>false</constant
+></quote
+> är säker teleportering inaktiverad.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>CostOfSafeTeleport</varname
+></term>
+          <listitem
+><para
+>Energimängden som går åt för att teleporteras säkert.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>VaporizerEnabled</varname
+></term>
+          <listitem
+><para
+>Om inställd till <quote
+><constant
+>false</constant
+></quote
+> är användning av upplösningspistolen inaktiverad.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>CostOfVaporizer</varname
+></term>
+          <listitem
+><para
+>Energimängden som går åt för att använda upplösningspistolen.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>PushableJunkheaps</varname
+></term>
+          <listitem
+><para
+>Antal skrothögar som kan flyttas med en enda knuff. Möjliga värden är <quote
+><constant
+>None</constant
+></quote
+> (ingen), <quote
+><constant
+>One</constant
+></quote
+> (en) och <quote
+><constant
+>Many</constant
+></quote
+> (många).</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>SquaskKillsEnabled</varname
+></term>
+          <listitem
+><para
+>Om sant kan hjälten krossa fiender genom att knuffa skrothögar på dem.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>JunkheapsAtGameStart</varname
+></term>
+          <listitem
+><para
+>Antal skrothögar som läggs till på rutnätet vid den första omgångens start.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>JunkheapsAddedEachRound</varname
+></term>
+          <listitem
+><para
+>Antal ytterligare skrothögar som läggs till på rutnätet vid början av varje omgång.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>PointsPerEnemyKilled</varname
+></term>
+          <listitem
+><para
+>Antal poäng som erhålls för att förstöra en vanlig fiende.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>PointsPerFastEnemyKilled</varname
+></term>
+          <listitem
+><para
+>Antal poäng som erhålls för att förstöra en snabb fiende.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>WaitKillPointBonus</varname
+></term>
+          <listitem
+><para
+>Antal bonuspoäng som erhålls för att förstöra en fiende vid väntan på omgångens slut.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>WaitKillEnergyBonus</varname
+></term>
+          <listitem
+><para
+>Antal bonusenergienheter som erhålls för att förstöra en fiende vid väntan på omgångens slut.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>SquashKillPointBonus</varname
+></term>
+          <listitem
+><para
+>Antal bonuspoäng som erhålls för att krossa en fiende med en skrothög.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>SquashKillEnergyBonus</varname
+></term>
+          <listitem
+><para
+>Antal bonusenergienheter som erhålls för att krossa en fiende med en skrothög.</para
+></listitem>
+        </varlistentry>
+      </variablelist>
+    </sect2>
+
+    <sect2>
+      <title
+>Installera egna speltyper</title>
+
+      <para
+>För att &killbots; ska detektera och använda en ny speltyp måste regeluppsättningsfilen flyttas till en lämplig katalog. För att bara installera speltypen för nuvarande användare, kopiera filen till <filename class="directory"
+>killbots/rulesets</filename
+> i <userinput
+><command
+>qtpaths</command
+> <option
+>--paths GenericDataLocation </option
+></userinput
+>. För att göra speltypen tillgänglig i hela systemet, flytta filen till <filename class="directory"
+>killbots/rulesets</filename
+> i systemkatalogen (från föregående kommando, möjligtvis <filename class="directory"
+>/usr/share/</filename
+> eller liknande). Observera att det troligen kräver administratörsrättigheter.</para>
+    </sect2>
+
+  </sect1>
+</chapter>
+
+<chapter id="credits">
+  <title
+>Tack till och licens</title>
+
+  <para
+>&killbots;</para>
+  <para
+>Program copyright 2007&ndash;2009 Parker Coates <email
+>parker.coates@kdemail.net</email
+></para>
+  <para
+>Dokumentation Copyright &copy; 2008&ndash;2009 Parker Coates <email
+>parker.coates@kdemail.net</email
+></para>
+
+  <para
+>Översättning Stefan Asserhäll <email
+>stefan.asserhall@bredband.net</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+
+</book>
+
+<!--
+Local Variables:
+mode: xml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+vim:tabstop=2:shiftwidth=2:expandtab
+kate: space-indent on; indent-width 2; tab-width 2; indent-mode none;
+-->

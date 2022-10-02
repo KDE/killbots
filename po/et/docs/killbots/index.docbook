@@ -1,0 +1,1327 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY killbots "<application
+>Killbots</application
+>">
+  <!ENTITY kappname "&killbots;">
+  <!ENTITY package "kdegames">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Estonian  "INCLUDE">
+]>
+
+<book id="killbots" lang="&language;">
+
+<bookinfo>
+  <title
+>&killbots;i käsiraamat</title>
+
+  <authorgroup>
+    <author
+><personname
+> <firstname
+>Parker</firstname
+> <surname
+>Coates</surname
+> </personname
+> <email
+>parker.coates@kdemail.net</email
+> </author>
+
+    <othercredit role="translator"
+><firstname
+>Marek</firstname
+> <surname
+>Laane</surname
+> <affiliation
+><address
+><email
+>bald@smail.ee</email
+></address
+></affiliation
+><contrib
+>Tõlge eesti keelde</contrib
+></othercredit
+> 
+  </authorgroup>
+
+  <copyright>
+    <year
+>2008&ndash;2009</year>
+    <holder
+>Parker Coates</holder>
+  </copyright>
+
+  <legalnotice
+>&FDLNotice;</legalnotice>
+
+  <date
+>2013-05-05</date>
+  <releaseinfo
+>1.1.0 (&kde; 4.11)</releaseinfo>
+
+  <abstract>
+    <para
+>&killbots; on klassikalise BSD mängu <command
+>robots</command
+> &kde; port.</para>
+  </abstract>
+
+  <keywordset>
+    <keyword
+>KDE</keyword>
+    <keyword
+>kdegames</keyword>
+    <keyword
+>mäng</keyword>
+    <keyword
+>Killbots</keyword>
+    <keyword
+>Strateegia</keyword>
+    <keyword
+>Üks mängija</keyword>
+    <keyword
+>Üksikmängija</keyword>
+    <keyword
+>robotid</keyword>
+    <keyword
+>robot</keyword>
+    <keyword
+>kiirrobot</keyword>
+    <keyword
+>rämpsukuhil</keyword>
+    <keyword
+>teleport</keyword>
+    <keyword
+>aurustamine</keyword>
+    <keyword
+>aurustaja</keyword>
+    <keyword
+>energia</keyword>
+  </keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+  <title
+>Sissejuhatus</title>
+
+  <note>
+    <title
+>Mängu tüüp:</title>
+    <para
+>Strateegia</para>
+  </note>
+
+  <note>
+    <title
+>Mängijate arv:</title>
+    <para
+>Üks</para>
+  </note>
+
+  <para
+>&killbots; on lihtne tapjarobotite vältimise mäng. Kes need robotid lõi ja miks nad on programmeeritud hävitama, ei tea enam keegi. Teada on ainult see, et roboteid on palju ja nende ainuke eesmärk on sinu hävitamine. Sinu õnneks koondas nende looja tähelepanu rohkem kvantiteedile kui kvaliteedile, mistõttu robotite intelligents on väga tilluke. Sinu suur mõistus ja lahe telepordiseade on ainukesed relvad lõpmatu robotitemassi vastu.</para>
+
+  <note>
+    <title
+>Märkus:</title>
+    <para
+>Käsiraamatus esineb sageli selliseid mõisteid, nagu <quote
+>robotid</quote
+>, <quote
+>rämpsukuhilad</quote
+> jne., kuid &killbots;i välimus on igati muudetav. See tähendab, et mängimisel tegelikult nähtavad asjad ei pruugi tingimata kattuda siinkirjeldatuga. Mängimine ise ja strateegia jääb sellest hoolimata samaks isegi siis, kui sinu kangelane on porgand, keda ajavad aias taga röövellikud jänkud.</para>
+  </note>
+
+  <note>
+    <title
+>Märkus:</title>
+    <para
+>&killbots; toetab mitmeid mängutüüpe, mis määravad kindlaks mängu parameetrid ja selle, millised võimalused on mängus kasutada. Käsiraamat püüab olla võimalikult üldine ega kirjeldada konkreetseid mängutüüpe. Nende kirjeldust ja üksikasju saab lugeda &killbots;i seadistustedialoogist, kust leiab andmeid vastava tüübi alusvõrgu suuruse, voorude, energia, hindamise ja muu sellise kohta.</para>
+  </note>
+
+</chapter>
+
+<chapter id="howto">
+  <title id="howto-title"
+>Kuidas mängida</title>
+
+  <sect1 id="gameplay-basics">
+    <title
+>Mängu põhitõed</title>
+
+    <note>
+      <title
+>Eesmärk:</title>
+      <para
+>Jääda vaenlastest hoolimata ellu ja koguda võimalikult palju punkte.</para>
+    </note>
+
+    <para
+><screenshot
+><mediaobject>
+      <imageobject
+><imagedata fileref="grid.png" format="PNG"/></imageobject>
+      <textobject
+><phrase
+>Mänguvälja pilt</phrase
+></textobject>
+    </mediaobject
+></screenshot
+></para>
+
+    <para
+>&killbots; on käigupõhine mäng, mida mängitakse ristkülikujulisel <firstterm
+>võrgustik</firstterm
+>ul. Iga rea ja veeru <firstterm
+>lahtrite</firstterm
+> arv sõltub konkreetsest mängutüübist. Iga lahter võib sisaldada järgmisi asju: <variablelist>
+        <varlistentry>
+          <term
+><firstterm
+>Kangelane</firstterm
+> <inlinemediaobject
+><imageobject
+><imagedata fileref="hero.png" format="PNG"/></imageobject
+></inlinemediaobject
+></term>
+          <listitem>
+            <para
+>Kangelane on see õnnetuke, kes on sattunud ühte ruumi hulga tapjarobotitega. Mängijana on sinu kohus tagada kangelase elus püsimine võimalikult kaua.</para>
+            <para
+><firstterm
+>Vooru</firstterm
+> algul võib kangelane ette võtta kolm tegevust: ta võib jääda oma kohale, liikuda vabasse lahtrisse või sooritada mõne eritoimingu. Täpsemalt kõnelevad sellest osad <link linkend="movement-controls" endterm="movement-controls-title"
+></link
+> ja <link linkend="special-actions" endterm="special-actions-title"
+></link
+>.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><firstterm
+>Robot</firstterm
+> <inlinemediaobject
+><imageobject
+><imagedata fileref="enemy.png" format="PNG"/></imageobject
+></inlinemediaobject
+></term>
+          <listitem>
+            <para
+>Robotid on mehaanilised jõhkardid, kelle ainuke soov on lämmatada kangelane oma metalses haardes. Nad ei ole midagi kuulnud kolmest robootika seadusest ning tõenäoliselt lömastaksid kõik, kes püüaks seda neile selgitada.</para>
+            <para
+>Iga robot astub ühe käiguga ühe sammu kangelase suunas. Kui robot asub kangelase kohal, astub ta sammu allapoole. Kui robot asub kangelasest vasakul, astub ta sammu paremale. Kui robot asub kangelasest allpool ja paremal, astub ta sammu diagonaalselt (üles ja vasakule). Kui robotil õnnestub jõuda kangelase lahtrisse, saab kangelane surma ja mäng lõpeb.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><firstterm
+>Kiirrobot</firstterm
+> <inlinemediaobject
+><imageobject
+><imagedata fileref="fastenemy.png" format="PNG"/></imageobject
+></inlinemediaobject
+></term>
+          <listitem>
+            <para
+>Kiirrobotid on tavalise roboti märksa kiiremad versioonid. Iga kangelase käigu ajal suudavad nemad võtta kaks sammu. Õnneks ei ole nende suurem liikuvus sõltuvuses intelligentst, mistõttu tihtipeale neil õnnestub ennast lihtsalt tappa kaks korda kiiremini kui nende aeglasematel vendadel.</para>
+            <para
+>Kõigis mängutüüpides kiirroboteid ei ole.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><firstterm
+>Rämpsukuhilad</firstterm
+> <inlinemediaobject
+><imageobject
+><imagedata fileref="junkheap.png" format="PNG"/></imageobject
+></inlinemediaobject
+></term>
+          <listitem>
+            <para
+>Kui kaks või rohkem robotit kokku põrkavad, nad hävivad ning tekkinud riismetest kujunevadki rämpsukuhilad. Vaenlased eiravad täielikult nende teel seisvaid rämpsukuhilaid ning saavad surma, kui neile otsa tormavad. Rämpsukuhilad võivad aga osutuda äärmiselt väärtuslikuks, sest neist saab kujundada barrikaadi kangelase ja tema ründajate vahel.</para>
+            <para id="pushing-junkheaps"
+>Mõnes mängutüübis on kangelasel võimalik rämpsukuhilaid <firstterm
+>lükata</firstterm
+>. Kangelane võib niisiis neist luua &quot;punkreid&quot;, mis pakuvad kaitset mitmest küljest. Mõnes mängutüübis võib rämpsukuhilaid kasutada isegi ründerelvana: selle lükkamine vaenlase peale hävitab roboti ja annab lausa boonust.</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+    </para>
+  </sect1>
+
+  <sect1 id="rounds-scoring-energy">
+    <title
+>Voorud, hindamine ja energia</title>
+
+    <para
+><screenshot
+><mediaobject>
+      <imageobject
+><imagedata fileref="status.png" format="PNG"/></imageobject>
+      <textobject
+><phrase
+>Mängu oleku indikaatorid</phrase
+></textobject>
+    </mediaobject
+></screenshot
+></para>
+
+    <sect2>
+      <title
+>Voorud</title>
+      <para
+>&killbots;i mängimine on jagatud <firstterm
+>voorud</firstterm
+>eks. Iga vooru algul seisab kangelane keset võrgustikku ning vaenlased paiknevad juhuslikult tema ümber. Voor lõpeb siis, kui kõik vaenlased on hävitatud. Igas uues voorus vaenlaste arv kasvab. Vaenlaste arv ja tüüp sõltub mängutüübist.</para>
+      <para
+>Võrgustik täitub vaenlastega, kuni juhtub üks kahest: vaenlased hõivavad üle 50 protsenti lahtritest või proovib kangelane võtta ette turvalise telepordi, aga võrgustikus ei ole turvalisi lahtreid. Kui üks kahest võiimalusest saab teoks, lõpetatakse käimasolev voor ning vaenlaste arv lähtestatakse esimese vooru arvule.</para>
+    </sect2>
+
+    <sect2>
+      <title
+>Hindamine</title>
+      <para
+>&killbots;is ei ole õieti võit võimalik: kangelane püüab lihtsalt võimalikult kaua ellu jääda, kuid paraku saab tema õnn lõpuks ikka otsa. Seepärast on &killbots;i eesmärk koguda enne vältimatut lõppu võimalikult suur <firstterm
+>tulemus</firstterm
+>. Kümme parimat tulemust (koos vooruga, milles tulemus saavutati) pannakse kirja edetabelisse.</para>
+      <para
+>Punkte saab vaenlase hävitamise eest. Kiirrobot annab tavaliselt rohkem punkte kui tavaline. Boonuseid võib teenida näiteks vaenlase hävitamise eest <link linkend="pushing-junkheaps"
+>rämpsukuhilat lükates</link
+> või <link linkend="wait-out-round"
+>vooru äraootamise</link
+> eest.</para>
+    </sect2>
+
+    <sect2 id="energy">
+      <title
+>Energia</title>
+      <para
+>Lisaks punktidele võib kangelane koguda ka <firstterm
+>energia</firstterm
+>t. Energia võimaldab kangelasele <link linkend="teleport-safely"
+>turvalist teleporti</link
+> ja/või <link linkend="vaporizer"
+>aurustaja</link
+> kasutamist. Sõltuvalt mängutüübist võidakse energiat mitmel põhjusel juurde anda, sealjuures vooru lõpetamise, <link linkend="pushing-junkheaps"
+>rämpsukuhila lükkamise</link
+> või vaenlaste hävitamise eest <link linkend="wait-out-round"
+>vooru ootamisel</link
+>.</para>
+      <para
+>Energiakogus, mida kangelane võib korraga omada, on kirja pandud mängutüübiga määratud maksimumina. Mõnes mängutüübis maksimum tõuseb koos voorude lõpetamisega. Energiaolek on nähtav ainult siis, kui aktiivne mäng sisaldab nii energiat kui ka turvalist teleporti.</para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="special-actions">
+    <title id="special-actions-title"
+>Eritoimingud</title>
+    <para
+>Lisaks lihtsale liikumisele lahtrist lahtrisse on kangelase käsutuses kuni neli eritoimingut.</para>
+
+    <sect2 id="teleport">
+      <title
+>Teleport</title>
+      <para
+>Kangelane on suutnud kuidagi hankida isikliku telepordiaparaadi. Paraku ei ole see kuigi töökindel, kui seda kasutada ilma energiaallikata. Telepordiaparaadi aktiveerimisel liigutatakse kangelane mõnesse suvaliselt valitud lahtrisse. Kangelane võib teleporti ette võtta nii palju kui süda lustib.</para>
+      <para
+>Sihtlahter on kindlasti hõivamata, aga valitseb päris tõsine oht, et naaberlahtris paikneb raevukas robot. Telepordi ohtude tõttu tuleks seda üldiselt pidada viimseks hädaabinõuks, kui muidu ei ole enam kuidagi võimalik kuhugi turvaliselt liikuda.</para>
+    </sect2>
+
+    <sect2 id="teleport-safely">
+      <title
+>Turvaline teleport</title>
+      <para
+>Telepordiaparaadil on ka selline režiim, mis liigutab kangelase samuti juhuslikku, aga turvalisse lahtrisse. Turvaline teleport nõuab aga <link linkend="energy"
+>energiat</link
+> ja seda enamasti napib. Samas on selge, et võimalus otsustaval hetkel turvaliselt teleporteeruda suurendab tunduvalt kangelase eluiga.</para>
+      <para
+>Kõigis mängutüüpides ei ole turvaline teleport lubatud ning mängutüübiti erineb tunduvalt ka energia, mida selleks on vaja.</para>
+    </sect2>
+
+    <sect2 id="vaporizer">
+      <title
+>Aurustaja kasutamine</title>
+      <para
+>Telepordiaparaadi kolmas režiim ei ole üldse seotud kangelase teleportatsiooniga. See mõnevõrra ebaharilik telepordiviis telepordib kõik kangelase naaberlahtrites paiknevad robotid. Keegi ei tea täpselt, kuhu robotid saadetakse, aga tundub, et igal juhul piisavalt kaugele, nii et nad ei valmista kangelasele rohkem peavalu. Et robotid sõna otseses mõttes haihtuvad ega jäta endast maha rämpsukuhilat, nimetatakse seda <quote
+>aurustajaks</quote
+> ning hindamise seisukohalt käsitatakse aurustatud vaenlasi tapetutena.</para>
+      <para
+>Nagu turvaline teleport, nõuab aurustamine <link linkend="energy"
+>energiat</link
+>. Kõigis mängutüüpides ei ole aurustamine lubatud ning mängutüübiti erineb tunduvalt ka energia, mida selleks on vaja.</para>
+    </sect2>
+
+    <sect2 id="wait-out-round">
+      <title
+>Vooru lõpu ootamine</title>
+      <para
+>Võib tekkida hetk, kus kõik robotid on võimalik hävitada, ilma et kangelane peaks ise üldse liikuma. Sel juhul on võimalik vooru lõpp lihtsalt ära oodata.</para>
+      <example>
+        <title
+>Vooru lõpu ootamise võimalus</title>
+        <para
+><screenshot
+><mediaobject>
+          <imageobject
+><imagedata fileref="waitoutround.png" format="PNG"/></imageobject>
+        </mediaobject
+></screenshot
+></para>
+      </example>
+      <para
+>Vooru lõpu ootamine külmutab kangelase paigale, samal ajal kui vaenlased liiguvad edasi. See kestab seni, kuni juhtub üks kahest: vaenlased hävitavad ennast ja voor lõpeb või vaenlasel õnnestub jõuda kangelaseni ja mäng lõpeb. Kui vooru lõpu ootamise käsk on antud, ei saa seda tagasi võtta, nii et enne selle käsu andmist tuleb kindlasti veenduda, et kangelase olukord on tõepoolest turvaline.</para>
+      <para
+>Miks peaks siis kasutama toimingut, mis ei võimalda enam ümbermõtlemist? See lisab kindlasti dramaatilisust, aga vahest olulisem on see, et iga vooru lõpu ootamise ajal hävitatud  vaenlase eest saab voonust. Boonuse suurus ja tüüp (punktid või energia) sõltuvad mängutüübist.</para>
+    </sect2>
+  </sect1>
+
+</chapter>
+
+<chapter id="interface-overview">
+  <title
+>Liidese tutvustus</title>
+
+  <sect1 id="movement-controls">
+    <title id="movement-controls-title"
+>Liikumise juhtimine</title>
+    <para
+>Mängija võib kangelase juhtimiseks kasutada klaviatuuri, hiirt või mõlemat.</para>
+    <sect2 id="keyboard-movement">
+      <title id="keyboard-movement-title"
+>Liikumise juhtimine klaviatuurilt</title>
+      <para
+>Eri liikumistoiminguid on üheksa: vasakule, paremale, üles, alla, neljas suunas diagonaalis ja paigalseis. Igale toimingule saab omistada kaks erinevat klahvi. Vaikimisi on üheksa toimingut seotud numbriklahvistiku üheksa numbriklahviga ning QWERTY klaviatuuri vasakus servas asuvad 3x3 tähtedeplokiga. Kasutajatel võivad muidugi olla erinevad klaviatuurid ning numbriklahvistikku ei pruugi üldse olla, mistõttu toimingute omistamist klahvidele saab vastavalt vajadusele kohandada kiirklahvide seadistamise dialoogis.</para>
+      <para
+>Klaviatuurilt võib anda ka kõigi eritoimingute (näiteks telepordi) käske. Neid tutvustab alalõik <link linkend="move-menu"
+>Käik</link
+>.</para>
+    </sect2>
+    <sect2 id="mouse-movement">
+      <title id="mouse-movement-title"
+>Liikumise juhtimine hiirega</title>
+      <para
+>Hiire või mõne muu osutusseadmega saab liikumist juhtida omajagu loomulikumalt. Kui kursor liigub üle mänguala, muutub see noolekujuliseks vastavalt sellele, millises suunas kangelasest see asub. Kui näiteks viia kursor kangelasest kõrgemale, võtab see üles osutava noole kuju. Kui kursor viia otse kangelase peale, võtab see paigalseisu näitava kuju.</para>
+      <para
+>Klõps hiire vasaku nupuga paneb kangelase astuma osutatud suunas, kui selline liikumine on üldse lubatud. Soovi korral võib hiire vasakule ja paremale nupule omistada ka muid toiminguid <link linkend="configure-killbots"
+>&killbots;i seadistustedialoogis</link
+>. Neiks võivad olla nii toimingud, mida sisaldab menüü <link linkend="move-menu"
+>Käik</link
+> kui ka lisavõimalus "sammu kordus". Viimane tähendab, et kangelane liigub osutatud suunas mitu sammu, kuni tema ette kerkib takistus või liikumise jätkamine pole enam turvaline. Sammu korduse saab välja lülitada, kui liikumise ajal uuesti klõpsata.</para>
+      <para
+></para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="game-menu">
+    <title
+>Menüükirjed</title>
+
+    <variablelist>
+      <varlistentry>
+        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Mäng</guimenu
+> <guimenuitem
+>Uus</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+><action
+>Alustab uut mängu ja tühistab kõik parasjagu käimas olevad mängud.</action
+></para
+></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>H</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Mäng</guimenu
+> <guimenuitem
+>Näita rekordeid</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+><action
+>Avab rekordeid näitava dialoogi.</action
+></para
+></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Mäng</guimenu
+> <guimenuitem
+>Välju</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+><action
+>Lõpetab &killbots;i töö.</action
+></para
+></listitem>
+      </varlistentry>
+
+      <varlistentry id="move-menu">
+        <term
+><menuchoice
+><shortcut
+><keycap
+>-</keycap
+></shortcut
+> <guimenu
+>Käik</guimenu
+><guimenuitem
+>Teleport</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+><action
+>Telepordib kangelase võrgustiku juhuslikult valitud tühja lahtrisse.</action
+> Vaata ka <link linkend="teleport" endterm="special-actions-title"
+></link
+>.</para
+></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term
+><menuchoice
+><shortcut
+><keycap
+>+</keycap
+></shortcut
+> <guimenu
+>Käik</guimenu
+> <guimenuitem
+>Turvaline teleport</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+><action
+>Telepordib kangelase juhuslikult valitud tühja lahtrisse, kus ta on kindlasti antud käigul kaitstud rünnaku eest.</action
+> Vaata ka <link linkend="teleport-safely" endterm="special-actions-title"
+></link
+>.</para
+></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term
+><menuchoice
+><shortcut
+><keycap
+>Tühikuklahv</keycap
+></shortcut
+> <guimenu
+>Käik</guimenu
+> <guimenuitem
+>Teleport (võimaluse korral turvaline)</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+>Puhtalt mugavuse pärast: <action
+>telepordib kangelase turvaliselt, kui on piisavalt energiat, vastasel juhul lihtsalt telepordib.</action
+></para
+></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term
+><menuchoice
+><shortcut
+><keycap
+>.</keycap
+></shortcut
+> <guimenu
+>Käik</guimenu
+> <guimenuitem
+>Aurustaja</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+><action
+>Hävitab kõik kangelase naaberlahtrites olevad robotid.</action
+> Vaata ka <link linkend="wait-out-round" endterm="special-actions-title"
+></link
+>.</para
+></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term
+><menuchoice
+><shortcut
+><keycap
+>*</keycap
+></shortcut
+> <guimenu
+>Käik</guimenu
+> <guimenuitem
+>Vooru lõpu ootamine</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+><action
+>Külmutab kangelase kuni vooru lõpuni paigale.</action
+> Vaata ka <link linkend="wait-out-round" endterm="special-actions-title"
+></link
+>.</para
+></listitem>
+      </varlistentry>
+
+      <varlistentry id="configure-killbots">
+        <term
+><menuchoice
+><guimenu
+>Seadistused</guimenu
+> <guimenuitem
+>&killbots;i seadistamine...</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+><action
+>Avab &killbots;i seadistustedialoogi</action
+>, kus saab määrata mängu parameetreid, valida teistsugused mängureeglid või muuta mängu teemat.</para
+></listitem>
+      </varlistentry>
+    </variablelist>
+
+<para
+>Lisaks on &killbots;il tavapärased &kde; <guimenu
+>seadistuste</guimenu
+> ja <guimenu
+>abi</guimenu
+>menüü elemendid, mille kohta leiab rohkem teavet &kde; põhialuste käsiraamatu osadest <ulink url="help:/fundamentals/ui.html#menus-settings"
+>Menüü Seadistused</ulink
+> ja <ulink url="help:/fundamentals/ui.html#menus-help"
+>Menüü Abi</ulink
+>. </para>
+
+  </sect1>
+
+</chapter>
+
+
+<chapter id="developers">
+  <title
+>&killbots;ist arendajatele</title>
+  <para
+>Aajahuvilised võivad &killbots;i kohandada peamiselt kahel viisil: teemad ja reeglid.</para>
+
+  <sect1 id="creating-themes">
+    <title
+>Kohandatud &killbots;i teema loomine</title>
+    <para
+>Nagu teiste &kde; mängude puhul, koosneb ka &killbots;i teema kolmest failist.</para>
+
+    <sect2>
+      <title
+>Töölauafail</title>
+      <para
+>.desktop-fail järgib standardset <filename
+>INI</filename
+> süntaksit. Võtme ja väärtuse paaridesse salvestatakse teema teave ning viited teistele teemasse kaasatud failidele. Järgnev näide on pärit vaiketeemast.</para>
+      <example>
+        <title
+>Teema töölauafaili näide</title>
+        <programlisting
+>[KGameTheme]
+Name=Example Theme
+Description=An example theme used to demonstrate theme creation. This one features pirates.
+Author=Mr. Artist
+AuthorEmail=mrartist@example.com
+Type=SVG
+FileName=example.svg
+Preview=example.png
+        </programlisting>
+      </example>
+      <para
+>Esimesed neli parameetrit sisaldavad teema metaandmeid ja on enesestmõistetavad. &killbots;i teema korral peab parameeter <varname
+>Type</varname
+> alati olema <literal
+>SVG</literal
+>. Viimased kaks parameetrit sisaldavad kahe muu teemasse kuuluva faili nimesid. See, et kõik kolm faili lähtuks ühesugusest nimekujust, ei ole küll kohustuslik, aga on ühtluse huvides väga soovitatav.</para>
+    </sect2>
+
+    <sect2>
+      <title
+>Eelvaatlusefail</title>
+      <para
+>Eelvaatlusefail on lihtsalt <filename
+>PNG</filename
+>-fail, mis sisaldab teema eelvaatlust. Eelvaatlusepildi mõõtmed peaksid olema 240x140 pikslit ning selle kujundus vastama võimalikult täpselt vaiketeema eelvaatlusele, et teemasid oleks võimalik teemavalijas mõistlikult võrrelda.</para>
+    </sect2>
+
+    <sect2>
+      <title
+><acronym
+>SVG</acronym
+>-fail</title>
+      <para
+><acronym
+>SVG</acronym
+>-fail on skaleeritav vektorgraafikapilt, mis sisaldab teemas kasutatavaid tegelikke graafilisi elemente. Fail võib olla kas tihendamata <filename
+>.svg</filename
+> või tihendatud <filename
+>.svgz</filename
+> vormingus. Iga mängu elementi tuvastab <acronym
+>SVG</acronym
+>-failis unikaalne ID. Uue teema loomisel on kõige hõlpsam alustada olemasolevast teemast ning asendada selles elemente, kuni uus teema on saanud soovitava välimuse. <acronym
+> SVG</acronym
+>-fail <emphasis
+>peab</emphasis
+> sisaldama järgmisi elemente:</para>
+      <variablelist>
+        <varlistentry>
+          <term
+><varname
+>background</varname
+></term>
+          <listitem
+><para
+>Pilt, mida kuvatakse mänguala võrgustiku taustal.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>status</varname
+></term>
+          <listitem
+><para
+>Kast, milles kuvatakse aktiivset vooru, tulemust, vaenlaste arvu ja energiat.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>textcolor</varname
+></term>
+          <listitem
+><para
+>See element peab olema üht värvi ristkülik. Selle värviga kuvatakse teksti olekukastides.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cell</varname
+></term>
+          <listitem
+><para
+>Võrgustiku üksiklahter.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>hero</varname
+></term>
+          <listitem
+><para
+>Mängija juhitav tegelane.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>enemy</varname
+></term>
+          <listitem
+><para
+>Põhivaenlane.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>fastenemy</varname
+></term>
+          <listitem
+><para
+>Kiirem vaenlane.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>junkheap</varname
+></term>
+          <listitem
+><para
+>Vaenlaste kokkupõrkel tekkinud rämps.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor0</varname
+></term>
+          <listitem
+><para
+>Liikumist paremale tähistav kursor.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor1</varname
+></term>
+          <listitem
+><para
+>Diagonaalset liikumist üles ja paremale tähistav kursor.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor2</varname
+></term>
+          <listitem
+><para
+>Liikumist üles tähistav kursor.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor3</varname
+></term>
+          <listitem
+><para
+>Diagonaalset liikumist üles ja vasakule tähistav kursor.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor4</varname
+></term>
+          <listitem
+><para
+>Liikumist vasakule tähistav kursor.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor5</varname
+></term>
+          <listitem
+><para
+>Diagonaalset liikumist alla ja vasakule tähistav kursor.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor6</varname
+></term>
+          <listitem
+><para
+>Liikumist alla tähistav kursor.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor7</varname
+></term>
+          <listitem
+><para
+>Diagonaalset liikumist alla ja paremale tähistav kursor.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor8</varname
+></term>
+          <listitem
+><para
+>Paigale jäämist tähistav kursor.</para
+></listitem>
+        </varlistentry>
+      </variablelist>
+    </sect2>
+
+    <sect2>
+      <title
+>Kohandatud teema paigaldamine</title>
+      <para
+>Et &killbots; leiaks uue teema üles ja hakkaks seda kasutama, peavad failid paiknema kindlas kataloogis. Teema paigaldamiseks ainult aktiivsele kasutajale kopeeri töölaua-, eelvaatluse- ja SVG-fail kataloogi <filename
+>$<varname
+>KDEHOME</varname
+>/share/apps/killbots/themes</filename
+>. Teema muutmiseks kättesaadavaks kogu süsteemis paigalda failid kataloogi <filename
+><command
+>`kde-config --prefix`</command
+>/share/apps/killbots/themes</filename
+>. Pane tähele, et see nõuab tõenäoliselt administraatori õigusi.</para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="creating-rulesets">
+    <title
+>Kohandatud mängutüübi loomine</title>
+
+    <sect2>
+      <title
+>Reeglite töölauafail</title>
+      <para
+>Uue mängutüübi loomine &killbots;ile on imelihtne, eriti kui võtta eeskujuks juba olemasolev reeglistik. Reeglid on salvestatud lihtsa töölauafailina, milles parameetrid ja metaandmed on antud võtme ja väärtuse paaridena.</para>
+      <example>
+        <title
+>&killbots;i vaikimisi mängutüüp</title>
+        <programlisting width="80"
+>[KillbotsRuleset]
+Name=Killbots
+Name[gl]=Robots asasinos
+Author=Parker Coates
+AuthorContact=parker.coates@kdemail.net
+Description=&lt;qt&gt;&lt;p&gt;The default Killbots game type.&lt;/p&gt;&lt;p&gt;Includes a medium size grid, safe teleports, fast enemies and pushable junkheaps.&lt;/p&gt;&lt;/qt&gt;
+Description[gl]=&lt;qt&gt;&lt;p&gt;O xogo tipo Killbots por omisión.&lt;/p&gt;&lt;p&gt;Inclúe unha grella mediana, teleportacións seguras, enemigos rápidos e chatarra que se pode empurrar.&lt;/p&gt;&lt;/qt&gt;
+Rows=16
+Columns=16
+EnemiesAtGameStart=8.0
+EnemiesAddedEachRound=4.0
+FastEnemiesAtGameStart=-2.0
+FastEnemiesAddedEachRound=2.0
+EnergyEnabled=true
+EnergyAtGameStart=0
+EnergyAddedEachRound=0
+MaxEnergyAtGameStart=12.0
+MaxEnergyAddedEachRound=0.0
+SafeTeleportEnabled=true
+CostOfSafeTeleport=1
+VaporizerEnabled=false
+CostOfVaporizer=0
+PushableJunkheaps=Many
+SquaskKillsEnabled=true
+JunkheapsAtGameStart=0.0
+JunkheapsAddedEachRound=0.0
+PointsPerEnemyKilled=5
+PointsPerFastEnemyKilled=10
+WaitKillPointBonus=0
+WaitKillEnergyBonus=1
+SquashKillPointBonus=0
+SquashKillEnergyBonus=1</programlisting>
+      </example>
+      <para
+>Pane tähele, et kõik tekstiparameetrid peavad olema kirja pandud Ameerika inglise keeles. Nagu näitestki näha, saab töölauafailile lisada tõlkeid, kui korrata võtit ja lisata nurksulgudesse vastava keele kood. Pane tähele ka seda, et kirjelduse väljal <varname
+>Description</varname
+> saab kasutada vormindatud teksti, pannes väärtuse siltide &lt;qt&gt; vahele.</para>
+      <para
+>Reeglistik peab sisaldama kõiki järgnevaid parameetreid:</para>
+      <variablelist>
+        <varlistentry>
+          <term
+><varname
+>Name</varname
+></term>
+          <listitem
+><para
+>Reeglistiku nimi, nagu seda näeb reeglistiku valijas ja edetabelis.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>Author</varname
+></term>
+          <listitem
+><para
+>Reeglistiku looja.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>AuthorContact</varname
+></term>
+          <listitem
+><para
+>Looja kontaktandmed, tavaliselt e-posti aadress.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>Description</varname
+></term>
+          <listitem
+><para
+>Reeglistiku kirjeldus. See peaks andma korraliku ülevaate mängutüübist, aga siin ei ole mõtet kirjeldada iga parameetri väärtust, sest selleks on mõeldud üksikasjade dialoog.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>Rows</varname
+></term>
+          <listitem
+><para
+>Mängu võrgustiku ridade arv.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>Columns</varname
+></term>
+          <listitem
+><para
+>Mängu võrgustiku veergude arv.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>EnemiesAtGameStart</varname
+></term>
+          <listitem
+><para
+>Tavaliste vaenlaste arv võrgustikus esimese vooru algul.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>EnemiesAddedEachRound</varname
+></term>
+          <listitem
+><para
+>Iga vooru algul lisanduvate tavaliste vaenlaste arv.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>FastEnemiesAtGameStart</varname
+></term>
+          <listitem
+><para
+>Kiirete vaenlaste arv võrgustikus esimese vooru algul.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>FastEnemiesAddedEachRound</varname
+></term>
+          <listitem
+><para
+>Iga vooru algul lisanduvate kiirete vaenlaste arv.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>EnergyEnabled</varname
+></term>
+          <listitem
+><para
+>Kui selle väärtus on <quote
+><constant
+>false</constant
+></quote
+> (väär), saab kangelane teenida või kulutada energiat.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>EnergyAtGameStart</varname
+></term>
+          <listitem
+><para
+>Kangelasele esimese vooru algul antava energia kogus.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>EnergyAddedEachRound</varname
+></term>
+          <listitem
+><para
+>Kangelasele iga vooru algul antava lisaenergia kogus.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>MaxEnergyAtGameStart</varname
+></term>
+          <listitem
+><para
+>Maksimumenergia, mis võib kangelasel olla esimese vooru algul.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>MaxEnergyAddedEachRound</varname
+></term>
+          <listitem
+><para
+>Maksimumenergia muutumise võimalus iga vooru algul.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>SafeTeleportEnabled</varname
+></term>
+          <listitem
+><para
+>Kui selle väärtuseks on määratud <quote
+><constant
+>false</constant
+></quote
+> (väär), on turvaline teleport keelatud.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>CostOfSafeTeleport</varname
+></term>
+          <listitem
+><para
+>Energiakogus, mida nõuab turvaline teleport.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>VaporizerEnabled</varname
+></term>
+          <listitem
+><para
+>Kui selle väärtuseks on määratud <quote
+><constant
+>false</constant
+></quote
+> (väär), on aurustamine keelatud.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>CostOfVaporizer</varname
+></term>
+          <listitem
+><para
+>Energiakogus, mida nõuab aurustaja kasutamine.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>PushableJunkheaps</varname
+></term>
+          <listitem
+><para
+>Rämpsukuhilate arv, mida võib liigutada ühe tõukega. Võimalikud väärtused on <constant
+>None</constant
+> (puudub), <constant
+>One</constant
+>  (üks) ja <constant
+>Many</constant
+> (palju).</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>SquaskKillsEnabled</varname
+></term>
+          <listitem
+><para
+>Kui selle väärtus on tõene, võib kangelane vaenlasi hävitada neile rämpsukuhilaid peale lükates.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>JunkheapsAtGameStart</varname
+></term>
+          <listitem
+><para
+>Võrgustikku seatud rämpsukuhilate arv esimese vooru algul.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>JunkheapsAddedEachRound</varname
+></term>
+          <listitem
+><para
+>Võrgustikku lisatavate rämpsukuhilate arv iga vooru algul.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>PointsPerEnemyKilled</varname
+></term>
+          <listitem
+><para
+>Punktide arv, mida saab tavalise vaenlase hävitamise eest.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>PointsPerFastEnemyKilled</varname
+></term>
+          <listitem
+><para
+>Punktide arv, mida saab kiire vaenlase hävitamise eest.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>WaitKillPointBonus</varname
+></term>
+          <listitem
+><para
+>Punktide arv, mida saab vaenlase hävitamise eest vooru lõpu ootamise ajal.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>WaitKillEnergyBonus</varname
+></term>
+          <listitem
+><para
+>Boonusenergiaühikute arv, mida saab vaenlase hävitamise eest vooru lõpu ootamise ajal.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>SquashKillPointBonus</varname
+></term>
+          <listitem
+><para
+>Boonuspunktide arv, mida saab vaenlase hävitamise eest rämpsukuhilaga.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>SquashKillEnergyBonus</varname
+></term>
+          <listitem
+><para
+>Boonusenergiaühikute arv, mida saab vaenlase hävitamise eest rämpsukuhilaga.</para
+></listitem>
+        </varlistentry>
+      </variablelist>
+    </sect2>
+
+    <sect2>
+      <title
+>Kohandatud mängutüübi paigaldamine</title>
+      <para
+>Et &killbots; leiaks uue mängutüübi üles ja hakkaks seda kasutama, peavad failid paiknema kindlas kataloogis. Mängutüübi paigaldamiseks ainult aktiivsele kasutajale kopeeri fail kataloogi <filename
+>$<varname
+>KDEHOME</varname
+>/share/apps/killbots/rulesets</filename
+>. Mängutüübi muutmiseks kättesaadavaks kogu süsteemis paigalda failid kataloogi <filename
+><command
+>`kde-config --prefix`</command
+>/share/apps/killbots/rulesets</filename
+>. Pane tähele, et see nõuab tõenäoliselt administraatori õigusi.</para>
+    </sect2>
+
+  </sect1>
+</chapter>
+
+<chapter id="credits">
+  <title
+>Autorid ja litsents</title>
+
+  <para
+>&killbots;</para>
+  <para
+>Rakenduse autoriõigus 2007&ndash;2009: Parker Coates <email
+>parker.coates@kdemail.net</email
+></para>
+  <para
+>Dokumentatsiooni autoriõigus 2008&ndash;2009: Parker Coates <email
+>parker.coates@kdemail.net</email
+></para>
+
+  <para
+>Tõlge eesti keelde: Marek Laane <email
+>bald@smail.ee</email
+></para
+> 
+&underFDL; &underGPL; </chapter>
+
+<appendix id="installation">
+  <title
+>Paigaldamine</title>
+
+  <sect1 id="getting-killbots">
+    <title
+>&killbots;i hankimine</title>
+&install.intro.documentation; </sect1>
+
+  <sect1 id="compilation">
+    <title
+>Kompileerimine ja paigaldamine</title>
+&install.compile.documentation; </sect1>
+
+</appendix>
+
+&documentation.index;
+
+</book>
+
+<!--
+Local Variables:
+mode: xml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+vim:tabstop=2:shiftwidth=2:expandtab
+kate: space-indent on; indent-width 2; tab-width 2; indent-mode none;
+-->

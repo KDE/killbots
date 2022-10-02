@@ -1,0 +1,1310 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Ukrainian "INCLUDE">
+]>
+
+<book id="killbots" lang="&language;">
+
+<bookinfo>
+  <title
+>Підручник з &killbots;</title>
+
+  <authorgroup>
+    <author
+><personname
+> <firstname
+>Parker</firstname
+> <surname
+>Coates</surname
+> </personname
+> <email
+>parker.coates@kdemail.com</email
+> </author>
+
+    <othercredit role="translator"
+><firstname
+>Юрій</firstname
+><surname
+>Чорноіван</surname
+><affiliation
+><address
+><email
+>yurchor@ukr.net</email
+></address
+></affiliation
+><contrib
+>Переклад українською</contrib
+></othercredit
+> 
+  </authorgroup>
+
+  <copyright>
+    <year
+>2008&ndash;2009</year>
+    <holder
+>Parker Coates</holder>
+  </copyright>
+
+  <legalnotice
+>&FDLNotice;</legalnotice>
+
+  <date
+>5 липня 2021 року</date>
+  <releaseinfo
+>KDE Gear 21.04</releaseinfo>
+
+  <abstract>
+    <para
+>&killbots; — це портована на &kde; класична консольна гра для BSD — <command
+>robots</command
+>.</para>
+  </abstract>
+
+  <keywordset>
+    <keyword
+>KDE</keyword>
+    <keyword
+>kdegames</keyword>
+    <keyword
+>гра</keyword>
+    <keyword
+>Killbots</keyword>
+    <keyword
+>Стратегія</keyword>
+    <keyword
+>Один гравець</keyword>
+    <keyword
+>Єдиний гравець</keyword>
+    <keyword
+>роботи</keyword>
+    <keyword
+>робот</keyword>
+    <keyword
+>швидкобот</keyword>
+    <keyword
+>купа брухту</keyword>
+    <keyword
+>телепорт</keyword>
+    <keyword
+>випаровування</keyword>
+    <keyword
+>випарювач</keyword>
+    <keyword
+>енергія</keyword>
+  </keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+  <title
+>Вступ</title>
+
+  <note>
+    <title
+>Тип гри:</title>
+    <para
+>Стратегія</para>
+  </note>
+
+  <note>
+    <title
+>Кількість гравців:</title>
+    <para
+>Один</para>
+  </note>
+
+  <para
+>&killbots; — це проста гра, яка полягає у втечі від роботів-вбивць. Про те, хто створив цих роботів, і чому їх було запрограмовано на вбивство, нічого не відомо. Все, що відомо, так це те, що роботів багато, і те, що єдиним їх призначенням є вбити вашого героя. На щастя для вас, конструктор роботів зосередився на їх кількості, а не на якості, отже, роботів важко назвати аж надто розумними. Єдиною вашою зброєю супроти нескінченного потоку бездумних автоматів є ваш чудовий інтелект і загадковий пристрій для телепортації.</para>
+
+  <note>
+    <title
+>Примітка:</title>
+    <para
+>У цій документації часто використовуються слова <quote
+>роботи</quote
+>, <quote
+>купи брухту</quote
+> тощо, але у &killbots; можна повністю змінювати тему. Це означає, що спрайти гри, які ви бачите у процесі гри не відповідатимуть сенсу використаних термінів у можливих майбутніх темах. Але сам сенс гри і стратегія залишатимуться незмінними, навіть якщо головним героєм буде морквина, яка тікає городом від жорстоких кролів.</para>
+  </note>
+
+  <note>
+    <title
+>Примітка:</title>
+    <para
+>У &killbots; закладено підтримку декількох типів гри, які керують параметрами гри і визначають, які з можливостей гри буде увімкнено. У цій документації зроблено спробу загального викладу без прив’язування до певного типу гри. Для того, щоб ознайомитися з докладнішими відомостями щодо механізмів гри, які стосуються розмірів ігрового поля, раундів, нарахування очок, енергії тощо, ознайомтеся з описом поточного типу гри, наведеними у діалоговому вікні налаштування &killbots;.</para>
+  </note>
+
+</chapter>
+
+<chapter id="howto">
+  <title id="howto-title"
+>Як грати</title>
+
+  <sect1 id="gameplay-basics">
+    <title
+>Основи гри</title>
+
+    <note>
+      <title
+>Мета:</title>
+      <para
+>Вижити якомога довше серед ворогів, збільшуючи очковий запас.</para>
+    </note>
+
+    <para
+><screenshot
+><mediaobject>
+      <imageobject
+><imagedata fileref="grid.png" format="PNG"/></imageobject>
+      <textobject
+><phrase
+>Знімок ґратки гри</phrase
+></textobject>
+    </mediaobject
+></screenshot
+></para>
+
+    <para
+>&killbots; є покроковою грою, у яку грають на прямокутному <firstterm
+>ігровому полі</firstterm
+>. Кількість <firstterm
+>комірок</firstterm
+> у кожному з рядків або стовпчиків сітки ігрового поля визначається використаним типом гри. У кожній з комірок може бути: <variablelist>
+        <varlistentry>
+          <term
+><firstterm
+>Герой</firstterm
+> <inlinemediaobject
+><imageobject
+><imagedata fileref="hero.png" format="PNG"/></imageobject
+></inlinemediaobject
+></term>
+          <listitem>
+            <para
+>Ваш герой, на своє нещастя, застряг у кімнаті з натовпом роботів-убивць. Ви, як гравець, маєте допомогти йому вижити якомога довше.</para>
+            <para
+>На початку кожного <firstterm
+>ходу</firstterm
+> герой може виконати одну з трьох дій: він може залишитися у комірці, де перебуває, може перейти у сусідню незайняту комірку або може виконати особливу дію. Див. <link linkend="movement-controls" endterm="movement-controls-title"
+></link
+> і <link linkend="special-actions" endterm="special-actions-title"
+></link
+>.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><firstterm
+>Робот</firstterm
+> <inlinemediaobject
+><imageobject
+><imagedata fileref="enemy.png" format="PNG"/></imageobject
+></inlinemediaobject
+></term>
+          <listitem>
+            <para
+>Роботи — це механічні вбивці, призначені лише для вбивства героя за допомогою своїх металічних клешень. Вони ніколи не чули про «три закони робототехніки» і ймовірно знищать будь-кого, хто захоче їм про них повідомити.</para>
+            <para
+>Кожен з роботів протягом ходу робить один крок у бік героя. Якщо робот перебуває над героєм, робот рушить униз. Якщо робот перебуває ліворуч від героя, робот рушить праворуч. Якщо робот перебуває нижче і праворуч від героя, робот зробить крок по діагоналі, вгору і ліворуч. Якщо роботові вдасться потрапити до однієї комірки з героєм, героя буде вбито, а гру завершено.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><firstterm
+>Швидкобот</firstterm
+> <inlinemediaobject
+><imageobject
+><imagedata fileref="fastenemy.png" format="PNG"/></imageobject
+></inlinemediaobject
+></term>
+          <listitem>
+            <para
+>Швидкоботи — це пришвидшена версія звичайних роботів. Протягом кожного кроку, який робить герой, вони встигають зробити два кроки. На щастя, підвищена мобільність цих потвор не позначилася на їх розумових здібностях, — часто вони просто знищують один одного удвічі швидше за своїх повільніших родичів.</para>
+            <para
+>Швидкоботи є не у всіх типах гри.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><firstterm
+>Купа брухту</firstterm
+> <inlinemediaobject
+><imageobject
+><imagedata fileref="junkheap.png" format="PNG"/></imageobject
+></inlinemediaobject
+></term>
+          <listitem>
+            <para
+>Якщо двоє або декілька роботів зіштовхуються, вони знищують один одного, в результаті утворюється купа брухту. Вороги не помічають куп брухту, які зустрічають на своєму шляху, і розбиваються об них. Очевидно, купи брухту є дуже цінними у грі: вони слугують барикадами між героєм і нападниками.</para>
+            <para id="pushing-junkheaps"
+>У деяких з типів гри герой може <firstterm
+>штовхати</firstterm
+> купи брухту сіткою ігрового поля. Таким чином, герой може створити з куп брухту «бункер», у якому буде захищений з декількох боків. У деяких типах гри купи брухту можна використовувати для обману ворогів. Штовхання купи брухту у бік ворога знищує його і навіть може принести бонусні очки.</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+    </para>
+  </sect1>
+
+  <sect1 id="rounds-scoring-energy">
+    <title
+>Раунди, нарахування очок і енергія</title>
+
+    <para
+><screenshot
+><mediaobject>
+      <imageobject
+><imagedata fileref="status.png" format="PNG"/></imageobject>
+      <textobject
+><phrase
+>Ігрові індикатори стану</phrase
+></textobject>
+    </mediaobject
+></screenshot
+></para>
+
+    <sect2>
+      <title
+>Раунди</title>
+      <para
+>Гру у &killbots; поділено на <firstterm
+>раунди</firstterm
+>. Кожен раунд починається з того, що герой перебуває у центрі сітки ігрового поля, а навколо нього випадковим чином розкидано ворогів. Раунд завершується, коли буде знищено всіх ворогів. З кожним раундом кількість ворогів зростає. Кількість і тип ворогів, що додаватимуться кожного раунду, залежить від типу гри.</para>
+      <para
+>Ігрове поле наповнюватиметься ворогами до того часу, доки не станеться одної з таких ситуацій: вороги перебуватимуть у більше, ніж 50% комірок або буде виконано спробу безпечного телепортування, але на полі більше не буде безпечних комірок. За досягнення такої ситуації раунд буде скасовано, а кількість ворогів зменшено до початкової у першому раунді.</para>
+    </sect2>
+
+    <sect2>
+      <title
+>Правила оцінок</title>
+      <para
+>Перемоги як такої у &killbots; не існує, — герой намагається вижити якомога довше, але сумна реальність у тому, що зрештою його доля буде печальною. Тому метою у &killbots; є отримати якомога вищий <firstterm
+>результат</firstterm
+>, перш ніж станеться незворотне. Десять найкращих результатів (разом з номерами раундів, коли гра завершилася) буде показано у діалоговому вікні найкращих результатів.</para>
+      <para
+>Очки нараховуються за знищення ворогів. За швидкоботів дається, зазвичай, більше очок, ніж за звичайних роботів. Бонусні очки може також бути нараховано за ворогів, знищених <link linkend="pushing-junkheaps"
+>штовханням купи брухту</link
+> або <link linkend="wait-out-round"
+>чеканням під час раунду</link
+>.</para>
+    </sect2>
+
+    <sect2 id="energy">
+      <title
+>Енергія</title>
+      <para
+>Окрім очок, у грі герой також накопичує <firstterm
+>енергію</firstterm
+>. За допомогою накопиченої енергії герой може здійснювати <link linkend="teleport-safely"
+>безпечне телепортування</link
+> і/або користуватися <link linkend="vaporizer"
+>випарюванням</link
+>. Залежно від типу гри, енергію можна набрати у декілька способів, зокрема, проходженням раунду, <link linkend="pushing-junkheaps"
+>штовханням купи брухту</link
+> або знищенням ворогів <link linkend="wait-out-round"
+>чеканням під час раунду</link
+>.</para>
+      <para
+>Кількість енергії, яку може накопичити герой, обмежується визначеним типом гри максимумом. За деяких типів гри цей максимум зростає кожного разу, коли ви переходите на наступний рівень. Показ запасу енергії відбуватиметься, лише якщо за поточного типу гри використовується енергія і безпечні телепортування.</para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="special-actions">
+    <title id="special-actions-title"
+>Особливі дії</title>
+    <para
+>Окрім простого пересування з клітинки на клітинку, у розпорядженні героя є ще до чотирьох особливих дій.</para>
+
+    <sect2 id="teleport">
+      <title
+>Телепортування</title>
+      <para
+>Якимось чином героєві вдалося дістати до рук особистий телепортатор. На жаль, якщо використовувати його без джерела живлення, телепортатор працюватиме ненадійно. Використання телепортатора перекидає героя у випадково обрану комірку на сітці ігрового поля. Обмеження на кількість телепортувань у грі немає.</para>
+      <para
+>Комірка призначення завжди буде порожньою, але існують дуже навіть реальні шанси на те, що у сусідній комірці опиниться розлючений робот. Оскільки телепортування пов’язане з ризиком, його слід використовувати лише як останній шанс, якщо у героя більше не буде безпечних ходів.</para>
+    </sect2>
+
+    <sect2 id="teleport-safely">
+      <title
+>Безпечне телепортування</title>
+      <para
+>У телепортатора є і інший режим роботи, за якого героя буде перекинуто у випадково вибрану, але безпечну комірку. Але для безпечного телепортування потрібна <link linkend="energy"
+>енергія</link
+>, а енергії ніколи не буде багато. Очевидно, можливість безпечного телепортування у ключові моменти може значно продовжити життя героя.</para>
+      <para
+>Безпечне телепортування передбачене не у всіх типах гри, а кількість енергії, потрібна для безпечного телепортування може змінюватися залежно від типу гри.</para>
+    </sect2>
+
+    <sect2 id="vaporizer">
+      <title
+>Використання випарювача</title>
+      <para
+>Третій варіант використання пристрою телепортації взагалі не передбачає телепортування героя. За використання цього дещо незвичайного режиму роботи пристрій виконує телепортування всіх роботів з клітинок, розташованих поряд з клітинкою героя. Ніхто не знає, куди саме буде телепортовано роботів, але це буде місце досить далеке для того, щоб вони знову могли потурбувати героя. Оскільки роботи буквально розчиняються у повітрі, не залишаючи по собі купи брухту, цей режим названо «випарювачем». Вороги, знищені внаслідок випарювання, вважаються вбитими під час обчислення рахунку.</para>
+      <para
+>Подібно до безпечного телепортування, використання випарювача потребує витрати <link linkend="energy"
+>енергії</link
+>. Випарювач передбачено не у всіх іграх, а кількість енергії, яка потрібна для його використання, може бути різною у різних типах гри.</para>
+    </sect2>
+
+    <sect2 id="wait-out-round">
+      <title
+>Перечекати раунд</title>
+      <para
+>Може так статися, що роботи розташуються на ігровому полі так, що знищать один одного, якщо герой зовсім не рухатиметься. У таких випадках, ви можете просто перечекати раунд.</para>
+      <example>
+        <title
+>Можливість перечекати раунд</title>
+        <para
+><screenshot
+><mediaobject>
+          <imageobject
+><imagedata fileref="waitoutround.png" format="PNG"/></imageobject>
+        </mediaobject
+></screenshot
+></para>
+      </example>
+      <para
+>Вибір чекання під час раунду призводить до того, що герой завмирає на місці, а вороги продовжують свій звичайний рух. Цей рух продовжуватиметься до того моменту часу, коли станеться одна з подій: вороги знищать один одного, і раунд буде завершено, або вороги дістануться до героя і гру буде завершено. Після того, як ви віддасте команду перечекати раунд, її вже не можна буде скасувати, отже, вам треба ретельно впевнитися, що герой дійсно перебуває у безпеці.</para>
+      <para
+>Навіщо ж тоді віддавати команду, яку вже не можна скасувати, якщо передумаєш? Ну, така команда додає трохи інтриги і драматизму у кінцівку раунду, але, що важливіше, за кожного ворога, знищеного під час перечікування раунду, нараховується винагорода. Розмір і тип (очки чи енергія) винагороди визначаються типом гри.</para>
+    </sect2>
+  </sect1>
+
+</chapter>
+
+<chapter id="interface-overview">
+  <title
+>Огляд інтерфейсу</title>
+
+  <sect1 id="movement-controls">
+    <title id="movement-controls-title"
+>Керування рухами</title>
+    <para
+>Для керування героєм гравець може користуватися клавіатурою, мишею або одразу і клавіатурою, і мишею.</para>
+    <sect2 id="keyboard-movement">
+      <title id="keyboard-movement-title"
+>Клавіатурні засоби керування рухом</title>
+      <para
+>Існує дев’ять різних варіантів ходів: ліворуч, праворуч, вниз, вгору, у чотирьох діагональних напрямках і стояти на місці. Кожен з цих ходів може бути прив’язано до двох різних клавіш на клавіатурі. Типово, ці дев’ять ходів прив’язано до дев’яти цифрових клавіш на цифровій панелі клавіатури та до блоку 3х3 клавіш з літерами у лівому кінці QWERTY-клавіатури. Звичайно ж, користувачі, які користуються іншою розкладкою клавіатури або ті користувачі, на чиїх клавіатурах немає цифрової панелі, можуть змінити цю прив’язку клавіш за допомогою діалогового вікна налаштування скорочень.</para>
+      <para
+>Кожну з особливих команд з руху (таких, як телепортування) можна віддати за допомогою клавіатури. Див. меню <link linkend="move-menu"
+>Хід</link
+>.</para>
+    </sect2>
+    <sect2 id="mouse-movement">
+      <title id="mouse-movement-title"
+>Керування рухом за допомогою миші</title>
+      <para
+>За допомогою миші (або іншого координатного пристрою) ходи можна здійснювати у природніший і інтуїтивніший спосіб. Пересування вказівника основною частиною ігрового поля змінює позицію курсора, який позначає напрямок вказівника відносно героя. Наприклад, пересування вказівника у область, розташовану над героєм, змінить курсор на стрілку вгору. Якщо вказівник буде розташовано безпосередньо над героєм, курсор показуватиме відсутність руху.</para>
+      <para
+>Одноразове клацання лівою кнопкою миші призведе до кроку героя у позначеному напрямку (якщо такий крок дозволено правилами гри). Для зручності ви можете пов’язати додаткові дії з клацанням правою та середньою кнопками миші за допомогою <link linkend="configure-killbots"
+>діалогового вікна налаштування &killbots;</link
+>. Серед цих дій будуть всі дії, пов’язані з пунктами меню <link linkend="move-menu"
+>Хід</link
+>, а також додатковий пункт: <guimenuitem
+>Повторний крок</guimenuitem
+>. Виконання повторного кроку призводить до того, що герой рухається у вказаному напрямку декілька послідовних ходів, до того часу, доки не зустріне на шляху перешкоду або не потрапить у небезпеку. Перервати повторний хід можна повторним клацанням під час виконання ходу.</para>
+      <para
+></para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="game-menu">
+    <title
+>Пункти меню</title>
+
+    <variablelist>
+      <varlistentry>
+        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Гра</guimenu
+> <guimenuitem
+>Створити</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+><action
+>Починає нову гру, поточну гру буде відкинуто.</action
+></para
+></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>H</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Гра</guimenu
+> <guimenuitem
+>Показати найкращі результати</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+><action
+>Показує діалогове вікно з найкращими результатами.</action
+></para
+></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Гра</guimenu
+> <guimenuitem
+>Вийти</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+><action
+>Завершує роботу &killbots;.</action
+></para
+></listitem>
+      </varlistentry>
+
+      <varlistentry id="move-menu">
+        <term
+><menuchoice
+><shortcut
+><keycap
+>R</keycap
+></shortcut
+> <guimenu
+>Хід</guimenu
+> <guimenuitem
+>Телепортування</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+><action
+>Телепортує героя у випадкову вільну клітинку ігрового поля.</action
+> Див. <link linkend="teleport" endterm="special-actions-title"
+></link
+>.</para
+></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term
+><menuchoice
+><shortcut
+><keycap
+>T</keycap
+></shortcut
+> <guimenu
+>Хід</guimenu
+> <guimenuitem
+>Безпечне телепортування</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+><action
+>Телепортує героя у випадкову порожню комірку, яка є убезпеченою від атаки протягом поточного ходу.</action
+> Див. <link linkend="teleport-safely" endterm="special-actions-title"
+></link
+>.</para
+></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term
+><menuchoice
+><shortcut
+><keycap
+>Пробіл</keycap
+></shortcut
+> <guimenu
+>Хід</guimenu
+> <guimenuitem
+>Телепортування (за можливості безпечне)</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+>Дія для зручності. <action
+>Телепортує героя у безпечне місце, якщо достатньо енергії, у іншому випадку просто переносить героя у випадкове місце.</action
+></para
+></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term
+><menuchoice
+><shortcut
+><keycap
+>F</keycap
+></shortcut
+> <guimenu
+>Хід</guimenu
+> <guimenuitem
+>Випарювач</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+><action
+>Знищує всіх роботів у клітинках, розташованих поруч з героєм</action
+>. Див. <link linkend="vaporizer" endterm="special-actions-title"
+></link
+>.</para
+></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term
+><menuchoice
+><shortcut
+><keycap
+>V</keycap
+></shortcut
+> <guimenu
+>Хід</guimenu
+> <guimenuitem
+>Перечекати раунд</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+><action
+>Призводить до того, що герой завмирає на місці до кінця поточного раунду.</action
+> Див. <link linkend="wait-out-round" endterm="special-actions-title"
+></link
+>.</para
+></listitem>
+      </varlistentry>
+
+      <varlistentry id="configure-killbots">
+        <term
+><menuchoice
+><guimenu
+>Параметри</guimenu
+> <guimenuitem
+>Налаштувати &killbots;...</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+><action
+>Відкриває діалогове вікно налаштування &killbots;</action
+>, за допомогою якого ви зможете налаштувати параметри гри, обрати інший набір правил гри або змінити тему вікна гри.</para
+></listitem>
+      </varlistentry>
+    </variablelist>
+
+<para
+>Крім того, у &killbots; передбачено типові для &kde; пункти меню <guimenu
+>Параметри</guimenu
+> і <guimenu
+>Довідка</guimenu
+>. Щоб дізнатися більше, ознайомтеся з розділами щодо <ulink url="help:/fundamentals/menus.html#menus-settings"
+>меню «Параметри»</ulink
+> та <ulink url="help:/fundamentals/menus.html#menus-help"
+>меню «Довідка»</ulink
+> підручника з основ роботи у &kde;. </para>
+
+  </sect1>
+
+</chapter>
+
+
+<chapter id="developers">
+  <title
+>Довідник розробника для &killbots;</title>
+  <para
+>Зацікавлені особи можуть підлаштувати &killbots; у два основних способи: теми і набори правил.</para>
+
+  <sect1 id="creating-themes">
+    <title
+>Створення власних тем &killbots;</title>
+    <para
+>Як і у більшості інших ігор для &kde;, тема &killbots; складається з трьох файлів.</para>
+
+    <sect2>
+      <title
+>Файл .desktop</title>
+      <para
+>У файлі desktop використовується стандартний синтаксис <acronym
+>INI</acronym
+>. У парах ключ-значення зберігаються відомості про тему та вказуються інші файли, включені до теми. Наведений нижче приклад взято з типової теми.</para>
+      <example>
+        <title
+>Приклад файла .desktop теми</title>
+        <programlisting
+>[KGameTheme]
+Name=Example Theme
+Description=An example theme used to demonstrate theme creation. This one features pirates.
+Author=Mr. Artist
+AuthorEmail=mrartist@example.com
+Type=SVG
+FileName=example.svg
+Preview=example.png
+        </programlisting>
+      </example>
+      <para
+>Перші чотири параметри містять метадані, що стосуються теми, вони є достатньо очевидними з назв параметрів. Для тем &killbots; параметр <varname
+>Type</varname
+> (тип) слід завжди встановлювати у значення &SVG;. У останніх двох параметрах містяться назви файлів двох інших файлів теми. Хоча це і не є обов’язковим, ми наполегливо рекомендуємо, щоб з міркувань послідовності всі три файли мали однакову базову назву.</para>
+    </sect2>
+
+    <sect2>
+      <title
+>Файл попереднього перегляду</title>
+      <para
+>Файлом попереднього перегляду має бути звичайний файл <acronym
+>PNG</acronym
+> з зображенням вікна програми з застосованою темою. Зображення попереднього перегляду повинно мати розміни 240 на 140 пікселів і має якомога точніше відповідати компонуванню попереднього перегляду типової теми, щоб теми у інструменті вибору теми було легко порівняти.</para>
+    </sect2>
+
+    <sect2>
+      <title
+>Файл &SVG;</title>
+      <para
+>Файл &SVG; — це файл масштабованої векторної графіки, у якому містяться графічні елементи, використані для побудови теми. Файл можна зберігати як у форматі <literal role="extension"
+>.svg</literal
+>, так і у стиснутому форматі <literal role="extension"
+>.svgz</literal
+>. У файлі &SVG; кожен з елементів визначається унікальним ідентифікатором. Створення нової теми найпростіше розпочати з наявної теми, у якій послідовно замінити елементи, аж до завершення створення теми. У файлі &SVG; <emphasis
+>мають</emphasis
+> бути такі елементи:</para>
+      <variablelist>
+        <varlistentry>
+          <term
+><varname
+>background</varname
+></term>
+          <listitem
+><para
+>Зображення, яке буде показано під ґраткою у основній області гри.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>status</varname
+></term>
+          <listitem
+><para
+>Панель, яку буде використано для показу відомостей про поточний раунд, кількість ворогів і енергію.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>textcolor</varname
+></term>
+          <listitem
+><para
+>Цей елемент має бути однотонним прямокутником. Його колір буде використано для розфарбування тексту на панелях стану.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cell</varname
+></term>
+          <listitem
+><para
+>Окрема комірка ґратки.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>hero</varname
+></term>
+          <listitem
+><para
+>Герой, яким керуватиме гравець.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>enemy</varname
+></term>
+          <listitem
+><para
+>Основний ворог.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>fastenemy</varname
+></term>
+          <listitem
+><para
+>Пришвидшений ворог.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>junkheap</varname
+></term>
+          <listitem
+><para
+>Залишки від зіткнення між ворогами.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor0</varname
+></term>
+          <listitem
+><para
+>Курсор, який вказує рух праворуч.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor1</varname
+></term>
+          <listitem
+><para
+>Курсор, який вказує рух вгору і праворуч.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor2</varname
+></term>
+          <listitem
+><para
+>Курсор, який вказує рух вгору.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor3</varname
+></term>
+          <listitem
+><para
+>Курсор, який вказує діагональний рух вгору і ліворуч.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor4</varname
+></term>
+          <listitem
+><para
+>Курсор, який вказує рух ліворуч.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor5</varname
+></term>
+          <listitem
+><para
+>Курсор, який вказує діагональний рух вниз і ліворуч.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor6</varname
+></term>
+          <listitem
+><para
+>Курсор, який вказує рух вниз.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor7</varname
+></term>
+          <listitem
+><para
+>Курсор, який вказує рух вниз і праворуч.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor8</varname
+></term>
+          <listitem
+><para
+>Курсор, який вказує на нерухомість.</para
+></listitem>
+        </varlistentry>
+      </variablelist>
+    </sect2>
+
+    <sect2>
+      <title
+>Встановлення власних тем</title>
+      <para
+>Для того, щоб програма &killbots; виявила і змогла використовувати нову тему, ці файли слід скопіювати до відповідного каталогу. Щоб встановити тему лише для поточного користувача, скопіюйте файли стільниці (desktop), попереднього перегляду (preview) і &SVG; до підкаталогу <filename class="directory"
+>killbots/themes</filename
+> у локальному каталозі, що визначається командою <userinput
+><command
+>qtpaths</command
+> <option
+>--paths GenericDataLocation </option
+></userinput
+>. Щоб тема стала доступною для всіх користувачів системи, скопіюйте ці файли до підкаталогу <filename class="directory"
+>killbots/themes</filename
+> у загальносистемному каталозі (з виведених результатів попередньої команди, наприклад, <filename class="directory"
+>/usr/share</filename
+> або щось подібне). Не забувайте, що для виконання цієї операції вам будуть потрібні права доступу адміністратора системи.</para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="creating-rulesets">
+    <title
+>Створення власного типу гри</title>
+
+    <sect2>
+      <title
+>Файл .desktop набору правил</title>
+      <para
+>У &killbots; створення нового типу гри дуже просте, особливо якщо ви розпочнете це створення на основі існуючого файла набору правил. Набори правил зберігаються у окремих файлах стільниці (desktop), у яких параметри і метадані вказано у вигляді простих пар ключ-значення.</para>
+      <example>
+        <title
+>Типовий тип гри &killbots;</title>
+        <programlisting width="80"
+>[KillbotsRuleset]
+Name=Killbots
+Name[gl]=Robots asasinos
+Author=Parker Coates
+AuthorContact=parker.coates@kdemail.net
+Description=&lt;qt&gt;&lt;p&gt;The default Killbots game type.&lt;/p&gt;&lt;p&gt;Includes a medium size grid, safe teleports, fast enemies and pushable junkheaps.&lt;/p&gt;&lt;/qt&gt;
+Description[uk]=&lt;qt&gt;&lt;p&gt;Типовий тип гри Killbots.&lt;/p&gt;&lt;p&gt;Передбачено середнього розміру ґратку, безпечні телепортації, швидких ворогів та пересування куп брухту.&lt;/p&gt;&lt;/qt&gt;
+Rows=16
+Columns=16
+EnemiesAtGameStart=8.0
+EnemiesAddedEachRound=4.0
+FastEnemiesAtGameStart=-2.0
+FastEnemiesAddedEachRound=2.0
+EnergyEnabled=true
+EnergyAtGameStart=0
+EnergyAddedEachRound=0
+MaxEnergyAtGameStart=12.0
+MaxEnergyAddedEachRound=0.0
+SafeTeleportEnabled=true
+CostOfSafeTeleport=1
+VaporizerEnabled=false
+CostOfVaporizer=0
+PushableJunkheaps=Many
+SquaskKillsEnabled=true
+JunkheapsAtGameStart=0.0
+JunkheapsAddedEachRound=0.0
+PointsPerEnemyKilled=5
+PointsPerFastEnemyKilled=10
+WaitKillPointBonus=0
+WaitKillEnergyBonus=1
+SquashKillPointBonus=0
+SquashKillEnergyBonus=1</programlisting>
+      </example>
+      <para
+>Зауважте, що всі текстові параметри слід вводити американською англійською. Як видно з наведеного прикладу, переклади до файла стільниці можна додавати повторенням назви ключа з кодом мови у квадратних дужках. Крім того у текст поля <varname
+>Description</varname
+> можна додавати форматування, для цього його значення слід розташувати між тегами &lt;qt&gt;.</para>
+      <para
+>У файлі набору правил повинні міститися всі перелічені нижче параметри.</para>
+      <variablelist>
+        <varlistentry>
+          <term
+><varname
+>Name</varname
+></term>
+          <listitem
+><para
+>Назва набору правил у тому вигляді, у якому її буде показано у інструменті для вибору набору правил та у діалоговому вікні найкращих результатів.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>Author</varname
+></term>
+          <listitem
+><para
+>Автор набору правил.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>AuthorContact</varname
+></term>
+          <listitem
+><para
+>Відомості для зв’язку з автором. Зазвичай, це адреса електронної пошти.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>Description</varname
+></term>
+          <listitem
+><para
+>Опис правил. Тут має бути надано короткий огляд типу гри, але зовсім не обов’язково вказувати список всіх значень параметрів, оскільки ці дані можна бути побачити у діалоговому вікні «Подробиці».</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>Rows</varname
+></term>
+          <listitem
+><para
+>Кількість рядків у ґратці гри.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>Columns</varname
+></term>
+          <listitem
+><para
+>Кількість стовпчиків у ґратці гри.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>EnemiesAtGameStart</varname
+></term>
+          <listitem
+><para
+>Кількість звичайних ворогів, яких буде додано у ґратку на початку першого раунду.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>EnemiesAddedEachRound</varname
+></term>
+          <listitem
+><para
+>Кількість звичайних ворогів, яких буде додано до ґратки на початку кожного з раундів.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>FastEnemiesAtGameStart</varname
+></term>
+          <listitem
+><para
+>Кількість швидких ворогів, яких буде додано до ґратки на початку першого раунду.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>FastEnemiesAddedEachRound</varname
+></term>
+          <listitem
+><para
+>Кількість швидких ворогів, яких буде додано до ґратки на початку кожного з раундів.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>EnergyEnabled</varname
+></term>
+          <listitem
+><para
+>Якщо встановлено у значення <quote
+><constant
+>false</constant
+></quote
+>, герой зможе отримувати або витрачати енергію.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>EnergyAtGameStart</varname
+></term>
+          <listitem
+><para
+>Кількість одиниць енергії, яку буде надано героєві на початку першого раунду.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>EnergyAddedEachRound</varname
+></term>
+          <listitem
+><para
+>Кількість одиниць енергії, яку додано героєві на початку кожного раунду.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>MaxEnergyAtGameStart</varname
+></term>
+          <listitem
+><para
+>Максимальна кількість одиниць енергії, яку герой здатен зберігати на початку першого раунду.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>MaxEnergyAddedEachRound</varname
+></term>
+          <listitem
+><para
+>Зміна у максимальній кількості одиниць енергії, які здатен зберігати герой, на початку кожного раунду.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>SafeTeleportEnabled</varname
+></term>
+          <listitem
+><para
+>Якщо буде встановлено у значення <quote
+><constant
+>false</constant
+></quote
+>, можливість безпечного телепортування буде вимкнено.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>CostOfSafeTeleport</varname
+></term>
+          <listitem
+><para
+>Кількість одиниць енергії, потрібна для здійснення безпечного телепортування.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>VaporizerEnabled</varname
+></term>
+          <listitem
+><para
+>Якщо буде встановлено у значення <quote
+><constant
+>false</constant
+></quote
+>, можливість дії випарювання буде вимкнено.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>CostOfVaporizer</varname
+></term>
+          <listitem
+><para
+>Кількість одиниць енергії, потрібна для здійснення випарювання.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>PushableJunkheaps</varname
+></term>
+          <listitem
+><para
+>Кількість куп брухту, які можна штовхати одночасно. Серед можливих значень: <constant
+>None</constant
+> (жодної), <constant
+>One</constant
+> (одну) та <constant
+>Many</constant
+> (багато).</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>SquaskKillsEnabled</varname
+></term>
+          <listitem
+><para
+>Якщо має значення «true», герой може знищувати ворогів штовханням на них куп брухту.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>JunkheapsAtGameStart</varname
+></term>
+          <listitem
+><para
+>Кількість куп брухту, які буде розташовано на ігровому полі на початку першого раунду.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>JunkheapsAddedEachRound</varname
+></term>
+          <listitem
+><para
+>Кількість додаткових куп брухту, які буде розташовано на ігровому полі на початку кожного раунду.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>PointsPerEnemyKilled</varname
+></term>
+          <listitem
+><para
+>Кількість очок, яка нараховуватиметься на знищення звичайного ворога.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>PointsPerFastEnemyKilled</varname
+></term>
+          <listitem
+><para
+>Кількість очок, яка нараховуватиметься за знищення швидкого ворога.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>WaitKillPointBonus</varname
+></term>
+          <listitem
+><para
+>Кількість бонусних очок, які нараховуватимуться за знищення ворога під час перечікування раунду.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>WaitKillEnergyBonus</varname
+></term>
+          <listitem
+><para
+>Кількість бонусних одиниць енергії, якою буде нагороджено героя за знищення ворога протягом перечікування раунду.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>SquashKillPointBonus</varname
+></term>
+          <listitem
+><para
+>Кількість бонусних очок, якими нагороджуватиметься герой за знищення ворога за допомогою купи брухту.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>SquashKillEnergyBonus</varname
+></term>
+          <listitem
+><para
+>Кількість бонусних одиниць енергії, якими нагороджуватиметься герой за знищення ворога штовханням купи брухту.</para
+></listitem>
+        </varlistentry>
+      </variablelist>
+    </sect2>
+
+    <sect2>
+      <title
+>Встановлення власних типів гри</title>
+
+      <para
+>Для того, щоб програма &killbots; виявила і використала новий тип гри, файл правил гри слід розташувати у відповідному каталозі. Щоб встановити тип гри лише для поточного користувача, скопіюйте цей файл до підкаталогу <filename class="directory"
+>killbots/rulesets</filename
+> у локальному каталозі, що визначається командою <userinput
+><command
+>qtpaths</command
+> <option
+>--paths GenericDataLocation </option
+></userinput
+>. Щоб типом гри могли користуватися всі, скопіюйте файл до підкаталогу <filename class="directory"
+>killbots/rulesets</filename
+> у загальносистемному каталозі, що визначається командою <userinput
+><command
+>qtpaths</command
+> <option
+>--paths GenericDataLocation </option
+></userinput
+> (з виведених даних попередньої команди, ймовірно, <filename class="directory"
+>/usr/share</filename
+> або щось подібне). Зауважте, що для копіювання вам можуть знадобитися права доступу адміністратора.</para>
+    </sect2>
+
+  </sect1>
+</chapter>
+
+<chapter id="credits">
+  <title
+>Подяки і ліцензія</title>
+
+  <para
+>&killbots;</para>
+  <para
+>Авторські права на програму належать Parker Coates <email
+>parker.coates@kdemail.com</email
+>, ©2007&ndash;2009</para>
+  <para
+>Авторські права на документацію належать &copy; 2008&ndash;2009 Parker Coates <email
+>parker.coates@kdemail.com</email
+></para>
+
+  <para
+>Переклад українською: Юрій Чорноіван <email
+>yurchor@ukr.net</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+
+</book>
+
+<!--
+Local Variables:
+mode: xml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+vim:tabstop=2:shiftwidth=2:expandtab
+kate: space-indent on; indent-width 2; tab-width 2; indent-mode none;
+-->

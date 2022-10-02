@@ -1,0 +1,1296 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Catalan  "INCLUDE">
+]>
+
+<book id="killbots" lang="&language;">
+
+<bookinfo>
+  <title
+>El manual del &killbots;</title>
+
+  <authorgroup>
+    <author
+><personname
+> <firstname
+>Parker</firstname
+> <surname
+>Coates</surname
+> </personname
+> <email
+>parker.coates@kdemail.net</email
+> </author>
+
+    &traductor.Antoni.Bella; 
+  </authorgroup>
+
+  <copyright>
+    <year
+>2008&ndash;2009</year>
+    <holder
+>Parker Coates</holder>
+  </copyright>
+
+  <legalnotice
+>&FDLNotice;</legalnotice>
+
+  <date
+>5 de juliol de 2021</date>
+  <releaseinfo
+>KDE Gear 21.04</releaseinfo>
+
+  <abstract>
+    <para
+>El &killbots; és una adaptació al &kde; del joc <command
+>robots</command
+> clàssic de la consola &BSD;.</para>
+  </abstract>
+
+  <keywordset>
+    <keyword
+>KDE</keyword>
+    <keyword
+>kdegames</keyword>
+    <keyword
+>joc</keyword>
+    <keyword
+>Killbots</keyword>
+    <keyword
+>estratègia</keyword>
+    <keyword
+>un jugador</keyword>
+    <keyword
+>jugador individual</keyword>
+    <keyword
+>robots</keyword>
+    <keyword
+>robot</keyword>
+    <keyword
+>robot ràpid</keyword>
+    <keyword
+>munt de ferralla</keyword>
+    <keyword
+>teletransport</keyword>
+    <keyword
+>vaporitza</keyword>
+    <keyword
+>vaporitzador</keyword>
+    <keyword
+>energia</keyword>
+  </keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+  <title
+>Introducció</title>
+
+  <note>
+    <title
+>Tipus de joc:</title>
+    <para
+>Estratègia</para>
+  </note>
+
+  <note>
+    <title
+>Nombre de jugadors:</title>
+    <para
+>Un</para>
+  </note>
+
+  <para
+>El &killbots; és un joc senzill d'evadir robots assassins. Qui va crear els robots i perquè han estat programats per a destruir, ningú ho sap. Tot el que se sap és que els robots són nombrosos i el seu únic objectiu és destruir. Afortunadament, el seu creador s'ha centrat en la quantitat més que en la qualitat i, com a resultat, els robots estan greument mancats d'intel·ligència. El vostre enginy superior i un elegant dispositiu de teletransport són les vostres úniques armes contra el flux interminable i sense sentit d'autòmats.</para>
+
+  <note>
+    <title
+>Nota:</title>
+    <para
+>Aquesta documentació es refereix sovint a <quote
+>robots</quote
+>, <quote
+>munts de ferralla</quote
+>, &etc;, però el &killbots; és completament temàtic. Això significa que els personatges del joc que veieu mentre jugueu podrien no coincidir amb els de temàtica futurista que es descriuen aquí. El joc i les estratègies, però, seguiran sent els mateixos, fins i tot si l'heroi és una pastanaga perseguida per conills voraços a través d'un hort.</para>
+  </note>
+
+  <note>
+    <title
+>Nota:</title>
+    <para
+>El &killbots; admet múltiples tipus de joc que controlen els paràmetres del joc i que determinen quines característiques del joc s'inclouen. Aquesta documentació intenta ser genèrica i no específica per a cap tipus de joc. Consulteu la descripció i els detalls del teu tipus de joc actual al diàleg <guilabel
+>Configuració - &killbots;</guilabel
+> per a obtenir informació més detallada sobre la mecànica del joc pel que fa a la mida de la quadrícula, tandes, puntuació, energia, &etc;</para>
+  </note>
+
+</chapter>
+
+<chapter id="howto">
+  <title id="howto-title"
+>Com jugar</title>
+
+  <sect1 id="gameplay-basics">
+    <title
+>Fonaments del joc</title>
+
+    <note>
+      <title
+>Objectiu:</title>
+      <para
+>Sobreviure a successives hordes d'enemics mentre acumuleu una puntuació alta.</para>
+    </note>
+
+    <para
+><screenshot
+><mediaobject>
+      <imageobject
+><imagedata fileref="grid.png" format="PNG"/></imageobject>
+      <textobject
+><phrase
+>Captura de pantalla de la quadrícula de joc</phrase
+></textobject>
+    </mediaobject
+></screenshot
+></para>
+
+    <para
+>El &killbots; és un joc per torns, que es juga en una <firstterm
+>quadrícula</firstterm
+> rectangular. El nombre de <firstterm
+>cel·les</firstterm
+> a cada fila i columna està determinat pel tipus de joc que s'està jugant. Cada cel·la pot contenir un dels següents: <variablelist>
+        <varlistentry>
+          <term
+><firstterm
+>Heroi</firstterm
+> <inlinemediaobject
+><imageobject
+><imagedata fileref="hero.png" format="PNG"/></imageobject
+></inlinemediaobject
+></term>
+          <listitem>
+            <para
+>L'heroi és l'ànima desafortunada atrapada en una sala amb un munt de robots assassins. Com a jugador, és el vostre treball assegurar-vos que romangui viu el temps més gran possible.</para>
+            <para
+>A l'inici de cada <firstterm
+>torn</firstterm
+>, l'heroi pot realitzar un d'aquests tres tipus d'accions: pot quedar-se on està, es pot moure a una cel·la adjacent desocupada o pot realitzar una acció especial. Vegeu <link linkend="movement-controls" endterm="movement-controls-title"
+></link
+> i <link linkend="special-actions" endterm="special-actions-title"
+></link
+>.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><firstterm
+>Robot</firstterm
+> <inlinemediaobject
+><imageobject
+><imagedata fileref="enemy.png" format="PNG"/></imageobject
+></inlinemediaobject
+></term>
+          <listitem>
+            <para
+>Els robots són matons mecànics que només volen aixafar l'heroi amb la seva circumferència metàl·lica. Mai han sentit parlar de les <quote
+>Tres lleis de la robòtica</quote
+> i probablement aixafarien a qualsevol que intentés explicar-les-hi.</para>
+            <para
+>Cada robot farà un pas cap a l'heroi en cada torn. Si el robot està per sobre de l'heroi, es retirarà. Si el robot està a l'esquerra de l'heroi, farà un pas a la dreta. Si el robot està per sota i a la dreta de l'heroi, farà un pas en diagonal, cap amunt i cap a l'esquerra. Si un robot aconsegueix arribar a la cel·la de l'heroi, l'heroi serà assassinat i el joc acabarà.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><firstterm
+>Robot ràpid</firstterm
+> <inlinemediaobject
+><imageobject
+><imagedata fileref="fastenemy.png" format="PNG"/></imageobject
+></inlinemediaobject
+></term>
+          <listitem>
+            <para
+>Els Robots ràpids són una versió molt més ràpida del robot bàsic. Per cada moviment que fa l'heroi, ells fan dos passos. Afortunadament, la seva major mobilitat no es va combinar amb una major intel·ligència. Sovint només aconsegueixen destruir-se a si mateixos dues vegades més ràpid que els seus germans més lents.</para>
+            <para
+>No tots els tipus de joc inclouen robots ràpids.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><firstterm
+>Munt de ferralla</firstterm
+> <inlinemediaobject
+><imageobject
+><imagedata fileref="junkheap.png" format="PNG"/></imageobject
+></inlinemediaobject
+></term>
+          <listitem>
+            <para
+>Quan xoquen dos o més robots, es destruiran i la runa resultant produeix un munt de ferralla. Els enemics ignoren cegament qualsevol munt de ferralla que es trobi en el seu camí i són destruïts en xocar-hi. Trobareu que els munts de ferralla són extremadament valuosos, ja que poden servir com a barricades entre l'heroi i els seus atacants.</para>
+            <para id="pushing-junkheaps"
+>Alguns tipus de joc permeten a l'heroi <firstterm
+>empènyer</firstterm
+> els munts de ferralla per la quadrícula. Després, l'heroi podrà utilitzar-los per a construir <quote
+>búnquers</quote
+> que li oferiran protecció per múltiples costats. Els munts de ferralla fins i tot es poden utilitzar de forma ofensiva en alguns tipus de joc. Empènyer un munt de ferralla a sobre d'un enemic l'aixafarà i, fins i tot pot resultar en una bonificació.</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+    </para>
+  </sect1>
+
+  <sect1 id="rounds-scoring-energy">
+    <title
+>Tandes, puntuació i energia</title>
+
+    <para
+><screenshot
+><mediaobject>
+      <imageobject
+><imagedata fileref="status.png" format="PNG"/></imageobject>
+      <textobject
+><phrase
+>Els indicadors d'estat del joc</phrase
+></textobject>
+    </mediaobject
+></screenshot
+></para>
+
+    <sect2>
+      <title
+>Tandes</title>
+      <para
+>El joc en el &killbots; es divideix en tandes. Cada <firstterm
+>tanda</firstterm
+> comença amb l'heroi al mig de la quadrícula i amb els enemics col·locats aleatòriament al seu voltant. La tanda acabarà quan tots els enemics hagin estat destruïts. A mesura que es completa cada tanda, augmentarà el nombre d'enemics. El nombre i tipus d'enemics afegits dependrà del tipus de joc.</para>
+      <para
+>La quadrícula continuarà omplint-se d'enemics fins que passi una de dues coses: els enemics ocupen més del 50 per cent de les cel·les o s'intenta un teletransport segur, però no hi ha cel·les segures en la quadrícula. Una vegada que n'ocorre qualsevol, s'abandonarà la tanda actual i el recompte d'enemics es restablirà a l'utilitzat en la primera tanda.</para>
+    </sect2>
+
+    <sect2>
+      <title
+>Puntuació</title>
+      <para
+>Realment no existeix quelcom com guanyar en el &killbots;. L'heroi intenta sobreviure el temps més gran possible, però la depriment realitat és que, al final, la seva sort s'acabarà. Per tant, l'objectiu en el &killbots; és acumular la <firstterm
+>puntuació</firstterm
+> més gran possible abans que passi l'inevitable. Les deu puntuacions més altes (juntament amb la tanda aconseguida) s'enregistren en el diàleg de puntuació més alta.</para>
+      <para
+>S'atorguen punts per destruir els enemics. Els robots ràpids solen valer més que els robots normals. També es poden atorgar punts de bonificació pels enemics destruïts mentre <link linkend="pushing-junkheaps"
+>s'empenyia un munt de ferralla</link
+> o <link linkend="wait-out-round"
+>esperaven la tanda</link
+>.</para>
+    </sect2>
+
+    <sect2 id="energy">
+      <title
+>Energia</title>
+      <para
+>A més dels punts, l'heroi també pot acumular <firstterm
+>energia</firstterm
+> a mesura que progressa la partida. L'energia permet a l'heroi realitzar <link linkend="teleport-safely"
+>teletransports segurs</link
+> i/o utilitzar el <link linkend="vaporizer"
+>vaporitzador</link
+>. Depenent del tipus de joc, l'energia es pot atorgar per una varietat de raons, com completar una tanda, <link linkend="pushing-junkheaps"
+>empènyer un munt de ferralla</link
+> o destruir enemics <link linkend="wait-out-round"
+>mentre esperen la tanda</link
+>.</para>
+      <para
+>La quantitat d'energia que pot emmagatzemar l'heroi està limitada a un màxim determinat pel tipus de joc. En alguns tipus de joc, el màxim augmentarà a mesura que es completen les tandes. La pantalla d'estat d'energia només serà visible si el tipus de joc actual inclou energia i teletransports segurs.</para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="special-actions">
+    <title id="special-actions-title"
+>Accions especials</title>
+    <para
+>A més del senzill moviment d'una cel·la a una altra, l'heroi té fins a quatre accions especials a la seva disposició.</para>
+
+    <sect2 id="teleport">
+      <title
+>Teletransport</title>
+      <para
+>L'heroi, d'alguna manera se les ha enginyat per a posar les seves mans en un teletransportador personal. Malauradament, quan opera sense una font d'energia, no és gaire fiable. L'activació del teletransportador fa que l'heroi sigui transportat a una cel·la seleccionada a l'atzar en qualsevol lloc de la quadrícula. No hi ha límit en la quantitat de teletransports que es poden realitzar.</para>
+      <para
+>Garanteix que la cel·la de destinació estarà desocupada, però hi ha una possibilitat molt real que sigui adjacent a un robot enutjat. A causa del risc inherent al teletransport, generalment s'ha de reservar com última maniobra, quan ja no hi ha moviments segurs disponibles.</para>
+    </sect2>
+
+    <sect2 id="teleport-safely">
+      <title
+>Teletransportar de forma segura</title>
+      <para
+>El teletransportador té un mode de funcionament secundari que transportarà a l'heroi a una cel·la seleccionada a l'atzar, però segura. No obstant això, el teletransport segur requereix energia, i l'energia en general és escassa. Òbviament, la capacitat de teletransportar de forma segura en moments clau pot estendre enormement la vida de l'heroi.</para>
+      <para
+>No tots els tipus de joc permeten teletransports segurs i la quantitat d'energia necessària per a teletransportar de forma segura variarà segons el tipus de joc.</para>
+    </sect2>
+
+    <sect2 id="vaporizer">
+      <title
+>Usar el vaporitzador</title>
+      <para
+>El tercer ús del dispositiu de teletransport en realitat no teletransporta en absolut a l'heroi. Aquest mode operatiu poc comú teletransporta a tots els robots en les cel·les adjacents a l'heroi. Ningú sap exactament a on es teletransportan, però sembla que prou lluny per a tornar-lo a molestar. A causa que els robots desapareixen en l'aire sense deixar un munt de ferralla, aquest mode rep el sobrenom de <quote
+>vaporitzador</quote
+> i els enemics enviats mitjançant la vaporització es consideraran morts a l'efecte de puntuació.</para>
+      <para
+>Com en teletransportar de forma segura, utilitzar el vaporitzador requereix <link linkend="energy"
+>energia</link
+>. No tots els tipus de joc l'inclouen i la quantitat d'energia necessària per a emprar-lo variarà segons el tipus de joc.</para>
+    </sect2>
+
+    <sect2 id="wait-out-round">
+      <title
+>Esperar fins que acabi la tanda</title>
+      <para
+>Pot arribar un moment en què la quadrícula estigui dissenyada de tal manera que tots els robots puguin ser destruïts sense que l'heroi s'hagi de moure. En aquesta situació, tindreu l'opció d'esperar que acabi la tanda.</para>
+      <example>
+        <title
+>Una oportunitat per a esperar la tanda</title>
+        <para
+><screenshot
+><mediaobject>
+          <imageobject
+><imagedata fileref="waitoutround.png" format="PNG"/></imageobject>
+        </mediaobject
+></screenshot
+></para>
+      </example>
+      <para
+>Esperar fins que acabi la tanda farà que l'heroi es congeli al seu lloc mentre els enemics continuen el seu moviment habitual. Això continuarà fins que succeeixi una de dues coses: els enemics es destrueixen a si mateixos i la tanda acaba, o un enemic aconsegueix arribar fins a l'heroi i el joc també s'acaba. Una vegada que s'ha emès una ordre espera fins que acabi la tanda, no es podrà cancel·lar, de manera que haureu d'estar segur que l'heroi es troba fora de perill.</para>
+      <para
+>Llavors. Per què prendre una acció que elimina l'oportunitat de canviar d'opinió? Bé. Afegeix una mica de floritura i drama al final d'una tanda, però el que és més important, hi ha una bonificació atorgada per cada enemic destruït mentre espera que acabi la tanda. La mida i el tipus (punts o energia) de la bonificació està determinada pel tipus de joc.</para>
+    </sect2>
+  </sect1>
+
+</chapter>
+
+<chapter id="interface-overview">
+  <title
+>Resum de la interfície</title>
+
+  <sect1 id="movement-controls">
+    <title id="movement-controls-title"
+>Controls de moviment</title>
+    <para
+>El jugador té l'opció d'emprar el teclat, el ratolí o ambdós per a controlar a l'heroi.</para>
+    <sect2 id="keyboard-movement">
+      <title id="keyboard-movement-title"
+>Controls de moviment amb el teclat</title>
+      <para
+>Hi ha nou accions de moviment diferents: esquerra, dreta, amunt, avall, les quatre diagonals i quedar-se quiet. Cadascuna d'aquestes accions es pot assignar a dues tecles de teclat diferents. De manera predeterminada, aquestes nou accions s'assignen a les nou tecles del teclat numèric i un bloc de lletres de 3 per 3 a l'extrem esquerre d'un teclat QWERTY. Per descomptat, els usuaris que utilitzen una disposició de teclat diferent o una que no tingui un teclat numèric, poden modificar aquestes assignacions de tecla mitjançant el diàleg de configuració de dreceres de teclat.</para>
+      <para
+>Cadascuna de les ordres de moviment especials (com teletransport) també es poden emetre des del teclat. Vegeu <link linkend="move-menu"
+>Mou</link
+>.</para>
+    </sect2>
+    <sect2 id="mouse-movement">
+      <title id="mouse-movement-title"
+>Controls de moviment amb el ratolí</title>
+      <para
+>El ratolí (o qualsevol altre dispositiu senyalador) es pot utilitzar per a navegar d'una manera més natural i intuïtiva. A mesura que el punter es mou per sobre de l'àrea principal de joc, el cursor canviarà per a indicar la direcció del punter en relació amb l'heroi. Per exemple, moure el punter a l'espai sobre l'heroi, canviarà el cursor a una fletxa cap amunt. Si el punter es col·loca immediatament sobre l'heroi, el cursor canviarà per a indicar que no hi ha moviment.</para>
+      <para
+>Un clic esquerre farà que l'heroi faci un pas en la direcció indicada (sempre que es permeti aquest pas). Per a més comoditat, es poden assignar accions addicionals als botons dret i central del ratolí en el <link linkend="configure-killbots"
+>diàleg Configuració - &killbots;</link
+>. Aquestes accions inclouen les que es troben en el menú <link linkend="move-menu"
+>Mou</link
+>, així com una opció addicional: <guimenuitem
+>Repeteix el pas</guimenuitem
+> realitza la repetició d'un pas, fa que l'heroi es mogui en la direcció indicada durant diversos torns consecutius fins que s'arribi a una obstrucció o el moviment continu no sigui segur. També es pot aturar fent clic de nou mentre el moviment està en curs.</para>
+      <para
+></para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="game-menu">
+    <title
+>Elements de menú</title>
+
+    <variablelist>
+      <varlistentry>
+        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Joc</guimenu
+> <guimenuitem
+>Nova</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+><action
+>Inicia una partida nova, descartant qualsevol partida que pugui estar actualment en curs.</action
+></para
+></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>H</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Joc</guimenu
+> <guimenuitem
+>Mostra les puntuacions</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+><action
+>Mostra un diàleg que conté les puntuacions més altes.</action
+></para
+></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Joc</guimenu
+> <guimenuitem
+>Surt</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+><action
+>Surt del &killbots;.</action
+></para
+></listitem>
+      </varlistentry>
+
+      <varlistentry id="move-menu">
+        <term
+><menuchoice
+><shortcut
+><keycap
+>R</keycap
+></shortcut
+> <guimenu
+>Mou</guimenu
+> <guimenuitem
+>Teletransport</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+><action
+>Teletransporta a l'heroi a una cel·la buida a l'atzar, a qualsevol lloc dins del camp de joc.</action
+> Vegeu <link linkend="teleport" endterm="special-actions-title"
+></link
+>.</para
+></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term
+><menuchoice
+><shortcut
+><keycap
+>T</keycap
+></shortcut
+> <guimenu
+>Mou</guimenu
+> <guimenuitem
+>Teletransporta de forma segura</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+><action
+>Teletransporta a l'heroi a una cel·la buida a l'atzar, la qual té el garant per estar fora de perill d'atacs en aquest torn.</action
+> Vegeu <link linkend="teleport-safely" endterm="special-actions-title"
+></link
+>.</para
+></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term
+><menuchoice
+><shortcut
+>&Space;</shortcut
+> <guimenu
+>Mou</guimenu
+> <guimenuitem
+>Teletransport (segur si és possible)</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+>Una acció de comoditat. <action
+>Teletransporta a l'heroi de manera segura si hi ha prou energia disponible, en cas contrari, senzillament el teletransportarà a l'atzar.</action
+></para
+></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term
+><menuchoice
+><shortcut
+><keycap
+>F</keycap
+></shortcut
+> <guimenu
+>Mou</guimenu
+> <guimenuitem
+>Vaporitzador</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+><action
+>Destrueix tots els robots que hi ha a les cel·les adjacents a l'heroi</action
+>. Vegeu <link linkend="vaporizer" endterm="special-actions-title"
+></link
+>.</para
+></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term
+><menuchoice
+><shortcut
+><keycap
+>V</keycap
+></shortcut
+> <guimenu
+>Mou</guimenu
+> <guimenuitem
+>Espera fins que acabi la tanda</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+><action
+>Fa que l'heroi es congeli en el seu lloc fins al final de la tanda.</action
+> Vegeu <link linkend="wait-out-round" endterm="special-actions-title"
+></link
+>.</para
+></listitem>
+      </varlistentry>
+
+      <varlistentry id="configure-killbots">
+        <term
+><menuchoice
+><guimenu
+>Arranjament</guimenu
+> <guimenuitem
+>Configura el &killbots;...</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+><action
+>Mostra el diàleg de configuració del &killbots;</action
+>, on es poden ajustar els paràmetres del joc, triar un conjunt diferent de regles o canviar-ne el tema.</para
+></listitem>
+      </varlistentry>
+    </variablelist>
+
+<para
+>De manera addicional, el &killbots; té la configuració comuna al &kde; i els elements dels menús <guimenu
+>Arranjament</guimenu
+> i <guimenu
+>Ajuda</guimenu
+>. Per a obtenir més informació, llegiu les seccions sobre <ulink url="help:/fundamentals/menus.html#menus-settings"
+>El menú Arranjament</ulink
+> i <ulink url="help:/fundamentals/menus.html#menus-help"
+>El menú Ajuda</ulink
+> en els Fonaments del &kde;. </para>
+
+  </sect1>
+
+</chapter>
+
+
+<chapter id="developers">
+  <title
+>Guia del &killbots; per a desenvolupadors</title>
+  <para
+>Les persones interessades poden personalitzar el &killbots; de dues maneres principals: temes i conjunts de regles.</para>
+
+  <sect1 id="creating-themes">
+    <title
+>Crear temes personalitzats del &killbots;</title>
+    <para
+>Com la majoria dels altres jocs del &kde;, un tema del &killbots; consta de tres fitxers.</para>
+
+    <sect2>
+      <title
+>El fitxer d'escriptori</title>
+      <para
+>El fitxer d'escriptori segueix la sintaxi estàndard <acronym
+>INI</acronym
+>. Els parells clau-valor emmagatzemen la informació sobre el tema i apunten als altres fitxers inclosos en el tema. L'exemple següent es pren del tema predeterminat.</para>
+      <example>
+        <title
+>Un fitxer d'escriptori d'exemple per a tema</title>
+        <programlisting
+>[KGameTheme]
+Name=Tema d'exemple
+Description=Un tema d'exemple utilitzat per a demostrar la creació de temes. Presenta característiques pirates.
+Author=Sr. Artista
+AuthorEmail=srartista@exemple.org
+Type=SVG
+FileName=exemple.svg
+Preview=exemple.png
+        </programlisting>
+      </example>
+      <para
+>Els primers quatre paràmetres contenen metadades sobre el tema i són força senzills. Per als temes del &killbots;, el paràmetre <varname
+>Type</varname
+> sempre s'haurà d'establir en els &SVG;. Els dos últims paràmetres contenen els noms de fitxer dels altres dos fitxers del tema. Si bé no és estrictament necessari, es recomana encaridament que, en nom de la coherència, els tres fitxers comparteixin el mateix nom base del fitxer.</para>
+    </sect2>
+
+    <sect2>
+      <title
+>El fitxer de vista prèvia</title>
+      <para
+>El fitxer de vista prèvia senzillament és un fitxer <acronym
+>PNG</acronym
+> que conté una vista prèvia del tema. La imatge de vista prèvia haurà de ser de 240 per 140 píxels i coincidir el més possible amb la disposició de la vista prèvia del tema predeterminat, ja que això facilitarà la comparació dels temes en el gestor de temes.</para>
+    </sect2>
+
+    <sect2>
+      <title
+>El fitxer &SVG;</title>
+      <para
+>El fitxer &SVG; és una imatge de gràfics vectorials escalables que conté els elements gràfics reals que s'utilitzen per a compondre el tema. El fitxer pot estar en format <literal role="extension"
+>.svg</literal
+> sense comprimir o <literal role="extension"
+>.svgz</literal
+> comprimit. Cada element del joc s'identifica mitjançant un identificador únic en el fitxer &SVG;. Quan es crea un tema nou, generalment és més fàcil començar amb un tema existent i substituir els elements un per un fins que el tema estigui complet. El fitxer &SVG; haurà de contenir els elements següents.</para>
+      <variablelist>
+        <varlistentry>
+          <term
+><varname
+>background</varname
+></term>
+          <listitem
+><para
+>La imatge que es mostra darrere de la quadrícula en l'àrea principal de joc.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>status</varname
+></term>
+          <listitem
+><para
+>El quadre que s'utilitza per a mostrar la tanda, puntuació, recompte d'enemics i energia actuals.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>textcolor</varname
+></term>
+          <listitem
+><para
+>Aquest element ha de ser un rectangle d'un sol color. El seu color s'utilitza per al text en els quadres d'estat.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cell</varname
+></term>
+          <listitem
+><para
+>Una cel·la individual de la quadrícula.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>hero</varname
+></term>
+          <listitem
+><para
+>El personatge controlat pel jugador.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>enemy</varname
+></term>
+          <listitem
+><para
+>L'enemic bàsic.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>fastenemy</varname
+></term>
+          <listitem
+><para
+>L'enemic més ràpid.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>junkheap</varname
+></term>
+          <listitem
+><para
+>Les restes d'una col·lisió entre enemics.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor0</varname
+></term>
+          <listitem
+><para
+>Un cursor que indica moviment cap a la dreta.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor1</varname
+></term>
+          <listitem
+><para
+>Un cursor que indica moviment en diagonal, cap amunt i cap a la dreta.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor2</varname
+></term>
+          <listitem
+><para
+>Un cursor que indica moviment cap amunt.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor3</varname
+></term>
+          <listitem
+><para
+>Un cursor que indica moviment en diagonal, cap amunt i cap a l'esquerra.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor4</varname
+></term>
+          <listitem
+><para
+>Un cursor que indica moviment cap a l'esquerra.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor5</varname
+></term>
+          <listitem
+><para
+>Un cursor que indica moviment en diagonal, cap avall i cap a l'esquerra.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor6</varname
+></term>
+          <listitem
+><para
+>Un cursor que indica moviment cap avall.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor7</varname
+></term>
+          <listitem
+><para
+>Un cursor que indica moviment cap avall i cap a la dreta.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor8</varname
+></term>
+          <listitem
+><para
+>Un cursor que indica romandre en el lloc.</para
+></listitem>
+        </varlistentry>
+      </variablelist>
+    </sect2>
+
+    <sect2>
+      <title
+>Instal·lar temes personalitzats</title>
+      <para
+>Perquè el &killbots; detecti i empri un tema nou, els fitxers s'han de moure a una carpeta apropiada. Per a instal·lar el tema només per a l'usuari actual, copieu el fitxer d'escriptori, la vista prèvia i el &SVG; a la carpeta local <filename class="directory"
+>killbots/themes</filename
+> a <userinput
+><command
+>qtpaths</command
+> <option
+>--paths GenericDataLocation </option
+></userinput
+>. Perquè el tema estigui disponible a tot el sistema, moveu-los a la carpeta del sistema (des de l'ordre anterior, possiblement <filename class="directory"
+>/usr/share</filename
+> o semblant). Recordeu que això probablement requerirà privilegis administratius.</para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="creating-rulesets">
+    <title
+>Crear tipus de joc personalitzats</title>
+
+    <sect2>
+      <title
+>El fitxer d'escriptori del conjunt de regles</title>
+      <para
+>Crear tipus de joc nous és increïblement senzill per al &killbots;, especialment quan es parteix d'un fitxer de conjunt de regles existent. Els conjunts de regles s'emmagatzemen com un únic fitxer d'escriptori on els paràmetres i les metadades s'emmagatzemen com a senzills parells clau-valor.</para>
+      <example>
+        <title
+>El tipus de joc predeterminat del &killbots;</title>
+        <programlisting width="80"
+>[KillbotsRuleset]
+Name=Killbots
+Name[gl]=Robots asasinos
+Author=Parker Coates
+AuthorContact=parker.coates@kdemail.net
+Description=&lt;qt&gt;&lt;p&gt;The default Killbots game type.&lt;/p&gt;&lt;p&gt;Includes a medium size grid, safe teleports, fast enemies and pushable junkheaps.&lt;/p&gt;&lt;/qt&gt;
+Description[gl]=&lt;qt&gt;&lt;p&gt;O xogo tipo Killbots por omisión.&lt;/p&gt;&lt;p&gt;Inclúe unha grella mediana, teleportacións seguras, enemigos rápidos e chatarra que se pode empurrar.&lt;/p&gt;&lt;/qt&gt;
+Rows=16
+Columns=16
+EnemiesAtGameStart=8.0
+EnemiesAddedEachRound=4.0
+FastEnemiesAtGameStart=-2.0
+FastEnemiesAddedEachRound=2.0
+EnergyEnabled=true
+EnergyAtGameStart=0
+EnergyAddedEachRound=0
+MaxEnergyAtGameStart=12.0
+MaxEnergyAddedEachRound=0.0
+SafeTeleportEnabled=true
+CostOfSafeTeleport=1
+VaporizerEnabled=false
+CostOfVaporizer=0
+PushableJunkheaps=Many
+SquaskKillsEnabled=true
+JunkheapsAtGameStart=0.0
+JunkheapsAddedEachRound=0.0
+PointsPerEnemyKilled=5
+PointsPerFastEnemyKilled=10
+WaitKillPointBonus=0
+WaitKillEnergyBonus=1
+SquashKillPointBonus=0
+SquashKillEnergyBonus=1</programlisting>
+      </example>
+      <para
+>Cal recordar que tots els paràmetres de text s'han d'introduir en anglès americà. Com es veu en l'exemple anterior, les traduccions es poden afegir al fitxer d'escriptori repetint la clau i afegint el codi d'idioma entre claudàtors. També cal tenir en compte que es pot proporcionar text enriquit en el camp <varname
+>Description</varname
+> embolicant el valor entre etiquetes &lt;qt&gt;.</para>
+      <para
+>Un fitxer del conjunt de regles ha de contenir tots els paràmetres següents.</para>
+      <variablelist>
+        <varlistentry>
+          <term
+><varname
+>Name</varname
+></term>
+          <listitem
+><para
+>El nom del conjunt de regles tal com apareixerà en el selector del conjunt de regles i en el diàleg de puntuació més alta.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>Author</varname
+></term>
+          <listitem
+><para
+>El creador del conjunt de regles.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>AuthorContact</varname
+></term>
+          <listitem
+><para
+>La informació de contacte del creador. Sol ser una adreça de correu electrònic.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>Description</varname
+></term>
+          <listitem
+><para
+>Una descripció del conjunt de regles. Això hauria de donar un resum decent del tipus de joc, però no cal que llisti el valor de cada paràmetre, ja que aquesta informació es pot veure en el diàleg Detalls.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>Rows</varname
+></term>
+          <listitem
+><para
+>El nombre de files en la quadrícula del joc.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>Columns</varname
+></term>
+          <listitem
+><para
+>El nombre de columnes en la quadrícula del joc.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>EnemiesAtGameStart</varname
+></term>
+          <listitem
+><para
+>La quantitat d'enemics regulars afegits a la quadrícula al començament de la primera tanda.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>EnemiesAddedEachRound</varname
+></term>
+          <listitem
+><para
+>La quantitat d'enemics regulars addicionals afegits a la quadrícula al començament de cada tanda.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>FastEnemiesAtGameStart</varname
+></term>
+          <listitem
+><para
+>La quantitat d'enemics ràpids afegits a la quadrícula al començament de la primera tanda.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>FastEnemiesAddedEachRound</varname
+></term>
+          <listitem
+><para
+>La quantitat d'enemics ràpids addicionals afegits a la quadrícula al començament de cada tanda.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>EnergyEnabled</varname
+></term>
+          <listitem
+><para
+>Si s'estableix a <quote
+><constant
+>false</constant
+></quote
+>, l'heroi podrà guanyar o gastar energia.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>EnergyAtGameStart</varname
+></term>
+          <listitem
+><para
+>La quantitat d'energia atorgada a l'heroi al començament de la primera tanda.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>EnergyAddedEachRound</varname
+></term>
+          <listitem
+><para
+>La quantitat d'energia atorgada a l'heroi al començament de cada tanda.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>MaxEnergyAtGameStart</varname
+></term>
+          <listitem
+><para
+>La capacitat màxima d'energia de l'heroi al començament de la primera tanda.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>MaxEnergyAddedEachRound</varname
+></term>
+          <listitem
+><para
+>El canvi en la capacitat màxima d'energia al començament de cada tanda.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>SafeTeleportEnabled</varname
+></term>
+          <listitem
+><para
+>Si s'estableix a <quote
+><constant
+>false</constant
+></quote
+>, s'inhabilitarà l'acció de teletransport segur.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>CostOfSafeTeleport</varname
+></term>
+          <listitem
+><para
+>La quantitat d'energia consumida en teletransportar de forma segura.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>VaporizerEnabled</varname
+></term>
+          <listitem
+><para
+>Si s'estableix a <quote
+><constant
+>false</constant
+></quote
+>, s'inhabilitarà l'acció del vaporitzador.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>CostOfVaporizer</varname
+></term>
+          <listitem
+><para
+>La quantitat d'energia consumida en emprar el vaporitzador.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>PushableJunkheaps</varname
+></term>
+          <listitem
+><para
+>La quantitat de munts de ferralla que es poden moure amb una única empenta. Els valors possibles són <quote
+><constant
+>None</constant
+></quote
+>, <quote
+><constant
+>One</constant
+></quote
+> i <quote
+><constant
+>Many</constant
+></quote
+>.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>SquaskKillsEnabled</varname
+></term>
+          <listitem
+><para
+>Si s'estableix a <quote
+><constant
+>true</constant
+></quote
+>, l'heroi podrà aixafar als enemics empenyent munts de ferralla sobre seu.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>JunkheapsAtGameStart</varname
+></term>
+          <listitem
+><para
+>El nombre de munts de ferralla col·locats a la quadrícula al començament de la primera tanda.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>JunkheapsAddedEachRound</varname
+></term>
+          <listitem
+><para
+>El nombre de munts de ferralla addicionals col·locats a la quadrícula al començament de cada tanda.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>PointsPerEnemyKilled</varname
+></term>
+          <listitem
+><para
+>La quantitat de punts atorgats per destruir un enemic regular.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>PointsPerFastEnemyKilled</varname
+></term>
+          <listitem
+><para
+>La quantitat de punts atorgats per destruir un enemic ràpid.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>WaitKillPointBonus</varname
+></term>
+          <listitem
+><para
+>La quantitat de punts de bonificació atorgats per destruir un enemic mentre s'espera la tanda.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>WaitKillEnergyBonus</varname
+></term>
+          <listitem
+><para
+>El nombre d'unitats d'energia de bonificació addicionals atorgades per destruir un enemic mentre s'espera la tanda.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>SquashKillPointBonus</varname
+></term>
+          <listitem
+><para
+>La quantitat de punts de bonificació atorgats per aixafar a un enemic amb un munt de ferralla.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>SquashKillEnergyBonus</varname
+></term>
+          <listitem
+><para
+>La quantitat d'unitats d'energia de bonificació atorgades per aixafar a un enemic amb un munt de ferralla.</para
+></listitem>
+        </varlistentry>
+      </variablelist>
+    </sect2>
+
+    <sect2>
+      <title
+>Instal·lar tipus de joc personalitzats</title>
+
+      <para
+>Perquè el &killbots; detecti i empri un tipus de joc nou, els fitxers s'han de moure a una carpeta apropiada. Per a instal·lar el tipus de joc només per a l'usuari actual, copieu el fitxer a la carpeta local <filename class="directory"
+>killbots/rulesets</filename
+> a <userinput
+><command
+>qtpaths</command
+> <option
+>--paths GenericDataLocation </option
+></userinput
+>. Perquè el tipus de joc estigui disponible a tot el sistema, moveu-los a la carpeta del sistema (des de l'ordre anterior, possiblement <filename class="directory"
+>/usr/share</filename
+> o semblant). Recordeu que això probablement requerirà privilegis administratius.</para>
+    </sect2>
+
+  </sect1>
+</chapter>
+
+<chapter id="credits">
+  <title
+>Crèdits i llicència</title>
+
+  <para
+>&killbots;</para>
+  <para
+>Copyright del programa 2007&ndash;2009 Parker Coates <email
+>parker.coates@kdemail.net</email
+></para>
+  <para
+>Copyright de la documentació &copy; 2008&ndash;2009 Parker Coates <email
+>parker.coates@kdemail.net</email
+></para>
+
+  <para
+>Traductor de la documentació: &credits.Antoni.Bella;</para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+
+</book>
+
+<!--
+Local Variables:
+mode: xml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+vim:tabstop=2:shiftwidth=2:expandtab
+kate: space-indent on; indent-width 2; tab-width 2; indent-mode none;
+-->
