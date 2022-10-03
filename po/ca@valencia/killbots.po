@@ -594,7 +594,7 @@ msgstr "Nombre de columnes a la quadrícula del joc"
 #: rulesetbase.kcfg:28
 #, kde-format
 msgid "Number of regular enemies in first round"
-msgstr "Nombre d'enemics normals a la primera tanda"
+msgstr "Nombre d'enemics normals en la primera tanda"
 
 #. i18n: ectx: label, entry (EnemiesAddedEachRound), group (KillbotsRuleset)
 #: rulesetbase.kcfg:32
@@ -606,7 +606,7 @@ msgstr "Nombre d'enemics normals afegits a cada tanda nova"
 #: rulesetbase.kcfg:36
 #, kde-format
 msgid "Number of fast enemies in first round"
-msgstr "Nombre d'enemics ràpids a la primera tanda"
+msgstr "Nombre d'enemics ràpids en la primera tanda"
 
 #. i18n: ectx: label, entry (FastEnemiesAddedEachRound), group (KillbotsRuleset)
 #: rulesetbase.kcfg:40
@@ -645,7 +645,7 @@ msgstr "Energia guanyada per a completar una tanda"
 #: rulesetbase.kcfg:62
 #, kde-format
 msgid "Maximum energy cap in first round"
-msgstr "Nombre màxim de càpsules d'energia a la primera tanda "
+msgstr "Nombre màxim de càpsules d'energia en la primera tanda "
 
 #. i18n: ectx: label, entry (MaxEnergyAddedEachRound), group (KillbotsRuleset)
 #: rulesetbase.kcfg:66
@@ -694,7 +694,7 @@ msgstr "El jugador pot destruir els enemics empenyent un munt de ferralla"
 #, kde-format
 msgid "Junkheaps placed on grid at start of first round"
 msgstr ""
-"Munts de ferralla emplaçats a la quadrícula a l'inici de la primera tanda"
+"Munts de ferralla emplaçats en la quadrícula a l'inici de la primera tanda"
 
 #. i18n: ectx: label, entry (JunkheapsAddedEachRound), group (KillbotsRuleset)
 #: rulesetbase.kcfg:105
