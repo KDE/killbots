@@ -23,6 +23,7 @@
 #include <kstandardgameaction.h>
 
 #include <QAction>
+#include <kwidgetsaddons_version.h>
 #include <KActionCollection>
 #include <KConfigDialog>
 #include <KLocalizedString>
@@ -136,12 +137,20 @@ void Killbots::MainWindow::onConfigDialogClosed()
 {
     if (m_rulesetChanged) {
         if (!m_engine->gameHasStarted()
+#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
+                || KMessageBox::questionTwoActions(this,
+#else
                 || KMessageBox::questionYesNo(this,
+#endif
                                               i18n("A new game type has been selected, but there is already a game in progress."),
                                               i18nc("@title:window", "Game Type Changed"),
                                               KGuiItem(i18nc("@action:button", "Continue Current Game")),
                                               KGuiItem(i18nc("@action:button", "Start a New Game"))
+#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
+                                             ) == KMessageBox::SecondaryAction
+#else
                                              ) == KMessageBox::No
+#endif
            ) {
             m_coordinator->requestNewGame();
         }
