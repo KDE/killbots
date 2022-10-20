@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: killbots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-30 00:41+0000\n"
+"POT-Creation-Date: 2022-10-20 00:44+0000\n"
 "PO-Revision-Date: 2016-11-14 20:59+0800\n"
 "Last-Translator: Jeff Huang <s8321414@gmail.com>\n"
 "Language-Team: Chinese <kde-i18n-doc@kde.org>\n"
@@ -211,7 +211,7 @@ msgid ""
 "robots."
 msgstr "Gnome Robots 作者。發明「安全傳送」，推車，與快速機器人等新玩意兒。"
 
-#: mainwindow.cpp:60
+#: mainwindow.cpp:61
 #, kde-format
 msgid ""
 "This is the main game area used to interact with Killbots. It shows the "
@@ -221,90 +221,90 @@ msgstr ""
 "這裡是主遊戲區。上面有目前棋盤上的狀態，讓使用者用滑鼠控制主角。它也顯示遊戲"
 "進度與統計等等。"
 
-#: mainwindow.cpp:94
+#: mainwindow.cpp:95
 #, fuzzy, kde-format
 #| msgid "General"
 msgctxt "@title"
 msgid "General"
 msgstr "一般"
 
-#: mainwindow.cpp:96
+#: mainwindow.cpp:97
 #, fuzzy, kde-format
 #| msgid "Configure general settings"
 msgctxt "@info"
 msgid "Configure general settings"
 msgstr "一般設定"
 
-#: mainwindow.cpp:99
+#: mainwindow.cpp:100
 #, fuzzy, kde-format
 #| msgid "Game Type"
 msgctxt "@title"
 msgid "Game Type"
 msgstr "遊戲型態"
 
-#: mainwindow.cpp:101
+#: mainwindow.cpp:102
 #, fuzzy, kde-format
 #| msgid "Select a game type"
 msgctxt "@info"
 msgid "Select a game type"
 msgstr "選擇遊戲型態"
 
-#: mainwindow.cpp:104
+#: mainwindow.cpp:105
 #, fuzzy, kde-format
 #| msgid "Appearance"
 msgctxt "@title"
 msgid "Appearance"
 msgstr "外觀"
 
-#: mainwindow.cpp:106
+#: mainwindow.cpp:107
 #, fuzzy, kde-format
 #| msgid "Select a graphical theme"
 msgctxt "@info"
 msgid "Select a graphical theme"
 msgstr "選擇一個圖形主題"
 
-#: mainwindow.cpp:140
+#: mainwindow.cpp:145
 #, kde-format
 msgid ""
 "A new game type has been selected, but there is already a game in progress."
 msgstr "已選取新的遊戲型態，但目前有遊戲進行中。"
 
-#: mainwindow.cpp:141
+#: mainwindow.cpp:146
 #, fuzzy, kde-format
 #| msgid "Game Type Changed"
 msgctxt "@title:window"
 msgid "Game Type Changed"
 msgstr "遊戲型態已變更"
 
-#: mainwindow.cpp:142
+#: mainwindow.cpp:147
 #, fuzzy, kde-format
 #| msgid "Continue Current Game"
 msgctxt "@action:button"
 msgid "Continue Current Game"
 msgstr "繼續此局"
 
-#: mainwindow.cpp:143
+#: mainwindow.cpp:148
 #, fuzzy, kde-format
 #| msgid "Start a New Game"
 msgctxt "@action:button"
 msgid "Start a New Game"
 msgstr "開始新遊戲"
 
-#: mainwindow.cpp:156
+#: mainwindow.cpp:165
 #, fuzzy, kde-format
 #| msgid "Round"
 msgctxt "@title:column round of the game"
 msgid "Round"
 msgstr "回合"
 
-#: mainwindow.cpp:240 optionspage.cpp:28
+#: mainwindow.cpp:249 optionspage.cpp:28
 #, fuzzy, kde-format
 #| msgid "Teleport Safely"
 msgctxt "@action"
 msgid "Teleport Safely"
 msgstr "安全傳送"
 
-#: mainwindow.cpp:241
+#: mainwindow.cpp:250
 #, kde-format
 msgctxt ""
 "Shortcut for teleport safely. See https://quickgit.kde.org/?p=killbots."
@@ -312,21 +312,21 @@ msgctxt ""
 msgid "T"
 msgstr "T"
 
-#: mainwindow.cpp:243
+#: mainwindow.cpp:252
 #, fuzzy, kde-format
 #| msgid "Teleport to a safe location"
 msgctxt "@info:tooltip"
 msgid "Teleport to a safe location"
 msgstr "傳送到安全的位置"
 
-#: mainwindow.cpp:248 optionspage.cpp:27
+#: mainwindow.cpp:257 optionspage.cpp:27
 #, fuzzy, kde-format
 #| msgid "Teleport"
 msgctxt "@action"
 msgid "Teleport"
 msgstr "傳送"
 
-#: mainwindow.cpp:249
+#: mainwindow.cpp:258
 #, kde-format
 msgctxt ""
 "Shortcut for teleport. See https://quickgit.kde.org/?p=killbots."
@@ -334,21 +334,21 @@ msgctxt ""
 msgid "R"
 msgstr "R"
 
-#: mainwindow.cpp:251
+#: mainwindow.cpp:260
 #, fuzzy, kde-format
 #| msgid "Teleport to a random location"
 msgctxt "@info:tooltip"
 msgid "Teleport to a random location"
 msgstr "傳送到任意位置"
 
-#: mainwindow.cpp:256 optionspage.cpp:29
+#: mainwindow.cpp:265 optionspage.cpp:29
 #, fuzzy, kde-format
 #| msgid "Teleport (Safely If Possible)"
 msgctxt "@action"
 msgid "Teleport (Safely if Possible)"
 msgstr "傳送（盡可能安全）"
 
-#: mainwindow.cpp:257
+#: mainwindow.cpp:266
 #, kde-format
 msgctxt ""
 "Shortcut for teleport safely if possible. See https://quickgit.kde.org/?"
@@ -356,7 +356,7 @@ msgctxt ""
 msgid "Space"
 msgstr "空白"
 
-#: mainwindow.cpp:259
+#: mainwindow.cpp:268
 #, fuzzy, kde-format
 #| msgid ""
 #| "Teleport safely if that action is enabled, otherwise teleport randomly"
@@ -364,14 +364,14 @@ msgctxt "@info:tooltip"
 msgid "Teleport safely if that action is enabled, otherwise teleport randomly"
 msgstr "若開啟安全傳送，則傳送到安全位置，否則傳送到任意位置"
 
-#: mainwindow.cpp:263
+#: mainwindow.cpp:272
 #, fuzzy, kde-format
 #| msgid "Vaporizer"
 msgctxt "@action"
 msgid "Vaporizer"
 msgstr "蒸發器"
 
-#: mainwindow.cpp:264
+#: mainwindow.cpp:273
 #, kde-format
 msgctxt ""
 "Shortcut for vaporizer. See https://quickgit.kde.org/?p=killbots."
@@ -379,21 +379,21 @@ msgctxt ""
 msgid "F"
 msgstr "F"
 
-#: mainwindow.cpp:266
+#: mainwindow.cpp:275
 #, fuzzy, kde-format
 #| msgid "Destroy all enemies in neighboring cells"
 msgctxt "@info:tooltip"
 msgid "Destroy all enemies in neighboring cells"
 msgstr "消滅在周遭格中的所有敵人"
 
-#: mainwindow.cpp:271 optionspage.cpp:30
+#: mainwindow.cpp:280 optionspage.cpp:30
 #, fuzzy, kde-format
 #| msgid "Wait Out Round"
 msgctxt "@action"
 msgid "Wait Out Round"
 msgstr "不再移動"
 
-#: mainwindow.cpp:272
+#: mainwindow.cpp:281
 #, kde-format
 msgctxt ""
 "Shortcut for wait out round. See https://quickgit.kde.org/?p=killbots."
@@ -401,21 +401,21 @@ msgctxt ""
 msgid "V"
 msgstr "V"
 
-#: mainwindow.cpp:274
+#: mainwindow.cpp:283
 #, fuzzy, kde-format
 #| msgid "Risk remaining in place until the end of the round for bonuses"
 msgctxt "@info:tooltip"
 msgid "Risk remaining in place until the end of the round for bonuses"
 msgstr "冒險留在原地直到回合結束，可得獎勵"
 
-#: mainwindow.cpp:279
+#: mainwindow.cpp:288
 #, fuzzy, kde-format
 #| msgid "Move Up and Left"
 msgctxt "@action"
 msgid "Move Up and Left"
 msgstr "向左上移"
 
-#: mainwindow.cpp:280
+#: mainwindow.cpp:289
 #, kde-format
 msgctxt ""
 "Shortcut for move up and left. https://quickgit.kde.org/?p=killbots."
@@ -423,14 +423,14 @@ msgctxt ""
 msgid "Q"
 msgstr "Q"
 
-#: mainwindow.cpp:285
+#: mainwindow.cpp:294
 #, fuzzy, kde-format
 #| msgid "Move Up"
 msgctxt "@action"
 msgid "Move Up"
 msgstr "上移"
 
-#: mainwindow.cpp:286
+#: mainwindow.cpp:295
 #, kde-format
 msgctxt ""
 "Shortcut for move up. See https://quickgit.kde.org/?p=killbots."
@@ -438,14 +438,14 @@ msgctxt ""
 msgid "W"
 msgstr "W"
 
-#: mainwindow.cpp:291
+#: mainwindow.cpp:300
 #, fuzzy, kde-format
 #| msgid "Move Up and Right"
 msgctxt "@action"
 msgid "Move Up and Right"
 msgstr "向右上移"
 
-#: mainwindow.cpp:292
+#: mainwindow.cpp:301
 #, kde-format
 msgctxt ""
 "Shortcut for move up and right. https://quickgit.kde.org/?p=killbots."
@@ -453,14 +453,14 @@ msgctxt ""
 msgid "E"
 msgstr "E"
 
-#: mainwindow.cpp:297
+#: mainwindow.cpp:306
 #, fuzzy, kde-format
 #| msgid "Move Left"
 msgctxt "@action"
 msgid "Move Left"
 msgstr "左移"
 
-#: mainwindow.cpp:298
+#: mainwindow.cpp:307
 #, kde-format
 msgctxt ""
 "Shortcut for move left. See https://quickgit.kde.org/?p=killbots."
@@ -468,14 +468,14 @@ msgctxt ""
 msgid "A"
 msgstr "A"
 
-#: mainwindow.cpp:303
+#: mainwindow.cpp:312
 #, fuzzy, kde-format
 #| msgid "Stand Still"
 msgctxt "@action"
 msgid "Stand Still"
 msgstr "靜止"
 
-#: mainwindow.cpp:304
+#: mainwindow.cpp:313
 #, kde-format
 msgctxt ""
 "Shortcut for stand still. See https://quickgit.kde.org/?p=killbots."
@@ -483,14 +483,14 @@ msgctxt ""
 msgid "S"
 msgstr "S"
 
-#: mainwindow.cpp:309
+#: mainwindow.cpp:318
 #, fuzzy, kde-format
 #| msgid "Move Right"
 msgctxt "@action"
 msgid "Move Right"
 msgstr "右移"
 
-#: mainwindow.cpp:310
+#: mainwindow.cpp:319
 #, kde-format
 msgctxt ""
 "Shortcut for move right. See https://quickgit.kde.org/?p=killbots."
@@ -498,14 +498,14 @@ msgctxt ""
 msgid "D"
 msgstr "D"
 
-#: mainwindow.cpp:315
+#: mainwindow.cpp:324
 #, fuzzy, kde-format
 #| msgid "Move Down and Left"
 msgctxt "@action"
 msgid "Move Down and Left"
 msgstr "向左下移"
 
-#: mainwindow.cpp:316
+#: mainwindow.cpp:325
 #, kde-format
 msgctxt ""
 "Shortcut for move down and left. See https://quickgit.kde.org/?p=killbots."
@@ -513,14 +513,14 @@ msgctxt ""
 msgid "Z"
 msgstr "Z"
 
-#: mainwindow.cpp:321
+#: mainwindow.cpp:330
 #, fuzzy, kde-format
 #| msgid "Move Down"
 msgctxt "@action"
 msgid "Move Down"
 msgstr "下移"
 
-#: mainwindow.cpp:322
+#: mainwindow.cpp:331
 #, kde-format
 msgctxt ""
 "Shortcut for move down. See https://quickgit.kde.org/?p=killbots."
@@ -528,14 +528,14 @@ msgctxt ""
 msgid "X"
 msgstr "X"
 
-#: mainwindow.cpp:327
+#: mainwindow.cpp:336
 #, fuzzy, kde-format
 #| msgid "Move Down and Right"
 msgctxt "@action"
 msgid "Move Down and Right"
 msgstr "向右下移"
 
-#: mainwindow.cpp:328
+#: mainwindow.cpp:337
 #, kde-format
 msgctxt ""
 "Shortcut for move down and right. https://quickgit.kde.org/?p=killbots."

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: killbots_gui\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-30 00:41+0000\n"
+"POT-Creation-Date: 2022-10-20 00:44+0000\n"
 "PO-Revision-Date: 2021-07-11 08:31+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -211,7 +211,7 @@ msgstr ""
 "Autor Gnome Robots. Wynalazł bezpieczną teleportację, pchanie stert złomu i "
 "szybkie roboty."
 
-#: mainwindow.cpp:60
+#: mainwindow.cpp:61
 #, kde-format
 msgid ""
 "This is the main game area used to interact with Killbots. It shows the "
@@ -222,79 +222,79 @@ msgstr ""
 "stan gry i pozwala na sterowanie bohaterem przy pomocy myszy. Wyświetla "
 "również statystyki bieżącej gry."
 
-#: mainwindow.cpp:94
+#: mainwindow.cpp:95
 #, kde-format
 msgctxt "@title"
 msgid "General"
 msgstr "Ogólne"
 
-#: mainwindow.cpp:96
+#: mainwindow.cpp:97
 #, kde-format
 msgctxt "@info"
 msgid "Configure general settings"
 msgstr "Ustawienia ogólne"
 
-#: mainwindow.cpp:99
+#: mainwindow.cpp:100
 #, kde-format
 msgctxt "@title"
 msgid "Game Type"
 msgstr "Rodzaj gry"
 
-#: mainwindow.cpp:101
+#: mainwindow.cpp:102
 #, kde-format
 msgctxt "@info"
 msgid "Select a game type"
 msgstr "Wybierz rodzaj gry"
 
-#: mainwindow.cpp:104
+#: mainwindow.cpp:105
 #, kde-format
 msgctxt "@title"
 msgid "Appearance"
 msgstr "Wygląd"
 
-#: mainwindow.cpp:106
+#: mainwindow.cpp:107
 #, kde-format
 msgctxt "@info"
 msgid "Select a graphical theme"
 msgstr "Wybierz wygląd grafiki"
 
-#: mainwindow.cpp:140
+#: mainwindow.cpp:145
 #, kde-format
 msgid ""
 "A new game type has been selected, but there is already a game in progress."
 msgstr "Nowy rodzaj gry został wybrany, ale gra jest w toku."
 
-#: mainwindow.cpp:141
+#: mainwindow.cpp:146
 #, kde-format
 msgctxt "@title:window"
 msgid "Game Type Changed"
 msgstr "Zmieniono rodzaj gry"
 
-#: mainwindow.cpp:142
+#: mainwindow.cpp:147
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue Current Game"
 msgstr "Kontynuuj bieżącą grę"
 
-#: mainwindow.cpp:143
+#: mainwindow.cpp:148
 #, kde-format
 msgctxt "@action:button"
 msgid "Start a New Game"
 msgstr "Rozpocznij nową grę"
 
-#: mainwindow.cpp:156
+#: mainwindow.cpp:165
 #, kde-format
 msgctxt "@title:column round of the game"
 msgid "Round"
 msgstr "Runda"
 
-#: mainwindow.cpp:240 optionspage.cpp:28
+#: mainwindow.cpp:249 optionspage.cpp:28
 #, kde-format
 msgctxt "@action"
 msgid "Teleport Safely"
 msgstr "Bezpieczna teleportacja"
 
-#: mainwindow.cpp:241
+#: mainwindow.cpp:250
 #, kde-format
 msgctxt ""
 "Shortcut for teleport safely. See https://quickgit.kde.org/?p=killbots."
@@ -302,19 +302,19 @@ msgctxt ""
 msgid "T"
 msgstr "T"
 
-#: mainwindow.cpp:243
+#: mainwindow.cpp:252
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Teleport to a safe location"
 msgstr "Teleportuj się do bezpiecznego miejsca"
 
-#: mainwindow.cpp:248 optionspage.cpp:27
+#: mainwindow.cpp:257 optionspage.cpp:27
 #, kde-format
 msgctxt "@action"
 msgid "Teleport"
 msgstr "Teleportacja"
 
-#: mainwindow.cpp:249
+#: mainwindow.cpp:258
 #, kde-format
 msgctxt ""
 "Shortcut for teleport. See https://quickgit.kde.org/?p=killbots."
@@ -322,19 +322,19 @@ msgctxt ""
 msgid "R"
 msgstr "R"
 
-#: mainwindow.cpp:251
+#: mainwindow.cpp:260
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Teleport to a random location"
 msgstr "Teleportacja do losowego miejsca"
 
-#: mainwindow.cpp:256 optionspage.cpp:29
+#: mainwindow.cpp:265 optionspage.cpp:29
 #, kde-format
 msgctxt "@action"
 msgid "Teleport (Safely if Possible)"
 msgstr "Teleportacja (bezpieczna, jeśli możliwe)"
 
-#: mainwindow.cpp:257
+#: mainwindow.cpp:266
 #, kde-format
 msgctxt ""
 "Shortcut for teleport safely if possible. See https://quickgit.kde.org/?"
@@ -342,7 +342,7 @@ msgctxt ""
 msgid "Space"
 msgstr "Spacja"
 
-#: mainwindow.cpp:259
+#: mainwindow.cpp:268
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Teleport safely if that action is enabled, otherwise teleport randomly"
@@ -350,13 +350,13 @@ msgstr ""
 "Bezpieczna teleportacja, jeśli jest włączona, w przeciwnym wypadku "
 "teleportacja w losowe miejsce"
 
-#: mainwindow.cpp:263
+#: mainwindow.cpp:272
 #, kde-format
 msgctxt "@action"
 msgid "Vaporizer"
 msgstr "Ulatniacz"
 
-#: mainwindow.cpp:264
+#: mainwindow.cpp:273
 #, kde-format
 msgctxt ""
 "Shortcut for vaporizer. See https://quickgit.kde.org/?p=killbots."
@@ -364,19 +364,19 @@ msgctxt ""
 msgid "F"
 msgstr "F"
 
-#: mainwindow.cpp:266
+#: mainwindow.cpp:275
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Destroy all enemies in neighboring cells"
 msgstr "Zniszcz wszystkich wrogów w sąsiednich komórkach"
 
-#: mainwindow.cpp:271 optionspage.cpp:30
+#: mainwindow.cpp:280 optionspage.cpp:30
 #, kde-format
 msgctxt "@action"
 msgid "Wait Out Round"
 msgstr "Przeczekaj rundę"
 
-#: mainwindow.cpp:272
+#: mainwindow.cpp:281
 #, kde-format
 msgctxt ""
 "Shortcut for wait out round. See https://quickgit.kde.org/?p=killbots."
@@ -384,19 +384,19 @@ msgctxt ""
 msgid "V"
 msgstr "V"
 
-#: mainwindow.cpp:274
+#: mainwindow.cpp:283
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Risk remaining in place until the end of the round for bonuses"
 msgstr "Ryzykuj pozostanie w miejscu do końca rundy w celu uzyskania bonusów"
 
-#: mainwindow.cpp:279
+#: mainwindow.cpp:288
 #, kde-format
 msgctxt "@action"
 msgid "Move Up and Left"
 msgstr "Ruch w górę na lewo"
 
-#: mainwindow.cpp:280
+#: mainwindow.cpp:289
 #, kde-format
 msgctxt ""
 "Shortcut for move up and left. https://quickgit.kde.org/?p=killbots."
@@ -404,13 +404,13 @@ msgctxt ""
 msgid "Q"
 msgstr "Q"
 
-#: mainwindow.cpp:285
+#: mainwindow.cpp:294
 #, kde-format
 msgctxt "@action"
 msgid "Move Up"
 msgstr "Przesuń w górę"
 
-#: mainwindow.cpp:286
+#: mainwindow.cpp:295
 #, kde-format
 msgctxt ""
 "Shortcut for move up. See https://quickgit.kde.org/?p=killbots."
@@ -418,13 +418,13 @@ msgctxt ""
 msgid "W"
 msgstr "W"
 
-#: mainwindow.cpp:291
+#: mainwindow.cpp:300
 #, kde-format
 msgctxt "@action"
 msgid "Move Up and Right"
 msgstr "Ruch w górę na prawo"
 
-#: mainwindow.cpp:292
+#: mainwindow.cpp:301
 #, kde-format
 msgctxt ""
 "Shortcut for move up and right. https://quickgit.kde.org/?p=killbots."
@@ -432,13 +432,13 @@ msgctxt ""
 msgid "E"
 msgstr "E"
 
-#: mainwindow.cpp:297
+#: mainwindow.cpp:306
 #, kde-format
 msgctxt "@action"
 msgid "Move Left"
 msgstr "Przesuń w lewo"
 
-#: mainwindow.cpp:298
+#: mainwindow.cpp:307
 #, kde-format
 msgctxt ""
 "Shortcut for move left. See https://quickgit.kde.org/?p=killbots."
@@ -446,13 +446,13 @@ msgctxt ""
 msgid "A"
 msgstr "A"
 
-#: mainwindow.cpp:303
+#: mainwindow.cpp:312
 #, kde-format
 msgctxt "@action"
 msgid "Stand Still"
 msgstr "Nie ruszaj się"
 
-#: mainwindow.cpp:304
+#: mainwindow.cpp:313
 #, kde-format
 msgctxt ""
 "Shortcut for stand still. See https://quickgit.kde.org/?p=killbots."
@@ -460,13 +460,13 @@ msgctxt ""
 msgid "S"
 msgstr "S"
 
-#: mainwindow.cpp:309
+#: mainwindow.cpp:318
 #, kde-format
 msgctxt "@action"
 msgid "Move Right"
 msgstr "Przesuń w prawo"
 
-#: mainwindow.cpp:310
+#: mainwindow.cpp:319
 #, kde-format
 msgctxt ""
 "Shortcut for move right. See https://quickgit.kde.org/?p=killbots."
@@ -474,13 +474,13 @@ msgctxt ""
 msgid "D"
 msgstr "D"
 
-#: mainwindow.cpp:315
+#: mainwindow.cpp:324
 #, kde-format
 msgctxt "@action"
 msgid "Move Down and Left"
 msgstr "Ruch w dół na lewo"
 
-#: mainwindow.cpp:316
+#: mainwindow.cpp:325
 #, kde-format
 msgctxt ""
 "Shortcut for move down and left. See https://quickgit.kde.org/?p=killbots."
@@ -488,13 +488,13 @@ msgctxt ""
 msgid "Z"
 msgstr "Z"
 
-#: mainwindow.cpp:321
+#: mainwindow.cpp:330
 #, kde-format
 msgctxt "@action"
 msgid "Move Down"
 msgstr "Przesuń w dół"
 
-#: mainwindow.cpp:322
+#: mainwindow.cpp:331
 #, kde-format
 msgctxt ""
 "Shortcut for move down. See https://quickgit.kde.org/?p=killbots."
@@ -502,13 +502,13 @@ msgctxt ""
 msgid "X"
 msgstr "X"
 
-#: mainwindow.cpp:327
+#: mainwindow.cpp:336
 #, kde-format
 msgctxt "@action"
 msgid "Move Down and Right"
 msgstr "Ruch w dół na prawo"
 
-#: mainwindow.cpp:328
+#: mainwindow.cpp:337
 #, kde-format
 msgctxt ""
 "Shortcut for move down and right. https://quickgit.kde.org/?p=killbots."

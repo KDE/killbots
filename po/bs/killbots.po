@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdegames\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-30 00:41+0000\n"
+"POT-Creation-Date: 2022-10-20 00:44+0000\n"
 "PO-Revision-Date: 2013-11-03 21:18+0000\n"
 "Last-Translator: Samir Ribić <Unknown>\n"
 "Language-Team: Bosnian <bs@li.org>\n"
@@ -216,7 +216,7 @@ msgstr ""
 "Autor Gnomeovog robota. Izmislio bezbjedne teleporte, guranje krševa i brze "
 "robote."
 
-#: mainwindow.cpp:60
+#: mainwindow.cpp:61
 #, kde-format
 msgid ""
 "This is the main game area used to interact with Killbots. It shows the "
@@ -227,90 +227,90 @@ msgstr ""
 "trenutno stanje na tabli i omogućava vam da mišem upravljate junakom. Takođe "
 "daje i nešto statistike o partiji u toku."
 
-#: mainwindow.cpp:94
+#: mainwindow.cpp:95
 #, fuzzy, kde-format
 #| msgid "General"
 msgctxt "@title"
 msgid "General"
 msgstr "Opšte"
 
-#: mainwindow.cpp:96
+#: mainwindow.cpp:97
 #, fuzzy, kde-format
 #| msgid "Configure general settings"
 msgctxt "@info"
 msgid "Configure general settings"
 msgstr "Podesite opšte postavke"
 
-#: mainwindow.cpp:99
+#: mainwindow.cpp:100
 #, fuzzy, kde-format
 #| msgid "Game Type"
 msgctxt "@title"
 msgid "Game Type"
 msgstr "Tip igre"
 
-#: mainwindow.cpp:101
+#: mainwindow.cpp:102
 #, fuzzy, kde-format
 #| msgid "Select a game type"
 msgctxt "@info"
 msgid "Select a game type"
 msgstr "Izaberite vrstu igre"
 
-#: mainwindow.cpp:104
+#: mainwindow.cpp:105
 #, fuzzy, kde-format
 #| msgid "Appearance"
 msgctxt "@title"
 msgid "Appearance"
 msgstr "Izgled"
 
-#: mainwindow.cpp:106
+#: mainwindow.cpp:107
 #, fuzzy, kde-format
 #| msgid "Select a graphical theme"
 msgctxt "@info"
 msgid "Select a graphical theme"
 msgstr "Izaberite grafičku temu"
 
-#: mainwindow.cpp:140
+#: mainwindow.cpp:145
 #, kde-format
 msgid ""
 "A new game type has been selected, but there is already a game in progress."
 msgstr "Izabrana je nova vrsta igre, ali je partija već u toku."
 
-#: mainwindow.cpp:141
+#: mainwindow.cpp:146
 #, fuzzy, kde-format
 #| msgid "Game Type Changed"
 msgctxt "@title:window"
 msgid "Game Type Changed"
 msgstr "Promijenjena vrsta igre"
 
-#: mainwindow.cpp:142
+#: mainwindow.cpp:147
 #, fuzzy, kde-format
 #| msgid "Continue Current Game"
 msgctxt "@action:button"
 msgid "Continue Current Game"
 msgstr "Nastavi tekuću partiju"
 
-#: mainwindow.cpp:143
+#: mainwindow.cpp:148
 #, fuzzy, kde-format
 #| msgid "Start a New Game"
 msgctxt "@action:button"
 msgid "Start a New Game"
 msgstr "Započni novu partiju"
 
-#: mainwindow.cpp:156
+#: mainwindow.cpp:165
 #, fuzzy, kde-format
 #| msgid "Round"
 msgctxt "@title:column round of the game"
 msgid "Round"
 msgstr "Runda"
 
-#: mainwindow.cpp:240 optionspage.cpp:28
+#: mainwindow.cpp:249 optionspage.cpp:28
 #, fuzzy, kde-format
 #| msgid "Teleport Safely"
 msgctxt "@action"
 msgid "Teleport Safely"
 msgstr "Teleportuj sigurno"
 
-#: mainwindow.cpp:241
+#: mainwindow.cpp:250
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Shortcut for teleport safely. See http://websvn.kde.org/trunk/KDE/"
@@ -322,21 +322,21 @@ msgctxt ""
 msgid "T"
 msgstr "T"
 
-#: mainwindow.cpp:243
+#: mainwindow.cpp:252
 #, fuzzy, kde-format
 #| msgid "Teleport to a safe location"
 msgctxt "@info:tooltip"
 msgid "Teleport to a safe location"
 msgstr "Teleportacija na sigurno mjesto."
 
-#: mainwindow.cpp:248 optionspage.cpp:27
+#: mainwindow.cpp:257 optionspage.cpp:27
 #, fuzzy, kde-format
 #| msgid "Teleport"
 msgctxt "@action"
 msgid "Teleport"
 msgstr "Teleportacija"
 
-#: mainwindow.cpp:249
+#: mainwindow.cpp:258
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Shortcut for teleport. See http://websvn.kde.org/trunk/KDE/kdegames/"
@@ -348,21 +348,21 @@ msgctxt ""
 msgid "R"
 msgstr "R"
 
-#: mainwindow.cpp:251
+#: mainwindow.cpp:260
 #, fuzzy, kde-format
 #| msgid "Teleport to a random location"
 msgctxt "@info:tooltip"
 msgid "Teleport to a random location"
 msgstr "Teleportacija na nasumično mjesto."
 
-#: mainwindow.cpp:256 optionspage.cpp:29
+#: mainwindow.cpp:265 optionspage.cpp:29
 #, fuzzy, kde-format
 #| msgid "Teleport (Safely If Possible)"
 msgctxt "@action"
 msgid "Teleport (Safely if Possible)"
 msgstr "Teleportuj (sigurno ako je moguče)"
 
-#: mainwindow.cpp:257
+#: mainwindow.cpp:266
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Shortcut for teleport safely if possible. See http://websvn.kde.org/trunk/"
@@ -374,7 +374,7 @@ msgctxt ""
 msgid "Space"
 msgstr "Razmak"
 
-#: mainwindow.cpp:259
+#: mainwindow.cpp:268
 #, fuzzy, kde-format
 #| msgid ""
 #| "Teleport safely if that action is enabled, otherwise teleport randomly"
@@ -382,14 +382,14 @@ msgctxt "@info:tooltip"
 msgid "Teleport safely if that action is enabled, otherwise teleport randomly"
 msgstr "Sigurna teleportacija ako je ta radnja uključena, inače nasumična."
 
-#: mainwindow.cpp:263
+#: mainwindow.cpp:272
 #, fuzzy, kde-format
 #| msgid "Vaporizer"
 msgctxt "@action"
 msgid "Vaporizer"
 msgstr "Isparivač"
 
-#: mainwindow.cpp:264
+#: mainwindow.cpp:273
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Shortcut for vaporizer. See http://websvn.kde.org/trunk/KDE/kdegames/"
@@ -401,21 +401,21 @@ msgctxt ""
 msgid "F"
 msgstr "F"
 
-#: mainwindow.cpp:266
+#: mainwindow.cpp:275
 #, fuzzy, kde-format
 #| msgid "Destroy all enemies in neighboring cells"
 msgctxt "@info:tooltip"
 msgid "Destroy all enemies in neighboring cells"
 msgstr "Uništite sve neprijatelje u susjednim ćelijama."
 
-#: mainwindow.cpp:271 optionspage.cpp:30
+#: mainwindow.cpp:280 optionspage.cpp:30
 #, fuzzy, kde-format
 #| msgid "Wait Out Round"
 msgctxt "@action"
 msgid "Wait Out Round"
 msgstr "Pričekaj rundu"
 
-#: mainwindow.cpp:272
+#: mainwindow.cpp:281
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Shortcut for wait out round. See http://websvn.kde.org/trunk/KDE/kdegames/"
@@ -427,21 +427,21 @@ msgctxt ""
 msgid "V"
 msgstr "V"
 
-#: mainwindow.cpp:274
+#: mainwindow.cpp:283
 #, fuzzy, kde-format
 #| msgid "Risk remaining in place until the end of the round for bonuses"
 msgctxt "@info:tooltip"
 msgid "Risk remaining in place until the end of the round for bonuses"
 msgstr "Rizikujte ostanak u mjestu do kraja runde, radi bonusâ̂."
 
-#: mainwindow.cpp:279
+#: mainwindow.cpp:288
 #, fuzzy, kde-format
 #| msgid "Move Up and Left"
 msgctxt "@action"
 msgid "Move Up and Left"
 msgstr "Pomjeri prema gore i ulijevo"
 
-#: mainwindow.cpp:280
+#: mainwindow.cpp:289
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Shortcut for move up and left. See http://websvn.kde.org/trunk/KDE/"
@@ -453,14 +453,14 @@ msgctxt ""
 msgid "Q"
 msgstr "Q"
 
-#: mainwindow.cpp:285
+#: mainwindow.cpp:294
 #, fuzzy, kde-format
 #| msgid "Move Up"
 msgctxt "@action"
 msgid "Move Up"
 msgstr "Pomjeri prema gore"
 
-#: mainwindow.cpp:286
+#: mainwindow.cpp:295
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Shortcut for move up. See http://websvn.kde.org/trunk/KDE/kdegames/"
@@ -472,14 +472,14 @@ msgctxt ""
 msgid "W"
 msgstr "W"
 
-#: mainwindow.cpp:291
+#: mainwindow.cpp:300
 #, fuzzy, kde-format
 #| msgid "Move Up and Right"
 msgctxt "@action"
 msgid "Move Up and Right"
 msgstr "Pomjeri prema gore i udesno"
 
-#: mainwindow.cpp:292
+#: mainwindow.cpp:301
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Shortcut for move up and right. See http://websvn.kde.org/trunk/KDE/"
@@ -491,14 +491,14 @@ msgctxt ""
 msgid "E"
 msgstr "E"
 
-#: mainwindow.cpp:297
+#: mainwindow.cpp:306
 #, fuzzy, kde-format
 #| msgid "Move Left"
 msgctxt "@action"
 msgid "Move Left"
 msgstr "Pomjeri ulijevo"
 
-#: mainwindow.cpp:298
+#: mainwindow.cpp:307
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Shortcut for move left. See http://websvn.kde.org/trunk/KDE/kdegames/"
@@ -510,14 +510,14 @@ msgctxt ""
 msgid "A"
 msgstr "A"
 
-#: mainwindow.cpp:303
+#: mainwindow.cpp:312
 #, fuzzy, kde-format
 #| msgid "Stand Still"
 msgctxt "@action"
 msgid "Stand Still"
 msgstr "Miruj"
 
-#: mainwindow.cpp:304
+#: mainwindow.cpp:313
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Shortcut for stand still. See http://websvn.kde.org/trunk/KDE/kdegames/"
@@ -529,14 +529,14 @@ msgctxt ""
 msgid "S"
 msgstr "S"
 
-#: mainwindow.cpp:309
+#: mainwindow.cpp:318
 #, fuzzy, kde-format
 #| msgid "Move Right"
 msgctxt "@action"
 msgid "Move Right"
 msgstr "Pomjeri udesno"
 
-#: mainwindow.cpp:310
+#: mainwindow.cpp:319
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Shortcut for move right. See http://websvn.kde.org/trunk/KDE/kdegames/"
@@ -548,14 +548,14 @@ msgctxt ""
 msgid "D"
 msgstr "D"
 
-#: mainwindow.cpp:315
+#: mainwindow.cpp:324
 #, fuzzy, kde-format
 #| msgid "Move Down and Left"
 msgctxt "@action"
 msgid "Move Down and Left"
 msgstr "Pomjeri prema dolje i ulijevo"
 
-#: mainwindow.cpp:316
+#: mainwindow.cpp:325
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Shortcut for move down and left. See http://websvn.kde.org/trunk/KDE/"
@@ -567,14 +567,14 @@ msgctxt ""
 msgid "Z"
 msgstr "Z"
 
-#: mainwindow.cpp:321
+#: mainwindow.cpp:330
 #, fuzzy, kde-format
 #| msgid "Move Down"
 msgctxt "@action"
 msgid "Move Down"
 msgstr "Pomjeri nadolje"
 
-#: mainwindow.cpp:322
+#: mainwindow.cpp:331
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Shortcut for move down. See http://websvn.kde.org/trunk/KDE/kdegames/"
@@ -586,14 +586,14 @@ msgctxt ""
 msgid "X"
 msgstr "X"
 
-#: mainwindow.cpp:327
+#: mainwindow.cpp:336
 #, fuzzy, kde-format
 #| msgid "Move Down and Right"
 msgctxt "@action"
 msgid "Move Down and Right"
 msgstr "Pomjeri prema dolje i udesno"
 
-#: mainwindow.cpp:328
+#: mainwindow.cpp:337
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Shortcut for move down and right. See http://websvn.kde.org/trunk/KDE/"

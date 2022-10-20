@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: killbots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-30 00:41+0000\n"
+"POT-Creation-Date: 2022-10-20 00:44+0000\n"
 "PO-Revision-Date: 2022-04-16 22:04+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -203,7 +203,7 @@ msgstr ""
 "그놈 로봇 개발자입니다. 안전한 텔레포트, 빠른 로봇, 미는 정크힙을 개발했습니"
 "다."
 
-#: mainwindow.cpp:60
+#: mainwindow.cpp:61
 #, kde-format
 msgid ""
 "This is the main game area used to interact with Killbots. It shows the "
@@ -213,79 +213,79 @@ msgstr ""
 "Killbots를 조종하는 주 게임 영역입니다. 현재 게임 그리드의 상태를 표시하고 마"
 "우스로 주인공을 조종합니다. 진행 중인 게임 진행 통계도 표시됩니다."
 
-#: mainwindow.cpp:94
+#: mainwindow.cpp:95
 #, kde-format
 msgctxt "@title"
 msgid "General"
 msgstr "일반"
 
-#: mainwindow.cpp:96
+#: mainwindow.cpp:97
 #, kde-format
 msgctxt "@info"
 msgid "Configure general settings"
 msgstr "일반 설정"
 
-#: mainwindow.cpp:99
+#: mainwindow.cpp:100
 #, kde-format
 msgctxt "@title"
 msgid "Game Type"
 msgstr "게임 종류"
 
-#: mainwindow.cpp:101
+#: mainwindow.cpp:102
 #, kde-format
 msgctxt "@info"
 msgid "Select a game type"
 msgstr "게임 종류 선택"
 
-#: mainwindow.cpp:104
+#: mainwindow.cpp:105
 #, kde-format
 msgctxt "@title"
 msgid "Appearance"
 msgstr "모양"
 
-#: mainwindow.cpp:106
+#: mainwindow.cpp:107
 #, kde-format
 msgctxt "@info"
 msgid "Select a graphical theme"
 msgstr "그래픽 테마 선택"
 
-#: mainwindow.cpp:140
+#: mainwindow.cpp:145
 #, kde-format
 msgid ""
 "A new game type has been selected, but there is already a game in progress."
 msgstr "새 게임 종류를 선택했으나 현재 게임이 진행 중입니다."
 
-#: mainwindow.cpp:141
+#: mainwindow.cpp:146
 #, kde-format
 msgctxt "@title:window"
 msgid "Game Type Changed"
 msgstr "게임 종류 변경됨"
 
-#: mainwindow.cpp:142
+#: mainwindow.cpp:147
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue Current Game"
 msgstr "현재 게임 계속"
 
-#: mainwindow.cpp:143
+#: mainwindow.cpp:148
 #, kde-format
 msgctxt "@action:button"
 msgid "Start a New Game"
 msgstr "새 게임 시작하기"
 
-#: mainwindow.cpp:156
+#: mainwindow.cpp:165
 #, kde-format
 msgctxt "@title:column round of the game"
 msgid "Round"
 msgstr "라운드"
 
-#: mainwindow.cpp:240 optionspage.cpp:28
+#: mainwindow.cpp:249 optionspage.cpp:28
 #, kde-format
 msgctxt "@action"
 msgid "Teleport Safely"
 msgstr "안전하게 텔레포트"
 
-#: mainwindow.cpp:241
+#: mainwindow.cpp:250
 #, kde-format
 msgctxt ""
 "Shortcut for teleport safely. See https://quickgit.kde.org/?p=killbots."
@@ -293,19 +293,19 @@ msgctxt ""
 msgid "T"
 msgstr "T"
 
-#: mainwindow.cpp:243
+#: mainwindow.cpp:252
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Teleport to a safe location"
 msgstr "안전한 위치로 텔레포트"
 
-#: mainwindow.cpp:248 optionspage.cpp:27
+#: mainwindow.cpp:257 optionspage.cpp:27
 #, kde-format
 msgctxt "@action"
 msgid "Teleport"
 msgstr "텔레포트"
 
-#: mainwindow.cpp:249
+#: mainwindow.cpp:258
 #, kde-format
 msgctxt ""
 "Shortcut for teleport. See https://quickgit.kde.org/?p=killbots."
@@ -313,19 +313,19 @@ msgctxt ""
 msgid "R"
 msgstr "R"
 
-#: mainwindow.cpp:251
+#: mainwindow.cpp:260
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Teleport to a random location"
 msgstr "무작위 위치로 텔레포트"
 
-#: mainwindow.cpp:256 optionspage.cpp:29
+#: mainwindow.cpp:265 optionspage.cpp:29
 #, kde-format
 msgctxt "@action"
 msgid "Teleport (Safely if Possible)"
 msgstr "텔레포트(가능하다면 안전하게)"
 
-#: mainwindow.cpp:257
+#: mainwindow.cpp:266
 #, kde-format
 msgctxt ""
 "Shortcut for teleport safely if possible. See https://quickgit.kde.org/?"
@@ -333,7 +333,7 @@ msgctxt ""
 msgid "Space"
 msgstr "Space"
 
-#: mainwindow.cpp:259
+#: mainwindow.cpp:268
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Teleport safely if that action is enabled, otherwise teleport randomly"
@@ -341,13 +341,13 @@ msgstr ""
 "해당 동작이 활성화되어 있으면 안전하게 텔레포트, 그렇지 않으면 무작위 텔레포"
 "트"
 
-#: mainwindow.cpp:263
+#: mainwindow.cpp:272
 #, kde-format
 msgctxt "@action"
 msgid "Vaporizer"
 msgstr "기화기"
 
-#: mainwindow.cpp:264
+#: mainwindow.cpp:273
 #, kde-format
 msgctxt ""
 "Shortcut for vaporizer. See https://quickgit.kde.org/?p=killbots."
@@ -355,19 +355,19 @@ msgctxt ""
 msgid "F"
 msgstr "F"
 
-#: mainwindow.cpp:266
+#: mainwindow.cpp:275
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Destroy all enemies in neighboring cells"
 msgstr "인접 셀의 모든 적 파괴"
 
-#: mainwindow.cpp:271 optionspage.cpp:30
+#: mainwindow.cpp:280 optionspage.cpp:30
 #, kde-format
 msgctxt "@action"
 msgid "Wait Out Round"
 msgstr "라운드 끝까지 대기"
 
-#: mainwindow.cpp:272
+#: mainwindow.cpp:281
 #, kde-format
 msgctxt ""
 "Shortcut for wait out round. See https://quickgit.kde.org/?p=killbots."
@@ -375,19 +375,19 @@ msgctxt ""
 msgid "V"
 msgstr "V"
 
-#: mainwindow.cpp:274
+#: mainwindow.cpp:283
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Risk remaining in place until the end of the round for bonuses"
 msgstr "현재 위치에서 라운드 끝까지 대기하여 보너스를 얻습니다"
 
-#: mainwindow.cpp:279
+#: mainwindow.cpp:288
 #, kde-format
 msgctxt "@action"
 msgid "Move Up and Left"
 msgstr "왼쪽 위로 이동"
 
-#: mainwindow.cpp:280
+#: mainwindow.cpp:289
 #, kde-format
 msgctxt ""
 "Shortcut for move up and left. https://quickgit.kde.org/?p=killbots."
@@ -395,13 +395,13 @@ msgctxt ""
 msgid "Q"
 msgstr "Q"
 
-#: mainwindow.cpp:285
+#: mainwindow.cpp:294
 #, kde-format
 msgctxt "@action"
 msgid "Move Up"
 msgstr "위로 이동"
 
-#: mainwindow.cpp:286
+#: mainwindow.cpp:295
 #, kde-format
 msgctxt ""
 "Shortcut for move up. See https://quickgit.kde.org/?p=killbots."
@@ -409,13 +409,13 @@ msgctxt ""
 msgid "W"
 msgstr "W"
 
-#: mainwindow.cpp:291
+#: mainwindow.cpp:300
 #, kde-format
 msgctxt "@action"
 msgid "Move Up and Right"
 msgstr "오른쪽 위로 이동"
 
-#: mainwindow.cpp:292
+#: mainwindow.cpp:301
 #, kde-format
 msgctxt ""
 "Shortcut for move up and right. https://quickgit.kde.org/?p=killbots."
@@ -423,13 +423,13 @@ msgctxt ""
 msgid "E"
 msgstr "E"
 
-#: mainwindow.cpp:297
+#: mainwindow.cpp:306
 #, kde-format
 msgctxt "@action"
 msgid "Move Left"
 msgstr "왼쪽으로 이동"
 
-#: mainwindow.cpp:298
+#: mainwindow.cpp:307
 #, kde-format
 msgctxt ""
 "Shortcut for move left. See https://quickgit.kde.org/?p=killbots."
@@ -437,13 +437,13 @@ msgctxt ""
 msgid "A"
 msgstr "A"
 
-#: mainwindow.cpp:303
+#: mainwindow.cpp:312
 #, kde-format
 msgctxt "@action"
 msgid "Stand Still"
 msgstr "위치 고정"
 
-#: mainwindow.cpp:304
+#: mainwindow.cpp:313
 #, kde-format
 msgctxt ""
 "Shortcut for stand still. See https://quickgit.kde.org/?p=killbots."
@@ -451,13 +451,13 @@ msgctxt ""
 msgid "S"
 msgstr "S"
 
-#: mainwindow.cpp:309
+#: mainwindow.cpp:318
 #, kde-format
 msgctxt "@action"
 msgid "Move Right"
 msgstr "오른쪽으로 이동"
 
-#: mainwindow.cpp:310
+#: mainwindow.cpp:319
 #, kde-format
 msgctxt ""
 "Shortcut for move right. See https://quickgit.kde.org/?p=killbots."
@@ -465,13 +465,13 @@ msgctxt ""
 msgid "D"
 msgstr "D"
 
-#: mainwindow.cpp:315
+#: mainwindow.cpp:324
 #, kde-format
 msgctxt "@action"
 msgid "Move Down and Left"
 msgstr "왼쪽 아래로 이동"
 
-#: mainwindow.cpp:316
+#: mainwindow.cpp:325
 #, kde-format
 msgctxt ""
 "Shortcut for move down and left. See https://quickgit.kde.org/?p=killbots."
@@ -479,13 +479,13 @@ msgctxt ""
 msgid "Z"
 msgstr "Z"
 
-#: mainwindow.cpp:321
+#: mainwindow.cpp:330
 #, kde-format
 msgctxt "@action"
 msgid "Move Down"
 msgstr "아래로 이동"
 
-#: mainwindow.cpp:322
+#: mainwindow.cpp:331
 #, kde-format
 msgctxt ""
 "Shortcut for move down. See https://quickgit.kde.org/?p=killbots."
@@ -493,13 +493,13 @@ msgctxt ""
 msgid "X"
 msgstr "X"
 
-#: mainwindow.cpp:327
+#: mainwindow.cpp:336
 #, kde-format
 msgctxt "@action"
 msgid "Move Down and Right"
 msgstr "오른쪽 아래로 이동"
 
-#: mainwindow.cpp:328
+#: mainwindow.cpp:337
 #, kde-format
 msgctxt ""
 "Shortcut for move down and right. https://quickgit.kde.org/?p=killbots."

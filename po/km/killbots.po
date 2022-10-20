@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: killbots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-30 00:41+0000\n"
+"POT-Creation-Date: 2022-10-20 00:44+0000\n"
 "PO-Revision-Date: 2009-10-24 09:11+0700\n"
 "Last-Translator: Morn Met\n"
 "Language-Team: Khmer <kde-i18n-doc@kde.org>\n"
@@ -215,7 +215,7 @@ msgstr ""
 "អ្នក​និពន្ធ​ Robots របស់​​ Gnome  ។ បាន​ប្រឌិត​ការ​នាំ​ចូល​ពី​ចម្ងាយ​ដោយ​​​សុវត្ថិភាព​ ដោយ​រុញ​ junkheaps និង​"
 "មនុស្ស​យន្ត​រហ័ស​ ។"
 
-#: mainwindow.cpp:60
+#: mainwindow.cpp:61
 #, kde-format
 msgid ""
 "This is the main game area used to interact with Killbots. It shows the "
@@ -226,90 +226,90 @@ msgstr ""
 "ស្ថាន​ភាព​បច្ចុប្បន្ន​របស់​ក្រឡា​ចត្រង្គ​ល្បែង​ និង​អនុញ្ញាត​ឲ្យ​អ្នក​លេង​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​បញ្ជា​វីរ​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​បុរស​បាន​ ដោយ​ប្រើ​កណ្ដុរ​ ។ វា​ក៏​"
 "នឹង​បង្ហាញ​ស្ថិតិ​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​ជាក់​លាក់​អំពី​ល្បែង​ដែល​កំពុង​ដំណើរ​ការ​ផង​ដែរ​ ។​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​   ​​​​​​​​​​​​  ​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​"
 
-#: mainwindow.cpp:94
+#: mainwindow.cpp:95
 #, fuzzy, kde-format
 #| msgid "General"
 msgctxt "@title"
 msgid "General"
 msgstr "ទូ​ទៅ"
 
-#: mainwindow.cpp:96
+#: mainwindow.cpp:97
 #, fuzzy, kde-format
 #| msgid "Configure general settings"
 msgctxt "@info"
 msgid "Configure general settings"
 msgstr "កំណត់​រចនាសម្ព័ន្ធអំពី​ការកំណត់​ទូ​ទៅ"
 
-#: mainwindow.cpp:99
+#: mainwindow.cpp:100
 #, fuzzy, kde-format
 #| msgid "Game Type"
 msgctxt "@title"
 msgid "Game Type"
 msgstr "ប្រភេទ​ល្បែង"
 
-#: mainwindow.cpp:101
+#: mainwindow.cpp:102
 #, fuzzy, kde-format
 #| msgid "Select a game type"
 msgctxt "@info"
 msgid "Select a game type"
 msgstr "ជ្រើស​ប្រភេទ​ល្បែង"
 
-#: mainwindow.cpp:104
+#: mainwindow.cpp:105
 #, fuzzy, kde-format
 #| msgid "Appearance"
 msgctxt "@title"
 msgid "Appearance"
 msgstr "រូប​រាង"
 
-#: mainwindow.cpp:106
+#: mainwindow.cpp:107
 #, fuzzy, kde-format
 #| msgid "Select a graphical theme"
 msgctxt "@info"
 msgid "Select a graphical theme"
 msgstr "ជ្រើស​ស្បែក​ក្រាហ្វិក"
 
-#: mainwindow.cpp:140
+#: mainwindow.cpp:145
 #, kde-format
 msgid ""
 "A new game type has been selected, but there is already a game in progress."
 msgstr "ប្រភេទ​ល្បែង​ថ្មី​ត្រូវ​បាន​ជ្រើស​ ប៉ុន្តែ​មាន​ល្បែង​មួយ​កំពុង​តែ​ដំណើរ​ការ​រួច​ហើយ​ ។"
 
-#: mainwindow.cpp:141
+#: mainwindow.cpp:146
 #, fuzzy, kde-format
 #| msgid "Game Type Changed"
 msgctxt "@title:window"
 msgid "Game Type Changed"
 msgstr "បាន​ផ្លាស់​ប្ដូរ​ប្រភេទ​ល្បែង"
 
-#: mainwindow.cpp:142
+#: mainwindow.cpp:147
 #, fuzzy, kde-format
 #| msgid "Continue Current Game"
 msgctxt "@action:button"
 msgid "Continue Current Game"
 msgstr "បន្ត​ល្បែង​បច្ចុប្បន្ន"
 
-#: mainwindow.cpp:143
+#: mainwindow.cpp:148
 #, fuzzy, kde-format
 #| msgid "Start a New Game"
 msgctxt "@action:button"
 msgid "Start a New Game"
 msgstr "ចាប់​ផ្ដើម​ល្បែង​ថ្មី"
 
-#: mainwindow.cpp:156
+#: mainwindow.cpp:165
 #, fuzzy, kde-format
 #| msgid "Round"
 msgctxt "@title:column round of the game"
 msgid "Round"
 msgstr "ជុំ"
 
-#: mainwindow.cpp:240 optionspage.cpp:28
+#: mainwindow.cpp:249 optionspage.cpp:28
 #, fuzzy, kde-format
 #| msgid "Teleport Safely"
 msgctxt "@action"
 msgid "Teleport Safely"
 msgstr "បញ្ជូន​ពី​ចម្ងាយ​ដោយ​សុវត្ថិភាព​"
 
-#: mainwindow.cpp:241
+#: mainwindow.cpp:250
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Shortcut for teleport safely. See http://websvn.kde.org/trunk/KDE/"
@@ -321,21 +321,21 @@ msgctxt ""
 msgid "T"
 msgstr "T"
 
-#: mainwindow.cpp:243
+#: mainwindow.cpp:252
 #, fuzzy, kde-format
 #| msgid "Teleport to a safe location"
 msgctxt "@info:tooltip"
 msgid "Teleport to a safe location"
 msgstr "បញ្ជូន​ពី​ចម្ងាយ​ទៅ​កាន់​ទី​តាំង​សុវត្ថិភាព​"
 
-#: mainwindow.cpp:248 optionspage.cpp:27
+#: mainwindow.cpp:257 optionspage.cpp:27
 #, fuzzy, kde-format
 #| msgid "Teleport"
 msgctxt "@action"
 msgid "Teleport"
 msgstr "បញ្ជូន​ពី​ចម្ងាយ"
 
-#: mainwindow.cpp:249
+#: mainwindow.cpp:258
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Shortcut for teleport. See http://websvn.kde.org/trunk/KDE/kdegames/"
@@ -347,21 +347,21 @@ msgctxt ""
 msgid "R"
 msgstr "R"
 
-#: mainwindow.cpp:251
+#: mainwindow.cpp:260
 #, fuzzy, kde-format
 #| msgid "Teleport to a random location"
 msgctxt "@info:tooltip"
 msgid "Teleport to a random location"
 msgstr "បញ្ជូន​ពី​ចម្ងាយ​ទៅ​កាន់​ទី​តាំង​ចៃដន្យ"
 
-#: mainwindow.cpp:256 optionspage.cpp:29
+#: mainwindow.cpp:265 optionspage.cpp:29
 #, fuzzy, kde-format
 #| msgid "Teleport (Safely If Possible)"
 msgctxt "@action"
 msgid "Teleport (Safely if Possible)"
 msgstr "បញ្ជូន​ពី​ចម្ងាយ​ (ដោយ​សុវត្ថិភាព​ បើ​អាច​)"
 
-#: mainwindow.cpp:257
+#: mainwindow.cpp:266
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Shortcut for teleport safely if possible. See http://websvn.kde.org/trunk/"
@@ -373,7 +373,7 @@ msgctxt ""
 msgid "Space"
 msgstr "កន្លែង​"
 
-#: mainwindow.cpp:259
+#: mainwindow.cpp:268
 #, fuzzy, kde-format
 #| msgid ""
 #| "Teleport safely if that action is enabled, otherwise teleport randomly"
@@ -381,14 +381,14 @@ msgctxt "@info:tooltip"
 msgid "Teleport safely if that action is enabled, otherwise teleport randomly"
 msgstr "បញ្ជូន​ពី​ចម្ងាយ​ដោយ​សុវត្ថិ​​ភាព​ បើ​សកម្មភាព​នោះ​អនុញ្ញាត​ បើ​មិន​អញ្ចឹង​ទេ បញ្ជូន​​ពី​ចម្ងាយ​ដោយ​​ចៃដន្យ​"
 
-#: mainwindow.cpp:263
+#: mainwindow.cpp:272
 #, fuzzy, kde-format
 #| msgid "Vaporizer"
 msgctxt "@action"
 msgid "Vaporizer"
 msgstr "ប្រដាប់​​រំហួត​​ទឹក"
 
-#: mainwindow.cpp:264
+#: mainwindow.cpp:273
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Shortcut for vaporizer. See http://websvn.kde.org/trunk/KDE/kdegames/"
@@ -400,21 +400,21 @@ msgctxt ""
 msgid "F"
 msgstr "F"
 
-#: mainwindow.cpp:266
+#: mainwindow.cpp:275
 #, fuzzy, kde-format
 #| msgid "Destroy all enemies in neighboring cells"
 msgctxt "@info:tooltip"
 msgid "Destroy all enemies in neighboring cells"
 msgstr "កម្ទេច​សត្រូវ​ទាំង​អស់​នៅ​ក្នុង​បន្ទប់​ដែល​នៅ​ជិត​"
 
-#: mainwindow.cpp:271 optionspage.cpp:30
+#: mainwindow.cpp:280 optionspage.cpp:30
 #, fuzzy, kde-format
 #| msgid "Wait Out Round"
 msgctxt "@action"
 msgid "Wait Out Round"
 msgstr "រង់​ចាំ​នៅ​ខាង​ក្រៅ​​ស្ងៀម​ៗ"
 
-#: mainwindow.cpp:272
+#: mainwindow.cpp:281
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Shortcut for wait out round. See http://websvn.kde.org/trunk/KDE/kdegames/"
@@ -426,21 +426,21 @@ msgctxt ""
 msgid "V"
 msgstr "V"
 
-#: mainwindow.cpp:274
+#: mainwindow.cpp:283
 #, fuzzy, kde-format
 #| msgid "Risk remaining in place until the end of the round for bonuses"
 msgctxt "@info:tooltip"
 msgid "Risk remaining in place until the end of the round for bonuses"
 msgstr "គ្រោះ​ថ្នាក់​នៅ​តែ​មាន​ដដែល​ រហូត​​ដល់​ចប់​ជុំ​សម្រាប់​ពិន្ទុ​បន្ថែម"
 
-#: mainwindow.cpp:279
+#: mainwindow.cpp:288
 #, fuzzy, kde-format
 #| msgid "Move Up and Left"
 msgctxt "@action"
 msgid "Move Up and Left"
 msgstr "ផ្លាស់​ទី​ឡើង​លើ និង​ផ្លាស់​ទី​ទៅ​ឆ្វេង"
 
-#: mainwindow.cpp:280
+#: mainwindow.cpp:289
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Shortcut for move up and left. See http://websvn.kde.org/trunk/KDE/"
@@ -452,14 +452,14 @@ msgctxt ""
 msgid "Q"
 msgstr "Q"
 
-#: mainwindow.cpp:285
+#: mainwindow.cpp:294
 #, fuzzy, kde-format
 #| msgid "Move Up"
 msgctxt "@action"
 msgid "Move Up"
 msgstr "ផ្លាស់​ទី​ឡើង​លើ"
 
-#: mainwindow.cpp:286
+#: mainwindow.cpp:295
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Shortcut for move up. See http://websvn.kde.org/trunk/KDE/kdegames/"
@@ -471,14 +471,14 @@ msgctxt ""
 msgid "W"
 msgstr "W"
 
-#: mainwindow.cpp:291
+#: mainwindow.cpp:300
 #, fuzzy, kde-format
 #| msgid "Move Up and Right"
 msgctxt "@action"
 msgid "Move Up and Right"
 msgstr "ផ្លាស់​ទី​ឡើង​លើ​ និង​​ទៅ​ស្ដាំ"
 
-#: mainwindow.cpp:292
+#: mainwindow.cpp:301
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Shortcut for move up and right. See http://websvn.kde.org/trunk/KDE/"
@@ -490,14 +490,14 @@ msgctxt ""
 msgid "E"
 msgstr "E"
 
-#: mainwindow.cpp:297
+#: mainwindow.cpp:306
 #, fuzzy, kde-format
 #| msgid "Move Left"
 msgctxt "@action"
 msgid "Move Left"
 msgstr "ផ្លាស់​ទី​ទៅ​ឆ្វេង"
 
-#: mainwindow.cpp:298
+#: mainwindow.cpp:307
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Shortcut for move left. See http://websvn.kde.org/trunk/KDE/kdegames/"
@@ -509,14 +509,14 @@ msgctxt ""
 msgid "A"
 msgstr "A"
 
-#: mainwindow.cpp:303
+#: mainwindow.cpp:312
 #, fuzzy, kde-format
 #| msgid "Stand Still"
 msgctxt "@action"
 msgid "Stand Still"
 msgstr "ឈរ​ស្ងៀម"
 
-#: mainwindow.cpp:304
+#: mainwindow.cpp:313
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Shortcut for stand still. See http://websvn.kde.org/trunk/KDE/kdegames/"
@@ -528,14 +528,14 @@ msgctxt ""
 msgid "S"
 msgstr "S"
 
-#: mainwindow.cpp:309
+#: mainwindow.cpp:318
 #, fuzzy, kde-format
 #| msgid "Move Right"
 msgctxt "@action"
 msgid "Move Right"
 msgstr "ផ្លាស់​ទី​ទៅ​ស្ដាំ"
 
-#: mainwindow.cpp:310
+#: mainwindow.cpp:319
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Shortcut for move right. See http://websvn.kde.org/trunk/KDE/kdegames/"
@@ -547,14 +547,14 @@ msgctxt ""
 msgid "D"
 msgstr "D"
 
-#: mainwindow.cpp:315
+#: mainwindow.cpp:324
 #, fuzzy, kde-format
 #| msgid "Move Down and Left"
 msgctxt "@action"
 msgid "Move Down and Left"
 msgstr "ផ្លាស់​ទី​ចុះ​ក្រោម និង​​​ទៅ​ឆ្វេង"
 
-#: mainwindow.cpp:316
+#: mainwindow.cpp:325
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Shortcut for move down and left. See http://websvn.kde.org/trunk/KDE/"
@@ -566,14 +566,14 @@ msgctxt ""
 msgid "Z"
 msgstr "Z"
 
-#: mainwindow.cpp:321
+#: mainwindow.cpp:330
 #, fuzzy, kde-format
 #| msgid "Move Down"
 msgctxt "@action"
 msgid "Move Down"
 msgstr "ផ្លាស់​ទី​ចុះ​ក្រោម"
 
-#: mainwindow.cpp:322
+#: mainwindow.cpp:331
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Shortcut for move down. See http://websvn.kde.org/trunk/KDE/kdegames/"
@@ -585,14 +585,14 @@ msgctxt ""
 msgid "X"
 msgstr "X"
 
-#: mainwindow.cpp:327
+#: mainwindow.cpp:336
 #, fuzzy, kde-format
 #| msgid "Move Down and Right"
 msgctxt "@action"
 msgid "Move Down and Right"
 msgstr "ផ្លាស់​ទី​ចុះ​ក្រោម​ និង​ទៅ​​ស្ដាំ​"
 
-#: mainwindow.cpp:328
+#: mainwindow.cpp:337
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Shortcut for move down and right. See http://websvn.kde.org/trunk/KDE/"
