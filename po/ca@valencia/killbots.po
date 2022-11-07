@@ -795,7 +795,7 @@ msgstr "Detalls del tipus de joc %1"
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "A list of the Killbots rulesets installed on this computer."
-msgstr "Una llista de les regles de Killbots instal·lades a l'ordinador."
+msgstr "Una llista de les regles de Killbots instal·lades en l'ordinador."
 
 #: rulesetselector.cpp:39
 #, kde-format
