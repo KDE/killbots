@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: killbots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-20 00:44+0000\n"
-"PO-Revision-Date: 2022-09-30 15:35+0200\n"
+"PO-Revision-Date: 2023-01-14 04:06+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.2.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -84,7 +84,7 @@ msgstr "თამაში დასრულდა."
 #: killbots.kcfg:19
 #, kde-format
 msgid "The action performed on a middle-click"
-msgstr ""
+msgstr "შუა-წკაპზე შესრულებული ქმედება"
 
 #. i18n: ectx: whatsthis, entry (MiddleClickAction), group (General)
 #: killbots.kcfg:20
@@ -100,7 +100,7 @@ msgstr ""
 #: killbots.kcfg:25
 #, kde-format
 msgid "The action performed on a right-click"
-msgstr ""
+msgstr "მარჯვენა-წკაპზე შესრულებული ქმედება"
 
 #. i18n: ectx: whatsthis, entry (RightClickAction), group (General)
 #: killbots.kcfg:26
@@ -112,7 +112,7 @@ msgstr ""
 #: killbots.kcfg:32
 #, kde-format
 msgid "The speed used to display animations"
-msgstr ""
+msgstr "ანიმაციების ჩვენების სიჩქარე"
 
 #. i18n: ectx: whatsthis, entry (AnimationSpeed), group (General)
 #: killbots.kcfg:33
@@ -124,7 +124,7 @@ msgstr ""
 #: killbots.kcfg:37
 #, kde-format
 msgid "Prevent the player from making fatal moves"
-msgstr ""
+msgstr "მოთამაშისთვის გაფრთხილება სასიკვდილო სვლების შესახებ"
 
 #. i18n: ectx: whatsthis, entry (PreventUnsafeMoves), group (General)
 #: killbots.kcfg:38
@@ -138,7 +138,7 @@ msgstr ""
 #: killbots.kcfg:42
 #, kde-format
 msgid "The selected set of game rules"
-msgstr ""
+msgstr "თამაშის წესების არჩეული ნაკრები"
 
 #. i18n: ectx: whatsthis, entry (Ruleset), group (General)
 #: killbots.kcfg:43
@@ -167,12 +167,12 @@ msgstr "Killbots"
 #: main.cpp:39
 #, kde-format
 msgid "A KDE game of killer robots and teleportation."
-msgstr ""
+msgstr "KDE-ის თამაში მკვლელ რობოტებზე და ტელეპორტაციაზე."
 
 #: main.cpp:41
 #, kde-format
 msgid "© 2006-2009, Parker Coates"
-msgstr ""
+msgstr "© 2006-2009, Parker Coates"
 
 #: main.cpp:42
 #, kde-format
@@ -238,7 +238,7 @@ msgstr "გარემოს იერსახე"
 #, kde-format
 msgctxt "@info"
 msgid "Select a graphical theme"
-msgstr ""
+msgstr "აირჩიეთ გრაფიკული თემა"
 
 #: mainwindow.cpp:145
 #, kde-format
@@ -250,19 +250,19 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Game Type Changed"
-msgstr ""
+msgstr "თამაშის ტიპი შეიცვალა"
 
 #: mainwindow.cpp:147
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue Current Game"
-msgstr ""
+msgstr "მიმდინარე თამაშის გაგრძელება"
 
 #: mainwindow.cpp:148
 #, kde-format
 msgctxt "@action:button"
 msgid "Start a New Game"
-msgstr ""
+msgstr "ახალი თამაშის დაწყება"
 
 #: mainwindow.cpp:165
 #, kde-format
@@ -274,7 +274,7 @@ msgstr "მრგვალი"
 #, kde-format
 msgctxt "@action"
 msgid "Teleport Safely"
-msgstr ""
+msgstr "უსაფრთხო ტელეპორტი"
 
 #: mainwindow.cpp:250
 #, kde-format
@@ -288,13 +288,13 @@ msgstr "ტერა"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Teleport to a safe location"
-msgstr ""
+msgstr "ტელეპორტი უასფრთხო ადგილას"
 
 #: mainwindow.cpp:257 optionspage.cpp:27
 #, kde-format
 msgctxt "@action"
 msgid "Teleport"
-msgstr ""
+msgstr "ტელეპორტი"
 
 #: mainwindow.cpp:258
 #, kde-format
@@ -308,13 +308,13 @@ msgstr "R"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Teleport to a random location"
-msgstr ""
+msgstr "ტელეპორტი შემთხვევის ადგილას"
 
 #: mainwindow.cpp:265 optionspage.cpp:29
 #, kde-format
 msgctxt "@action"
 msgid "Teleport (Safely if Possible)"
-msgstr ""
+msgstr "ტელეპორტი (უსაფრთხოთ, თუ ეს შესაძლებელია)"
 
 #: mainwindow.cpp:266
 #, kde-format
@@ -334,7 +334,7 @@ msgstr ""
 #, kde-format
 msgctxt "@action"
 msgid "Vaporizer"
-msgstr ""
+msgstr "ამაორთქლებელი"
 
 #: mainwindow.cpp:273
 #, kde-format
@@ -348,7 +348,7 @@ msgstr "პ"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Destroy all enemies in neighboring cells"
-msgstr ""
+msgstr "მეზობელ უჯრედებში მყოფი მტრების განადგურება"
 
 #: mainwindow.cpp:280 optionspage.cpp:30
 #, kde-format
@@ -374,7 +374,7 @@ msgstr ""
 #, kde-format
 msgctxt "@action"
 msgid "Move Up and Left"
-msgstr ""
+msgstr "მაღლა და მარცხნივ გადატანა"
 
 #: mainwindow.cpp:289
 #, kde-format
@@ -402,7 +402,7 @@ msgstr "სიგ"
 #, kde-format
 msgctxt "@action"
 msgid "Move Up and Right"
-msgstr ""
+msgstr "მაღლა და მარჯვნივ გადატანა"
 
 #: mainwindow.cpp:301
 #, kde-format
@@ -430,7 +430,7 @@ msgstr ""
 #, kde-format
 msgctxt "@action"
 msgid "Stand Still"
-msgstr ""
+msgstr "გაუნძრევლად დგომა"
 
 #: mainwindow.cpp:313
 #, kde-format
@@ -458,7 +458,7 @@ msgstr ""
 #, kde-format
 msgctxt "@action"
 msgid "Move Down and Left"
-msgstr ""
+msgstr "დაბლა და მარცხნივ გადატანა"
 
 #: mainwindow.cpp:325
 #, kde-format
@@ -486,7 +486,7 @@ msgstr ""
 #, kde-format
 msgctxt "@action"
 msgid "Move Down and Right"
-msgstr ""
+msgstr "დაბლა და მარჯვნივ გადატანა"
 
 #: mainwindow.cpp:337
 #, kde-format
@@ -512,7 +512,7 @@ msgstr "ნაბიჯი"
 #, kde-format
 msgctxt "@action"
 msgid "Repeated Step"
-msgstr ""
+msgstr "გამეორებული ნაბიჯი"
 
 #: optionspage.cpp:45
 #, kde-format
@@ -536,61 +536,61 @@ msgstr "მყისი"
 #, kde-format
 msgctxt "@label:slider"
 msgid "Animation &speed:"
-msgstr ""
+msgstr "&ანიმაციის სიჩქარე:"
 
 #: optionspage.cpp:63
 #, kde-format
 msgctxt "@option:check"
 msgid "Prevent &unsafe moves"
-msgstr ""
+msgstr "&სახიფათო სვლების თავიდან აცილება"
 
 #: optionspage.cpp:68
 #, kde-format
 msgctxt "@label:listbox"
 msgid "&Middle-click action:"
-msgstr ""
+msgstr "&შუა-წკაპის ქმედება:"
 
 #: optionspage.cpp:69
 #, kde-format
 msgctxt "@label:listbox"
 msgid "&Right-click action:"
-msgstr ""
+msgstr "&მარჯვენა-წკაპის ქმედება:"
 
 #. i18n: ectx: label, entry (Rows), group (KillbotsRuleset)
 #: rulesetbase.kcfg:19
 #, kde-format
 msgid "Number of rows in game grid"
-msgstr ""
+msgstr "თამაშის ბადეში მწკრივების რაოდენობა"
 
 #. i18n: ectx: label, entry (Columns), group (KillbotsRuleset)
 #: rulesetbase.kcfg:24
 #, kde-format
 msgid "Number of columns in game grid"
-msgstr ""
+msgstr "თამაშის ბადეში სვეტების რაოდენობა"
 
 #. i18n: ectx: label, entry (EnemiesAtGameStart), group (KillbotsRuleset)
 #: rulesetbase.kcfg:28
 #, kde-format
 msgid "Number of regular enemies in first round"
-msgstr ""
+msgstr "პირველ ტურში ჩვეულებრივი მტრების რაოდენობა"
 
 #. i18n: ectx: label, entry (EnemiesAddedEachRound), group (KillbotsRuleset)
 #: rulesetbase.kcfg:32
 #, kde-format
 msgid "Number of regular enemies added in each new round"
-msgstr ""
+msgstr "ახალ ტურებში დამატებულ ჩვეულებრივი მტრების რაოდენობა"
 
 #. i18n: ectx: label, entry (FastEnemiesAtGameStart), group (KillbotsRuleset)
 #: rulesetbase.kcfg:36
 #, kde-format
 msgid "Number of fast enemies in first round"
-msgstr ""
+msgstr "პირველ ტურში სწრაფი მტრების რაოდენობა"
 
 #. i18n: ectx: label, entry (FastEnemiesAddedEachRound), group (KillbotsRuleset)
 #: rulesetbase.kcfg:40
 #, kde-format
 msgid "Number of fast enemies added in each new round"
-msgstr ""
+msgstr "ახალ ტურებში დამატებული სწრაფი მტრების რაოდენობა"
 
 #. i18n: ectx: label, entry (FastEnemiesArePatient), group (KillbotsRuleset)
 #: rulesetbase.kcfg:44
@@ -603,25 +603,25 @@ msgstr ""
 #: rulesetbase.kcfg:48
 #, kde-format
 msgid "Player can accumulate energy"
-msgstr ""
+msgstr "მოთამაშეს შეუძლია, დააგროვოს ენერგია"
 
 #. i18n: ectx: label, entry (EnergyAtGameStart), group (KillbotsRuleset)
 #: rulesetbase.kcfg:53
 #, kde-format
 msgid "Energy at start of first round"
-msgstr ""
+msgstr "ენერგია პირველი ტურის დაწყებისას"
 
 #. i18n: ectx: label, entry (EnergyAddedEachRound), group (KillbotsRuleset)
 #: rulesetbase.kcfg:57
 #, kde-format
 msgid "Energy awarded for completing a round"
-msgstr ""
+msgstr "ტურის დასრულებისას მინიჭებულ ენერგია"
 
 #. i18n: ectx: label, entry (MaxEnergyAtGameStart), group (KillbotsRuleset)
 #: rulesetbase.kcfg:62
 #, kde-format
 msgid "Maximum energy cap in first round"
-msgstr ""
+msgstr "მაქსიმალური ენერგია პირველ ტურში"
 
 #. i18n: ectx: label, entry (MaxEnergyAddedEachRound), group (KillbotsRuleset)
 #: rulesetbase.kcfg:66
@@ -633,25 +633,25 @@ msgstr ""
 #: rulesetbase.kcfg:70
 #, kde-format
 msgid "Player can perform safe teleports"
-msgstr ""
+msgstr "მოთამაშეს უსაფრთხო ტელეპორტის გაკეთება შეუძლია"
 
 #. i18n: ectx: label, entry (CostOfSafeTeleport), group (KillbotsRuleset)
 #: rulesetbase.kcfg:75
 #, kde-format
 msgid "The cost of performing a safe teleport"
-msgstr ""
+msgstr "უსაფრთხო ტელეპორტის ფასი"
 
 #. i18n: ectx: label, entry (VaporizerEnabled), group (KillbotsRuleset)
 #: rulesetbase.kcfg:79
 #, kde-format
 msgid "Player can use vaporizer"
-msgstr ""
+msgstr "მოთამაშეს შეუძლია, ამაორთქლებელი გამოიყენოს"
 
 #. i18n: ectx: label, entry (CostOfVaporizer), group (KillbotsRuleset)
 #: rulesetbase.kcfg:84
 #, kde-format
 msgid "Cost of using vaporizer"
-msgstr ""
+msgstr "ამაორთქლებლის გამოყენების ფასი"
 
 #. i18n: ectx: label, entry (PushableJunkheaps), group (KillbotsRuleset)
 #: rulesetbase.kcfg:93
@@ -723,7 +723,7 @@ msgstr ""
 #, kde-format
 msgctxt "@item Quantity of junkheaps that can be pushed"
 msgid "None"
-msgstr ""
+msgstr "არაფერი"
 
 #: rulesetdetailsdialog.cpp:39
 #, kde-format
@@ -735,13 +735,13 @@ msgstr "ერთი"
 #, kde-format
 msgctxt "@item Quantity of junkheaps that can be pushed"
 msgid "Many"
-msgstr ""
+msgstr "ბევრი"
 
 #: rulesetdetailsdialog.cpp:51
 #, kde-format
 msgctxt "%1 is a pretranslated string that we're turning into a label"
 msgid "%1:"
-msgstr ""
+msgstr "%1:"
 
 #: rulesetdetailsdialog.cpp:68
 #, kde-format
@@ -753,13 +753,13 @@ msgstr "კი"
 #, kde-format
 msgctxt "@item"
 msgid "No"
-msgstr ""
+msgstr "არა"
 
 #: rulesetdetailsdialog.cpp:78
 #, kde-format
 msgctxt "@title:window"
 msgid "Details of %1 Game Type"
-msgstr ""
+msgstr "%1 თამაშის ტიპის დეტალები"
 
 #: rulesetselector.cpp:37
 #, kde-format
@@ -771,7 +771,7 @@ msgstr ""
 #, kde-format
 msgctxt "title:group"
 msgid "Game Type Details"
-msgstr ""
+msgstr "თამაშის ტიპის დეტალები"
 
 #: rulesetselector.cpp:40
 #, kde-format
@@ -795,13 +795,13 @@ msgstr "კონტაქტი:"
 #, kde-format
 msgctxt "@label"
 msgid "Description:"
-msgstr ""
+msgstr "აღწერა:"
 
 #: rulesetselector.cpp:64
 #, kde-format
 msgctxt "@action:button"
 msgid "Details..."
-msgstr ""
+msgstr "დეტალები..."
 
 #: rulesetselector.cpp:65
 #, kde-format
