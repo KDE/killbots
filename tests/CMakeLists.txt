@@ -8,7 +8,7 @@ target_include_directories(enginetest
 )
 
 target_source(enginetest PRIVATE
-    enginetest.cpp
+    enginetest.cpp enginetest.h
     ../coordinator.cpp
     ../engine.cpp
     ../numericdisplayitem.cpp
