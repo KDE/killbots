@@ -1,4 +1,5 @@
 # Translation of killbots into esperanto.
+# Copyright (C) 2009 Free Software Foundation, Inc.
 # Axel Rousseau <axel@esperanto-jeunes.org>, 2009.
 #
 msgid ""
@@ -6,8 +7,8 @@ msgstr ""
 "Project-Id-Version: killbots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-20 00:44+0000\n"
-"PO-Revision-Date: 2009-11-15 12:06+0100\n"
-"Last-Translator: Axel Rousseau <axel@esperanto-jeunes.org>\n"
+"PO-Revision-Date: 2023-03-20 22:43+0100\n"
+"Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
@@ -33,8 +34,7 @@ msgid "Round:"
 msgstr ""
 
 #: coordinator.cpp:106
-#, fuzzy, kde-format
-#| msgid "Score:"
+#, kde-format
 msgctxt "@label"
 msgid "Score:"
 msgstr "Poentoj:"
@@ -43,13 +43,13 @@ msgstr "Poentoj:"
 #, kde-format
 msgctxt "@label"
 msgid "Enemies:"
-msgstr ""
+msgstr "Malamikoj:"
 
 #: coordinator.cpp:116
 #, kde-format
 msgctxt "@label"
 msgid "Energy:"
-msgstr ""
+msgstr "Energio:"
 
 #: coordinator.cpp:405
 #, kde-format
@@ -72,8 +72,7 @@ msgid "New game."
 msgstr ""
 
 #: coordinator.cpp:420
-#, fuzzy, kde-format
-#| msgid "Game over."
+#, kde-format
 msgctxt "@info"
 msgid "Game over."
 msgstr "Ludfino."
@@ -146,8 +145,7 @@ msgstr ""
 
 #. i18n: ectx: Menu (moveMenu)
 #: killbotsui.rc:11
-#, fuzzy, kde-format
-#| msgid "Move"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Move"
 msgstr "Movi"
@@ -204,8 +202,7 @@ msgid ""
 msgstr ""
 
 #: mainwindow.cpp:95
-#, fuzzy, kde-format
-#| msgid "General"
+#, kde-format
 msgctxt "@title"
 msgid "General"
 msgstr "Ĝeneralo"
@@ -217,10 +214,10 @@ msgid "Configure general settings"
 msgstr ""
 
 #: mainwindow.cpp:100
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title"
 msgid "Game Type"
-msgstr "Ludo finita!"
+msgstr ""
 
 #: mainwindow.cpp:102
 #, kde-format
@@ -229,8 +226,7 @@ msgid "Select a game type"
 msgstr ""
 
 #: mainwindow.cpp:105
-#, fuzzy, kde-format
-#| msgid "Appearance"
+#, kde-format
 msgctxt "@title"
 msgid "Appearance"
 msgstr "Aspekto"
@@ -248,10 +244,10 @@ msgid ""
 msgstr ""
 
 #: mainwindow.cpp:146
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:window"
 msgid "Game Type Changed"
-msgstr "Ludo finita!"
+msgstr ""
 
 #: mainwindow.cpp:147
 #, kde-format
@@ -372,18 +368,13 @@ msgid "Risk remaining in place until the end of the round for bonuses"
 msgstr ""
 
 #: mainwindow.cpp:288
-#, fuzzy, kde-format
-#| msgid "Move Left"
+#, kde-format
 msgctxt "@action"
 msgid "Move Up and Left"
-msgstr "Movi maldekstren"
+msgstr ""
 
 #: mainwindow.cpp:289
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Shortcut for move up and left. See http://websvn.kde.org/trunk/KDE/"
-#| "kdegames/killbots/README.translators?view=markup"
-#| msgid "Q"
+#, kde-format
 msgctxt ""
 "Shortcut for move up and left. https://quickgit.kde.org/?p=killbots."
 "git&a=blob&f=README.translators&o=plain"
@@ -391,18 +382,13 @@ msgid "Q"
 msgstr "Q"
 
 #: mainwindow.cpp:294
-#, fuzzy, kde-format
-#| msgid "Move Up"
+#, kde-format
 msgctxt "@action"
 msgid "Move Up"
 msgstr "Movi supren"
 
 #: mainwindow.cpp:295
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Shortcut for move up. See http://websvn.kde.org/trunk/KDE/kdegames/"
-#| "killbots/README.translators?view=markup"
-#| msgid "W"
+#, kde-format
 msgctxt ""
 "Shortcut for move up. See https://quickgit.kde.org/?p=killbots."
 "git&a=blob&f=README.translators&o=plain"
@@ -410,18 +396,13 @@ msgid "W"
 msgstr "W"
 
 #: mainwindow.cpp:300
-#, fuzzy, kde-format
-#| msgid "Move Right"
+#, kde-format
 msgctxt "@action"
 msgid "Move Up and Right"
-msgstr "Movi dekstren"
+msgstr ""
 
 #: mainwindow.cpp:301
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Shortcut for move up and right. See http://websvn.kde.org/trunk/KDE/"
-#| "kdegames/killbots/README.translators?view=markup"
-#| msgid "E"
+#, kde-format
 msgctxt ""
 "Shortcut for move up and right. https://quickgit.kde.org/?p=killbots."
 "git&a=blob&f=README.translators&o=plain"
@@ -429,18 +410,13 @@ msgid "E"
 msgstr "E"
 
 #: mainwindow.cpp:306
-#, fuzzy, kde-format
-#| msgid "Move Left"
+#, kde-format
 msgctxt "@action"
 msgid "Move Left"
 msgstr "Movi maldekstren"
 
 #: mainwindow.cpp:307
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Shortcut for move left. See http://websvn.kde.org/trunk/KDE/kdegames/"
-#| "killbots/README.translators?view=markup"
-#| msgid "A"
+#, kde-format
 msgctxt ""
 "Shortcut for move left. See https://quickgit.kde.org/?p=killbots."
 "git&a=blob&f=README.translators&o=plain"
@@ -454,11 +430,7 @@ msgid "Stand Still"
 msgstr ""
 
 #: mainwindow.cpp:313
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Shortcut for stand still. See http://websvn.kde.org/trunk/KDE/kdegames/"
-#| "killbots/README.translators?view=markup"
-#| msgid "S"
+#, kde-format
 msgctxt ""
 "Shortcut for stand still. See https://quickgit.kde.org/?p=killbots."
 "git&a=blob&f=README.translators&o=plain"
@@ -466,18 +438,13 @@ msgid "S"
 msgstr "S"
 
 #: mainwindow.cpp:318
-#, fuzzy, kde-format
-#| msgid "Move Right"
+#, kde-format
 msgctxt "@action"
 msgid "Move Right"
 msgstr "Movi dekstren"
 
 #: mainwindow.cpp:319
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Shortcut for move right. See http://websvn.kde.org/trunk/KDE/kdegames/"
-#| "killbots/README.translators?view=markup"
-#| msgid "D"
+#, kde-format
 msgctxt ""
 "Shortcut for move right. See https://quickgit.kde.org/?p=killbots."
 "git&a=blob&f=README.translators&o=plain"
@@ -485,18 +452,13 @@ msgid "D"
 msgstr "D"
 
 #: mainwindow.cpp:324
-#, fuzzy, kde-format
-#| msgid "Move Down"
+#, kde-format
 msgctxt "@action"
 msgid "Move Down and Left"
-msgstr "Movi malsupren"
+msgstr ""
 
 #: mainwindow.cpp:325
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Shortcut for move down and left. See http://websvn.kde.org/trunk/KDE/"
-#| "kdegames/killbots/README.translators?view=markup"
-#| msgid "Z"
+#, kde-format
 msgctxt ""
 "Shortcut for move down and left. See https://quickgit.kde.org/?p=killbots."
 "git&a=blob&f=README.translators&o=plain"
@@ -504,18 +466,13 @@ msgid "Z"
 msgstr "Z"
 
 #: mainwindow.cpp:330
-#, fuzzy, kde-format
-#| msgid "Move Down"
+#, kde-format
 msgctxt "@action"
 msgid "Move Down"
 msgstr "Movi malsupren"
 
 #: mainwindow.cpp:331
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Shortcut for move down. See http://websvn.kde.org/trunk/KDE/kdegames/"
-#| "killbots/README.translators?view=markup"
-#| msgid "X"
+#, kde-format
 msgctxt ""
 "Shortcut for move down. See https://quickgit.kde.org/?p=killbots."
 "git&a=blob&f=README.translators&o=plain"
@@ -523,18 +480,13 @@ msgid "X"
 msgstr "X"
 
 #: mainwindow.cpp:336
-#, fuzzy, kde-format
-#| msgid "Move Right"
+#, kde-format
 msgctxt "@action"
 msgid "Move Down and Right"
-msgstr "Movi dekstren"
+msgstr ""
 
 #: mainwindow.cpp:337
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Shortcut for move down and right. See http://websvn.kde.org/trunk/KDE/"
-#| "kdegames/killbots/README.translators?view=markup"
-#| msgid "C"
+#, kde-format
 msgctxt ""
 "Shortcut for move down and right. https://quickgit.kde.org/?p=killbots."
 "git&a=blob&f=README.translators&o=plain"
@@ -542,15 +494,13 @@ msgid "C"
 msgstr "C"
 
 #: optionspage.cpp:24
-#, fuzzy, kde-format
-#| msgid "Nothing"
+#, kde-format
 msgctxt "@item:inlistbox No action on click"
 msgid "Nothing"
 msgstr "Nenio"
 
 #: optionspage.cpp:25
-#, fuzzy, kde-format
-#| msgid "Step"
+#, kde-format
 msgctxt "@action"
 msgid "Step"
 msgstr "Paŝi"
@@ -562,15 +512,13 @@ msgid "Repeated Step"
 msgstr ""
 
 #: optionspage.cpp:45
-#, fuzzy, kde-format
-#| msgid "Slow"
+#, kde-format
 msgctxt "@item:inrange"
 msgid "Slow"
 msgstr "Malrapida"
 
 #: optionspage.cpp:47
-#, fuzzy, kde-format
-#| msgid "Fast"
+#, kde-format
 msgctxt "@item:inrange"
 msgid "Fast"
 msgstr "Rapida"
@@ -793,15 +741,13 @@ msgid "%1:"
 msgstr "%1:"
 
 #: rulesetdetailsdialog.cpp:68
-#, fuzzy, kde-format
-#| msgid "Yes"
+#, kde-format
 msgctxt "@item"
 msgid "Yes"
 msgstr "Jes"
 
 #: rulesetdetailsdialog.cpp:68
-#, fuzzy, kde-format
-#| msgid "No"
+#, kde-format
 msgctxt "@item"
 msgid "No"
 msgstr "Ne"
@@ -819,10 +765,10 @@ msgid "A list of the Killbots rulesets installed on this computer."
 msgstr ""
 
 #: rulesetselector.cpp:39
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "title:group"
 msgid "Game Type Details"
-msgstr "Ludo finita!"
+msgstr ""
 
 #: rulesetselector.cpp:40
 #, kde-format
@@ -831,22 +777,19 @@ msgid "Lists information on the currently selected game type."
 msgstr ""
 
 #: rulesetselector.cpp:42
-#, fuzzy, kde-format
-#| msgid "Author:"
+#, kde-format
 msgctxt "@label"
 msgid "Author:"
 msgstr "Aŭtoro:"
 
 #: rulesetselector.cpp:49
-#, fuzzy, kde-format
-#| msgid "Contact:"
+#, kde-format
 msgctxt "@label"
 msgid "Contact:"
 msgstr "Kontakto:"
 
 #: rulesetselector.cpp:57
-#, fuzzy, kde-format
-#| msgid "Description:"
+#, kde-format
 msgctxt "@label"
 msgid "Description:"
 msgstr "Priskribo:"
