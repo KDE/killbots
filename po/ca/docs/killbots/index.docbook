@@ -651,7 +651,7 @@ Preview=exemple.png
       <para
 >Els primers quatre paràmetres contenen metadades sobre el tema i són força senzills. Per als temes del &killbots;, el paràmetre <varname
 >Type</varname
-> sempre s'haurà d'establir en els &SVG;. Els dos últims paràmetres contenen els noms de fitxer dels altres dos fitxers del tema. Si bé no és estrictament necessari, es recomana encaridament que, en nom de la coherència, els tres fitxers comparteixin el mateix nom base del fitxer.</para>
+> sempre s'haurà d'establir en els &SVG;. Els dos últims paràmetres contenen els noms de fitxer dels altres dos fitxers del tema. Si bé no és estrictament necessari, es recomana fermament que, en nom de la coherència, els tres fitxers comparteixin el mateix nom base del fitxer.</para>
     </sect2>
 
     <sect2>
