@@ -1,30 +1,31 @@
 # translation of killbots.po to Galician
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-#
 # mvillarino <mvillarino@users.sourceforge.net>, 2008.
 # Marce Villarino <mvillarino@users.sourceforge.net>, 2009.
 # Xosé <xosecalvo@gmail.com>, 2009, 2012.
 # Adrián Chaves Fernández <adriyetichaves@gmail.com>, 2009, 2015.
-# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2019.
+# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2019, 2023.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: killbots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-20 00:44+0000\n"
-"PO-Revision-Date: 2019-03-02 12:20+0100\n"
+"PO-Revision-Date: 2023-06-11 09:26+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
-"Language-Team: Galician <kde-i18n-doc@kde.org>\n"
+"Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 23.04.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "mvillarino, Xosé Calvo, Adrián Chaves Fernández"
+msgstr "mvillarino, Xosé Calvo, Adrian Chaves (Gallaecio)"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
@@ -33,45 +34,37 @@ msgstr ""
 "mvillarino@users.sourceforge.net, xosecalvo@gmail.com, adrian@chaves.io"
 
 #: coordinator.cpp:101
-#, fuzzy, kde-format
-#| msgid "Round:"
+#, kde-format
 msgctxt "@label"
 msgid "Round:"
 msgstr "Ronda:"
 
 #: coordinator.cpp:106
-#, fuzzy, kde-format
-#| msgid "Score:"
+#, kde-format
 msgctxt "@label"
 msgid "Score:"
 msgstr "Puntuación:"
 
 #: coordinator.cpp:111
-#, fuzzy, kde-format
-#| msgid "Enemies:"
+#, kde-format
 msgctxt "@label"
 msgid "Enemies:"
 msgstr "Inimigos:"
 
 #: coordinator.cpp:116
-#, fuzzy, kde-format
-#| msgid "Energy:"
+#, kde-format
 msgctxt "@label"
 msgid "Energy:"
 msgstr "Enerxía:"
 
 #: coordinator.cpp:405
-#, fuzzy, kde-format
-#| msgid "Round complete."
+#, kde-format
 msgctxt "@info"
 msgid "Round complete."
 msgstr "Ronda completa."
 
 #: coordinator.cpp:410
-#, fuzzy, kde-format
-#| msgid ""
-#| "Board is full.\n"
-#| "Resetting enemy counts."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "Board is full.\n"
@@ -81,18 +74,16 @@ msgstr ""
 "Reiniciarase a cantidade de inimigos."
 
 #: coordinator.cpp:415
-#, fuzzy, kde-format
-#| msgid "New game."
+#, kde-format
 msgctxt "@info"
 msgid "New game."
 msgstr "Nova partida."
 
 #: coordinator.cpp:420
-#, fuzzy, kde-format
-#| msgid "Game over."
+#, kde-format
 msgctxt "@info"
 msgid "Game over."
-msgstr "Partida rematada."
+msgstr "Rematou a partida."
 
 #. i18n: ectx: tooltip, entry (MiddleClickAction), group (General)
 #: killbots.kcfg:19
@@ -171,8 +162,7 @@ msgstr "Escolle as regras a utilizar na seguinte partida."
 
 #. i18n: ectx: Menu (moveMenu)
 #: killbotsui.rc:11
-#, fuzzy, kde-format
-#| msgid "Move"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Move"
 msgstr "Mover"
@@ -235,43 +225,37 @@ msgstr ""
 "partida."
 
 #: mainwindow.cpp:95
-#, fuzzy, kde-format
-#| msgid "General"
+#, kde-format
 msgctxt "@title"
 msgid "General"
 msgstr "Xeral"
 
 #: mainwindow.cpp:97
-#, fuzzy, kde-format
-#| msgid "Configure general settings"
+#, kde-format
 msgctxt "@info"
 msgid "Configure general settings"
 msgstr "Configurar as opcións xerais"
 
 #: mainwindow.cpp:100
-#, fuzzy, kde-format
-#| msgid "Game Type"
+#, kde-format
 msgctxt "@title"
 msgid "Game Type"
 msgstr "Modo de xogo"
 
 #: mainwindow.cpp:102
-#, fuzzy, kde-format
-#| msgid "Select a game type"
+#, kde-format
 msgctxt "@info"
 msgid "Select a game type"
 msgstr "Escolle un modo de xogo"
 
 #: mainwindow.cpp:105
-#, fuzzy, kde-format
-#| msgid "Appearance"
+#, kde-format
 msgctxt "@title"
 msgid "Appearance"
 msgstr "Aparencia"
 
 #: mainwindow.cpp:107
-#, fuzzy, kde-format
-#| msgid "Select a graphical theme"
+#, kde-format
 msgctxt "@info"
 msgid "Select a graphical theme"
 msgstr "Selecciona un tema visual"
@@ -284,36 +268,31 @@ msgstr ""
 "Escolliches un modo de xogo novo, pero xa se está a xogar unha partida."
 
 #: mainwindow.cpp:146
-#, fuzzy, kde-format
-#| msgid "Game Type Changed"
+#, kde-format
 msgctxt "@title:window"
 msgid "Game Type Changed"
 msgstr "Cambiou o modo de xogo"
 
 #: mainwindow.cpp:147
-#, fuzzy, kde-format
-#| msgid "Continue Current Game"
+#, kde-format
 msgctxt "@action:button"
 msgid "Continue Current Game"
 msgstr "Continuar coa partida"
 
 #: mainwindow.cpp:148
-#, fuzzy, kde-format
-#| msgid "Start a New Game"
+#, kde-format
 msgctxt "@action:button"
 msgid "Start a New Game"
-msgstr "Comezar unha partida nova"
+msgstr "Comeza unha nova partida"
 
 #: mainwindow.cpp:165
-#, fuzzy, kde-format
-#| msgid "Round"
+#, kde-format
 msgctxt "@title:column round of the game"
 msgid "Round"
 msgstr "Ronda"
 
 #: mainwindow.cpp:249 optionspage.cpp:28
-#, fuzzy, kde-format
-#| msgid "Teleport Safely"
+#, kde-format
 msgctxt "@action"
 msgid "Teleport Safely"
 msgstr "Teleportación segura"
@@ -327,15 +306,13 @@ msgid "T"
 msgstr "T"
 
 #: mainwindow.cpp:252
-#, fuzzy, kde-format
-#| msgid "Teleport to a safe location"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Teleport to a safe location"
 msgstr "Teleportación a un lugar seguro"
 
 #: mainwindow.cpp:257 optionspage.cpp:27
-#, fuzzy, kde-format
-#| msgid "Teleport"
+#, kde-format
 msgctxt "@action"
 msgid "Teleport"
 msgstr "Teleportación"
@@ -349,31 +326,28 @@ msgid "R"
 msgstr "R"
 
 #: mainwindow.cpp:260
-#, fuzzy, kde-format
-#| msgid "Teleport to a random location"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Teleport to a random location"
 msgstr "Teleportación a un lugar ao chou"
 
 #: mainwindow.cpp:265 optionspage.cpp:29
-#, fuzzy, kde-format
-#| msgid "Teleport (Safely If Possible)"
+#, kde-format
 msgctxt "@action"
 msgid "Teleport (Safely if Possible)"
 msgstr "Teleportación (segura se é posíbel)"
 
+# well-spelled: Space
 #: mainwindow.cpp:266
 #, kde-format
 msgctxt ""
 "Shortcut for teleport safely if possible. See https://quickgit.kde.org/?"
 "p=killbots.git&a=blob&f=README.translators&o=plain"
 msgid "Space"
-msgstr "Espazo"
+msgstr "Space"
 
 #: mainwindow.cpp:268
-#, fuzzy, kde-format
-#| msgid ""
-#| "Teleport safely if that action is enabled, otherwise teleport randomly"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Teleport safely if that action is enabled, otherwise teleport randomly"
 msgstr ""
@@ -381,8 +355,7 @@ msgstr ""
 "chou"
 
 #: mainwindow.cpp:272
-#, fuzzy, kde-format
-#| msgid "Vaporizer"
+#, kde-format
 msgctxt "@action"
 msgid "Vaporizer"
 msgstr "Vaporizador"
@@ -393,21 +366,19 @@ msgctxt ""
 "Shortcut for vaporizer. See https://quickgit.kde.org/?p=killbots."
 "git&a=blob&f=README.translators&o=plain"
 msgid "F"
-msgstr "Cx"
+msgstr "F"
 
 #: mainwindow.cpp:275
-#, fuzzy, kde-format
-#| msgid "Destroy all enemies in neighboring cells"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Destroy all enemies in neighboring cells"
 msgstr "Destruír todos os inimigos das celas veciñas"
 
 #: mainwindow.cpp:280 optionspage.cpp:30
-#, fuzzy, kde-format
-#| msgid "Wait Out Round"
+#, kde-format
 msgctxt "@action"
 msgid "Wait Out Round"
-msgstr "Agardar unha ronda"
+msgstr "Agardar unha rolda"
 
 #: mainwindow.cpp:281
 #, kde-format
@@ -418,18 +389,16 @@ msgid "V"
 msgstr "V"
 
 #: mainwindow.cpp:283
-#, fuzzy, kde-format
-#| msgid "Risk remaining in place until the end of the round for bonuses"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Risk remaining in place until the end of the round for bonuses"
-msgstr "Arriscarse a quedar no sitio ata o final da ronda para premios extra"
+msgstr "Arriscarse a quedar no sitio ata o final da rolda para premios extra"
 
 #: mainwindow.cpp:288
-#, fuzzy, kde-format
-#| msgid "Move Up and Left"
+#, kde-format
 msgctxt "@action"
 msgid "Move Up and Left"
-msgstr "Subir cara a esquerda"
+msgstr "Subir cara á esquerda"
 
 #: mainwindow.cpp:289
 #, kde-format
@@ -440,8 +409,7 @@ msgid "Q"
 msgstr "Q"
 
 #: mainwindow.cpp:294
-#, fuzzy, kde-format
-#| msgid "Move Up"
+#, kde-format
 msgctxt "@action"
 msgid "Move Up"
 msgstr "Subir"
@@ -455,11 +423,10 @@ msgid "W"
 msgstr "O"
 
 #: mainwindow.cpp:300
-#, fuzzy, kde-format
-#| msgid "Move Up and Right"
+#, kde-format
 msgctxt "@action"
 msgid "Move Up and Right"
-msgstr "Subir cara a dereita"
+msgstr "Subir cara á dereita"
 
 #: mainwindow.cpp:301
 #, kde-format
@@ -470,11 +437,10 @@ msgid "E"
 msgstr "E"
 
 #: mainwindow.cpp:306
-#, fuzzy, kde-format
-#| msgid "Move Left"
+#, kde-format
 msgctxt "@action"
 msgid "Move Left"
-msgstr "Ir á esquerda"
+msgstr "Mover á esquerda"
 
 #: mainwindow.cpp:307
 #, kde-format
@@ -485,8 +451,7 @@ msgid "A"
 msgstr "A"
 
 #: mainwindow.cpp:312
-#, fuzzy, kde-format
-#| msgid "Stand Still"
+#, kde-format
 msgctxt "@action"
 msgid "Stand Still"
 msgstr "Agardar"
@@ -500,11 +465,10 @@ msgid "S"
 msgstr "S"
 
 #: mainwindow.cpp:318
-#, fuzzy, kde-format
-#| msgid "Move Right"
+#, kde-format
 msgctxt "@action"
 msgid "Move Right"
-msgstr "Ir á dereita"
+msgstr "Mover á dereita"
 
 #: mainwindow.cpp:319
 #, kde-format
@@ -515,11 +479,10 @@ msgid "D"
 msgstr "D"
 
 #: mainwindow.cpp:324
-#, fuzzy, kde-format
-#| msgid "Move Down and Left"
+#, kde-format
 msgctxt "@action"
 msgid "Move Down and Left"
-msgstr "Baixar cara a esquerda"
+msgstr "Baixar cara á esquerda"
 
 #: mainwindow.cpp:325
 #, kde-format
@@ -530,8 +493,7 @@ msgid "Z"
 msgstr "Z"
 
 #: mainwindow.cpp:330
-#, fuzzy, kde-format
-#| msgid "Move Down"
+#, kde-format
 msgctxt "@action"
 msgid "Move Down"
 msgstr "Baixar"
@@ -545,11 +507,10 @@ msgid "X"
 msgstr "X"
 
 #: mainwindow.cpp:336
-#, fuzzy, kde-format
-#| msgid "Move Down and Right"
+#, kde-format
 msgctxt "@action"
 msgid "Move Down and Right"
-msgstr "Baixar cara a dereita"
+msgstr "Baixar cara á dereita"
 
 #: mainwindow.cpp:337
 #, kde-format
@@ -560,71 +521,61 @@ msgid "C"
 msgstr "C"
 
 #: optionspage.cpp:24
-#, fuzzy, kde-format
-#| msgid "Nothing"
+#, kde-format
 msgctxt "@item:inlistbox No action on click"
 msgid "Nothing"
 msgstr "Nada"
 
 #: optionspage.cpp:25
-#, fuzzy, kde-format
-#| msgid "Step"
+#, kde-format
 msgctxt "@action"
 msgid "Step"
-msgstr "Paso"
+msgstr "Dar un paso"
 
 #: optionspage.cpp:26
-#, fuzzy, kde-format
-#| msgid "Repeated Step"
+#, kde-format
 msgctxt "@action"
 msgid "Repeated Step"
-msgstr "Paso repetido"
+msgstr "Dar pasos"
 
 #: optionspage.cpp:45
-#, fuzzy, kde-format
-#| msgid "Slow"
+#, kde-format
 msgctxt "@item:inrange"
 msgid "Slow"
-msgstr "Lenta"
+msgstr "Amodo"
 
 #: optionspage.cpp:47
-#, fuzzy, kde-format
-#| msgid "Fast"
+#, kde-format
 msgctxt "@item:inrange"
 msgid "Fast"
-msgstr "Rápida"
+msgstr "Rápido"
 
 #: optionspage.cpp:49
-#, fuzzy, kde-format
-#| msgid "Instant"
+#, kde-format
 msgctxt "@item:inrange"
 msgid "Instant"
-msgstr "Instante"
+msgstr "Nun intre"
 
 #: optionspage.cpp:60
-#, fuzzy, kde-format
-#| msgid "Animation &speed:"
+#, kde-format
 msgctxt "@label:slider"
 msgid "Animation &speed:"
 msgstr "&Velocidade da animación:"
 
 #: optionspage.cpp:63
-#, fuzzy, kde-format
-#| msgid "Prevent &unsafe moves"
+#, kde-format
 msgctxt "@option:check"
 msgid "Prevent &unsafe moves"
 msgstr "Non permitir os movementos &inseguros"
 
 #: optionspage.cpp:68
-#, fuzzy, kde-format
-#| msgid "&Middle-click action:"
+#, kde-format
 msgctxt "@label:listbox"
 msgid "&Middle-click action:"
 msgstr "Acción de clic ce&ntral:"
 
 #: optionspage.cpp:69
-#, fuzzy, kde-format
-#| msgid "&Right-click action:"
+#, kde-format
 msgctxt "@label:listbox"
 msgid "&Right-click action:"
 msgstr "Acción de clic de&reito:"
@@ -645,25 +596,25 @@ msgstr "Número de columnas na grade do xogo"
 #: rulesetbase.kcfg:28
 #, kde-format
 msgid "Number of regular enemies in first round"
-msgstr "Número de inimigos normais na primeira ronda"
+msgstr "Número de inimigos normais na primeira rolda"
 
 #. i18n: ectx: label, entry (EnemiesAddedEachRound), group (KillbotsRuleset)
 #: rulesetbase.kcfg:32
 #, kde-format
 msgid "Number of regular enemies added in each new round"
-msgstr "Número de inimigos normais engadidos en cada nova ronda"
+msgstr "Número de inimigos normais engadidos en cada nova rolda"
 
 #. i18n: ectx: label, entry (FastEnemiesAtGameStart), group (KillbotsRuleset)
 #: rulesetbase.kcfg:36
 #, kde-format
 msgid "Number of fast enemies in first round"
-msgstr "Número de inimigos rápidos na primeira ronda"
+msgstr "Número de inimigos rápidos na primeira rolda"
 
 #. i18n: ectx: label, entry (FastEnemiesAddedEachRound), group (KillbotsRuleset)
 #: rulesetbase.kcfg:40
 #, kde-format
 msgid "Number of fast enemies added in each new round"
-msgstr "Número de inimigos rápidos engadidos en cada nova ronda"
+msgstr "Número de inimigos rápidos engadidos en cada nova rolda"
 
 #. i18n: ectx: label, entry (FastEnemiesArePatient), group (KillbotsRuleset)
 #: rulesetbase.kcfg:44
@@ -684,25 +635,25 @@ msgstr "O xogador pode acumular enerxía"
 #: rulesetbase.kcfg:53
 #, kde-format
 msgid "Energy at start of first round"
-msgstr "Enerxía ao inicio da primeira ronda"
+msgstr "Enerxía ao inicio da primeira rolda"
 
 #. i18n: ectx: label, entry (EnergyAddedEachRound), group (KillbotsRuleset)
 #: rulesetbase.kcfg:57
 #, kde-format
 msgid "Energy awarded for completing a round"
-msgstr "Enerxía de premio por completar unha ronda"
+msgstr "Enerxía de premio por completar unha rolda"
 
 #. i18n: ectx: label, entry (MaxEnergyAtGameStart), group (KillbotsRuleset)
 #: rulesetbase.kcfg:62
 #, kde-format
 msgid "Maximum energy cap in first round"
-msgstr "Máximo de enerxía na primeira ronda"
+msgstr "Máximo de enerxía na primeira rolda"
 
 #. i18n: ectx: label, entry (MaxEnergyAddedEachRound), group (KillbotsRuleset)
 #: rulesetbase.kcfg:66
 #, kde-format
 msgid "Increase in maximum energy cap for each new round"
-msgstr "Incrementar no máximo de enerxía en cada ronda nova"
+msgstr "Incrementar no máximo de enerxía en cada rolda nova"
 
 #. i18n: ectx: label, entry (SafeTeleportEnabled), group (KillbotsRuleset)
 #: rulesetbase.kcfg:70
@@ -744,13 +695,13 @@ msgstr "O xogador pode destruír os inimigos coa chatarra que empurre"
 #: rulesetbase.kcfg:101
 #, kde-format
 msgid "Junkheaps placed on grid at start of first round"
-msgstr "A chatarra colocada na grade no inicio da primeira ronda"
+msgstr "A chatarra colocada na grade no inicio da primeira rolda"
 
 #. i18n: ectx: label, entry (JunkheapsAddedEachRound), group (KillbotsRuleset)
 #: rulesetbase.kcfg:105
 #, kde-format
 msgid "Junkheaps added to the grid for each new round"
-msgstr "A chatarra engadida á grade en cada ronda nova"
+msgstr "A chatarra engadida á grade en cada rolda nova"
 
 #. i18n: ectx: label, entry (PointsPerEnemyKilled), group (KillbotsRuleset)
 #: rulesetbase.kcfg:110
@@ -769,14 +720,14 @@ msgstr "Os puntos de premio por cada inimigo rápido destruído"
 #, kde-format
 msgid "Points awarded for each enemy destroyed while waiting out the round"
 msgstr ""
-"Os puntos de premio por cada inimigo destruído mentres se espera a ronda"
+"Os puntos de premio por cada inimigo destruído mentres se espera a rolda"
 
 #. i18n: ectx: label, entry (WaitKillEnergyBonus), group (KillbotsRuleset)
 #: rulesetbase.kcfg:125
 #, kde-format
 msgid "Energy awarded for each enemy destroyed while waiting out the round"
 msgstr ""
-"A enerxía de premio por cada inimigo destruído mentres se espera a ronda"
+"A enerxía de premio por cada inimigo destruído mentres se espera a rolda"
 
 #. i18n: ectx: label, entry (SquashKillPointBonus), group (KillbotsRuleset)
 #: rulesetbase.kcfg:130
@@ -799,25 +750,19 @@ msgstr ""
 "enerxía"
 
 #: rulesetdetailsdialog.cpp:38
-#, fuzzy, kde-format
-#| msgctxt "Quantity of junkheaps that can be pushed"
-#| msgid "None"
+#, kde-format
 msgctxt "@item Quantity of junkheaps that can be pushed"
 msgid "None"
-msgstr "Ningunha"
+msgstr "Nada"
 
 #: rulesetdetailsdialog.cpp:39
-#, fuzzy, kde-format
-#| msgctxt "Quantity of junkheaps that can be pushed"
-#| msgid "One"
+#, kde-format
 msgctxt "@item Quantity of junkheaps that can be pushed"
 msgid "One"
 msgstr "Unha"
 
 #: rulesetdetailsdialog.cpp:40
-#, fuzzy, kde-format
-#| msgctxt "Quantity of junkheaps that can be pushed"
-#| msgid "Many"
+#, kde-format
 msgctxt "@item Quantity of junkheaps that can be pushed"
 msgid "Many"
 msgstr "Moitas"
@@ -829,87 +774,73 @@ msgid "%1:"
 msgstr "%1:"
 
 #: rulesetdetailsdialog.cpp:68
-#, fuzzy, kde-format
-#| msgid "Yes"
+#, kde-format
 msgctxt "@item"
 msgid "Yes"
 msgstr "Si"
 
 #: rulesetdetailsdialog.cpp:68
-#, fuzzy, kde-format
-#| msgid "No"
+#, kde-format
 msgctxt "@item"
 msgid "No"
 msgstr "Non"
 
 #: rulesetdetailsdialog.cpp:78
-#, fuzzy, kde-format
-#| msgid "Details of %1 Game Type"
+#, kde-format
 msgctxt "@title:window"
 msgid "Details of %1 Game Type"
 msgstr "Detalles do modo de xogo %1"
 
 #: rulesetselector.cpp:37
-#, fuzzy, kde-format
-#| msgid "A list of the Killbots rulesets installed on this computer."
+#, kde-format
 msgctxt "@info:whatsthis"
 msgid "A list of the Killbots rulesets installed on this computer."
 msgstr "Unha lista das regras de Killbots instaladas no computador."
 
 #: rulesetselector.cpp:39
-#, fuzzy, kde-format
-#| msgid "Game Type Details"
+#, kde-format
 msgctxt "title:group"
 msgid "Game Type Details"
 msgstr "Detalles do modo de xogo"
 
 #: rulesetselector.cpp:40
-#, fuzzy, kde-format
-#| msgid "Lists information on the currently selected game type."
+#, kde-format
 msgctxt "@info:whatsthis"
 msgid "Lists information on the currently selected game type."
 msgstr "Lista a información sobre o modo de xogo escollido."
 
 #: rulesetselector.cpp:42
-#, fuzzy, kde-format
-#| msgid "Author:"
+#, kde-format
 msgctxt "@label"
 msgid "Author:"
-msgstr "Autor:"
+msgstr "Autoría:"
 
 #: rulesetselector.cpp:49
-#, fuzzy, kde-format
-#| msgid "Contact:"
+#, kde-format
 msgctxt "@label"
 msgid "Contact:"
 msgstr "Contacto:"
 
 #: rulesetselector.cpp:57
-#, fuzzy, kde-format
-#| msgid "Description:"
+#, kde-format
 msgctxt "@label"
 msgid "Description:"
 msgstr "Descrición:"
 
 #: rulesetselector.cpp:64
-#, fuzzy, kde-format
-#| msgid "Details..."
+#, kde-format
 msgctxt "@action:button"
 msgid "Details..."
 msgstr "Detalles…"
 
 #: rulesetselector.cpp:65
-#, fuzzy, kde-format
-#| msgid "Show the detailed parameters of the selected game type"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Show the detailed parameters of the selected game type"
 msgstr "Mostrar os parámetros detallados do modo de xogo seleccionado"
 
 #: rulesetselector.cpp:66
-#, fuzzy, kde-format
-#| msgid ""
-#| "Opens a dialog listing the values of all internal parameters for the "
-#| "selected game type."
+#, kde-format
 msgctxt "@info:whatsthisp"
 msgid ""
 "Opens a dialog listing the values of all internal parameters for the "
