@@ -129,7 +129,7 @@ msgstr "A velocidade empregada para as animacións"
 #: killbots.kcfg:33
 #, kde-format
 msgid "Adjusts the speed at which the in game animations are displayed."
-msgstr "Axusta a velocidade coa que se mostran as animacións do xogo."
+msgstr "Axusta a velocidade coa que se amosan as animacións do xogo."
 
 #. i18n: ectx: tooltip, entry (PreventUnsafeMoves), group (General)
 #: killbots.kcfg:37
@@ -671,7 +671,7 @@ msgstr "O custo de realizar unha teleportación segura"
 #: rulesetbase.kcfg:79
 #, kde-format
 msgid "Player can use vaporizer"
-msgstr "O xogador pode empregar o vaporizador"
+msgstr "O xogador pode usar o vaporizador"
 
 #. i18n: ectx: label, entry (CostOfVaporizer), group (KillbotsRuleset)
 #: rulesetbase.kcfg:84
@@ -837,7 +837,7 @@ msgstr "Detalles…"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Show the detailed parameters of the selected game type"
-msgstr "Mostrar os parámetros detallados do modo de xogo seleccionado"
+msgstr "Amosar os parámetros detallados do modo de xogo seleccionado"
 
 #: rulesetselector.cpp:66
 #, kde-format
