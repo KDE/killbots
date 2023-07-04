@@ -109,3 +109,4 @@ void Killbots::NumericDisplayItem::setFont(const QFont &font)
     m_margin = int(QFontMetrics(m_boldFont).height() * 0.6);
 }
 
+#include "moc_numericdisplayitem.cpp"

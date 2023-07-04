@@ -165,3 +165,4 @@ void Killbots::RulesetSelector::showDetailsDialog()
     m_detailsDialog->show();
 }
 
+#include "moc_rulesetselector.cpp"

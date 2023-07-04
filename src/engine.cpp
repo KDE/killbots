@@ -820,3 +820,5 @@ QString Killbots::Engine::gridToString() const
     }
     return string;
 }
+
+#include "moc_engine.cpp"

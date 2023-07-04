@@ -253,3 +253,4 @@ void Killbots::EngineTest::testMoveIsSafe()
 QTEST_MAIN(Killbots::EngineTest)
 
 #include "enginetest.moc"
+#include "moc_enginetest.cpp"
