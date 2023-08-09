@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: killbots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-20 00:44+0000\n"
-"PO-Revision-Date: 2022-12-28 06:08+0100\n"
+"PO-Revision-Date: 2023-08-08 06:53+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.3.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -124,7 +124,7 @@ msgstr ""
 #: killbots.kcfg:37
 #, kde-format
 msgid "Prevent the player from making fatal moves"
-msgstr ""
+msgstr "მოთამაშისთვის გაფრთხილება სასიკვდილო სვლების შესახებ"
 
 #. i18n: ectx: whatsthis, entry (PreventUnsafeMoves), group (General)
 #: killbots.kcfg:38
@@ -542,7 +542,7 @@ msgstr "&ანიმაციის სიჩქარე:"
 #, kde-format
 msgctxt "@option:check"
 msgid "Prevent &unsafe moves"
-msgstr ""
+msgstr "&სახიფათო სვლების თავიდან აცილება"
 
 #: optionspage.cpp:68
 #, kde-format
@@ -603,7 +603,7 @@ msgstr ""
 #: rulesetbase.kcfg:48
 #, kde-format
 msgid "Player can accumulate energy"
-msgstr ""
+msgstr "მოთამაშეს შეუძლია, დააგროვოს ენერგია"
 
 #. i18n: ectx: label, entry (EnergyAtGameStart), group (KillbotsRuleset)
 #: rulesetbase.kcfg:53
@@ -621,7 +621,7 @@ msgstr "ტურის დასრულებისას მინიჭე�
 #: rulesetbase.kcfg:62
 #, kde-format
 msgid "Maximum energy cap in first round"
-msgstr ""
+msgstr "მაქსიმალური ენერგია პირველ ტურში"
 
 #. i18n: ectx: label, entry (MaxEnergyAddedEachRound), group (KillbotsRuleset)
 #: rulesetbase.kcfg:66
@@ -633,25 +633,25 @@ msgstr ""
 #: rulesetbase.kcfg:70
 #, kde-format
 msgid "Player can perform safe teleports"
-msgstr ""
+msgstr "მოთამაშეს უსაფრთხო ტელეპორტის გაკეთება შეუძლია"
 
 #. i18n: ectx: label, entry (CostOfSafeTeleport), group (KillbotsRuleset)
 #: rulesetbase.kcfg:75
 #, kde-format
 msgid "The cost of performing a safe teleport"
-msgstr ""
+msgstr "უსაფრთხო ტელეპორტის ფასი"
 
 #. i18n: ectx: label, entry (VaporizerEnabled), group (KillbotsRuleset)
 #: rulesetbase.kcfg:79
 #, kde-format
 msgid "Player can use vaporizer"
-msgstr ""
+msgstr "მოთამაშეს შეუძლია, ამაორთქლებელი გამოიყენოს"
 
 #. i18n: ectx: label, entry (CostOfVaporizer), group (KillbotsRuleset)
 #: rulesetbase.kcfg:84
 #, kde-format
 msgid "Cost of using vaporizer"
-msgstr ""
+msgstr "ამაორთქლებლის გამოყენების ფასი"
 
 #. i18n: ectx: label, entry (PushableJunkheaps), group (KillbotsRuleset)
 #: rulesetbase.kcfg:93
