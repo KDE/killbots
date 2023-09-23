@@ -49,21 +49,16 @@ kconfig_add_kcfg_files(killbots settings.kcfgc rulesetbase.kcfgc)
 file(GLOB ICONS_SRCS "${CMAKE_SOURCE_DIR}/icons/*-apps-killbots.png")
 ecm_add_app_icon(killbots ICONS ${ICONS_SRCS})
 
-if (QT_MAJOR_VERSION STREQUAL "6")
-    target_link_libraries(killbots KDEGames6)
-else()
-    target_link_libraries(killbots KF5KDEGames)
-endif()
-
 target_link_libraries(killbots
-    KF${KF_MAJOR_VERSION}::CoreAddons
-    KF${KF_MAJOR_VERSION}::XmlGui
-    KF${KF_MAJOR_VERSION}::DBusAddons
-    KF${KF_MAJOR_VERSION}::Completion
-    KF${KF_MAJOR_VERSION}::Crash
-    KF${KF_MAJOR_VERSION}::I18n
-    Qt::Widgets
-    Qt::Xml
+    KDEGames6
+    KF6::CoreAddons
+    KF6::XmlGui
+    KF6::DBusAddons
+    KF6::Completion
+    KF6::Crash
+    KF6::I18n
+    Qt6::Widgets
+    Qt6::Xml
 )
 
 install(TARGETS killbots ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
