@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: killbots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-20 00:44+0000\n"
+"POT-Creation-Date: 2023-09-25 01:39+0000\n"
 "PO-Revision-Date: 2022-08-19 20:36+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
 "Language-Team: https://t.me/Localizations_KDE_Indonesia\n"
@@ -178,37 +178,37 @@ msgstr "Pindah"
 msgid "Main Toolbar"
 msgstr "Bilah Alat Utama"
 
-#: main.cpp:38
+#: main.cpp:26
 #, kde-format
 msgid "Killbots"
 msgstr "Killbots"
 
-#: main.cpp:39
+#: main.cpp:27
 #, kde-format
 msgid "A KDE game of killer robots and teleportation."
 msgstr "Sebuah permainan KDE si robot-robot teleportasi dan pembunuh."
 
-#: main.cpp:41
+#: main.cpp:29
 #, kde-format
 msgid "© 2006-2009, Parker Coates"
 msgstr "© 2006-2009, Parker Coates"
 
-#: main.cpp:42
+#: main.cpp:30
 #, kde-format
 msgid "Parker Coates"
 msgstr "Parker Coates"
 
-#: main.cpp:42
+#: main.cpp:30
 #, kde-format
 msgid "Developer"
 msgstr "Pengembang"
 
-#: main.cpp:43
+#: main.cpp:31
 #, kde-format
 msgid "Mark Rae"
 msgstr "Mark Rae"
 
-#: main.cpp:43
+#: main.cpp:31
 #, kde-format
 msgid ""
 "Author of Gnome Robots. Invented safe teleports, pushing junkheaps and fast "
@@ -217,7 +217,7 @@ msgstr ""
 "Penulis Gnome Robots. Menciptakan teleportasi yang aman, pendorongan "
 "rongsokan dan robot-robot cepat."
 
-#: mainwindow.cpp:61
+#: mainwindow.cpp:60
 #, kde-format
 msgid ""
 "This is the main game area used to interact with Killbots. It shows the "
@@ -229,49 +229,49 @@ msgstr ""
 "seseorang untuk mengendalikan pahlawan menggunakan mouse. Ini juga "
 "menampilkan statistik tertentu tentang permainan yang sedang berlangsung."
 
-#: mainwindow.cpp:95
+#: mainwindow.cpp:94
 #, fuzzy, kde-format
 #| msgid "General"
 msgctxt "@title"
 msgid "General"
 msgstr "Umum"
 
-#: mainwindow.cpp:97
+#: mainwindow.cpp:96
 #, fuzzy, kde-format
 #| msgid "Configure general settings"
 msgctxt "@info"
 msgid "Configure general settings"
 msgstr "Konfigurasikan pengaturan umum"
 
-#: mainwindow.cpp:100
+#: mainwindow.cpp:99
 #, fuzzy, kde-format
 #| msgid "Game Type"
 msgctxt "@title"
 msgid "Game Type"
 msgstr "Tipe Permainan"
 
-#: mainwindow.cpp:102
+#: mainwindow.cpp:101
 #, fuzzy, kde-format
 #| msgid "Select a game type"
 msgctxt "@info"
 msgid "Select a game type"
 msgstr "Pilih tipe permainan"
 
-#: mainwindow.cpp:105
+#: mainwindow.cpp:104
 #, fuzzy, kde-format
 #| msgid "Appearance"
 msgctxt "@title"
 msgid "Appearance"
 msgstr "Penampilan"
 
-#: mainwindow.cpp:107
+#: mainwindow.cpp:106
 #, fuzzy, kde-format
 #| msgid "Select a graphical theme"
 msgctxt "@info"
 msgid "Select a graphical theme"
 msgstr "Pilih tema grafikal"
 
-#: mainwindow.cpp:145
+#: mainwindow.cpp:140
 #, kde-format
 msgid ""
 "A new game type has been selected, but there is already a game in progress."
@@ -279,42 +279,42 @@ msgstr ""
 "Jenis permainan baru telah dipilih, tetapi sudah ada permainan yang sedang "
 "berlangsung."
 
-#: mainwindow.cpp:146
+#: mainwindow.cpp:141
 #, fuzzy, kde-format
 #| msgid "Game Type Changed"
 msgctxt "@title:window"
 msgid "Game Type Changed"
 msgstr "Tipe Permainan Diubah"
 
-#: mainwindow.cpp:147
+#: mainwindow.cpp:142
 #, fuzzy, kde-format
 #| msgid "Continue Current Game"
 msgctxt "@action:button"
 msgid "Continue Current Game"
 msgstr "Teruskan Permainan Saat Ini"
 
-#: mainwindow.cpp:148
+#: mainwindow.cpp:143
 #, fuzzy, kde-format
 #| msgid "Start a New Game"
 msgctxt "@action:button"
 msgid "Start a New Game"
 msgstr "Mulai Permainan Baru"
 
-#: mainwindow.cpp:165
+#: mainwindow.cpp:156
 #, fuzzy, kde-format
 #| msgid "Round"
 msgctxt "@title:column round of the game"
 msgid "Round"
 msgstr "Ronde"
 
-#: mainwindow.cpp:249 optionspage.cpp:28
+#: mainwindow.cpp:240 optionspage.cpp:28
 #, fuzzy, kde-format
 #| msgid "Teleport Safely"
 msgctxt "@action"
 msgid "Teleport Safely"
 msgstr "Teleportasikan Secara Aman"
 
-#: mainwindow.cpp:250
+#: mainwindow.cpp:241
 #, kde-format
 msgctxt ""
 "Shortcut for teleport safely. See https://quickgit.kde.org/?p=killbots."
@@ -322,21 +322,21 @@ msgctxt ""
 msgid "T"
 msgstr "T"
 
-#: mainwindow.cpp:252
+#: mainwindow.cpp:243
 #, fuzzy, kde-format
 #| msgid "Teleport to a safe location"
 msgctxt "@info:tooltip"
 msgid "Teleport to a safe location"
 msgstr "Teleportasikan ke lokasi yang aman"
 
-#: mainwindow.cpp:257 optionspage.cpp:27
+#: mainwindow.cpp:248 optionspage.cpp:27
 #, fuzzy, kde-format
 #| msgid "Teleport"
 msgctxt "@action"
 msgid "Teleport"
 msgstr "Teleportasikan"
 
-#: mainwindow.cpp:258
+#: mainwindow.cpp:249
 #, kde-format
 msgctxt ""
 "Shortcut for teleport. See https://quickgit.kde.org/?p=killbots."
@@ -344,21 +344,21 @@ msgctxt ""
 msgid "R"
 msgstr "R"
 
-#: mainwindow.cpp:260
+#: mainwindow.cpp:251
 #, fuzzy, kde-format
 #| msgid "Teleport to a random location"
 msgctxt "@info:tooltip"
 msgid "Teleport to a random location"
 msgstr "Teleportasikan ke lokasi secara acak (random)"
 
-#: mainwindow.cpp:265 optionspage.cpp:29
+#: mainwindow.cpp:256 optionspage.cpp:29
 #, fuzzy, kde-format
 #| msgid "Teleport (Safely If Possible)"
 msgctxt "@action"
 msgid "Teleport (Safely if Possible)"
 msgstr "Teleportasikan (Secara Aman Jika Memungkinkan)"
 
-#: mainwindow.cpp:266
+#: mainwindow.cpp:257
 #, kde-format
 msgctxt ""
 "Shortcut for teleport safely if possible. See https://quickgit.kde.org/?"
@@ -366,7 +366,7 @@ msgctxt ""
 msgid "Space"
 msgstr "Spasi"
 
-#: mainwindow.cpp:268
+#: mainwindow.cpp:259
 #, fuzzy, kde-format
 #| msgid ""
 #| "Teleport safely if that action is enabled, otherwise teleport randomly"
@@ -376,14 +376,14 @@ msgstr ""
 "Teleportasikan secara aman jika aksi tersebut telah difungsikan, selain itu "
 "teleportasikan secara acak"
 
-#: mainwindow.cpp:272
+#: mainwindow.cpp:263
 #, fuzzy, kde-format
 #| msgid "Vaporizer"
 msgctxt "@action"
 msgid "Vaporizer"
 msgstr "Vaporizer"
 
-#: mainwindow.cpp:273
+#: mainwindow.cpp:264
 #, kde-format
 msgctxt ""
 "Shortcut for vaporizer. See https://quickgit.kde.org/?p=killbots."
@@ -391,21 +391,21 @@ msgctxt ""
 msgid "F"
 msgstr "F"
 
-#: mainwindow.cpp:275
+#: mainwindow.cpp:266
 #, fuzzy, kde-format
 #| msgid "Destroy all enemies in neighboring cells"
 msgctxt "@info:tooltip"
 msgid "Destroy all enemies in neighboring cells"
 msgstr "Ledakkan semua musuh dalam sel yang berdekatan sampai bertubrukan"
 
-#: mainwindow.cpp:280 optionspage.cpp:30
+#: mainwindow.cpp:271 optionspage.cpp:30
 #, fuzzy, kde-format
 #| msgid "Wait Out Round"
 msgctxt "@action"
 msgid "Wait Out Round"
 msgstr "Tunggu Ronde"
 
-#: mainwindow.cpp:281
+#: mainwindow.cpp:272
 #, kde-format
 msgctxt ""
 "Shortcut for wait out round. See https://quickgit.kde.org/?p=killbots."
@@ -413,21 +413,21 @@ msgctxt ""
 msgid "V"
 msgstr "V"
 
-#: mainwindow.cpp:283
+#: mainwindow.cpp:274
 #, fuzzy, kde-format
 #| msgid "Risk remaining in place until the end of the round for bonuses"
 msgctxt "@info:tooltip"
 msgid "Risk remaining in place until the end of the round for bonuses"
 msgstr "Risiko tetap ada sampai akhir ronde untuk bonus"
 
-#: mainwindow.cpp:288
+#: mainwindow.cpp:279
 #, fuzzy, kde-format
 #| msgid "Move Up and Left"
 msgctxt "@action"
 msgid "Move Up and Left"
 msgstr "Gerakkan Naik dan Kiri"
 
-#: mainwindow.cpp:289
+#: mainwindow.cpp:280
 #, kde-format
 msgctxt ""
 "Shortcut for move up and left. https://quickgit.kde.org/?p=killbots."
@@ -435,14 +435,14 @@ msgctxt ""
 msgid "Q"
 msgstr "Q"
 
-#: mainwindow.cpp:294
+#: mainwindow.cpp:285
 #, fuzzy, kde-format
 #| msgid "Move Up"
 msgctxt "@action"
 msgid "Move Up"
 msgstr "Gerakkan Naik"
 
-#: mainwindow.cpp:295
+#: mainwindow.cpp:286
 #, kde-format
 msgctxt ""
 "Shortcut for move up. See https://quickgit.kde.org/?p=killbots."
@@ -450,14 +450,14 @@ msgctxt ""
 msgid "W"
 msgstr "W"
 
-#: mainwindow.cpp:300
+#: mainwindow.cpp:291
 #, fuzzy, kde-format
 #| msgid "Move Up and Right"
 msgctxt "@action"
 msgid "Move Up and Right"
 msgstr "Gerakkan Naik dan Kanan"
 
-#: mainwindow.cpp:301
+#: mainwindow.cpp:292
 #, kde-format
 msgctxt ""
 "Shortcut for move up and right. https://quickgit.kde.org/?p=killbots."
@@ -465,14 +465,14 @@ msgctxt ""
 msgid "E"
 msgstr "E"
 
-#: mainwindow.cpp:306
+#: mainwindow.cpp:297
 #, fuzzy, kde-format
 #| msgid "Move Left"
 msgctxt "@action"
 msgid "Move Left"
 msgstr "Pindah Kiri"
 
-#: mainwindow.cpp:307
+#: mainwindow.cpp:298
 #, kde-format
 msgctxt ""
 "Shortcut for move left. See https://quickgit.kde.org/?p=killbots."
@@ -480,14 +480,14 @@ msgctxt ""
 msgid "A"
 msgstr "A"
 
-#: mainwindow.cpp:312
+#: mainwindow.cpp:303
 #, fuzzy, kde-format
 #| msgid "Stand Still"
 msgctxt "@action"
 msgid "Stand Still"
 msgstr "Diam"
 
-#: mainwindow.cpp:313
+#: mainwindow.cpp:304
 #, kde-format
 msgctxt ""
 "Shortcut for stand still. See https://quickgit.kde.org/?p=killbots."
@@ -495,14 +495,14 @@ msgctxt ""
 msgid "S"
 msgstr "S"
 
-#: mainwindow.cpp:318
+#: mainwindow.cpp:309
 #, fuzzy, kde-format
 #| msgid "Move Right"
 msgctxt "@action"
 msgid "Move Right"
 msgstr "Pindah Kanan"
 
-#: mainwindow.cpp:319
+#: mainwindow.cpp:310
 #, kde-format
 msgctxt ""
 "Shortcut for move right. See https://quickgit.kde.org/?p=killbots."
@@ -510,14 +510,14 @@ msgctxt ""
 msgid "D"
 msgstr "D"
 
-#: mainwindow.cpp:324
+#: mainwindow.cpp:315
 #, fuzzy, kde-format
 #| msgid "Move Down and Left"
 msgctxt "@action"
 msgid "Move Down and Left"
 msgstr "Gerakkan Turun dan Kiri"
 
-#: mainwindow.cpp:325
+#: mainwindow.cpp:316
 #, kde-format
 msgctxt ""
 "Shortcut for move down and left. See https://quickgit.kde.org/?p=killbots."
@@ -525,14 +525,14 @@ msgctxt ""
 msgid "Z"
 msgstr "Z"
 
-#: mainwindow.cpp:330
+#: mainwindow.cpp:321
 #, fuzzy, kde-format
 #| msgid "Move Down"
 msgctxt "@action"
 msgid "Move Down"
 msgstr "Gerakkan Turun"
 
-#: mainwindow.cpp:331
+#: mainwindow.cpp:322
 #, kde-format
 msgctxt ""
 "Shortcut for move down. See https://quickgit.kde.org/?p=killbots."
@@ -540,14 +540,14 @@ msgctxt ""
 msgid "X"
 msgstr "X"
 
-#: mainwindow.cpp:336
+#: mainwindow.cpp:327
 #, fuzzy, kde-format
 #| msgid "Move Down and Right"
 msgctxt "@action"
 msgid "Move Down and Right"
 msgstr "Gerakkan Turun dan Kanan"
 
-#: mainwindow.cpp:337
+#: mainwindow.cpp:328
 #, kde-format
 msgctxt ""
 "Shortcut for move down and right. https://quickgit.kde.org/?p=killbots."

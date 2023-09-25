@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: killbots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-20 00:44+0000\n"
+"POT-Creation-Date: 2023-09-25 01:39+0000\n"
 "PO-Revision-Date: 2023-08-08 14:44+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -172,37 +172,37 @@ msgstr "Mou"
 msgid "Main Toolbar"
 msgstr "Barra d'eines principal"
 
-#: main.cpp:38
+#: main.cpp:26
 #, kde-format
 msgid "Killbots"
 msgstr "Killbots"
 
-#: main.cpp:39
+#: main.cpp:27
 #, kde-format
 msgid "A KDE game of killer robots and teleportation."
 msgstr "Un joc de KDE amb robots assassins i teletransport."
 
-#: main.cpp:41
+#: main.cpp:29
 #, kde-format
 msgid "© 2006-2009, Parker Coates"
 msgstr "© 2006-2009, Parker Coates"
 
-#: main.cpp:42
+#: main.cpp:30
 #, kde-format
 msgid "Parker Coates"
 msgstr "Parker Coates"
 
-#: main.cpp:42
+#: main.cpp:30
 #, kde-format
 msgid "Developer"
 msgstr "Desenvolupador"
 
-#: main.cpp:43
+#: main.cpp:31
 #, kde-format
 msgid "Mark Rae"
 msgstr "Mark Rae"
 
-#: main.cpp:43
+#: main.cpp:31
 #, kde-format
 msgid ""
 "Author of Gnome Robots. Invented safe teleports, pushing junkheaps and fast "
@@ -211,7 +211,7 @@ msgstr ""
 "Autoria del Gnome Robots. Ha inventat el teletransport segur, promovent els "
 "munts de ferralla i els robots ràpids."
 
-#: mainwindow.cpp:61
+#: mainwindow.cpp:60
 #, kde-format
 msgid ""
 "This is the main game area used to interact with Killbots. It shows the "
@@ -222,80 +222,80 @@ msgstr ""
 "actual de la quadrícula del joc i permet controlar l'heroi utilitzant el "
 "ratolí. També mostra algunes estadístiques sobre la partida en actual."
 
-#: mainwindow.cpp:95
+#: mainwindow.cpp:94
 #, kde-format
 msgctxt "@title"
 msgid "General"
 msgstr "General"
 
-#: mainwindow.cpp:97
+#: mainwindow.cpp:96
 #, kde-format
 msgctxt "@info"
 msgid "Configure general settings"
 msgstr "Configura la configuració general"
 
-#: mainwindow.cpp:100
+#: mainwindow.cpp:99
 #, kde-format
 msgctxt "@title"
 msgid "Game Type"
 msgstr "Tipus de joc"
 
-#: mainwindow.cpp:102
+#: mainwindow.cpp:101
 #, kde-format
 msgctxt "@info"
 msgid "Select a game type"
 msgstr "Selecciona el tipus de joc"
 
-#: mainwindow.cpp:105
+#: mainwindow.cpp:104
 #, kde-format
 msgctxt "@title"
 msgid "Appearance"
 msgstr "Aparença"
 
-#: mainwindow.cpp:107
+#: mainwindow.cpp:106
 #, kde-format
 msgctxt "@info"
 msgid "Select a graphical theme"
 msgstr "Selecciona el tema gràfic"
 
-#: mainwindow.cpp:145
+#: mainwindow.cpp:140
 #, kde-format
 msgid ""
 "A new game type has been selected, but there is already a game in progress."
 msgstr ""
 "S'ha seleccionat un nou tipus de joc, però ja hi ha una partida en curs."
 
-#: mainwindow.cpp:146
+#: mainwindow.cpp:141
 #, kde-format
 msgctxt "@title:window"
 msgid "Game Type Changed"
 msgstr "S'ha canviat el tipus de joc"
 
-#: mainwindow.cpp:147
+#: mainwindow.cpp:142
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue Current Game"
 msgstr "Continua la partida actual"
 
-#: mainwindow.cpp:148
+#: mainwindow.cpp:143
 #, kde-format
 msgctxt "@action:button"
 msgid "Start a New Game"
 msgstr "Inicia una partida nova"
 
-#: mainwindow.cpp:165
+#: mainwindow.cpp:156
 #, kde-format
 msgctxt "@title:column round of the game"
 msgid "Round"
 msgstr "Tanda"
 
-#: mainwindow.cpp:249 optionspage.cpp:28
+#: mainwindow.cpp:240 optionspage.cpp:28
 #, kde-format
 msgctxt "@action"
 msgid "Teleport Safely"
 msgstr "Teletransporta de forma segura"
 
-#: mainwindow.cpp:250
+#: mainwindow.cpp:241
 #, kde-format
 msgctxt ""
 "Shortcut for teleport safely. See https://quickgit.kde.org/?p=killbots."
@@ -303,19 +303,19 @@ msgctxt ""
 msgid "T"
 msgstr "T"
 
-#: mainwindow.cpp:252
+#: mainwindow.cpp:243
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Teleport to a safe location"
 msgstr "Teletransport a una posició segura"
 
-#: mainwindow.cpp:257 optionspage.cpp:27
+#: mainwindow.cpp:248 optionspage.cpp:27
 #, kde-format
 msgctxt "@action"
 msgid "Teleport"
 msgstr "Teletransport"
 
-#: mainwindow.cpp:258
+#: mainwindow.cpp:249
 #, kde-format
 msgctxt ""
 "Shortcut for teleport. See https://quickgit.kde.org/?p=killbots."
@@ -323,19 +323,19 @@ msgctxt ""
 msgid "R"
 msgstr "R"
 
-#: mainwindow.cpp:260
+#: mainwindow.cpp:251
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Teleport to a random location"
 msgstr "Teletransport a una posició aleatòria"
 
-#: mainwindow.cpp:265 optionspage.cpp:29
+#: mainwindow.cpp:256 optionspage.cpp:29
 #, kde-format
 msgctxt "@action"
 msgid "Teleport (Safely if Possible)"
 msgstr "Teletransport (segur si és possible)"
 
-#: mainwindow.cpp:266
+#: mainwindow.cpp:257
 #, kde-format
 msgctxt ""
 "Shortcut for teleport safely if possible. See https://quickgit.kde.org/?"
@@ -343,7 +343,7 @@ msgctxt ""
 msgid "Space"
 msgstr "Espai"
 
-#: mainwindow.cpp:268
+#: mainwindow.cpp:259
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Teleport safely if that action is enabled, otherwise teleport randomly"
@@ -351,13 +351,13 @@ msgstr ""
 "Si està activada, teletransporta de forma segura, altrament, fa un "
 "teletransport aleatori"
 
-#: mainwindow.cpp:272
+#: mainwindow.cpp:263
 #, kde-format
 msgctxt "@action"
 msgid "Vaporizer"
 msgstr "Vaporitzador"
 
-#: mainwindow.cpp:273
+#: mainwindow.cpp:264
 #, kde-format
 msgctxt ""
 "Shortcut for vaporizer. See https://quickgit.kde.org/?p=killbots."
@@ -365,19 +365,19 @@ msgctxt ""
 msgid "F"
 msgstr "F"
 
-#: mainwindow.cpp:275
+#: mainwindow.cpp:266
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Destroy all enemies in neighboring cells"
 msgstr "Destruïx tots els enemics de les cel·les veïnes"
 
-#: mainwindow.cpp:280 optionspage.cpp:30
+#: mainwindow.cpp:271 optionspage.cpp:30
 #, kde-format
 msgctxt "@action"
 msgid "Wait Out Round"
 msgstr "Espera fins que acabe la tanda"
 
-#: mainwindow.cpp:281
+#: mainwindow.cpp:272
 #, kde-format
 msgctxt ""
 "Shortcut for wait out round. See https://quickgit.kde.org/?p=killbots."
@@ -385,20 +385,20 @@ msgctxt ""
 msgid "V"
 msgstr "V"
 
-#: mainwindow.cpp:283
+#: mainwindow.cpp:274
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Risk remaining in place until the end of the round for bonuses"
 msgstr ""
 "Corre el risc de romandre en el lloc fins al final de la tanda de bonificació"
 
-#: mainwindow.cpp:288
+#: mainwindow.cpp:279
 #, kde-format
 msgctxt "@action"
 msgid "Move Up and Left"
 msgstr "Mou cap amunt i a l'esquerra"
 
-#: mainwindow.cpp:289
+#: mainwindow.cpp:280
 #, kde-format
 msgctxt ""
 "Shortcut for move up and left. https://quickgit.kde.org/?p=killbots."
@@ -406,13 +406,13 @@ msgctxt ""
 msgid "Q"
 msgstr "Q"
 
-#: mainwindow.cpp:294
+#: mainwindow.cpp:285
 #, kde-format
 msgctxt "@action"
 msgid "Move Up"
 msgstr "Mou cap amunt"
 
-#: mainwindow.cpp:295
+#: mainwindow.cpp:286
 #, kde-format
 msgctxt ""
 "Shortcut for move up. See https://quickgit.kde.org/?p=killbots."
@@ -420,13 +420,13 @@ msgctxt ""
 msgid "W"
 msgstr "W"
 
-#: mainwindow.cpp:300
+#: mainwindow.cpp:291
 #, kde-format
 msgctxt "@action"
 msgid "Move Up and Right"
 msgstr "Mou cap amunt i a la dreta"
 
-#: mainwindow.cpp:301
+#: mainwindow.cpp:292
 #, kde-format
 msgctxt ""
 "Shortcut for move up and right. https://quickgit.kde.org/?p=killbots."
@@ -434,13 +434,13 @@ msgctxt ""
 msgid "E"
 msgstr "E"
 
-#: mainwindow.cpp:306
+#: mainwindow.cpp:297
 #, kde-format
 msgctxt "@action"
 msgid "Move Left"
 msgstr "Mou cap a l'esquerra"
 
-#: mainwindow.cpp:307
+#: mainwindow.cpp:298
 #, kde-format
 msgctxt ""
 "Shortcut for move left. See https://quickgit.kde.org/?p=killbots."
@@ -448,13 +448,13 @@ msgctxt ""
 msgid "A"
 msgstr "A"
 
-#: mainwindow.cpp:312
+#: mainwindow.cpp:303
 #, kde-format
 msgctxt "@action"
 msgid "Stand Still"
 msgstr "Quedar-se quiet"
 
-#: mainwindow.cpp:313
+#: mainwindow.cpp:304
 #, kde-format
 msgctxt ""
 "Shortcut for stand still. See https://quickgit.kde.org/?p=killbots."
@@ -462,13 +462,13 @@ msgctxt ""
 msgid "S"
 msgstr "S"
 
-#: mainwindow.cpp:318
+#: mainwindow.cpp:309
 #, kde-format
 msgctxt "@action"
 msgid "Move Right"
 msgstr "Mou cap a la dreta"
 
-#: mainwindow.cpp:319
+#: mainwindow.cpp:310
 #, kde-format
 msgctxt ""
 "Shortcut for move right. See https://quickgit.kde.org/?p=killbots."
@@ -476,13 +476,13 @@ msgctxt ""
 msgid "D"
 msgstr "D"
 
-#: mainwindow.cpp:324
+#: mainwindow.cpp:315
 #, kde-format
 msgctxt "@action"
 msgid "Move Down and Left"
 msgstr "Mou cap avall i a l'esquerra"
 
-#: mainwindow.cpp:325
+#: mainwindow.cpp:316
 #, kde-format
 msgctxt ""
 "Shortcut for move down and left. See https://quickgit.kde.org/?p=killbots."
@@ -490,13 +490,13 @@ msgctxt ""
 msgid "Z"
 msgstr "Z"
 
-#: mainwindow.cpp:330
+#: mainwindow.cpp:321
 #, kde-format
 msgctxt "@action"
 msgid "Move Down"
 msgstr "Mou cap avall"
 
-#: mainwindow.cpp:331
+#: mainwindow.cpp:322
 #, kde-format
 msgctxt ""
 "Shortcut for move down. See https://quickgit.kde.org/?p=killbots."
@@ -504,13 +504,13 @@ msgctxt ""
 msgid "X"
 msgstr "X"
 
-#: mainwindow.cpp:336
+#: mainwindow.cpp:327
 #, kde-format
 msgctxt "@action"
 msgid "Move Down and Right"
 msgstr "Mou cap avall i a la dreta"
 
-#: mainwindow.cpp:337
+#: mainwindow.cpp:328
 #, kde-format
 msgctxt ""
 "Shortcut for move down and right. https://quickgit.kde.org/?p=killbots."
