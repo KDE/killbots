@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: killbots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-25 01:39+0000\n"
-"PO-Revision-Date: 2023-08-08 06:53+0200\n"
+"PO-Revision-Date: 2023-09-26 11:46+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -118,7 +118,7 @@ msgstr "ანიმაციების ჩვენების სიჩქ�
 #: killbots.kcfg:33
 #, kde-format
 msgid "Adjusts the speed at which the in game animations are displayed."
-msgstr ""
+msgstr "აკონტროლებს სიჩქარეს, რომლითაც თამაშის ანიმაციების დაკვრა ხდება."
 
 #. i18n: ectx: tooltip, entry (PreventUnsafeMoves), group (General)
 #: killbots.kcfg:37
@@ -144,7 +144,7 @@ msgstr "თამაშის წესების არჩეული ნა
 #: killbots.kcfg:43
 #, kde-format
 msgid "Selects the set of game rules to be used in the next game."
-msgstr ""
+msgstr "აირჩიეთ შემდეგი თამაშისთვის გამოსაყენებელი თამაშის წესების სეტი."
 
 #. i18n: ectx: Menu (moveMenu)
 #: killbotsui.rc:11
@@ -328,7 +328,7 @@ msgstr "გამოტოვება"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Teleport safely if that action is enabled, otherwise teleport randomly"
-msgstr ""
+msgstr "თუ ეს ქმედება ჩართულია, ტელეპორტი უსაფრთხო იქნება. არადა შემთხვევითი"
 
 #: mainwindow.cpp:263
 #, kde-format
@@ -354,7 +354,7 @@ msgstr "მეზობელ უჯრედებში მყოფი მტ
 #, kde-format
 msgctxt "@action"
 msgid "Wait Out Round"
-msgstr ""
+msgstr "რაუნდის გამოტოვება"
 
 #: mainwindow.cpp:272
 #, kde-format
@@ -368,7 +368,7 @@ msgstr "V"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Risk remaining in place until the end of the round for bonuses"
-msgstr ""
+msgstr "გარისკოთ, რომ დარჩებით ადგილას ბონუსების გაცემის ბოლომდე"
 
 #: mainwindow.cpp:279
 #, kde-format
@@ -627,7 +627,7 @@ msgstr "მაქსიმალური ენერგია პირვე�
 #: rulesetbase.kcfg:66
 #, kde-format
 msgid "Increase in maximum energy cap for each new round"
-msgstr ""
+msgstr "მაქსიმალური ენერგიის ზღვრს გაზრდა ყოველი ახალი რაუნდისთვის"
 
 #. i18n: ectx: label, entry (SafeTeleportEnabled), group (KillbotsRuleset)
 #: rulesetbase.kcfg:70
@@ -681,13 +681,13 @@ msgstr ""
 #: rulesetbase.kcfg:110
 #, kde-format
 msgid "Points awarded for each regular enemy destroyed"
-msgstr ""
+msgstr "თითოეული ჩვეულებრივი მტრის განადგურებისას მინიჭებული ქულები"
 
 #. i18n: ectx: label, entry (PointsPerFastEnemyKilled), group (KillbotsRuleset)
 #: rulesetbase.kcfg:115
 #, kde-format
 msgid "Points awarded for each fast enemy destroyed"
-msgstr ""
+msgstr "თითოეული სწრაფი მტრის განადგურებისას მინიჭებული ქულები"
 
 #. i18n: ectx: label, entry (WaitKillPointBonus), group (KillbotsRuleset)
 #: rulesetbase.kcfg:120
@@ -765,7 +765,7 @@ msgstr "%1 თამაშის ტიპის დეტალები"
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "A list of the Killbots rulesets installed on this computer."
-msgstr ""
+msgstr "თქვენს კომპიუტერზე დაყენებული Killbots-ის წესების სეტების სია."
 
 #: rulesetselector.cpp:39
 #, kde-format
@@ -777,7 +777,7 @@ msgstr "თამაშის ტიპის დეტალები"
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Lists information on the currently selected game type."
-msgstr ""
+msgstr "ამჟამად არჩეული თამაშის ტიპის ინფორმაციის სია."
 
 #: rulesetselector.cpp:42
 #, kde-format
@@ -807,7 +807,7 @@ msgstr "დეტალები..."
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Show the detailed parameters of the selected game type"
-msgstr ""
+msgstr "მონიშნული თამაშის ტიპის დეტალური პარამეტრების ჩვენება"
 
 #: rulesetselector.cpp:66
 #, kde-format
@@ -816,3 +816,5 @@ msgid ""
 "Opens a dialog listing the values of all internal parameters for the "
 "selected game type."
 msgstr ""
+"გახსნის ფანჯარას, რომელიც არჩეული თამაშის ტიპის ყველა შიდა პარამეტრის "
+"მნიშვნელობას შეიცავს."
