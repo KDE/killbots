@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: killbots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-25 01:39+0000\n"
-"PO-Revision-Date: 2023-09-26 11:46+0200\n"
+"PO-Revision-Date: 2023-09-27 09:14+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -95,6 +95,10 @@ msgid ""
 "left- and right-clicking simultaneously or by left-clicking while holding "
 "the control key."
 msgstr ""
+"ირჩევს მოქმედებას, რომელიც მთავარი თამაშის ადგილას შუა-წკაპით სრულდება. თუ "
+"თაგუნას შუა ღილაკი ხელმისაწვდომი არაა, იგივე ქმედება მარცხენა და მარჯვენა "
+"ღილაკების ერთდროული დაწოლით შეგიძლიათ, ან მარცხენა-წკაპით, როცა ღილაკი Ctrl "
+"გიჭირავთ."
 
 #. i18n: ectx: tooltip, entry (RightClickAction), group (General)
 #: killbots.kcfg:25
@@ -107,6 +111,8 @@ msgstr "მარჯვენა-წკაპზე შესრულებუ�
 #, kde-format
 msgid "Selects the action performed when right-clicking on the main game area."
 msgstr ""
+"ირჩევს ქმედებას, რომელიც მთავარი თამაშის ადგილას მარჯვენა ღილაკზე "
+"დაწკაპუნებით სრულდება."
 
 #. i18n: ectx: tooltip, entry (AnimationSpeed), group (General)
 #: killbots.kcfg:32
@@ -133,6 +139,8 @@ msgid ""
 "If checked, the game will ignore any move that would result in the immediate "
 "death of the hero (other than random teleports and waiting out the round)."
 msgstr ""
+"თუ ჩართულია, თამაში გამოტოვებს ყველა სვლას, რომელიც გმირის მყისიერ სიკვდილს "
+"გამოიწვევდა (შემთხვევითი ტელეპორტებისა და რაუნდის დალოდების გარდა)."
 
 #. i18n: ectx: tooltip, entry (Ruleset), group (General)
 #: killbots.kcfg:42
@@ -195,6 +203,8 @@ msgid ""
 "Author of Gnome Robots. Invented safe teleports, pushing junkheaps and fast "
 "robots."
 msgstr ""
+"GNOME Robots-ის ავტორი. გამოიგონა უსაფრთხო ტელეპორტები, ნაგვის მოგროვება და "
+"სწრაფი რობოტები."
 
 #: mainwindow.cpp:60
 #, kde-format
@@ -203,6 +213,10 @@ msgid ""
 "current state of the game grid and allows one to control the hero using the "
 "mouse. It also displays certain statistics about the game in progress."
 msgstr ""
+"ეს თამაშის მთავარი ადგილია, საიდანაც Killbots-თან ურთიერთობა შეგიძლიათ. ის "
+"თამაშის ბადის მიმდინარე მდგომარეობას აჩვენებს და საშუალებას გაძლევთ, გმირი, "
+"თაგუნათი აკონტროლოთ. ის ასევე აჩვენებს მიმდინარე თამაშის ზოგიერთ "
+"სტატისტიკასაც."
 
 #: mainwindow.cpp:94
 #, kde-format
@@ -244,7 +258,7 @@ msgstr "აირჩიეთ გრაფიკული თემა"
 #, kde-format
 msgid ""
 "A new game type has been selected, but there is already a game in progress."
-msgstr ""
+msgstr "არჩეულია ახალი თამაშის ტიპი, მაგრამ თამაში უკვე მიმდინარეობს."
 
 #: mainwindow.cpp:141
 #, kde-format
@@ -598,6 +612,8 @@ msgstr "ახალ ტურებში დამატებული სწ
 msgid ""
 "Fast enemies will skip their extra turn to avoid collisions with other robots"
 msgstr ""
+"სწრაფი მტრები გამოტოვებენ თავიანთ დამატებით სვლას, რათა სხვა რობოტებთან "
+"შეჯახება აიცილონ თავიდან"
 
 #. i18n: ectx: label, entry (EnergyEnabled), group (KillbotsRuleset)
 #: rulesetbase.kcfg:48
@@ -657,25 +673,25 @@ msgstr "ამაორთქლებლის გამოყენები�
 #: rulesetbase.kcfg:93
 #, kde-format
 msgid "Number of junkheaps that can be pushed at once"
-msgstr ""
+msgstr "ნაგვის გროვების რაოდენობა, რომლებსაც შეგიძლიათ, ერთდროულად მიაწვეთ"
 
 #. i18n: ectx: label, entry (SquaskKillsEnabled), group (KillbotsRuleset)
 #: rulesetbase.kcfg:97
 #, kde-format
 msgid "Player can destroy enemies with a pushed junkheap"
-msgstr ""
+msgstr "მოთამაშეს მტრების განადგურება ნაგვის გროვებზე მიწოლით შეუძლია"
 
 #. i18n: ectx: label, entry (JunkheapsAtGameStart), group (KillbotsRuleset)
 #: rulesetbase.kcfg:101
 #, kde-format
 msgid "Junkheaps placed on grid at start of first round"
-msgstr ""
+msgstr "პირველ რაუნდში ბადეზე მოთავსებული ნაგვის გროვების რაოდენობა"
 
 #. i18n: ectx: label, entry (JunkheapsAddedEachRound), group (KillbotsRuleset)
 #: rulesetbase.kcfg:105
 #, kde-format
 msgid "Junkheaps added to the grid for each new round"
-msgstr ""
+msgstr "ნაგვის გროვების რაოდენობა, რომელიც, ბადეზე, ყოველ ახალ რაუნდში ემატება"
 
 #. i18n: ectx: label, entry (PointsPerEnemyKilled), group (KillbotsRuleset)
 #: rulesetbase.kcfg:110
@@ -693,31 +709,35 @@ msgstr "თითოეული სწრაფი მტრის განა
 #: rulesetbase.kcfg:120
 #, kde-format
 msgid "Points awarded for each enemy destroyed while waiting out the round"
-msgstr ""
+msgstr "რაუნდის დასრულების მოლოდინისას თითოეული მოკვლისას აღებული ქულა"
 
 #. i18n: ectx: label, entry (WaitKillEnergyBonus), group (KillbotsRuleset)
 #: rulesetbase.kcfg:125
 #, kde-format
 msgid "Energy awarded for each enemy destroyed while waiting out the round"
-msgstr ""
+msgstr "რაუნდის დასრულების მოლოდინისას თითოეული მოკვლისას აღებული ენერგია"
 
 #. i18n: ectx: label, entry (SquashKillPointBonus), group (KillbotsRuleset)
 #: rulesetbase.kcfg:130
 #, kde-format
 msgid "Points awarded for each enemy destroyed with a pushed junkheap"
 msgstr ""
+"მიწოლილი ნაგვის გროვით განადგურებული თითოეული მტრისთვის მინიჭებული ქულები"
 
 #. i18n: ectx: label, entry (SquashKillEnergyBonus), group (KillbotsRuleset)
 #: rulesetbase.kcfg:135
 #, kde-format
 msgid "Energy awarded for each enemy destroyed with a pushed junkheap"
 msgstr ""
+"მიწოლილი ნაგვის გროვით განადგურებული თითოეული მტრისთვის მინიჭებული ენერგია"
 
 #. i18n: ectx: label, entry (PointsPerEnergyAboveMax), group (KillbotsRuleset)
 #: rulesetbase.kcfg:140
 #, kde-format
 msgid "Points awarded for each energy awarded above maximum energy cap"
 msgstr ""
+"მაქსიმალური ენერგიის საზღვრის ზემოთ თითოეული მტრისთვის მინიჭებული ქულების "
+"რაოდენობა"
 
 #: rulesetdetailsdialog.cpp:38
 #, kde-format
