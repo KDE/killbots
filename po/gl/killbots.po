@@ -158,7 +158,7 @@ msgstr "As regras escollidas"
 #: killbots.kcfg:43
 #, kde-format
 msgid "Selects the set of game rules to be used in the next game."
-msgstr "Escolle as regras a utilizar na seguinte partida."
+msgstr "Escolle as regras a usar na seguinte partida."
 
 #. i18n: ectx: Menu (moveMenu)
 #: killbotsui.rc:11
