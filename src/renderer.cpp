@@ -11,14 +11,14 @@
 #include "settings.h"
 
 // KDEGames
-#include <KgTheme>
-#include <KgThemeProvider>
+#include <KGameTheme>
+#include <KGameThemeProvider>
 
 #include <QCursor>
 
-static KgThemeProvider *provider()
+static KGameThemeProvider *provider()
 {
-    KgThemeProvider *prov = new KgThemeProvider;
+    KGameThemeProvider *prov = new KGameThemeProvider;
     prov->discoverThemes(
         QStringLiteral("themes"),   // theme file location
         QStringLiteral("robotkill") // default theme file name

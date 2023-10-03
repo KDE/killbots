@@ -17,8 +17,8 @@
 #include "settings.h"
 #include "view.h"
 
-#include <KgThemeProvider>
-#include <KgThemeSelector>
+#include <KGameThemeProvider>
+#include <KGameThemeSelector>
 #include <highscore/kscoredialog.h>
 #include <kstandardgameaction.h>
 
@@ -53,7 +53,7 @@ Killbots::MainWindow::MainWindow(QWidget *parent)
     m_scene = new Scene(this);
     m_coordinator->setScene(m_scene);
     connect(m_scene, &Scene::clicked, m_coordinator, &Coordinator::requestAction);
-    connect(Renderer::self()->themeProvider(), &KgThemeProvider::currentThemeChanged, m_scene, &Scene::doLayout);
+    connect(Renderer::self()->themeProvider(), &KGameThemeProvider::currentThemeChanged, m_scene, &Scene::doLayout);
 
     m_view = new View(m_scene, this);
     m_view->setMinimumSize(400, 280);
@@ -100,7 +100,7 @@ void Killbots::MainWindow::configurePreferences()
                               QStringLiteral("games-config-custom"),
                               i18nc("@info", "Select a game type")
                              );
-        configDialog->addPage(new KgThemeSelector(Renderer::self()->themeProvider()),
+        configDialog->addPage(new KGameThemeSelector(Renderer::self()->themeProvider()),
                               i18nc("@title", "Appearance"),
                               QStringLiteral("games-config-theme"),
                               i18nc("@info", "Select a graphical theme")
