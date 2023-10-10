@@ -157,7 +157,8 @@ msgstr "El reglament del joc seleccionat"
 #: killbots.kcfg:43
 #, kde-format
 msgid "Selects the set of game rules to be used in the next game."
-msgstr "Selecciona el reglament del joc que s'utilitzarà a la pròxima partida."
+msgstr ""
+"Selecciona el reglament del joc que s'utilitzarà en la pròxima partida."
 
 #. i18n: ectx: Menu (moveMenu)
 #: killbotsui.rc:11
