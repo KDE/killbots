@@ -143,7 +143,7 @@
   </note>
 
   <para
->&killbots; es un sencillo juego de evitar robots asesinos. Quién creó los robots y por qué están programados para destruir, nadie lo sabe. Todo lo que se sabe es que los robots son numerosos y su único objetivo es destruirle. Afortunadamente para usted, su creador se centró más en la cantidad que en la calidad, dando como resultado que los robots tienen una grave falta de inteligencia. Su ingenio superior y un extravagante dispositivo de teletransporte son sus únicas armas contra la cadena interminable de autómatas asesinos.</para>
+>&killbots; es un sencillo juego de evitar robots asesinos. Quién creó los robots y por qué están programados para destruir, nadie lo sabe. Todo lo que se sabe es que los robots son numerosos y su único objetivo es destruirle. Afortunadamente, su creador se centró más en la cantidad que en la calidad, dando como resultado que los robots tienen una grave falta de inteligencia. Su ingenio superior y un extravagante dispositivo de teletransporte son sus únicas armas contra la cadena interminable de autómatas asesinos.</para>
 
   <note>
     <title
@@ -416,7 +416,7 @@
       <title id="keyboard-movement-title"
 >Control de movimientos con el teclado</title>
       <para
->Existen nueve acciones de movimiento diferentes: izquierda, derecha, arriba, abajo, las cuatro diagonales y permanecer quieto. Cada una de estas acciones puede asignarse a dos tecla diferentes. De forma predeterminada, estas nueve acciones están asignadas a las nueve teclas del teclado numérico y al bloque de letras de 3 por 3 en la parte final izquierda de un teclado QWERTY. Por supuesto, los usuarios, con una distribución de teclado diferente o sin teclado numérico pueden modificar estas asignaciones de teclas mediante el diálogo de configuración de accesos rápidos.</para>
+>Existen nueve acciones de movimiento diferentes: izquierda, derecha, arriba, abajo, las cuatro diagonales y permanecer quieto. Cada una de estas acciones puede asignarse a dos tecla diferentes. De forma predeterminada, estas nueve acciones están asignadas a las nueve teclas del teclado numérico y al bloque de letras de 3 por 3 en la parte final izquierda de un teclado QWERTY. Por supuesto, los usuarios, con una distribución de teclado diferente o sin teclado numérico pueden modificar estas asignaciones de teclas mediante el diálogo de configuración de atajos de teclado.</para>
       <para
 >Cada una de las órdenes de movimiento especial (como el teletransporte) puede ser llamadas desde el teclado. Consulte <link linkend="move-menu"
 >Mover</link
