@@ -17,10 +17,10 @@
 #include "settings.h"
 #include "view.h"
 
+#include <KGameStandardAction>
 #include <KGameThemeProvider>
 #include <KGameThemeSelector>
 #include <highscore/kscoredialog.h>
-#include <kstandardgameaction.h>
 
 #include <KActionCollection>
 #include <KConfigDialog>
@@ -230,9 +230,9 @@ QAction *Killbots::MainWindow::createMappedAction(int mapping,
 
 void Killbots::MainWindow::setupActions()
 {
-    KStandardGameAction::gameNew(m_coordinator, &Coordinator::requestNewGame, actionCollection());
-    KStandardGameAction::highscores(this, &MainWindow::showHighscores, actionCollection());
-    KStandardGameAction::quit(qApp, &QCoreApplication::quit, actionCollection());
+    KGameStandardAction::gameNew(m_coordinator, &Coordinator::requestNewGame, actionCollection());
+    KGameStandardAction::highscores(this, &MainWindow::showHighscores, actionCollection());
+    KGameStandardAction::quit(qApp, &QCoreApplication::quit, actionCollection());
     KStandardAction::preferences(this, &MainWindow::configurePreferences, actionCollection());
 
     createMappedAction(TeleportSafely,
