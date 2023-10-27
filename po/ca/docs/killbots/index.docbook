@@ -107,11 +107,7 @@
     <title
 >Nota:</title>
     <para
->Aquesta documentació es refereix sovint a <quote
->robots</quote
->, <quote
->munts de ferralla</quote
->, &etc;, però el &killbots; és completament temàtic. Això significa que els personatges del joc que veieu mentre jugueu podrien no coincidir amb els de temàtica futurista que es descriuen aquí. El joc i les estratègies, però, seguiran sent els mateixos, fins i tot si l'heroi és una pastanaga perseguida per conills voraços a través d'un hort.</para>
+>Aquesta documentació es refereix sovint a «robots», «munts de ferralla», &etc;, però el &killbots; és completament temàtic. Això significa que els personatges del joc que veieu mentre jugueu podrien no coincidir amb els de temàtica futurista que es descriuen aquí. El joc i les estratègies, però, seguiran sent els mateixos, fins i tot si l'heroi és una pastanaga perseguida per conills voraços a través d'un hort.</para>
   </note>
 
   <note>
@@ -192,9 +188,7 @@
 ></term>
           <listitem>
             <para
->Els robots són matons mecànics que només volen aixafar l'heroi amb la seva circumferència metàl·lica. Mai han sentit parlar de les <quote
->Tres lleis de la robòtica</quote
-> i probablement aixafarien a qualsevol que intentés explicar-les-hi.</para>
+>Els robots són matons mecànics que només volen aixafar l'heroi amb la seva circumferència metàl·lica. Mai han sentit parlar de les «Tres lleis de la robòtica» i probablement aixafarien a qualsevol que intentés explicar-les-hi.</para>
             <para
 >Cada robot farà un pas cap a l'heroi en cada torn. Si el robot està per sobre de l'heroi, es retirarà. Si el robot està a l'esquerra de l'heroi, farà un pas a la dreta. Si el robot està per sota i a la dreta de l'heroi, farà un pas en diagonal, cap amunt i cap a l'esquerra. Si un robot aconsegueix arribar a la cel·la de l'heroi, l'heroi serà assassinat i el joc acabarà.</para>
           </listitem>
@@ -230,9 +224,7 @@
             <para id="pushing-junkheaps"
 >Alguns tipus de joc permeten a l'heroi <firstterm
 >empènyer</firstterm
-> els munts de ferralla per la quadrícula. Després, l'heroi podrà utilitzar-los per a construir <quote
->búnquers</quote
-> que li oferiran protecció per múltiples costats. Els munts de ferralla fins i tot es poden utilitzar de forma ofensiva en alguns tipus de joc. Empènyer un munt de ferralla a sobre d'un enemic l'aixafarà i, fins i tot pot resultar en una bonificació.</para>
+> els munts de ferralla per la quadrícula. Després, l'heroi podrà utilitzar-los per a construir «búnquers» que li oferiran protecció per múltiples costats. Els munts de ferralla fins i tot es poden utilitzar de forma ofensiva en alguns tipus de joc. Empènyer un munt de ferralla a sobre d'un enemic l'aixafarà i, fins i tot pot resultar en una bonificació.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -330,9 +322,7 @@
       <title
 >Usar el vaporitzador</title>
       <para
->El tercer ús del dispositiu de teletransport en realitat no teletransporta en absolut a l'heroi. Aquest mode operatiu poc comú teletransporta a tots els robots en les cel·les adjacents a l'heroi. Ningú sap exactament a on es teletransportan, però sembla que prou lluny per a tornar-lo a molestar. A causa que els robots desapareixen en l'aire sense deixar un munt de ferralla, aquest mode rep el sobrenom de <quote
->vaporitzador</quote
-> i els enemics enviats mitjançant la vaporització es consideraran morts a l'efecte de puntuació.</para>
+>El tercer ús del dispositiu de teletransport en realitat no teletransporta en absolut a l'heroi. Aquest mode operatiu poc comú teletransporta a tots els robots en les cel·les adjacents a l'heroi. Ningú sap exactament a on es teletransportan, però sembla que prou lluny per a tornar-lo a molestar. A causa que els robots desapareixen en l'aire sense deixar un munt de ferralla, aquest mode rep el sobrenom de «vaporitzador» i els enemics enviats mitjançant la vaporització es consideraran morts a l'efecte de puntuació.</para>
       <para
 >Com en teletransportar de forma segura, utilitzar el vaporitzador requereix <link linkend="energy"
 >energia</link
@@ -1024,11 +1014,9 @@ SquashKillEnergyBonus=1</programlisting>
 ></term>
           <listitem
 ><para
->Si s'estableix a <quote
-><constant
+>Si s'estableix a «<constant
 >false</constant
-></quote
->, l'heroi podrà guanyar o gastar energia.</para
+>», l'heroi podrà guanyar o gastar energia.</para
 ></listitem>
         </varlistentry>
         <varlistentry>
@@ -1078,11 +1066,9 @@ SquashKillEnergyBonus=1</programlisting>
 ></term>
           <listitem
 ><para
->Si s'estableix a <quote
-><constant
+>Si s'estableix a «<constant
 >false</constant
-></quote
->, s'inhabilitarà l'acció de teletransport segur.</para
+>», s'inhabilitarà l'acció de teletransport segur.</para
 ></listitem>
         </varlistentry>
         <varlistentry>
@@ -1102,11 +1088,9 @@ SquashKillEnergyBonus=1</programlisting>
 ></term>
           <listitem
 ><para
->Si s'estableix a <quote
-><constant
+>Si s'estableix a «<constant
 >false</constant
-></quote
->, s'inhabilitarà l'acció del vaporitzador.</para
+>», s'inhabilitarà l'acció del vaporitzador.</para
 ></listitem>
         </varlistentry>
         <varlistentry>
@@ -1126,19 +1110,13 @@ SquashKillEnergyBonus=1</programlisting>
 ></term>
           <listitem
 ><para
->La quantitat de munts de ferralla que es poden moure amb una única empenta. Els valors possibles són <quote
-><constant
+>La quantitat de munts de ferralla que es poden moure amb una única empenta. Els valors possibles són «<constant
 >None</constant
-></quote
->, <quote
-><constant
+>», «<constant
 >One</constant
-></quote
-> i <quote
-><constant
+>» i «<constant
 >Many</constant
-></quote
->.</para
+>».</para
 ></listitem>
         </varlistentry>
         <varlistentry>
@@ -1148,11 +1126,9 @@ SquashKillEnergyBonus=1</programlisting>
 ></term>
           <listitem
 ><para
->Si s'estableix a <quote
-><constant
+>Si s'estableix a «<constant
 >true</constant
-></quote
->, l'heroi podrà aixafar als enemics empenyent munts de ferralla sobre seu.</para
+>», l'heroi podrà aixafar als enemics empenyent munts de ferralla sobre seu.</para
 ></listitem>
         </varlistentry>
         <varlistentry>
