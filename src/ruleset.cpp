@@ -22,7 +22,7 @@ const Killbots::Ruleset *Killbots::Ruleset::load(const QString &fileName)
             // Our only check for validity is that we can open the file as a config
             // file and that it contains a group named "KillbotsRuleset".
             KConfig configFile(filePath, KConfig::SimpleConfig);
-            if (configFile.hasGroup("KillbotsRuleset")) {
+            if (configFile.hasGroup(QStringLiteral("KillbotsRuleset"))) {
                 result = new Ruleset(filePath);
             }
         }
@@ -38,7 +38,7 @@ Killbots::Ruleset::Ruleset(const QString &filePath)
     : RulesetBase(KSharedConfig::openConfig(filePath))
 {
     m_filePath = filePath;
-    QString untranslatedName = KConfigGroup(config(), "KillbotsRuleset").readEntryUntranslated("Name");
+    QString untranslatedName = KConfigGroup(config(), QStringLiteral("KillbotsRuleset")).readEntryUntranslated("Name");
     m_scoreGroupKey = untranslatedName.simplified().remove(QLatin1Char(' ')).toLatin1();
 }
 
