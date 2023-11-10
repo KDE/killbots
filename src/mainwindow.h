@@ -10,7 +10,7 @@
 #define KILLBOTS_MAINWINDOW_H
 
 class QAction;
-class KScoreDialog;
+class KGameHighScoreDialog;
 #include <KXmlGuiWindow>
 
 namespace Killbots
@@ -45,7 +45,7 @@ private : // data members
     Engine *m_engine;
     View *m_view;
     Coordinator *m_coordinator;
-    KScoreDialog *m_scoreDialog;
+    KGameHighScoreDialog *m_scoreDialog;
     bool m_rulesetChanged;
 };
 

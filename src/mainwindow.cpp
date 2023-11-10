@@ -17,10 +17,10 @@
 #include "settings.h"
 #include "view.h"
 
+#include <KGameHighScoreDialog>
 #include <KGameStandardAction>
 #include <KGameThemeProvider>
 #include <KGameThemeSelector>
-#include <highscore/kscoredialog.h>
 
 #include <KActionCollection>
 #include <KConfigDialog>
@@ -152,8 +152,8 @@ void Killbots::MainWindow::onConfigDialogClosed()
 
 void Killbots::MainWindow::createScoreDialog()
 {
-    m_scoreDialog = new KScoreDialog(KScoreDialog::Name, this);
-    m_scoreDialog->addField(KScoreDialog::Level, i18nc("@title:column round of the game", "Round"), QStringLiteral("round"));
+    m_scoreDialog = new KGameHighScoreDialog(KGameHighScoreDialog::Name, this);
+    m_scoreDialog->addField(KGameHighScoreDialog::Level, i18nc("@title:column round of the game", "Round"), QStringLiteral("round"));
     m_scoreDialog->setModal(false);
     QStringList fileList;
     const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("killbots/ruleset"), QStandardPaths::LocateDirectory);
@@ -181,9 +181,9 @@ void Killbots::MainWindow::onGameOver(int score, int round)
 
         m_scoreDialog->setConfigGroup(qMakePair(m_engine->ruleset()->scoreGroupKey(), m_engine->ruleset()->name()));
 
-        KScoreDialog::FieldInfo scoreEntry;
-        scoreEntry[ KScoreDialog::Score ].setNum(score);
-        scoreEntry[ KScoreDialog::Level ].setNum(round);
+        KGameHighScoreDialog::FieldInfo scoreEntry;
+        scoreEntry[ KGameHighScoreDialog::Score ].setNum(score);
+        scoreEntry[ KGameHighScoreDialog::Level ].setNum(round);
 
         if (m_scoreDialog->addScore(scoreEntry)) {
             QTimer::singleShot(1000, this, &MainWindow::showHighscores);
