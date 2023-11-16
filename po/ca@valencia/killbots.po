@@ -144,7 +144,7 @@ msgid ""
 "If checked, the game will ignore any move that would result in the immediate "
 "death of the hero (other than random teleports and waiting out the round)."
 msgstr ""
-"Si està seleccionada, el joc ignorarà els moviments que comporten la mort "
+"Si se selecciona, el joc ignorarà els moviments que comporten la mort "
 "immediata de l'heroi (a part del teletransport aleatori i passar la tanda)."
 
 #. i18n: ectx: tooltip, entry (Ruleset), group (General)
@@ -349,7 +349,7 @@ msgstr "Espai"
 msgctxt "@info:tooltip"
 msgid "Teleport safely if that action is enabled, otherwise teleport randomly"
 msgstr ""
-"Si està activada, teletransporta de forma segura, altrament, fa un "
+"Si se selecciona, teletransporta de forma segura, altrament, fa un "
 "teletransport aleatori"
 
 #: mainwindow.cpp:272
