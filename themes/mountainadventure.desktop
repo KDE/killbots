@@ -84,6 +84,11 @@ Description[zh_TW]=Indiana Gnomes 在大霧籠罩的山上與鬼及蝙蝠戰鬥�
 VersionFormat=0.9
 Author=Parker Coates, Nicu Buculei (Sprites), Eugene Trounev (Background)
 AuthorEmail=parker.coates@kdemail.net
+Website=https://apps.kde.org/killbots
+BugReportUrl=https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=killbots
+Version=1.2
+Copyright=2006 Nicu Buculei, 2006 Eugene Trounev, 2007 Parker Coates
+License=GPL-2.0-or-later
 Type=SVG
 FileName=mountainadventure.svgz
 Preview=mountainadventure.png

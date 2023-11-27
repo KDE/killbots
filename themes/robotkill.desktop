@@ -96,6 +96,11 @@ Description[zh_TW]=預設 Killbots 主題。
 VersionFormat=0.9
 Author=Eugene Trounev
 AuthorEmail=eugene.trounev@gmail.com
+Website=https://apps.kde.org/killbots
+BugReportUrl=https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=killbots
+Version=1.3
+Copyright=2008 Eugene Trounev
+License=GPL-2.0-or-later
 Type=SVG
 FileName=robotkill.svgz
 Preview=robotkill.png

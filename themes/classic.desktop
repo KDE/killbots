@@ -107,6 +107,11 @@ Description[zh_TW]=給那些懷念 console 版本的人玩的主題
 VersionFormat=0.9
 Author=Parker Coates
 AuthorEmail=parker.coates@kdemail.net
+Website=https://apps.kde.org/killbots
+BugReportUrl=https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=killbots
+Version=1.3
+Copyright=2007 Parker Coates
+License=GPL-2.0-or-later
 Type=SVG
 FileName=classic.svgz
 Preview=classic.png

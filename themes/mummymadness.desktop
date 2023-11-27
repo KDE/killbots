@@ -94,6 +94,11 @@ Description[zh_TW]=埃及風格主題，裡面有很多瘋狂木乃伊。
 VersionFormat=0.3
 Author=Sean Wilson
 AuthorEmail=suseux@gmail.com
+Website=https://apps.kde.org/killbots
+BugReportUrl=https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=killbots
+Version=1.9
+Copyright=2009 Sean Wilson
+License=GPL-2.0-or-later
 Type=SVG
 FileName=mummymadness.svgz
 Preview=mummymadness.png
