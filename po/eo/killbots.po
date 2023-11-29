@@ -374,7 +374,11 @@ msgid "Move Up and Left"
 msgstr ""
 
 #: mainwindow.cpp:289
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "Shortcut for move up and left. https://quickgit.kde.org/?p=killbots."
+#| "¦git&a=blob&f=README.translators&o=plain"
+#| msgid "Q"
 msgctxt ""
 "Shortcut for move up and left. https://quickgit.kde.org/?p=killbots."
 "git&a=blob&f=README.translators&o=plain"
@@ -388,7 +392,11 @@ msgid "Move Up"
 msgstr "Movi supren"
 
 #: mainwindow.cpp:295
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "Shortcut for move up. See https://quickgit.kde.org/?p=killbots."
+#| "¦git&a=blob&f=README.translators&o=plain"
+#| msgid "W"
 msgctxt ""
 "Shortcut for move up. See https://quickgit.kde.org/?p=killbots."
 "git&a=blob&f=README.translators&o=plain"
@@ -402,7 +410,11 @@ msgid "Move Up and Right"
 msgstr ""
 
 #: mainwindow.cpp:301
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "Shortcut for move up and right. https://quickgit.kde.org/?p=killbots."
+#| "¦git&a=blob&f=README.translators&o=plain"
+#| msgid "E"
 msgctxt ""
 "Shortcut for move up and right. https://quickgit.kde.org/?p=killbots."
 "git&a=blob&f=README.translators&o=plain"
@@ -416,7 +428,11 @@ msgid "Move Left"
 msgstr "Movi maldekstren"
 
 #: mainwindow.cpp:307
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "Shortcut for move left. See https://quickgit.kde.org/?p=killbots."
+#| "¦git&a=blob&f=README.translators&o=plain"
+#| msgid "A"
 msgctxt ""
 "Shortcut for move left. See https://quickgit.kde.org/?p=killbots."
 "git&a=blob&f=README.translators&o=plain"
@@ -430,7 +446,11 @@ msgid "Stand Still"
 msgstr ""
 
 #: mainwindow.cpp:313
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "Shortcut for stand still. See https://quickgit.kde.org/?p=killbots."
+#| "¦git&a=blob&f=README.translators&o=plain"
+#| msgid "S"
 msgctxt ""
 "Shortcut for stand still. See https://quickgit.kde.org/?p=killbots."
 "git&a=blob&f=README.translators&o=plain"
@@ -444,7 +464,11 @@ msgid "Move Right"
 msgstr "Movi dekstren"
 
 #: mainwindow.cpp:319
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "Shortcut for move right. See https://quickgit.kde.org/?p=killbots."
+#| "¦git&a=blob&f=README.translators&o=plain"
+#| msgid "D"
 msgctxt ""
 "Shortcut for move right. See https://quickgit.kde.org/?p=killbots."
 "git&a=blob&f=README.translators&o=plain"
@@ -458,7 +482,11 @@ msgid "Move Down and Left"
 msgstr ""
 
 #: mainwindow.cpp:325
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "Shortcut for move down and left. See https://quickgit.kde.org/?p=killbots."
+#| "¦git&a=blob&f=README.translators&o=plain"
+#| msgid "Z"
 msgctxt ""
 "Shortcut for move down and left. See https://quickgit.kde.org/?p=killbots."
 "git&a=blob&f=README.translators&o=plain"
@@ -472,7 +500,11 @@ msgid "Move Down"
 msgstr "Movi malsupren"
 
 #: mainwindow.cpp:331
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "Shortcut for move down. See https://quickgit.kde.org/?p=killbots."
+#| "¦git&a=blob&f=README.translators&o=plain"
+#| msgid "X"
 msgctxt ""
 "Shortcut for move down. See https://quickgit.kde.org/?p=killbots."
 "git&a=blob&f=README.translators&o=plain"
@@ -486,7 +518,11 @@ msgid "Move Down and Right"
 msgstr ""
 
 #: mainwindow.cpp:337
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "Shortcut for move down and right. https://quickgit.kde.org/?p=killbots."
+#| "¦git&a=blob&f=README.translators&o=plain"
+#| msgid "C"
 msgctxt ""
 "Shortcut for move down and right. https://quickgit.kde.org/?p=killbots."
 "git&a=blob&f=README.translators&o=plain"
