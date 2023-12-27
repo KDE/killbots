@@ -3,19 +3,20 @@
 #
 # Frank Weng (a.k.a. Franklin) <franklin at goodhorse dot idv dot tw>, 2008, 2009.
 # Jeff Huang <s8321414@gmail.com>, 2016.
+# Kisaragi Hiu <mail@kisaragi-hiu.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: killbots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-25 01:39+0000\n"
-"PO-Revision-Date: 2016-11-14 20:59+0800\n"
-"Last-Translator: Jeff Huang <s8321414@gmail.com>\n"
-"Language-Team: Chinese <kde-i18n-doc@kde.org>\n"
+"PO-Revision-Date: 2023-12-26 21:46+0900\n"
+"Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
+"Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 2.0\n"
+"X-Generator: Lokalize 24.01.85\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #, kde-format
@@ -29,63 +30,53 @@ msgid "Your emails"
 msgstr "franklin@goodhorse.idv.tw, s8321414@gmail.com"
 
 #: coordinator.cpp:101
-#, fuzzy, kde-format
-#| msgid "Round:"
+#, kde-format
 msgctxt "@label"
 msgid "Round:"
 msgstr "回合："
 
 #: coordinator.cpp:106
-#, fuzzy, kde-format
-#| msgid "Score:"
+#, kde-format
 msgctxt "@label"
 msgid "Score:"
 msgstr "分數："
 
 #: coordinator.cpp:111
-#, fuzzy, kde-format
-#| msgid "Enemies:"
+#, kde-format
 msgctxt "@label"
 msgid "Enemies:"
 msgstr "敵人："
 
 #: coordinator.cpp:116
-#, fuzzy, kde-format
-#| msgid "Energy:"
+#, kde-format
 msgctxt "@label"
 msgid "Energy:"
 msgstr "能量："
 
 #: coordinator.cpp:405
-#, fuzzy, kde-format
-#| msgid "Round complete."
+#, kde-format
 msgctxt "@info"
 msgid "Round complete."
 msgstr "回合完成。"
 
 #: coordinator.cpp:410
-#, fuzzy, kde-format
-#| msgid ""
-#| "Board is full.\n"
-#| "Resetting enemy counts."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "Board is full.\n"
 "Resetting enemy counts."
 msgstr ""
 "棋盤已滿。\n"
-" 重置敵人數中。"
+" 重設敵人數中。"
 
 #: coordinator.cpp:415
-#, fuzzy, kde-format
-#| msgid "New game."
+#, kde-format
 msgctxt "@info"
 msgid "New game."
-msgstr "開始新遊戲"
+msgstr "開始新遊戲。"
 
 #: coordinator.cpp:420
-#, fuzzy, kde-format
-#| msgid "Game over."
+#, kde-format
 msgctxt "@info"
 msgid "Game over."
 msgstr "遊戲結束。"
@@ -162,8 +153,7 @@ msgstr "選擇下次使用的規則集。"
 
 #. i18n: ectx: Menu (moveMenu)
 #: killbotsui.rc:11
-#, fuzzy, kde-format
-#| msgid "Move"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Move"
 msgstr "移動"
@@ -222,43 +212,37 @@ msgstr ""
 "進度與統計等等。"
 
 #: mainwindow.cpp:94
-#, fuzzy, kde-format
-#| msgid "General"
+#, kde-format
 msgctxt "@title"
 msgid "General"
 msgstr "一般"
 
 #: mainwindow.cpp:96
-#, fuzzy, kde-format
-#| msgid "Configure general settings"
+#, kde-format
 msgctxt "@info"
 msgid "Configure general settings"
 msgstr "一般設定"
 
 #: mainwindow.cpp:99
-#, fuzzy, kde-format
-#| msgid "Game Type"
+#, kde-format
 msgctxt "@title"
 msgid "Game Type"
 msgstr "遊戲型態"
 
 #: mainwindow.cpp:101
-#, fuzzy, kde-format
-#| msgid "Select a game type"
+#, kde-format
 msgctxt "@info"
 msgid "Select a game type"
 msgstr "選擇遊戲型態"
 
 #: mainwindow.cpp:104
-#, fuzzy, kde-format
-#| msgid "Appearance"
+#, kde-format
 msgctxt "@title"
 msgid "Appearance"
 msgstr "外觀"
 
 #: mainwindow.cpp:106
-#, fuzzy, kde-format
-#| msgid "Select a graphical theme"
+#, kde-format
 msgctxt "@info"
 msgid "Select a graphical theme"
 msgstr "選擇一個圖形主題"
@@ -270,36 +254,31 @@ msgid ""
 msgstr "已選取新的遊戲型態，但目前有遊戲進行中。"
 
 #: mainwindow.cpp:141
-#, fuzzy, kde-format
-#| msgid "Game Type Changed"
+#, kde-format
 msgctxt "@title:window"
 msgid "Game Type Changed"
 msgstr "遊戲型態已變更"
 
 #: mainwindow.cpp:142
-#, fuzzy, kde-format
-#| msgid "Continue Current Game"
+#, kde-format
 msgctxt "@action:button"
 msgid "Continue Current Game"
 msgstr "繼續此局"
 
 #: mainwindow.cpp:143
-#, fuzzy, kde-format
-#| msgid "Start a New Game"
+#, kde-format
 msgctxt "@action:button"
 msgid "Start a New Game"
 msgstr "開始新遊戲"
 
 #: mainwindow.cpp:156
-#, fuzzy, kde-format
-#| msgid "Round"
+#, kde-format
 msgctxt "@title:column round of the game"
 msgid "Round"
 msgstr "回合"
 
 #: mainwindow.cpp:240 optionspage.cpp:28
-#, fuzzy, kde-format
-#| msgid "Teleport Safely"
+#, kde-format
 msgctxt "@action"
 msgid "Teleport Safely"
 msgstr "安全傳送"
@@ -313,15 +292,13 @@ msgid "T"
 msgstr "T"
 
 #: mainwindow.cpp:243
-#, fuzzy, kde-format
-#| msgid "Teleport to a safe location"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Teleport to a safe location"
 msgstr "傳送到安全的位置"
 
 #: mainwindow.cpp:248 optionspage.cpp:27
-#, fuzzy, kde-format
-#| msgid "Teleport"
+#, kde-format
 msgctxt "@action"
 msgid "Teleport"
 msgstr "傳送"
@@ -335,15 +312,13 @@ msgid "R"
 msgstr "R"
 
 #: mainwindow.cpp:251
-#, fuzzy, kde-format
-#| msgid "Teleport to a random location"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Teleport to a random location"
 msgstr "傳送到任意位置"
 
 #: mainwindow.cpp:256 optionspage.cpp:29
-#, fuzzy, kde-format
-#| msgid "Teleport (Safely If Possible)"
+#, kde-format
 msgctxt "@action"
 msgid "Teleport (Safely if Possible)"
 msgstr "傳送（盡可能安全）"
@@ -357,16 +332,13 @@ msgid "Space"
 msgstr "空白"
 
 #: mainwindow.cpp:259
-#, fuzzy, kde-format
-#| msgid ""
-#| "Teleport safely if that action is enabled, otherwise teleport randomly"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Teleport safely if that action is enabled, otherwise teleport randomly"
 msgstr "若開啟安全傳送，則傳送到安全位置，否則傳送到任意位置"
 
 #: mainwindow.cpp:263
-#, fuzzy, kde-format
-#| msgid "Vaporizer"
+#, kde-format
 msgctxt "@action"
 msgid "Vaporizer"
 msgstr "蒸發器"
@@ -380,15 +352,13 @@ msgid "F"
 msgstr "F"
 
 #: mainwindow.cpp:266
-#, fuzzy, kde-format
-#| msgid "Destroy all enemies in neighboring cells"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Destroy all enemies in neighboring cells"
 msgstr "消滅在周遭格中的所有敵人"
 
 #: mainwindow.cpp:271 optionspage.cpp:30
-#, fuzzy, kde-format
-#| msgid "Wait Out Round"
+#, kde-format
 msgctxt "@action"
 msgid "Wait Out Round"
 msgstr "不再移動"
@@ -402,15 +372,13 @@ msgid "V"
 msgstr "V"
 
 #: mainwindow.cpp:274
-#, fuzzy, kde-format
-#| msgid "Risk remaining in place until the end of the round for bonuses"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Risk remaining in place until the end of the round for bonuses"
 msgstr "冒險留在原地直到回合結束，可得獎勵"
 
 #: mainwindow.cpp:279
-#, fuzzy, kde-format
-#| msgid "Move Up and Left"
+#, kde-format
 msgctxt "@action"
 msgid "Move Up and Left"
 msgstr "向左上移"
@@ -424,8 +392,7 @@ msgid "Q"
 msgstr "Q"
 
 #: mainwindow.cpp:285
-#, fuzzy, kde-format
-#| msgid "Move Up"
+#, kde-format
 msgctxt "@action"
 msgid "Move Up"
 msgstr "上移"
@@ -439,8 +406,7 @@ msgid "W"
 msgstr "W"
 
 #: mainwindow.cpp:291
-#, fuzzy, kde-format
-#| msgid "Move Up and Right"
+#, kde-format
 msgctxt "@action"
 msgid "Move Up and Right"
 msgstr "向右上移"
@@ -454,8 +420,7 @@ msgid "E"
 msgstr "E"
 
 #: mainwindow.cpp:297
-#, fuzzy, kde-format
-#| msgid "Move Left"
+#, kde-format
 msgctxt "@action"
 msgid "Move Left"
 msgstr "左移"
@@ -469,8 +434,7 @@ msgid "A"
 msgstr "A"
 
 #: mainwindow.cpp:303
-#, fuzzy, kde-format
-#| msgid "Stand Still"
+#, kde-format
 msgctxt "@action"
 msgid "Stand Still"
 msgstr "靜止"
@@ -484,8 +448,7 @@ msgid "S"
 msgstr "S"
 
 #: mainwindow.cpp:309
-#, fuzzy, kde-format
-#| msgid "Move Right"
+#, kde-format
 msgctxt "@action"
 msgid "Move Right"
 msgstr "右移"
@@ -499,8 +462,7 @@ msgid "D"
 msgstr "D"
 
 #: mainwindow.cpp:315
-#, fuzzy, kde-format
-#| msgid "Move Down and Left"
+#, kde-format
 msgctxt "@action"
 msgid "Move Down and Left"
 msgstr "向左下移"
@@ -514,8 +476,7 @@ msgid "Z"
 msgstr "Z"
 
 #: mainwindow.cpp:321
-#, fuzzy, kde-format
-#| msgid "Move Down"
+#, kde-format
 msgctxt "@action"
 msgid "Move Down"
 msgstr "下移"
@@ -529,8 +490,7 @@ msgid "X"
 msgstr "X"
 
 #: mainwindow.cpp:327
-#, fuzzy, kde-format
-#| msgid "Move Down and Right"
+#, kde-format
 msgctxt "@action"
 msgid "Move Down and Right"
 msgstr "向右下移"
@@ -544,71 +504,61 @@ msgid "C"
 msgstr "C"
 
 #: optionspage.cpp:24
-#, fuzzy, kde-format
-#| msgid "Nothing"
+#, kde-format
 msgctxt "@item:inlistbox No action on click"
 msgid "Nothing"
 msgstr "無"
 
 #: optionspage.cpp:25
-#, fuzzy, kde-format
-#| msgid "Step"
+#, kde-format
 msgctxt "@action"
 msgid "Step"
 msgstr "步進"
 
 #: optionspage.cpp:26
-#, fuzzy, kde-format
-#| msgid "Repeated Step"
+#, kde-format
 msgctxt "@action"
 msgid "Repeated Step"
 msgstr "重複步進"
 
 #: optionspage.cpp:45
-#, fuzzy, kde-format
-#| msgid "Slow"
+#, kde-format
 msgctxt "@item:inrange"
 msgid "Slow"
 msgstr "慢"
 
 #: optionspage.cpp:47
-#, fuzzy, kde-format
-#| msgid "Fast"
+#, kde-format
 msgctxt "@item:inrange"
 msgid "Fast"
 msgstr "快"
 
 #: optionspage.cpp:49
-#, fuzzy, kde-format
-#| msgid "Instant"
+#, kde-format
 msgctxt "@item:inrange"
 msgid "Instant"
 msgstr "即時"
 
 #: optionspage.cpp:60
-#, fuzzy, kde-format
-#| msgid "Animation &speed:"
+#, kde-format
 msgctxt "@label:slider"
 msgid "Animation &speed:"
 msgstr "動畫速度(&S)："
 
 #: optionspage.cpp:63
-#, fuzzy, kde-format
-#| msgid "Prevent &unsafe moves"
+#, kde-format
 msgctxt "@option:check"
 msgid "Prevent &unsafe moves"
 msgstr "預防不安全移動(&U)"
 
 #: optionspage.cpp:68
-#, fuzzy, kde-format
-#| msgid "&Middle-click action:"
+#, kde-format
 msgctxt "@label:listbox"
 msgid "&Middle-click action:"
 msgstr "滑鼠中鍵動作(&M)："
 
 #: optionspage.cpp:69
-#, fuzzy, kde-format
-#| msgid "&Right-click action:"
+#, kde-format
 msgctxt "@label:listbox"
 msgid "&Right-click action:"
 msgstr "滑鼠右鍵動作(&M)："
@@ -777,25 +727,19 @@ msgid "Points awarded for each energy awarded above maximum energy cap"
 msgstr "能量已達最大後，繼續獲得能量時的得分"
 
 #: rulesetdetailsdialog.cpp:38
-#, fuzzy, kde-format
-#| msgctxt "Quantity of junkheaps that can be pushed"
-#| msgid "None"
+#, kde-format
 msgctxt "@item Quantity of junkheaps that can be pushed"
 msgid "None"
 msgstr "無"
 
 #: rulesetdetailsdialog.cpp:39
-#, fuzzy, kde-format
-#| msgctxt "Quantity of junkheaps that can be pushed"
-#| msgid "One"
+#, kde-format
 msgctxt "@item Quantity of junkheaps that can be pushed"
 msgid "One"
 msgstr "1"
 
 #: rulesetdetailsdialog.cpp:40
-#, fuzzy, kde-format
-#| msgctxt "Quantity of junkheaps that can be pushed"
-#| msgid "Many"
+#, kde-format
 msgctxt "@item Quantity of junkheaps that can be pushed"
 msgid "Many"
 msgstr "許多"
@@ -807,87 +751,73 @@ msgid "%1:"
 msgstr "%1："
 
 #: rulesetdetailsdialog.cpp:68
-#, fuzzy, kde-format
-#| msgid "Yes"
+#, kde-format
 msgctxt "@item"
 msgid "Yes"
 msgstr "是"
 
 #: rulesetdetailsdialog.cpp:68
-#, fuzzy, kde-format
-#| msgid "No"
+#, kde-format
 msgctxt "@item"
 msgid "No"
 msgstr "否"
 
 #: rulesetdetailsdialog.cpp:78
-#, fuzzy, kde-format
-#| msgid "Details of %1 Game Type"
+#, kde-format
 msgctxt "@title:window"
 msgid "Details of %1 Game Type"
 msgstr "遊戲型態 %1 的詳情"
 
 #: rulesetselector.cpp:37
-#, fuzzy, kde-format
-#| msgid "A list of the Killbots rulesets installed on this computer."
+#, kde-format
 msgctxt "@info:whatsthis"
 msgid "A list of the Killbots rulesets installed on this computer."
 msgstr "安裝於系統上的 Killbots 規則集。"
 
 #: rulesetselector.cpp:39
-#, fuzzy, kde-format
-#| msgid "Game Type Details"
+#, kde-format
 msgctxt "title:group"
 msgid "Game Type Details"
 msgstr "遊戲型態詳情"
 
 #: rulesetselector.cpp:40
-#, fuzzy, kde-format
-#| msgid "Lists information on the currently selected game type."
+#, kde-format
 msgctxt "@info:whatsthis"
 msgid "Lists information on the currently selected game type."
 msgstr "列出目前選取的遊戲型態的資訊。"
 
 #: rulesetselector.cpp:42
-#, fuzzy, kde-format
-#| msgid "Author:"
+#, kde-format
 msgctxt "@label"
 msgid "Author:"
 msgstr "作者："
 
 #: rulesetselector.cpp:49
-#, fuzzy, kde-format
-#| msgid "Contact:"
+#, kde-format
 msgctxt "@label"
 msgid "Contact:"
 msgstr "聯絡人："
 
 #: rulesetselector.cpp:57
-#, fuzzy, kde-format
-#| msgid "Description:"
+#, kde-format
 msgctxt "@label"
 msgid "Description:"
 msgstr "描述："
 
 #: rulesetselector.cpp:64
-#, fuzzy, kde-format
-#| msgid "Details..."
+#, kde-format
 msgctxt "@action:button"
 msgid "Details..."
 msgstr "詳細資料..."
 
 #: rulesetselector.cpp:65
-#, fuzzy, kde-format
-#| msgid "Show the detailed parameters of the selected game type"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Show the detailed parameters of the selected game type"
 msgstr "顯示選取的遊戲型態的詳細參數"
 
 #: rulesetselector.cpp:66
-#, fuzzy, kde-format
-#| msgid ""
-#| "Opens a dialog listing the values of all internal parameters for the "
-#| "selected game type."
+#, kde-format
 msgctxt "@info:whatsthisp"
 msgid ""
 "Opens a dialog listing the values of all internal parameters for the "
