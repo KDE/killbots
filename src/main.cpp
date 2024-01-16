@@ -21,7 +21,7 @@ int main(int argc, char **argv)
 {
 	QApplication app(argc, argv);
 
-    KLocalizedString::setApplicationDomain("killbots");
+    KLocalizedString::setApplicationDomain(QByteArrayLiteral("killbots"));
 
     KAboutData about(QStringLiteral("killbots"), i18n("Killbots"), QStringLiteral(KILLBOTS_VERSION_STRING));
     about.setShortDescription(i18n("A KDE game of killer robots and teleportation."));
