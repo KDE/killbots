@@ -130,4 +130,3 @@ Icon=killbots
 Type=Application
 X-DocPath=killbots/index.html
 Categories=Qt;KDE;Game;StrategyGame;
-X-DBUS-ServiceName=org.kde.killbots
