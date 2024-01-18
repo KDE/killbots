@@ -31,16 +31,17 @@ int main(int argc, char **argv)
     about.addCredit(i18n("Mark Rae"), i18n("Author of Gnome Robots. Invented safe teleports, pushing junkheaps and fast robots."), QLatin1String(""), QStringLiteral("https://wiki.gnome.org/Apps/Robots"));
     about.setHomepage(QStringLiteral("https://apps.kde.org/killbots"));
 
-    QCommandLineParser parser;
     KAboutData::setApplicationData(about);
+    QApplication::setWindowIcon(QIcon::fromTheme(QStringLiteral("killbots")));
+
     KCrash::initialize();
+
+    QCommandLineParser parser;
     about.setupCommandLine(&parser);
     parser.process(app);
     about.processCommandLine(&parser);
 
     KDBusService service;
-
-    app.setWindowIcon(QIcon::fromTheme(QStringLiteral("killbots")));
 
     Killbots::MainWindow *mainWindow = new Killbots::MainWindow;
     mainWindow->show();
