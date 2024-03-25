@@ -980,7 +980,7 @@ SquashKillEnergyBonus=1</programlisting>
 ></term>
           <listitem
 ><para
->Aantal aantal kolommen in het spelraster.</para
+>Het aantal kolommen in het spelraster.</para
 ></listitem>
         </varlistentry>
         <varlistentry>
