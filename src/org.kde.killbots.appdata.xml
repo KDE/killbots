@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component type="desktop-application">
   <id>org.kde.killbots</id>
+  <developer id="org.kde">
+    <name translate="no">KDE</name>
+  </developer>
   <name>Killbots</name>
   <name xml:lang="ar">معركة الآليين</name>
   <name xml:lang="ast">Killbots</name>
