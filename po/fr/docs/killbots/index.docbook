@@ -36,13 +36,13 @@
 >&FDLNotice;</legalnotice>
 
   <date
->09-05-2016</date>
+>05-07-2021</date>
   <releaseinfo
->1.2.0 (Applications 16.04)</releaseinfo>
+>KDE Gear 21.04</releaseinfo>
 
   <abstract>
     <para
->&killbots; est le port pour &kde; du jeu classique sur BSD <command
+>&killbots; est le portage vers &kde; du jeu classique existant sous BSD, nommé <command
 >robots</command
 >.</para>
   </abstract>
@@ -73,7 +73,7 @@
     <keyword
 >téléportation</keyword>
     <keyword
->déstructurateur</keyword>
+>atomiser</keyword>
     <keyword
 >déstructurer</keyword>
     <keyword
@@ -111,14 +111,16 @@
 >robots</quote
 >, <quote
 >obstacles mouvants</quote
->, &etc;, mais &killbots; est complètement adaptable avec des thèmes. Ce qui veut dire que les images du jeu que vous voyez pendant que vous jouez ne correspondent pas aux thèmes futuristes décris ici. La jouabilité et les stratégies, cependant, restent la même même si votre héros est une carotte humaine pourchassée dans un bout de jardin par des lapins voraces.</para>
+>, &etc;, mais &killbots; est complètement adaptable avec des thèmes. Ce qui veut dire que les images du jeu que vous voyez pendant que vous jouez ne correspondent pas aux thèmes futuristes décris ici. L'ergonomie du jeu et les stratégies, cependant, resteront les mêmes, même si votre héros est une carotte humaine pourchassée dans un bout de jardin par des lapins voraces.</para>
   </note>
 
   <note>
     <title
 >Remarque : </title>
     <para
->&killbots; gère de nombreuses règles qui contrôlent les paramètres du jeu et détermine quelles fonctionnalités du jeu sont inclues. Cette documentation cherche à être générale et non spécifique à une règle particulière. Vérifiez la description de vos règles courantes pour plus de détails sur les mécanismes du jeu par rapport à la taille de la grille, des manches, du score, de l'énergie, etc.</para>
+>&killbots; prend en charge de nombreux types de jeux qui contrôlent les paramètres du jeu et détermine quelles fonctionnalités du jeu sont incluses. Cette documentation cherche à être générale et non spécifique à un type particulier de jeu. Veuillez vérifier la description et les détails de votre type courant de jeu dans la boîte de dialogue <guilabel
+>Configurer - &killbots;</guilabel
+> pour des informations détaillées sur les mécanismes des jeux, avec le respect de la taille de la grille, des manches, du score, de l'énergie, etc.</para>
   </note>
 
 </chapter>
@@ -190,7 +192,9 @@
 ></term>
           <listitem>
             <para
->Les robots sont des malfrats désirant seulement écrabouiller le héros avec leurs sangles métalliques. Ils n'ont jamais entendu parler des « Trois Lois de la Robotique » et voudraient probablement écrabouiller quiconque essaierait de leur expliquer.</para>
+>Les robots sont des malfrats désirant seulement écrabouiller le héros avec leurs sangles métalliques. Ils n'ont jamais entendu parler des <quote
+>Trois Lois de la Robotique</quote
+> et voudraient probablement écrabouiller quiconque essaierait de leur expliquer.</para>
             <para
 >Chaque robot fait un mouvement d'une case vers le héros à chaque tour. Si le robot est au dessus du héros, il va reculer. Si le robot est à gauche du héros, il va aller sur la droite. Si le robot est en dessous et à droite du héros, il va se déplacer en diagonale, en haut et à gauche. Le robot doit atteindre la cellule du héros, s'il y parvient, le héros est tué et la partie est terminée.</para>
           </listitem>
@@ -287,8 +291,8 @@
 > au fur et à mesure que la partie progresse. L'énergie permet au héros de réaliser des <link linkend="teleport-safely"
 >téléportations sécurisées</link
 > et / ou utiliser le <link linkend="vaporizer"
->déstructureur</link
->. Selon les règles du jeu choisies, l'énergie peut être distribué pour de nombreuses raisons incluant celle de complètement de la manche, <link linkend="pushing-junkheaps"
+>atomiseur</link
+>. Selon les règles du jeu choisies, l'énergie peut être distribuée pour de nombreuses raisons incluant celle de complètement de la manche, <link linkend="pushing-junkheaps"
 > pousser un obstacle</link
 > ou détruire des ennemis en<link linkend="wait-out-round"
 >patientant dans la manche</link
@@ -310,7 +314,7 @@
       <para
 >Le héros doit gérer d'une manière ou d'une autre d'atteindre le téléporteur personnel. Malheureusement, actionné sans une source d'énergie, ce n'est pas très fiable. Activer le téléporteur amène le héros à être transporté vers une cellule sélectionnée au hasard n'importe où sur l'aire de jeu. Il n'y a pas de limite au nombre de téléportations que peut réaliser le héros.</para>
       <para
->La cellule de destination est garantie inoccupée, mais il y a de grandes chances pour que la cellule adjacente est occupée par un robot en colère. À cause du risque inhérent à la téléportation, ceci doit être réservé pour une manoeuvre d'ultime effort, quand il n'y a plus aucun mouvements sécurisés disponibles.</para>
+>La cellule de destination est garantie inoccupée, mais il y a de grandes chances pour que la cellule adjacente est occupée par un robot en colère. À cause du risque inhérent à la téléportation, ceci doit être réservé pour une manœuvre d'ultime effort, quand il n'y a plus aucun mouvements sécurisés disponibles.</para>
     </sect2>
 
     <sect2 id="teleport-safely">
@@ -326,22 +330,22 @@
 
     <sect2 id="vaporizer">
       <title
->Utiliser le déstructurateur</title>
+>Utiliser l'atomiseur</title>
       <para
 >La troisième utilisation pour le périphérique de téléportation ne téléporte pas du tout le héros. Ce mode d'opération plutôt peu commun téléporte tous les robots dans les cellules adjacentes au héros. Personne ne peut savoir exactement où les robots sont téléportés, mais il semble être suffisamment éloigné pour ne pas importuner le héros. A cause de la disparition des robots dans l'air sans quitter un obstacle, ce mode est nommé <quote
 >dé-structurer</quote
 > et les ennemis éparpillés à travers la dé-structuration sont considérés comme tués pour marquer le score.</para>
       <para
->Comme la téléportation sécurisée, utiliser le déstructureur requiert de <link linkend="energy"
+>Comme la téléportation sécurisée, utiliser l'atomiseur requiert de <link linkend="energy"
 >l'énergie</link
->. Certaines règles n'incluent pas le déstructureur et la quantité d'énergie requise pour l'utiliser varie d'une règle à l'autre.</para>
+>. Certaines règles n'incluent pas l'atomiseur et la quantité d'énergie requise pour l'utiliser varie d'une règle à l'autre.</para>
     </sect2>
 
     <sect2 id="wait-out-round">
       <title
 >Attendre la fin de la manche</title>
       <para
->Il peut arriver un moment où la grille est disposée de telle manière que tous les rbots peuvent être détruits sans que le héros n'a à se déplacer du tout. Dans ce type de situation, vous avez l'option d'attendre la fin de la manche.</para>
+>Il peut arriver un moment où la grille est disposée de telle manière que tous les robots peuvent être détruits sans que le héros n'a à se déplacer du tout. Dans ce type de situation, vous avez l'option d'attendre la fin de la manche.</para>
       <example>
         <title
 >Une opportunité d'attendre la fin de la manche</title>
@@ -388,11 +392,13 @@
       <para
 >La souris (ou n'importe quel périphérique de pointage) peut être utilisée pour naviguer avec plus de naturel, de manière intuitive. Comme les mouvements du pointeur sur la zone principale de jeu, le curseur se modifiera pour indiquer la direction du sens relatif au héros. Par exemple, en déplaçant le pointeur vers l'espace au dessus du héros modifiera le curseur pour une « flèche vers le haut ». Si le pointeur est placé immédiatement sur le héros, le curseur se modifie pour n'indiquer aucun mouvements.</para>
       <para
->Un simple clic-gauche indiquera au héros une direction vers laquelle se diriger (à condition qu'un tel mouvement soit permis). Pour votre confort, des actions additionnelles peuvent être assignées aux boutons droit et du milieu de la souris dans <link linkend="configure-killbots"
+>Un simple clic gauche indiquera au héros une direction vers laquelle se diriger (à condition qu'un tel mouvement soit permis). Pour votre confort, des actions additionnelles peuvent être assignées aux boutons droit et du milieu de la souris dans <link linkend="configure-killbots"
 >Configurer &killbots;</link
 >. Ces actions englobent celles trouvées dans le menu <link linkend="move-menu"
 >Déplacer</link
-> comme les options additionnelles : étape répétée. La réalisation d'une étape répétée déplace le héros dans la direction indiquée pour plusieurs tours consécutifs jusqu'à ce qu'un obstacle soit atteint sinon le mouvement poursuivi deviendrait dangereux. Ceci peut être interrompu par un clic encore une fois pendant que le mouvement est en réalisation.</para>
+> comme les options additionnelles : <guimenuitem
+>Étape répétée</guimenuitem
+>. La réalisation d'une étape répétée déplace le héros dans la direction indiquée pour plusieurs tours consécutifs jusqu'à ce qu'un obstacle soit atteint sinon le mouvement poursuivi deviendrait dangereux. Ceci peut être interrompu par un clic encore une fois pendant que le mouvement est en réalisation.</para>
       <para
 ></para>
     </sect2>
@@ -518,9 +524,7 @@
         <term
 ><menuchoice
 ><shortcut
-><keycap
->Espace</keycap
-></shortcut
+>&Space;</shortcut
 > <guimenu
 >Déplacer</guimenu
 > <guimenuitem
@@ -544,7 +548,7 @@
 > <guimenu
 >Déplacer</guimenu
 > <guimenuitem
->Déstructureur</guimenuitem
+>l'atomiseur</guimenuitem
 > </menuchoice
 ></term>
         <listitem
@@ -629,9 +633,9 @@
       <title
 >Le fichier Desktop (bureau)</title>
       <para
->Le fichier desktop suit la syntaxe <filename
->INI</filename
-> standard. La valeur-clé couple les informations de stockage du thème et pointe vers les autres fichiers inclus dans le thème. L'exemple suivant est pris du thème par défaut.</para>
+>Le fichier de bureau suit la syntaxe standard <acronym
+>INI</acronym
+>. La valeur-clé fait correspondre les informations d'enregistrement du thème et pointe vers les autres fichiers inclus dans le thème. L'exemple suivant est pris du thème par défaut.</para>
       <example>
         <title
 >Exemple d'un fichier Desktop de thème</title>
@@ -647,39 +651,29 @@ Preview=exemple.png
         </programlisting>
       </example>
       <para
->Le premier des quatre paramètres contient des méta-données du thème et est assez clair. Pour les thèmes de &killbots;, le paramètre <varname
+>Les quatre premiers paramètres contiennent les méta-données du thème et sont assez clairs. Pour les thèmes de &killbots;, le paramètre <varname
 >Type</varname
-> devrait toujours être défini comme <literal
->SVG</literal
->. Les deux derniers paramètres contiennent les noms de fichiers des deux autres fichiers de thème. Cependant cela n'est pas strictement nécessaire, il est hautement recommandé que, pour la clarté, les trois fichiers partagent le même nom de fichier de base.</para>
+> devrait toujours être défini comme &SVG;. Les deux derniers paramètres contiennent les noms de fichiers des deux autres fichiers de thème. Bien que cela ne soit pas strictement nécessaire, il est hautement recommandé que, pour la clarté, les trois fichiers partagent le même nom de fichier de base.</para>
     </sect2>
 
     <sect2>
       <title
 >Le fichier Preview (aperçu)</title>
       <para
->Le fichier d'aperçu est simplement un fichier <filename
->PNG</filename
-> contenant un aperçu du thème. L'image d'aperçu devrait être de 240 sur 240 pixels et correspondre à l'affichage de l'aperçu du thème par défaut aussi proche que possible, ce qui facilitera plus facilement la comparaison des thèmes dans le sélecteur de thèmes.</para>
+>Le fichier d'aperçu est simplement un fichier au format <acronym
+>PNG</acronym
+> contenant un aperçu du thème. L'image d'aperçu devrait être de 240 pixels sur 140 pixels et correspondre à la disposition de l'aperçu du thème par défaut, aussi proche que possible, ce qui facilitera plus facilement la comparaison des thèmes dans le sélecteur de thèmes.</para>
     </sect2>
 
     <sect2>
       <title
->Le fichier <acronym
->SVG</acronym
-> (format d'image)</title>
+>Le fichier au format &SVG;</title>
       <para
->Le fichier <acronym
->SVG</acronym
-> est un fichier graphique vectoriel redimensionnable qui contient les éléments graphiques courants utilisés pour créer le thème. Le fichier peut soit être un format <filename
->.svg</filename
-> non compressé ou un format <filename
->.svgz</filename
-> compressé. Chaque élément du jeu est identifié par un ID unique dans le fichier <acronym
->SVG</acronym
->. Quand vous créez un nouveau thème, il est généralement plus facile de démarrer avec un thème existant et remplacer les éléments un par un jusqu'à ce que le thème est complet. Le fichier <acronym
->SVG</acronym
-> <emphasis
+>Le fichier &SVG; est un fichier graphique vectoriel redimensionnable contenant les éléments graphiques courants utilisés pour créer le thème. Le fichier peut soit être un format <literal role="extension"
+>.svg</literal
+> or <literal role="extension"
+>.svgz</literal
+> compressé. Chaque élément du jeu est identifié par un identifiant unique dans le fichier &SVG;. Quand vous créez un nouveau thème, il est généralement plus facile de démarrer avec un thème existant et de remplacer les éléments un par un jusqu'à ce que le thème soit complet. Le fichier &SVG; <emphasis
 >doit</emphasis
 > contenir les éléments suivants.</para>
       <variablelist>
@@ -860,7 +854,7 @@ Preview=exemple.png
       <title
 >Installer des thèmes personnalisés</title>
       <para
->Pour que &killbots; détecte et utilise un nouveau thème de jeu,les fichiers doivent être déplacés dans le dossier approprié. Pour installer le thème de jeu, uniquement l'utilisateur courant, veuillez copier le bureau, la vignette et les fichiers « svg » dans <filename
+>Pour que &killbots; détecte et utilise un nouveau thème, les fichiers doivent être déplacés dans le dossier approprié. Pour installer le thèmre, uniquement pour l'utilisateur courant, veuillez copier les fichiers de bureau, d'aperçu et &SVG; dans <filename class="directory"
 >killbots/themes</filename
 > dans le dossier local de <userinput
 ><command
@@ -868,15 +862,11 @@ Preview=exemple.png
 > <option
 >--paths GenericDataLocation </option
 ></userinput
->. Pour rendre le thème disponible à l'ensemble du système, veuillez déplacer les fichiers vers <filename
+>. Pour rendre le thème disponible à l'ensemble du système, veuillez déplacer les fichiers <filename class="directory"
 >killbots/themes</filename
-> dans le dossier du système  <userinput
-><command
->qtpaths</command
-> <option
->--paths GenericDataLocation </option
-></userinput
->. Veuillez noter que ceci devrait nécessiter les droits d'administrateur.</para>
+>  dans le dossier du système (à partir potentiellement de la commande précédente  <filename class="directory"
+>/usr/share</filename
+> ou équivalente). Veuillez noter que ceci devrait nécessiter les droits d'administrateur.</para>
     </sect2>
   </sect1>
 
@@ -886,7 +876,7 @@ Preview=exemple.png
 
     <sect2>
       <title
->Le fichier Desktop Ruleset (fichier de règle du jeu)</title>
+>Le fichier de bureau pour les règles du jeu (Fichier de règles du jeu)</title>
       <para
 >Créer de nouvelles règles du jeu est incroyablement simple pour &killbots;, spécialement quand vous démarrez d'une règle du jeu existante. Les règles du jeu sont stockées comme un simple fichier desktop où les paramètres et les méta-données sont stockés comme de simple valeur-clé.</para>
       <example>
@@ -898,7 +888,7 @@ Name=Killbots
 Name[gl]=Robots asasinos
 Author=Parker Coates
 AuthorContact=parker.coates@kdemail.net
-Description=&lt;qt&gt;&lt;p&gt;Le jeu par défaut Killbots de  type.&lt;/p&gt;&lt;p&gt; Inclut une grille de taille moyenne, des téléportations sûres, des ennemis rapides et des obstacles.&lt;/p&gt;&lt;/qt&gt;
+Description=&lt;qt&gt;&lt;p&gt;Le jeu par défaut Killbots de type.&lt;/p&gt;&lt;p&gt; Inclut une grille de taille moyenne, des téléportations sûres, des ennemis rapides et des obstacles.&lt;/p&gt;&lt;/qt&gt;
 Rows=16
 Columns=16
 EnemiesAtGameStart=8.0
@@ -935,17 +925,17 @@ SquashKillEnergyBonus=1</programlisting>
         <varlistentry>
           <term
 ><varname
->Name</varname
+>Nom</varname
 ></term>
           <listitem
 ><para
->Le nom de la règle du jeu comme elle apparaîtra dans le sélecteur de règle du jeu et la boîte de dialogue des meilleurs scores.</para
+>Le nom de la règle du jeu comme elle apparaîtra dans le sélecteur de règles du jeu et la boîte de dialogue des meilleurs scores.</para
 ></listitem>
         </varlistentry>
         <varlistentry>
           <term
 ><varname
->Author</varname
+>Auteur</varname
 ></term>
           <listitem
 ><para
@@ -955,7 +945,7 @@ SquashKillEnergyBonus=1</programlisting>
         <varlistentry>
           <term
 ><varname
->AuthorContact</varname
+>Contact avec l'auteur</varname
 ></term>
           <listitem
 ><para
@@ -975,7 +965,7 @@ SquashKillEnergyBonus=1</programlisting>
         <varlistentry>
           <term
 ><varname
->Rows</varname
+>Lignes</varname
 ></term>
           <listitem
 ><para
@@ -985,7 +975,7 @@ SquashKillEnergyBonus=1</programlisting>
         <varlistentry>
           <term
 ><varname
->Columns</varname
+>Colonnes</varname
 ></term>
           <listitem
 ><para
@@ -1131,7 +1121,7 @@ SquashKillEnergyBonus=1</programlisting>
 ></term>
           <listitem
 ><para
->La quantité d'énergie consommé en utilisant le déstructureur.</para
+>La quantité d'énergie consommé en utilisant l'atomiseur.</para
 ></listitem>
         </varlistentry>
         <varlistentry>
@@ -1141,12 +1131,18 @@ SquashKillEnergyBonus=1</programlisting>
 ></term>
           <listitem
 ><para
->Le nombre d'obstacles qui peuvent être déplacé avec une simple poussée. Les valeurs possibles sont <constant
+>Le nombre d'obstacles pouvant être déplacés avec une simple poussée. Les valeurs possibles sont  <quote
+><constant
 >Aucun</constant
->, <constant
+></quote
+>, <quote
+><constant
 >Un</constant
-> et <constant
+></quote
+> et <quote
+><constant
 >Plusieurs</constant
+></quote
 >.</para
 ></listitem>
         </varlistentry>
@@ -1246,8 +1242,9 @@ SquashKillEnergyBonus=1</programlisting>
     <sect2>
       <title
 >Installer des règles personnalisées</title>
+
       <para
->Pour que &killbots; détecte et utilise un nouveau type de jeu,déplacé dans le dossier approprié. Pour installer le type de jeu, uniquement l'utilisateur courant, veuillez copier le fichier dans <filename
+>Pour que &killbots; détecte et utilise un nouveau type de jeu, le fichier de règles du jeu doit être déplacé dans le dossier approprié. Pour installer le type de jeu, uniquement pour l'utilisateur courant, veuillez copier le fichier dans <filename class="directory"
 >killbots/rulesets</filename
 > dans le dossier local de <userinput
 ><command
@@ -1255,15 +1252,11 @@ SquashKillEnergyBonus=1</programlisting>
 > <option
 >--paths GenericDataLocation </option
 ></userinput
->. Pour rendre le thème disponible à l'ensemble du système, veuillez déplacer le fichier <filename
+>. Pour rendre le type de jeu disponible à l'ensemble du système, veuillez déplacer le fichier <filename class="directory"
 >killbots/rulesets</filename
-> dans le dossier du système <userinput
-><command
->qtpaths</command
-> <option
->--paths GenericDataLocation </option
-></userinput
->. Veuillez noter que ceci devrait nécessiter les droits d'administrateur.</para>
+>  dans le dossier du système (à partir potentiellement de la commande précédente  <filename class="directory"
+>/usr/share</filename
+> ou équivalente). Veuillez noter que ceci devrait nécessiter les droits d'administrateur.</para>
     </sect2>
 
   </sect1>
