@@ -39,8 +39,9 @@ target_sources(killbots PRIVATE
 ecm_qt_declare_logging_category(killbots
     HEADER killbots_debug.h
     IDENTIFIER KILLBOTS_LOG
-    CATEGORY_NAME org.kde.kdegames.killbots
-    DESCRIPTION "Killbots"
+    CATEGORY_NAME killbots
+    OLD_CATEGORY_NAMES org.kde.kdegames.killbots
+    DESCRIPTION "Killbots game"
     EXPORT KILLBOTS
 )
 
