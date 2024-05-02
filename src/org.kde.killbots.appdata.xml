@@ -21,6 +21,7 @@
   <name xml:lang="fi">Killbots</name>
   <name xml:lang="fr">Killbots</name>
   <name xml:lang="gl">Robots asasinos</name>
+  <name xml:lang="he">מתקפת רובוטים</name>
   <name xml:lang="ia">Killbots</name>
   <name xml:lang="id">Killbots</name>
   <name xml:lang="it">Killbots</name>
@@ -55,6 +56,7 @@
   <summary xml:lang="fi">Voita päihittämällä tappajarobotit</summary>
   <summary xml:lang="fr">Soyez plus malin que les robots tueurs pour gagner</summary>
   <summary xml:lang="gl">Se máis intelixente que os robots asasinos para gañar</summary>
+  <summary xml:lang="he">צריך להערים על הרובוטים הקטלניים כדי לנצח</summary>
   <summary xml:lang="id">Siasati robot pembunuh untuk menang</summary>
   <summary xml:lang="it">Supera in astuzia i robot killer per vincere</summary>
   <summary xml:lang="ka">გასამარჯვებლად მკვლელ რობოტებზე ჭკვიანი მაინც უნდა აღმოჩნდეთ</summary>
@@ -88,6 +90,7 @@
     <p xml:lang="fi">Kuinka pääset pakoon tuhoasi tavoittelevia tappajarobotteja? Selvitä se tässä yksinkertaisessa mutta viihdyttävässä pelissä. Jäät ehkä robottien loputtoman tulvan alle, mutta älylläsi ja kätevällä teleportaatiolaitteella voit päihittää ne. Voita ja selviä kertomaan tarinasi olemalla tappajarobotteja nokkelampi!</p>
     <p xml:lang="fr">Comment allez-vous parvenir à échapper aux robots tueurs qui cherchent à vous détruire ? Trouvez la solution dans ce jeu simple et amusant. Vous allez être débordé par une invasion infinie de robots, mais votre intelligence et votre téléporteur vous permettront de les vaincre. Soyez plus malin que les robots tueurs pour remporter la partie et raconter votre épopée aux générations futures !</p>
     <p xml:lang="gl">Como escaparás dos robots asasinos que traerán a destrución? Descúbreo neste xogo simple e entretido. Pode que un fluxo incesante de robots te supere en número, pero coa túa intelixencia e o teu dispositivo teleportador podes derrotalos. Se máis intelixente que os robots asasinos para gañar e vivir para contalo!</p>
+    <p xml:lang="he">איך מתרחקים מהרובוטים הקטלניים שמנסים להשמיד אותך? זאת השאלה שצריך לפצח במשחק המהנה והפשוט הזה. אולי יש כמות גדולה של רובוטים סביבך אך החוכמה והתקן השיגור היעיל שלך יכולים להביס אותם. מערימים על כל הרובוטים וזוכים להעביר את המורשת הלאה!</p>
     <p xml:lang="id">Bagaimana cara kamu bisa lolos dari robot pembunuh yang bertekad menghancurkan? Cari tahu di permainan sederhana yang menghibur ini. Kamu mungkin kalah jumlah dengan robot yang tak ada habisnya, tetapi dengan peranti teleportasi yang cerdas dan praktis kamu bisa mengalahkannya. Siasati semua robot pembunuh untuk menang dan hidup untuk menceritakan kisahnya!</p>
     <p xml:lang="it">Come farai ad allontanarti dai robot killer votati alla distruzione? Scoprilo in questo gioco semplice e divertente. Potresti essere messo in inferiorità numerica da un flusso infinito di robot, ma potrai sconfiggerli con la tua intelligenza e con un pratico dispositivo di teletrasporto. Supera in astuzia tutti i robot killer per vincere e sopravvivere!</p>
     <p xml:lang="ka">როგორ გაექცეთ მკვლელ რობოტებს ნგრევის დროს? გაიგეთ ეს მარტივ, გასართობ თამაშში. თქვენ თავზე გადაგივლით რობოტების უსასრულო ნაკადი, მაგრამ თქვენი გამჭრიახობით და ტელეპორტაციის მოწყობილობით მათზე გამარჯვებაც შეგიძლიათ. იყავით უფრო ჭკვიანი, ვიდრე ისინი არიან და იცხოვრეთ, რომ ეს ისტორიები მოჰყვეთ!</p>
