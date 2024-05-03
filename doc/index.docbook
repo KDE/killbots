@@ -289,7 +289,7 @@
       <varlistentry id="configure-killbots">
         <term><menuchoice>
           <guimenu>Settings</guimenu>
-          <guimenuitem>Configure &killbots;...</guimenuitem>
+          <guimenuitem>Configure &killbots;…</guimenuitem>
         </menuchoice></term>
         <listitem><para><action>Displays the &killbots; configuration dialog</action>, where one can adjust gameplay parameters, choose a different set of game rules, or change the game theme.</para></listitem>
       </varlistentry>
