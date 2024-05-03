@@ -61,7 +61,7 @@ Killbots::RulesetSelector::RulesetSelector(QWidget *parent)
     m_description->setAlignment(Qt::AlignLeft | Qt::AlignTop);
     m_description->setWordWrap(true);
 
-    QPushButton *detailsButton = new QPushButton(i18nc("@action:button", "Details..."));
+    auto *detailsButton = new QPushButton(i18nc("@action:button", "Details…"));
     detailsButton->setToolTip(i18nc("@info:tooltip", "Show the detailed parameters of the selected game type"));
     detailsButton->setWhatsThis(i18nc("@info:whatsthisp", "Opens a dialog listing the values of all internal parameters for the selected game type."));
 
