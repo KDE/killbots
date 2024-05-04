@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: killbots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-25 01:39+0000\n"
+"POT-Creation-Date: 2024-05-04 00:37+0000\n"
 "PO-Revision-Date: 2020-05-04 11:02+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -817,9 +817,11 @@ msgid "Description:"
 msgstr "Kirjeldus:"
 
 #: rulesetselector.cpp:64
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Details..."
 msgctxt "@action:button"
-msgid "Details..."
+msgid "Details…"
 msgstr "Üksikasjad ..."
 
 #: rulesetselector.cpp:65

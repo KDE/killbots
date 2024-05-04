@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: killbots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-25 01:39+0000\n"
+"POT-Creation-Date: 2024-05-04 00:37+0000\n"
 "PO-Revision-Date: 2010-09-24 16:40+0530\n"
 "Last-Translator: Rajesh Ranjan <rajesh672@gmail.com>\n"
 "Language-Team: Maithili <bhashaghar@googlegroups.com>\n"
@@ -885,7 +885,7 @@ msgstr "विवरण:"
 #, fuzzy, kde-format
 #| msgid "Details..."
 msgctxt "@action:button"
-msgid "Details..."
+msgid "Details…"
 msgstr "विवरण..."
 
 #: rulesetselector.cpp:65

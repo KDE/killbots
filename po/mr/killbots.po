@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-25 01:39+0000\n"
+"POT-Creation-Date: 2024-05-04 00:37+0000\n"
 "PO-Revision-Date: 2013-03-05 15:45+0530\n"
 "Last-Translator: Chetan Khona <chetan@kompkin.com>\n"
 "Language-Team: Marathi <kde-i18n-doc@kde.org>\n"
@@ -873,7 +873,7 @@ msgstr "वर्णन :"
 #, fuzzy, kde-format
 #| msgid "Details..."
 msgctxt "@action:button"
-msgid "Details..."
+msgid "Details…"
 msgstr "तपशील..."
 
 #: rulesetselector.cpp:65

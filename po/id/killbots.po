@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: killbots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-25 01:39+0000\n"
+"POT-Creation-Date: 2024-05-04 00:37+0000\n"
 "PO-Revision-Date: 2022-08-19 20:36+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
 "Language-Team: https://t.me/Localizations_KDE_Indonesia\n"
@@ -895,7 +895,7 @@ msgstr "Deskripsi:"
 #, fuzzy, kde-format
 #| msgid "Details..."
 msgctxt "@action:button"
-msgid "Details..."
+msgid "Details…"
 msgstr "Perincian..."
 
 #: rulesetselector.cpp:65

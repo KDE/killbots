@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: killbots_gui\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-25 01:39+0000\n"
+"POT-Creation-Date: 2024-05-04 00:37+0000\n"
 "PO-Revision-Date: 2021-07-11 08:31+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -824,9 +824,11 @@ msgid "Description:"
 msgstr "Opis:"
 
 #: rulesetselector.cpp:64
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Details..."
 msgctxt "@action:button"
-msgid "Details..."
+msgid "Details…"
 msgstr "Szczegóły..."
 
 #: rulesetselector.cpp:65
