@@ -28,7 +28,7 @@ int main(int argc, char **argv)
     about.setLicense(KAboutLicense::GPL_V2);
     about.setCopyrightStatement(i18n("© 2006-2009, Parker Coates"));
     about.addAuthor(i18n("Parker Coates"), i18n("Developer"), QStringLiteral("coates@kde.org"));
-    about.addCredit(i18n("Mark Rae"), i18n("Author of Gnome Robots. Invented safe teleports, pushing junkheaps and fast robots."), QLatin1String(""), QStringLiteral("https://wiki.gnome.org/Apps/Robots"));
+    about.addCredit(i18n("Mark Rae"), i18n("Author of Gnome Robots. Invented safe teleports, pushing junkheaps and fast robots."), QString(), QStringLiteral("https://wiki.gnome.org/Apps/Robots"));
     about.setHomepage(QStringLiteral("https://apps.kde.org/killbots"));
 
     KAboutData::setApplicationData(about);
