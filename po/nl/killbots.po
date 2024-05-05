@@ -2,27 +2,27 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Freek de Kruijf <freekdekruijf@kde.nl>, 2008, 2009, 2010, 2015, 2016, 2020, 2021.
+# SPDX-FileCopyrightText: 2008, 2009, 2010, 2015, 2016, 2020, 2021, 2024 Freek de Kruijf <freekdekruijf@kde.nl>
 # Kristof Bal <kristof.bal@gmail.com>, 2008, 2009.
 msgid ""
 msgstr ""
 "Project-Id-Version: killbots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-04 00:37+0000\n"
-"PO-Revision-Date: 2021-07-06 13:51+0200\n"
+"PO-Revision-Date: 2024-05-04 12:41+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
-"Language-Team: Dutch <kde-i18n-nl@kde.org>\n"
+"Language-Team: \n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 21.04.2\n"
+"X-Generator: Lokalize 24.02.2\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Freek de Kruijf - 2008 t/m 2021,Kristof Bal - 2009"
+msgstr "Freek de Kruijf - 2008 t/m 2024,Kristof Bal - 2009"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
@@ -829,12 +829,10 @@ msgid "Description:"
 msgstr "Beschrijving:"
 
 #: rulesetselector.cpp:64
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Details..."
+#, kde-format
 msgctxt "@action:button"
 msgid "Details…"
-msgstr "Details..."
+msgstr "Details…"
 
 #: rulesetselector.cpp:65
 #, kde-format

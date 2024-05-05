@@ -3,33 +3,34 @@
 #
 # Ignacio Poggi <ignaciop.3@gmail.com>, 2008.
 # santi <santi@kde-es.org>, 2009.
-# Eloy Cuadra <ecuadra@eloihr.net>, 2009, 2016, 2020, 2021.
+# SPDX-FileCopyrightText: 2009, 2016, 2020, 2021, 2024 Eloy Cuadra <ecuadra@eloihr.net>
 # Huever, 2009.
 # Kira J. Fernandez <kirajfdez@gmail.com>, 2010.
+# Sofía Priego <spriego@darksylvania.net>, %Y.
 msgid ""
 msgstr ""
 "Project-Id-Version: killbots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-04 00:37+0000\n"
-"PO-Revision-Date: 2021-07-06 12:23+0200\n"
-"Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
+"PO-Revision-Date: 2024-05-04 20:30+0100\n"
+"Last-Translator: Sofía Priego <spriego@darksylvania.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 21.04.2\n"
+"X-Generator: Lokalize 24.02.2\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Ignacio Poggi,Kira J. Fernández"
+msgstr "Sofía Priego,Ignacio Poggi,Kira J. Fernández"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "ignaciop.3@gmail.com,kirajfdez@gmail.com"
+msgstr "spriego@darksylvania.net,ignaciop.3@gmail.com,kirajfdez@gmail.com"
 
 #: coordinator.cpp:101
 #, kde-format
@@ -59,7 +60,7 @@ msgstr "Energía:"
 #, kde-format
 msgctxt "@info"
 msgid "Round complete."
-msgstr "Ronda completa."
+msgstr "Ronda terminada."
 
 #: coordinator.cpp:410
 #, kde-format
@@ -68,8 +69,8 @@ msgid ""
 "Board is full.\n"
 "Resetting enemy counts."
 msgstr ""
-"El tablero está completo.\n"
-"Reiniciando el conteo de los enemigos."
+"El tablero está lleno.\n"
+"Reiniciando el contador de enemigos."
 
 #: coordinator.cpp:415
 #, kde-format
@@ -87,7 +88,7 @@ msgstr "Juego terminado."
 #: killbots.kcfg:19
 #, kde-format
 msgid "The action performed on a middle-click"
-msgstr "La acción ejecutada en un clic medio"
+msgstr "La acción que se ejecuta con un clic central"
 
 #. i18n: ectx: whatsthis, entry (MiddleClickAction), group (General)
 #: killbots.kcfg:20
@@ -98,30 +99,30 @@ msgid ""
 "left- and right-clicking simultaneously or by left-clicking while holding "
 "the control key."
 msgstr ""
-"Selecciona la acción a ejecutar cuando se haga un clic medio en el área "
-"principal de juego. Si no hay un botón medio del ratón, esta acción puede "
-"ser ejecutada haciendo clic derecho-izquierdo simultáneamente, o solo con el "
-"botón izquierdo mientras mantiene presionada la tecla de control. "
+"Selecciona la acción que se ejecutará cuando hagas un clic central en el "
+"área principal de juego. Si el ratón no dispone de botón central, puedes "
+"ejecutar esta acción haciendo simultáneamente un clic derecho e izquierdo, o "
+"solo con el botón izquierdo mientras mantienes pulsada la tecla Control."
 
 #. i18n: ectx: tooltip, entry (RightClickAction), group (General)
 #: killbots.kcfg:25
 #, kde-format
 msgid "The action performed on a right-click"
-msgstr "La acción ejecutada con un clic derecho"
+msgstr "La acción que se ejecutará con un clic derecho"
 
 #. i18n: ectx: whatsthis, entry (RightClickAction), group (General)
 #: killbots.kcfg:26
 #, kde-format
 msgid "Selects the action performed when right-clicking on the main game area."
 msgstr ""
-"Selecciona la acción a ejecutar cuando se haga un clic derecho en el área "
-"principal de juego."
+"Selecciona la acción que se ejecutará cuando hagas un clic derecho en el "
+"área principal de juego."
 
 #. i18n: ectx: tooltip, entry (AnimationSpeed), group (General)
 #: killbots.kcfg:32
 #, kde-format
 msgid "The speed used to display animations"
-msgstr "Velocidad usada para mostrar las animaciones"
+msgstr "Velocidad que se usa para mostrar las animaciones"
 
 #. i18n: ectx: whatsthis, entry (AnimationSpeed), group (General)
 #: killbots.kcfg:33
@@ -142,9 +143,9 @@ msgid ""
 "If checked, the game will ignore any move that would result in the immediate "
 "death of the hero (other than random teleports and waiting out the round)."
 msgstr ""
-"Si esta casilla está activada, el juego ignorará cualquier movimiento que "
-"resulte en la muerte inmediata del héroe (diferentes de las "
-"teletransportaciones aleatorias o la espera de finalización de ronda)."
+"Si esta casilla está marcada, el juego ignorará cualquier movimiento que "
+"pueda resultar en la muerte inmediata del héroe (diferente del "
+"teletransporte aleatorio o de la espera de finalización de ronda)."
 
 #. i18n: ectx: tooltip, entry (Ruleset), group (General)
 #: killbots.kcfg:42
@@ -156,8 +157,7 @@ msgstr "Conjunto de reglas de juego seleccionado"
 #: killbots.kcfg:43
 #, kde-format
 msgid "Selects the set of game rules to be used in the next game."
-msgstr ""
-"Selecciona el conjunto de reglas para ser usadas en el siguiente juego."
+msgstr "Selecciona el conjunto de reglas que se usarán en el próximo juego."
 
 #. i18n: ectx: Menu (moveMenu)
 #: killbotsui.rc:11
@@ -218,10 +218,9 @@ msgid ""
 "current state of the game grid and allows one to control the hero using the "
 "mouse. It also displays certain statistics about the game in progress."
 msgstr ""
-"Esta es el área principal de juego usado para interactuar con Killbots. "
-"Muestra el estado actual de la rejilla del juego y permite al usuario "
-"controlar al héroe usando el ratón. También muestra estadísticas acerca del "
-"progreso del juego."
+"Esta es el área principal de juego que se usa para interactuar con Killbots. "
+"Muestra el estado actual del tablero de juego y permite controlar al héroe "
+"mediante el ratón. También muestra estadísticas sobre el juego actual."
 
 #: mainwindow.cpp:94
 #, kde-format
@@ -264,8 +263,7 @@ msgstr "Seleccionar un tema gráfico"
 msgid ""
 "A new game type has been selected, but there is already a game in progress."
 msgstr ""
-"Se ha seleccionado un nuevo tipo de juego, pero actualmente hay un juego en "
-"progreso."
+"Has seleccionado un nuevo tipo de juego, pero hay un juego en funcionamiento."
 
 #: mainwindow.cpp:141
 #, kde-format
@@ -283,7 +281,7 @@ msgstr "Continuar el juego actual"
 #, kde-format
 msgctxt "@action:button"
 msgid "Start a New Game"
-msgstr "Comenzar un juego nuevo"
+msgstr "Empezar un juego nuevo"
 
 #: mainwindow.cpp:156
 #, kde-format
@@ -573,7 +571,7 @@ msgstr "Impedir movimientos inseg&uros"
 #, kde-format
 msgctxt "@label:listbox"
 msgid "&Middle-click action:"
-msgstr "Acción del clic &medio:"
+msgstr "Acción del clic ce&ntral:"
 
 #: optionspage.cpp:69
 #, kde-format
@@ -585,13 +583,13 @@ msgstr "Acción del clic de&recho:"
 #: rulesetbase.kcfg:19
 #, kde-format
 msgid "Number of rows in game grid"
-msgstr "Número de filas en la rejilla del juego"
+msgstr "Número de filas del tablero de juego"
 
 #. i18n: ectx: label, entry (Columns), group (KillbotsRuleset)
 #: rulesetbase.kcfg:24
 #, kde-format
 msgid "Number of columns in game grid"
-msgstr "Número de columnas en la rejilla del juego"
+msgstr "Número de columnas del tablero de juego"
 
 #. i18n: ectx: label, entry (EnemiesAtGameStart), group (KillbotsRuleset)
 #: rulesetbase.kcfg:28
@@ -603,7 +601,7 @@ msgstr "Número de enemigos normales en la primera ronda"
 #: rulesetbase.kcfg:32
 #, kde-format
 msgid "Number of regular enemies added in each new round"
-msgstr "Número de enemigos normales añadidos en cada nueva ronda"
+msgstr "Número de enemigos normales que se añaden en cada nueva ronda"
 
 #. i18n: ectx: label, entry (FastEnemiesAtGameStart), group (KillbotsRuleset)
 #: rulesetbase.kcfg:36
@@ -615,7 +613,7 @@ msgstr "Número de enemigos rápidos en la primera ronda"
 #: rulesetbase.kcfg:40
 #, kde-format
 msgid "Number of fast enemies added in each new round"
-msgstr "Número de enemigos rápidos añadidos en cada nueva ronda"
+msgstr "Número de enemigos rápidos que se añaden en cada nueva ronda"
 
 #. i18n: ectx: label, entry (FastEnemiesArePatient), group (KillbotsRuleset)
 #: rulesetbase.kcfg:44
@@ -654,13 +652,13 @@ msgstr "Límite máximo de energía en la primera ronda"
 #: rulesetbase.kcfg:66
 #, kde-format
 msgid "Increase in maximum energy cap for each new round"
-msgstr "Incrementar el límite máximo de energía en cada nueva ronda"
+msgstr "Aumentar el límite máximo de energía en cada nueva ronda"
 
 #. i18n: ectx: label, entry (SafeTeleportEnabled), group (KillbotsRuleset)
 #: rulesetbase.kcfg:70
 #, kde-format
 msgid "Player can perform safe teleports"
-msgstr "El jugador puede realizar teletransportaciones seguras"
+msgstr "El jugador puede realizar teletransporte seguro"
 
 #. i18n: ectx: label, entry (CostOfSafeTeleport), group (KillbotsRuleset)
 #: rulesetbase.kcfg:75
@@ -696,14 +694,13 @@ msgstr "El jugador puede destruir enemigos empujando montones de chatarra"
 #: rulesetbase.kcfg:101
 #, kde-format
 msgid "Junkheaps placed on grid at start of first round"
-msgstr ""
-"Montones de chatarra situados en la rejilla al comenzar la primera ronda"
+msgstr "Montones de chatarra situados en el tablero durante la primera ronda"
 
 #. i18n: ectx: label, entry (JunkheapsAddedEachRound), group (KillbotsRuleset)
 #: rulesetbase.kcfg:105
 #, kde-format
 msgid "Junkheaps added to the grid for each new round"
-msgstr "Montones de chatarra añadidos a la rejilla en cada nueva ronda"
+msgstr "Montones de chatarra que se añaden al tablero en cada nueva ronda"
 
 #. i18n: ectx: label, entry (PointsPerEnemyKilled), group (KillbotsRuleset)
 #: rulesetbase.kcfg:110
@@ -773,7 +770,7 @@ msgstr "Uno"
 #, kde-format
 msgctxt "@item Quantity of junkheaps that can be pushed"
 msgid "Many"
-msgstr "Muchos"
+msgstr "Varios"
 
 #: rulesetdetailsdialog.cpp:51
 #, kde-format
@@ -816,7 +813,7 @@ msgstr "Detalles del tipo de juego"
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Lists information on the currently selected game type."
-msgstr "Lista información del tipo de juego seleccionado actualmente."
+msgstr "Muestra información del tipo de juego seleccionado."
 
 #: rulesetselector.cpp:42
 #, kde-format
@@ -837,9 +834,7 @@ msgid "Description:"
 msgstr "Descripción:"
 
 #: rulesetselector.cpp:64
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Details..."
+#, kde-format
 msgctxt "@action:button"
 msgid "Details…"
 msgstr "Detalles..."

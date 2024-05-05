@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-# SPDX-FileCopyrightText: 2022, 2023 Emir SARI <emir_sari@icloud.com>
+# SPDX-FileCopyrightText: 2022, 2023, 2024 Emir SARI <emir_sari@icloud.com>
 # Serdar Dalgıç <serdar@pardus.org.tr>, 2010.
 # obsoleteman <tulliana@gmail.com>, 2008-2009.
 # Volkan Gezer <volkangezer@gmail.com>, 2014, 2021.
@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: kdegames-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-04 00:37+0000\n"
-"PO-Revision-Date: 2023-10-23 13:02+0300\n"
+"PO-Revision-Date: 2024-05-04 14:05+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.11.70\n"
+"X-Generator: Lokalize 24.07.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -36,7 +36,7 @@ msgstr "tulliana@gmail.com, serdar@pardus.org.tr"
 #, kde-format
 msgctxt "@label"
 msgid "Round:"
-msgstr "Tur:"
+msgstr "Raund:"
 
 #: coordinator.cpp:106
 #, kde-format
@@ -60,7 +60,7 @@ msgstr "Enerji:"
 #, kde-format
 msgctxt "@info"
 msgid "Round complete."
-msgstr "Tur tamamlandı."
+msgstr "Raund tamamlandı."
 
 #: coordinator.cpp:410
 #, kde-format
@@ -141,7 +141,7 @@ msgid ""
 "If checked, the game will ignore any move that would result in the immediate "
 "death of the hero (other than random teleports and waiting out the round)."
 msgstr ""
-"Seçildiği zaman, kahramanın (turun sonunu beklemek ya da rastgele "
+"Seçildiği zaman, kahramanın (raundun sonunu beklemek ya da rastgele "
 "ışınlanmalar dışında) ani ölümü ile sonuçlanabilecek herhangi bir adımı oyun "
 "yok sayacaktır."
 
@@ -183,7 +183,7 @@ msgstr "Bir KDE katil robotlar ve ışınlanma oyunu."
 #: main.cpp:29
 #, kde-format
 msgid "© 2006-2009, Parker Coates"
-msgstr "© 2006-2009, Parker Coates"
+msgstr "© 2006–2009, Parker Coates"
 
 #: main.cpp:30
 #, kde-format
@@ -285,7 +285,7 @@ msgstr "Yeni bir Oyun Başlat"
 #, kde-format
 msgctxt "@title:column round of the game"
 msgid "Round"
-msgstr "Tur"
+msgstr "Raund"
 
 #: mainwindow.cpp:240 optionspage.cpp:28
 #, kde-format
@@ -373,7 +373,7 @@ msgstr "Komşu hücrelerdeki bütün düşmanları yok et"
 #, kde-format
 msgctxt "@action"
 msgid "Wait Out Round"
-msgstr "Bu Turda Bekle"
+msgstr "Bu Raundda Bekle"
 
 #: mainwindow.cpp:272
 #, kde-format
@@ -387,7 +387,8 @@ msgstr "V"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Risk remaining in place until the end of the round for bonuses"
-msgstr "Ek puan almak için turun sonuna dek mevcut konumunda kalmayı risk et"
+msgstr ""
+"Ek puan almak için raundun sonuna dek bulunulan konumunda kalmayı risk et"
 
 #: mainwindow.cpp:279
 #, kde-format
@@ -573,7 +574,7 @@ msgstr "&Orta tık eylemi:"
 #, kde-format
 msgctxt "@label:listbox"
 msgid "&Right-click action:"
-msgstr "S&ağ-tıklama eylemi:"
+msgstr "S&ağ tık eylemi:"
 
 #. i18n: ectx: label, entry (Rows), group (KillbotsRuleset)
 #: rulesetbase.kcfg:19
@@ -591,25 +592,25 @@ msgstr "Oyun ızgarasındaki sütun sayısı"
 #: rulesetbase.kcfg:28
 #, kde-format
 msgid "Number of regular enemies in first round"
-msgstr "İlk turdaki normal düşman sayısı"
+msgstr "İlk raunddaki normal düşman sayısı"
 
 #. i18n: ectx: label, entry (EnemiesAddedEachRound), group (KillbotsRuleset)
 #: rulesetbase.kcfg:32
 #, kde-format
 msgid "Number of regular enemies added in each new round"
-msgstr "Her yeni turda eklenen normal düşman sayısı"
+msgstr "Her yeni raundda eklenen normal düşman sayısı"
 
 #. i18n: ectx: label, entry (FastEnemiesAtGameStart), group (KillbotsRuleset)
 #: rulesetbase.kcfg:36
 #, kde-format
 msgid "Number of fast enemies in first round"
-msgstr "İlk turdaki hızlı düşman sayısı"
+msgstr "İlk raunddaki hızlı düşman sayısı"
 
 #. i18n: ectx: label, entry (FastEnemiesAddedEachRound), group (KillbotsRuleset)
 #: rulesetbase.kcfg:40
 #, kde-format
 msgid "Number of fast enemies added in each new round"
-msgstr "Her yeni turda eklenen hızlı düşman sayısı"
+msgstr "Her yeni raundda eklenen hızlı düşman sayısı"
 
 #. i18n: ectx: label, entry (FastEnemiesArePatient), group (KillbotsRuleset)
 #: rulesetbase.kcfg:44
@@ -630,25 +631,25 @@ msgstr "Oyuncu enerji biriktirebilir"
 #: rulesetbase.kcfg:53
 #, kde-format
 msgid "Energy at start of first round"
-msgstr "İlk turun başındaki enerji"
+msgstr "İlk raundun başındaki enerji"
 
 #. i18n: ectx: label, entry (EnergyAddedEachRound), group (KillbotsRuleset)
 #: rulesetbase.kcfg:57
 #, kde-format
 msgid "Energy awarded for completing a round"
-msgstr "Tamamlanan her tur için enerji ödülü"
+msgstr "Tamamlanan her raund için enerji ödülü"
 
 #. i18n: ectx: label, entry (MaxEnergyAtGameStart), group (KillbotsRuleset)
 #: rulesetbase.kcfg:62
 #, kde-format
 msgid "Maximum energy cap in first round"
-msgstr "İlk turda maksimum enerji limiti"
+msgstr "İlk raunddaki en yüksek enerji sınırı"
 
 #. i18n: ectx: label, entry (MaxEnergyAddedEachRound), group (KillbotsRuleset)
 #: rulesetbase.kcfg:66
 #, kde-format
 msgid "Increase in maximum energy cap for each new round"
-msgstr "Her yeni turda maksimum enerji limitindeki artış"
+msgstr "Her yeni raundda en yüksek enerji sınırındaki artış"
 
 #. i18n: ectx: label, entry (SafeTeleportEnabled), group (KillbotsRuleset)
 #: rulesetbase.kcfg:70
@@ -690,13 +691,14 @@ msgstr "Oyuncu düşmanlarını gereksiz yığınlarla yok edebilir"
 #: rulesetbase.kcfg:101
 #, kde-format
 msgid "Junkheaps placed on grid at start of first round"
-msgstr "Birinci turun başında oyun ızgarasına yerleştirilmiş gereksiz yığınlar"
+msgstr ""
+"Birinci raundun başında oyun ızgarasına yerleştirilmiş gereksiz yığınlar"
 
 #. i18n: ectx: label, entry (JunkheapsAddedEachRound), group (KillbotsRuleset)
 #: rulesetbase.kcfg:105
 #, kde-format
 msgid "Junkheaps added to the grid for each new round"
-msgstr "Her yeni turda oyun ızgarasına eklenmiş gereksiz yığınlar"
+msgstr "Her yeni raundda oyun ızgarasına eklenmiş gereksiz yığınlar"
 
 #. i18n: ectx: label, entry (PointsPerEnemyKilled), group (KillbotsRuleset)
 #: rulesetbase.kcfg:110
@@ -714,13 +716,13 @@ msgstr "Yok edilen her hızlı düşman için puan ödülü"
 #: rulesetbase.kcfg:120
 #, kde-format
 msgid "Points awarded for each enemy destroyed while waiting out the round"
-msgstr "Turun bitmesi beklenirken yok edilen her düşman için puan ödülü"
+msgstr "Raundun bitmesi beklenirken yok edilen her düşman için puan ödülü"
 
 #. i18n: ectx: label, entry (WaitKillEnergyBonus), group (KillbotsRuleset)
 #: rulesetbase.kcfg:125
 #, kde-format
 msgid "Energy awarded for each enemy destroyed while waiting out the round"
-msgstr "Turun bitmesi beklenirken yok edilen her düşman için enerji ödülü"
+msgstr "Raundun bitmesi beklenirken yok edilen her düşman için enerji ödülü"
 
 #. i18n: ectx: label, entry (SquashKillPointBonus), group (KillbotsRuleset)
 #: rulesetbase.kcfg:130
@@ -739,13 +741,13 @@ msgstr ""
 #: rulesetbase.kcfg:140
 #, kde-format
 msgid "Points awarded for each energy awarded above maximum energy cap"
-msgstr "Maksimum enerji limitinin üzerindeki her enerji için puan ödülü"
+msgstr "En yüksek enerji sınırının üzerindeki her enerji için puan ödülü"
 
 #: rulesetdetailsdialog.cpp:38
 #, kde-format
 msgctxt "@item Quantity of junkheaps that can be pushed"
 msgid "None"
-msgstr "Hiçbiri"
+msgstr "Yok"
 
 #: rulesetdetailsdialog.cpp:39
 #, kde-format
@@ -781,7 +783,7 @@ msgstr "Hayır"
 #, kde-format
 msgctxt "@title:window"
 msgid "Details of %1 Game Type"
-msgstr "%1 Oyun Tipinin Detayları"
+msgstr "%1 Oyun Türünün Ayrıntıları"
 
 #: rulesetselector.cpp:37
 #, kde-format
@@ -799,7 +801,7 @@ msgstr "Oyun Türü Ayrıntıları"
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Lists information on the currently selected game type."
-msgstr "Mevcut seçili oyun türü hakkındaki bilgileri listeler."
+msgstr "Şu anda  seçili oyun türü hakkındaki bilgileri listeler."
 
 #: rulesetselector.cpp:42
 #, kde-format
@@ -820,18 +822,16 @@ msgid "Description:"
 msgstr "Açıklama:"
 
 #: rulesetselector.cpp:64
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Details..."
+#, kde-format
 msgctxt "@action:button"
 msgid "Details…"
-msgstr "Ayrıntılar..."
+msgstr "Ayrıntılar…"
 
 #: rulesetselector.cpp:65
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Show the detailed parameters of the selected game type"
-msgstr "Seçili oyun tipinin detaylı parametrelerini göster"
+msgstr "Seçili oyun türünün ayrıntılı parametrelerini göster"
 
 #: rulesetselector.cpp:66
 #, kde-format
