@@ -1,25 +1,25 @@
 # Translation of killbots.po to Catalan (Valencian)
-# Copyright (C) 2009-2023 This_file_is_part_of_KDE
+# Copyright (C) 2009-2024 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
 # Albert Astals Cid <aacid@kde.org>, 2009.
 # Manuel Tortosa <manutortosa@gmail.com>, 2009.
-# Josep M. Ferrer <txemaq@gmail.com>, 2010, 2013, 2015, 2020, 2021, 2022, 2023.
+# Josep M. Ferrer <txemaq@gmail.com>, 2010, 2013, 2015, 2020, 2021, 2022, 2023, 2024.
 # Antoni Bella Pérez <antonibella5@yahoo.com>, 2015, 2020, 2021, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: killbots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-04 00:37+0000\n"
-"PO-Revision-Date: 2023-08-08 14:44+0200\n"
+"PO-Revision-Date: 2024-05-04 10:21+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 23.04.3\n"
+"X-Generator: Lokalize 22.12.3\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
 
@@ -144,7 +144,7 @@ msgid ""
 "If checked, the game will ignore any move that would result in the immediate "
 "death of the hero (other than random teleports and waiting out the round)."
 msgstr ""
-"Si se selecciona, el joc ignorarà els moviments que comporten la mort "
+"Si està marcada, el joc ignorarà els moviments que comporten la mort "
 "immediata de l'heroi (a part del teletransport aleatori i passar la tanda)."
 
 #. i18n: ectx: tooltip, entry (Ruleset), group (General)
@@ -349,7 +349,7 @@ msgstr "Espai"
 msgctxt "@info:tooltip"
 msgid "Teleport safely if that action is enabled, otherwise teleport randomly"
 msgstr ""
-"Si se selecciona, teletransporta de forma segura, altrament, fa un "
+"Si està marcada, teletransporta de forma segura, altrament, fa un "
 "teletransport aleatori"
 
 #: mainwindow.cpp:263
@@ -829,12 +829,10 @@ msgid "Description:"
 msgstr "Descripció:"
 
 #: rulesetselector.cpp:64
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Details..."
+#, kde-format
 msgctxt "@action:button"
 msgid "Details…"
-msgstr "Detalls..."
+msgstr "Detalls…"
 
 #: rulesetselector.cpp:65
 #, kde-format
