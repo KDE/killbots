@@ -803,12 +803,10 @@ msgid "Description:"
 msgstr "描述："
 
 #: rulesetselector.cpp:64
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Details..."
+#, kde-format
 msgctxt "@action:button"
 msgid "Details…"
-msgstr "细节..."
+msgstr ""
 
 #: rulesetselector.cpp:65
 #, kde-format
