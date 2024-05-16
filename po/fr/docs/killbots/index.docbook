@@ -864,7 +864,7 @@ Preview=exemple.png
 ></userinput
 >. Pour rendre le thème disponible à l'ensemble du système, veuillez déplacer les fichiers <filename class="directory"
 >killbots/themes</filename
->  dans le dossier du système (à partir potentiellement de la commande précédente  <filename class="directory"
+> dans le dossier du système (à partir potentiellement de la commande précédente <filename class="directory"
 >/usr/share</filename
 > ou équivalente). Veuillez noter que ceci devrait nécessiter les droits d'administrateur.</para>
     </sect2>
@@ -1254,7 +1254,7 @@ SquashKillEnergyBonus=1</programlisting>
 ></userinput
 >. Pour rendre le type de jeu disponible à l'ensemble du système, veuillez déplacer le fichier <filename class="directory"
 >killbots/rulesets</filename
->  dans le dossier du système (à partir potentiellement de la commande précédente  <filename class="directory"
+> dans le dossier du système (à partir potentiellement de la commande précédente <filename class="directory"
 >/usr/share</filename
 > ou équivalente). Veuillez noter que ceci devrait nécessiter les droits d'administrateur.</para>
     </sect2>
