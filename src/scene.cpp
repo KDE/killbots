@@ -180,7 +180,7 @@ void Killbots::Scene::doLayout()
     const int widthOfDisplaysOnTop = visibleDisplays.size() * displaySize.width()
                                      + (visibleDisplays.size() - 1) * spacing;
 
-    // The displays can either be placed centred, across the top of the
+    // The displays can either be placed centered, across the top of the
     // scene or top-aligned, down the side of the scene. We first calculate
     // what the cell size would be for both options.
     int availableWidth = size.width() - 3 * spacing - displaySize.width();
@@ -211,7 +211,7 @@ void Killbots::Scene::doLayout()
     }
 
     if (displaysOnTop) {
-        // Set the sceneRect to centre the grid if possible, but ensure the display items are visible
+        // Set the sceneRect to center the grid if possible, but ensure the display items are visible
         const qreal sceneRectXPos = -(size.width() - m_cellSize.width() * (m_columns - 1)) / 2.0;
         const qreal centeredYPos = - (size.height() - m_cellSize.height() * (m_rows - 1)) / 2.0;
         const qreal indentedYPos = - (m_cellSize.height() / 2.0 + 2 * spacing + displaySize.height());
@@ -236,14 +236,14 @@ void Killbots::Scene::doLayout()
         // If the application layout is LTR, place the displays on left,
         // otherwise, place them on the right.
         if (views().first()->layoutDirection() == Qt::LeftToRight) {
-            // Set the sceneRect to centre the grid if possible, but ensure the display items are visible
+            // Set the sceneRect to center the grid if possible, but ensure the display items are visible
             const qreal indentedXPos = - (m_cellSize.width() / 2.0 + 2 * spacing + displaySize.width());
             sceneRectXPos = qMin(centeredXPos, indentedXPos);
 
             // Position the display items to the left of the grid
             displayXPos = - (spacing + displaySize.width() + m_cellSize.width() / 2);
         } else {
-            // Set the sceneRect to centre the grid if possible, but ensure the display items are visible
+            // Set the sceneRect to center the grid if possible, but ensure the display items are visible
             const qreal indentedXPos = (m_cellSize.width() * m_columns + 1 * spacing + displaySize.width()) - size.width();
             sceneRectXPos = qMax(centeredXPos, indentedXPos);
 
