@@ -632,7 +632,7 @@
 Name=Tema d'exemple
 Description=Un tema d'exemple utilitzat per a demostrar la creació de temes. Presenta característiques pirates.
 Author=Sr. Artista
-AuthorEmail=srartista@exemple.org
+AuthorEmail=srartista@example.com
 Type=SVG
 FileName=exemple.svg
 Preview=exemple.png
