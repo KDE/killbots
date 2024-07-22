@@ -1,12 +1,11 @@
 # Translation of killbots to Norwegian Nynorsk
 #
-# Karl Ove Hufthammer <karl@huftis.org>, 2008, 2009, 2010, 2016, 2020, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-04 00:37+0000\n"
-"PO-Revision-Date: 2022-06-19 14:06+0200\n"
+"PO-Revision-Date: 2024-07-21 14:20+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
@@ -14,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.04.2\n"
+"X-Generator: Lokalize 24.05.2\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -814,9 +813,7 @@ msgid "Description:"
 msgstr "Skildring:"
 
 #: rulesetselector.cpp:64
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Details..."
+#, kde-format
 msgctxt "@action:button"
 msgid "Details…"
 msgstr "Detaljar …"
