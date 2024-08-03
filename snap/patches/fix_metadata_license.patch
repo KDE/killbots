@@ -3,22 +3,19 @@ From: Scarlett Moore <sgmoore@debian.org>
 Date: Fri, 2 Aug 2024 02:05:28 -0700
 Subject: [PATCH] Use valid SPDX expression in metadata.
 
----
- shell/org.kde.okular.appdata.xml | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/shell/org.kde.okular.appdata.xml b/shell/org.kde.okular.appdata.xml
-index 5deae3904..768c69044 100644
---- a/shell/org.kde.okular.appdata.xml
-+++ b/shell/org.kde.okular.appdata.xml
-@@ -2,7 +2,7 @@
- <component type="desktop">
-   <id>org.kde.okular.desktop</id>
-   <metadata_license>CC0-1.0</metadata_license>
+diff --git a/src/org.kde.killbots.appdata.xml b/src/org.kde.killbots.appdata.xml
+index beac750..4a8044d 100644
+--- a/src/org.kde.killbots.appdata.xml
++++ b/src/org.kde.killbots.appdata.xml
+@@ -113,7 +113,7 @@
+     <p xml:lang="zh-CN">如何从专事毁灭的杀手机器人手中逃脱？在这个简单有趣的游戏中找出来。这无尽的机器人流可能从数量上胜过你，但是依靠你的智慧和好用的传送设备你可以打败它们。以智慧胜过
+所有杀手机器人来获取胜利，活下来讲述你的故事！</p>
+     <p xml:lang="zh-TW">您會如何逃離一心要摧毀您的殺手機器人呢？在這個簡單又好玩的遊戲裡探索吧。您可能會遇到無止盡的機器人，但是利用您的機智和一台傳送裝置您是可以贏過它們的。拼過所有殺
+手機器人的挑戰，然後活下來炫耀您的經驗吧！</p>
+   </description>
 -  <project_license>GPL-2.0+ and GFDL-1.3</project_license>
 +  <project_license>GPL-2.0+ AND GFDL-1.3</project_license>
-   <developer_name translate="no">KDE</developer_name>
-   <name>Okular</name>
-   <name xml:lang="ar">Ø§ÙˆÙƒÙ„Ø§Ø±</name>
---
-GitLab
+   <metadata_license>CC0-1.0</metadata_license>
+   <url type="homepage">https://apps.kde.org/killbots</url>
+   <url type="help">https://docs.kde.org/?application=killbots</url>
+
