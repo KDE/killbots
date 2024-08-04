@@ -1,21 +1,24 @@
-From 7b1432e6e81c33d37986404f384a8c10057c1814 Mon Sep 17 00:00:00 2001
+From b1c9450d119e1d7e4a8390686ff2bab6171e1e10 Mon Sep 17 00:00:00 2001
 From: Scarlett Moore <sgmoore@debian.org>
-Date: Fri, 2 Aug 2024 02:05:28 -0700
+Date: Sat, 3 Aug 2024 02:39:25 -0700
 Subject: [PATCH] Use valid SPDX expression in metadata.
 
+---
+ src/org.kde.killbots.appdata.xml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
 diff --git a/src/org.kde.killbots.appdata.xml b/src/org.kde.killbots.appdata.xml
-index beac750..4a8044d 100644
+index beac7505..4a8044d0 100644
 --- a/src/org.kde.killbots.appdata.xml
 +++ b/src/org.kde.killbots.appdata.xml
 @@ -113,7 +113,7 @@
-     <p xml:lang="zh-CN">如何从专事毁灭的杀手机器人手中逃脱？在这个简单有趣的游戏中找出来。这无尽的机器人流可能从数量上胜过你，但是依靠你的智慧和好用的传送设备你可以打败它们。以智慧胜过
-所有杀手机器人来获取胜利，活下来讲述你的故事！</p>
-     <p xml:lang="zh-TW">您會如何逃離一心要摧毀您的殺手機器人呢？在這個簡單又好玩的遊戲裡探索吧。您可能會遇到無止盡的機器人，但是利用您的機智和一台傳送裝置您是可以贏過它們的。拼過所有殺
-手機器人的挑戰，然後活下來炫耀您的經驗吧！</p>
+     <p xml:lang="zh-CN">å¦‚ä½•ä»Žä¸“äº‹æ¯ç­çš„æ€æ‰‹æœºå™¨äººæ‰‹ä¸­é€ƒè„±ï¼Ÿåœ¨è¿™ä¸ªç®€å•æœ‰è¶£çš„æ¸¸æˆä¸­æ‰¾å‡ºæ¥ã€‚è¿™æ— å°½çš„æœºå™¨äººæµå¯èƒ½ä»Žæ•°é‡ä¸Šèƒœè¿‡ä½ ï¼Œä½†æ˜¯ä¾é ä½ çš„æ™ºæ…§å’Œå¥½ç”¨çš„ä¼ é€è®¾å¤‡ä½ å¯ä»¥æ‰“è´¥å®ƒä»¬ã€‚ä»¥æ™ºæ…§èƒœè¿‡æ‰€æœ‰æ€æ‰‹æœºå™¨äººæ¥èŽ·å–èƒœåˆ©ï¼Œæ´»ä¸‹æ¥è®²è¿°ä½ çš„æ•…äº‹ï¼</p>
+     <p xml:lang="zh-TW">æ‚¨æœƒå¦‚ä½•é€ƒé›¢ä¸€å¿ƒè¦æ‘§æ¯€æ‚¨çš„æ®ºæ‰‹æ©Ÿå™¨äººå‘¢ï¼Ÿåœ¨é€™å€‹ç°¡å–®åˆå¥½çŽ©çš„éŠæˆ²è£¡æŽ¢ç´¢å§ã€‚æ‚¨å¯èƒ½æœƒé‡åˆ°ç„¡æ­¢ç›¡çš„æ©Ÿå™¨äººï¼Œä½†æ˜¯åˆ©ç”¨æ‚¨çš„æ©Ÿæ™ºå’Œä¸€å°å‚³é€è£ç½®æ‚¨æ˜¯å¯ä»¥è´éŽå®ƒå€‘çš„ã€‚æ‹¼éŽæ‰€æœ‰æ®ºæ‰‹æ©Ÿå™¨äººçš„æŒ‘æˆ°ï¼Œç„¶å¾Œæ´»ä¸‹ä¾†ç‚«è€€æ‚¨çš„ç¶“é©—å§ï¼</p>
    </description>
 -  <project_license>GPL-2.0+ and GFDL-1.3</project_license>
 +  <project_license>GPL-2.0+ AND GFDL-1.3</project_license>
    <metadata_license>CC0-1.0</metadata_license>
    <url type="homepage">https://apps.kde.org/killbots</url>
    <url type="help">https://docs.kde.org/?application=killbots</url>
-
+--
+GitLab
