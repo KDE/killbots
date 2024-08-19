@@ -30,7 +30,7 @@ public: // types
 
 public: // functions
     explicit Sprite();
-    virtual ~Sprite() override;
+    ~Sprite() override;
 
     SpriteType spriteType() const;
     void setSpriteType(SpriteType type);
