@@ -1,0 +1,1316 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Slovenian "INCLUDE">
+]>
+
+<book id="killbots" lang="&language;">
+
+<bookinfo>
+  <title
+>&killbots; Priročnik</title>
+
+  <authorgroup>
+    <author
+><personname
+> <firstname
+>Parker</firstname
+> <surname
+>Coates</surname
+> </personname
+> <email
+>parker.coates@kdemail.net</email
+> </author>
+
+    <othercredit role="translator"
+><firstname
+>Matjaž</firstname
+><surname
+>Jeran</surname
+><affiliation
+><address
+><email
+>matjaz.jeran@amis.net</email
+></address
+></affiliation
+><contrib
+>Prevod</contrib
+></othercredit
+> 
+  </authorgroup>
+
+  <copyright>
+    <year
+>2008&ndash;2009</year>
+    <holder
+>Parker Coates</holder>
+  </copyright>
+
+  <legalnotice
+>&FDLNotice;</legalnotice>
+
+  <date
+>05.07.2021</date>
+  <releaseinfo
+>KDE Gear 21.04</releaseinfo>
+
+  <abstract>
+    <para
+>&killbots; je &kde; vrata klasičnega &BSD; konzolna igra <command
+>roboti</command
+>.</para>
+  </abstract>
+
+  <keywordset>
+    <keyword
+>KDE</keyword>
+    <keyword
+>kdegames</keyword>
+    <keyword
+>igra</keyword>
+    <keyword
+>Killbots</keyword>
+    <keyword
+>Strategija</keyword>
+    <keyword
+>En igralec</keyword>
+    <keyword
+>En igralec</keyword>
+    <keyword
+>roboti</keyword>
+    <keyword
+>robot</keyword>
+    <keyword
+>hitri bot</keyword>
+    <keyword
+>kup šare</keyword>
+    <keyword
+>teleportirati</keyword>
+    <keyword
+>izhlapi</keyword>
+    <keyword
+>uparjalnik</keyword>
+    <keyword
+>energija</keyword>
+  </keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+  <title
+>Uvod</title>
+
+  <note>
+    <title
+>Vrsta igre:</title>
+    <para
+>Strategija</para>
+  </note>
+
+  <note>
+    <title
+>Število igralcev:</title>
+    <para
+>Eden</para>
+  </note>
+
+  <para
+>&killbots; je preprosta igra izogibanja robotom morilcem. Kdo je ustvaril robote in zakaj so bili programirani za uničenje, nihče ne ve. Znano je le, da je robotov veliko in njihov edini cilj je, da vas uničijo. Na vašo srečo se je njihov ustvarjalec osredotočil na količino in ne na kakovost, zato robotom močno primanjkuje inteligence. Vaša vrhunska bistroumnost in modna teleportacijska naprava sta vaše edino orožje proti neskončnemu toku brezumnih avtomatov.</para>
+
+  <note>
+    <title
+>Opomba:</title>
+    <para
+>Ta dokumentacija se pogosto nanaša na <quote
+>robote</quote
+>, <quote
+>kupe šare</quote
+> itd., toda &killbots; je popolnoma tematiziran. To pomeni, da se spriti igre, ki jih vidite med igranjem, morda ne ujemajo s futurističnimi temami, ki so opisane tukaj. Igranje in strategije pa bodo ostale enake, tudi če je vaš junak korenjak, ki ga po vrtu lovijo požrešni zajci.</para>
+  </note>
+
+  <note>
+    <title
+>Opomba:</title>
+    <para
+>&killbots; podpira več vrst iger, ki nadzorujejo parametre igre in določajo, katere funkcije igre so vključene. Ta dokumentacija poskuša biti splošna in ni specifična za nobeno vrsto igre. Preverite opis in podrobnosti vaše trenutne vrste igre v pogovornem oknu <guilabel
+>Konfiguracija - &killbots;</guilabel
+> za podrobnejše informacije o mehaniki igre glede na velikost mreže, kroge, točkovanje, energijo itd.</para>
+  </note>
+
+</chapter>
+
+<chapter id="howto">
+  <title id="howto-title"
+>Kako igrati</title>
+
+  <sect1 id="gameplay-basics">
+    <title
+>Osnove igranja</title>
+
+    <note>
+      <title
+>Cilj:</title>
+      <para
+>Preživite zaporedne kroge sovražnikov, medtem ko zbirate visok rezultat.</para>
+    </note>
+
+    <para
+><screenshot
+><mediaobject>
+      <imageobject
+><imagedata fileref="grid.png" format="PNG"/></imageobject>
+      <textobject
+><phrase
+>Posnetek zaslona mreže igre</phrase
+></textobject>
+    </mediaobject
+></screenshot
+></para>
+
+    <para
+>&killbots; je potezna igra, ki se igra na pravokotni <firstterm
+>mreži</firstterm
+>. Število <firstterm
+>celic</firstterm
+> v vsaki vrstici in stolpcu v mreži je odvisno od vrste igre, ki se igra. Vsaka celica lahko vsebuje eno od naslednjega: <variablelist>
+        <varlistentry>
+          <term
+><firstterm
+>Junak</firstterm
+> <inlinemediaobject
+><imageobject
+><imagedata fileref="hero.png" format="PNG"/></imageobject
+></inlinemediaobject
+></term>
+          <listitem>
+            <para
+>Junak je nesrečna duša, ki je obtičala v sobi s kopico robotov morilcev. Kot igralec je vaša naloga zagotoviti, da ostane živ čim dlje.</para>
+            <para
+>Na začetku vsakega <firstterm
+>hoda</firstterm
+> lahko junak izvede eno od treh vrst dejanj: lahko ostane kjer je, lahko se premakne v nezasedeno sosednjo celico ali izvede posebno dejanje. Glejte <link linkend="movement-controls" endterm="movement-controls-title"
+></link
+> in <link linkend="special-actions" endterm="special-actions-title"
+></link
+>.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><firstterm
+>Robot</firstterm
+> <inlinemediaobject
+><imageobject
+><imagedata fileref="enemy.png" format="PNG"/></imageobject
+></inlinemediaobject
+></term>
+          <listitem>
+            <para
+>Roboti so mehanski razbojniki, ki želijo samo zdrobiti junaka s svojim kovinskim pasom. Nikoli niso slišali za <quote
+>Tri zakone robotike</quote
+> in bi verjetno zdrobiti vsakogar, ki bi jim to poskušal razložiti.</para>
+            <para
+>Vsak robot bo na vsakem koraku naredil en korak proti junaku. Če je robot nad junakom, bo stopil navzdol. Če je robot levo od junaka, bo stopil desno. Če je robot spodaj in desno od junaka, bo stopil diagonalno, gor in levo. Če robotu uspe doseči junakovo celico, bo junak ubit in igra se bo končala.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><firstterm
+>Fastbot</firstterm
+> <inlinemediaobject
+><imageobject
+><imagedata fileref="fastenemy.png" format="PNG"/></imageobject
+></inlinemediaobject
+></term>
+          <listitem>
+            <para
+>Hitri boti so hitri roboti - so veliko hitrejša različica osnovnega robota. Za vsako potezo, ki jo naredi junak, naredi dva koraka. Na srečo njihova povečana mobilnost ni bila povezana s povečano inteligenco; pogosto se uspejo uničiti le dvakrat hitreje kot njihovi počasnejši bratje.</para>
+            <para
+>Vse vrste iger ne vključujejo hitrih botov.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><firstterm
+>Kup šare</firstterm
+> <inlinemediaobject
+><imageobject
+><imagedata fileref="junkheap.png" format="PNG"/></imageobject
+></inlinemediaobject
+></term>
+          <listitem>
+            <para
+>Ko trčita dva ali več robotov, se ti uničijo, nastali odpadki pa ustvarijo smeti. Sovražniki slepo ignorirajo vse smeti na svoji poti in so uničeni, ko trčijo vanje. Ugotovili boste, da so kupi šare izjemno dragoceni, saj lahko služijo kot barikade med junakom in njegovimi napadalci.</para>
+            <para id="pushing-junkheaps"
+>Nekatere vrste iger dovoljujejo junaku, da <firstterm
+>potiska</firstterm
+> kupe šare po mreži. Junak lahko nato uporabi kupe šare, da zgradi <quote
+>bunkerje</quote
+>, ki nudijo zaščito na več straneh. Kupe šare se lahko v nekaterih vrstah iger uporablja celo napadalno. Potiskanje kupe šare na sovražnika ga zmečka in lahko povzroči celo bonus.</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+    </para>
+  </sect1>
+
+  <sect1 id="rounds-scoring-energy">
+    <title
+>Runde, točkovanje in energija</title>
+
+    <para
+><screenshot
+><mediaobject>
+      <imageobject
+><imagedata fileref="status.png" format="PNG"/></imageobject>
+      <textobject
+><phrase
+>Indikatorji stanja v igri</phrase
+></textobject>
+    </mediaobject
+></screenshot
+></para>
+
+    <sect2>
+      <title
+>Rund</title>
+      <para
+>Igranje v &killbots; je razdeljen na <firstterm
+>kroge</firstterm
+>. Vsak krog se začne z junakom na sredini mreže in s sovražniki, ki so naključno razporejeni okoli njega. Krog se konča, ko so vsi sovražniki uničeni. Ko je vsak krog končan, se število sovražnikov poveča. Število in vrsta dodanih sovražnikov sta odvisna od vrste igre.</para>
+      <para
+>Mreža se bo še naprej polnila s sovražniki, dokler se ne zgodi ena od dveh stvari: sovražniki zasedejo več kot 50 odstotkov celic ali se poskusi varno teleportirati, vendar v mreži ni varnih celic. Ko se zgodi kar koli od tega, se trenutni krog opusti in število sovražnikov se ponastavi na tisto, ki je bilo uporabljeno v prvem krogu.</para>
+    </sect2>
+
+    <sect2>
+      <title
+>Točkovanje</title>
+      <para
+>Zmage v &killbots; res ne obstajajo; junak skuša preživeti čim dlje, a žalostna resničnost je, da bo na koncu njegova sreča pošla. Zato je cilj v &killbots; zbrati najvišji možni <firstterm
+>rezultat</firstterm
+>, preden se zgodi neizogibno. Deset najvišjih rezultatov (skupaj z doseženim krogom) je zabeleženih v pogovornem oknu za najboljši rezultat.</para>
+      <para
+>Točke se dodelijo za uničenje sovražnikov. Hitri boti so običajno vredni več kot običajni roboti. Dodatne točke se lahko podelijo tudi za sovražnike, uničene med <link linkend="pushing-junkheaps"
+>potiskanjem kupe šare</link
+> ali <link linkend="wait-out-round"
+>čakanjem na krog</link
+>.</para>
+    </sect2>
+
+    <sect2 id="energy">
+      <title
+>Energija</title>
+      <para
+>Poleg točk lahko junak med potekom igre zbira tudi <firstterm
+>energijo</firstterm
+>. Energija omogoča junaku, da izvaja <link linkend="teleport-safely"
+>varne teleporte</link
+> in/ali uporablja <link linkend="vaporizer"
+>uparjalnik</link
+>. Odvisno od vrste igre je lahko energija podeljena iz različnih razlogov, vključno z dokončanjem kroga, <link linkend="pushing-junkheaps"
+>potiskanjem kupe šare</link
+> ali uničevanjem sovražnikov med <link linkend="wait-out-round"
+>čakam na krog</link
+>.</para>
+      <para
+>Količina energije, ki jo junak lahko shrani, je omejena na največjo določeno vrsto igre. V nekaterih vrstah iger se največja vrednost poveča, ko so krogi zaključeni. Prikaz stanja energije je viden le, če trenutna vrsta igre vključuje energijo in varne teleporte.</para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="special-actions">
+    <title id="special-actions-title"
+>Posebne akcije</title>
+    <para
+>Poleg preprostega premikanja od celice do celice ima junak na voljo do štiri posebne akcije.</para>
+
+    <sect2 id="teleport">
+      <title
+>Teleport</title>
+      <para
+>Junaku je nekako uspelo dobiti osebni teleporter. Na žalost, ko deluje brez vira energije, ni zelo zanesljiv. Aktivacija teleporterja povzroči, da se junak prenese v naključno izbrano celico kjer koli na mreži. Število teleportov, ki jih lahko izvede junak, ni omejeno.</para>
+      <para
+>Zagotovljeno je, da ciljna celica ni zasedena, vendar obstaja zelo velika verjetnost, da bo v bližini jeznega robota. Zaradi tveganja, ki je del teleportiranja, bi ga morali na splošno rezervirati kot zadnji manever, ko ni več na voljo nobenih varnih potez.</para>
+    </sect2>
+
+    <sect2 id="teleport-safely">
+      <title
+>Varno teleportiranje</title>
+      <para
+>Teleporter ima sekundarni način delovanja, ki bo junaka prepeljal v naključno izbrano, a varno celico. Za varno teleportiranje pa je potrebna <link linkend="energy"
+>energija</link
+>, ki je na splošno primanjkuje. Očitno lahko zmožnost varne teleportacije v ključnih trenutkih zelo podaljša življenjsko dobo junaka.</para>
+      <para
+>Vse vrste iger ne omogočajo varnih teleportov in količina energije, ki je potrebna za varno teleportacijo, se razlikuje med vrstami iger.</para>
+    </sect2>
+
+    <sect2 id="vaporizer">
+      <title
+>Uporabite Uparjalnik</title>
+      <para
+>Tretja uporaba naprave za teleportiranje pravzaprav sploh ne teleportira junaka. Ta nekoliko neobičajen način delovanja teleportira vse robote v celicah, ki mejijo na junaka. Nihče ne ve točno, kam so roboti teleportirani, a zdi se, da je dovolj daleč, da znova motijo junaka. Ker roboti izginejo v zrak, ne da bi zapustili smeti, je ta način poimenovan <quote
+>uparjalnik</quote
+> in sovražniki, poslani z izhlapevanjem, se za namene točkovanja obravnavajo kot ubiti.</para>
+      <para
+>Tako kot varno teleportiranje, uporaba uparjalnika zahteva <link linkend="energy"
+>energijo</link
+>. Vse vrste iger ne vključujejo uparjalnika in količina energije, ki je potrebna za njegovo uporabo, se razlikuje med vrstami iger.</para>
+    </sect2>
+
+    <sect2 id="wait-out-round">
+      <title
+>Počakajte krog</title>
+      <para
+>Morda pride čas, ko bo mreža postavljena tako, da bo mogoče vse robote uničiti, ne da bi se junak sploh moral premakniti. V takšni situaciji imate možnost počakati na krog.</para>
+      <example>
+        <title
+>Priložnost za čakanje</title>
+        <para
+><screenshot
+><mediaobject>
+          <imageobject
+><imagedata fileref="waitoutround.png" format="PNG"/></imageobject>
+        </mediaobject
+></screenshot
+></para>
+      </example>
+      <para
+>Čakanje na rundo povzroči, da junak zamrzne na mestu, medtem ko sovražniki nadaljujejo svoje redno gibanje. To se nadaljuje, dokler se ne zgodi ena od dveh stvari: sovražniki se uničijo in krog se konča ali pa sovražniku uspe doseči junaka in igra se konča. Ko je enkrat izdan ukaz za čakanje, ga ni mogoče preklicati, zato moramo biti prepričani, da je junak dejansko na varnem.</para>
+      <para
+>Zakaj bi torej nekdo sprejel dejanje, ki izključuje možnost, da bi si premislil? No, doda malo razcveta in drame na koncu kroga, a še pomembneje je, da je za vsakega uničenega sovražnika med čakanjem na krog podeljen bonus. Velikost in vrsta (točke ali energija) bonusa sta določena z vrsto igre.</para>
+    </sect2>
+  </sect1>
+
+</chapter>
+
+<chapter id="interface-overview">
+  <title
+>Pregled vmesnika</title>
+
+  <sect1 id="movement-controls">
+    <title id="movement-controls-title"
+>Kontrole gibanja</title>
+    <para
+>Igralec lahko za nadzor junaka uporablja tipkovnico, miško ali oboje.</para>
+    <sect2 id="keyboard-movement">
+      <title id="keyboard-movement-title"
+>Kontrole gibanja tipkovnice</title>
+      <para
+>Obstaja devet različnih gibalnih dejanj: levo, desno, gor, dol, štiri diagonale in mirovanje. Vsako od teh dejanj je mogoče dodeliti dvema različnima tipkama na tipkovnici. Privzeto je teh devet dejanj dodeljenih devetim številskim tipkam številske tipkovnice in bloku črk 3 x 3 na levem koncu tipkovnice QWERTY. Seveda lahko uporabniki, ki uporabljajo drugačno razporeditev tipkovnice ali takšno, ki nima številske tipkovnice, spremenijo te dodelitve tipk v pogovornem oknu za konfiguracijo bližnjic.</para>
+      <para
+>Vsak od posebnih ukazov gibanja (kot je teleport) lahko izdate tudi s tipkovnice. Glejte <link linkend="move-menu"
+>Premakni</link
+>.</para>
+    </sect2>
+    <sect2 id="mouse-movement">
+      <title id="mouse-movement-title"
+>Kontrole gibanja miške</title>
+      <para
+>Miško (ali katero koli drugo kazalno napravo) lahko uporabite za navigacijo na bolj naraven in intuitiven način. Ko se kazalec premakne čez glavno igralno območje, se bo kazalec spremenil in pokazal smer kazalca glede na junaka. Če na primer premaknete kazalec na prostor nad junakom, se bo kazalec spremenil v puščico navzgor. Če kazalec postavite neposredno nad junaka, se kazalec spremeni tako, da označuje, da ni premikanja.</para>
+      <para
+>En sam levi klik povzroči, da junak stopi v označeno smer (če je tak korak dovoljen). Za udobje lahko dodelite dodatna dejanja desnemu in srednjemu gumbu miške v <link linkend="configure-killbots"
+>Konfiguriraj - &killbots; pogovorno okno</link
+>. Ta dejanja vključujejo tista, ki jih najdete v meniju <link linkend="move-menu"
+>Premik</link
+>, kot tudi dodatno možnost: <guimenuitem
+>Ponovljeni korak</guimenuitem
+> izvajanje ponovljenega koraka povzroči, da se junak premakne v označeno smer več zaporednih zavojev, dokler ne dosežete ovire ali pa nadaljnje premikanje ne bi bilo varno. Ponovljeni korak lahko prekinete tudi s ponovnim klikom med premikanjem.</para>
+      <para
+></para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="game-menu">
+    <title
+>Elementi menija</title>
+
+    <variablelist>
+      <varlistentry>
+        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Igra</guimenu
+> <guimenuitem
+>Nova</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+><action
+>Začne novo igro in zavrže vse igre, ki morda trenutno potekajo.</action
+></para
+></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>H</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Igra</guimenu
+> <guimenuitem
+>Prikaži najboljše rezultate</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+><action
+>Prikaže pogovorno okno za visoko oceno, ki vsebuje pretekle rezultate.</action
+></para
+></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Igra</guimenu
+> <guimenuitem
+>Zapusti</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+><action
+>Zapusti &killbots;.</action
+></para
+></listitem>
+      </varlistentry>
+
+      <varlistentry id="move-menu">
+        <term
+><menuchoice
+><shortcut
+><keycap
+>R</keycap
+></shortcut
+> <guimenu
+>Premakni</guimenu
+> <guimenuitem
+>Teleport</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+><action
+>Teleportira junaka v naključno prazno celico kjer koli znotraj igralnega polja.</action
+> Glejte <link linkend="teleport" endterm="special-actions-title"
+></link
+>.</para
+></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term
+><menuchoice
+><shortcut
+><keycap
+>T</keycap
+></shortcut
+> <guimenu
+>Premakni se</guimenu
+> <guimenuitem
+>Varno teleportiraj</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+><action
+>Teleportira junaka v naključno prazno celico, ki je zajamčeno varna pred napadom na tem koraku.</action
+> Glejte <link linkend="teleport-safely" endterm="special-actions-title"
+></link
+>.</para
+></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term
+><menuchoice
+><shortcut
+>&Space;</shortcut
+> <guimenu
+>Premakni</guimenu
+> <guimenuitem
+>Teleport (varno, če je mogoče)</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+>Priročna akcija. <action
+>Varno teleportira junaka, če je na voljo dovolj energije, sicer se samo naključno teleportira.</action
+></para
+></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term
+><menuchoice
+><shortcut
+><keycap
+>F</keycap
+></shortcut
+> <guimenu
+>Premakni</guimenu
+> <guimenuitem
+>Uparjalnik</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+><action
+>Uniči vse robote v celicah, ki mejijo na junaka</action
+>. Glejte <link linkend="vaporizer" endterm="special-actions-title"
+></link
+>.</para
+></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term
+><menuchoice
+><shortcut
+><keycap
+>V</keycap
+></shortcut
+> <guimenu
+>Premik</guimenu
+> <guimenuitem
+>Počakajte krog</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+><action
+>Povzroči, da junak zamrzne na mestu do konca kroga.</action
+> Glejte <link linkend="wait-out-round" endterm="special-actions-title"
+></link
+>.</para
+></listitem>
+      </varlistentry>
+
+      <varlistentry id="configure-killbots">
+        <term
+><menuchoice
+><guimenu
+>Nastavitve</guimenu
+> <guimenuitem
+>Konfiguriraj &killbots;…</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+><action
+>Prikaže &killbots; konfiguracijsko pogovorno okno</action
+>, kjer lahko prilagodite parametre igranja, izberete drug niz pravil igre ali spremenite temo igre.</para
+></listitem>
+      </varlistentry>
+    </variablelist>
+
+<para
+>Poleg tega &killbots; ima skupno &kde; Elemente menija <guimenu
+>Nastavitve</guimenu
+> in <guimenu
+>Pomoč</guimenu
+>, za več informacij preberite razdelke o <ulink url="help:/fundamentals/menus.html#menus-settings"
+>meniju z nastavitvami</ulink
+> in <ulink url="help:/fundamentals/menus.html#menus-help"
+>meni Pomoč</ulink
+> v &kde; Osnove. </para>
+
+  </sect1>
+
+</chapter>
+
+
+<chapter id="developers">
+  <title
+>Vodnik za razvijalce za &killbots;</title>
+  <para
+>Zainteresirani lahko prilagodijo &killbots; na dva glavna načina: teme in nizi pravil.</para>
+
+  <sect1 id="creating-themes">
+    <title
+>Ustvarjanje &killbots; po meri; Teme</title>
+    <para
+>Kot večina drugih &kde; igre, &killbots; tema je sestavljena iz treh datotek.</para>
+
+    <sect2>
+      <title
+>Datoteka namizja</title>
+      <para
+>Namizna datoteka sledi standardni sintaksi <acronym
+>INI</acronym
+>. Pari ključ-vrednost shranjujejo informacije o temi in kažejo na druge datoteke, vključene v temo. Naslednji primer je vzet iz privzete teme.</para>
+      <example>
+        <title
+>Primer datoteke za namizno temo</title>
+        <programlisting
+>[KGameTheme]
+Name=Example Theme
+Description=An example theme used to demonstrate theme creation. This one features pirates.
+Author=Mr. Artist
+AuthorEmail=mrartist@example.com
+Type=SVG
+FileName=example.svg
+Preview=example.png
+        </programlisting>
+      </example>
+      <para
+>Prvi štirje parametri vsebujejo metapodatke o temi in so dovolj jasni. Za &killbots; teme, mora biti parameter <varname
+>Type</varname
+> vedno nastavljen na &SVG;. Zadnja dva parametra vsebujeta imena datotek dveh drugih datotek tem. Čeprav to ni nujno potrebno, je zelo priporočljivo, da zaradi doslednosti vse tri datoteke delijo isto osnovno ime datoteke.</para>
+    </sect2>
+
+    <sect2>
+      <title
+>Datoteka za predogled</title>
+      <para
+>Datoteka za predogled je preprosto datoteka <acronym
+>PNG</acronym
+>, ki vsebuje predogled teme. Slika za predogled mora biti velika 240 krat 140 slikovnih pik in se čim bolj ujemati s postavitvijo predogleda privzete teme, saj je tako lažje primerjati teme v izbirniku tem.</para>
+    </sect2>
+
+    <sect2>
+      <title
+>&SVG; mapa</title>
+      <para
+>&SVG; je razširljiva vektorska grafična slika, ki vsebuje dejanske grafične elemente, uporabljene za sestavo teme. Datoteka je lahko v nestisnjenem <literal role="extension"
+>.svg</literal
+> ali stisnjenem <literal role="extension"
+>.svgz</literal
+> formatu. Vsak element igre je označen z edinstvenim ID-jem v &SVG; mapa. Ko ustvarjate novo temo, je na splošno najlažje začeti z obstoječo temo in zamenjati elemente enega za drugim, dokler tema ni dokončana. &SVG; datoteka <emphasis
+>mora</emphasis
+> vsebovati naslednje elemente.</para>
+      <variablelist>
+        <varlistentry>
+          <term
+><varname
+>ozadje</varname
+></term>
+          <listitem
+><para
+>Slika, prikazana za mrežo v glavnem območju igre.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>stanje</varname
+></term>
+          <listitem
+><para
+>Polje, ki se uporablja za prikaz trenutne runde, rezultata, števila sovražnikov in energije.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>barva besedila</varname
+></term>
+          <listitem
+><para
+>Ta element mora biti pravokotnik ene barve. Njegova barva se uporablja za besedilo v statusnih poljih.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>celica</varname
+></term>
+          <listitem
+><para
+>Posamezna mrežna celica.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>junak</varname
+></term>
+          <listitem
+><para
+>Lik, ki ga nadzira igralec.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>sovražnik</varname
+></term>
+          <listitem
+><para
+>Osnovni sovražnik.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>fastenemy</varname
+></term>
+          <listitem
+><para
+>Hitrejši sovražnik.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>kup šare</varname
+></term>
+          <listitem
+><para
+>Ostanki trka med sovražniki.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor0</varname
+></term>
+          <listitem
+><para
+>Kazalec, ki označuje premik v desno.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor1</varname
+></term>
+          <listitem
+><para
+>Kazalec, ki označuje diagonalno gibanje navzgor in v desno.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor2</varname
+></term>
+          <listitem
+><para
+>Kazalec, ki označuje premik navzgor.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor3</varname
+></term>
+          <listitem
+><para
+>Kazalec, ki označuje diagonalno gibanje navzgor in v levo.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor4</varname
+></term>
+          <listitem
+><para
+>Kazalec, ki označuje gibanje v levo.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor5</varname
+></term>
+          <listitem
+><para
+>Kazalec, ki označuje diagonalno gibanje navzdol in v levo.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor6</varname
+></term>
+          <listitem
+><para
+>Kazalec, ki označuje premik navzdol.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor7</varname
+></term>
+          <listitem
+><para
+>Kazalec, ki označuje gibanje navzdol in desno.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor8</varname
+></term>
+          <listitem
+><para
+>Kazalec, ki označuje, da ostanete na mestu.</para
+></listitem>
+        </varlistentry>
+      </variablelist>
+    </sect2>
+
+    <sect2>
+      <title
+>Namestitev tem po meri</title>
+      <para
+>Da bi &killbots; če želite zaznati in uporabiti novo temo, je treba datoteke premakniti v ustrezen imenik. Če želite namestiti temo samo za trenutnega uporabnika, kopirajte namizje, predogled in &SVG; datoteke v <filename class="directory"
+>killbots/themes</filename
+> v lokalni mapi v <userinput
+><command
+>qtpaths</command
+> <option
+>--paths GenericDataLocation </option
+></userinput
+>. Če želite, da bo tema na voljo v celotnem sistemu, premaknite datoteke v <filename class="directory"
+>killbots/themes</filename
+> v sistemski mapi (iz prejšnjega ukaza, po možnosti <filename class="directory"
+>/usr/share </filename
+> ali podobno). Upoštevajte, da bodo za to verjetno potrebne skrbniške pravice.</para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="creating-rulesets">
+    <title
+>Ustvarjanje vrst iger po meri</title>
+
+    <sect2>
+      <title
+>Namizna datoteka Ruleset</title>
+      <para
+>Ustvarjanje novih vrst iger je za &killbots; neverjetno preprosto, zlasti če začnete z obstoječo datoteko z naborom pravil. Nabori pravil so shranjeni kot ena namizna datoteka, kjer so parametri in metapodatki shranjeni kot preprosti pari ključ-vrednost.</para>
+      <example>
+        <title
+>Privzeti &killbots; Vrsta igre</title>
+        <programlisting width="80"
+>[KillbotsRuleset]
+Name=Killbots
+Name[gl]=Robots asasinos
+Author=Parker Coates
+AuthorContact=parker.coates@kdemail.net
+Description=&lt;qt&gt;&lt;p&gt;The default Killbots game type.&lt;/p&gt;&lt;p&gt;Includes a medium size grid, safe teleports, fast enemies and pushable junkheaps.&lt;/p&gt;&lt;/qt&gt;
+Description[gl]=&lt;qt&gt;&lt;p&gt;O xogo tipo Killbots por omisión.&lt;/p&gt;&lt;p&gt;Inclúe unha grella mediana, teleportacións seguras, enemigos rápidos e chatarra que se pode empurrar.&lt;/p&gt;&lt;/qt&gt;
+Rows=16
+Columns=16
+EnemiesAtGameStart=8.0
+EnemiesAddedEachRound=4.0
+FastEnemiesAtGameStart=-2.0
+FastEnemiesAddedEachRound=2.0
+EnergyEnabled=true
+EnergyAtGameStart=0
+EnergyAddedEachRound=0
+MaxEnergyAtGameStart=12.0
+MaxEnergyAddedEachRound=0.0
+SafeTeleportEnabled=true
+CostOfSafeTeleport=1
+VaporizerEnabled=false
+CostOfVaporizer=0
+PushableJunkheaps=Many
+SquaskKillsEnabled=true
+JunkheapsAtGameStart=0.0
+JunkheapsAddedEachRound=0.0
+PointsPerEnemyKilled=5
+PointsPerFastEnemyKilled=10
+WaitKillPointBonus=0
+WaitKillEnergyBonus=1
+SquashKillPointBonus=0
+SquashKillEnergyBonus=1</programlisting>
+      </example>
+      <para
+>Upoštevajte, da morajo biti vsi besedilni parametri vneseni v ameriški angleščini. Kot je razvidno iz zgornjega primera, lahko prevode dodate datoteki namizja tako, da ponovite ključ in dodate kodo jezika med oglatimi oklepaji. Upoštevajte tudi, da je obogateno besedilo mogoče dati polju <varname
+>Opis</varname
+> tako, da vrednost zavijete v &lt;qt&gt; oznake.</para>
+      <para
+>Datoteka z naborom pravil mora vsebovati vse naslednje parametre.</para>
+      <variablelist>
+        <varlistentry>
+          <term
+><varname
+>Name</varname
+></term>
+          <listitem
+><para
+>Ime nabora pravil, kot bo prikazano v izbirniku nabora pravil in v pogovornem oknu za visoko oceno.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>Author</varname
+></term>
+          <listitem
+><para
+>Ustvarjalec nabora pravil.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>AuthorContact</varname
+></term>
+          <listitem
+><para
+>Kontaktni podatki ustvarjalca. To je običajno e-poštni naslov.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>Description</varname
+></term>
+          <listitem
+><para
+>Opis nabora pravil. To bi moralo dati spodoben pregled nad vrsto igre, vendar ni treba navesti vrednosti vsakega parametra, saj je te informacije mogoče videti v pogovornem oknu Podrobnosti.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>Rows</varname
+></term>
+          <listitem
+><para
+>Število vrstic v mreži igre.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>Columns</varname
+></term>
+          <listitem
+><para
+>Število stolpcev v mreži igre.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>EnemiesAtGameStart</varname
+></term>
+          <listitem
+><para
+>Število običajnih sovražnikov, dodanih v mrežo na začetku prvega kroga.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>EnemiesAddedEachRound</varname
+></term>
+          <listitem
+><para
+>Število dodatnih navadnih sovražnikov, dodanih v mrežo na začetku vsakega kroga.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>FastEnemiesAtGameStart</varname
+></term>
+          <listitem
+><para
+>Število hitrih sovražnikov, dodanih v mrežo na začetku prvega kroga.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>FastEnemiesAddedEachRound</varname
+></term>
+          <listitem
+><para
+>Število dodatnih hitrih sovražnikov, dodanih v mrežo na začetku vsakega kroga.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>EnergyEnabled</varname
+></term>
+          <listitem
+><para
+>Če je nastavljeno na <quote
+><constant
+>false</constant
+></quote
+>, bo junak lahko zaslužil ali porabil energijo.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>EnergyAtGameStart</varname
+></term>
+          <listitem
+><para
+>Količina energije, dodeljena junaku na začetku prve runde.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>EnergyAddedEachRound</varname
+></term>
+          <listitem
+><para
+>Količina energije, dodeljena junaku na začetku vsakega kroga.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>MaxEnergyAtGameStart</varname
+></term>
+          <listitem
+><para
+>Največja energetska zmogljivost junaka na začetku prvega kroga.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>MaxEnergyAddedEachRound</varname
+></term>
+          <listitem
+><para
+>Sprememba največje energetske zmogljivosti na začetku vsakega kroga.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>SafeTeleportEnabled</varname
+></term>
+          <listitem
+><para
+>Če je nastavljeno na <quote
+><constant
+>false</constant
+></quote
+>, bo dejanje varne teleportacije onemogočeno.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>CostOfSafeTeleport</varname
+></term>
+          <listitem
+><para
+>Količina energije, ki se porabi pri varnem teleportiranju.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>VaporizerEnabled</varname
+></term>
+          <listitem
+><para
+>Če je nastavljeno na <quote
+><constant
+>false</constant
+></quote
+>, bo dejanje uparjalnika onemogočeno.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>CostOfVaporizer</varname
+></term>
+          <listitem
+><para
+>Količina porabljene energije z uporabo uparjalnika.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>PushableJunkheaps</varname
+></term>
+          <listitem
+><para
+>Število kupov šare, ki jih je mogoče premakniti z enim pritiskom. Možne vrednosti so <quote
+><constant
+>None</constant
+></quote
+>, <quote
+><constant
+>Ena</constant
+></quote
+> in <quote
+><constant
+>Več</constant
+></quote
+> .</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>SquaskKillsEnabled</varname
+></term>
+          <listitem
+><para
+>Če je res, lahko junak zmečka sovražnike tako, da nanje potisne kupe šare.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>JunkheapsAtGameStart</varname
+></term>
+          <listitem
+><para
+>Število kupov šare, postavljenih na mrežo na začetku prvega kroga.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>JunkheapsAddedEachRound</varname
+></term>
+          <listitem
+><para
+>Število dodatnih kupov šare, postavljenih na mrežo na začetku vsakega kroga.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>Točk na ubitega sovražnika</varname
+></term>
+          <listitem
+><para
+>Število točk, dodeljenih za uničenje navadnega sovražnika.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>PointsPerFastEnemyKilled</varname
+></term>
+          <listitem
+><para
+>Število točk, podeljenih za uničenje hitrega sovražnika.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>WaitKillPointBonus</varname
+></term>
+          <listitem
+><para
+>Število dodatnih točk, podeljenih za uničenje sovražnika med čakanjem na krog.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>WaitKillEnergyBonus</varname
+></term>
+          <listitem
+><para
+>Število dodatnih energijskih enot, podeljenih za uničenje sovražnika med čakanjem na krog.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>SquashKillPointBonus</varname
+></term>
+          <listitem
+><para
+>Število dodatnih točk, dodeljenih za zmečkanje sovražnika s kupom šare.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>SquashKillEnergyBonus</varname
+></term>
+          <listitem
+><para
+>Število dodatnih energijskih enot, podeljenih za zmečkanje sovražnika s kupom šare.</para
+></listitem>
+        </varlistentry>
+      </variablelist>
+    </sect2>
+
+    <sect2>
+      <title
+>Namestitev vrst iger po meri</title>
+
+      <para
+>Da bi &killbots; če želite zaznati in uporabiti novo vrsto igre, je treba datoteko z naborom pravil premakniti v ustrezen imenik. Če želite namestiti vrsto igre samo za trenutnega uporabnika, kopirajte datoteko v <filename class="directory"
+>killbots/rulesets</filename
+> v lokalni mapi v <userinput
+><command
+>qtpaths</command
+> <option
+>- -paths GenericDataLocation </option
+></userinput
+>. Če želite, da bo vrsta igre na voljo v celotnem sistemu, premaknite datoteko v <filename class="directory"
+>killbots/rulesets</filename
+> v sistemski mapi (iz prejšnjega ukaza, po možnosti <filename class="directory"
+>/usr/ delite</filename
+> ali podobno). Upoštevajte, da bodo za to verjetno potrebne skrbniške pravice.</para>
+    </sect2>
+
+  </sect1>
+</chapter>
+
+<chapter id="credits">
+  <title
+>Zasluge in licenca</title>
+
+  <para
+>&killbots;</para>
+  <para
+>Avtorske pravice za program 2007&ndash;2009 Parker Coates <email
+>parker.coates@kdemail.net</email
+></para>
+  <para
+>Dokumentacija Copyright &copy; 2008&ndash;2009 Parker Coates <email
+>parker.coates@kdemail.net</email
+></para>
+
+  <para
+>Prevod: Matjaž Jeran<email
+>matjaz.jeran@amis.net</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+
+</book>
+
+<!--
+Local Variables:
+mode: xml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+vim:tabstop=2:shiftwidth=2:expandtab
+kate: space-indent on; indent-width 2; tab-width 2; indent-mode none;
+-->
