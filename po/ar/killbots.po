@@ -1,13 +1,13 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the killbots package.
+# SPDX-FileCopyrightText: 2021, 2022, 2024 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
 #
-# Zayed Al-Saidi <zayed.alsaidi@gmail.com>, 2021, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: killbots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-04 00:37+0000\n"
-"PO-Revision-Date: 2022-01-19 23:20+0400\n"
+"PO-Revision-Date: 2024-10-03 07:12+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -16,6 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -274,12 +275,12 @@ msgid "Teleport Safely"
 msgstr ""
 
 #: mainwindow.cpp:241
-#, fuzzy, kde-format
+#, kde-format
 msgctxt ""
 "Shortcut for teleport safely. See https://quickgit.kde.org/?p=killbots."
 "git&a=blob&f=README.translators&o=plain"
 msgid "T"
-msgstr "تيرا "
+msgstr "T"
 
 #: mainwindow.cpp:243
 #, kde-format
@@ -294,12 +295,12 @@ msgid "Teleport"
 msgstr ""
 
 #: mainwindow.cpp:249
-#, fuzzy, kde-format
+#, kde-format
 msgctxt ""
 "Shortcut for teleport. See https://quickgit.kde.org/?p=killbots."
 "git&a=blob&f=README.translators&o=plain"
 msgid "R"
-msgstr "ح"
+msgstr "R"
 
 #: mainwindow.cpp:251
 #, kde-format
@@ -359,7 +360,7 @@ msgctxt ""
 "Shortcut for wait out round. See https://quickgit.kde.org/?p=killbots."
 "git&a=blob&f=README.translators&o=plain"
 msgid "V"
-msgstr "فولت"
+msgstr "V"
 
 #: mainwindow.cpp:274
 #, kde-format
@@ -393,7 +394,7 @@ msgctxt ""
 "Shortcut for move up. See https://quickgit.kde.org/?p=killbots."
 "git&a=blob&f=README.translators&o=plain"
 msgid "W"
-msgstr "غرب"
+msgstr "W"
 
 #: mainwindow.cpp:291
 #, kde-format
@@ -407,7 +408,7 @@ msgctxt ""
 "Shortcut for move up and right. https://quickgit.kde.org/?p=killbots."
 "git&a=blob&f=README.translators&o=plain"
 msgid "E"
-msgstr "شرق"
+msgstr "E"
 
 #: mainwindow.cpp:297
 #, kde-format
@@ -416,12 +417,12 @@ msgid "Move Left"
 msgstr "حرك لليسار"
 
 #: mainwindow.cpp:298
-#, fuzzy, kde-format
+#, kde-format
 msgctxt ""
 "Shortcut for move left. See https://quickgit.kde.org/?p=killbots."
 "git&a=blob&f=README.translators&o=plain"
 msgid "A"
-msgstr "أ"
+msgstr "A"
 
 #: mainwindow.cpp:303
 #, kde-format
@@ -430,12 +431,12 @@ msgid "Stand Still"
 msgstr ""
 
 #: mainwindow.cpp:304
-#, fuzzy, kde-format
+#, kde-format
 msgctxt ""
 "Shortcut for stand still. See https://quickgit.kde.org/?p=killbots."
 "git&a=blob&f=README.translators&o=plain"
 msgid "S"
-msgstr "ج"
+msgstr "S"
 
 #: mainwindow.cpp:309
 #, kde-format
@@ -458,12 +459,12 @@ msgid "Move Down and Left"
 msgstr ""
 
 #: mainwindow.cpp:316
-#, fuzzy, kde-format
+#, kde-format
 msgctxt ""
 "Shortcut for move down and left. See https://quickgit.kde.org/?p=killbots."
 "git&a=blob&f=README.translators&o=plain"
 msgid "Z"
-msgstr "زيتا"
+msgstr "Z"
 
 #: mainwindow.cpp:321
 #, kde-format
@@ -472,12 +473,12 @@ msgid "Move Down"
 msgstr "انقل لأسفل"
 
 #: mainwindow.cpp:322
-#, fuzzy, kde-format
+#, kde-format
 msgctxt ""
 "Shortcut for move down. See https://quickgit.kde.org/?p=killbots."
 "git&a=blob&f=README.translators&o=plain"
 msgid "X"
-msgstr "س"
+msgstr "X"
 
 #: mainwindow.cpp:327
 #, kde-format
@@ -486,7 +487,7 @@ msgid "Move Down and Right"
 msgstr ""
 
 #: mainwindow.cpp:328
-#, fuzzy, kde-format
+#, kde-format
 msgctxt ""
 "Shortcut for move down and right. https://quickgit.kde.org/?p=killbots."
 "git&a=blob&f=README.translators&o=plain"
@@ -738,7 +739,7 @@ msgstr "العددين"
 #, kde-format
 msgctxt "%1 is a pretranslated string that we're turning into a label"
 msgid "%1:"
-msgstr ""
+msgstr "%1:"
 
 #: rulesetdetailsdialog.cpp:68
 #, kde-format
@@ -795,12 +796,10 @@ msgid "Description:"
 msgstr "الوصف:"
 
 #: rulesetselector.cpp:64
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Details..."
+#, kde-format
 msgctxt "@action:button"
 msgid "Details…"
-msgstr "تفاصيل..."
+msgstr "التفاصيل…"
 
 #: rulesetselector.cpp:65
 #, kde-format
