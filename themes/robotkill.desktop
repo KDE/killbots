@@ -1,5 +1,6 @@
 [KGameTheme]
 Name=Robot Kill
+Name[ar]=معركة الآليين
 Name[bs]=Robotsko ubitstvo
 Name[ca]=Robot assassí
 Name[ca@valencia]=Robot assassí
@@ -49,6 +50,7 @@ Name[x-test]=xxRobot Killxx
 Name[zh_CN]=猎杀机器人
 Name[zh_TW]=獵殺機器人
 Description=The default Killbots theme.
+Description[ar]=السمة المبدئية لمعركة الآليين
 Description[bs]=Zadana Killbot tema
 Description[ca]=El tema predeterminat del Killbots.
 Description[ca@valencia]=El tema predeterminat de Killbots.

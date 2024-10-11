@@ -56,6 +56,7 @@ Name[zh_TW]=Killbots
 Author=Parker Coates
 AuthorContact=parker.coates@kdemail.net
 Description=<qt><p>The default Killbots game type.</p><p>Includes a medium size grid, safe teleports, fast enemies and pushable junkheaps.</p></qt>
+Description[ar]=<qt><p>نوع اللعبة المبدئي لمعركة الآليين.</p><p>يتضمن شبكة متوسطة الحجم، ووسائل نقل آمنة، وأعداء سريعين، وأكوام حطام قابلة للدفع.</p></qt>
 Description[bs]=<qt> <p> podrazumijevani tip igre Kilbots. </ p> Sadrži rešetke srednje veličine, sigurne teleporte, brze neprijatelje i guranje hrpi. </ p> </ qt>
 Description[ca]=<qt><p>El tipus de joc predeterminat del Killbots.</p><p>Inclou una quadrícula de mida mitjana, teletransports segurs, enemics ràpids i munts de ferralla que es poden empènyer.</p></qt>
 Description[ca@valencia]=<qt><p>El tipus de joc predeterminat de Killbots.</p><p>Inclou una quadrícula de mida mitjana, teletransports segurs, enemics ràpids i munts de ferralla que es poden empényer.</p></qt>
