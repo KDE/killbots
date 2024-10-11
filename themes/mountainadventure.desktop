@@ -1,5 +1,6 @@
 [KGameTheme]
 Name=Mountain Adventure
+Name[ar]=مغامرة الجبل
 Name[bs]=Planinska avantura
 Name[ca]=Aventura de la muntanya
 Name[ca@valencia]=Aventura de la muntanya
@@ -49,6 +50,7 @@ Name[x-test]=xxMountain Adventurexx
 Name[zh_CN]=山中冒险
 Name[zh_TW]=山中冒險
 Description=Indiana Gnomes battles ghosts and bats on a misty mountainside.
+Description[ar]=أقزام إنديانا يخوضون معركة ضد الأشباح والخفافيش على سفح جبل ضبابي.
 Description[ca]=Indiana Gnomes lluita contra fantasmes i ratpenats en un costat de la muntanya bromosa.
 Description[ca@valencia]=Indiana Gnomes lluita contra fantasmes i ratpenats en un costat de la muntanya bromosa.
 Description[da]=Indiana Gnomes kæmper mod spøgelser og flagermus på en tåget bjergside.
