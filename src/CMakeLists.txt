@@ -58,6 +58,7 @@ target_link_libraries(killbots
     KF6::Completion
     KF6::Crash
     KF6::I18n
+    KF6::IconThemes
     Qt6::Widgets
     Qt6::Xml
 )
