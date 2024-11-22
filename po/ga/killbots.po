@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: killbots.po\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-04 00:37+0000\n"
+"POT-Creation-Date: 2024-11-22 00:38+0000\n"
 "PO-Revision-Date: 2008-08-14 09:40-0500\n"
 "Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
 "Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
@@ -169,37 +169,37 @@ msgstr "Beart"
 msgid "Main Toolbar"
 msgstr "Príomhbharra Uirlisí"
 
-#: main.cpp:26
+#: main.cpp:43
 #, kde-format
 msgid "Killbots"
 msgstr "Killbots"
 
-#: main.cpp:27
+#: main.cpp:44
 #, kde-format
 msgid "A KDE game of killer robots and teleportation."
 msgstr "Cluiche KDE le róbónna dúnmharfacha agus teileapórtáil."
 
-#: main.cpp:29
+#: main.cpp:46
 #, kde-format
 msgid "© 2006-2009, Parker Coates"
 msgstr "© 2006-2009, Parker Coates"
 
-#: main.cpp:30
+#: main.cpp:47
 #, kde-format
 msgid "Parker Coates"
 msgstr "Parker Coates"
 
-#: main.cpp:30
+#: main.cpp:47
 #, kde-format
 msgid "Developer"
 msgstr "Forbróir"
 
-#: main.cpp:31
+#: main.cpp:48
 #, kde-format
 msgid "Mark Rae"
 msgstr "Mark Rae"
 
-#: main.cpp:31
+#: main.cpp:48
 #, kde-format
 msgid ""
 "Author of Gnome Robots. Invented safe teleports, pushing junkheaps and fast "
