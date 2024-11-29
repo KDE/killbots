@@ -45,6 +45,18 @@ ecm_qt_declare_logging_category(killbots
     EXPORT KILLBOTS
 )
 
+if(APPLE)
+    set_target_properties(killbots PROPERTIES
+           MACOSX_BUNDLE_DISPLAY_NAME "Killbots"
+        MACOSX_BUNDLE_BUNDLE_NAME "Killbots"
+        MACOSX_BUNDLE_LONG_VERSION_STRING "KGoldrunner ${RELEASE_SERVICE_VERSION}"
+        MACOSX_BUNDLE_SHORT_VERSION_STRING "${RELEASE_SERVICE_VERSION_MAJOR}.${RELEASE_SERVICE_VERSION_MINOR}"
+        MACOSX_BUNDLE_BUNDLE_VERSION "${RELEASE_SERVICE_VERSION}"
+        MACOSX_BUNDLE_GUI_IDENTIFIER "org.kde.killbots"
+        MACOSX_BUNDLE_COPYRIGHT "2024 The Killbots Developers")
+endif()
+
+
 kconfig_add_kcfg_files(killbots settings.kcfgc rulesetbase.kcfgc)
 
 file(GLOB ICONS_SRCS "${CMAKE_SOURCE_DIR}/icons/*-apps-killbots.png")
