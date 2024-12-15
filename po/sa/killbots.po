@@ -3,58 +3,61 @@
 # This file is distributed under the same license as the killbots package.
 # Kali <EMAIL@ADDRESS>, 2024.
 #
+# SPDX-FileCopyrightText: 2024 kali <skkalwar999@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: killbots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-22 00:38+0000\n"
-"PO-Revision-Date: 2024-12-13 19:10+0530\n"
-"Last-Translator: Kali <EMAIL@ADDRESS>\n"
-"Language-Team: Sanskrit\n"
+"PO-Revision-Date: 2024-12-14 01:08+0530\n"
+"Last-Translator: kali <skkalwar999@gmail.com>\n"
+"Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
 "Language: sa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 24.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "भवतः नामानि"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "भवतः ईमेलपत्राणि"
 
 #: coordinator.cpp:101
 #, kde-format
 msgctxt "@label"
 msgid "Round:"
-msgstr ""
+msgstr "वृत्त:"
 
 #: coordinator.cpp:106
 #, kde-format
 msgctxt "@label"
 msgid "Score:"
-msgstr ""
+msgstr "अंक:"
 
 #: coordinator.cpp:111
 #, kde-format
 msgctxt "@label"
 msgid "Enemies:"
-msgstr ""
+msgstr "शत्रवः : १."
 
 #: coordinator.cpp:116
 #, kde-format
 msgctxt "@label"
 msgid "Energy:"
-msgstr ""
+msgstr "ऊर्जा:"
 
 #: coordinator.cpp:405
 #, kde-format
 msgctxt "@info"
 msgid "Round complete."
-msgstr ""
+msgstr "गोल सम्पन्न।"
 
 #: coordinator.cpp:410
 #, kde-format
@@ -63,18 +66,20 @@ msgid ""
 "Board is full.\n"
 "Resetting enemy counts."
 msgstr ""
+"बोर्डः पूर्णः अस्ति।\n"
+"शत्रुगणना पुनः सेट् करणम्।"
 
 #: coordinator.cpp:415
 #, kde-format
 msgctxt "@info"
 msgid "New game."
-msgstr ""
+msgstr "नवीनः क्रीडा।"
 
 #: coordinator.cpp:420
 #, kde-format
 msgctxt "@info"
 msgid "Game over."
-msgstr ""
+msgstr "गेम ओवर।"
 
 #. i18n: ectx: tooltip, entry (MiddleClickAction), group (General)
 #: killbots.kcfg:19
@@ -152,7 +157,7 @@ msgstr "अग्रिमे क्रीडने उपयोक्तुं 
 #, kde-format
 msgctxt "@title:menu"
 msgid "Move"
-msgstr ""
+msgstr "चलनम्"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: killbotsui.rc:21
@@ -214,37 +219,37 @@ msgstr ""
 #, kde-format
 msgctxt "@title"
 msgid "General"
-msgstr ""
+msgstr "सामान्य"
 
 #: mainwindow.cpp:96
 #, kde-format
 msgctxt "@info"
 msgid "Configure general settings"
-msgstr ""
+msgstr "सामान्यसेटिंग्स् विन्यस्यताम्"
 
 #: mainwindow.cpp:99
 #, kde-format
 msgctxt "@title"
 msgid "Game Type"
-msgstr ""
+msgstr "गेम प्रकार"
 
 #: mainwindow.cpp:101
 #, kde-format
 msgctxt "@info"
 msgid "Select a game type"
-msgstr ""
+msgstr "एकं क्रीडाप्रकारं चिनुत"
 
 #: mainwindow.cpp:104
 #, kde-format
 msgctxt "@title"
 msgid "Appearance"
-msgstr ""
+msgstr "स्वरूपम्‌"
 
 #: mainwindow.cpp:106
 #, kde-format
 msgctxt "@info"
 msgid "Select a graphical theme"
-msgstr ""
+msgstr "चित्रात्मकं विषयं चिनुत"
 
 #: mainwindow.cpp:140
 #, kde-format
@@ -256,31 +261,31 @@ msgstr "नूतनः क्रीडाप्रकारः चयनित�
 #, kde-format
 msgctxt "@title:window"
 msgid "Game Type Changed"
-msgstr ""
+msgstr "क्रीडायाः प्रकारः परिवर्तितः"
 
 #: mainwindow.cpp:142
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue Current Game"
-msgstr ""
+msgstr "वर्तमान क्रीडां निरन्तरं कुर्वन्तु"
 
 #: mainwindow.cpp:143
 #, kde-format
 msgctxt "@action:button"
 msgid "Start a New Game"
-msgstr ""
+msgstr "नूतनं क्रीडां आरभत"
 
 #: mainwindow.cpp:156
 #, kde-format
 msgctxt "@title:column round of the game"
 msgid "Round"
-msgstr ""
+msgstr "वृत्त"
 
 #: mainwindow.cpp:240 optionspage.cpp:28
 #, kde-format
 msgctxt "@action"
 msgid "Teleport Safely"
-msgstr ""
+msgstr "सुरक्षिततया दूरस्थापनम्"
 
 #: mainwindow.cpp:241
 #, kde-format
@@ -288,19 +293,19 @@ msgctxt ""
 "Shortcut for teleport safely. See https://quickgit.kde.org/?p=killbots."
 "git&a=blob&f=README.translators&o=plain"
 msgid "T"
-msgstr ""
+msgstr "टी"
 
 #: mainwindow.cpp:243
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Teleport to a safe location"
-msgstr ""
+msgstr "सुरक्षितस्थानं प्रति दूरवाणीं कुर्वन्तु"
 
 #: mainwindow.cpp:248 optionspage.cpp:27
 #, kde-format
 msgctxt "@action"
 msgid "Teleport"
-msgstr ""
+msgstr "दूरवाणी"
 
 #: mainwindow.cpp:249
 #, kde-format
@@ -308,19 +313,19 @@ msgctxt ""
 "Shortcut for teleport. See https://quickgit.kde.org/?p=killbots."
 "git&a=blob&f=README.translators&o=plain"
 msgid "R"
-msgstr ""
+msgstr "आर"
 
 #: mainwindow.cpp:251
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Teleport to a random location"
-msgstr ""
+msgstr "यादृच्छिकस्थानं प्रति दूरवाणीं कुर्वन्तु"
 
 #: mainwindow.cpp:256 optionspage.cpp:29
 #, kde-format
 msgctxt "@action"
 msgid "Teleport (Safely if Possible)"
-msgstr ""
+msgstr "दूरस्थापनम् (यदि सम्भवं तर्हि सुरक्षिततया)"
 
 #: mainwindow.cpp:257
 #, kde-format
@@ -328,19 +333,21 @@ msgctxt ""
 "Shortcut for teleport safely if possible. See https://quickgit.kde.org/?"
 "p=killbots.git&a=blob&f=README.translators&o=plain"
 msgid "Space"
-msgstr ""
+msgstr "स्थानं"
 
 #: mainwindow.cpp:259
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Teleport safely if that action is enabled, otherwise teleport randomly"
 msgstr ""
+"यदि सा क्रिया सक्षमा अस्ति तर्हि सुरक्षिततया दूरस्थापनं कुर्वन्तु, अन्यथा यादृच्छिकरूपेण "
+"दूरस्थापनं कुर्वन्तु"
 
 #: mainwindow.cpp:263
 #, kde-format
 msgctxt "@action"
 msgid "Vaporizer"
-msgstr ""
+msgstr "वाष्पीकरणकर्ता"
 
 #: mainwindow.cpp:264
 #, kde-format
@@ -348,19 +355,19 @@ msgctxt ""
 "Shortcut for vaporizer. See https://quickgit.kde.org/?p=killbots."
 "git&a=blob&f=README.translators&o=plain"
 msgid "F"
-msgstr ""
+msgstr "च"
 
 #: mainwindow.cpp:266
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Destroy all enemies in neighboring cells"
-msgstr ""
+msgstr "समीपस्थेषु कोष्ठकेषु सर्वान् शत्रून् नाशयन्तु"
 
 #: mainwindow.cpp:271 optionspage.cpp:30
 #, kde-format
 msgctxt "@action"
 msgid "Wait Out Round"
-msgstr ""
+msgstr "प्रतीक्षा बहिः गोलम्"
 
 #: mainwindow.cpp:272
 #, kde-format
@@ -368,19 +375,19 @@ msgctxt ""
 "Shortcut for wait out round. See https://quickgit.kde.org/?p=killbots."
 "git&a=blob&f=README.translators&o=plain"
 msgid "V"
-msgstr ""
+msgstr "वि"
 
 #: mainwindow.cpp:274
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Risk remaining in place until the end of the round for bonuses"
-msgstr ""
+msgstr "बोनसार्थं गोलस्य अन्त्यपर्यन्तं स्थाने एव तिष्ठति जोखिमः"
 
 #: mainwindow.cpp:279
 #, kde-format
 msgctxt "@action"
 msgid "Move Up and Left"
-msgstr ""
+msgstr "उपरि वामं च गच्छतु"
 
 #: mainwindow.cpp:280
 #, kde-format
@@ -388,13 +395,13 @@ msgctxt ""
 "Shortcut for move up and left. https://quickgit.kde.org/?p=killbots."
 "git&a=blob&f=README.translators&o=plain"
 msgid "Q"
-msgstr ""
+msgstr "प्र"
 
 #: mainwindow.cpp:285
 #, kde-format
 msgctxt "@action"
 msgid "Move Up"
-msgstr ""
+msgstr "उपरि गच्छतु"
 
 #: mainwindow.cpp:286
 #, kde-format
@@ -402,13 +409,13 @@ msgctxt ""
 "Shortcut for move up. See https://quickgit.kde.org/?p=killbots."
 "git&a=blob&f=README.translators&o=plain"
 msgid "W"
-msgstr ""
+msgstr "इत्यस्मिन्‌"
 
 #: mainwindow.cpp:291
 #, kde-format
 msgctxt "@action"
 msgid "Move Up and Right"
-msgstr ""
+msgstr "उपरि दक्षिणं च गच्छतु"
 
 #: mainwindow.cpp:292
 #, kde-format
@@ -416,13 +423,13 @@ msgctxt ""
 "Shortcut for move up and right. https://quickgit.kde.org/?p=killbots."
 "git&a=blob&f=README.translators&o=plain"
 msgid "E"
-msgstr ""
+msgstr "तथा"
 
 #: mainwindow.cpp:297
 #, kde-format
 msgctxt "@action"
 msgid "Move Left"
-msgstr ""
+msgstr "वामभागे गच्छतु"
 
 #: mainwindow.cpp:298
 #, kde-format
@@ -430,13 +437,13 @@ msgctxt ""
 "Shortcut for move left. See https://quickgit.kde.org/?p=killbots."
 "git&a=blob&f=README.translators&o=plain"
 msgid "A"
-msgstr ""
+msgstr "एकः"
 
 #: mainwindow.cpp:303
 #, kde-format
 msgctxt "@action"
 msgid "Stand Still"
-msgstr ""
+msgstr "स्थिरं तिष्ठतु"
 
 #: mainwindow.cpp:304
 #, kde-format
@@ -444,13 +451,13 @@ msgctxt ""
 "Shortcut for stand still. See https://quickgit.kde.org/?p=killbots."
 "git&a=blob&f=README.translators&o=plain"
 msgid "S"
-msgstr ""
+msgstr "स"
 
 #: mainwindow.cpp:309
 #, kde-format
 msgctxt "@action"
 msgid "Move Right"
-msgstr ""
+msgstr "दक्षिणतः गच्छतु"
 
 #: mainwindow.cpp:310
 #, kde-format
@@ -458,13 +465,13 @@ msgctxt ""
 "Shortcut for move right. See https://quickgit.kde.org/?p=killbots."
 "git&a=blob&f=README.translators&o=plain"
 msgid "D"
-msgstr ""
+msgstr "घ"
 
 #: mainwindow.cpp:315
 #, kde-format
 msgctxt "@action"
 msgid "Move Down and Left"
-msgstr ""
+msgstr "अधः वामं च गच्छन्तु"
 
 #: mainwindow.cpp:316
 #, kde-format
@@ -472,13 +479,13 @@ msgctxt ""
 "Shortcut for move down and left. See https://quickgit.kde.org/?p=killbots."
 "git&a=blob&f=README.translators&o=plain"
 msgid "Z"
-msgstr ""
+msgstr "सह"
 
 #: mainwindow.cpp:321
 #, kde-format
 msgctxt "@action"
 msgid "Move Down"
-msgstr ""
+msgstr "अधः गच्छतु"
 
 #: mainwindow.cpp:322
 #, kde-format
@@ -486,13 +493,13 @@ msgctxt ""
 "Shortcut for move down. See https://quickgit.kde.org/?p=killbots."
 "git&a=blob&f=README.translators&o=plain"
 msgid "X"
-msgstr ""
+msgstr "X"
 
 #: mainwindow.cpp:327
 #, kde-format
 msgctxt "@action"
 msgid "Move Down and Right"
-msgstr ""
+msgstr "अधः दक्षिणतः च गच्छन्तु"
 
 #: mainwindow.cpp:328
 #, kde-format
@@ -500,67 +507,67 @@ msgctxt ""
 "Shortcut for move down and right. https://quickgit.kde.org/?p=killbots."
 "git&a=blob&f=README.translators&o=plain"
 msgid "C"
-msgstr ""
+msgstr "ग"
 
 #: optionspage.cpp:24
 #, kde-format
 msgctxt "@item:inlistbox No action on click"
 msgid "Nothing"
-msgstr ""
+msgstr "किमपि न"
 
 #: optionspage.cpp:25
 #, kde-format
 msgctxt "@action"
 msgid "Step"
-msgstr ""
+msgstr "चरण"
 
 #: optionspage.cpp:26
 #, kde-format
 msgctxt "@action"
 msgid "Repeated Step"
-msgstr ""
+msgstr "पुनः पुनः Step"
 
 #: optionspage.cpp:45
 #, kde-format
 msgctxt "@item:inrange"
 msgid "Slow"
-msgstr ""
+msgstr "मन्द"
 
 #: optionspage.cpp:47
 #, kde-format
 msgctxt "@item:inrange"
 msgid "Fast"
-msgstr ""
+msgstr "उपवासः"
 
 #: optionspage.cpp:49
 #, kde-format
 msgctxt "@item:inrange"
 msgid "Instant"
-msgstr ""
+msgstr "क्षणिक"
 
 #: optionspage.cpp:60
 #, kde-format
 msgctxt "@label:slider"
 msgid "Animation &speed:"
-msgstr ""
+msgstr "एनिमेशन & गति: 1 ."
 
 #: optionspage.cpp:63
 #, kde-format
 msgctxt "@option:check"
 msgid "Prevent &unsafe moves"
-msgstr ""
+msgstr "&असुरक्षित चालनानि निवारयन्तु"
 
 #: optionspage.cpp:68
 #, kde-format
 msgctxt "@label:listbox"
 msgid "&Middle-click action:"
-msgstr ""
+msgstr "&मध्य-क्लिक् क्रिया: १."
 
 #: optionspage.cpp:69
 #, kde-format
 msgctxt "@label:listbox"
 msgid "&Right-click action:"
-msgstr ""
+msgstr "&राइट-क्लिक् क्रिया:"
 
 #. i18n: ectx: label, entry (Rows), group (KillbotsRuleset)
 #: rulesetbase.kcfg:19
@@ -729,91 +736,91 @@ msgstr "अधिकतम ऊर्जा-टोपीतः उपरि प�
 #, kde-format
 msgctxt "@item Quantity of junkheaps that can be pushed"
 msgid "None"
-msgstr ""
+msgstr "न कश्चित्"
 
 #: rulesetdetailsdialog.cpp:39
 #, kde-format
 msgctxt "@item Quantity of junkheaps that can be pushed"
 msgid "One"
-msgstr ""
+msgstr "एकम्‌"
 
 #: rulesetdetailsdialog.cpp:40
 #, kde-format
 msgctxt "@item Quantity of junkheaps that can be pushed"
 msgid "Many"
-msgstr ""
+msgstr "बहवः"
 
 #: rulesetdetailsdialog.cpp:51
 #, kde-format
 msgctxt "%1 is a pretranslated string that we're turning into a label"
 msgid "%1:"
-msgstr ""
+msgstr "%1: १."
 
 #: rulesetdetailsdialog.cpp:68
 #, kde-format
 msgctxt "@item"
 msgid "Yes"
-msgstr ""
+msgstr "आम्‌"
 
 #: rulesetdetailsdialog.cpp:68
 #, kde-format
 msgctxt "@item"
 msgid "No"
-msgstr ""
+msgstr "नहि"
 
 #: rulesetdetailsdialog.cpp:78
 #, kde-format
 msgctxt "@title:window"
 msgid "Details of %1 Game Type"
-msgstr ""
+msgstr "%1 Game Type इत्यस्य विवरणम्"
 
 #: rulesetselector.cpp:37
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "A list of the Killbots rulesets installed on this computer."
-msgstr ""
+msgstr "अस्मिन् सङ्गणके संस्थापितानां Killbots नियमसमूहानां सूची ।"
 
 #: rulesetselector.cpp:39
 #, kde-format
 msgctxt "title:group"
 msgid "Game Type Details"
-msgstr ""
+msgstr "गेम प्रकार विवरण"
 
 #: rulesetselector.cpp:40
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Lists information on the currently selected game type."
-msgstr ""
+msgstr "वर्तमान चयनितक्रीडाप्रकारस्य सूचनां सूचीबद्धं करोति ।"
 
 #: rulesetselector.cpp:42
 #, kde-format
 msgctxt "@label"
 msgid "Author:"
-msgstr ""
+msgstr "लेखकः:"
 
 #: rulesetselector.cpp:49
 #, kde-format
 msgctxt "@label"
 msgid "Contact:"
-msgstr ""
+msgstr "संपर्कः:"
 
 #: rulesetselector.cpp:57
 #, kde-format
 msgctxt "@label"
 msgid "Description:"
-msgstr ""
+msgstr "वर्णनम्‌:"
 
 #: rulesetselector.cpp:64
 #, kde-format
 msgctxt "@action:button"
 msgid "Details…"
-msgstr ""
+msgstr "वर्णन…"
 
 #: rulesetselector.cpp:65
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Show the detailed parameters of the selected game type"
-msgstr ""
+msgstr "चयनितक्रीडाप्रकारस्य विस्तृतमापदण्डान् दर्शयतु"
 
 #: rulesetselector.cpp:66
 #, kde-format
@@ -821,4 +828,4 @@ msgctxt "@info:whatsthisp"
 msgid ""
 "Opens a dialog listing the values of all internal parameters for the "
 "selected game type."
-msgstr ""
+msgstr "चयनितक्रीडाप्रकारस्य सर्वेषां आन्तरिकमापदण्डानां मूल्यानि सूचीकृत्य संवादं उद्घाटयति ।"
