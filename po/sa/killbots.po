@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: killbots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-22 00:38+0000\n"
-"PO-Revision-Date: 2024-12-14 01:08+0530\n"
+"PO-Revision-Date: 2024-12-20 21:52+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
 "Language: sa\n"
@@ -45,7 +45,7 @@ msgstr "अंक:"
 #, kde-format
 msgctxt "@label"
 msgid "Enemies:"
-msgstr "शत्रवः : १."
+msgstr "शत्रवः :"
 
 #: coordinator.cpp:116
 #, kde-format
@@ -561,7 +561,7 @@ msgstr "&असुरक्षित चालनानि निवारयन
 #, kde-format
 msgctxt "@label:listbox"
 msgid "&Middle-click action:"
-msgstr "&मध्य-क्लिक् क्रिया: १."
+msgstr "&मध्य-क्लिक् क्रिया:"
 
 #: optionspage.cpp:69
 #, kde-format
@@ -754,7 +754,7 @@ msgstr "बहवः"
 #, kde-format
 msgctxt "%1 is a pretranslated string that we're turning into a label"
 msgid "%1:"
-msgstr "%1: १."
+msgstr "%1:"
 
 #: rulesetdetailsdialog.cpp:68
 #, kde-format
