@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: killbots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-22 00:38+0000\n"
-"PO-Revision-Date: 2024-05-04 06:33+0300\n"
+"PO-Revision-Date: 2025-02-01 09:38+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 24.12.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -200,8 +200,7 @@ msgid ""
 "Author of Gnome Robots. Invented safe teleports, pushing junkheaps and fast "
 "robots."
 msgstr ""
-"יוצר Gnome Robots. הגה את השיגורים הבטוחים, דחיפת ערימות אשפה ורובוטים "
-"מהירים."
+"יוצר Gnome Robots. הגה את השיגורים הבטוחים, דחיפת ערמות אשפה ורובוטים מהירים."
 
 #: mainwindow.cpp:60
 #, kde-format
@@ -668,25 +667,25 @@ msgstr "עלות שימוש במאייד"
 #: rulesetbase.kcfg:93
 #, kde-format
 msgid "Number of junkheaps that can be pushed at once"
-msgstr "מספר ערימות האשפה שניתן לדחוף בו־זמנית"
+msgstr "מספר ערמות האשפה שניתן לדחוף בו־זמנית"
 
 #. i18n: ectx: label, entry (SquaskKillsEnabled), group (KillbotsRuleset)
 #: rulesetbase.kcfg:97
 #, kde-format
 msgid "Player can destroy enemies with a pushed junkheap"
-msgstr "שחקן יכול לחסל אויבים בדחיפת ערימת אשפה"
+msgstr "שחקן יכול לחסל אויבים בדחיפת ערמת אשפה"
 
 #. i18n: ectx: label, entry (JunkheapsAtGameStart), group (KillbotsRuleset)
 #: rulesetbase.kcfg:101
 #, kde-format
 msgid "Junkheaps placed on grid at start of first round"
-msgstr "ערימות אשפה שמוצבות ברשת בתחילת הסיבוב הראשון"
+msgstr "ערמות אשפה שמוצבות ברשת בתחילת הסיבוב הראשון"
 
 #. i18n: ectx: label, entry (JunkheapsAddedEachRound), group (KillbotsRuleset)
 #: rulesetbase.kcfg:105
 #, kde-format
 msgid "Junkheaps added to the grid for each new round"
-msgstr "ערימות אשפה נוספו לרשת של כל סיבוב חדש"
+msgstr "ערמות אשפה נוספו לרשת של כל סיבוב חדש"
 
 #. i18n: ectx: label, entry (PointsPerEnemyKilled), group (KillbotsRuleset)
 #: rulesetbase.kcfg:110
@@ -716,13 +715,13 @@ msgstr "עוצמה שמוענקת בגין אויב שהושמד במהלך המ
 #: rulesetbase.kcfg:130
 #, kde-format
 msgid "Points awarded for each enemy destroyed with a pushed junkheap"
-msgstr "נקודות שמוענקות בגין אויב שהושמד מדחיפת ערימת אשפה"
+msgstr "נקודות שמוענקות בגין אויב שהושמד מדחיפת ערמת אשפה"
 
 #. i18n: ectx: label, entry (SquashKillEnergyBonus), group (KillbotsRuleset)
 #: rulesetbase.kcfg:135
 #, kde-format
 msgid "Energy awarded for each enemy destroyed with a pushed junkheap"
-msgstr "עוצמה שמוענקת בגין אויב שהושמד מדחיפת ערימת אשפה"
+msgstr "עוצמה שמוענקת בגין אויב שהושמד מדחיפת ערמת אשפה"
 
 #. i18n: ectx: label, entry (PointsPerEnergyAboveMax), group (KillbotsRuleset)
 #: rulesetbase.kcfg:140
