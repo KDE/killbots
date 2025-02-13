@@ -806,7 +806,7 @@ msgstr "描述："
 #, kde-format
 msgctxt "@action:button"
 msgid "Details…"
-msgstr ""
+msgstr "详情..."
 
 #: rulesetselector.cpp:65
 #, kde-format
