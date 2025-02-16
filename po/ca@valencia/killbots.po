@@ -209,7 +209,7 @@ msgid ""
 "Author of Gnome Robots. Invented safe teleports, pushing junkheaps and fast "
 "robots."
 msgstr ""
-"Autoria del Gnome Robots. Ha inventat el teletransport segur, promovent els "
+"Autoria de Gnome Robots. Ha inventat el teletransport segur, promovent els "
 "munts de ferralla i els robots ràpids."
 
 #: mainwindow.cpp:60
