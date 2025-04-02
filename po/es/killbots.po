@@ -1,18 +1,18 @@
-# Copyright (C) YEAR This_file_is_part_of_KDE
-# This file is distributed under the same license as the PACKAGE package.
+# Spanish translations for killbots.po package.
+# Copyright (C) 2008-2025 This_file_is_part_of_KDE
+# This file is distributed under the same license as the killbots package.
 #
-# Ignacio Poggi <ignaciop.3@gmail.com>, 2008.
-# santi <santi@kde-es.org>, 2009.
+# SPDX-FileCopyrightText: 2008 Ignacio Poggi <ignaciop.3@gmail.com>
+# SPDX-FileCopyrightText: 2009 santi <santi@kde-es.org>
 # SPDX-FileCopyrightText: 2009, 2016, 2020, 2021, 2024 Eloy Cuadra <ecuadra@eloihr.net>
-# Huever, 2009.
-# Kira J. Fernandez <kirajfdez@gmail.com>, 2010.
-# Sofía Priego <spriego@darksylvania.net>, %Y.
+# SPDX-FileCopyrightText: 2010 Kira J. Fernandez <kirajfdez@gmail.com>
+# SPDX-FileCopyrightText: 2024, 2025 Sofía Priego <spriego@darksylvania.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: killbots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-22 00:38+0000\n"
-"PO-Revision-Date: 2024-05-04 20:30+0100\n"
+"PO-Revision-Date: 2025-04-01 01:44+0100\n"
 "Last-Translator: Sofía Priego <spriego@darksylvania.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -837,7 +837,7 @@ msgstr "Descripción:"
 #, kde-format
 msgctxt "@action:button"
 msgid "Details…"
-msgstr "Detalles..."
+msgstr "Detalles…"
 
 #: rulesetselector.cpp:65
 #, kde-format
@@ -854,6 +854,3 @@ msgid ""
 msgstr ""
 "Abre un diálogo que lista los valores de los parámetros internos del tipo de "
 "juego seleccionado."
-
-#~ msgid "Teleport, Safely If Possible"
-#~ msgstr "Teletransporte, seguro si es posible"
