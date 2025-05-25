@@ -100,24 +100,24 @@ msgid ""
 "left- and right-clicking simultaneously or by left-clicking while holding "
 "the control key."
 msgstr ""
-"Selecciona l'acció que es durà a terme quan es clique amb el botó del mig en "
-"l'àrea principal del joc. Si el ratolí no té botó del mig, esta acció es pot "
-"fer clicant simultàniament el botó esquerre i el dret mentre es prem la "
-"tecla de control."
+"Selecciona l'acció que es durà a terme quan es clique amb el botó del mig "
+"damunt de l'àrea principal del joc. Si el ratolí no té botó del mig, esta "
+"acció es pot fer clicant simultàniament amb el botó esquerre i el dret "
+"mentre es prem la tecla «Ctrl»."
 
 #. i18n: ectx: tooltip, entry (RightClickAction), group (General)
 #: killbots.kcfg:25
 #, kde-format
 msgid "The action performed on a right-click"
-msgstr "L'acció que es realitza en clicar amb el botó dret"
+msgstr "L'acció que es realitza quan es clique amb el botó dret"
 
 #. i18n: ectx: whatsthis, entry (RightClickAction), group (General)
 #: killbots.kcfg:26
 #, kde-format
 msgid "Selects the action performed when right-clicking on the main game area."
 msgstr ""
-"Selecciona l'acció que es durà a terme quan es clique amb el botó dret en "
-"l'àrea principal del joc."
+"Selecciona l'acció que es durà a terme quan es clique amb el botó dret "
+"damunt de l'àrea principal del joc."
 
 #. i18n: ectx: tooltip, entry (AnimationSpeed), group (General)
 #: killbots.kcfg:32
