@@ -213,7 +213,7 @@ msgid ""
 "current state of the game grid and allows one to control the hero using the "
 "mouse. It also displays certain statistics about the game in progress."
 msgstr ""
-"هذه هي منطقة اللعبة الرئيسية المستخدمة للتفاعل مع معركة الآليين. وهي تعرض "
+"هذه هي منطقة اللعبة الرئيسة المستخدمة للتفاعل مع معركة الآليين. وهي تعرض "
 "الحالة الحالية لشبكة اللعبة وتتيح لك التحكم في البطل باستخدام الفأرة. كما "
 "تعرض إحصائيات معينة حول اللعبة الجارية."
 
