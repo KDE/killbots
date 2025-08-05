@@ -1,13 +1,13 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the killbots package.
-# SPDX-FileCopyrightText: 2021, 2022, 2024 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
+# SPDX-FileCopyrightText: 2021, 2022, 2024, 2025 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: killbots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-22 00:38+0000\n"
-"PO-Revision-Date: 2024-10-10 10:03+0400\n"
+"PO-Revision-Date: 2025-08-04 12:42+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -66,7 +66,7 @@ msgid ""
 "Resetting enemy counts."
 msgstr ""
 "اللوحة ممتلئة.\n"
-"سيصفر عدد الأعداء."
+"سيصفّر عدد الأعداء."
 
 #: coordinator.cpp:415
 #, kde-format
@@ -170,7 +170,7 @@ msgstr "شريط الأدوات الرئيسي"
 #: main.cpp:43
 #, kde-format
 msgid "Killbots"
-msgstr "معركة الآليين"
+msgstr "معركة الآليّين"
 
 #: main.cpp:44
 #, kde-format
@@ -213,7 +213,7 @@ msgid ""
 "current state of the game grid and allows one to control the hero using the "
 "mouse. It also displays certain statistics about the game in progress."
 msgstr ""
-"هذه هي منطقة اللعبة الرئيسة المستخدمة للتفاعل مع معركة الآليين. وهي تعرض "
+"هذه هي منطقة اللعبة الرئيسة المستخدمة للتفاعل مع معركة الآليّين. وهي تعرض "
 "الحالة الحالية لشبكة اللعبة وتتيح لك التحكم في البطل باستخدام الفأرة. كما "
 "تعرض إحصائيات معينة حول اللعبة الجارية."
 
@@ -778,7 +778,7 @@ msgstr "تفاصيل نوع اللعبة %1"
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "A list of the Killbots rulesets installed on this computer."
-msgstr "قائمة بمجموعات قواعد لعبة قتال الآليين المثبتة على هذا الحاسوب."
+msgstr "قائمة بمجموعات قواعد لعبة قتال الآليّين المثبتة على هذا الحاسوب."
 
 #: rulesetselector.cpp:39
 #, kde-format
