@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: killbots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-22 00:38+0000\n"
-"PO-Revision-Date: 2025-08-04 12:42+0400\n"
+"PO-Revision-Date: 2025-08-09 17:57+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -111,8 +111,7 @@ msgstr "سينفذ هذا الإجراء بالنّقر على الزر الأي
 #, kde-format
 msgid "Selects the action performed when right-clicking on the main game area."
 msgstr ""
-"يقوم بتحديد الإجراء الذي يتم تنفيذه عند النقر بزر الفأرة الأيمن على منطقة "
-"اللعبة الرئيسة."
+"يحدد الإجراء الذي سينفذ عند النقر بزر الفأرة الأيمن على منطقة اللعبة الرئيسة."
 
 #. i18n: ectx: tooltip, entry (AnimationSpeed), group (General)
 #: killbots.kcfg:32
@@ -802,7 +801,7 @@ msgstr "المؤلّف:"
 #, kde-format
 msgctxt "@label"
 msgid "Contact:"
-msgstr "الإتصال:"
+msgstr "الاتصال:"
 
 #: rulesetselector.cpp:57
 #, kde-format
