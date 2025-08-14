@@ -340,7 +340,7 @@ msgstr "مسافة"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Teleport safely if that action is enabled, otherwise teleport randomly"
-msgstr "انقل آنيًا لمكان آمن إذا كان الإجراء ممكن ، وإلا انقل عشوائيا"
+msgstr "انقل آنيًا لمكان آمن إذا كان الإجراء ممكن، وإلا انقل عشوائيا"
 
 #: mainwindow.cpp:263
 #, kde-format
