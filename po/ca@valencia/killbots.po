@@ -100,10 +100,10 @@ msgid ""
 "left- and right-clicking simultaneously or by left-clicking while holding "
 "the control key."
 msgstr ""
-"Selecciona l'acció que es durà a terme quan es clique amb el botó del mig "
-"damunt de l'àrea principal del joc. Si el ratolí no té botó del mig, esta "
-"acció es pot fer clicant simultàniament amb el botó esquerre i el dret "
-"mentre es prem la tecla «Ctrl»."
+"Tria l'acció que es durà a terme quan es clique amb el botó del mig damunt "
+"de l'àrea principal del joc. Si el ratolí no té botó del mig, esta acció es "
+"pot fer clicant simultàniament amb el botó esquerre i el dret mentre es prem "
+"la tecla «Ctrl»."
 
 #. i18n: ectx: tooltip, entry (RightClickAction), group (General)
 #: killbots.kcfg:25
@@ -116,8 +116,8 @@ msgstr "L'acció que es realitza quan es clique amb el botó dret"
 #, kde-format
 msgid "Selects the action performed when right-clicking on the main game area."
 msgstr ""
-"Selecciona l'acció que es durà a terme quan es clique amb el botó dret "
-"damunt de l'àrea principal del joc."
+"Tria l'acció que es durà a terme quan es clique amb el botó dret damunt de "
+"l'àrea principal del joc."
 
 #. i18n: ectx: tooltip, entry (AnimationSpeed), group (General)
 #: killbots.kcfg:32
@@ -157,8 +157,7 @@ msgstr "El reglament del joc seleccionat"
 #: killbots.kcfg:43
 #, kde-format
 msgid "Selects the set of game rules to be used in the next game."
-msgstr ""
-"Selecciona el reglament del joc que s'utilitzarà en la pròxima partida."
+msgstr "Tria el reglament del joc que s'utilitzarà en la pròxima partida."
 
 #. i18n: ectx: Menu (moveMenu)
 #: killbotsui.rc:11
@@ -245,7 +244,7 @@ msgstr "Tipus de joc"
 #, kde-format
 msgctxt "@info"
 msgid "Select a game type"
-msgstr "Selecciona el tipus de joc"
+msgstr "Tria el tipus de joc"
 
 #: mainwindow.cpp:104
 #, kde-format
@@ -257,7 +256,7 @@ msgstr "Aparença"
 #, kde-format
 msgctxt "@info"
 msgid "Select a graphical theme"
-msgstr "Selecciona el tema gràfic"
+msgstr "Tria el tema gràfic"
 
 #: mainwindow.cpp:140
 #, kde-format
