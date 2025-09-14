@@ -263,7 +263,7 @@ msgstr "Tria el tema gràfic"
 msgid ""
 "A new game type has been selected, but there is already a game in progress."
 msgstr ""
-"S'ha seleccionat un nou tipus de joc, però ja hi ha una partida en curs."
+"S'ha seleccionat un tipus nou de joc, però ja hi ha una partida en curs."
 
 #: mainwindow.cpp:141
 #, kde-format
