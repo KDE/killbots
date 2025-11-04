@@ -854,7 +854,7 @@ msgid ""
 "Opens a dialog listing the values of all internal parameters for the "
 "selected game type."
 msgstr ""
-"Ouvre une boîte de dialogue listant les valeurs de tous les paramètres "
+"Ouvre une boite de dialogue listant les valeurs de tous les paramètres "
 "internes pour le type de jeu sélectionné."
 
 #~ msgid "Teleport, Safely If Possible"
