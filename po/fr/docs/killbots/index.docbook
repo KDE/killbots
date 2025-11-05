@@ -118,7 +118,7 @@
     <title
 >Remarque : </title>
     <para
->&killbots; prend en charge de nombreux types de jeux qui contrôlent les paramètres du jeu et détermine quelles fonctionnalités du jeu sont incluses. Cette documentation cherche à être générale et non spécifique à un type particulier de jeu. Veuillez vérifier la description et les détails de votre type courant de jeu dans la boîte de dialogue <guilabel
+>&killbots; prend en charge de nombreux types de jeux qui contrôlent les paramètres du jeu et détermine quelles fonctionnalités du jeu sont incluses. Cette documentation cherche à être générale et non spécifique à un type particulier de jeu. Veuillez vérifier la description et les détails de votre type courant de jeu dans la boite de dialogue <guilabel
 >Configurer - &killbots;</guilabel
 > pour des informations détaillées sur les mécanismes des jeux, avec le respect de la taille de la grille, des manches, du score, de l'énergie, etc.</para>
   </note>
@@ -273,7 +273,7 @@
       <para
 >Il n'y a vraiment pas de choses à gagner dans &killbots;. Le héros tente de survivre le plus longtemps possible, mais la réalité déprimante est, qu'à la fin, sa chance va tourner. Par conséquent, le but dans &killbots; est d'accumuler le plus haut <firstterm
 >score</firstterm
-> possible avant que l'inévitable ne se produise. Les dix plus hauts scores (que la manche atteint) sont enregistrés dans la boîte de dialogue des meilleurs scores.</para>
+> possible avant que l'inévitable ne se produise. Les dix plus hauts scores (que la manche atteint) sont enregistrés dans la boite de dialogue des meilleurs scores.</para>
       <para
 >Les points sont distribués pour les ennemies détruits. Les robots rapides ont généralement une meilleure valeur que les robots réguliers. Les points de bonus peuvent aussi être distribués pour les ennemis détruits en <link linkend="pushing-junkheaps"
 >poussant un obstacle</link
@@ -380,7 +380,7 @@
       <title id="keyboard-movement-title"
 >Contrôle des mouvements avec le clavier</title>
       <para
->Il y a neuf mouvements différents : gauche, droite, haut, bas, les quatre diagonales et l'attente. Chacune de ces actions peuvent être assignées aux touches de deux claviers différents. Par défaut, ces neuf actions sont assignées aux neuf touches de nombre du pavé numérique et trois par trois blocs de lettres sur le coté gauche d'un clavier « QWERTY ». Bien sûr, les utilisateurs avec une disposition de clavier différent ou avec un pavé numérique manquant peuvent modifier l'assignation de ces touches en utilisant la boîte de dialogue pour la configuration des raccourcis.</para>
+>Il y a neuf mouvements différents : gauche, droite, haut, bas, les quatre diagonales et l'attente. Chacune de ces actions peuvent être assignées aux touches de deux claviers différents. Par défaut, ces neuf actions sont assignées aux neuf touches de nombre du pavé numérique et trois par trois blocs de lettres sur le coté gauche d'un clavier « QWERTY ». Bien sûr, les utilisateurs avec une disposition de clavier différent ou avec un pavé numérique manquant peuvent modifier l'assignation de ces touches en utilisant la boite de dialogue pour la configuration des raccourcis.</para>
       <para
 >Chacune des commandes de mouvements spéciaux (comme la téléportation) peuvent aussi être utilisées depuis le clavier. Veuillez consulter le menu <link linkend="move-menu"
 >Déplacer</link
@@ -449,7 +449,7 @@
         <listitem
 ><para
 ><action
->Affiche la boîte de dialogue des meilleurs scores, contenant les scores passés.</action
+>Affiche la boite de dialogue des meilleurs scores, contenant les scores passés.</action
 ></para
 ></listitem>
       </varlistentry>
@@ -595,7 +595,7 @@
         <listitem
 ><para
 ><action
->Affiche la boîte de configuration de &killbots;</action
+>Affiche la boite de configuration de &killbots;</action
 >, où il est possible d'ajuster les paramètres du jeu, choisir une règle du jeu différente ou modifier le thème du jeu.</para
 ></listitem>
       </varlistentry>
@@ -704,7 +704,7 @@ Preview=exemple.png
 ></term>
           <listitem
 ><para
->Cet élément devrait être un rectangle d'une couleur unique. Cette couleur est utilisée pour le texte dans les boîtes d'état.</para
+>Cet élément devrait être un rectangle d'une couleur unique. Cette couleur est utilisée pour le texte dans les boites d'état.</para
 ></listitem>
         </varlistentry>
         <varlistentry>
@@ -929,7 +929,7 @@ SquashKillEnergyBonus=1</programlisting>
 ></term>
           <listitem
 ><para
->Le nom de la règle du jeu comme elle apparaîtra dans le sélecteur de règles du jeu et la boîte de dialogue des meilleurs scores.</para
+>Le nom de la règle du jeu comme elle apparaitra dans le sélecteur de règles du jeu et la boite de dialogue des meilleurs scores.</para
 ></listitem>
         </varlistentry>
         <varlistentry>
@@ -959,7 +959,7 @@ SquashKillEnergyBonus=1</programlisting>
 ></term>
           <listitem
 ><para
->Une description de la règle du jeu. Elle doit donner une vue d'ensemble descente de la règle du jeu, mais il n'est pas besoin de lister la valeur pour chaque paramètre, cette information pouvant être affichée dans la boîte de dialogue de détails.</para
+>Une description de la règle du jeu. Elle doit donner une vue d'ensemble descente de la règle du jeu, mais il n'est pas besoin de lister la valeur pour chaque paramètre, cette information pouvant être affichée dans la boite de dialogue de détails.</para
 ></listitem>
         </varlistentry>
         <varlistentry>
