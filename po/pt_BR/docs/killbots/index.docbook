@@ -64,13 +64,13 @@
 >&FDLNotice;</legalnotice>
 
   <date
->09/05/2016</date>
+>05/07/2021</date>
   <releaseinfo
->1.2.0 (Applications 16.04)</releaseinfo>
+>KDE Gear 21.04</releaseinfo>
 
   <abstract>
     <para
->O &killbots; é uma versão para o &kde; do jogo de console clássico do BSD que é o <command
+>O &killbots; é uma versão para o &kde; do jogo de console clássico do &BSD; que é o <command
 >robots</command
 >.</para>
   </abstract>
@@ -139,14 +139,16 @@
 >robôs</quote
 >, <quote
 >montes de lixo</quote
->, etc., mas o &killbots; pode ser altamente configurável a nível visual. Isto significa que as imagens do jogo que pode ver poderão não corresponder às futuristas que aqui se encontram. O tipo de jogo e as estratégias, contudo, manter-se-ão, mesmo que o seu herói seja uma cenoura a ser perseguida num jardim por coelhos esfomeados.</para>
+>, &etc;, mas o &killbots; pode ser altamente configurável a nível visual. Isto significa que as imagens do jogo que pode ver poderão não corresponder às futuristas que aqui se encontram. O tipo de jogo e as estratégias, contudo, manter-se-ão, mesmo que o seu herói seja uma cenoura a ser perseguida num jardim por coelhos esfomeados.</para>
   </note>
 
   <note>
     <title
 >Nota:</title>
     <para
->O &killbots; suporta diversos conjuntos de regras que controlam os parâmetros do jogo e que determinam as funcionalidades do jogo incluídas. Esta documentação tenta ser genérica e não específica para um determinado conjunto de regras. Veja a descrição do seu conjunto de regras atual, na janela para Configurar o &killbots;, para informações mais detalhadas, nomeadamente sobre a mecânica do jogo, o tamanho da grade, as jogadas, a pontuação, a energia, etc.</para>
+>O &killbots; suporta diversos conjuntos de regras que controlam os parâmetros do jogo e que determinam as funcionalidades do jogo incluídas. Esta documentação tenta ser genérica e não específica para um determinado conjunto de regras. Veja a descrição do seu conjunto de regras atual, na janela para <guilabel
+>Configurar - &killbots;</guilabel
+>, para informações mais detalhadas, nomeadamente sobre a mecânica do jogo, o tamanho da grade, as jogadas, a pontuação, a energia, &etc;</para>
   </note>
 
 </chapter>
@@ -218,7 +220,9 @@
 ></term>
           <listitem>
             <para
->Os robôs são homens mecânicos que apenas desejam esmagá-lo com a sua fúria metálica. Nunca ouviram falar das "Três Leis da Robótica" e, como tal, poderão provavelmente esmagar todos que tentem lhes explicar.</para>
+>Os robôs são homens mecânicos que apenas desejam esmagá-lo com a sua fúria metálica. Nunca ouviram falar das <quote
+>Três Leis da Robótica</quote
+> e, como tal, poderão provavelmente esmagar todos que tentem lhes explicar.</para>
             <para
 >Cada robô fará um movimento simples em direção ao herói em cada turno. Se o robô estiver acima do herói, ele andará para baixo. Se o robô estiver a esquerda do herói, ele andará para direita. Se o robô estiver abaixo e à direita do herói, ele andará na diagonal, acima e à esquerda. Se um robô conseguir chegar à célula do herói, o herói será morto e o jogo terminará.</para>
           </listitem>
@@ -420,7 +424,9 @@
 >janela para Configurar o &killbots;</link
 >. Estas ações incluem as apresentadas no menu <link linkend="move-menu"
 >Mover</link
->, assim como opções adicionais: Passo Repetido. Efetuar um passos repetido, fará com que o herói se desloque na direção indicada durante várias jogadas consecutivas, até que atinja um obstáculo ou até que o movimento contínuo se torne inseguro. Você poderá também interromper um passo repetido em curso clicando de novo no mouse.</para>
+>, assim como opções adicionais: <guimenuitem
+>Passo repetido</guimenuitem
+>. Efetuar um passos repetido, fará com que o herói se desloque na direção indicada durante várias jogadas consecutivas, até que atinja um obstáculo ou até que o movimento contínuo se torne inseguro. Você poderá também interromper um passo repetido em curso clicando de novo no mouse.</para>
       <para
 ></para>
     </sect2>
@@ -546,13 +552,11 @@
         <term
 ><menuchoice
 ><shortcut
-><keycap
->Espaço</keycap
-></shortcut
+>&Space;</shortcut
 > <guimenu
 >Mover</guimenu
 > <guimenuitem
->Tele-transportar em Segurança se Possível</guimenuitem
+>Tele-transportar (em segurança se possível)</guimenuitem
 > </menuchoice
 ></term>
         <listitem
@@ -613,7 +617,7 @@
 ><guimenu
 >Configurações</guimenu
 > <guimenuitem
->Configurar o &killbots;...</guimenuitem
+>Configurar o &killbots;…</guimenuitem
 > </menuchoice
 ></term>
         <listitem
@@ -657,8 +661,8 @@
       <title
 >O Arquivo 'Desktop'</title>
       <para
->O arquivo 'desktop' segue a sintaxe-padrão do <filename
->INI</filename
+>O arquivo 'desktop' segue a sintaxe-padrão do <acronym
+>INI</acronym
 > e é usado para guardar as informações sobre o tema e para apontar para os outros arquivos. Segue-se um tema de exemplo.</para>
       <example>
         <title
@@ -677,37 +681,27 @@ Preview=exemplo.png
       <para
 >Os primeiros quatro parâmetros contêm metadados sobre eles e são relativamente simples de entender. Para os temas do &killbots;, o parâmetro <varname
 >Type</varname
-> deverá ser igual a <literal
->SVG</literal
->. Os dois últimos parâmetros contêm os nomes dos outros dois arquivos do tema. Embora não sejam estritamente necessários, por razões de consistência, todos os três arquivos compartilham o mesmo nome de base.</para>
+> deverá ser igual a &SVG;. Os dois últimos parâmetros contêm os nomes dos outros dois arquivos do tema. Embora não sejam estritamente necessários, por razões de consistência, todos os três arquivos compartilham o mesmo nome de base.</para>
     </sect2>
 
     <sect2>
       <title
 >O arquivo de visualização</title>
       <para
->O arquivo de visualização é apenas um arquivo <filename
->PNG</filename
+>O arquivo de visualização é apenas um arquivo <acronym
+>PNG</acronym
 > que contém uma visualização do tema. A imagem de visualização deverá ter um tamanho de 240 por 1140 pixels e corresponder ao layout da visualização do tema padrão o mais possível, uma vez que isto facilita a comparação dos temas no seletor.</para>
     </sect2>
 
     <sect2>
       <title
->O arquivo <acronym
->SVG</acronym
-></title>
+>O arquivo &SVG;</title>
       <para
->O arquivo <acronym
->SVG</acronym
-> é um arquivo de gráficos vetoriais escaláveis que contém os elementos gráficos que são usados para compor o tema. O arquivo tanto poderá estar no formato não-comprimido <filename
->.svg</filename
-> ou no formato comprimido <filename
->.svgz</filename
->. Cada elemento do jogo é identificado por um ID único no arquivo <acronym
->SVG</acronym
->. Ao criar um tema novo, normalmente é mais fácil começar com um tema existente e substituir os elementos um-a-um, até que o tema esteja completo. O arquivo <acronym
->SVG</acronym
-> <emphasis
+>O arquivo &SVG; é um arquivo de gráficos vetoriais escaláveis que contém os elementos gráficos que são usados para compor o tema. O arquivo tanto poderá estar no formato não-comprimido <literal role="extension"
+>.svg</literal
+> ou no formato comprimido <literal role="extension"
+>.svgz</literal
+>. Cada elemento do jogo é identificado por um ID único no arquivo &SVG;. Ao criar um tema novo, normalmente é mais fácil começar com um tema existente e substituir os elementos um-a-um, até que o tema esteja completo. O arquivo &SVG; <emphasis
 >deverá</emphasis
 > conter os seguintes elementos.</para>
       <variablelist>
@@ -888,7 +882,7 @@ Preview=exemplo.png
       <title
 >Instalar os Temas Personalizados</title>
       <para
->Para que o &killbots; detecte e use um tema novo, os arquivos deverão ser movidos para uma pasta apropriada. Para instalar o tema apenas no usuário atual, copie os arquivos 'desktop', SVG e de visualização para <filename
+>Para que o &killbots; detecte e use um tema novo, os arquivos deverão ser movidos para uma pasta apropriada. Para instalar o tema apenas no usuário atual, copie os arquivos 'desktop', &SVG; e de visualização para <filename class="directory"
 >killbots/themes</filename
 > na pasta local em <userinput
 ><command
@@ -896,15 +890,11 @@ Preview=exemplo.png
 > <option
 >--paths LocalizaçãoDeDadosGenérica</option
 ></userinput
->. Para disponibilizar o tema para todo o sistema, mova os arquivos para <filename
+>. Para disponibilizar o tema para todo o sistema, mova os arquivos para <filename class="directory"
 >killbots/themes</filename
-> na pasta do sistema em <userinput
-><command
->qtpaths</command
-> <option
->--paths LocalizaçãoDeDadosGenérica </option
-></userinput
->. Neste caso será necessário ter privilégios de administração.</para>
+> na pasta do sistema (do comando anterior, possivelmente <filename class="directory"
+>/usr/share</filename
+>). Neste caso será necessário ter privilégios de administração.</para>
     </sect2>
   </sect1>
 
@@ -968,7 +958,7 @@ SquashKillEnergyBonus=1</programlisting>
 ></term>
           <listitem
 ><para
->o nome do conjunto de regras, como irá aparecer no seletor de regras e na janela de recordes.</para
+>O nome do conjunto de regras, como irá aparecer no seletor de regras e na janela de recordes.</para
 ></listitem>
         </varlistentry>
         <varlistentry>
@@ -978,7 +968,7 @@ SquashKillEnergyBonus=1</programlisting>
 ></term>
           <listitem
 ><para
->O criador do conjunto de regras</para
+>O criador do conjunto de regras.</para
 ></listitem>
         </varlistentry>
         <varlistentry>
@@ -1182,7 +1172,7 @@ SquashKillEnergyBonus=1</programlisting>
 ><constant
 >Many</constant
 ></quote
-></para
+>.</para
 ></listitem>
         </varlistentry>
         <varlistentry>
@@ -1281,8 +1271,9 @@ SquashKillEnergyBonus=1</programlisting>
     <sect2>
       <title
 >Instalar os Tipos de Jogos Personalizados</title>
+
       <para
->Para que o &killbots; detecte e use um novo tipo de jogo, o arquivo deverá ser movido para uma pasta apropriada. Para instalar o conjunto de regras apenas no usuário atual, copie o arquivo para <filename
+>Para que o &killbots; detecte e use um novo tipo de jogo, o arquivo deverá ser movido para uma pasta apropriada. Para instalar o conjunto de regras apenas no usuário atual, copie o arquivo para <filename class="directory"
 >killbots/rulesets</filename
 > na pasta local em <userinput
 ><command
@@ -1290,15 +1281,11 @@ SquashKillEnergyBonus=1</programlisting>
 > <option
 >--paths LocalizaçãoDeDadosGenérica</option
 ></userinput
->. Para disponibilizar o conjunto de regras para todo o sistema, mova o arquivo para <filename
+>. Para disponibilizar o conjunto de regras para todo o sistema, mova o arquivo para <filename class="directory"
 >killbots/rulesets</filename
-> na pasta do sistema em <userinput
-><command
->qtpaths</command
-> <option
->--paths LocalizaçãoDeDadosGenérica </option
-></userinput
->. Neste caso será necessário ter privilégios de administração.</para>
+> na pasta do sistema (do comando anterior, possivelmente <filename class="directory"
+>/usr/share</filename
+> ou semelhante). Neste caso será necessário ter privilégios de administração.</para>
     </sect2>
 
   </sect1>
