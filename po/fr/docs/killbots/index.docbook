@@ -1131,7 +1131,7 @@ SquashKillEnergyBonus=1</programlisting>
 ></term>
           <listitem
 ><para
->Le nombre d'obstacles pouvant être déplacés avec une simple poussée. Les valeurs possibles sont  <quote
+>Le nombre d'obstacles pouvant être déplacés avec une simple poussée. Les valeurs possibles sont <quote
 ><constant
 >Aucun</constant
 ></quote
