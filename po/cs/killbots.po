@@ -2,31 +2,32 @@
 # This file is distributed under the same license as the PACKAGE package.
 # Vít Pelčák <vit@pelcak.org>, 2012, 2016, 2017, 2020.
 # SPDX-FileCopyrightText: 2021, 2024 Vit Pelcak <vit@pelcak.org>
+# SPDX-FileCopyrightText: 2026 Libor Filípek <filipek.libor@protonmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: killbots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:49+0000\n"
-"PO-Revision-Date: 2024-05-07 10:57+0200\n"
-"Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
-"Language-Team: Czech <kde-i18n-doc@kde.org>\n"
+"PO-Revision-Date: 2026-04-20 19:53+0200\n"
+"Last-Translator: Libor Filípek <filipek.libor@protonmail.com>\n"
+"Language-Team: \n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 24.02.2\n"
+"X-Generator: Lokalize 26.04.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "David Kolibáč, Pavel Fric"
+msgstr "David Kolibáč,Pavel Fric,Libor Filípek"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "david@kolibac.cz, pavelfric@seznam.cz"
+msgstr "david@kolibac.cz,pavelfric@seznam.cz,libor.filipek@gmail.com"
 
 #: coordinator.cpp:101
 #, kde-format
@@ -342,6 +343,8 @@ msgstr "Mezera"
 msgctxt "@info:tooltip"
 msgid "Teleport safely if that action is enabled, otherwise teleport randomly"
 msgstr ""
+"Pokud je tato funkce povolena, teleportujte se bezpečně, v opačném případě "
+"se teleportujte náhodně"
 
 #: mainwindow.cpp:263
 #, kde-format
@@ -361,7 +364,7 @@ msgstr "F"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Destroy all enemies in neighboring cells"
-msgstr ""
+msgstr "Zničte všechny nepřátele v sousedních polích"
 
 #: mainwindow.cpp:271 optionspage.cpp:30
 #, kde-format
@@ -381,7 +384,7 @@ msgstr "V"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Risk remaining in place until the end of the round for bonuses"
-msgstr ""
+msgstr "Riziko zůstává v platnosti až do konce kola, pokud jde o bonusy"
 
 #: mainwindow.cpp:279
 #, kde-format
@@ -573,37 +576,37 @@ msgstr "Činnost p&ravého tlačítka myši:"
 #: rulesetbase.kcfg:19
 #, kde-format
 msgid "Number of rows in game grid"
-msgstr ""
+msgstr "Počet řádků v herní mřížce"
 
 #. i18n: ectx: label, entry (Columns), group (KillbotsRuleset)
 #: rulesetbase.kcfg:24
 #, kde-format
 msgid "Number of columns in game grid"
-msgstr ""
+msgstr "Počet sloupců v herní mřížce"
 
 #. i18n: ectx: label, entry (EnemiesAtGameStart), group (KillbotsRuleset)
 #: rulesetbase.kcfg:28
 #, kde-format
 msgid "Number of regular enemies in first round"
-msgstr ""
+msgstr "Počet běžných nepřátel v prvním kole"
 
 #. i18n: ectx: label, entry (EnemiesAddedEachRound), group (KillbotsRuleset)
 #: rulesetbase.kcfg:32
 #, kde-format
 msgid "Number of regular enemies added in each new round"
-msgstr ""
+msgstr "Počet běžných nepřátel přidaných v každém novém kole"
 
 #. i18n: ectx: label, entry (FastEnemiesAtGameStart), group (KillbotsRuleset)
 #: rulesetbase.kcfg:36
 #, kde-format
 msgid "Number of fast enemies in first round"
-msgstr ""
+msgstr "Počet rychlých nepřátel v prvním kole"
 
 #. i18n: ectx: label, entry (FastEnemiesAddedEachRound), group (KillbotsRuleset)
 #: rulesetbase.kcfg:40
 #, kde-format
 msgid "Number of fast enemies added in each new round"
-msgstr ""
+msgstr "Počet rychlých nepřátel přidaných v každém novém kole"
 
 #. i18n: ectx: label, entry (FastEnemiesArePatient), group (KillbotsRuleset)
 #: rulesetbase.kcfg:44
@@ -611,126 +614,131 @@ msgstr ""
 msgid ""
 "Fast enemies will skip their extra turn to avoid collisions with other robots"
 msgstr ""
+"Rychlí nepřátelé vynechají svůj dodatečný tah, aby se vyhnuli srážkám s "
+"ostatními roboty"
 
 #. i18n: ectx: label, entry (EnergyEnabled), group (KillbotsRuleset)
 #: rulesetbase.kcfg:48
 #, kde-format
 msgid "Player can accumulate energy"
-msgstr ""
+msgstr "Hráč může sbírat energii"
 
 #. i18n: ectx: label, entry (EnergyAtGameStart), group (KillbotsRuleset)
 #: rulesetbase.kcfg:53
 #, kde-format
 msgid "Energy at start of first round"
-msgstr ""
+msgstr "Energie na začátku prvního kola"
 
 #. i18n: ectx: label, entry (EnergyAddedEachRound), group (KillbotsRuleset)
 #: rulesetbase.kcfg:57
 #, kde-format
 msgid "Energy awarded for completing a round"
-msgstr ""
+msgstr "Energie udělená za dokončení kola"
 
 #. i18n: ectx: label, entry (MaxEnergyAtGameStart), group (KillbotsRuleset)
 #: rulesetbase.kcfg:62
 #, kde-format
 msgid "Maximum energy cap in first round"
-msgstr ""
+msgstr "Maximální limit energie v prvním kole"
 
 #. i18n: ectx: label, entry (MaxEnergyAddedEachRound), group (KillbotsRuleset)
 #: rulesetbase.kcfg:66
 #, kde-format
 msgid "Increase in maximum energy cap for each new round"
-msgstr ""
+msgstr "Zvýšení maximálního energetického limitu pro každé nové kolo"
 
 #. i18n: ectx: label, entry (SafeTeleportEnabled), group (KillbotsRuleset)
 #: rulesetbase.kcfg:70
 #, kde-format
 msgid "Player can perform safe teleports"
-msgstr ""
+msgstr "Hráč může provádět bezpečné teleportace"
 
 #. i18n: ectx: label, entry (CostOfSafeTeleport), group (KillbotsRuleset)
 #: rulesetbase.kcfg:75
 #, kde-format
 msgid "The cost of performing a safe teleport"
-msgstr ""
+msgstr "Náklady na provedení bezpečného teleportu"
 
 #. i18n: ectx: label, entry (VaporizerEnabled), group (KillbotsRuleset)
 #: rulesetbase.kcfg:79
 #, kde-format
 msgid "Player can use vaporizer"
-msgstr ""
+msgstr "Hráč může použít vaporizér"
 
 #. i18n: ectx: label, entry (CostOfVaporizer), group (KillbotsRuleset)
 #: rulesetbase.kcfg:84
 #, kde-format
 msgid "Cost of using vaporizer"
-msgstr ""
+msgstr "Náklady na použití vaporizéru"
 
 #. i18n: ectx: label, entry (PushableJunkheaps), group (KillbotsRuleset)
 #: rulesetbase.kcfg:93
 #, kde-format
 msgid "Number of junkheaps that can be pushed at once"
-msgstr ""
+msgstr "Počet hromádek šrotu, které lze posunout najednou"
 
 #. i18n: ectx: label, entry (SquaskKillsEnabled), group (KillbotsRuleset)
 #: rulesetbase.kcfg:97
 #, kde-format
 msgid "Player can destroy enemies with a pushed junkheap"
-msgstr ""
+msgstr "Hráč může zničit nepřátele pomocí odhozené hromady šrotu"
 
 #. i18n: ectx: label, entry (JunkheapsAtGameStart), group (KillbotsRuleset)
 #: rulesetbase.kcfg:101
 #, kde-format
 msgid "Junkheaps placed on grid at start of first round"
-msgstr ""
+msgstr "Hromady šrotu umístěné na mřížce na začátku prvního kola"
 
 #. i18n: ectx: label, entry (JunkheapsAddedEachRound), group (KillbotsRuleset)
 #: rulesetbase.kcfg:105
 #, kde-format
 msgid "Junkheaps added to the grid for each new round"
-msgstr ""
+msgstr "Šrot přidaný na mřížku v každém novém kole"
 
 #. i18n: ectx: label, entry (PointsPerEnemyKilled), group (KillbotsRuleset)
 #: rulesetbase.kcfg:110
 #, kde-format
 msgid "Points awarded for each regular enemy destroyed"
-msgstr ""
+msgstr "Body udělené za každého poraženého běžného nepřítele"
 
 #. i18n: ectx: label, entry (PointsPerFastEnemyKilled), group (KillbotsRuleset)
 #: rulesetbase.kcfg:115
 #, kde-format
 msgid "Points awarded for each fast enemy destroyed"
-msgstr ""
+msgstr "Body udělené za každého poraženého rychlého nepřítele"
 
 #. i18n: ectx: label, entry (WaitKillPointBonus), group (KillbotsRuleset)
 #: rulesetbase.kcfg:120
 #, kde-format
 msgid "Points awarded for each enemy destroyed while waiting out the round"
-msgstr ""
+msgstr "Body udělené za každého zničeného nepřítele během čekání na konec kola"
 
 #. i18n: ectx: label, entry (WaitKillEnergyBonus), group (KillbotsRuleset)
 #: rulesetbase.kcfg:125
 #, kde-format
 msgid "Energy awarded for each enemy destroyed while waiting out the round"
 msgstr ""
+"Energie získaná za každého zničeného nepřítele během čekání na konec kola"
 
 #. i18n: ectx: label, entry (SquashKillPointBonus), group (KillbotsRuleset)
 #: rulesetbase.kcfg:130
 #, kde-format
 msgid "Points awarded for each enemy destroyed with a pushed junkheap"
 msgstr ""
+"Body získané za každého nepřítele zničeného pomocí odhozené hromady šrotu"
 
 #. i18n: ectx: label, entry (SquashKillEnergyBonus), group (KillbotsRuleset)
 #: rulesetbase.kcfg:135
 #, kde-format
 msgid "Energy awarded for each enemy destroyed with a pushed junkheap"
 msgstr ""
+"Energie získaná za každého nepřítele zničeného pomocí odhozené hromady šrotu"
 
 #. i18n: ectx: label, entry (PointsPerEnergyAboveMax), group (KillbotsRuleset)
 #: rulesetbase.kcfg:140
 #, kde-format
 msgid "Points awarded for each energy awarded above maximum energy cap"
-msgstr ""
+msgstr "Body získané za každou energii přesahující maximální limit"
 
 # žádné parametry funkce v inspektoru funkcí
 #: rulesetdetailsdialog.cpp:38
