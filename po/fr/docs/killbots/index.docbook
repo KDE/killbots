@@ -854,7 +854,7 @@ Preview=exemple.png
       <title
 >Installer des thèmes personnalisés</title>
       <para
->Pour que &killbots; détecte et utilise un nouveau thème, les fichiers doivent être déplacés dans le dossier approprié. Pour installer le thèmre, uniquement pour l'utilisateur courant, veuillez copier les fichiers de bureau, d'aperçu et &SVG; dans <filename class="directory"
+>Pour que &killbots; détecte et utilise un nouveau thème, les fichiers doivent être déplacés dans le dossier approprié. Pour installer le thème, uniquement pour l'utilisateur courant, veuillez copier les fichiers de bureau, d'aperçu et &SVG; dans <filename class="directory"
 >killbots/themes</filename
 > dans le dossier local de <userinput
 ><command
