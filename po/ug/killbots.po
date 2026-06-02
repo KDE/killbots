@@ -8,35 +8,34 @@ msgstr ""
 "Project-Id-Version: killbots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:49+0000\n"
-"PO-Revision-Date: 2013-09-08 07:05+0900\n"
-"Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
+"PO-Revision-Date: 2026-05-31 18:39-0400\n"
+"Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
 "Language: ug\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.9\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "ئابدۇقادىر ئابلىز, غەيرەت كەنجى"
+msgstr "ئابدۇقادىر ئابلىز، غەيرەت كەنجى"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "sahran.ug@gmail.com,  gheyret@gmail.com"
+msgstr "sahranbay@gmail.com, gheyret@gmail.com"
 
 #: coordinator.cpp:101
-#, fuzzy, kde-format
-#| msgid "Round:"
+#, kde-format
 msgctxt "@label"
 msgid "Round:"
-msgstr "R"
+msgstr ""
 
 #: coordinator.cpp:106
-#, fuzzy, kde-format
-#| msgid "Score:"
+#, kde-format
 msgctxt "@label"
 msgid "Score:"
 msgstr "نومۇر:"
@@ -48,8 +47,7 @@ msgid "Enemies:"
 msgstr ""
 
 #: coordinator.cpp:116
-#, fuzzy, kde-format
-#| msgid "Energy:"
+#, kde-format
 msgctxt "@label"
 msgid "Energy:"
 msgstr "قۇۋۋىتى:"
@@ -75,8 +73,7 @@ msgid "New game."
 msgstr ""
 
 #: coordinator.cpp:420
-#, fuzzy, kde-format
-#| msgid "Game over."
+#, kde-format
 msgctxt "@info"
 msgid "Game over."
 msgstr "ئويۇن تامام."
@@ -149,8 +146,7 @@ msgstr ""
 
 #. i18n: ectx: Menu (moveMenu)
 #: killbotsui.rc:11
-#, fuzzy, kde-format
-#| msgid "Move"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Move"
 msgstr "يۆتكە"
@@ -174,17 +170,17 @@ msgstr ""
 #: main.cpp:46
 #, kde-format
 msgid "© 2006-2009, Parker Coates"
-msgstr ""
+msgstr "© 2006-2009, Parker Coates"
 
 #: main.cpp:47
 #, kde-format
 msgid "Parker Coates"
-msgstr "Parker Coates"
+msgstr ""
 
 #: main.cpp:47
 #, kde-format
 msgid "Developer"
-msgstr "ئىجادىيەتچى"
+msgstr "ئىجادكار"
 
 #: main.cpp:48
 #, kde-format
@@ -207,8 +203,7 @@ msgid ""
 msgstr ""
 
 #: mainwindow.cpp:94
-#, fuzzy, kde-format
-#| msgid "General"
+#, kde-format
 msgctxt "@title"
 msgid "General"
 msgstr "ئادەتتىكى"
@@ -220,32 +215,28 @@ msgid "Configure general settings"
 msgstr ""
 
 #: mainwindow.cpp:99
-#, fuzzy, kde-format
-#| msgid "Game Type"
+#, kde-format
 msgctxt "@title"
 msgid "Game Type"
-msgstr "ئويۇن تىپى"
+msgstr "ئويۇن تۈرى"
 
 #: mainwindow.cpp:101
-#, fuzzy, kde-format
-#| msgid "Select a graphical theme"
+#, kde-format
 msgctxt "@info"
 msgid "Select a game type"
-msgstr "گرافىكىلىق ئۆرنەك تاللايدۇ"
+msgstr ""
 
 #: mainwindow.cpp:104
-#, fuzzy, kde-format
-#| msgid "Appearance"
+#, kde-format
 msgctxt "@title"
 msgid "Appearance"
-msgstr "كۆرۈنۈشى"
+msgstr "قىياپەت"
 
 #: mainwindow.cpp:106
-#, fuzzy, kde-format
-#| msgid "Select a graphical theme"
+#, kde-format
 msgctxt "@info"
 msgid "Select a graphical theme"
-msgstr "گرافىكىلىق ئۆرنەك تاللايدۇ"
+msgstr ""
 
 #: mainwindow.cpp:140
 #, kde-format
@@ -254,11 +245,10 @@ msgid ""
 msgstr ""
 
 #: mainwindow.cpp:141
-#, fuzzy, kde-format
-#| msgid "Game Type"
+#, kde-format
 msgctxt "@title:window"
 msgid "Game Type Changed"
-msgstr "ئويۇن تىپى"
+msgstr ""
 
 #: mainwindow.cpp:142
 #, kde-format
@@ -267,37 +257,30 @@ msgid "Continue Current Game"
 msgstr ""
 
 #: mainwindow.cpp:143
-#, fuzzy, kde-format
-#| msgid "Start a New Game"
+#, kde-format
 msgctxt "@action:button"
 msgid "Start a New Game"
-msgstr "يېڭى ئويۇن باشلايدۇ"
+msgstr ""
 
 #: mainwindow.cpp:156
-#, fuzzy, kde-format
-#| msgid "Round"
+#, kde-format
 msgctxt "@title:column round of the game"
 msgid "Round"
-msgstr "پۈتۈن سان"
+msgstr ""
 
 #: mainwindow.cpp:240 optionspage.cpp:28
-#, fuzzy, kde-format
-#| msgid "Teleport"
+#, kde-format
 msgctxt "@action"
 msgid "Teleport Safely"
-msgstr "Teleport"
+msgstr ""
 
 #: mainwindow.cpp:241
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Shortcut for teleport safely. See http://websvn.kde.org/trunk/KDE/"
-#| "kdegames/killbots/README.translators?view=markup"
-#| msgid "T"
+#, kde-format
 msgctxt ""
 "Shortcut for teleport safely. See https://quickgit.kde.org/?p=killbots."
 "git&a=blob&f=README.translators&o=plain"
 msgid "T"
-msgstr "پ"
+msgstr "T"
 
 #: mainwindow.cpp:243
 #, kde-format
@@ -306,23 +289,18 @@ msgid "Teleport to a safe location"
 msgstr ""
 
 #: mainwindow.cpp:248 optionspage.cpp:27
-#, fuzzy, kde-format
-#| msgid "Teleport"
+#, kde-format
 msgctxt "@action"
 msgid "Teleport"
-msgstr "Teleport"
+msgstr ""
 
 #: mainwindow.cpp:249
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Shortcut for teleport. See http://websvn.kde.org/trunk/KDE/kdegames/"
-#| "killbots/README.translators?view=markup"
-#| msgid "R"
+#, kde-format
 msgctxt ""
 "Shortcut for teleport. See https://quickgit.kde.org/?p=killbots."
 "git&a=blob&f=README.translators&o=plain"
 msgid "R"
-msgstr "R"
+msgstr ""
 
 #: mainwindow.cpp:251
 #, kde-format
@@ -331,18 +309,13 @@ msgid "Teleport to a random location"
 msgstr ""
 
 #: mainwindow.cpp:256 optionspage.cpp:29
-#, fuzzy, kde-format
-#| msgid "Teleport"
+#, kde-format
 msgctxt "@action"
 msgid "Teleport (Safely if Possible)"
-msgstr "Teleport"
+msgstr ""
 
 #: mainwindow.cpp:257
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Shortcut for teleport safely if possible. See http://websvn.kde.org/trunk/"
-#| "KDE/kdegames/killbots/README.translators?view=markup"
-#| msgid "Space"
+#, kde-format
 msgctxt ""
 "Shortcut for teleport safely if possible. See https://quickgit.kde.org/?"
 "p=killbots.git&a=blob&f=README.translators&o=plain"
@@ -362,16 +335,12 @@ msgid "Vaporizer"
 msgstr ""
 
 #: mainwindow.cpp:264
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Shortcut for vaporizer. See http://websvn.kde.org/trunk/KDE/kdegames/"
-#| "killbots/README.translators?view=markup"
-#| msgid "F"
+#, kde-format
 msgctxt ""
 "Shortcut for vaporizer. See https://quickgit.kde.org/?p=killbots."
 "git&a=blob&f=README.translators&o=plain"
 msgid "F"
-msgstr "F"
+msgstr ""
 
 #: mainwindow.cpp:266
 #, kde-format
@@ -386,11 +355,7 @@ msgid "Wait Out Round"
 msgstr ""
 
 #: mainwindow.cpp:272
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Shortcut for wait out round. See http://websvn.kde.org/trunk/KDE/kdegames/"
-#| "killbots/README.translators?view=markup"
-#| msgid "V"
+#, kde-format
 msgctxt ""
 "Shortcut for wait out round. See https://quickgit.kde.org/?p=killbots."
 "git&a=blob&f=README.translators&o=plain"
@@ -404,37 +369,27 @@ msgid "Risk remaining in place until the end of the round for bonuses"
 msgstr ""
 
 #: mainwindow.cpp:279
-#, fuzzy, kde-format
-#| msgid "Move Left"
+#, kde-format
 msgctxt "@action"
 msgid "Move Up and Left"
-msgstr "سولغا يۆتكە"
+msgstr ""
 
 #: mainwindow.cpp:280
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Shortcut for move up and left. See http://websvn.kde.org/trunk/KDE/"
-#| "kdegames/killbots/README.translators?view=markup"
-#| msgid "Q"
+#, kde-format
 msgctxt ""
 "Shortcut for move up and left. https://quickgit.kde.org/?p=killbots."
 "git&a=blob&f=README.translators&o=plain"
 msgid "Q"
-msgstr "Q"
+msgstr ""
 
 #: mainwindow.cpp:285
-#, fuzzy, kde-format
-#| msgid "Move Up"
+#, kde-format
 msgctxt "@action"
 msgid "Move Up"
 msgstr "ئۈستىگە"
 
 #: mainwindow.cpp:286
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Shortcut for move up. See http://websvn.kde.org/trunk/KDE/kdegames/"
-#| "killbots/README.translators?view=markup"
-#| msgid "W"
+#, kde-format
 msgctxt ""
 "Shortcut for move up. See https://quickgit.kde.org/?p=killbots."
 "git&a=blob&f=README.translators&o=plain"
@@ -442,18 +397,13 @@ msgid "W"
 msgstr "W"
 
 #: mainwindow.cpp:291
-#, fuzzy, kde-format
-#| msgid "Move Right"
+#, kde-format
 msgctxt "@action"
 msgid "Move Up and Right"
-msgstr "ئوڭغا يۆتكە"
+msgstr ""
 
 #: mainwindow.cpp:292
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Shortcut for move up and right. See http://websvn.kde.org/trunk/KDE/"
-#| "kdegames/killbots/README.translators?view=markup"
-#| msgid "E"
+#, kde-format
 msgctxt ""
 "Shortcut for move up and right. https://quickgit.kde.org/?p=killbots."
 "git&a=blob&f=README.translators&o=plain"
@@ -461,18 +411,13 @@ msgid "E"
 msgstr "E"
 
 #: mainwindow.cpp:297
-#, fuzzy, kde-format
-#| msgid "Move Left"
+#, kde-format
 msgctxt "@action"
 msgid "Move Left"
 msgstr "سولغا يۆتكە"
 
 #: mainwindow.cpp:298
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Shortcut for move left. See http://websvn.kde.org/trunk/KDE/kdegames/"
-#| "killbots/README.translators?view=markup"
-#| msgid "A"
+#, kde-format
 msgctxt ""
 "Shortcut for move left. See https://quickgit.kde.org/?p=killbots."
 "git&a=blob&f=README.translators&o=plain"
@@ -486,49 +431,35 @@ msgid "Stand Still"
 msgstr ""
 
 #: mainwindow.cpp:304
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Shortcut for stand still. See http://websvn.kde.org/trunk/KDE/kdegames/"
-#| "killbots/README.translators?view=markup"
-#| msgid "S"
+#, kde-format
 msgctxt ""
 "Shortcut for stand still. See https://quickgit.kde.org/?p=killbots."
 "git&a=blob&f=README.translators&o=plain"
 msgid "S"
-msgstr "S"
+msgstr "جەنۇب"
 
 #: mainwindow.cpp:309
-#, fuzzy, kde-format
-#| msgid "Move Right"
+#, kde-format
 msgctxt "@action"
 msgid "Move Right"
 msgstr "ئوڭغا يۆتكە"
 
 #: mainwindow.cpp:310
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Shortcut for move right. See http://websvn.kde.org/trunk/KDE/kdegames/"
-#| "killbots/README.translators?view=markup"
-#| msgid "D"
+#, kde-format
 msgctxt ""
 "Shortcut for move right. See https://quickgit.kde.org/?p=killbots."
 "git&a=blob&f=README.translators&o=plain"
 msgid "D"
-msgstr "D"
+msgstr ""
 
 #: mainwindow.cpp:315
-#, fuzzy, kde-format
-#| msgid "Move Down"
+#, kde-format
 msgctxt "@action"
 msgid "Move Down and Left"
-msgstr "پەسكە"
+msgstr ""
 
 #: mainwindow.cpp:316
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Shortcut for move down and left. See http://websvn.kde.org/trunk/KDE/"
-#| "kdegames/killbots/README.translators?view=markup"
-#| msgid "Z"
+#, kde-format
 msgctxt ""
 "Shortcut for move down and left. See https://quickgit.kde.org/?p=killbots."
 "git&a=blob&f=README.translators&o=plain"
@@ -536,37 +467,27 @@ msgid "Z"
 msgstr "Z"
 
 #: mainwindow.cpp:321
-#, fuzzy, kde-format
-#| msgid "Move Down"
+#, kde-format
 msgctxt "@action"
 msgid "Move Down"
-msgstr "پەسكە"
+msgstr "ئاستىغا"
 
 #: mainwindow.cpp:322
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Shortcut for move down. See http://websvn.kde.org/trunk/KDE/kdegames/"
-#| "killbots/README.translators?view=markup"
-#| msgid "X"
+#, kde-format
 msgctxt ""
 "Shortcut for move down. See https://quickgit.kde.org/?p=killbots."
 "git&a=blob&f=README.translators&o=plain"
 msgid "X"
-msgstr "X"
+msgstr ""
 
 #: mainwindow.cpp:327
-#, fuzzy, kde-format
-#| msgid "Move Right"
+#, kde-format
 msgctxt "@action"
 msgid "Move Down and Right"
-msgstr "ئوڭغا يۆتكە"
+msgstr ""
 
 #: mainwindow.cpp:328
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Shortcut for move down and right. See http://websvn.kde.org/trunk/KDE/"
-#| "kdegames/killbots/README.translators?view=markup"
-#| msgid "C"
+#, kde-format
 msgctxt ""
 "Shortcut for move down and right. https://quickgit.kde.org/?p=killbots."
 "git&a=blob&f=README.translators&o=plain"
@@ -574,15 +495,13 @@ msgid "C"
 msgstr "C"
 
 #: optionspage.cpp:24
-#, fuzzy, kde-format
-#| msgid "Nothing"
+#, kde-format
 msgctxt "@item:inlistbox No action on click"
 msgid "Nothing"
 msgstr "يوق"
 
 #: optionspage.cpp:25
-#, fuzzy, kde-format
-#| msgid "Step"
+#, kde-format
 msgctxt "@action"
 msgid "Step"
 msgstr "Step"
@@ -594,22 +513,19 @@ msgid "Repeated Step"
 msgstr ""
 
 #: optionspage.cpp:45
-#, fuzzy, kde-format
-#| msgid "Slow"
+#, kde-format
 msgctxt "@item:inrange"
 msgid "Slow"
 msgstr "ئاستا"
 
 #: optionspage.cpp:47
-#, fuzzy, kde-format
-#| msgid "Fast"
+#, kde-format
 msgctxt "@item:inrange"
 msgid "Fast"
 msgstr "تېز"
 
 #: optionspage.cpp:49
-#, fuzzy, kde-format
-#| msgid "Instant"
+#, kde-format
 msgctxt "@item:inrange"
 msgid "Instant"
 msgstr "ھازىر ئىزدە"
@@ -802,28 +718,22 @@ msgid "Points awarded for each energy awarded above maximum energy cap"
 msgstr ""
 
 #: rulesetdetailsdialog.cpp:38
-#, fuzzy, kde-format
-#| msgctxt "Quantity of junkheaps that can be pushed"
-#| msgid "None"
+#, kde-format
 msgctxt "@item Quantity of junkheaps that can be pushed"
 msgid "None"
 msgstr "يوق"
 
 #: rulesetdetailsdialog.cpp:39
-#, fuzzy, kde-format
-#| msgctxt "Quantity of junkheaps that can be pushed"
-#| msgid "One"
+#, kde-format
 msgctxt "@item Quantity of junkheaps that can be pushed"
 msgid "One"
 msgstr "بىر"
 
 #: rulesetdetailsdialog.cpp:40
-#, fuzzy, kde-format
-#| msgctxt "Quantity of junkheaps that can be pushed"
-#| msgid "Many"
+#, kde-format
 msgctxt "@item Quantity of junkheaps that can be pushed"
 msgid "Many"
-msgstr "نۇرغۇن"
+msgstr ""
 
 #: rulesetdetailsdialog.cpp:51
 #, kde-format
@@ -832,15 +742,13 @@ msgid "%1:"
 msgstr "%1:"
 
 #: rulesetdetailsdialog.cpp:68
-#, fuzzy, kde-format
-#| msgid "Yes"
+#, kde-format
 msgctxt "@item"
 msgid "Yes"
 msgstr "ھەئە"
 
 #: rulesetdetailsdialog.cpp:68
-#, fuzzy, kde-format
-#| msgid "No"
+#, kde-format
 msgctxt "@item"
 msgid "No"
 msgstr "ياق"
@@ -858,11 +766,10 @@ msgid "A list of the Killbots rulesets installed on this computer."
 msgstr ""
 
 #: rulesetselector.cpp:39
-#, fuzzy, kde-format
-#| msgid "Game Type"
+#, kde-format
 msgctxt "title:group"
 msgid "Game Type Details"
-msgstr "ئويۇن تىپى"
+msgstr ""
 
 #: rulesetselector.cpp:40
 #, kde-format
@@ -871,32 +778,28 @@ msgid "Lists information on the currently selected game type."
 msgstr ""
 
 #: rulesetselector.cpp:42
-#, fuzzy, kde-format
-#| msgid "Author:"
+#, kde-format
 msgctxt "@label"
 msgid "Author:"
-msgstr "ئاپتور:"
+msgstr "يازغۇچى:"
 
 #: rulesetselector.cpp:49
-#, fuzzy, kde-format
-#| msgid "Contact:"
+#, kde-format
 msgctxt "@label"
 msgid "Contact:"
 msgstr "ئالاقەداش:"
 
 #: rulesetselector.cpp:57
-#, fuzzy, kde-format
-#| msgid "Description:"
+#, kde-format
 msgctxt "@label"
 msgid "Description:"
 msgstr "چۈشەندۈرۈش:"
 
 #: rulesetselector.cpp:64
-#, fuzzy, kde-format
-#| msgid "Details..."
+#, kde-format
 msgctxt "@action:button"
 msgid "Details…"
-msgstr "تەپسىلاتلار…"
+msgstr ""
 
 #: rulesetselector.cpp:65
 #, kde-format
