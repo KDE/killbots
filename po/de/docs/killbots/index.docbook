@@ -127,7 +127,7 @@
     <title
 >Anmerkung:</title>
     <para
->Alle Bezeichnungen in diesem Handbuch beziehen sich u. a. auf <emphasis
+>Alle Bezeichnungen in diesem Handbuch beziehen sich u. a. auf <emphasis
 >Roboter, Müllhalden,</emphasis
 > &etc;. Jedoch können für &killbots; abweichende Designs erstellt werden und somit die angezeigten Animationen von den beschriebenen abweichen. Die Spielweise und -strategie bleibt jedoch immer gleich (auch wenn der <emphasis
 >Held</emphasis
@@ -388,7 +388,7 @@
 >Sicheres Teleportieren</link
 > und/oder <link linkend="vaporizer"
 >Zerstäuben</link
->. Abhängig von der gewählten Spielart kann die Energie für verschiedene Aktionen gewährt werden (z. B. für <link linkend="pushing-junkheaps"
+>. Abhängig von der gewählten Spielart kann die Energie für verschiedene Aktionen gewährt werden (z. B. für <link linkend="pushing-junkheaps"
 >Verschieben einer Müllhalde</link
 > oder zerstören der Gegner während dem <link linkend="wait-out-round"
 >Aussitzen</link
@@ -546,7 +546,7 @@
 >YXC</keycap
 >) zugeordnet. Diese Tastenzuweisungen können im Dialog „Kurzbefehle festlegen“ geändert werden.</para>
       <para
->Jeder Spezialzug (z. B. <emphasis
+>Jeder Spezialzug (z. B. <emphasis
 >Teleportieren</emphasis
 >) kann auch mit der Tastatur ausgeführt werden. Weitere Informationen hierzu können dem Abschnitt <link linkend="move-menu"
 >Zug</link
