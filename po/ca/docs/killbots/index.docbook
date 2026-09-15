@@ -224,7 +224,7 @@
             <para id="pushing-junkheaps"
 >Alguns tipus de joc permeten a l'heroi <firstterm
 >empènyer</firstterm
-> els munts de ferralla per la quadrícula. Després, l'heroi podrà utilitzar-los per a construir «búnquers» que li oferiran protecció per múltiples costats. Els munts de ferralla fins i tot es poden utilitzar de forma ofensiva en alguns tipus de joc. Empènyer un munt de ferralla a sobre d'un enemic l'aixafarà i, fins i tot pot resultar en una bonificació.</para>
+> els munts de ferralla per la quadrícula. Després, l'heroi podrà utilitzar-los per a construir «búnquers» que li oferiran protecció per múltiples costats. Els munts de ferralla fins i tot es poden utilitzar de forma ofensiva en alguns tipus de joc. Empènyer un munt de ferralla a sobre d'un enemic l'aixafarà i, fins i tot pot ocasionar una bonificació.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -322,7 +322,7 @@
       <title
 >Usar el vaporitzador</title>
       <para
->El tercer ús del dispositiu de teletransport en realitat no teletransporta en absolut a l'heroi. Aquest mode operatiu poc comú teletransporta a tots els robots en les cel·les adjacents a l'heroi. Ningú sap exactament a on es teletransportan, però sembla que prou lluny per a tornar-lo a molestar. A causa que els robots desapareixen en l'aire sense deixar un munt de ferralla, aquest mode rep el sobrenom de «vaporitzador» i els enemics enviats mitjançant la vaporització es consideraran morts a l'efecte de puntuació.</para>
+>El tercer ús del dispositiu de teletransport en realitat no teletransporta en absolut a l'heroi. Aquest mode operatiu poc comú teletransporta a tots els robots en les cel·les adjacents a l'heroi. Ningú sap exactament a on es teletransporten, però sembla que prou lluny per a tornar-lo a molestar. A causa que els robots desapareixen en l'aire sense deixar un munt de ferralla, aquest mode rep el sobrenom de «vaporitzador» i els enemics enviats mitjançant la vaporització es consideraran morts a l'efecte de puntuació.</para>
       <para
 >Com en teletransportar de forma segura, utilitzar el vaporitzador requereix <link linkend="energy"
 >energia</link
