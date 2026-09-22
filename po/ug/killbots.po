@@ -8,9 +8,9 @@ msgstr ""
 "Project-Id-Version: killbots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:49+0000\n"
-"PO-Revision-Date: 2026-05-31 18:39-0400\n"
+"PO-Revision-Date: 2026-09-22 18:03+0900\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
-"Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
+"Language-Team: Uyghur <kde-i18n-doc@kde.org>\n"
 "Language: ug\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -160,7 +160,7 @@ msgstr "ئاساسىي قورال بالداق"
 #: main.cpp:43
 #, kde-format
 msgid "Killbots"
-msgstr "Killbots"
+msgstr ""
 
 #: main.cpp:44
 #, kde-format
@@ -170,7 +170,7 @@ msgstr ""
 #: main.cpp:46
 #, kde-format
 msgid "© 2006-2009, Parker Coates"
-msgstr "© 2006-2009, Parker Coates"
+msgstr ""
 
 #: main.cpp:47
 #, kde-format
@@ -280,7 +280,7 @@ msgctxt ""
 "Shortcut for teleport safely. See https://quickgit.kde.org/?p=killbots."
 "git&a=blob&f=README.translators&o=plain"
 msgid "T"
-msgstr "T"
+msgstr ""
 
 #: mainwindow.cpp:243
 #, kde-format
@@ -340,7 +340,7 @@ msgctxt ""
 "Shortcut for vaporizer. See https://quickgit.kde.org/?p=killbots."
 "git&a=blob&f=README.translators&o=plain"
 msgid "F"
-msgstr ""
+msgstr "بىرىنچى ھەرپ"
 
 #: mainwindow.cpp:266
 #, kde-format
@@ -360,7 +360,7 @@ msgctxt ""
 "Shortcut for wait out round. See https://quickgit.kde.org/?p=killbots."
 "git&a=blob&f=README.translators&o=plain"
 msgid "V"
-msgstr "V"
+msgstr ""
 
 #: mainwindow.cpp:274
 #, kde-format
@@ -394,7 +394,7 @@ msgctxt ""
 "Shortcut for move up. See https://quickgit.kde.org/?p=killbots."
 "git&a=blob&f=README.translators&o=plain"
 msgid "W"
-msgstr "W"
+msgstr ""
 
 #: mainwindow.cpp:291
 #, kde-format
@@ -408,7 +408,7 @@ msgctxt ""
 "Shortcut for move up and right. https://quickgit.kde.org/?p=killbots."
 "git&a=blob&f=README.translators&o=plain"
 msgid "E"
-msgstr "E"
+msgstr ""
 
 #: mainwindow.cpp:297
 #, kde-format
@@ -422,7 +422,7 @@ msgctxt ""
 "Shortcut for move left. See https://quickgit.kde.org/?p=killbots."
 "git&a=blob&f=README.translators&o=plain"
 msgid "A"
-msgstr "A"
+msgstr "قوشۇمچە ئاتنىڭ بىرىنچى ھەرپى"
 
 #: mainwindow.cpp:303
 #, kde-format
@@ -464,7 +464,7 @@ msgctxt ""
 "Shortcut for move down and left. See https://quickgit.kde.org/?p=killbots."
 "git&a=blob&f=README.translators&o=plain"
 msgid "Z"
-msgstr "Z"
+msgstr ""
 
 #: mainwindow.cpp:321
 #, kde-format
@@ -492,7 +492,7 @@ msgctxt ""
 "Shortcut for move down and right. https://quickgit.kde.org/?p=killbots."
 "git&a=blob&f=README.translators&o=plain"
 msgid "C"
-msgstr "C"
+msgstr ""
 
 #: optionspage.cpp:24
 #, kde-format
@@ -504,7 +504,7 @@ msgstr "يوق"
 #, kde-format
 msgctxt "@action"
 msgid "Step"
-msgstr "Step"
+msgstr ""
 
 #: optionspage.cpp:26
 #, kde-format
@@ -739,7 +739,7 @@ msgstr ""
 #, kde-format
 msgctxt "%1 is a pretranslated string that we're turning into a label"
 msgid "%1:"
-msgstr "%1:"
+msgstr ""
 
 #: rulesetdetailsdialog.cpp:68
 #, kde-format
