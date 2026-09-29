@@ -1,0 +1,1316 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Russian "INCLUDE">
+]>
+
+<book id="killbots" lang="&language;">
+
+<bookinfo>
+  <title
+>Руководство пользователя &killbots;</title>
+
+  <authorgroup>
+    <author
+><personname
+> <firstname
+>Parker</firstname
+> <surname
+>Coates</surname
+> </personname
+> <email
+>parker.coates@kdemail.net</email
+> </author>
+
+    <othercredit role="translator"
+><firstname
+>Александр</firstname
+><surname
+>Яворский</surname
+><affiliation
+><address
+><email
+>kekcuha@gmail.com</email
+></address
+></affiliation
+><contrib
+>Перевод на русский</contrib
+></othercredit
+> 
+  </authorgroup>
+
+  <copyright>
+    <year
+>2008&ndash;2009</year>
+    <holder
+>Parker Coates</holder>
+  </copyright>
+
+  <legalnotice
+>&FDLNotice;</legalnotice>
+
+  <date
+>5 июля 2021 г.</date>
+  <releaseinfo
+>KDE Gear 21.04</releaseinfo>
+
+  <abstract>
+    <para
+>&killbots; — версия классической консольной игры &BSD; <command
+>robots</command
+> для &kde;.</para>
+  </abstract>
+
+  <keywordset>
+    <keyword
+>KDE</keyword>
+    <keyword
+>kdegames</keyword>
+    <keyword
+>игра</keyword>
+    <keyword
+>Killbots</keyword>
+    <keyword
+>стратегия</keyword>
+    <keyword
+>один игрок</keyword>
+    <keyword
+>одиночная игра</keyword>
+    <keyword
+>robots</keyword>
+    <keyword
+>робот</keyword>
+    <keyword
+>быстрый робот</keyword>
+    <keyword
+>куча мусора</keyword>
+    <keyword
+>телепорт</keyword>
+    <keyword
+>испарение</keyword>
+    <keyword
+>испаритель</keyword>
+    <keyword
+>энергия</keyword>
+  </keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+  <title
+>Введение</title>
+
+  <note>
+    <title
+>Тип игры:</title>
+    <para
+>Стратегия</para>
+  </note>
+
+  <note>
+    <title
+>Количество игроков:</title>
+    <para
+>Один</para>
+  </note>
+
+  <para
+>&killbots; — простая игра, в которой нужно спасаться от роботов-убийц. Кто создал этих роботов и зачем их запрограммировали на уничтожение, неизвестно. Известно лишь, что роботов много и их единственная цель — уничтожить вас. К счастью, их создатель думал о количестве, а не о качестве, так что умом роботы не блещут. Против бесконечного потока безмозглых автоматов у вас есть только собственная сообразительность и хитроумный телепорт.</para>
+
+  <note>
+    <title
+>Примечание:</title>
+    <para
+>В этом руководстве часто упоминаются <quote
+>роботы</quote
+>, <quote
+>кучи мусора</quote
+> и т. д., но оформление &killbots; полностью заменяемо. Поэтому изображения в игре могут не совпадать с описанными здесь футуристическими. Правила и стратегия при этом остаются прежними, даже если ваш герой — морковка, за которой по грядкам гоняются голодные кролики.</para>
+  </note>
+
+  <note>
+    <title
+>Примечание:</title>
+    <para
+>&killbots; поддерживает несколько типов игры: они задают параметры игры и определяют, какие возможности в неё входят. Это руководство описывает игру в общем виде, без привязки к конкретному типу. Подробности о размере поля, раундах, начислении очков, энергии и т. д. смотрите в описании и сведениях текущего типа игры в диалоге <guilabel
+>Настройка — &killbots;</guilabel
+>.</para>
+  </note>
+
+</chapter>
+
+<chapter id="howto">
+  <title id="howto-title"
+>Как играть</title>
+
+  <sect1 id="gameplay-basics">
+    <title
+>Основы игры</title>
+
+    <note>
+      <title
+>Цель:</title>
+      <para
+>Пережить как можно больше раундов с врагами, набрав как можно больше очков.</para>
+    </note>
+
+    <para
+><screenshot
+><mediaobject>
+      <imageobject
+><imagedata fileref="grid.png" format="PNG"/></imageobject>
+      <textobject
+><phrase
+>Снимок игрового поля</phrase
+></textobject>
+    </mediaobject
+></screenshot
+></para>
+
+    <para
+>&killbots; — пошаговая игра на прямоугольном <firstterm
+>поле</firstterm
+>. Число <firstterm
+>клеток</firstterm
+> в строках и столбцах поля зависит от типа игры. В каждой клетке может находиться одно из следующего: <variablelist>
+        <varlistentry>
+          <term
+><firstterm
+>Герой</firstterm
+> <inlinemediaobject
+><imageobject
+><imagedata fileref="hero.png" format="PNG"/></imageobject
+></inlinemediaobject
+></term>
+          <listitem>
+            <para
+>Герой — бедолага, запертый в комнате с толпой роботов-убийц. Ваша задача как игрока — сохранить ему жизнь как можно дольше.</para>
+            <para
+>В начале каждого <firstterm
+>хода</firstterm
+> герой может сделать одно из трёх: остаться на месте, перейти в свободную соседнюю клетку или выполнить особое действие. См. <link linkend="movement-controls" endterm="movement-controls-title"
+></link
+> и <link linkend="special-actions" endterm="special-actions-title"
+></link
+>.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><firstterm
+>Робот</firstterm
+> <inlinemediaobject
+><imageobject
+><imagedata fileref="enemy.png" format="PNG"/></imageobject
+></inlinemediaobject
+></term>
+          <listitem>
+            <para
+>Роботы — механические громилы, которые хотят лишь одного: раздавить героя своей железной тушей. О <quote
+>трёх законах робототехники</quote
+> они никогда не слышали и, вероятно, раздавили бы любого, кто попытался бы им их объяснить.</para>
+            <para
+>Каждый ход робот делает один шаг в сторону героя. Если робот выше героя, он шагает вниз; если левее — вправо; если ниже и правее — по диагонали вверх и влево. Если робот доберётся до клетки героя, герой погибает и игра заканчивается.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><firstterm
+>Быстрый робот</firstterm
+> <inlinemediaobject
+><imageobject
+><imagedata fileref="fastenemy.png" format="PNG"/></imageobject
+></inlinemediaobject
+></term>
+          <listitem>
+            <para
+>Быстрые роботы — гораздо более проворная разновидность обычного робота: на каждый ход героя они делают два шага. К счастью, умнее от этого они не стали и зачастую лишь вдвое быстрее своих медлительных собратьев уничтожают сами себя.</para>
+            <para
+>Быстрые роботы есть не во всех типах игры.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><firstterm
+>Куча мусора</firstterm
+> <inlinemediaobject
+><imageobject
+><imagedata fileref="junkheap.png" format="PNG"/></imageobject
+></inlinemediaobject
+></term>
+          <listitem>
+            <para
+>Когда сталкиваются два робота или больше, они разрушаются, а из обломков образуется куча мусора. Враги не замечают куч мусора на своём пути и разбиваются о них. Кучи мусора очень ценны: они служат баррикадами между героем и нападающими.</para>
+            <para id="pushing-junkheaps"
+>В некоторых типах игры герой может <firstterm
+>толкать</firstterm
+> кучи мусора по полю и строить из них <quote
+>бункеры</quote
+>, защищающие с нескольких сторон. В некоторых типах игры кучами мусора можно даже нападать: вытолкнутая на врага куча давит его, и за это может полагаться бонус.</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+    </para>
+  </sect1>
+
+  <sect1 id="rounds-scoring-energy">
+    <title
+>Раунды, очки и энергия</title>
+
+    <para
+><screenshot
+><mediaobject>
+      <imageobject
+><imagedata fileref="status.png" format="PNG"/></imageobject>
+      <textobject
+><phrase
+>Индикаторы состояния игры</phrase
+></textobject>
+    </mediaobject
+></screenshot
+></para>
+
+    <sect2>
+      <title
+>Раунды</title>
+      <para
+>Игра в &killbots; делится на <firstterm
+>раунды</firstterm
+>. В начале раунда герой стоит в центре поля, а враги расставлены вокруг него случайным образом. Раунд заканчивается, когда уничтожены все враги. С каждым раундом врагов становится больше; сколько и каких врагов добавляется, зависит от типа игры.</para>
+      <para
+>Поле заполняется врагами, пока не произойдёт одно из двух: враги займут больше половины клеток или при попытке безопасной телепортации на поле не найдётся безопасной клетки. Тогда текущий раунд прерывается, а число врагов сбрасывается до значений первого раунда.</para>
+    </sect2>
+
+    <sect2>
+      <title
+>Очки</title>
+      <para
+>Выиграть в &killbots; невозможно: герой старается продержаться как можно дольше, но печальная правда в том, что рано или поздно удача от него отвернётся. Поэтому цель игры — набрать как можно больше <firstterm
+>очков</firstterm
+>, пока не случилось неизбежное. Десять лучших результатов (вместе с достигнутым раундом) сохраняются в таблице лучших результатов.</para>
+      <para
+>Очки начисляются за уничтожение врагов; быстрые роботы обычно стоят больше обычных. Дополнительные очки могут начисляться за врагов, уничтоженных <link linkend="pushing-junkheaps"
+>кучей мусора</link
+> или в то время, когда герой <link linkend="wait-out-round"
+>пережидает раунд</link
+>.</para>
+    </sect2>
+
+    <sect2 id="energy">
+      <title
+>Энергия</title>
+      <para
+>Помимо очков, по ходу игры герой может накапливать <firstterm
+>энергию</firstterm
+>. Энергия нужна для <link linkend="teleport-safely"
+>безопасной телепортации</link
+> и (или) <link linkend="vaporizer"
+>испарителя</link
+>. В зависимости от типа игры энергия начисляется за разное: за завершение раунда, за <link linkend="pushing-junkheaps"
+>толкание кучи мусора</link
+> или за врагов, уничтоженных, пока герой <link linkend="wait-out-round"
+>пережидает раунд</link
+>.</para>
+      <para
+>Запас энергии героя ограничен максимумом, который задаёт тип игры; в некоторых типах игры максимум растёт с каждым пройденным раундом. Индикатор энергии показывается, только если в текущем типе игры есть энергия и безопасная телепортация.</para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="special-actions">
+    <title id="special-actions-title"
+>Особые действия</title>
+    <para
+>Кроме обычного перемещения из клетки в клетку, в распоряжении героя до четырёх особых действий.</para>
+
+    <sect2 id="teleport">
+      <title
+>Телепорт</title>
+      <para
+>Каким-то образом герою достался личный телепорт. К сожалению, без источника энергии он не слишком надёжен: при включении переносит героя в случайную клетку в любом месте поля. Пользоваться телепортом можно сколько угодно раз.</para>
+      <para
+>Клетка назначения гарантированно свободна, но вполне может оказаться рядом с разъярённым роботом. Из-за этого риска телепортацию обычно стоит оставлять на крайний случай, когда безопасных ходов не осталось.</para>
+    </sect2>
+
+    <sect2 id="teleport-safely">
+      <title
+>Безопасный телепорт</title>
+      <para
+>У телепорта есть второй режим: он переносит героя в случайную, но безопасную клетку. Однако для безопасной телепортации нужна <link linkend="energy"
+>энергия</link
+>, а её обычно мало. Понятно, что возможность безопасно телепортироваться в решающий момент может сильно продлить герою жизнь.</para>
+      <para
+>Безопасная телепортация есть не во всех типах игры, и её стоимость в энергии в разных типах игры разная.</para>
+    </sect2>
+
+    <sect2 id="vaporizer">
+      <title
+>Испаритель</title>
+      <para
+>Третий режим телепорта самого героя никуда не переносит: он телепортирует всех роботов из соседних с героем клеток. Куда именно они попадают, никто не знает, но, похоже, достаточно далеко, чтобы больше не беспокоить героя. Поскольку роботы растворяются в воздухе, не оставляя кучи мусора, этот режим прозвали <quote
+>испарителем</quote
+>; испарённые враги при подсчёте очков считаются уничтоженными.</para>
+      <para
+>Как и безопасной телепортации, испарителю нужна <link linkend="energy"
+>энергия</link
+>. Испаритель есть не во всех типах игры, и его стоимость в энергии в разных типах игры разная.</para>
+    </sect2>
+
+    <sect2 id="wait-out-round">
+      <title
+>Переждать раунд</title>
+      <para
+>Иногда на поле складывается положение, при котором все роботы могут уничтожить себя сами, а герою не нужно даже двигаться. В таком случае раунд можно переждать.</para>
+      <example>
+        <title
+>Раунд, который можно переждать</title>
+        <para
+><screenshot
+><mediaobject>
+          <imageobject
+><imagedata fileref="waitoutround.png" format="PNG"/></imageobject>
+        </mediaobject
+></screenshot
+></para>
+      </example>
+      <para
+>Когда герой пережидает раунд, он замирает на месте, а враги продолжают двигаться как обычно, пока не произойдёт одно из двух: враги уничтожат себя и раунд закончится или кто-то из них доберётся до героя и игра закончится. Отменить команду нельзя, поэтому нужно быть уверенным, что герою действительно ничего не грозит.</para>
+      <para
+>Зачем же выбирать действие, которое нельзя передумать? Во-первых, оно добавляет концу раунда эффектности и драмы, а во-вторых, что важнее, за каждого врага, уничтоженного, пока герой пережидает раунд, начисляется бонус. Размер и вид бонуса (очки или энергия) зависят от типа игры.</para>
+    </sect2>
+  </sect1>
+
+</chapter>
+
+<chapter id="interface-overview">
+  <title
+>Обзор интерфейса</title>
+
+  <sect1 id="movement-controls">
+    <title id="movement-controls-title"
+>Управление перемещением</title>
+    <para
+>Управлять героем можно клавиатурой, мышью или и тем и другим.</para>
+    <sect2 id="keyboard-movement">
+      <title id="keyboard-movement-title"
+>Управление с клавиатуры</title>
+      <para
+>Действий перемещения девять: влево, вправо, вверх, вниз, четыре диагонали и «стоять на месте». Каждому действию можно назначить две клавиши. По умолчанию они назначены девяти цифровым клавишам дополнительной клавиатуры и блоку букв 3 × 3 в левой части раскладки QWERTY. При другой раскладке или без дополнительной цифровой клавиатуры назначения можно изменить в диалоге настройки комбинаций клавиш.</para>
+      <para
+>Особые действия (например, телепорт) тоже можно выполнять с клавиатуры. См. <link linkend="move-menu"
+>Перемещение</link
+>.</para>
+    </sect2>
+    <sect2 id="mouse-movement">
+      <title id="mouse-movement-title"
+>Управление мышью</title>
+      <para
+>Мышью (или другим указывающим устройством) управлять естественнее и нагляднее. Когда указатель движется по игровому полю, его вид показывает направление относительно героя: например, над героем указатель превращается в стрелку вверх. Если навести указатель на самого героя, он показывает, что перемещения не будет.</para>
+      <para
+>Щелчок левой кнопкой мыши делает шаг героя в указанном направлении (если такой шаг разрешён). Для удобства правой и средней кнопкам мыши можно назначить дополнительные действия в <link linkend="configure-killbots"
+>диалоге «Настройка — &killbots;»</link
+>. Это действия из меню <link linkend="move-menu"
+>Перемещение</link
+> и ещё одно: <guimenuitem
+>Повторяющийся шаг</guimenuitem
+> — герой несколько ходов подряд идёт в указанном направлении, пока не упрётся в препятствие или пока дальнейшее движение не станет опасным. Остановить повторяющийся шаг можно ещё одним щелчком.</para>
+      <para
+></para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="game-menu">
+    <title
+>Команды меню</title>
+
+    <variablelist>
+      <varlistentry>
+        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Игра</guimenu
+> <guimenuitem
+>Начать игру</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+><action
+>Начинает новую игру; текущая игра, если она идёт, прерывается.</action
+></para
+></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>H</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Игра</guimenu
+> <guimenuitem
+>Показать лучшие результаты</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+><action
+>Открывает таблицу лучших результатов прошлых игр.</action
+></para
+></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Игра</guimenu
+> <guimenuitem
+>Выход</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+><action
+>Завершает работу &killbots;.</action
+></para
+></listitem>
+      </varlistentry>
+
+      <varlistentry id="move-menu">
+        <term
+><menuchoice
+><shortcut
+><keycap
+>R</keycap
+></shortcut
+> <guimenu
+>Перемещение</guimenu
+> <guimenuitem
+>Телепорт</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+><action
+>Переносит героя в случайную свободную клетку в любом месте поля.</action
+> См. <link linkend="teleport" endterm="special-actions-title"
+></link
+>.</para
+></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term
+><menuchoice
+><shortcut
+><keycap
+>T</keycap
+></shortcut
+> <guimenu
+>Перемещение</guimenu
+> <guimenuitem
+>Безопасный телепорт</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+><action
+>Переносит героя в случайную свободную клетку, где на этом ходу ему гарантированно ничего не грозит.</action
+> См. <link linkend="teleport-safely" endterm="special-actions-title"
+></link
+>.</para
+></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term
+><menuchoice
+><shortcut
+>&Space;</shortcut
+> <guimenu
+>Перемещение</guimenu
+> <guimenuitem
+>Телепорт (безопасный, если возможно)</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+>Действие для удобства. <action
+>Если энергии достаточно, телепортирует героя безопасно, иначе — просто в случайную клетку.</action
+></para
+></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term
+><menuchoice
+><shortcut
+><keycap
+>F</keycap
+></shortcut
+> <guimenu
+>Перемещение</guimenu
+> <guimenuitem
+>Испаритель</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+><action
+>Уничтожает всех роботов в соседних с героем клетках</action
+>. См. <link linkend="vaporizer" endterm="special-actions-title"
+></link
+>.</para
+></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term
+><menuchoice
+><shortcut
+><keycap
+>V</keycap
+></shortcut
+> <guimenu
+>Перемещение</guimenu
+> <guimenuitem
+>Переждать раунд</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+><action
+>Герой замирает на месте до конца раунда.</action
+> См. <link linkend="wait-out-round" endterm="special-actions-title"
+></link
+>.</para
+></listitem>
+      </varlistentry>
+
+      <varlistentry id="configure-killbots">
+        <term
+><menuchoice
+><guimenu
+>Настройка</guimenu
+> <guimenuitem
+>Настроить &killbots;…</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+><action
+>Открывает диалог настройки &killbots;</action
+>, где можно изменить параметры игры, выбрать другой набор правил или сменить тему оформления.</para
+></listitem>
+      </varlistentry>
+    </variablelist>
+
+<para
+>Кроме того, в &killbots; есть стандартные для &kde; меню <guimenu
+>Настройка</guimenu
+> и <guimenu
+>Справка</guimenu
+>. Подробнее о них — в разделах <ulink url="help:/fundamentals/menus.html#menus-settings"
+>Меню «Настройка»</ulink
+> и <ulink url="help:/fundamentals/menus.html#menus-help"
+>Меню «Справка»</ulink
+> руководства «Основы &kde;». </para>
+
+  </sect1>
+
+</chapter>
+
+
+<chapter id="developers">
+  <title
+>Руководство разработчика &killbots;</title>
+  <para
+>Изменить &killbots; под себя можно двумя основными способами: темами оформления и наборами правил.</para>
+
+  <sect1 id="creating-themes">
+    <title
+>Создание собственных тем оформления &killbots;</title>
+    <para
+>Как и в большинстве других игр &kde;, тема оформления &killbots; состоит из трёх файлов.</para>
+
+    <sect2>
+      <title
+>Файл .desktop</title>
+      <para
+>Файл .desktop использует стандартный синтаксис <acronym
+>INI</acronym
+>. Пары «ключ — значение» хранят сведения о теме и указывают на остальные её файлы. Следующий пример взят из стандартной темы.</para>
+      <example>
+        <title
+>Пример файла .desktop темы</title>
+        <programlisting
+>[KGameTheme]
+Name=Example Theme
+Description=An example theme used to demonstrate theme creation. This one features pirates.
+Author=Mr. Artist
+AuthorEmail=mrartist@example.com
+Type=SVG
+FileName=example.svg
+Preview=example.png
+        </programlisting>
+      </example>
+      <para
+>Первые четыре параметра содержат метаданные темы и вполне понятны. Для тем &killbots; параметр <varname
+>Type</varname
+> всегда должен иметь значение &SVG;. Последние два параметра содержат имена двух других файлов темы. Это не обязательно, но для единообразия настоятельно рекомендуется давать всем трём файлам одинаковое базовое имя.</para>
+    </sect2>
+
+    <sect2>
+      <title
+>Файл предварительного просмотра</title>
+      <para
+>Файл предварительного просмотра — обычный файл <acronym
+>PNG</acronym
+> с образцом темы. Изображение должно иметь размер 240 × 140 пикселей и как можно точнее повторять компоновку образца стандартной темы: так темы проще сравнивать при выборе.</para>
+    </sect2>
+
+    <sect2>
+      <title
+>Файл &SVG;</title>
+      <para
+>Файл &SVG; — масштабируемое векторное изображение с графическими элементами темы. Файл может быть несжатым (<literal role="extension"
+>.svg</literal
+>) или сжатым (<literal role="extension"
+>.svgz</literal
+>). Каждый элемент игры обозначается в файле &SVG; уникальным идентификатором. Новую тему обычно проще всего создавать на основе существующей, заменяя элементы по одному. Файл &SVG; <emphasis
+>обязательно</emphasis
+> должен содержать следующие элементы.</para>
+      <variablelist>
+        <varlistentry>
+          <term
+><varname
+>background</varname
+></term>
+          <listitem
+><para
+>Изображение, которое показывается под сеткой на игровом поле.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>status</varname
+></term>
+          <listitem
+><para
+>Рамка, в которой показываются текущий раунд, счёт, число врагов и энергия.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>textcolor</varname
+></term>
+          <listitem
+><para
+>Этот элемент должен быть одноцветным прямоугольником. Его цвет используется для текста в рамках состояния.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cell</varname
+></term>
+          <listitem
+><para
+>Отдельная клетка поля.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>hero</varname
+></term>
+          <listitem
+><para
+>Персонаж, которым управляет игрок.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>enemy</varname
+></term>
+          <listitem
+><para
+>Обычный враг.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>fastenemy</varname
+></term>
+          <listitem
+><para
+>Быстрый враг.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>junkheap</varname
+></term>
+          <listitem
+><para
+>Остатки столкнувшихся врагов.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor0</varname
+></term>
+          <listitem
+><para
+>Указатель движения вправо.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor1</varname
+></term>
+          <listitem
+><para
+>Указатель движения по диагонали вверх и вправо.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor2</varname
+></term>
+          <listitem
+><para
+>Указатель движения вверх.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor3</varname
+></term>
+          <listitem
+><para
+>Указатель движения по диагонали вверх и влево.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor4</varname
+></term>
+          <listitem
+><para
+>Указатель движения влево.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor5</varname
+></term>
+          <listitem
+><para
+>Указатель движения по диагонали вниз и влево.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor6</varname
+></term>
+          <listitem
+><para
+>Указатель движения вниз.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor7</varname
+></term>
+          <listitem
+><para
+>Указатель движения вниз и вправо.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>cursor8</varname
+></term>
+          <listitem
+><para
+>Указатель, означающий «стоять на месте».</para
+></listitem>
+        </varlistentry>
+      </variablelist>
+    </sect2>
+
+    <sect2>
+      <title
+>Установка собственных тем оформления</title>
+      <para
+>Чтобы &killbots; обнаружил новую тему и смог её использовать, файлы нужно поместить в подходящий каталог. Чтобы установить тему только для текущего пользователя, скопируйте файлы .desktop, предварительного просмотра и &SVG; в <filename class="directory"
+>killbots/themes</filename
+> внутри локального каталога из вывода команды <userinput
+><command
+>qtpaths</command
+> <option
+>--paths GenericDataLocation </option
+></userinput
+>. Чтобы тема стала доступна всем пользователям, переместите файлы в <filename class="directory"
+>killbots/themes</filename
+> внутри системного каталога (из вывода той же команды, например, <filename class="directory"
+>/usr/share</filename
+>). Для этого, скорее всего, потребуются права администратора.</para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="creating-rulesets">
+    <title
+>Создание собственных типов игры</title>
+
+    <sect2>
+      <title
+>Файл .desktop набора правил</title>
+      <para
+>Создать новый тип игры для &killbots; очень просто, особенно на основе существующего файла набора правил. Набор правил хранится в одном файле .desktop, где параметры и метаданные записаны простыми парами «ключ — значение».</para>
+      <example>
+        <title
+>Стандартный тип игры &killbots;</title>
+        <programlisting width="80"
+>[KillbotsRuleset]
+Name=Killbots
+Name[gl]=Robots asasinos
+Author=Parker Coates
+AuthorContact=parker.coates@kdemail.net
+Description=&lt;qt&gt;&lt;p&gt;The default Killbots game type.&lt;/p&gt;&lt;p&gt;Includes a medium size grid, safe teleports, fast enemies and pushable junkheaps.&lt;/p&gt;&lt;/qt&gt;
+Description[gl]=&lt;qt&gt;&lt;p&gt;O xogo tipo Killbots por omisión.&lt;/p&gt;&lt;p&gt;Inclúe unha grella mediana, teleportacións seguras, enemigos rápidos e chatarra que se pode empurrar.&lt;/p&gt;&lt;/qt&gt;
+Rows=16
+Columns=16
+EnemiesAtGameStart=8.0
+EnemiesAddedEachRound=4.0
+FastEnemiesAtGameStart=-2.0
+FastEnemiesAddedEachRound=2.0
+EnergyEnabled=true
+EnergyAtGameStart=0
+EnergyAddedEachRound=0
+MaxEnergyAtGameStart=12.0
+MaxEnergyAddedEachRound=0.0
+SafeTeleportEnabled=true
+CostOfSafeTeleport=1
+VaporizerEnabled=false
+CostOfVaporizer=0
+PushableJunkheaps=Many
+SquaskKillsEnabled=true
+JunkheapsAtGameStart=0.0
+JunkheapsAddedEachRound=0.0
+PointsPerEnemyKilled=5
+PointsPerFastEnemyKilled=10
+WaitKillPointBonus=0
+WaitKillEnergyBonus=1
+SquashKillPointBonus=0
+SquashKillEnergyBonus=1</programlisting>
+      </example>
+      <para
+>Все текстовые параметры следует указывать на американском английском. Как видно из примера выше, переводы добавляются в файл .desktop повтором ключа с кодом языка в квадратных скобках. Поле <varname
+>Description</varname
+> может содержать форматированный текст, если заключить значение в теги &lt;qt&gt;.</para>
+      <para
+>Файл набора правил должен содержать все следующие параметры.</para>
+      <variablelist>
+        <varlistentry>
+          <term
+><varname
+>Name</varname
+></term>
+          <listitem
+><para
+>Название набора правил, которое показывается в списке наборов и в таблице лучших результатов.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>Author</varname
+></term>
+          <listitem
+><para
+>Автор набора правил.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>AuthorContact</varname
+></term>
+          <listitem
+><para
+>Контактные данные автора, обычно адрес электронной почты.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>Description</varname
+></term>
+          <listitem
+><para
+>Описание набора правил. Оно должно давать хорошее общее представление о типе игры, но перечислять значения всех параметров не нужно: их можно увидеть в окне «Подробности».</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>Rows</varname
+></term>
+          <listitem
+><para
+>Число строк игрового поля.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>Columns</varname
+></term>
+          <listitem
+><para
+>Число столбцов игрового поля.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>EnemiesAtGameStart</varname
+></term>
+          <listitem
+><para
+>Число обычных врагов на поле в начале первого раунда.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>EnemiesAddedEachRound</varname
+></term>
+          <listitem
+><para
+>Число обычных врагов, добавляемых на поле в начале каждого раунда.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>FastEnemiesAtGameStart</varname
+></term>
+          <listitem
+><para
+>Число быстрых врагов на поле в начале первого раунда.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>FastEnemiesAddedEachRound</varname
+></term>
+          <listitem
+><para
+>Число быстрых врагов, добавляемых на поле в начале каждого раунда.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>EnergyEnabled</varname
+></term>
+          <listitem
+><para
+>При значении <quote
+><constant
+>false</constant
+></quote
+> герой не может получать и тратить энергию.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>EnergyAtGameStart</varname
+></term>
+          <listitem
+><para
+>Запас энергии героя в начале первого раунда.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>EnergyAddedEachRound</varname
+></term>
+          <listitem
+><para
+>Энергия, которую герой получает в начале каждого раунда.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>MaxEnergyAtGameStart</varname
+></term>
+          <listitem
+><para
+>Максимальный запас энергии героя в начале первого раунда.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>MaxEnergyAddedEachRound</varname
+></term>
+          <listitem
+><para
+>Изменение максимального запаса энергии в начале каждого раунда.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>SafeTeleportEnabled</varname
+></term>
+          <listitem
+><para
+>При значении <quote
+><constant
+>false</constant
+></quote
+> безопасный телепорт недоступен.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>CostOfSafeTeleport</varname
+></term>
+          <listitem
+><para
+>Расход энергии на безопасную телепортацию.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>VaporizerEnabled</varname
+></term>
+          <listitem
+><para
+>При значении <quote
+><constant
+>false</constant
+></quote
+> испаритель недоступен.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>CostOfVaporizer</varname
+></term>
+          <listitem
+><para
+>Расход энергии на испаритель.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>PushableJunkheaps</varname
+></term>
+          <listitem
+><para
+>Сколько куч мусора можно сдвинуть одним толчком. Возможные значения: <quote
+><constant
+>None</constant
+></quote
+>, <quote
+><constant
+>One</constant
+></quote
+> и <quote
+><constant
+>Many</constant
+></quote
+>.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>SquaskKillsEnabled</varname
+></term>
+          <listitem
+><para
+>При значении true герой может давить врагов, выталкивая на них кучи мусора.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>JunkheapsAtGameStart</varname
+></term>
+          <listitem
+><para
+>Число куч мусора на поле в начале первого раунда.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>JunkheapsAddedEachRound</varname
+></term>
+          <listitem
+><para
+>Число куч мусора, добавляемых на поле в начале каждого раунда.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>PointsPerEnemyKilled</varname
+></term>
+          <listitem
+><para
+>Очки за уничтожение обычного врага.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>PointsPerFastEnemyKilled</varname
+></term>
+          <listitem
+><para
+>Очки за уничтожение быстрого врага.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>WaitKillPointBonus</varname
+></term>
+          <listitem
+><para
+>Дополнительные очки за врага, уничтоженного, пока герой пережидает раунд.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>WaitKillEnergyBonus</varname
+></term>
+          <listitem
+><para
+>Дополнительные единицы энергии за врага, уничтоженного, пока герой пережидает раунд.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>SquashKillPointBonus</varname
+></term>
+          <listitem
+><para
+>Дополнительные очки за врага, задавленного кучей мусора.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>SquashKillEnergyBonus</varname
+></term>
+          <listitem
+><para
+>Дополнительные единицы энергии за врага, задавленного кучей мусора.</para
+></listitem>
+        </varlistentry>
+      </variablelist>
+    </sect2>
+
+    <sect2>
+      <title
+>Установка собственных типов игры</title>
+
+      <para
+>Чтобы &killbots; обнаружил новый тип игры и смог его использовать, файл набора правил нужно поместить в подходящий каталог. Чтобы установить тип игры только для текущего пользователя, скопируйте файл в <filename class="directory"
+>killbots/rulesets</filename
+> внутри локального каталога из вывода команды <userinput
+><command
+>qtpaths</command
+> <option
+>--paths GenericDataLocation </option
+></userinput
+>. Чтобы тип игры стал доступен всем пользователям, переместите файл в <filename class="directory"
+>killbots/rulesets</filename
+> внутри системного каталога (из вывода той же команды, например, <filename class="directory"
+>/usr/share</filename
+>). Для этого, скорее всего, потребуются права администратора.</para>
+    </sect2>
+
+  </sect1>
+</chapter>
+
+<chapter id="credits">
+  <title
+>Авторские права и лицензия</title>
+
+  <para
+>&killbots;</para>
+  <para
+>Авторские права на программу © Parker Coates <email
+>parker.coates@kdemail.net</email
+>, 2007&ndash;2009</para>
+  <para
+>Авторские права на документацию &copy; Parker Coates <email
+>parker.coates@kdemail.net</email
+>, 2008&ndash;2009</para>
+
+  <para
+>Перевод на русский — Александр Яворский<email
+>kekcuha@gmail.com</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+
+</book>
+
+<!--
+Local Variables:
+mode: xml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+vim:tabstop=2:shiftwidth=2:expandtab
+kate: space-indent on; indent-width 2; tab-width 2; indent-mode none;
+-->
