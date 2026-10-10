@@ -2,13 +2,14 @@
 # Slobodan Simic <slsimic@gmail.com>, 2009.
 # Chusslove Illich <caslav.ilic@gmx.net>, 2009, 2010, 2015.
 # Dalibor Djuric <dalibor.djuric@mozilla-srbija.org>, 2010.
+# Nemanja Hiršl <nemhirsl@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: killbots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:49+0000\n"
-"PO-Revision-Date: 2015-12-26 22:15+0100\n"
-"Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
+"PO-Revision-Date: 2026-10-09 22:30+0200\n"
+"Last-Translator: Nemanja Hiršl <nemhirsl@gmail.com>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
 "Language: sr@ijekavian\n"
 "MIME-Version: 1.0\n"
@@ -23,53 +24,45 @@ msgstr ""
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Слободан Симић"
+msgstr "Слободан Симић,Немања Хиршл"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "slsimic@gmail.com"
+msgstr "slsimic@gmail.com,nemhirsl@gmail.com"
 
 #: coordinator.cpp:101
-#, fuzzy, kde-format
-#| msgid "Round:"
+#, kde-format
 msgctxt "@label"
 msgid "Round:"
 msgstr "Рунда:"
 
 #: coordinator.cpp:106
-#, fuzzy, kde-format
-#| msgid "Score:"
+#, kde-format
 msgctxt "@label"
 msgid "Score:"
 msgstr "Резултат:"
 
 #: coordinator.cpp:111
-#, fuzzy, kde-format
-#| msgid "Enemies:"
+#, kde-format
 msgctxt "@label"
 msgid "Enemies:"
 msgstr "Непријатељи:"
 
 #: coordinator.cpp:116
-#, fuzzy, kde-format
-#| msgid "Energy:"
+#, kde-format
 msgctxt "@label"
 msgid "Energy:"
 msgstr "Енергија:"
 
 #: coordinator.cpp:405
-#, fuzzy, kde-format
-#| msgid "Round complete."
+#, kde-format
 msgctxt "@info"
 msgid "Round complete."
 msgstr "Завршена рунда."
 
 #: coordinator.cpp:410
-#, fuzzy, kde-format
-#| msgid ""
-#| "Board is full.\n"
-#| "Resetting enemy counts."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "Board is full.\n"
@@ -79,15 +72,13 @@ msgstr ""
 "Ресетујем број непријатеља."
 
 #: coordinator.cpp:415
-#, fuzzy, kde-format
-#| msgid "New game."
+#, kde-format
 msgctxt "@info"
 msgid "New game."
 msgstr "Нова игра."
 
 #: coordinator.cpp:420
-#, fuzzy, kde-format
-#| msgid "Game over."
+#, kde-format
 msgctxt "@info"
 msgid "Game over."
 msgstr "Игра је завршена."
@@ -110,7 +101,7 @@ msgstr ""
 "Изаберите радњу која се изводи на средњи клик у главно поље игре. Ако вам "
 "миш нема средње дугме, ову радњу можете извести истовременим лијевим и "
 "десним кликом, или лијевим кликом уз држање тастера Ctrl. (Или купите "
-"нормалан миш са три дугмета, 21. век је :) — прим. прев.)"
+"нормалан миш са три дугмета, 21. вијек је :) — прим. прев.)"
 
 #. i18n: ectx: tooltip, entry (RightClickAction), group (General)
 #: killbots.kcfg:25
@@ -166,8 +157,7 @@ msgstr "Изаберите скуп правила за сљедећу игру.
 
 #. i18n: ectx: Menu (moveMenu)
 #: killbotsui.rc:11
-#, fuzzy, kde-format
-#| msgid "Move"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Move"
 msgstr "Потез"
@@ -229,43 +219,37 @@ msgstr ""
 "даје и нешто статистике о партији у току."
 
 #: mainwindow.cpp:94
-#, fuzzy, kde-format
-#| msgid "General"
+#, kde-format
 msgctxt "@title"
 msgid "General"
 msgstr "Опште"
 
 #: mainwindow.cpp:96
-#, fuzzy, kde-format
-#| msgid "Configure general settings"
+#, kde-format
 msgctxt "@info"
 msgid "Configure general settings"
 msgstr "Подесите опште поставке"
 
 #: mainwindow.cpp:99
-#, fuzzy, kde-format
-#| msgid "Game Type"
+#, kde-format
 msgctxt "@title"
 msgid "Game Type"
 msgstr "Врста игре"
 
 #: mainwindow.cpp:101
-#, fuzzy, kde-format
-#| msgid "Select a game type"
+#, kde-format
 msgctxt "@info"
 msgid "Select a game type"
 msgstr "Изаберите врсту игре"
 
 #: mainwindow.cpp:104
-#, fuzzy, kde-format
-#| msgid "Appearance"
+#, kde-format
 msgctxt "@title"
 msgid "Appearance"
 msgstr "Изглед"
 
 #: mainwindow.cpp:106
-#, fuzzy, kde-format
-#| msgid "Select a graphical theme"
+#, kde-format
 msgctxt "@info"
 msgid "Select a graphical theme"
 msgstr "Изаберите графичку тему"
@@ -277,36 +261,31 @@ msgid ""
 msgstr "Изабрана је нова врста игре, али је партија већ у току."
 
 #: mainwindow.cpp:141
-#, fuzzy, kde-format
-#| msgid "Game Type Changed"
+#, kde-format
 msgctxt "@title:window"
 msgid "Game Type Changed"
 msgstr "Промијењена врста игре"
 
 #: mainwindow.cpp:142
-#, fuzzy, kde-format
-#| msgid "Continue Current Game"
+#, kde-format
 msgctxt "@action:button"
 msgid "Continue Current Game"
 msgstr "Настави текућу партију"
 
 #: mainwindow.cpp:143
-#, fuzzy, kde-format
-#| msgid "Start a New Game"
+#, kde-format
 msgctxt "@action:button"
 msgid "Start a New Game"
 msgstr "Започни нову партију"
 
 #: mainwindow.cpp:156
-#, fuzzy, kde-format
-#| msgid "Round"
+#, kde-format
 msgctxt "@title:column round of the game"
 msgid "Round"
-msgstr "Рунда"
+msgstr "рунда"
 
 #: mainwindow.cpp:240 optionspage.cpp:28
-#, fuzzy, kde-format
-#| msgid "Teleport Safely"
+#, kde-format
 msgctxt "@action"
 msgid "Teleport Safely"
 msgstr "Телепортуј безбједно"
@@ -321,15 +300,13 @@ msgstr "T"
 
 # >> @info:tooltip
 #: mainwindow.cpp:243
-#, fuzzy, kde-format
-#| msgid "Teleport to a safe location"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Teleport to a safe location"
 msgstr "Телепортација на безбједно мјесто."
 
 #: mainwindow.cpp:248 optionspage.cpp:27
-#, fuzzy, kde-format
-#| msgid "Teleport"
+#, kde-format
 msgctxt "@action"
 msgid "Teleport"
 msgstr "Телепортација"
@@ -344,16 +321,14 @@ msgstr "R"
 
 # >> @info:tooltip
 #: mainwindow.cpp:251
-#, fuzzy, kde-format
-#| msgid "Teleport to a random location"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Teleport to a random location"
 msgstr "Телепортација на насумично мјесто."
 
 # >> @item:inlistbox Action on mouse button
 #: mainwindow.cpp:256 optionspage.cpp:29
-#, fuzzy, kde-format
-#| msgid "Teleport (Safely If Possible)"
+#, kde-format
 msgctxt "@action"
 msgid "Teleport (Safely if Possible)"
 msgstr "Телепортуј, ако може безбједно"
@@ -369,16 +344,13 @@ msgstr "Space"
 
 # >> @info:tooltip
 #: mainwindow.cpp:259
-#, fuzzy, kde-format
-#| msgid ""
-#| "Teleport safely if that action is enabled, otherwise teleport randomly"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Teleport safely if that action is enabled, otherwise teleport randomly"
 msgstr "Безбједна телепортација ако је та радња укључена, иначе насумична."
 
 #: mainwindow.cpp:263
-#, fuzzy, kde-format
-#| msgid "Vaporizer"
+#, kde-format
 msgctxt "@action"
 msgid "Vaporizer"
 msgstr "Разгради"
@@ -393,15 +365,13 @@ msgstr "F"
 
 # >> @info:tooltip
 #: mainwindow.cpp:266
-#, fuzzy, kde-format
-#| msgid "Destroy all enemies in neighboring cells"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Destroy all enemies in neighboring cells"
 msgstr "Уништите све непријатеље у сусједним ћелијама."
 
 #: mainwindow.cpp:271 optionspage.cpp:30
-#, fuzzy, kde-format
-#| msgid "Wait Out Round"
+#, kde-format
 msgctxt "@action"
 msgid "Wait Out Round"
 msgstr "Преседи рунду"
@@ -415,15 +385,13 @@ msgid "V"
 msgstr "V"
 
 #: mainwindow.cpp:274
-#, fuzzy, kde-format
-#| msgid "Risk remaining in place until the end of the round for bonuses"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Risk remaining in place until the end of the round for bonuses"
 msgstr "Ризикујте останак у мјесту до краја рунде, ради бонуса̂."
 
 #: mainwindow.cpp:279
-#, fuzzy, kde-format
-#| msgid "Move Up and Left"
+#, kde-format
 msgctxt "@action"
 msgid "Move Up and Left"
 msgstr "Помјери нагоре улијево"
@@ -437,8 +405,7 @@ msgid "Q"
 msgstr "Q"
 
 #: mainwindow.cpp:285
-#, fuzzy, kde-format
-#| msgid "Move Up"
+#, kde-format
 msgctxt "@action"
 msgid "Move Up"
 msgstr "Помјери нагоре"
@@ -452,8 +419,7 @@ msgid "W"
 msgstr "W"
 
 #: mainwindow.cpp:291
-#, fuzzy, kde-format
-#| msgid "Move Up and Right"
+#, kde-format
 msgctxt "@action"
 msgid "Move Up and Right"
 msgstr "Помјери нагоре удесно"
@@ -467,8 +433,7 @@ msgid "E"
 msgstr "E"
 
 #: mainwindow.cpp:297
-#, fuzzy, kde-format
-#| msgid "Move Left"
+#, kde-format
 msgctxt "@action"
 msgid "Move Left"
 msgstr "Помјери улијево"
@@ -482,8 +447,7 @@ msgid "A"
 msgstr "A"
 
 #: mainwindow.cpp:303
-#, fuzzy, kde-format
-#| msgid "Stand Still"
+#, kde-format
 msgctxt "@action"
 msgid "Stand Still"
 msgstr "Мируј"
@@ -497,8 +461,7 @@ msgid "S"
 msgstr "S"
 
 #: mainwindow.cpp:309
-#, fuzzy, kde-format
-#| msgid "Move Right"
+#, kde-format
 msgctxt "@action"
 msgid "Move Right"
 msgstr "Помјери удесно"
@@ -512,8 +475,7 @@ msgid "D"
 msgstr "D"
 
 #: mainwindow.cpp:315
-#, fuzzy, kde-format
-#| msgid "Move Down and Left"
+#, kde-format
 msgctxt "@action"
 msgid "Move Down and Left"
 msgstr "Помјери надоље улијево"
@@ -529,11 +491,10 @@ msgid "Z"
 msgstr "Z"
 
 #: mainwindow.cpp:321
-#, fuzzy, kde-format
-#| msgid "Move Down"
+#, kde-format
 msgctxt "@action"
 msgid "Move Down"
-msgstr "Помјери доље"
+msgstr "Помјери надоље"
 
 #: mainwindow.cpp:322
 #, kde-format
@@ -544,8 +505,7 @@ msgid "X"
 msgstr "X"
 
 #: mainwindow.cpp:327
-#, fuzzy, kde-format
-#| msgid "Move Down and Right"
+#, kde-format
 msgctxt "@action"
 msgid "Move Down and Right"
 msgstr "Помјери надоље удесно"
@@ -560,76 +520,66 @@ msgstr "C"
 
 # >> @item:inlistbox Action on mouse button
 #: optionspage.cpp:24
-#, fuzzy, kde-format
-#| msgid "Nothing"
+#, kde-format
 msgctxt "@item:inlistbox No action on click"
 msgid "Nothing"
 msgstr "Не ради ништа"
 
 # >> @item:inlistbox Action on mouse button
 #: optionspage.cpp:25
-#, fuzzy, kde-format
-#| msgid "Step"
+#, kde-format
 msgctxt "@action"
 msgid "Step"
 msgstr "Коракни"
 
 # >> @item:inlistbox Action on mouse button
 #: optionspage.cpp:26
-#, fuzzy, kde-format
-#| msgid "Repeated Step"
+#, kde-format
 msgctxt "@action"
 msgid "Repeated Step"
 msgstr "Понови корак"
 
 # >> @item:inrange Animation speed
 #: optionspage.cpp:45
-#, fuzzy, kde-format
-#| msgid "Slow"
+#, kde-format
 msgctxt "@item:inrange"
 msgid "Slow"
 msgstr "споро"
 
 # >> @item:inrange Animation speed
 #: optionspage.cpp:47
-#, fuzzy, kde-format
-#| msgid "Fast"
+#, kde-format
 msgctxt "@item:inrange"
 msgid "Fast"
 msgstr "брзо"
 
 # >> @item:inrange Animation speed
 #: optionspage.cpp:49
-#, fuzzy, kde-format
-#| msgid "Instant"
+#, kde-format
 msgctxt "@item:inrange"
 msgid "Instant"
 msgstr "одмах"
 
 #: optionspage.cpp:60
-#, fuzzy, kde-format
-#| msgid "Animation &speed:"
+#, kde-format
 msgctxt "@label:slider"
 msgid "Animation &speed:"
 msgstr "&Брзина анимације:"
 
 #: optionspage.cpp:63
-#, fuzzy, kde-format
-#| msgid "Prevent &unsafe moves"
+#, kde-format
 msgctxt "@option:check"
 msgid "Prevent &unsafe moves"
-msgstr "Спречи &небезбједне потезе"
+msgstr "Спријечи &небезбједне потезе"
 
 #: optionspage.cpp:68
-#, fuzzy, kde-format
-#| msgid "&Middle-click action:"
+#, kde-format
 msgctxt "@label:listbox"
 msgid "&Middle-click action:"
 msgstr "Радња на &средњи клик:"
 
 #: optionspage.cpp:69
-#, fuzzy, kde-format
-#| msgid "&Right-click action:"
+#, kde-format
 msgctxt "@label:listbox"
 msgid "&Right-click action:"
 msgstr "Радња на &десни клик:"
@@ -676,7 +626,7 @@ msgstr "Број брзих непријатеља који се додаје у
 msgid ""
 "Fast enemies will skip their extra turn to avoid collisions with other robots"
 msgstr ""
-"Брзи непријатељи прескачу свој додатни потез да би избегли сударе са другим "
+"Брзи непријатељи прескачу свој додатни потез да би избјегли сударе са другим "
 "роботима"
 
 #. i18n: ectx: label, entry (EnergyEnabled), group (KillbotsRuleset)
@@ -800,25 +750,19 @@ msgid "Points awarded for each energy awarded above maximum energy cap"
 msgstr "Поена за енергију додијељену изнад ограничења максимума енергије"
 
 #: rulesetdetailsdialog.cpp:38
-#, fuzzy, kde-format
-#| msgctxt "Quantity of junkheaps that can be pushed"
-#| msgid "None"
+#, kde-format
 msgctxt "@item Quantity of junkheaps that can be pushed"
 msgid "None"
 msgstr "ниједан"
 
 #: rulesetdetailsdialog.cpp:39
-#, fuzzy, kde-format
-#| msgctxt "Quantity of junkheaps that can be pushed"
-#| msgid "One"
+#, kde-format
 msgctxt "@item Quantity of junkheaps that can be pushed"
 msgid "One"
 msgstr "један"
 
 #: rulesetdetailsdialog.cpp:40
-#, fuzzy, kde-format
-#| msgctxt "Quantity of junkheaps that can be pushed"
-#| msgid "Many"
+#, kde-format
 msgctxt "@item Quantity of junkheaps that can be pushed"
 msgid "Many"
 msgstr "више"
@@ -830,89 +774,75 @@ msgid "%1:"
 msgstr "%1:"
 
 #: rulesetdetailsdialog.cpp:68
-#, fuzzy, kde-format
-#| msgid "Yes"
+#, kde-format
 msgctxt "@item"
 msgid "Yes"
 msgstr "да"
 
 #: rulesetdetailsdialog.cpp:68
-#, fuzzy, kde-format
-#| msgid "No"
+#, kde-format
 msgctxt "@item"
 msgid "No"
 msgstr "не"
 
 #: rulesetdetailsdialog.cpp:78
-#, fuzzy, kde-format
-#| msgid "Details of %1 Game Type"
+#, kde-format
 msgctxt "@title:window"
 msgid "Details of %1 Game Type"
 msgstr "Детаљи о врсти игре %1"
 
 # rewrite-msgid: /rulesets/game types/
 #: rulesetselector.cpp:37
-#, fuzzy, kde-format
-#| msgid "A list of the Killbots rulesets installed on this computer."
+#, kde-format
 msgctxt "@info:whatsthis"
 msgid "A list of the Killbots rulesets installed on this computer."
 msgstr "Списак врста игара за К‑злоботе инсталираних на овом рачунару."
 
 #: rulesetselector.cpp:39
-#, fuzzy, kde-format
-#| msgid "Game Type Details"
+#, kde-format
 msgctxt "title:group"
 msgid "Game Type Details"
 msgstr "Детаљи о врсти игре"
 
 #: rulesetselector.cpp:40
-#, fuzzy, kde-format
-#| msgid "Lists information on the currently selected game type."
+#, kde-format
 msgctxt "@info:whatsthis"
 msgid "Lists information on the currently selected game type."
 msgstr "Списак података о тренутно изабраној врсти игре."
 
 #: rulesetselector.cpp:42
-#, fuzzy, kde-format
-#| msgid "Author:"
+#, kde-format
 msgctxt "@label"
 msgid "Author:"
 msgstr "Аутор:"
 
 #: rulesetselector.cpp:49
-#, fuzzy, kde-format
-#| msgid "Contact:"
+#, kde-format
 msgctxt "@label"
 msgid "Contact:"
 msgstr "Контакт:"
 
 #: rulesetselector.cpp:57
-#, fuzzy, kde-format
-#| msgid "Description:"
+#, kde-format
 msgctxt "@label"
 msgid "Description:"
 msgstr "Опис:"
 
 #: rulesetselector.cpp:64
-#, fuzzy, kde-format
-#| msgid "Details..."
+#, kde-format
 msgctxt "@action:button"
 msgid "Details…"
-msgstr "Детаљи..."
+msgstr "Детаљи…"
 
 # >> @info:tooltip
 #: rulesetselector.cpp:65
-#, fuzzy, kde-format
-#| msgid "Show the detailed parameters of the selected game type"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Show the detailed parameters of the selected game type"
 msgstr "Детаљни параметри изабране врсте игре."
 
 #: rulesetselector.cpp:66
-#, fuzzy, kde-format
-#| msgid ""
-#| "Opens a dialog listing the values of all internal parameters for the "
-#| "selected game type."
+#, kde-format
 msgctxt "@info:whatsthisp"
 msgid ""
 "Opens a dialog listing the values of all internal parameters for the "
