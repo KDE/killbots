@@ -1,0 +1,1315 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Arabic "INCLUDE">
+]>
+
+<book id="killbots" lang="&language;">
+
+<bookinfo>
+  <title
+>دليل لعبة معركة الآليّين</title>
+
+  <authorgroup>
+    <author
+><personname
+> <firstname
+>باركر</firstname
+> <surname
+>كوتس</surname
+> </personname
+> <email
+>parker.coates@kdemail.net</email
+> </author>
+
+    <othercredit role="translator"
+><firstname
+>زايد</firstname
+><surname
+>السعيدي</surname
+><affiliation
+><address
+><email
+>zayed.alsaidi@gmail.com</email
+></address
+></affiliation
+><contrib
+>التّرجمة العربيّة</contrib
+></othercredit
+> 
+  </authorgroup>
+
+  <copyright>
+    <year
+>2008&ndash;2009</year>
+    <holder
+>باركر كوتس</holder>
+  </copyright>
+
+  <legalnotice
+>&FDLNotice;</legalnotice>
+
+  <date
+>2021-07-05</date>
+  <releaseinfo
+>ترس كيدي 21.04</releaseinfo>
+
+  <abstract>
+    <para
+>معركة الآليّين هي منفذ كيدي للعبة طرفية &BSD; الكلاسيكية <command
+>robots</command
+>.</para>
+  </abstract>
+
+  <keywordset>
+    <keyword
+>كيدي</keyword>
+    <keyword
+>ألعاب كيدي</keyword>
+    <keyword
+>لعبة</keyword>
+    <keyword
+>معركة الآليّين</keyword>
+    <keyword
+>استراتيجية</keyword>
+    <keyword
+>لاعب واحد</keyword>
+    <keyword
+>لاعب مفرد</keyword>
+    <keyword
+>روبوتات</keyword>
+    <keyword
+>روبوت</keyword>
+    <keyword
+>آلي سريع</keyword>
+    <keyword
+>كومة خردة</keyword>
+    <keyword
+>انقل آنيًا</keyword>
+    <keyword
+>تبخير</keyword>
+    <keyword
+>مُبخر</keyword>
+    <keyword
+>طاقة</keyword>
+  </keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+  <title
+>مقدمة</title>
+
+  <note>
+    <title
+>نوع اللعبة:</title>
+    <para
+>استراتيجية</para>
+  </note>
+
+  <note>
+    <title
+>عدد اللاعبين:</title>
+    <para
+>واحد</para>
+  </note>
+
+  <para
+>معركة الآليّين هي لعبة بسيطة لتجنب الروبوتات القاتلة. لا أحد يعرف من أنشأ هذه الروبوتات ولماذا وُجهت للتدمير. كل ما يُعرف هو أن الروبوتات عديدة وهدفها الوحيد هو تدميرك. لحسن حظك، ركز خالقها على الكمية بدلًا من النوعية، ونتيجة لذلك تفتقر الروبوتات بشدة إلى الذكاء. ذكاؤك المتفوق وجهاز النقل الآني المتطور هما سلاحاك الوحيدان ضد سيل لا ينتهي من الآلات عديمة العقل.</para>
+
+  <note>
+    <title
+>الملاحظة:</title>
+    <para
+>يشير هذا الدليل بشكل متكرر إلى <quote
+>الروبوتات</quote
+> و <quote
+>أكوام الخردة</quote
+> وما إلى ذلك، ولكن معركة الآليين تدعم السمات بالكامل. هذا يعني أن رسوم اللعبة التي تراها أثناء اللعب قد لا تتطابق مع تلك ذات الطابع المستقبلي الموصوفة هنا. ومع ذلك، ستظل طريقة اللعب والاستراتيجيات كما هي، حتى لو كان بطلك جزرة تطاردها أرانب شرهة في حديقة.</para>
+  </note>
+
+  <note>
+    <title
+>الملاحظة:</title>
+    <para
+>تدعم معركة الآليّين أنواعًا متعددة من الألعاب التي تتحكم في معلمات اللعبة وتحدد ميزات اللعبة المضمنة. يحاول هذا الدليل أن يكون عامًا وليس خاصًا بنوع واحد من الألعاب. راجع وصف وتفاصيل نوع لعبتك الحالي في حوار <guilabel
+>اضبط - معركة الآليين</guilabel
+> لمزيد من المعلومات التفصيلية حول آليات اللعبة فيما يتعلق بحجم الشبكة والجولات والنتائج والطاقة وما إلى ذلك.</para>
+  </note>
+
+</chapter>
+
+<chapter id="howto">
+  <title id="howto-title"
+>كيف تلعب</title>
+
+  <sect1 id="gameplay-basics">
+    <title
+>أساسيات اللعب</title>
+
+    <note>
+      <title
+>الهدف:</title>
+      <para
+>البقاء على قيد الحياة في جولات متتالية من الأعداء مع تجميع نقاط عالية.</para>
+    </note>
+
+    <para
+><screenshot
+><mediaobject>
+      <imageobject
+><imagedata fileref="grid.png" format="PNG"/></imageobject>
+      <textobject
+><phrase
+>لقطة شاشة لشبكة اللعبة</phrase
+></textobject>
+    </mediaobject
+></screenshot
+></para>
+
+    <para
+>معركة الآليّين هي لعبة تعتمد على الأدوار، وتُلعب على <firstterm
+>شبكة</firstterm
+> مستطيلة. يُحدد عدد <firstterm
+>الخلايا</firstterm
+> في كل صف وعمود في الشبكة حسب نوع اللعبة التي تُلعب. يمكن أن تحتوي كل خلية على واحد مما يلي: <variablelist>
+        <varlistentry>
+          <term
+><firstterm
+>البطل</firstterm
+> <inlinemediaobject
+><imageobject
+><imagedata fileref="hero.png" format="PNG"/></imageobject
+></inlinemediaobject
+></term>
+          <listitem>
+            <para
+>البطل هو تلك الروح التعيسة العالقة في غرفة مع مجموعة من الروبوتات القاتلة. بصفتك اللاعب، فمهمتك هي ضمان بقائه على قيد الحياة لأطول فترة ممكنة.</para>
+            <para
+>في بداية كل <firstterm
+>دور</firstterm
+>، يمكن للبطل القيام بواحد من ثلاثة أنواع من الإجراءات: يمكنه البقاء في مكانه، أو الانتقال إلى خلية مجاورة غير مشغولة، أو القيام بإجراء خاص. راجع <link linkend="movement-controls" endterm="movement-controls-title"
+></link
+> و <link linkend="special-actions" endterm="special-actions-title"
+></link
+>.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><firstterm
+>روبوت</firstterm
+> <inlinemediaobject
+><imageobject
+><imagedata fileref="enemy.png" format="PNG"/></imageobject
+></inlinemediaobject
+></term>
+          <listitem>
+            <para
+>الروبوتات هي بلطجية ميكانيكية لا ترغب إلا في سحق البطل بجثثها المعدنية. لم يسمعوا قط عن <quote
+>قوانين الروبوتات الثلاثة</quote
+> وربما يسحقون أي شخص يحاول شرحها.</para>
+            <para
+>سيتخذ كل روبوت خطوة واحدة نحو البطل في كل دور. إذا كان الروبوت فوق البطل، فسينزل لأسفل. إذا كان الروبوت على يسار البطل، فسيتحرك لليمين. إذا كان الروبوت أسفل ويمين البطل، فسوف يخطو قطريًا، لأعلى وإلى اليسار. إذا تمكن الروبوت من الوصول إلى خلية البطل، فسيُقتل البطل وتنتهي اللعبة.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><firstterm
+>آلي سريع</firstterm
+> <inlinemediaobject
+><imageobject
+><imagedata fileref="fastenemy.png" format="PNG"/></imageobject
+></inlinemediaobject
+></term>
+          <listitem>
+            <para
+>الآليون السريعون هم نسخة أسرع بكثير من الروبوت الأساسي. لكل حركة يقوم بها البطل، يتخذون خطوتين. لحسن الحظ، لم تقترن حركتهم المتزايدة بذكاء متزايد؛ فغالبًا ما ينجحون فقط في تدمير أنفسهم بضعف سرعة إخوانهم الأبطأ.</para>
+            <para
+>ليست كل أنواع الألعاب تتضمن آليين سريعين.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><firstterm
+>كومة خردة</firstterm
+> <inlinemediaobject
+><imageobject
+><imagedata fileref="junkheap.png" format="PNG"/></imageobject
+></inlinemediaobject
+></term>
+          <listitem>
+            <para
+>عندما يصطدم روبوتان أو أكثر، يُدمرون وينتج عن الحطام الناتج كومة خردة. يتجاهل الأعداء أي أكوام خردة في طريقهم بشكل أعمى ويُدمرون عند الاصطدام بها. ستجد أن أكوام الخردة قيمة للغاية، حيث يمكن أن تعمل كحواجز بين البطل ومهاجميه.</para>
+            <para id="pushing-junkheaps"
+>تسمح بعض أنواع الألعاب للبطل بـ <firstterm
+>دفع</firstterm
+> أكوام الخردة حول الشبكة. يمكن للبطل بعد ذلك استخدام أكوام الخردة لبناء <quote
+>مخابئ</quote
+> توفر الحماية من جوانب متعددة. يمكن استخدام أكوام الخردة بشكل هجومي في بعض أنواع الألعاب. دفع كومة خردة فوق عدو يسحقه ويمكن أن يؤدي حتى إلى مكافأة.</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+    </para>
+  </sect1>
+
+  <sect1 id="rounds-scoring-energy">
+    <title
+>الجولات، والنتائج والطاقة</title>
+
+    <para
+><screenshot
+><mediaobject>
+      <imageobject
+><imagedata fileref="status.png" format="PNG"/></imageobject>
+      <textobject
+><phrase
+>مؤشرات حالة اللعبة</phrase
+></textobject>
+    </mediaobject
+></screenshot
+></para>
+
+    <sect2>
+      <title
+>الجولات</title>
+      <para
+>تنقسم طريقة اللعب في معركة الآليّين إلى <firstterm
+>جولات</firstterm
+>. تبدأ كل جولة بالبطل في منتصف الشبكة مع وضع الأعداء عشوائيًا حوله. تنتهي الجولة عند تدمير جميع الأعداء. مع اكتمال كل جولة، يزداد عدد الأعداء. يعتمد عدد ونوع الأعداء المضافين على نوع اللعبة.</para>
+      <para
+>ستستمر الشبكة في الامتلاء بالأعداء حتى يحدث أحد أمرين: احتلال الأعداء لأكثر من 50 بالمائة من الخلايا أو محاولة نقل آني آمن مع عدم وجود خلايا آمنة في الشبكة. بمجرد حدوث أي منهما، تُترك الجولة الحالية ويُعاد تعيين أعداد الأعداء إلى تلك المستخدمة في الجولة الأولى.</para>
+    </sect2>
+
+    <sect2>
+      <title
+>تسجيل النتائج</title>
+      <para
+>لا يوجد شيء حقيقي يسمى الفوز في معركة الآليّين؛ يحاول البطل البقاء على قيد الحياة لأطول فترة ممكنة، ولكن الواقع المحزن هو أن حظه سينفد في النهاية. لذلك، الهدف في معركة الآليّين هو تجميع أعلى <firstterm
+>نقاط</firstterm
+> ممكنة قبل حدوث ما لا مفر منه. تُسجل أعلى عشر نتائج (جنبًا إلى جنب مع الجولة التي تم الوصول إليها) في حوار أعلى النتائج.</para>
+      <para
+>تُمنح النقاط لتدمير الأعداء. عادة ما يستحق الآليون السريعون نقاطًا أكثر من الروبوتات العادية. قد تُمنح نقاط إضافية أيضًا للأعداء الذين دُمروا أثناء <link linkend="pushing-junkheaps"
+>دفع كومة خردة</link
+> أو <link linkend="wait-out-round"
+>انتظار الجولة</link
+>.</para>
+    </sect2>
+
+    <sect2 id="energy">
+      <title
+>الطاقة</title>
+      <para
+>بالإضافة إلى النقاط، يمكن للبطل أيضًا جمع <firstterm
+>طاقة</firstterm
+> مع تقدم اللعبة. تسمح الطاقة للبطل بالقيام بـ <link linkend="teleport-safely"
+>نقل آني آمن</link
+> و/أو استخدام <link linkend="vaporizer"
+>المبخر</link
+>. اعتمادًا على نوع اللعبة، يمكن منح الطاقة لأسباب متنوعة بما في ذلك إكمال جولة، أو <link linkend="pushing-junkheaps"
+>دفع كومة خردة</link
+> أو تدمير الأعداء أثناء <link linkend="wait-out-round"
+>انتظار الجولة</link
+>.</para>
+      <para
+>تُحدد كمية الطاقة التي يمكن للبطل تخزينها بحد أقصى يحدده نوع اللعبة. في بعض أنواع الألعاب، يزداد الحد الأقصى مع اكتمال الجولات. لا يكون عرض حالة الطاقة مرئيًا إلا إذا كان نوع اللعبة الحالي يتضمن الطاقة والنقل الآني الآمن.</para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="special-actions">
+    <title id="special-actions-title"
+>إجراءات خاصة</title>
+    <para
+>بالإضافة إلى الحركة البسيطة من خلية إلى خلية، يمتلك البطل ما يصل إلى أربعة إجراءات خاصة تحت تصرفه.</para>
+
+    <sect2 id="teleport">
+      <title
+>انقل آنيًا</title>
+      <para
+>تمكن البطل بطريقة ما من الحصول على جهاز نقل آني شخصي. لسوء الحظ، عندما يعمل بدون مصدر طاقة، فإنه لا يكون موثوقًا للغاية. يؤدي تفعيل جهاز النقل الآني إلى نقل البطل إلى خلية مختارة عشوائيًا في أي مكان على الشبكة. لا يوجد حد لعدد عمليات النقل الآني التي يمكن للبطل القيام بها.</para>
+      <para
+>الخلية الوجهة مضمونة لتكون غير مشغولة، ولكن هناك فرصة حقيقية جدًا لأن تكون مجاورة لروبوت غاضب. نظرًا للمخاطر المتأصلة في النقل الآني، يجب حجزها عمومًا كمناورة أخيرة عندما لا تتوفر أي حركات آمنة.</para>
+    </sect2>
+
+    <sect2 id="teleport-safely">
+      <title
+>انقل آنيًا لمكان آمن</title>
+      <para
+>يحتوي جهاز النقل الآني على وضع تشغيل ثانوي ينقل البطل إلى خلية مختارة عشوائيًا ولكنها آمنة. يتطلب النقل الآني الآمن <link linkend="energy"
+>طاقة</link
+>، والطاقة عادة ما تكون محدودة. من الواضح أن القدرة على النقل الآني بأمان في اللحظات الرئيسة يمكن أن تطيل عمر البطل بشكل كبير.</para>
+      <para
+>لا تسمح جميع أنواع الألعاب بالنقل الآني الآمن وتختلف كمية الطاقة المطلوبة للنقل الآني الآمن بين أنواع الألعاب.</para>
+    </sect2>
+
+    <sect2 id="vaporizer">
+      <title
+>استخدم المبخر</title>
+      <para
+>الاستخدام الثالث لجهاز النقل الآني لا ينقل البطل فعليًا على الإطلاق. ينقل وضع التشغيل غير الشائع هذا جميع الروبوتات في الخلايا المجاورة للبطل. لا أحد يعرف بالضبط أين تُنقل الروبوتات، ولكن يبدو أنها بعيدة بما يكفي حتى لا تزعج البطل مرة أخرى. نظرًا لأن الروبوتات تختفي في الهواء دون ترك كومة خردة، يُلقب هذا الوضع بـ <quote
+>المبخر</quote
+> ويُعتبر الأعداء الذين أُرسلوا عبر التبخير مقتولين لأغراض تسجيل النقاط.</para>
+      <para
+>مثل النقل الآني الآمن، يتطلب استخدام المبخر <link linkend="energy"
+>طاقة</link
+>. لا تتضمن جميع أنواع الألعاب المبخر وتختلف كمية الطاقة المطلوبة لاستخدامه بين أنواع الألعاب.</para>
+    </sect2>
+
+    <sect2 id="wait-out-round">
+      <title
+>انتظر جولة</title>
+      <para
+>قد يأتي وقت يتم فيه تخطيط الشبكة بحيث يمكن تدمير جميع الروبوتات دون أن يضطر البطل إلى التحرك على الإطلاق. في مثل هذه الحالة، لديك خيار انتظار الجولة.</para>
+      <example>
+        <title
+>فرصة لانتظار انتهاء الجولة</title>
+        <para
+><screenshot
+><mediaobject>
+          <imageobject
+><imagedata fileref="waitoutround.png" format="PNG"/></imageobject>
+        </mediaobject
+></screenshot
+></para>
+      </example>
+      <para
+>يؤدي انتظار الجولة إلى تجميد البطل في مكانه بينما يواصل الأعداء حركتهم العادية. يستمر هذا حتى يحدث أحد أمرين: يدمر الأعداء أنفسهم وتنتهي الجولة، أو يتمكن العدو من الوصول إلى البطل وتنتهي اللعبة. بمجرد إصدار أمر انتظار الجولة، لا يمكن إلغاؤه، لذا يجب التأكد من أن البطل آمن بالفعل.</para>
+      <para
+>فلماذا قد يتخذ المرء إجراءً يلغي فرصة تغيير رأيه؟ حسنًا، إنه يضيف القليل من التألق والدراما إلى نهاية الجولة، ولكن الأهم من ذلك، هناك مكافأة تُمنح لكل عدو يُدمر أثناء انتظار الجولة. يُحدد حجم ونوع المكافأة (نقاط أو طاقة) حسب نوع اللعبة.</para>
+    </sect2>
+  </sect1>
+
+</chapter>
+
+<chapter id="interface-overview">
+  <title
+>نظرة عامة على الواجهة</title>
+
+  <sect1 id="movement-controls">
+    <title id="movement-controls-title"
+>ضوابط الحركة</title>
+    <para
+>لدى اللاعب خيار استخدام إما لوحة المفاتيح أو الفأرة أو كليهما للتحكم في البطل.</para>
+    <sect2 id="keyboard-movement">
+      <title id="keyboard-movement-title"
+>ضوابط الحركة بلوحة المفاتيح</title>
+      <para
+>هناك تسعة إجراءات مختلفة للحركة: لليسار، ولليمين، ولأعلى، ولأسفل، والأقطار الأربعة، والوقوف ساكنًا. يمكن تعيين كل من هذه الإجراءات لمفتاحي لوحة مفاتيح مختلفين. افتراضيًا، تُخصص هذه الإجراءات التسعة لمفاتيح الأرقام التسعة للوحة المفاتيح الرقمية وإلى كتلة 3 في 3 من الحروف في الطرف الأيسر من لوحة مفاتيح QWERTY. بالطبع، يمكن للمستخدمين الذين يستخدمون تخطيط لوحة مفاتيح مختلف أو لوحة مفاتيح تفتقر إلى لوحة مفاتيح رقمية تعديل تخصيصات المفاتيح هذه باستخدام حوار ضبط الاختصارات.</para>
+      <para
+>يمكن أيضًا إصدار كل من أوامر الحركة الخاصة (مثل النقل الآني) من لوحة المفاتيح. راجع <link linkend="move-menu"
+>تحرك</link
+>.</para>
+    </sect2>
+    <sect2 id="mouse-movement">
+      <title id="mouse-movement-title"
+>ضوابط الحركة بالفأرة</title>
+      <para
+>يمكن استخدام الفأرة (أو أي جهاز تأشير آخر) للتنقل بطريقة طبيعية وبديهية أكثر. مع تحرك المؤشر فوق منطقة اللعبة الرئيسة، سيتغير المؤشر للإشارة إلى اتجاه المؤشر بالنسبة للبطل. على سبيل المثال، سيؤدي تحريك المؤشر إلى المساحة فوق البطل إلى تغيير المؤشر إلى سهم لأعلى. إذا وُضع المؤشر فوق البطل مباشرة، يتغير المؤشر للإشارة إلى عدم وجود حركة.</para>
+      <para
+>تؤدي نقرة واحدة بالزر الأيسر إلى قيام البطل بخطوة في الاتجاه المشار إليه (بشرط السماح بهذه الخطوة). للراحة، يمكن تعيين إجراءات إضافية لأزرار الفأرة اليمنى والوسطى في <link linkend="configure-killbots"
+>حوار اضبط - معركة الآليين</link
+>. تتضمن هذه الإجراءات تلك الموجودة في قائمة <link linkend="move-menu"
+>تحرك</link
+>، بالإضافة إلى خيار إضافي: <guimenuitem
+>خطوة متكررة</guimenuitem
+>. يؤدي أداء خطوة متكررة إلى تحرك البطل في الاتجاه المشار إليه لعدة أدوار متتالية حتى يتم الوصول إلى عائق أو تصبح الحركة المستمرة غير آمنة. يمكن أيضًا إيقاف الخطوة المتكررة بالنقر مرة أخرى أثناء تقدم الحركة.</para>
+      <para
+></para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="game-menu">
+    <title
+>عناصر القائمة</title>
+
+    <variablelist>
+      <varlistentry>
+        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>لعبة</guimenu
+> <guimenuitem
+>جديد</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+><action
+>بدء لعبة جديدة، مع تجاهل أي لعبة قد تكون قيد التقدم حاليًا.</action
+></para
+></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>H</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>لعبة</guimenu
+> <guimenuitem
+>أظهر أعلى النتائج</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+><action
+>إظهار حوار أعلى النتائج، الذي يحتوي على النتائج السابقة.</action
+></para
+></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>لعبة</guimenu
+> <guimenuitem
+>أنهِ</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+><action
+>إنهاء معركة الآليين.</action
+></para
+></listitem>
+      </varlistentry>
+
+      <varlistentry id="move-menu">
+        <term
+><menuchoice
+><shortcut
+><keycap
+>R</keycap
+></shortcut
+> <guimenu
+>تحرك</guimenu
+> <guimenuitem
+>انقل آنيًا</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+><action
+>نقل البطل آنيًا إلى خلية فارغة عشوائية في أي مكان داخل ساحة اللعب.</action
+> راجع <link linkend="teleport" endterm="special-actions-title"
+></link
+>.</para
+></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term
+><menuchoice
+><shortcut
+><keycap
+>T</keycap
+></shortcut
+> <guimenu
+>تحرك</guimenu
+> <guimenuitem
+>انقل آنيًا لمكان آمن</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+><action
+>نقل البطل آنيًا إلى خلية فارغة عشوائية مضمونة لتكون آمنة من الهجوم في ذلك الدور.</action
+> راجع <link linkend="teleport-safely" endterm="special-actions-title"
+></link
+>.</para
+></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term
+><menuchoice
+><shortcut
+>&Space;</shortcut
+> <guimenu
+>تحرك</guimenu
+> <guimenuitem
+>انقل آنيًا (بأمان إن أمكن)</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+>إجراء مريح. <action
+>ينقل البطل آنيًا بأمان إذا توفرت طاقة كافية، وإلا فإنه ينقله عشوائيًا فقط.</action
+></para
+></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term
+><menuchoice
+><shortcut
+><keycap
+>F</keycap
+></shortcut
+> <guimenu
+>تحرك</guimenu
+> <guimenuitem
+>المبخر</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+><action
+>تدمير جميع الروبوتات في الخلايا المجاورة للبطل</action
+>. راجع <link linkend="vaporizer" endterm="special-actions-title"
+></link
+>.</para
+></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term
+><menuchoice
+><shortcut
+><keycap
+>V</keycap
+></shortcut
+> <guimenu
+>تحرك</guimenu
+> <guimenuitem
+>انتظر جولة</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+><action
+>يؤدي إلى تجميد البطل في مكانه حتى نهاية الجولة.</action
+> راجع <link linkend="wait-out-round" endterm="special-actions-title"
+></link
+>.</para
+></listitem>
+      </varlistentry>
+
+      <varlistentry id="configure-killbots">
+        <term
+><menuchoice
+><guimenu
+>الإعدادات</guimenu
+> <guimenuitem
+>اضبط معركة الآليين…</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+><action
+>يعرض حوار ضبط معركة الآليين</action
+>، حيث يمكن للمرء ضبط معلمات اللعب، أو اختيار مجموعة مختلفة من قواعد اللعبة، أو تغيير سمة اللعبة.</para
+></listitem>
+      </varlistentry>
+    </variablelist>
+
+<para
+>بالإضافة إلى ذلك، تحتوي معركة الآليين على عناصر قوائم كيدي الشائعة <guimenu
+>الإعدادات</guimenu
+> و <guimenu
+>المساعدة</guimenu
+>، لمزيد من المعلومات، اقرأ الأقسام المتعلقة بـ <ulink url="help:/fundamentals/menus.html#menus-settings"
+>قائمة الإعدادات</ulink
+> و <ulink url="help:/fundamentals/menus.html#menus-help"
+>قائمة المساعدة</ulink
+> في أساسيات كيدي. </para>
+
+  </sect1>
+
+</chapter>
+
+
+<chapter id="developers">
+  <title
+>دليل المطور لمعركة الآليين</title>
+  <para
+>يمكن للأفراد المهتمين تخصيص معركة الآليين بطريقتين رئيسيتين: السمات ومجموعات القواعد.</para>
+
+  <sect1 id="creating-themes">
+    <title
+>إنشاء سمات مخصصة لمعركة الآليين</title>
+    <para
+>مثل معظم ألعاب كيدي الأخرى، تتكون سمة معركة الآليين من ثلاثة ملفات.</para>
+
+    <sect2>
+      <title
+>ملف السطح المكتبي</title>
+      <para
+>يتبع ملف السطح المكتبي بناء جملة <acronym
+>INI</acronym
+> القياسي. تخزن أزواج المفاتيح والقيم معلومات حول السمة وتشير إلى الملفات الأخرى المضمنة في السمة. المثال التالي مأخوذ من السمة المبدئية.</para>
+      <example>
+        <title
+>مثال لملف سطح مكتب لسمة</title>
+        <programlisting
+>[KGameTheme]
+Name=مثال لسمة
+Description=سمة مثال تُستخدم لتوضيح إنشاء السمة. تتميز هذه السمة بالقراصنة.
+Author=السيد فنان
+AuthorEmail=mrartist@example.com
+Type=SVG
+FileName=example.svg
+Preview=example.png
+        </programlisting>
+      </example>
+      <para
+>تحتوي المعلمات الأربعة الأولى على بيانات وصفية حول السمة وهي واضحة بما يكفي. بالنسبة لسمات معركة الآليين، يجب دائمًا تعيين معلمة <varname
+>Type</varname
+> إلى &SVG;. تحتوي المعلمتان الأخيرتان على أسماء الملفات لملفي السمة الآخرين. على الرغم من أنه ليس ضروريًا تمامًا، إلا أنه يُوصى بشدة، من أجل الاتساق، أن تشترك الملفات الثلاثة جميعها في نفس اسم الملف الأساسي.</para>
+    </sect2>
+
+    <sect2>
+      <title
+>ملف المعاينة</title>
+      <para
+>ملف المعاينة هو ببساطة ملف <acronym
+>PNG</acronym
+> يحتوي على معاينة للسمة. يجب أن تكون صورة المعاينة 240 في 140 بكسل وتطابق تخطيط معاينة السمة المبدئية قدر الإمكان، حيث يسهل ذلك مقارنة السمات في محدد السمات.</para>
+    </sect2>
+
+    <sect2>
+      <title
+>ملف &SVG;</title>
+      <para
+>ملف &SVG; هو صورة رسومية متجهة قابلة للتطوير تحتوي على العناصر الرسومية الفعلية المستخدمة لتشكيل السمة. قد يكون الملف إما بتنسيق <literal role="extension"
+>.svg</literal
+> غير مضغوط أو بتنسيق <literal role="extension"
+>.svgz</literal
+> مضغوط. يتم تحديد كل عنصر من عناصر اللعبة بواسطة معرف فريد في ملف &SVG;. عند إنشاء سمة جديدة، يكون من الأسهل عمومًا البدء بسمة موجودة واستبدال العناصر واحدًا تلو الآخر حتى تكتمل السمة. <emphasis
+>يجب</emphasis
+> أن يحتوي ملف &SVG; على العناصر التالية.</para>
+      <variablelist>
+        <varlistentry>
+          <term
+><varname
+>الخلفيّة</varname
+></term>
+          <listitem
+><para
+>الصورة المعروضة خلف الشبكة في منطقة اللعبة الرئيسة.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>الحالة</varname
+></term>
+          <listitem
+><para
+>المربع المستخدم لعرض الجولة الحالية والنتيجة وعدد الأعداء والطاقة.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>لون النص</varname
+></term>
+          <listitem
+><para
+>يجب أن يكون هذا العنصر مستطيلًا بلون واحد. يُستخدم لونه للنص في مربعات الحالة.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>خلية</varname
+></term>
+          <listitem
+><para
+>خلية شبكة فردية.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>بطل</varname
+></term>
+          <listitem
+><para
+>الشخصية التي يتحكم فيها اللاعب.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>عدو</varname
+></term>
+          <listitem
+><para
+>العدو الأساسي.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>عدو سريع</varname
+></term>
+          <listitem
+><para
+>العدو الأسرع.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>كومة خردة</varname
+></term>
+          <listitem
+><para
+>بقايا اصطدام بين الأعداء.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>المؤشر0</varname
+></term>
+          <listitem
+><para
+>مؤشر يشير إلى الحركة لليمين.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>المؤشر1</varname
+></term>
+          <listitem
+><para
+>مؤشر يشير إلى الحركة القطرية لأعلى وإلى اليمين.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>المؤشر2</varname
+></term>
+          <listitem
+><para
+>مؤشر يشير إلى الحركة لأعلى.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>المؤشر3</varname
+></term>
+          <listitem
+><para
+>مؤشر يشير إلى الحركة القطرية لأعلى وإلى اليسار.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>المؤشر4</varname
+></term>
+          <listitem
+><para
+>مؤشر يشير إلى الحركة لليسار.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>المؤشر5</varname
+></term>
+          <listitem
+><para
+>مؤشر يشير إلى الحركة القطرية لأسفل وإلى اليسار.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>المؤشر6</varname
+></term>
+          <listitem
+><para
+>مؤشر يشير إلى الحركة لأسفل.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>المؤشر7</varname
+></term>
+          <listitem
+><para
+>مؤشر يشير إلى الحركة لأسفل وإلى اليمين.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>المؤشر8</varname
+></term>
+          <listitem
+><para
+>مؤشر يشير إلى البقاء في المكان.</para
+></listitem>
+        </varlistentry>
+      </variablelist>
+    </sect2>
+
+    <sect2>
+      <title
+>تثبيت السمات المخصصة</title>
+      <para
+>لكي تكتشف معركة الآليين سمة جديدة وتستخدمها، يجب نقل الملفات إلى دليل مناسب. لتثبيت السمة للمستخدم الحالي فقط، انسخ ملفات السطح المكتبي والمعاينة و &SVG; إلى <filename class="directory"
+>killbots/themes</filename
+> في المجلد المحلي في <userinput
+><command
+>qtpaths</command
+> <option
+>--paths GenericDataLocation </option
+></userinput
+>. لإتاحة السمة على مستوى النظام، انقل الملفات إلى <filename class="directory"
+>killbots/themes</filename
+> في مجلد النظام (من الأمر السابق، ربما <filename class="directory"
+>/usr/share</filename
+> أو ما شابه ذلك). لاحظ أن هذا سيتطلب على الأرجح امتيازات إدارية.</para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="creating-rulesets">
+    <title
+>إنشاء أنواع ألعاب مخصصة</title>
+
+    <sect2>
+      <title
+>ملف مجموعة القواعد للسطح المكتبي</title>
+      <para
+>يُعد إنشاء أنواع ألعاب جديدة أمرًا بسيطًا للغاية في معركة الآليين، خاصة عند البدء من ملف مجموعة قواعد موجود. تُخزن مجموعات القواعد كملف سطح مكتبي واحد حيث تُخزن المعلمات والبيانات الوصفية كأزواج بسيطة من المفاتيح والقيم.</para>
+      <example>
+        <title
+>نوع لعبة معركة الآليين المبدئي</title>
+        <programlisting width="80"
+>[KillbotsRuleset]
+Name=معركة الآليين
+Name[gl]=Robots asasinos
+Author=باركر كوتس
+AuthorContact=parker.coates@kdemail.net
+Description=&lt;qt&gt;&lt;p&gt;نوع لعبة معركة الآليين المبدئي.&lt;/p&gt;&lt;p&gt;يتضمن شبكة متوسطة الحجم، ونقل آني آمن، وأعداء سريعين وأكوام خردة قابلة للدفع.&lt;/p&gt;&lt;/qt&gt;
+Rows=16
+Columns=16
+EnemiesAtGameStart=8.0
+EnemiesAddedEachRound=4.0
+FastEnemiesAtGameStart=-2.0
+FastEnemiesAddedEachRound=2.0
+EnergyEnabled=true
+EnergyAtGameStart=0
+EnergyAddedEachRound=0
+MaxEnergyAtGameStart=12.0
+MaxEnergyAddedEachRound=0.0
+SafeTeleportEnabled=true
+CostOfSafeTeleport=1
+VaporizerEnabled=false
+CostOfVaporizer=0
+PushableJunkheaps=Many
+SquaskKillsEnabled=true
+JunkheapsAtGameStart=0.0
+JunkheapsAddedEachRound=0.0
+PointsPerEnemyKilled=5
+PointsPerFastEnemyKilled=10
+WaitKillPointBonus=0
+WaitKillEnergyBonus=1
+SquashKillPointBonus=0
+SquashKillEnergyBonus=1</programlisting>
+      </example>
+      <para
+>لاحظ أنه يجب إدخال جميع معلمات النص باللغة الإنجليزية الأمريكية. كما هو موضح في المثال أعلاه، يمكن إضافة الترجمات إلى ملف السطح المكتبي عن طريق تكرار المفتاح وإلحاق رمز اللغة بين قوسين مربعين. لاحظ أيضًا أنه يمكن إعطاء نص غني لحقل <varname
+>الوصف</varname
+> عن طريق لف القيمة في وسوم &lt;qt&gt;.</para>
+      <para
+>يجب أن يحتوي ملف مجموعة القواعد على جميع المعلمات التالية.</para>
+      <variablelist>
+        <varlistentry>
+          <term
+><varname
+>الاسم</varname
+></term>
+          <listitem
+><para
+>اسم مجموعة القواعد كما سيظهر في محدد مجموعة القواعد وحوار أعلى النتائج.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>المؤلف</varname
+></term>
+          <listitem
+><para
+>منشئ مجموعة القواعد.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>اتصال المؤلف</varname
+></term>
+          <listitem
+><para
+>معلومات الاتصال بالمنشئ. عادة ما يكون هذا عنوان بريد إلكتروني.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>الوصف</varname
+></term>
+          <listitem
+><para
+>وصف لمجموعة القواعد. يجب أن يعطي هذا نظرة عامة جيدة على نوع اللعبة، ولكنه لا يحتاج إلى سرد قيمة كل معلمة حيث يمكن رؤية هذه المعلومات في حوار التفاصيل.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>صفوف</varname
+></term>
+          <listitem
+><para
+>عدد الصفوف في شبكة اللعبة.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>الأعمدة</varname
+></term>
+          <listitem
+><para
+>عدد الأعمدة في شبكة اللعبة.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>الأعداء عند بدء اللعبة</varname
+></term>
+          <listitem
+><para
+>عدد الأعداء العاديين المضافين إلى الشبكة في بداية الجولة الأولى.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>الأعداء المضافون في كل جولة</varname
+></term>
+          <listitem
+><para
+>عدد الأعداء العاديين الإضافيين المضافين إلى الشبكة في بداية كل جولة.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>الأعداء السريعون عند بدء اللعبة</varname
+></term>
+          <listitem
+><para
+>عدد الأعداء السريعين المضافين إلى الشبكة في بداية الجولة الأولى.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>الأعداء السريعون المضافون في كل جولة</varname
+></term>
+          <listitem
+><para
+>عدد الأعداء السريعين الإضافيين المضافين إلى الشبكة في بداية كل جولة.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>تمكين الطاقة</varname
+></term>
+          <listitem
+><para
+>إذا ضُبط على <quote
+><constant
+>false</constant
+></quote
+>، فلن يتمكن البطل من كسب الطاقة أو إنفاقها.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>الطاقة عند بدء اللعبة</varname
+></term>
+          <listitem
+><para
+>كمية الطاقة الممنوحة للبطل في بداية الجولة الأولى.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>الطاقة المضافة في كل جولة</varname
+></term>
+          <listitem
+><para
+>كمية الطاقة الممنوحة للبطل في بداية كل جولة.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>الحد الأقصى للطاقة عند بدء اللعبة</varname
+></term>
+          <listitem
+><para
+>أقصى سعة طاقة للبطل في بداية الجولة الأولى.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>الحد الأقصى للطاقة المضافة في كل جولة</varname
+></term>
+          <listitem
+><para
+>التغيير في أقصى سعة طاقة في بداية كل جولة.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>تمكين النقل الآني الآمن</varname
+></term>
+          <listitem
+><para
+>إذا ضُبط على <quote
+><constant
+>false</constant
+></quote
+>، فسيُعطل إجراء النقل الآني الآمن.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>تكلفة النقل الآني الآمن</varname
+></term>
+          <listitem
+><para
+>كمية الطاقة المستهلكة من خلال النقل الآني بأمان.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>تمكين المبخر</varname
+></term>
+          <listitem
+><para
+>إذا ضُبط على <quote
+><constant
+>false</constant
+></quote
+>، فسيُعطل إجراء المبخر.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>تكلفة المبخر</varname
+></term>
+          <listitem
+><para
+>كمية الطاقة المستهلكة من خلال استخدام المبخر.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>أكوام خردة قابلة للدفع</varname
+></term>
+          <listitem
+><para
+>عدد أكوام الخردة التي يمكن تحريكها بدفعة واحدة. القيم الممكنة هي <quote
+><constant
+>None</constant
+></quote
+> و <quote
+><constant
+>One</constant
+></quote
+> و <quote
+><constant
+>Many</constant
+></quote
+>.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>تمكين القتل بالسحق</varname
+></term>
+          <listitem
+><para
+>إذا كانت هذه القيمة صحيحة، فيمكن للبطل سحق الأعداء عن طريق دفع أكوام الخردة عليهم.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>أكوام الخردة عند بدء اللعبة</varname
+></term>
+          <listitem
+><para
+>عدد أكوام الخردة الموضوعة على الشبكة في بداية الجولة الأولى.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>أكوام الخردة المضافة في كل جولة</varname
+></term>
+          <listitem
+><para
+>عدد أكوام الخردة الإضافية الموضوعة على الشبكة في بداية كل جولة.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>النقاط لكل عدو يُقتل</varname
+></term>
+          <listitem
+><para
+>عدد النقاط الممنوحة لتدمير عدو عادي.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>النقاط لكل عدو سريع يُقتل</varname
+></term>
+          <listitem
+><para
+>عدد النقاط الممنوحة لتدمير عدو سريع.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>مكافأة نقاط القتل عند الانتظار</varname
+></term>
+          <listitem
+><para
+>عدد النقاط الإضافية الممنوحة لتدمير عدو أثناء انتظار الجولة.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>مكافأة طاقة القتل عند الانتظار</varname
+></term>
+          <listitem
+><para
+>عدد وحدات الطاقة الإضافية الممنوحة لتدمير عدو أثناء انتظار الجولة.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>مكافأة نقاط القتل بالسحق</varname
+></term>
+          <listitem
+><para
+>عدد النقاط الإضافية الممنوحة لسحق عدو بكومة خردة.</para
+></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term
+><varname
+>مكافأة طاقة القتل بالسحق</varname
+></term>
+          <listitem
+><para
+>عدد وحدات الطاقة الإضافية الممنوحة لسحق عدو بكومة خردة.</para
+></listitem>
+        </varlistentry>
+      </variablelist>
+    </sect2>
+
+    <sect2>
+      <title
+>تثبيت أنواع ألعاب مخصصة</title>
+
+      <para
+>لكي تكتشف معركة الآليين نوع لعبة جديد وتستخدمه، يجب نقل ملف مجموعة القواعد إلى دليل مناسب. لتثبيت نوع اللعبة للمستخدم الحالي فقط، انسخ الملف إلى <filename class="directory"
+>killbots/rulesets</filename
+> في المجلد المحلي في <userinput
+><command
+>qtpaths</command
+> <option
+>--paths GenericDataLocation </option
+></userinput
+>. لإتاحة نوع اللعبة على مستوى النظام، انقل الملف إلى <filename class="directory"
+>killbots/rulesets</filename
+> في مجلد النظام (من الأمر السابق، ربما <filename class="directory"
+>/usr/share</filename
+> أو ما شابه ذلك). لاحظ أن هذا سيتطلب على الأرجح امتيازات إدارية.</para>
+    </sect2>
+
+  </sect1>
+</chapter>
+
+<chapter id="credits">
+  <title
+>الحقوق والترخيص</title>
+
+  <para
+>معركة الآليّين</para>
+  <para
+>حقوق نشر البرنامج محفوظة 2007&ndash;2009 باركر كوتس <email
+>parker.coates@kdemail.net</email
+></para>
+  <para
+>حقوق نشر التوثيق محفوظة &copy; 2008&ndash;2009 باركر كوتس <email
+>parker.coates@kdemail.net</email
+></para>
+
+  <para
+>الترجمة: زايد السعيدي <email
+>zayed.alsaidi@gmail.com</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+
+</book>
+
+<!--
+Local Variables:
+mode: xml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+vim:tabstop=2:shiftwidth=2:expandtab
+kate: space-indent on; indent-width 2; tab-width 2; indent-mode none;
+-->
