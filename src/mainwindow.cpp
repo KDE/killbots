@@ -166,7 +166,7 @@ void Killbots::MainWindow::createScoreDialog()
     for (const QString &fileName : std::as_const(fileList)) {
         const Ruleset *ruleset = Ruleset::load(fileName);
         if (ruleset) {
-            m_scoreDialog->addLocalizedConfigGroupName(qMakePair(ruleset->scoreGroupKey(), ruleset->name()));
+            m_scoreDialog->addLocalizedConfigGroupName(std::make_pair(ruleset->scoreGroupKey(), ruleset->name()));
         }
         delete ruleset;
     }
@@ -179,7 +179,7 @@ void Killbots::MainWindow::onGameOver(int score, int round)
             createScoreDialog();
         }
 
-        m_scoreDialog->setConfigGroup(qMakePair(m_engine->ruleset()->scoreGroupKey(), m_engine->ruleset()->name()));
+        m_scoreDialog->setConfigGroup(std::make_pair(m_engine->ruleset()->scoreGroupKey(), m_engine->ruleset()->name()));
 
         KGameHighScoreDialog::FieldInfo scoreEntry;
         scoreEntry[ KGameHighScoreDialog::Score ].setNum(score);
@@ -198,7 +198,7 @@ void Killbots::MainWindow::showHighscores()
     }
 
     // TODO: Find out why this line breaks adding high scores.
-    //m_scoreDialog->setConfigGroup(qMakePair(m_engine->ruleset()->scoreGroupKey(), m_engine->ruleset()->name()));
+    //m_scoreDialog->setConfigGroup(std::make_pair(m_engine->ruleset()->scoreGroupKey(), m_engine->ruleset()->name()));
     m_scoreDialog->exec();
 }
 
