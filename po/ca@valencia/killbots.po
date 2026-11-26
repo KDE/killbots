@@ -1,25 +1,25 @@
 # Translation of killbots.po to Catalan (Valencian)
-# Copyright (C) 2009-2024 This_file_is_part_of_KDE
+# Copyright (C) 2009-2026 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
 # SPDX-FileCopyrightText: 2009 Albert Astals Cid <aacid@kde.org>
 # SPDX-FileCopyrightText: 2009 Manuel Tortosa <manutortosa@gmail.com>
-# SPDX-FileCopyrightText: 2010, 2013, 2015, 2020-2024 Josep M. Ferrer <txemaq@gmail.com>
+# SPDX-FileCopyrightText: 2010, 2013, 2015, 2020-2024, 2026 Josep M. Ferrer <txemaq@gmail.com>
 # SPDX-FileCopyrightText: 2015, 2020-2022 Antoni Bella Pérez <antonibella5@yahoo.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: killbots\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-08 00:11+0000\n"
-"PO-Revision-Date: 2024-05-04 10:21+0200\n"
+"PO-Revision-Date: 2026-11-19 17:38+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 25.04.0\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
 
@@ -651,7 +651,7 @@ msgstr "Nombre màxim de càpsules d'energia en la primera tanda"
 #: rulesetbase.kcfg:66
 #, kde-format
 msgid "Increase in maximum energy cap for each new round"
-msgstr "Nombre màxim d'increment de càpsules d'energia en cada nova tanda"
+msgstr "Increment del nombre màxim de càpsules d'energia en cada tanda nova"
 
 #. i18n: ectx: label, entry (SafeTeleportEnabled), group (KillbotsRuleset)
 #: rulesetbase.kcfg:70
